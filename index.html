@@ -340,71 +340,91 @@
             </ul>
         </div>
     
-        <!-- 3. 標準公式、舉例與文氏圖基礎 (放大此區塊字體) -->
-        <div class="space-y-2 border-t border-slate-100 pt-4">
+        <!-- === Chapter 3 核心筆記：Types of Categorical Statements & Venn Diagram (Slide 9-15) === -->
+        <div class="space-y-4 border-t border-slate-100 pt-4">
             <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
                 <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
-                3. Standard Form Formula, Examples & Venn Diagram (Slide 8, 13-15)
+                3. Types of Categorical Statements & Venn Diagram (Slide 9-15)
             </h4>
-            <div class="pl-4 text-sm text-slate-700 space-y-3">
-                <div>
-                    <span class="font-bold text-slate-900 block mb-1 text-sm">標準結構公式與詳細拆解 (Standard Form Formula):</span>
-                    
-                    
-                    
-                    <!-- === 只替換藍色框內公式與範例的 HTML 區塊 === -->
-                    <div class="font-sans bg-blue-50/80 p-5 rounded-2xl border border-blue-200 text-slate-900 space-y-4 shadow-sm">
             
-                    
-                        <div class="font-bold text-sm border-b border-blue-200/80 pb-3 text-blue-950">
-                            標準命題結構公式：<br>
-                            <span class="font-mono text-base text-blue-800 mt-1 block">Quantifier (量詞) + Subject (主詞) + Copula (系詞) + Predicate (述詞)</span>
+            <div class="pl-4 text-sm text-slate-700 space-y-4">
+                <!-- 4 種直言命題類型 (Slide 9-12) -->
+                <div class="space-y-2">
+                    <p class="text-sm text-slate-700 font-medium">
+                        There are four types of categorical statements (分類陳述的四種類型)：
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                        <div class="p-3.5 bg-blue-50/70 rounded-xl border border-blue-100 shadow-2xs space-y-1">
+                            <span class="font-bold text-blue-900 block">Universal Affirmative Statement (全稱肯定 A 類型)：</span> 
+                            <span class="text-slate-800 font-mono text-xs">All S are P</span>
+                            <p class="text-xs text-slate-600 mt-1">e.g., All smart phones are IT devices</p>
                         </div>
-                    
-                        <div class="space-y-2 pt-1">
-                            <p class="font-bold text-slate-900 text-sm">四大組成要素解析：</p>
-                            <ul class="list-disc list-inside space-y-1.5 text-sm text-slate-700 pl-1">
-                                <li><strong class="text-slate-900">Quantifier (量詞)：</strong>決定命題的量 (Quantity)，指向主詞的涵蓋範圍。
-                                    <span class="block text-blue-900 ml-4 font-mono text-sm font-bold bg-blue-100/60 px-2.5 py-1 rounded-md border border-blue-200 mt-1">• All / No：全稱 (Universal) | Some：特稱 (Particular)</span>
-                                </li>
-                                <li><strong class="text-slate-900">SUBJECT (主詞)：</strong>what we are talking about(命題所討論的主體類別)</li>
-                                <li><strong class="text-slate-900">COPULA (系詞)：</strong>決定命題的質 (Quality)，連接主詞與述詞。
-                                    <span class="block text-blue-900 ml-4 font-mono text-sm font-bold bg-blue-100/60 px-2.5 py-1 rounded-md border border-blue-200 mt-1">• are：肯定 (Affirmative) | are not：否定 (Negative)</span>
-                                </li>
-                                <li><strong class="text-slate-900">PREDICATE (述詞)：</strong>what we say of the subject(針對主詞所給予的屬性、性質或類別描述)</li>
-                            </ul>
-                        </div>
-                    
-                        <div class="border-t border-blue-200/80 pt-3 space-y-2.5">
-                            <p class="font-bold text-slate-900 text-sm">組合範例對照：</p>
-                            
-                            <!-- 範例 1：All students are intelligent -->
-                            <div class="bg-white p-3 rounded-xl border border-blue-100 shadow-2xs space-y-1">
-                                <div class="grid grid-cols-4 text-sm font-mono font-bold">
-                                    <span class="text-blue-700">All</span>
-                                    <span class="text-slate-800">students</span>
-                                    <span class="text-indigo-700">are</span>
-                                    <span class="text-slate-900">intelligent <span class="text-slate-500 font-sans text-xs font-normal ml-1">（全稱肯定 A 命題）</span></span>
-                                </div>
-                                <div class="grid grid-cols-4 text-[11px] text-slate-400 font-mono pt-0.5">
-                                    <span>Quantifier</span><span>Subject</span><span>Copula</span><span>Predicate</span>
-                                </div>
-                            </div>
                         
-                            <!-- 範例 2：Some students are not hard working -->
-                            <div class="bg-white p-3 rounded-xl border border-blue-100 shadow-2xs space-y-1">
-                                <div class="grid grid-cols-4 text-sm font-mono font-bold">
-                                    <span class="text-blue-700">Some</span>
-                                    <span class="text-slate-800">students</span>
-                                    <span class="text-red-600">are not</span>
-                                    <span class="text-slate-900">hard working <span class="text-slate-500 font-sans text-xs font-normal ml-1">（特稱否定 O 命題）</span></span>
-                                </div>
-                                <div class="grid grid-cols-4 text-[11px] text-slate-400 font-mono pt-0.5">
-                                    <span>Quantifier</span><span>Subject</span><span>Copula</span><span>Predicate</span>
-                                </div>
+                        <div class="p-3.5 bg-indigo-50/70 rounded-xl border border-indigo-100 shadow-2xs space-y-1">
+                            <span class="font-bold text-indigo-900 block">Universal Negative Statement (全稱否定 E 類型)：</span> 
+                            <span class="text-slate-800 font-mono text-xs">No S are P</span>
+                            <p class="text-xs text-slate-600 mt-1">e.g., No monks are nuns</p>
+                        </div>
+        
+                        <div class="p-3.5 bg-emerald-50/70 rounded-xl border border-emerald-100 shadow-2xs space-y-1">
+                            <span class="font-bold text-emerald-900 block">Partial Affirmative Statement (特稱肯定 I 類型)：</span> 
+                            <span class="text-slate-800 font-mono text-xs">Some S are P</span>
+                            <p class="text-xs text-slate-600 mt-1">e.g., Some nurses are kind</p>
+                        </div>
+        
+                        <div class="p-3.5 bg-rose-50/70 rounded-xl border border-rose-100 shadow-2xs space-y-1">
+                            <span class="font-bold text-rose-900 block">Partial Negative Statement (特稱否定 O 類型)：</span> 
+                            <span class="text-slate-800 font-mono text-xs">Some S are not P</span>
+                            <p class="text-xs text-slate-600 mt-1">e.g., Some girls are not fat</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Venn Diagram 什麼是文氏圖 (Slide 13) -->
+                <div class="space-y-2 pt-2 border-t border-slate-100">
+                    <span class="font-bold text-slate-900 block text-sm">Venn Diagram (文氏圖 — 投影片第 13 頁原意)：</span>
+                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-xs space-y-2 font-mono text-slate-800">
+                        <p class="font-sans text-sm text-slate-900 font-medium">
+                            <strong>Venn Diagram:</strong> illustrates the relationships between two or more data sets. Useful for highlighting similarities and differences. Commonly used to compare and contrast the characteristics of different data sets.
+                        </p>
+                        <p class="font-sans text-xs text-slate-600">
+                            （中文意涵：文氏圖用以說明兩個或多個資料集之間的關係，有助於突顯相同點與相異點，通常用於比較和對比不同資料集的特徵。）
+                        </p>
+                    </div>
+                </div>
+        
+                <!-- Two Criteria Venn Diagram (Slide 14-15) 結合圖片結構 -->
+                <div class="space-y-3 pt-2 border-t border-slate-100">
+                    <span class="font-bold text-slate-900 block text-sm">With two criteria (雙重準則文氏圖 — 投影片第 14-15 頁)：</span>
+                    <p class="text-sm text-slate-600">
+                        根據投影片圖示，當具備兩個評估準則（<span class="font-mono text-slate-800 font-bold">female or non-female</span> 與 <span class="font-mono text-slate-800 font-bold">clever or not clever</span>）時，會在圖中交織劃分出 4 個互斥的區域：
+                    </p>
+        
+                    <!-- 模擬投影片 15 頁的雙圓交叉圖示結構卡片 -->
+                    <div class="bg-blue-50/50 p-4 rounded-xl border border-blue-200 space-y-3">
+                        <div class="text-xs font-bold text-blue-900 font-mono">
+                            Criteria 1: Female / Non-female (F)<br>
+                            Criteria 2: Clever / Not clever (C)
+                        </div>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                            <div class="p-3 bg-white rounded-lg border border-blue-100 text-slate-800 shadow-2xs">
+                                • <strong>Non-female students who are clever</strong>
+                            </div>
+                            <div class="p-3 bg-white rounded-lg border border-blue-100 text-slate-800 shadow-2xs">
+                                • <strong>Non-female students who are not clever</strong>
+                            </div>
+                            <div class="p-3 bg-white rounded-lg border border-blue-100 text-slate-800 shadow-2xs">
+                                • <strong>Female students who are clever</strong>
+                            </div>
+                            <div class="p-3 bg-white rounded-lg border border-blue-100 text-slate-800 shadow-2xs">
+                                • <strong>Female students who are not clever</strong>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
 
                         
                         
