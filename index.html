@@ -137,12 +137,10 @@
 
 
         <!-- === Ch 2: What is Logic Puzzle? (統一字體、取消全大寫、文字精簡版) === -->
+        <!-- === Ch 2: What is Logic Puzzle? (獨立卡片分開、字體大小統一版) === -->
         <div class="space-y-4">
-            <h3 class="font-bold text-slate-900 text-lg flex items-center gap-2">
-                <span class="w-3 h-3 rounded-full bg-blue-600"></span>
-            </h3>
         
-            <!-- What is Logic Puzzle? 主卡片區塊 -->
+            <!-- What is Logic Puzzle? 主標題卡片 -->
             <div class="bg-white p-5 rounded-2xl border border-blue-200 shadow-sm space-y-4">
                 <!-- 標題列 -->
                 <div class="flex items-center gap-2 pb-3 border-b border-slate-100">
@@ -155,35 +153,37 @@
                     </div>
                 </div>
         
-                <!-- 內容網格佈局 (字體調小、取消全大寫) -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
-                    <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100 space-y-1">
-                        <span class="font-bold text-blue-900 block text-xs">Logic Puzzle Definition (定義)</span>
-                        <p class="text-slate-800 text-xs">A particular type of puzzle that can be solved by logical reasoning.</p>
-                        <p class="text-[11px] text-slate-500">（中文補充：一種可以透過邏輯推理來解決的特定拼圖。）</p>
+                <!-- 獨立分開的雙卡片網格佈局 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- 獨立卡片 1：Logic Puzzle Definition -->
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 shadow-2xs space-y-2">
+                        <span class="font-bold text-blue-900 block text-sm">Logic Puzzle Definition (定義)</span>
+                        <p class="text-slate-800 text-sm">A particular type of puzzle that can be solved by logical reasoning.</p>
+                        <p class="text-xs text-slate-500 pt-1 border-t border-slate-200/60">（中文補充：一種可以透過邏輯推理來解決的特定拼圖。）</p>
                     </div>
         
-                    <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100 space-y-1">
-                        <span class="font-bold text-blue-900 block text-xs">Core Principle (核心原則)</span>
-                        <p class="text-slate-800 text-xs">To solve the logic puzzles, one only needs to reason with the necessary information given.</p>
-                        <p class="text-[11px] text-slate-500">（中文補充：解題核心是只需要運用所給出的必要資訊進行邏輯思考，即可得出答案。）</p>
+                    <!-- 獨立卡片 2：Core Principle -->
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 shadow-2xs space-y-2">
+                        <span class="font-bold text-blue-900 block text-sm">Core Principle (核心原則)</span>
+                        <p class="text-slate-800 text-sm">To solve the logic puzzles, one only needs to reason with the necessary information given.</p>
+                        <p class="text-xs text-slate-500 pt-1 border-t border-slate-200/60">（中文補充：解題核心是只需要運用所給出的必要資訊進行邏輯思考，即可得出答案。）</p>
                     </div>
                 </div>
         
                 <!-- 方法論與兩種解法總結 -->
-                <div class="p-3.5 bg-blue-50/60 rounded-xl border border-blue-100 text-xs space-y-2">
+                <div class="p-4 bg-blue-50/60 rounded-xl border border-blue-100 text-sm space-y-2.5">
                     <p class="text-slate-800 font-medium">
                         • <strong>Methodology:</strong> Think logically, then one can get the answer(s) using only the information given.
                     </p>
                     <p class="text-slate-800 font-medium">
                         • <strong>Two methods (but, of course, not only two methods) to solve logic puzzles:</strong>
                     </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
-                        <div class="p-2.5 bg-white rounded-lg border border-blue-200 text-blue-900 font-semibold shadow-2xs">
-                            1. Method of elimination uses truth tables<br><span class="font-normal text-slate-600 text-[11px]">（排除法使用真值表）</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                        <div class="p-3 bg-white rounded-lg border border-blue-200 text-blue-900 font-semibold shadow-2xs text-sm">
+                            1. Method of elimination uses truth tables<br><span class="font-normal text-slate-600 text-xs">（排除法使用真值表）</span>
                         </div>
-                        <div class="p-2.5 bg-white rounded-lg border border-blue-200 text-blue-900 font-semibold shadow-2xs">
-                            2. Method of elimination uses matrices<br><span class="font-normal text-slate-600 text-[11px]">（排除法使用矩陣）</span>
+                        <div class="p-3 bg-white rounded-lg border border-blue-200 text-blue-900 font-semibold shadow-2xs text-sm">
+                            2. Method of elimination uses matrices<br><span class="font-normal text-slate-600 text-xs">（排除法使用矩陣）</span>
                         </div>
                     </div>
                 </div>
