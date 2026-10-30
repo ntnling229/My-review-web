@@ -200,12 +200,24 @@
                 </div>
                 <div class="mt-4 pt-3 border-t border-blue-200/60 flex flex-col items-center">
                     <svg width="120" height="80" viewBox="0 0 120 80">
-                        <!-- 左邊 S 圓圈：帶陰影填色（代表空集） -->
-                        <circle cx="45" cy="40" r="25" fill="#cbd5e1" stroke="#475569" stroke-width="1.5" />
-                        <!-- 右邊 P 圓圈：維持只有邊框，確保交集處唔會有不正常嘅灰色 -->
+                        <defs>
+                            <!-- 遮罩：用來切除與 P 重疊的部分，只留左邊月牙形 -->
+                            <mask id="s-minus-p">
+                                <rect width="120" height="80" fill="white"/>
+                                <circle cx="75" cy="40" r="25" fill="black"/>
+                            </mask>
+                        </defs>
+                        
+                        <!-- 僅左邊 S 扣除交集後的月牙形區域上陰影 -->
+                        <circle cx="45" cy="40" r="25" fill="#cbd5e1" mask="url(#s-minus-p)"/>
+                        
+                        <!-- S 圓圈外框 -->
+                        <circle cx="45" cy="40" r="25" fill="none" stroke="#475569" stroke-width="1.5" />
+                        <!-- P 圓圈外框 -->
                         <circle cx="75" cy="40" r="25" fill="none" stroke="#2563eb" stroke-width="2" />
+                        
                         <!-- 字母標籤 -->
-                        <text x="38" y="44" font-size="10" font-weight="bold" fill="#1e293b">S</text>
+                        <text x="34" y="44" font-size="10" font-weight="bold" fill="#1e293b">S</text>
                         <text x="82" y="44" font-size="10" font-weight="bold" fill="#1e3a8a">P</text>
                     </svg>
                     <span class="text-[11px] text-slate-500 mt-1">Shaded area = Empty set</span>
