@@ -516,17 +516,20 @@
                 </div>
             </div>
 
-            <!-- === Q10 === -->
+            <!-- === Q10 (包含完整題目情景) === -->
             <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
                 <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(10)">
                     <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q10.</span> The girl in red is dancing with the boy in red.
+                        <span class="font-bold text-blue-600 mr-2">Q10.</span> Refer to the scenario below. The girl in red is dancing with the boy in red.<br>
+                        <span class="text-xs text-slate-500 mt-1 block">
+                            "In a dancing party, there were three young couples. One girl was dressed in red, one in green, and one in blue. The boys wore outfits(服裝) of the same three colours. When all three couples were dancing, the boy in red danced close to the girl in green and spoke to her: 'Isn't it funny? Not one of us is dancing with a partner dressed in the same colour.'"
+                        </span>
                     </div>
-                    <span class="text-xs bg-red-100 text-red-800 px-2.5 py-1 rounded-full font-bold">FALSE</span>
+                    <span class="text-xs bg-red-100 text-red-800 px-2.5 py-1 rounded-full font-bold h-fit shrink-0">FALSE</span>
                 </div>
                 <div id="ans-10" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> The girl in red is dancing with the boy in red.</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 錯誤（FALSE）。根據題目線索，所有人的舞伴都不是同顏色的（"Not one of us is dancing with a partner dressed in the same colour"），因此穿紅衣的女生絕對不可能跟穿紅衣的男生跳舞。</p>
+                    <p><strong class="text-slate-900">【英文原意】:</strong> Refer to the scenario below. The girl in red is dancing with the boy in red.</p>
+                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 錯誤（FALSE）。根據題目中「Not one of us is dancing with a partner dressed in the same colour」的規則，所有人的舞伴絕對不能是同顏色的，因此穿紅衣的女生不可能跟穿紅衣的男生跳舞。</p>
                     <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 3 Dance Partners Logic Puzzle Analysis.</p>
                 </div>
             </div>
@@ -535,13 +538,13 @@
             <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
                 <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(11)">
                     <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q11.</span> The girl in blue is dancing with the boy in green.
+                        <span class="font-bold text-blue-600 mr-2">Q11.</span> Refer to the scenario above. The girl in blue is dancing with the boy in red.
                     </div>
-                    <span class="text-xs bg-red-100 text-red-800 px-2.5 py-1 rounded-full font-bold">FALSE</span>
+                    <span class="text-xs bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full font-bold h-fit shrink-0">TRUE</span>
                 </div>
                 <div id="ans-11" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> The girl in blue is dancing with the boy in green.</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 錯誤（FALSE）。經過推理：紅衣男（Boy in Red）跟藍衣女（Girl in Blue）跳舞；綠衣男（Boy in Green）跟紅衣女（Girl in Red）跳舞；藍衣男（Boy in Blue）跟綠衣女（Girl in Green）跳舞。因此，藍衣女實際上是與紅衣男跳舞，而不是綠衣男。</p>
+                    <p><strong class="text-slate-900">【英文原意】:</strong> Refer to the scenario above. The girl in blue is dancing with the boy in red.</p>
+                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 正確（TRUE）。推導過程：紅衣男走向綠衣女說話，代表紅衣男不是跟綠衣女跳舞；又因為不能跟同色（紅）跳舞，所以紅衣男只能與藍衣女跳舞。</p>
                     <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 3 Dance Partners Logic Puzzle Analysis.</p>
                 </div>
             </div>
@@ -550,13 +553,13 @@
             <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
                 <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(12)">
                     <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q12.</span> The girl in green is dancing with the boy in blue.
+                        <span class="font-bold text-blue-600 mr-2">Q12.</span> Refer to the scenario above. The girl in green is dancing with the boy in blue.
                     </div>
-                    <span class="text-xs bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full font-bold">TRUE</span>
+                    <span class="text-xs bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full font-bold h-fit shrink-0">TRUE</span>
                 </div>
                 <div id="ans-12" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> The girl in green is dancing with the boy in blue.</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 正確（TRUE）。根據完整配對推導：綠衣女（Girl in Green）的舞伴正是藍衣男（Boy in Blue），完全符合題目中「無人與同色舞伴跳舞」及對話線索。</p>
+                    <p><strong class="text-slate-900">【英文原意】:</strong> Refer to the scenario above. The girl in green is dancing with the boy in blue.</p>
+                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 正確（TRUE）。完整配對結果為：紅衣男 ↔ 藍衣女、綠衣男 ↔ 紅衣女、藍衣男 ↔ 綠衣女。因此綠衣女確實是與藍衣男跳舞。</p>
                     <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 3 Dance Partners Logic Puzzle Analysis.</p>
                 </div>
             </div>
