@@ -1088,81 +1088,82 @@
 
         </div>
 
-        <!-- SECTION B: COMPREHENSIVE CASE STUDY (REAL EXAM PAPER SOLUTION) -->
+        <!-- SECTION B: COMPREHENSIVE CASE STUDY (REAL EXAM PAPER SOLUTION - 字體加大版) -->
         <div class="mt-10 pt-8 border-t-2 border-slate-300">
-            <div class="flex items-center gap-3 mb-4">
-                <span class="bg-indigo-600 text-white font-bold px-3 py-1 rounded-lg text-sm">Section B</span>
-                <h3 class="font-bold text-xl text-slate-900">Comprehensive Logic Case Analysis: The 4 Bankers Fraud Case (澳門銀行家詐欺案完整題解)</h3>
+            <div class="flex items-center gap-3 mb-5">
+                <span class="bg-indigo-600 text-white font-bold px-3.5 py-1.5 rounded-lg text-base">Section B</span>
+                <h3 class="font-bold text-xl md:text-2xl text-slate-900">Comprehensive Logic Case Analysis: The 4 Bankers Fraud Case (澳門銀行家詐欺案完整題解)</h3>
             </div>
         
             <!-- Problem Scenario Box -->
-            <div class="bg-indigo-50/70 border border-indigo-200 rounded-2xl p-6 mb-6 text-sm text-slate-800 space-y-4">
-                <div class="border-b border-indigo-200 pb-3">
-                    <h4 class="font-bold text-indigo-900 text-base flex items-center gap-2">
+            <div class="bg-indigo-50/70 border border-indigo-200 rounded-2xl p-6 md:p-8 mb-6 text-slate-800 space-y-5">
+                <div class="border-b border-indigo-200 pb-4">
+                    <h4 class="font-bold text-indigo-900 text-lg flex items-center gap-2">
                         <i class="fa-solid fa-user-secret text-indigo-600"></i> Case Background & Clues (案件背景與 5 大真實線索)
                     </h4>
-                    <p class="text-xs text-slate-600 mt-1">Four financial bankers — <strong>Amy (A), Betty (B), Carol (C), Debbie (D)</strong> in a famous bank in Macau are suspected of making faulty claims for their clients. The following evidences were collected:</p>
+                    <p class="text-sm md:text-base text-slate-700 mt-1.5">Four financial bankers — <strong>Amy (A), Betty (B), Carol (C), Debbie (D)</strong> in a famous bank in Macau are suspected of making faulty claims for their clients. The following evidences were collected:</p>
                 </div>
         
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-                    <div class="bg-white p-3.5 rounded-lg border border-indigo-100 shadow-2xs space-y-1">
-                        <span class="font-bold text-indigo-700 block text-xs">Clue (i):</span>
-                        <p class="text-slate-800 font-medium">If two or more people are involved, then Betty is one of them.</p>
-                        <p class="text-[11px] text-slate-500 font-mono">(Count(A,B,C,D) ≥ 2 ⇒ B = T)</p>
+                <!-- 5 大線索卡片（字體顯著放大） -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
+                    <div class="bg-white p-4 rounded-xl border border-indigo-100 shadow-2xs space-y-1.5">
+                        <span class="font-bold text-indigo-800 block text-base">Clue (i):</span>
+                        <p class="text-slate-900 font-medium text-base">If two or more people are involved, then Betty is one of them.</p>
+                        <p class="text-xs text-slate-500 font-mono">(Count(A,B,C,D) ≥ 2 ⇒ B = T)</p>
                     </div>
         
-                    <div class="bg-white p-3.5 rounded-lg border border-indigo-100 shadow-2xs space-y-1">
-                        <span class="font-bold text-indigo-700 block text-xs">Clue (ii):</span>
-                        <p class="text-slate-800 font-medium">At least one of the three persons other than Betty is involved.</p>
-                        <p class="text-[11px] text-slate-500 font-mono">(A ∨ C ∨ D = T)</p>
+                    <div class="bg-white p-4 rounded-xl border border-indigo-100 shadow-2xs space-y-1.5">
+                        <span class="font-bold text-indigo-800 block text-base">Clue (ii):</span>
+                        <p class="text-slate-900 font-medium text-base">At least one of the three persons other than Betty is involved.</p>
+                        <p class="text-xs text-slate-500 font-mono">(A ∨ C ∨ D = T)</p>
                     </div>
         
-                    <div class="bg-white p-3.5 rounded-lg border border-indigo-100 shadow-2xs space-y-1">
-                        <span class="font-bold text-indigo-700 block text-xs">Clue (iii):</span>
-                        <p class="text-slate-800 font-medium">Either Carol and Betty are involved or both of them are not involved.</p>
-                        <p class="text-[11px] text-slate-500 font-mono">(C ⇔ B)</p>
+                    <div class="bg-white p-4 rounded-xl border border-indigo-100 shadow-2xs space-y-1.5">
+                        <span class="font-bold text-indigo-800 block text-base">Clue (iii):</span>
+                        <p class="text-slate-900 font-medium text-base">Either Carol and Betty are involved or both of them are not involved.</p>
+                        <p class="text-xs text-slate-500 font-mono">(C ⇔ B)</p>
                     </div>
         
-                    <div class="bg-white p-3.5 rounded-lg border border-indigo-100 shadow-2xs space-y-1">
-                        <span class="font-bold text-indigo-700 block text-xs">Clue (iv):</span>
-                        <p class="text-slate-800 font-medium">If Betty is involved, either Carol or Amy is not involved.</p>
-                        <p class="text-[11px] text-slate-500 font-mono">(B ⇒ ¬C ∨ ¬A)</p>
+                    <div class="bg-white p-4 rounded-xl border border-indigo-100 shadow-2xs space-y-1.5">
+                        <span class="font-bold text-indigo-800 block text-base">Clue (iv):</span>
+                        <p class="text-slate-900 font-medium text-base">If Betty is involved, either Carol or Amy is not involved.</p>
+                        <p class="text-xs text-slate-500 font-mono">(B ⇒ ¬C ∨ ¬A)</p>
                     </div>
         
-                    <div class="bg-white p-3.5 rounded-lg border border-indigo-100 shadow-2xs space-y-1 md:col-span-2">
-                        <span class="font-bold text-indigo-700 block text-xs">Clue (v):</span>
-                        <p class="text-slate-800 font-medium">Carol or Amy is involved only if Debbie be involved.</p>
-                        <p class="text-[11px] text-slate-500 font-mono">(C ∨ A ⇒ D)</p>
+                    <div class="bg-white p-4 rounded-xl border border-indigo-100 shadow-2xs space-y-1.5 md:col-span-2">
+                        <span class="font-bold text-indigo-800 block text-base">Clue (v):</span>
+                        <p class="text-slate-900 font-medium text-base">Carol or Amy is involved only if Debbie be involved.</p>
+                        <p class="text-xs text-slate-500 font-mono">(C ∨ A ⇒ D)</p>
                     </div>
                 </div>
         
-                <div class="bg-amber-50 p-3.5 rounded-lg border border-amber-200 text-xs text-amber-900 font-medium">
+                <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 text-sm md:text-base text-amber-950 font-medium">
                     <strong>Question:</strong> Based on the evidences collected, determine who are involved in making faulty claims for their clients using the $2^4 = 16$ Truth Table below.
                 </div>
             </div>
         
             <!-- Full 16-Row Truth Table -->
             <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-x-auto p-4 mb-6">
-                <h4 class="font-bold text-slate-900 text-sm mb-3 flex items-center gap-2">
+                <h4 class="font-bold text-slate-900 text-base mb-3 flex items-center gap-2">
                     <i class="fa-solid fa-table"></i> Complete 16-Row Truth Table Elimination Matrix ($2^4 = 16$)
                 </h4>
-                <table class="w-full text-xs text-center border-collapse">
+                <table class="w-full text-xs md:text-sm text-center border-collapse">
                     <thead>
                         <tr class="bg-slate-800 text-white font-bold">
-                            <th class="p-2 border border-slate-700">Row</th>
-                            <th class="p-2 border border-slate-700">Amy (A)</th>
-                            <th class="p-2 border border-slate-700">Betty (B)</th>
-                            <th class="p-2 border border-slate-700">Carol (C)</th>
-                            <th class="p-2 border border-slate-700">Debbie (D)</th>
-                            <th class="p-2 border border-slate-700">Clue (i)<br><span class="text-[10px] font-normal">≥2 ⇒ B</span></th>
-                            <th class="p-2 border border-slate-700">Clue (ii)<br><span class="text-[10px] font-normal">A∨C∨D</span></th>
-                            <th class="p-2 border border-slate-700">Clue (iii)<br><span class="text-[10px] font-normal">C ⇔ B</span></th>
-                            <th class="p-2 border border-slate-700">Clue (iv)<br><span class="text-[10px] font-normal">B ⇒ ¬C∨¬A</span></th>
-                            <th class="p-2 border border-slate-700">Clue (v)<br><span class="text-[10px] font-normal">C∨A ⇒ D</span></th>
-                            <th class="p-2 border border-slate-700">Status / Elimination Reason</th>
+                            <th class="p-2.5 border border-slate-700">Row</th>
+                            <th class="p-2.5 border border-slate-700">Amy (A)</th>
+                            <th class="p-2.5 border border-slate-700">Betty (B)</th>
+                            <th class="p-2.5 border border-slate-700">Carol (C)</th>
+                            <th class="p-2.5 border border-slate-700">Debbie (D)</th>
+                            <th class="p-2.5 border border-slate-700">Clue (i)<br><span class="text-[11px] font-normal">≥2 ⇒ B</span></th>
+                            <th class="p-2.5 border border-slate-700">Clue (ii)<br><span class="text-[11px] font-normal">A∨C∨D</span></th>
+                            <th class="p-2.5 border border-slate-700">Clue (iii)<br><span class="text-[11px] font-normal">C ⇔ B</span></th>
+                            <th class="p-2.5 border border-slate-700">Clue (iv)<br><span class="text-[11px] font-normal">B ⇒ ¬C∨¬A</span></th>
+                            <th class="p-2.5 border border-slate-700">Clue (v)<br><span class="text-[11px] font-normal">C∨A ⇒ D</span></th>
+                            <th class="p-2.5 border border-slate-700">Status / Elimination Reason</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-slate-200 font-mono">
+                    <tbody class="divide-y divide-slate-200 font-mono text-xs md:text-sm">
                         <tr class="bg-slate-100 text-slate-400"><td>1</td><td>T</td><td>T</td><td>T</td><td>T</td><td>✓</td><td>✓</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td>✓</td><td class="text-red-500 font-sans">Eliminated by (iv)</td></tr>
                         <tr class="bg-slate-100 text-slate-400"><td>2</td><td>T</td><td>T</td><td>T</td><td>F</td><td>✓</td><td>✓</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td class="text-red-600 font-bold">✗</td><td class="text-red-500 font-sans">Eliminated by (iv),(v)</td></tr>
                         <tr class="bg-slate-100 text-slate-400"><td>3</td><td>T</td><td>T</td><td>F</td><td>T</td><td>✓</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td>✓</td><td>✓</td><td class="text-red-500 font-sans">Eliminated by (iii)</td></tr>
@@ -1184,15 +1185,15 @@
             </div>
         
             <!-- Detailed Analysis & Verdict -->
-            <div class="bg-slate-900 text-white p-6 rounded-2xl shadow-md space-y-4 text-xs">
-                <h4 class="text-base font-bold text-emerald-400 flex items-center gap-2">
+            <div class="bg-slate-900 text-white p-6 rounded-2xl shadow-md space-y-4 text-xs md:text-sm">
+                <h4 class="text-base md:text-lg font-bold text-emerald-400 flex items-center gap-2">
                     <i class="fa-solid fa-square-check"></i> Final Analytical Deduction & Verdict (考卷最終邏輯推導與結論)
                 </h4>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-2">
-                        <strong class="text-amber-300 block text-sm">【Direct Logical Derivation 直接邏輯推導】:</strong>
-                        <ol class="list-decimal list-inside space-y-1.5 text-slate-300">
+                        <strong class="text-amber-300 block text-sm md:text-base">【Direct Logical Derivation 直接邏輯推導】:</strong>
+                        <ol class="list-decimal list-inside space-y-2 text-slate-300 text-xs md:text-sm">
                             <li>由 <strong>Clue (iii)</strong>「Either Carol and Betty are involved or both of them are not involved」：可知 <span class="text-white font-bold">Carol 與 Betty 必須同為 Involved 或同為 Not involved ($C \iff B$)</span>。</li>
                             <li>由 <strong>Clue (ii)</strong>「At least one of the three persons other than Betty is involved」：得知 <span class="text-white font-bold">A, C, D 中至少一人有參與</span>。若 C, B 均不參與，則只剩 A, D。</li>
                             <li>由 <strong>Clue (iv)</strong>「If Betty is involved, either Carol or Amy is not involved」：已知當 B = T 時，C 和 A 不能同時為 T。由於 Clue (iii) 要求 $B \iff C$，因此若 B = T 則 C 必為 T，故 <span class="text-white font-bold">Amy 必不能參與 (Amy = False)</span>。</li>
@@ -1202,18 +1203,18 @@
                     </div>
         
                     <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-2">
-                        <strong class="text-emerald-300 block text-sm">【Final Verdict 案件最終結論】:</strong>
-                        <ul class="space-y-2 text-slate-300">
-                            <li class="bg-slate-700/60 p-2.5 rounded border border-slate-600">
-                                <strong class="text-emerald-400 text-sm">Involved (有參與/有罪者):</strong><br>
-                                <span class="text-white font-bold text-sm">Betty (B), Carol (C), and Debbie (D)</span> are involved in making faulty claims.
+                        <strong class="text-emerald-300 block text-sm md:text-base">【Final Verdict 案件最終結論】:</strong>
+                        <ul class="space-y-2.5 text-slate-300 text-xs md:text-sm">
+                            <li class="bg-slate-700/60 p-3 rounded border border-slate-600">
+                                <strong class="text-emerald-400 text-sm md:text-base">Involved (有參與/有罪者):</strong><br>
+                                <span class="text-white font-bold text-sm md:text-base">Betty (B), Carol (C), and Debbie (D)</span> are involved in making faulty claims.
                             </li>
-                            <li class="bg-slate-700/60 p-2.5 rounded border border-slate-600">
-                                <strong class="text-rose-400 text-sm">Not Involved (未參與/無罪者):</strong><br>
-                                <span class="text-white font-bold text-sm">Amy (A)</span> is innocent / not involved.
+                            <li class="bg-slate-700/60 p-3 rounded border border-slate-600">
+                                <strong class="text-rose-400 text-sm md:text-base">Not Involved (未參與/無罪者):</strong><br>
+                                <span class="text-white font-bold text-sm md:text-base">Amy (A)</span> is innocent / not involved.
                             </li>
-                            <li class="bg-slate-700/60 p-2.5 rounded border border-slate-600">
-                                <strong class="text-amber-300">Unique Truth Table Row:</strong><br>
+                            <li class="bg-slate-700/60 p-3 rounded border border-slate-600">
+                                <strong class="text-amber-300 text-sm">Unique Truth Table Row:</strong><br>
                                 Matches exactly <strong>Row 11 ($A=\text{F}, B=\text{T}, C=\text{T}, D=\text{T}$)</strong>.
                             </li>
                         </ul>
