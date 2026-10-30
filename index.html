@@ -200,10 +200,12 @@
                 </div>
                 <div class="mt-4 pt-3 border-t border-blue-200/60 flex flex-col items-center">
                     <svg width="120" height="80" viewBox="0 0 120 80">
+                        <!-- 左邊 S 圓圈：帶陰影填色（代表空集） -->
                         <circle cx="45" cy="40" r="25" fill="#cbd5e1" stroke="#475569" stroke-width="1.5" />
+                        <!-- 右邊 P 圓圈：維持只有邊框，確保交集處唔會有不正常嘅灰色 -->
                         <circle cx="75" cy="40" r="25" fill="none" stroke="#2563eb" stroke-width="2" />
-                        <path d="M 45 15 A 25 25 0 0 0 45 65 A 25 25 0 0 0 57.5 58.6 A 25 25 0 0 1 57.5 21.4 A 25 25 0 0 0 45 15 Z" fill="#94a3b8" />
-                        <text x="32" y="44" font-size="10" font-weight="bold" fill="#1e293b">S</text>
+                        <!-- 字母標籤 -->
+                        <text x="38" y="44" font-size="10" font-weight="bold" fill="#1e293b">S</text>
                         <text x="82" y="44" font-size="10" font-weight="bold" fill="#1e3a8a">P</text>
                     </svg>
                     <span class="text-[11px] text-slate-500 mt-1">Shaded area = Empty set</span>
