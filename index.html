@@ -348,35 +348,58 @@
             </h4>
             
             <div class="pl-4 text-sm text-slate-700 space-y-4">
-                <!-- 4 種直言命題類型 (Slide 9-12) -->
-                <div class="space-y-2">
-                    <p class="text-sm text-slate-700 font-medium">
+                <!-- 投影片第 9 頁開頭定義 -->
+                <div class="space-y-2.5 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <p class="text-sm text-slate-800">
+                        • <strong>Categorical statement (分類陳述)：</strong>a definite statement not involving terms (i.e. connectives) like “if”, “and” or “or”.
+                    </p>
+                    <p class="text-sm text-slate-800">
+                        • Categorical statement can be either affirmative or negative and either universal or partial.
+                    </p>
+                    <p class="text-sm text-slate-900 font-semibold pt-1 border-t border-slate-200">
                         There are four types of categorical statements (分類陳述的四種類型)：
                     </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-                        <div class="p-3.5 bg-blue-50/70 rounded-xl border border-blue-100 shadow-2xs space-y-1">
-                            <span class="font-bold text-blue-900 block">Universal Affirmative Statement (全稱肯定 A 類型)：</span> 
-                            <span class="text-slate-800 font-mono text-xs">All S are P</span>
-                            <p class="text-xs text-slate-600 mt-1">e.g., All smart phones are IT devices</p>
-                        </div>
-                        
-                        <div class="p-3.5 bg-indigo-50/70 rounded-xl border border-indigo-100 shadow-2xs space-y-1">
-                            <span class="font-bold text-indigo-900 block">Universal Negative Statement (全稱否定 E 類型)：</span> 
-                            <span class="text-slate-800 font-mono text-xs">No S are P</span>
-                            <p class="text-xs text-slate-600 mt-1">e.g., No monks are nuns</p>
-                        </div>
         
-                        <div class="p-3.5 bg-emerald-50/70 rounded-xl border border-emerald-100 shadow-2xs space-y-1">
-                            <span class="font-bold text-emerald-900 block">Partial Affirmative Statement (特稱肯定 I 類型)：</span> 
-                            <span class="text-slate-800 font-mono text-xs">Some S are P</span>
-                            <p class="text-xs text-slate-600 mt-1">e.g., Some nurses are kind</p>
-                        </div>
+                    <!-- 傳統 A、E、I、O 分布表 (Slide 9) -->
+                    <div class="grid grid-cols-3 gap-2 text-center text-xs font-mono pt-1">
+                        <div class="p-2 bg-slate-200/60 font-bold rounded"></div>
+                        <div class="p-2 bg-blue-100/70 text-blue-900 font-bold rounded">Affirmative<br><span class="font-sans text-[11px] font-normal">(AFFIRMO – I affirm 肯定)</span></div>
+                        <div class="p-2 bg-indigo-100/70 text-indigo-900 font-bold rounded">Negative<br><span class="font-sans text-[11px] font-normal">(NEGO – I deny 否定)</span></div>
         
-                        <div class="p-3.5 bg-rose-50/70 rounded-xl border border-rose-100 shadow-2xs space-y-1">
-                            <span class="font-bold text-rose-900 block">Partial Negative Statement (特稱否定 O 類型)：</span> 
-                            <span class="text-slate-800 font-mono text-xs">Some S are not P</span>
-                            <p class="text-xs text-slate-600 mt-1">e.g., Some girls are not fat</p>
-                        </div>
+                        <div class="p-2 bg-slate-200/60 font-bold rounded flex items-center justify-center font-sans text-xs">universal (全稱)</div>
+                        <div class="p-2 bg-white rounded border border-slate-200 text-blue-700 font-bold text-base flex items-center justify-center">A</div>
+                        <div class="p-2 bg-white rounded border border-slate-200 text-indigo-700 font-bold text-base flex items-center justify-center">E</div>
+        
+                        <div class="p-2 bg-slate-200/60 font-bold rounded flex items-center justify-center font-sans text-xs">partial (特稱)</div>
+                        <div class="p-2 bg-white rounded border border-slate-200 text-blue-700 font-bold text-base flex items-center justify-center">I</div>
+                        <div class="p-2 bg-white rounded border border-slate-200 text-indigo-700 font-bold text-base flex items-center justify-center">O</div>
+                    </div>
+                </div>
+        
+                <!-- 4 種直言命題詳細類型卡片 -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                    <div class="p-3.5 bg-blue-50/70 rounded-xl border border-blue-100 shadow-2xs space-y-1">
+                        <span class="font-bold text-blue-900 block">Universal Affirmative (全稱肯定 type A)：</span> 
+                        <span class="text-slate-800 font-mono text-xs">All S are P</span>
+                        <p class="text-xs text-slate-600 mt-1">e.g., All smart phones are IT devices</p>
+                    </div>
+                    
+                    <div class="p-3.5 bg-indigo-50/70 rounded-xl border border-indigo-100 shadow-2xs space-y-1">
+                        <span class="font-bold text-indigo-900 block">Universal Negative (全稱否定 type E)：</span> 
+                        <span class="text-slate-800 font-mono text-xs">No S are P</span>
+                        <p class="text-xs text-slate-600 mt-1">e.g., No monks are nuns</p>
+                    </div>
+        
+                    <div class="p-3.5 bg-emerald-50/70 rounded-xl border border-emerald-100 shadow-2xs space-y-1">
+                        <span class="font-bold text-emerald-900 block">Partial Affirmative (特稱肯定 type I)：</span> 
+                        <span class="text-slate-800 font-mono text-xs">Some S are P</span>
+                        <p class="text-xs text-slate-600 mt-1">e.g., Some nurses are kind</p>
+                    </div>
+        
+                    <div class="p-3.5 bg-rose-50/70 rounded-xl border border-rose-100 shadow-2xs space-y-1">
+                        <span class="font-bold text-rose-900 block">Partial Negative (特稱否定 type O)：</span> 
+                        <span class="text-slate-800 font-mono text-xs">Some S are not P</span>
+                        <p class="text-xs text-slate-600 mt-1">e.g., Some girls are not fat</p>
                     </div>
                 </div>
         
@@ -400,7 +423,6 @@
                         根據投影片圖示，當具備兩個評估準則（<span class="font-mono text-slate-800 font-bold">female or non-female</span> 與 <span class="font-mono text-slate-800 font-bold">clever or not clever</span>）時，會在圖中交織劃分出 4 個互斥的區域：
                     </p>
         
-                    <!-- 模擬投影片 15 頁的雙圓交叉圖示結構卡片 -->
                     <div class="bg-blue-50/50 p-4 rounded-xl border border-blue-200 space-y-3">
                         <div class="text-xs font-bold text-blue-900 font-mono">
                             Criteria 1: Female / Non-female (F)<br>
