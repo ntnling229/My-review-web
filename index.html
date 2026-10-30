@@ -315,21 +315,66 @@
                 <div>
                     <span class="font-bold text-slate-900 block mb-1 text-sm">標準結構公式與詳細拆解 (Standard Form Formula):</span>
                     
-                    <!-- 🌟 放大字體區塊 🌟 -->
-                    <div class="font-mono bg-blue-50/80 p-4 rounded-xl border border-blue-200 text-sm text-blue-950 space-y-2">
-                        <div class="font-bold text-base border-b border-blue-200/60 pb-2">
-                            公式： Quantifier (量詞) + Subject (主詞) + Copula (系詞) + Predicate (謂詞)
+                    
+                    
+                    <<!-- === 只替換藍色框內公式與範例的 HTML 區塊 === -->
+                    <div class="font-sans bg-blue-50/80 p-5 rounded-2xl border border-blue-200 text-slate-900 space-y-4 shadow-sm">
+                        <p class="text-xs text-slate-600 mb-1">
+                            這張投影片 (Slide 8) 將前面幾頁的概念進行了最終總結與通式化，組裝出標準直言命題 (Categorical Proposition) 的 4 個核心組成要素：
+                        </p>
+                    
+                        <div class="font-bold text-sm border-b border-blue-200/80 pb-3 text-blue-950">
+                            標準命題結構公式：<br>
+                            <span class="font-mono text-base text-blue-800 mt-1 block">Quantifier (量詞) + Subject (主詞) + Copula (系詞) + Predicate (述詞)</span>
                         </div>
-                        <div class="text-slate-800 font-bold text-base pt-1">
-                            經典例子： <span class="text-blue-700">"All smartphones are IT devices."</span>
+                    
+                        <div class="space-y-2 pt-1">
+                            <p class="font-bold text-slate-900 text-sm">四大組成要素解析：</p>
+                            <ul class="list-disc list-inside space-y-1.5 text-xs text-slate-700 pl-1">
+                                <li><strong class="text-slate-900">Quantifier (量詞)：</strong>決定命題的量 (Quantity)，指向主詞的涵蓋範圍。
+                                    <span class="block text-slate-600 ml-4 font-mono text-[11px]">• All / No：全稱 (Universal) | Some：特稱 (Particular)</span>
+                                </li>
+                                <li><strong class="text-slate-900">SUBJECT (主詞)：</strong>命題所討論的主體類別。</li>
+                                <li><strong class="text-slate-900">COPULA (系詞)：</strong>決定命題的質 (Quality)，連接主詞與述詞。
+                                    <span class="block text-slate-600 ml-4 font-mono text-[11px]">• are：肯定 (Affirmative) | are not：否定 (Negative)</span>
+                                </li>
+                                <li><strong class="text-slate-900">PREDICATE (述詞)：</strong>針對主詞所給予的屬性、性質或類別描述。</li>
+                            </ul>
                         </div>
-                        <ul class="list-disc list-inside pl-2 space-y-1.5 text-slate-700 text-xs mt-2">
-                            <li><strong class="text-slate-900 font-bold">Quantifier (量詞)：</strong> <span class="text-blue-800 font-semibold">"All"</span>（全稱）</li>
-                            <li><strong class="text-slate-900 font-bold">Subject / S (主詞)：</strong> <span class="text-blue-800 font-semibold">"smartphones"</span>（智慧型手機 —— 我們談論的事物）</li>
-                            <li><strong class="text-slate-900 font-bold">Copula (系詞)：</strong> <span class="text-blue-800 font-semibold">"are"</span>（連結主詞與謂詞的動詞）</li>
-                            <li><strong class="text-slate-900 font-bold">Predicate / P (謂詞)：</strong> <span class="text-blue-800 font-semibold">"IT devices"</span>（IT 設備 —— 針對主詞所作的陳述）</li>
-                        </ul>
+                    
+                        <div class="border-t border-blue-200/80 pt-3 space-y-2.5">
+                            <p class="font-bold text-slate-900 text-sm">組合範例對照：</p>
+                            
+                            <div class="bg-white p-3 rounded-xl border border-blue-100 shadow-2xs space-y-1">
+                                <div class="text-sm">
+                                    <span class="font-mono font-bold text-blue-700">All</span> 
+                                    <span class="font-mono font-bold text-slate-800">students</span> 
+                                    <span class="font-mono font-bold text-indigo-700">are</span> 
+                                    <span class="font-mono font-bold text-slate-900">intelligent</span> 
+                                    <span class="text-slate-500 font-sans text-xs ml-2">（全稱肯定 A 命題）</span>
+                                </div>
+                                <div class="text-[11px] text-slate-400 font-mono flex gap-6 pl-1 pt-0.5">
+                                    <span>Quantifier</span><span>Subject</span><span>Copula</span><span>Predicate</span>
+                                </div>
+                            </div>
+                    
+                            <div class="bg-white p-3 rounded-xl border border-blue-100 shadow-2xs space-y-1">
+                                <div class="text-sm">
+                                    <span class="font-mono font-bold text-blue-700">Some</span> 
+                                    <span class="font-mono font-bold text-slate-800">students</span> 
+                                    <span class="font-mono font-bold text-red-600">are not</span> 
+                                    <span class="font-mono font-bold text-slate-900">hard working</span> 
+                                    <span class="text-slate-500 font-sans text-xs ml-2">（特稱否定 O 命題）</span>
+                                </div>
+                                <div class="text-[11px] text-slate-400 font-mono flex gap-6 pl-1 pt-0.5">
+                                    <span>Quantifier</span><span>Subject</span><span>Copula</span><span>Predicate</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+                        
+                        
                 </div>
     
                 <p class="pt-2">
@@ -347,8 +392,6 @@
     </div>
 
 
-
-        
 
         <!-- 4 Categorical Statements -->
         <h3 class="font-bold text-lg text-slate-900 mb-4 flex items-center gap-2">
