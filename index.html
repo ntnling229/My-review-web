@@ -229,116 +229,122 @@
 
 
 
-        <!-- === Chapter 3 前 15 頁核心導言卡片 (修正亂碼並加入結構公式例子) === -->
+        <!-- === Chapter 3 前 15 頁核心導言卡片 (字體放大版) === -->
         <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm mb-6 space-y-6">
-            <div class="flex items-center justify-between border-b border-slate-200 pb-3">
-                <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
-                    <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded">Ch 3 Overview</span> 
-                    Class Logic I: Foundations & Statement Structures (類別邏輯基礎與陳述結構)
-                </h3>
-                <span class="text-xs bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full font-semibold">PPT Slide 1-15</span>
-            </div>
-        
-            <!-- 1. 類別間的四種基本關係 -->
-            <div class="space-y-2">
-                <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-blue-600"></span>
-                    1. The Logic of Classes: 類別間的 4 種基本關係 (Slide 2)
-                </h4>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pl-4 text-sm text-slate-700">
-                    <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
-                        <span class="font-bold text-slate-900 block mb-1">① 完全包含 (Wholly includes)</span>
-                        <p class="text-xs text-slate-600">一類別完全包含於另一類別中。</p>
-                        <p class="text-xs font-mono text-blue-700 mt-1">e.g., All cars are machines / All birds are animals</p>
-                    </div>
-                    <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
-                        <span class="font-bold text-slate-900 block mb-1">② 完全排除 (Wholly excludes)</span>
-                        <p class="text-xs text-slate-600">一類別完全自另一類別中排除。</p>
-                        <p class="text-xs font-mono text-blue-700 mt-1">e.g., No men are women / No black are white</p>
-                    </div>
-                    <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
-                        <span class="font-bold text-slate-900 block mb-1">③ 部分包含 (Partly includes)</span>
-                        <p class="text-xs text-slate-600">一類別至少部分包含於另一類別中。</p>
-                        <p class="text-xs font-mono text-blue-700 mt-1">e.g., Some odd numbers include prime numbers / Some animals are mammals</p>
-                    </div>
-                    <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
-                        <span class="font-bold text-slate-900 block mb-1">④ 部分排除 (Partly excludes)</span>
-                        <p class="text-xs text-slate-600">一類別至少部分自另一類別中排除。</p>
-                        <p class="text-xs font-mono text-blue-700 mt-1">e.g., Some GEST1006 students are not from FBA / Some American people are not black</p>
-                    </div>
+        <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+            <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded">Ch 3 Overview</span> 
+                Class Logic I: Foundations & Statement Structures (類別邏輯基礎與陳述結構)
+            </h3>
+            <span class="text-xs bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full font-semibold">PPT Slide 1-15</span>
+        </div>
+    
+        <!-- 1. 類別間的四種基本關係 -->
+        <div class="space-y-2">
+            <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+                1. The Logic of Classes: 類別間的 4 種基本關係 (Slide 2)
+            </h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pl-4 text-sm text-slate-700">
+                <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-lg">
+                    <span class="font-bold text-slate-900 block mb-1">① 完全包含 (Wholly includes)</span>
+                    <p class="text-xs text-slate-600">一類別完全包含於另一類別中。</p>
+                    <p class="text-xs font-mono text-blue-700 mt-1">e.g., All cars are machines / All birds are animals</p>
                 </div>
-            </div>
-        
-            <!-- 2. 陳述的結構與範疇 -->
-            <div class="space-y-2 border-t border-slate-100 pt-4">
-                <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-blue-600"></span>
-                    2. Statement Structure: 陳述的結構、質性與量詞 (Slide 3-7)
-                </h4>
-                <ul class="space-y-2.5 text-sm text-slate-700 pl-4">
-                    <li>
-                        <span class="font-bold text-slate-900">基本組成 (Basic Parts):</span> 包含主詞 Subject (S)（我們談論的事物）與謂詞 Predicate (P)（針對主詞所作的陳述）。
-                    </li>
-                    <li>
-                        <span class="font-bold text-slate-900">質性 (Quality):</span>
-                        <span class="ml-1 text-slate-600">分為肯定 (Affirmative) 與否定 (Negative)。</span>
-                        <span class="block text-xs font-mono text-slate-500 mt-0.5 ml-4">• Affirmative: The Moon rotates around the Earth</span>
-                        <span class="block text-xs font-mono text-slate-500 ml-4">• Negative: The Sun does not rotate around the Earth</span>
-                    </li>
-                    <li>
-                        <span class="font-bold text-slate-900">量的範疇 (Quantity):</span>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-xs">
-                            <div class="p-2 bg-blue-50/60 rounded border border-blue-100">
-                                <span class="font-bold text-blue-900">Complete Affirmation (完全肯定):</span> All students are intelligent.
-                            </div>
-                            <div class="p-2 bg-blue-50/60 rounded border border-blue-100">
-                                <span class="font-bold text-blue-900">Partial Affirmation (部分肯定):</span> Some mathematicians are women.
-                            </div>
-                            <div class="p-2 bg-red-50/60 rounded border border-red-100">
-                                <span class="font-bold text-red-900">Complete Negation (完全否定):</span> No boys are girls.
-                            </div>
-                            <div class="p-2 bg-red-50/60 rounded border border-red-100">
-                                <span class="font-bold text-red-900">Partial Negation (部分否定):</span> Some students are not hard working.
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        
-            <!-- 3. 標準公式、舉例與文氏圖基礎 -->
-            <div class="space-y-2 border-t border-slate-100 pt-4">
-                <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-blue-600"></span>
-                    3. Standard Form Formula, Examples & Venn Diagram (Slide 8, 13-15)
-                </h4>
-                <div class="pl-4 text-sm text-slate-700 space-y-3">
-                    <div>
-                        <span class="font-bold text-slate-900 block mb-1">標準結構公式與詳細拆解 (Standard Form Formula):</span>
-                        <div class="font-mono bg-blue-50/80 p-3 rounded-lg border border-blue-200 text-xs text-blue-900 space-y-1">
-                            <div><strong>公式：</strong> Quantifier (量詞) + Subject (主詞) + Copula (系詞) + Predicate (謂詞)</div>
-                            <div class="text-slate-700 mt-2"><strong>經典例子：</strong> <span class="text-blue-700 font-bold">"All smartphones are IT devices."</span></div>
-                            <ul class="list-disc list-inside pl-2 space-y-0.5 text-slate-600 text-[11px]">
-                                <li><strong class="text-slate-800">Quantifier (量詞)：</strong> "All"（全稱）</li>
-                                <li><strong class="text-slate-800">Subject / S (主詞)：</strong> "smartphones"（智慧型手機 —— 我們談論的事物）</li>
-                                <li><strong class="text-slate-800">Copula (系詞)：</strong> "are"（連結主詞與謂詞的動詞）</li>
-                                <li><strong class="text-slate-800">Predicate / P (謂詞)：</strong> "IT devices"（IT 設備 —— 針對主詞所作的陳述）</li>
-                            </ul>
-                        </div>
-                    </div>
-        
-                    <p class="pt-2">
-                        <span class="font-bold text-slate-900">雙重準則交叉 (Two Criteria Venn Diagram):</span>
-                        <span class="text-slate-600">以 Female/Non-female (F) 與 Clever/Not clever (C) 為例，劃分出 4 個互斥區域：</span>
-                    </p>
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs">
-                        <div class="p-2 bg-slate-100 rounded text-slate-700 font-medium">Non-female & Clever</div>
-                        <div class="p-2 bg-slate-100 rounded text-slate-700 font-medium">Non-female & Not clever</div>
-                        <div class="p-2 bg-slate-100 rounded text-slate-700 font-medium">Female & Clever</div>
-                        <div class="p-2 bg-slate-100 rounded text-slate-700 font-medium">Female & Not clever</div>
-                    </div>
+                <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-lg">
+                    <span class="font-bold text-slate-900 block mb-1">② 完全排除 (Wholly excludes)</span>
+                    <p class="text-xs text-slate-600">一類別完全自另一類別中排除。</p>
+                    <p class="text-xs font-mono text-blue-700 mt-1">e.g., No men are women / No black are white</p>
+                </div>
+                <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-lg">
+                    <span class="font-bold text-slate-900 block mb-1">③ 部分包含 (Partly includes)</span>
+                    <p class="text-xs text-slate-600">一類別至少部分包含於另一類別中。</p>
+                    <p class="text-xs font-mono text-blue-700 mt-1">e.g., Some odd numbers include prime numbers / Some animals are mammals</p>
+                </div>
+                <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-lg">
+                    <span class="font-bold text-slate-900 block mb-1">④ 部分排除 (Partly excludes)</span>
+                    <p class="text-xs text-slate-600">一類別至少部分自另一類別中排除。</p>
+                    <p class="text-xs font-mono text-blue-700 mt-1">e.g., Some GEST1006 students are not from FBA / Some American people are not black</p>
                 </div>
             </div>
         </div>
+    
+        <!-- 2. 陳述的結構與範疇 -->
+        <div class="space-y-2 border-t border-slate-100 pt-4">
+            <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+                2. Statement Structure: 陳述的結構、質性與量詞 (Slide 3-7)
+            </h4>
+            <ul class="space-y-3 text-sm text-slate-700 pl-4">
+                <li>
+                    <span class="font-bold text-slate-900">基本組成 (Basic Parts):</span> 包含主詞 Subject (S)（我們談論的事物）與謂詞 Predicate (P)（針對主詞所作的陳述）。
+                </li>
+                <li>
+                    <span class="font-bold text-slate-900">質性 (Quality):</span>
+                    <span class="ml-1 text-slate-600">分為肯定 (Affirmative) 與否定 (Negative)。</span>
+                    <span class="block text-xs font-mono text-slate-600 mt-1 ml-4">• Affirmative: The Moon rotates around the Earth</span>
+                    <span class="block text-xs font-mono text-slate-600 ml-4">• Negative: The Sun does not rotate around the Earth</span>
+                </li>
+                <li>
+                    <span class="font-bold text-slate-900">量的範疇 (Quantity):</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-xs">
+                        <div class="p-2.5 bg-blue-50/60 rounded border border-blue-100">
+                            <span class="font-bold text-blue-900">Complete Affirmation (完全肯定):</span> All students are intelligent.
+                        </div>
+                        <div class="p-2.5 bg-blue-50/60 rounded border border-blue-100">
+                            <span class="font-bold text-blue-900">Partial Affirmation (部分肯定):</span> Some mathematicians are women.
+                        </div>
+                        <div class="p-2.5 bg-red-50/60 rounded border border-red-100">
+                            <span class="font-bold text-red-900">Complete Negation (完全否定):</span> No boys are girls.
+                        </div>
+                        <div class="p-2.5 bg-red-50/60 rounded border border-red-100">
+                            <span class="font-bold text-red-900">Partial Negation (部分否定):</span> Some students are not hard working.
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    
+        <!-- 3. 標準公式、舉例與文氏圖基礎 (放大此區塊字體) -->
+        <div class="space-y-2 border-t border-slate-100 pt-4">
+            <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+                3. Standard Form Formula, Examples & Venn Diagram (Slide 8, 13-15)
+            </h4>
+            <div class="pl-4 text-sm text-slate-700 space-y-3">
+                <div>
+                    <span class="font-bold text-slate-900 block mb-1 text-sm">標準結構公式與詳細拆解 (Standard Form Formula):</span>
+                    
+                    <!-- 🌟 放大字體區塊 🌟 -->
+                    <div class="font-mono bg-blue-50/80 p-4 rounded-xl border border-blue-200 text-sm text-blue-950 space-y-2">
+                        <div class="font-bold text-base border-b border-blue-200/60 pb-2">
+                            公式： Quantifier (量詞) + Subject (主詞) + Copula (系詞) + Predicate (謂詞)
+                        </div>
+                        <div class="text-slate-800 font-bold text-base pt-1">
+                            經典例子： <span class="text-blue-700">"All smartphones are IT devices."</span>
+                        </div>
+                        <ul class="list-disc list-inside pl-2 space-y-1.5 text-slate-700 text-xs mt-2">
+                            <li><strong class="text-slate-900 font-bold">Quantifier (量詞)：</strong> <span class="text-blue-800 font-semibold">"All"</span>（全稱）</li>
+                            <li><strong class="text-slate-900 font-bold">Subject / S (主詞)：</strong> <span class="text-blue-800 font-semibold">"smartphones"</span>（智慧型手機 —— 我們談論的事物）</li>
+                            <li><strong class="text-slate-900 font-bold">Copula (系詞)：</strong> <span class="text-blue-800 font-semibold">"are"</span>（連結主詞與謂詞的動詞）</li>
+                            <li><strong class="text-slate-900 font-bold">Predicate / P (謂詞)：</strong> <span class="text-blue-800 font-semibold">"IT devices"</span>（IT 設備 —— 針對主詞所作的陳述）</li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <p class="pt-2">
+                    <span class="font-bold text-slate-900">雙重準則交叉 (Two Criteria Venn Diagram):</span>
+                    <span class="text-slate-600">以 Female/Non-female (F) 與 Clever/Not clever (C) 為例，劃分出 4 個互斥區域：</span>
+                </p>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs">
+                    <div class="p-2.5 bg-slate-100 rounded-lg text-slate-700 font-medium">Non-female & Clever</div>
+                    <div class="p-2.5 bg-slate-100 rounded-lg text-slate-700 font-medium">Non-female & Not clever</div>
+                    <div class="p-2.5 bg-slate-100 rounded-lg text-slate-700 font-medium">Female & Clever</div>
+                    <div class="p-2.5 bg-slate-100 rounded-lg text-slate-700 font-medium">Female & Not clever</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
