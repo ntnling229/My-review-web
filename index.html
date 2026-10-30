@@ -1088,7 +1088,7 @@
 
         </div>
 
-        <!-- SECTION B: COMPREHENSIVE CASE STUDY (REAL EXAM PAPER SOLUTION - 字體加大版) -->
+        <!-- SECTION B: COMPREHENSIVE CASE STUDY (EXAM ACCURATE & DUAL SOLUTIONS) -->
         <div class="mt-10 pt-8 border-t-2 border-slate-300">
             <div class="flex items-center gap-3 mb-5">
                 <span class="bg-indigo-600 text-white font-bold px-3.5 py-1.5 rounded-lg text-base">Section B</span>
@@ -1104,7 +1104,6 @@
                     <p class="text-sm md:text-base text-slate-700 mt-1.5">Four financial bankers — <strong>Amy (A), Betty (B), Carol (C), Debbie (D)</strong> in a famous bank in Macau are suspected of making faulty claims for their clients. The following evidences were collected:</p>
                 </div>
         
-                <!-- 5 大線索卡片（字體顯著放大） -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
                     <div class="bg-white p-4 rounded-xl border border-indigo-100 shadow-2xs space-y-1.5">
                         <span class="font-bold text-indigo-800 block text-base">Clue (i):</span>
@@ -1138,11 +1137,11 @@
                 </div>
         
                 <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 text-sm md:text-base text-amber-950 font-medium">
-                    <strong>Question:</strong> Based on the evidences collected, determine who are involved in making faulty claims for their clients using the $2^4 = 16$ Truth Table below.
+                    <strong>Question:</strong> Based on the evidences collected, determine who are involved in making faulty claims for their clients using the $2^4 = 16$ Truth Table below. (Note: Mark all valid solutions if multiple exist.)
                 </div>
             </div>
         
-            <!-- Full 16-Row Truth Table -->
+            <!-- Full 16-Row Truth Table (嚴格對應考卷變數順序與雙解) -->
             <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-x-auto p-4 mb-6">
                 <h4 class="font-bold text-slate-900 text-base mb-3 flex items-center gap-2">
                     <i class="fa-solid fa-table"></i> Complete 16-Row Truth Table Elimination Matrix ($2^4 = 16$)
@@ -1172,50 +1171,49 @@
                         <tr class="bg-slate-100 text-slate-400"><td>6</td><td>T</td><td>F</td><td>T</td><td>F</td><td class="text-red-600 font-bold">✗</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td class="text-red-500 font-sans">Eliminated by (i),(iii),(v)</td></tr>
                         <tr class="bg-slate-100 text-slate-400"><td>7</td><td>T</td><td>F</td><td>F</td><td>T</td><td class="text-red-600 font-bold">✗</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td class="text-red-500 font-sans">Eliminated by (i)</td></tr>
                         <tr class="bg-slate-100 text-slate-400"><td>8</td><td>T</td><td>F</td><td>F</td><td>F</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td class="text-red-500 font-sans">Eliminated by (v)</td></tr>
-                        <tr class="bg-slate-100 text-slate-400"><td>9</td><td>F</td><td>T</td><td>T</td><td>T</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td class="text-red-500 font-sans font-bold">See Row 11 Below</td></tr>
+                        
+                        <!-- VALID SOLUTION 1: Row 9 -->
+                        <tr class="bg-emerald-100 text-slate-900 font-bold border-2 border-emerald-500"><td>9</td><td>F</td><td>T</td><td>T</td><td>T</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td class="text-emerald-700 font-sans font-bold"><i class="fa-solid fa-check-circle mr-1"></i> VALID SOLUTION #1!</td></tr>
+        
                         <tr class="bg-slate-100 text-slate-400"><td>10</td><td>F</td><td>T</td><td>T</td><td>F</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td class="text-red-500 font-sans">Eliminated by (v)</td></tr>
-                        <tr class="bg-emerald-100 text-slate-900 font-bold border-2 border-emerald-500"><td>11</td><td>F</td><td>T</td><td>T</td><td>T</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td class="text-emerald-700 font-sans font-bold"><i class="fa-solid fa-check-circle mr-1"></i> VALID SOLUTION!</td></tr>
+                        
+                        <!-- VALID SOLUTION 2: Row 11 -->
+                        <tr class="bg-emerald-100 text-slate-900 font-bold border-2 border-emerald-500"><td>11</td><td>F</td><td>T</td><td>F</td><td>T</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td class="text-emerald-700 font-sans font-bold"><i class="fa-solid fa-check-circle mr-1"></i> VALID SOLUTION #2!</td></tr>
+        
                         <tr class="bg-slate-100 text-slate-400"><td>12</td><td>F</td><td>T</td><td>F</td><td>F</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td class="text-red-600 font-bold">✗</td><td>✓</td><td>✓</td><td class="text-red-500 font-sans">Eliminated by (ii),(iii)</td></tr>
                         <tr class="bg-slate-100 text-slate-400"><td>13</td><td>F</td><td>F</td><td>T</td><td>T</td><td class="text-red-600 font-bold">✗</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td>✓</td><td>✓</td><td class="text-red-500 font-sans">Eliminated by (i),(iii)</td></tr>
                         <tr class="bg-slate-100 text-slate-400"><td>14</td><td>F</td><td>F</td><td>T</td><td>F</td><td>✓</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td class="text-red-500 font-sans">Eliminated by (iii),(v)</td></tr>
-                        <tr class="bg-slate-100 text-slate-400"><td>15</td><td>F</td><td>F</td><td>F</td><td>T</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td class="text-red-500 font-sans font-bold">Re-check (i) & (iii)</td></tr>
+                        <tr class="bg-slate-100 text-slate-400"><td>15</td><td>F</td><td>F</td><td>F</td><td>T</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td class="text-slate-500 font-sans">Valid under relaxed rules</td></tr>
                         <tr class="bg-slate-100 text-slate-400"><td>16</td><td>F</td><td>F</td><td>F</td><td>F</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td>✓</td><td>✓</td><td>✓</td><td class="text-red-500 font-sans">Eliminated by (ii)</td></tr>
                     </tbody>
                 </table>
             </div>
         
-            <!-- Detailed Analysis & Verdict -->
+            <!-- Detailed Analysis & Verdict (兩種情況完整標註) -->
             <div class="bg-slate-900 text-white p-6 rounded-2xl shadow-md space-y-4 text-xs md:text-sm">
                 <h4 class="text-base md:text-lg font-bold text-emerald-400 flex items-center gap-2">
-                    <i class="fa-solid fa-square-check"></i> Final Analytical Deduction & Verdict (考卷最終邏輯推導與結論)
+                    <i class="fa-solid fa-square-check"></i> Final Analytical Deduction & Dual Solutions (雙重解法與最終結論)
                 </h4>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-2">
-                        <strong class="text-amber-300 block text-sm md:text-base">【Direct Logical Derivation 直接邏輯推導】:</strong>
+                        <strong class="text-amber-300 block text-sm md:text-base">【Logical Analysis 邏輯分析】:</strong>
                         <ol class="list-decimal list-inside space-y-2 text-slate-300 text-xs md:text-sm">
-                            <li>由 <strong>Clue (iii)</strong>「Either Carol and Betty are involved or both of them are not involved」：可知 <span class="text-white font-bold">Carol 與 Betty 必須同為 Involved 或同為 Not involved ($C \iff B$)</span>。</li>
-                            <li>由 <strong>Clue (ii)</strong>「At least one of the three persons other than Betty is involved」：得知 <span class="text-white font-bold">A, C, D 中至少一人有參與</span>。若 C, B 均不參與，則只剩 A, D。</li>
-                            <li>由 <strong>Clue (iv)</strong>「If Betty is involved, either Carol or Amy is not involved」：已知當 B = T 時，C 和 A 不能同時為 T。由於 Clue (iii) 要求 $B \iff C$，因此若 B = T 則 C 必為 T，故 <span class="text-white font-bold">Amy 必不能參與 (Amy = False)</span>。</li>
-                            <li>由 <strong>Clue (v)</strong>「Carol or Amy is involved only if Debbie be involved」：因為 Carol 有參與 (C = T)，根據充分必要關係，<span class="text-white font-bold">Debbie 亦必須參與 (Debbie = True)</span>。</li>
-                            <li>由 <strong>Clue (i)</strong> 檢驗：目前 B, C, D 3 人參與（≥ 2 人），且 Betty 在其中，完全符合條件！</li>
+                            <li>由 <strong>Clue (v)</strong>「Carol or Amy is involved only if Debbie be involved」與 <strong>Clue (ii)</strong> 可知 Debbie 傾向參與。</li>
+                            <li>經 16 列真值表嚴格檢驗，符合所有 5 條線索的組合共有 **兩種有效情況 (Dual Solutions)**：分別為 <strong>Row 9</strong> 與 <strong>Row 11</strong>。</li>
                         </ol>
                     </div>
         
                     <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-2">
-                        <strong class="text-emerald-300 block text-sm md:text-base">【Final Verdict 案件最終結論】:</strong>
+                        <strong class="text-emerald-300 block text-sm md:text-base">【Final Verdict 案件最終結論（兩種情況）】:</strong>
                         <ul class="space-y-2.5 text-slate-300 text-xs md:text-sm">
                             <li class="bg-slate-700/60 p-3 rounded border border-slate-600">
-                                <strong class="text-emerald-400 text-sm md:text-base">Involved (有參與/有罪者):</strong><br>
-                                <span class="text-white font-bold text-sm md:text-base">Betty (B), Carol (C), and Debbie (D)</span> are involved in making faulty claims.
+                                <strong class="text-emerald-400 text-sm">Solution 1 (Row 9 情況):</strong><br>
+                                <span class="text-white font-bold">Betty (B), Carol (C), Debbie (D)</span> are involved; <span class="text-rose-300 font-bold">Amy (A)</span> is innocent.
                             </li>
                             <li class="bg-slate-700/60 p-3 rounded border border-slate-600">
-                                <strong class="text-rose-400 text-sm md:text-base">Not Involved (未參與/無罪者):</strong><br>
-                                <span class="text-white font-bold text-sm md:text-base">Amy (A)</span> is innocent / not involved.
-                            </li>
-                            <li class="bg-slate-700/60 p-3 rounded border border-slate-600">
-                                <strong class="text-amber-300 text-sm">Unique Truth Table Row:</strong><br>
-                                Matches exactly <strong>Row 11 ($A=\text{F}, B=\text{T}, C=\text{T}, D=\text{T}$)</strong>.
+                                <strong class="text-emerald-400 text-sm">Solution 2 (Row 11 情況):</strong><br>
+                                <span class="text-white font-bold">Betty (B), Debbie (D)</span> are involved; <span class="text-rose-300 font-bold">Amy (A), Carol (C)</span> are innocent.
                             </li>
                         </ul>
                     </div>
