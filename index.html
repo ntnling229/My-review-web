@@ -1221,6 +1221,150 @@
         </div>
 
 
+        <!-- SECTION: LOGICAL CONNECTIVES SUMMARY SHEET (補充頁：邏輯連接詞完整總結) -->
+        <div class="mt-10 pt-8 border-t-2 border-slate-300 searchable-section">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-blue-600 text-white font-bold px-3.5 py-1.5 rounded-lg text-base">Appendix</span>
+                <h3 class="font-bold text-xl md:text-2xl text-slate-900">Logical Connectives Reference Sheet (邏輯連接詞與符號總表)</h3>
+            </div>
+        
+            <!-- 1. Basic Connectives -->
+            <div class="bg-white rounded-2xl p-5 md:p-6 shadow-sm border border-slate-200 mb-6 space-y-3">
+                <h4 class="font-bold text-slate-900 text-base md:text-lg flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-blue-600"></span> 1. Basic Connectives (基本邏輯連接詞)
+                </h4>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs md:text-sm text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                                <th class="p-3">Connective</th>
+                                <th class="p-3">Symbol</th>
+                                <th class="p-3">Natural Language Patterns</th>
+                                <th class="p-3">Truth Value Rule</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-700">
+                            <tr>
+                                <td class="p-3 font-bold text-slate-900">Negation (Not)</td>
+                                <td class="p-3 font-mono text-blue-600 font-bold">$\neg A$ / $\sim A$</td>
+                                <td class="p-3">Not A, It is not the case that A<br><span class="text-slate-400 text-xs">（非 A / 並非 A）</span></td>
+                                <td class="p-3">Inverts the truth value ($T \to F, F \to T$).</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-slate-900">Conjunction (And)</td>
+                                <td class="p-3 font-mono text-blue-600 font-bold">$A \land B$</td>
+                                <td class="p-3">A and B, Both A and B<br><span class="text-slate-400 text-xs">（A 且 B / 既 A 又 B）</span></td>
+                                <td class="p-3"><strong class="text-slate-900">True</strong> only if both A and B are True.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-slate-900">Disjunction (Or)</td>
+                                <td class="p-3 font-mono text-blue-600 font-bold">$A \lor B$</td>
+                                <td class="p-3">A or B, Either A or B<br><span class="text-slate-400 text-xs">（A 或 B / 至少一個為真）</span></td>
+                                <td class="p-3"><strong class="text-slate-900">True</strong> if at least one proposition is True.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-slate-900">Exclusive Or (XOR)</td>
+                                <td class="p-3 font-mono text-blue-600 font-bold">$A \oplus B$</td>
+                                <td class="p-3">Either A or B, but not both<br><span class="text-slate-400 text-xs">（不是 A 就是 B，不能同時為真）</span></td>
+                                <td class="p-3"><strong class="text-slate-900">True</strong> if A and B have different truth values.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        
+            <!-- 2. Conditionals & Implication -->
+            <div class="bg-white rounded-2xl p-5 md:p-6 shadow-sm border border-slate-200 mb-6 space-y-3">
+                <h4 class="font-bold text-slate-900 text-base md:text-lg flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-indigo-600"></span> 2. Conditionals & Implication (條件與蘊涵連接詞)
+                </h4>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs md:text-sm text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                                <th class="p-3">Type</th>
+                                <th class="p-3">Symbol</th>
+                                <th class="p-3">Natural Language Patterns</th>
+                                <th class="p-3">Core Rule & Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-700">
+                            <tr>
+                                <td class="p-3 font-bold text-slate-900">Conditional (If-Then)</td>
+                                <td class="p-3 font-mono text-indigo-600 font-bold">$A \to B$</td>
+                                <td class="p-3">If A then B, B if A, A implies B<br><span class="text-slate-400 text-xs">（若 A 則 B / 只要 A 就 B）</span></td>
+                                <td class="p-3"><strong class="text-rose-600">False</strong> only when $A = T$ and $B = F$.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-slate-900">Necessary Condition (Only If)</td>
+                                <td class="p-3 font-mono text-indigo-600 font-bold">$A \to B$</td>
+                                <td class="p-3">A only if B<br><span class="text-slate-400 text-xs">（只有當 B 發生時，A 才發生）</span></td>
+                                <td class="p-3">Necessary condition ($B$) goes on the right side of $\to$.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-slate-900">Unless (若非)</td>
+                                <td class="p-3 font-mono text-indigo-600 font-bold">$\neg A \to B$ / $A \lor B$</td>
+                                <td class="p-3">B unless A<br><span class="text-slate-400 text-xs">（除非 A，否則 B）</span></td>
+                                <td class="p-3">Equivalent to $\neg A \to B$ or $A \lor B$.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-slate-900">Biconditional (If and Only If)</td>
+                                <td class="p-3 font-mono text-indigo-600 font-bold">$A \leftrightarrow B$</td>
+                                <td class="p-3">A if and only if B (iff)<br><span class="text-slate-400 text-xs">（若且唯若 / 充分必要條件）</span></td>
+                                <td class="p-3"><strong class="text-slate-900">True</strong> only when both have identical truth values.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        
+            <!-- 3. Quantifiers -->
+            <div class="bg-white rounded-2xl p-5 md:p-6 shadow-sm border border-slate-200 space-y-3">
+                <h4 class="font-bold text-slate-900 text-base md:text-lg flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-purple-600"></span> 3. Categorical Quantifiers (量詞命題)
+                </h4>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs md:text-sm text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                                <th class="p-3">Type</th>
+                                <th class="p-3">Formal Representation</th>
+                                <th class="p-3">Natural Language</th>
+                                <th class="p-3">Logical Equivalent</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-700 font-mono text-xs md:text-sm">
+                            <tr>
+                                <td class="p-3 font-bold font-sans text-slate-900">Universal Affirmative (A)</td>
+                                <td class="p-3 text-purple-600 font-bold">$\forall x (A(x) \to B(x))$</td>
+                                <td class="p-3 font-sans">All A are B<span class="text-slate-400 text-xs block">（所有 A 都是 B）</span></td>
+                                <td class="p-3 text-slate-500 font-sans">—</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold font-sans text-slate-900">Universal Negative (E)</td>
+                                <td class="p-3 text-purple-600 font-bold">$\forall x (A(x) \to \neg B(x))$</td>
+                                <td class="p-3 font-sans">No A are B<span class="text-slate-400 text-xs block">（沒有 A 是 B）</span></td>
+                                <td class="p-3 text-slate-600 font-mono">$\neg \exists x (A(x) \land B(x))$</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold font-sans text-slate-900">Particular Affirmative (I)</td>
+                                <td class="p-3 text-purple-600 font-bold">$\exists x (A(x) \land B(x))$</td>
+                                <td class="p-3 font-sans">Some A are B<span class="text-slate-400 text-xs block">（有些 A 是 B）</span></td>
+                                <td class="p-3 text-slate-500 font-sans">—</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold font-sans text-slate-900">Particular Negative (O)</td>
+                                <td class="p-3 text-purple-600 font-bold">$\exists x (A(x) \land \neg B(x))$</td>
+                                <td class="p-3 font-sans">Some A are not B<span class="text-slate-400 text-xs block">（有些 A 不是 B）</span></td>
+                                <td class="p-3 text-slate-600 font-mono">$\neg \forall x (A(x) \to B(x))$</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        
         
     </section>
 
