@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-HK">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Logic & Reasoning Review Guide (Ch 1 - Ch 3 & Midterm Analysis)</title>
+    <title>CISC1002 - Ch 9.1 Relations and Their Properties Review Guide</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome CDN -->
@@ -33,1497 +33,290 @@
 <header class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
     <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
         <div class="flex items-center gap-3">
-            <i class="fa-solid fa-brain text-2xl text-blue-400"></i>
-            <h1 class="text-xl font-bold tracking-wide">Business Logic & Reasoning Review Guide</h1>
+            <i class="fa-solid fa-project-diagram text-2xl text-blue-400"></i>
+            <h1 class="text-xl font-bold tracking-wide">CISC1002 Discrete Structures Review Guide</h1>
         </div>
-        <nav class="flex gap-2 text-xs md:text-sm font-medium">
-            <a href="#ch1" class="px-3 py-1.5 rounded hover:bg-slate-800 transition">Ch 1 Intro</a>
-            <a href="#ch2" class="px-3 py-1.5 rounded hover:bg-slate-800 transition">Ch 2 Elimination</a>
-            <a href="#ch3" class="px-3 py-1.5 rounded hover:bg-slate-800 transition">Ch 3 Categorical</a>
-            <a href="#midterm" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 rounded text-white font-bold transition">Midterm Q&A</a>
-            <a href="#appendix" class="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-bold shadow-sm hover:bg-indigo-500 transition">Appendix 邏輯連接詞補充</a>
+        <nav class="flex gap-2 text-xs md:text-sm font-medium flex-wrap justify-center">
+            <a href="y2-s1.html" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded transition flex items-center gap-1.5 text-blue-400"><i class="fa-solid fa-arrow-left"></i> 返回學期選單</a>
+            <a href="#sec1" class="px-3 py-1.5 rounded hover:bg-slate-800 transition">1. 二元關係導論</a>
+            <a href="#sec2" class="px-3 py-1.5 rounded hover:bg-slate-800 transition">2. 函數與關係</a>
+            <a href="#sec3" class="px-3 py-1.5 rounded hover:bg-slate-800 transition">3. 集合上的關係</a>
+            <a href="#sec4" class="px-3 py-1.5 rounded hover:bg-slate-800 transition">4. 關係的核心四大性質</a>
+            <a href="#sec5" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 rounded text-white font-bold transition">5. 組合、合成與證明</a>
         </nav>
     </div>
 </header>
 
 <main class="max-w-7xl mx-auto px-4 py-8 space-y-8">
 
-
-    <!-- CHAPTER 1 -->
-    <section id="ch1" class="searchable-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
-    <div class="border-b pb-4 mb-6 flex items-center justify-between">
-        <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
-            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-lg text-base md:text-lg">Ch 1</span>
-            Business Logic & Critical Thinking (商業邏輯與批判性思考)
-        </h2>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <!-- Reasons to Learn Logic -->
-        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
-            <h3 class="font-bold text-base md:text-lg text-blue-800 mb-3 flex items-center gap-2">
-                <i class="fa-solid fa-lightbulb text-amber-500"></i> 1. Reasons to Learn Logic
-            </h3>
-            <ul class="space-y-3 text-slate-700 text-sm md:text-base">
-                <li class="bg-white p-4 rounded-lg shadow-sm border border-slate-100">
-                    <strong class="text-slate-900 text-sm md:text-base">Build Critical Thinking Skills:</strong><br>
-                    Study <span class="text-blue-600 font-bold">Validity</span> (有效性) of arguments, <span class="text-blue-600 font-bold">Syllogisms</span> (三段論), and recognize logical <span class="text-blue-600 font-bold">Fallacies</span> (謬誤) to avoid misleading arguments.
-                    <p class="text-xs md:text-sm text-slate-500 mt-1.5">【中文補充】學習邏輯的核心目的是為了辨識論點結構，評估前提是否支持結論，避免陷入常見的邏輯陷阱。</p>
-                </li>
-                <li class="bg-white p-4 rounded-lg shadow-sm border border-slate-100">
-                    <strong class="text-slate-900 text-sm md:text-base">Build Character & Credibility:</strong><br>
-                    Evaluate <span class="text-blue-600 font-bold">Evidence</span> (證據), verify if information sources are <span class="text-blue-600 font-bold">Credible</span> (可信), and enhance problem-solving confidence in business decision-making.
-                    <p class="text-xs md:text-sm text-slate-500 mt-1.5">【中文補充】有助於建立嚴謹客觀的個人品格與商業公信力。</p>
-                </li>
-            </ul>
-        </div>
-
-        <!-- 5 Core Cognitive Skills -->
-        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
-            <h3 class="font-bold text-base md:text-lg text-blue-800 mb-3 flex items-center gap-2">
-                <i class="fa-solid fa-gears text-blue-500"></i> 2. 5 Core Critical Thinking Cognitive Skills
-            </h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs md:text-sm">
-                <div class="bg-white p-3 rounded-lg border border-slate-200 space-y-1">
-                    <strong class="text-blue-600 block text-xs md:text-sm font-bold">1. Observation (觀察能力)</strong>
-                    <span class="text-slate-700">Identify problem areas and predict potential solution paths.</span>
-                </div>
-                <div class="bg-white p-3 rounded-lg border border-slate-200 space-y-1">
-                    <strong class="text-blue-600 block text-xs md:text-sm font-bold">2. Analysis (分析能力)</strong>
-                    <span class="text-slate-700">Gather data effectively, evaluate, and categorize logically.</span>
-                </div>
-                <div class="bg-white p-3 rounded-lg border border-slate-200 space-y-1">
-                    <strong class="text-blue-600 block text-xs md:text-sm font-bold">3. Inference (推論能力)</strong>
-                    <span class="text-slate-700">Draw valid conclusions based on objective data and facts.</span>
-                </div>
-                <div class="bg-white p-3 rounded-lg border border-slate-200 space-y-1">
-                    <strong class="text-blue-600 block text-xs md:text-sm font-bold">4. Communication (溝通能力)</strong>
-                    <span class="text-slate-700">Express reasoning clearly and absorb insights effectively.</span>
-                </div>
-                <div class="bg-white p-3 rounded-lg border border-slate-200 col-span-1 sm:col-span-2 space-y-1">
-                    <strong class="text-blue-600 block text-xs md:text-sm font-bold">5. Problem Solving (問題解決)</strong>
-                    <span class="text-slate-700">Integrate cognitive insights to implement actionable business solutions.</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-   <!-- Key Concepts & Tech Application (保持原本整齊的三欄佈局) -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-        <div class="bg-blue-50/60 p-4 md:p-5 rounded-xl border border-blue-100 space-y-2">
-            <h4 class="font-bold text-blue-900 text-sm md:text-base">Logic vs. Reasoning</h4>
-            <p class="text-xs md:text-sm text-slate-700"><strong>Logic:</strong> A branch of philosophy studying principles of valid <span class="font-semibold text-slate-900">Deduction</span> (演繹).</p>
-            <p class="text-xs md:text-sm text-slate-700"><strong>Reasoning:</strong> The thinking process of <span class="font-semibold text-slate-900">Derivation</span> (推導) from premises to conclusions.</p>
-        </div>
-        <div class="bg-indigo-50/60 p-4 md:p-5 rounded-xl border border-indigo-100 space-y-2">
-            <h4 class="font-bold text-indigo-900 text-sm md:text-base">Reasoning Techniques</h4>
-            <p class="text-xs md:text-sm text-slate-700"><strong>Substitution (替代法):</strong> Replacing equivalent variables ($A=B, C=A \implies C=B$).</p>
-            <p class="text-xs md:text-sm text-slate-700"><strong>Derivation (直接推導):</strong> Deducing facts step-by-step from given conditions.</p>
-        </div>
-        <div class="bg-purple-50/60 p-4 md:p-5 rounded-xl border border-purple-100 space-y-2">
-            <h4 class="font-bold text-purple-900 text-sm md:text-base">Computers as Logic Machines</h4>
-            <p class="text-xs md:text-sm text-slate-700">Computers are regarded as logic machines. They are made up of <span class="font-semibold text-slate-900">Logic Circuits</span>, which are built from <span class="font-semibold text-slate-900">Logic Gates</span> (AND, OR, NOT).</p>
-        </div>
-    </div>
-
-    <!-- Reasoning by Derivation (獨立移至下方，變成乾淨的滿版卡片) -->
-    <div class="bg-slate-50 p-5 md:p-6 rounded-2xl border border-slate-200 space-y-4">
-        <h3 class="font-bold text-lg text-blue-800 flex items-center gap-2">
-            <i class="fa-solid fa-route text-blue-500"></i> Reasoning by Derivation (推導推理)
-        </h3>
-        
-        <p class="text-sm font-semibold text-slate-900">Two ways to solve the problem (解決問題的兩種主要方法)：</p>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs md:text-sm">
-            <!-- Empirical approach -->
-            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2">
-                <strong class="text-blue-600 block text-sm font-bold">1. Empirical approach (實證研究方法)</strong>
-                <p class="text-slate-700">A research method where the conclusion of the study is drawn from empirical evidence, and the evidence can be gathered by using direct or indirect observation or experience.</p>
-                <p class="text-xs text-slate-500 italic pt-1 border-t border-slate-100">（比喻：That means counting the hairs of everyone 逐個去數所有人的頭髮）</p>
-            </div>
-
-            <!-- Logical approach -->
-            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2">
-                <strong class="text-blue-600 block text-sm font-bold">2. Logical approach (邏輯方法)</strong>
-                <p class="text-slate-700">A method which is to make inference logically using the given information.</p>
-                <p class="text-xs text-slate-500 italic pt-1 border-t border-slate-100">（核心：運用給定的資訊進行純粹的邏輯推理與推導）</p>
-            </div>
-        </div>
-    </div>
-        
-    </section>
-
-    <!-- CHAPTER 2 -->
-    <section id="ch2" class="searchable-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
-        <div class="border-b pb-4 mb-6">
+    <!-- SECTION 1: Introduction & Binary Relations -->
+    <section id="sec1" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b pb-4 mb-6 flex items-center justify-between">
             <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
-                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-lg text-base md:text-lg">Ch 2</span>
-                Methods of Elimination: Truth Table & Matrix Method (排除法)
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 9.1</span>
+                二元關係定義與表示法 (Introduction & Binary Relations)
             </h2>
         </div>
 
-        <!-- === Ch 2: What is Logic Puzzle? (獨立卡片分開、字體大小統一與微調放大版) === -->
-        <div class="space-y-4 mb-6">
-        
-            <!-- What is Logic Puzzle? 主標題卡片 -->
-            <div class="bg-white p-5 md:p-6 rounded-2xl border border-blue-200 shadow-sm space-y-4">
-                <!-- 標題列 -->
-                <div class="flex items-center gap-2.5 pb-3 border-b border-slate-100">
-                    <span class="p-2 bg-blue-100 text-blue-700 rounded-lg">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
-                    </span>
-                    <div>
-                        <h4 class="font-bold text-slate-900 text-base md:text-lg">What is Logic Puzzle? (什麼是邏輯拼圖)</h4>
-                        <p class="text-xs md:text-sm text-slate-500">Core Definition & Methodology</p>
-                    </div>
-                </div>
-        
-                <!-- 獨立分開的雙卡片網格佈局 -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <!-- 獨立卡片 1：Logic Puzzle Definition -->
-                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 shadow-2xs space-y-2">
-                        <span class="font-bold text-blue-900 block text-sm md:text-base">Logic Puzzle Definition (定義)</span>
-                        <p class="text-slate-800 text-sm md:text-base">A particular type of puzzle that can be solved by logical reasoning.</p>
-                        <p class="text-xs md:text-sm text-slate-500 pt-1 border-t border-slate-200/60">（中文補充：一種可以透過邏輯推理來解決的特定拼圖。）</p>
-                    </div>
-        
-                    <!-- 獨立卡片 2：Core Principle -->
-                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 shadow-2xs space-y-2">
-                        <span class="font-bold text-blue-900 block text-sm md:text-base">Core Principle (核心原則)</span>
-                        <p class="text-slate-800 text-sm md:text-base">To solve the logic puzzles, one only needs to reason with the necessary information given.</p>
-                        <p class="text-xs md:text-sm text-slate-500 pt-1 border-t border-slate-200/60">（中文補充：解題核心是只需要運用所給出的必要資訊進行邏輯思考，即可得出答案。）</p>
-                    </div>
-                </div>
-        
-                <!-- 方法論與兩種解法總結 -->
-                <div class="p-4 bg-blue-50/60 rounded-xl border border-blue-100 text-sm md:text-base space-y-3">
-                    <p class="text-slate-800 font-medium">
-                        • <strong>Methodology:</strong> Think logically, then one can get the answer(s) using only the information given.
-                    </p>
-                    <p class="text-slate-800 font-medium">
-                        • <strong>Two methods (but, of course, not only two methods) to solve logic puzzles:</strong>
-                    </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                        <div class="p-3 bg-white rounded-lg border border-blue-200 text-blue-900 font-semibold shadow-2xs text-sm md:text-base">
-                            1. Method of elimination uses truth tables<br><span class="font-normal text-slate-600 text-xs md:text-sm">（排除法使用真值表）</span>
-                        </div>
-                        <div class="p-3 bg-white rounded-lg border border-blue-200 text-blue-900 font-semibold shadow-2xs text-sm md:text-base">
-                            2. Method of elimination uses matrices<br><span class="font-normal text-slate-600 text-xs md:text-sm">（排除法使用矩陣）</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
-            <!-- Truth Table Method -->
-            <div class="border border-slate-200 rounded-xl p-5 md:p-6 hover:border-indigo-300 transition bg-slate-50/30">
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="bg-indigo-600 text-white p-2.5 rounded-lg"><i class="fa-solid fa-table-cells"></i></span>
-                    <div>
-                        <h3 class="font-bold text-slate-900 text-base md:text-lg">1. Truth Table Method (真值表法)</h3>
-                        <span class="text-xs md:text-sm text-slate-500">Best for binary variables (True/False, Yes/No)</span>
-                    </div>
-                </div>
-                <ol class="list-decimal list-inside text-sm md:text-base text-slate-700 space-y-2.5 bg-white p-4 rounded-lg border border-slate-200 mb-4">
-                    <li><strong>Step 1 (List All Possibilities):</strong> Total row possibilities = $2^n$ where $n$ is the number of binary variables.</li>
-                    <li><strong>Step 2 (Eliminate Contradictions):</strong> Cross out rows that violate the given clues/premises.</li>
-                    <li><strong>Step 3 (Determine Solution):</strong> The remaining valid row(s) represent the correct solution.</li>
-                </ol>
-                <p class="text-xs md:text-sm bg-amber-50 p-3 rounded border border-amber-200 text-amber-900">
-                    <strong>Classic Puzzle Models:</strong> Snoring puzzle (Alan, Bob, Calvin), product selection, blood donation combinations ($2^4 = 16$).
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <!-- Definition -->
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                <h3 class="font-bold text-base md:text-lg text-blue-800 flex items-center gap-2">
+                    <i class="fa-solid fa-book-bookmark text-amber-500"></i> 定義 (Definition)
+                </h3>
+                <p class="text-slate-700 text-sm md:text-base leading-relaxed">
+                    設 $A$ 與 $B$ 為兩個集合。從 $A$ 到 $B$ 的<strong>二元關係 (Binary Relation)</strong> 是笛卡兒積 $A \times B$ 的一個<strong>子集 (Subset)</strong>。
                 </p>
+                <div class="p-3 bg-white rounded-lg shadow-sm border border-slate-100 font-mono text-sm text-blue-600">
+                    記法：$a \, R \, b \iff (a, b) \in R$
+                </div>
+                <p class="text-xs text-slate-500">若 $(a,b) \in R$，則稱 $a$ 與 $b$ 經由關係 $R$ 建立聯繫。</p>
             </div>
 
-            <!-- Matrix Method -->
-            <div class="border border-slate-200 rounded-xl p-5 md:p-6 hover:border-indigo-300 transition bg-slate-50/30">
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="bg-purple-600 text-white p-2.5 rounded-lg"><i class="fa-solid fa-border-all"></i></span>
-                    <div>
-                        <h3 class="font-bold text-slate-900 text-base md:text-lg">2. Matrix Method (矩陣法)</h3>
-                        <span class="text-xs md:text-sm text-slate-500">Best for multiple variables and multiple matching categories</span>
-                    </div>
-                </div>
-                <ul class="text-sm md:text-base text-slate-700 space-y-3 bg-white p-4 rounded-lg border border-slate-200 mb-4">
-                    <li><strong>Definition:</strong> A two-dimensional table used to cross-reference attributes across categories.</li>
-                    <li><strong>Multi-Variable Strategy:</strong> Construct interconnected 2D grids (e.g., Names vs. Jobs, Names vs. Dress Colors).</li>
-                </ul>
-                <p class="text-xs md:text-sm bg-amber-50 p-3 rounded border border-amber-200 text-amber-900">
-                    <strong>Classic Puzzle Models:</strong> Mislabeled candy jars (draw only 1 candy to solve), Dance partners puzzle (Dress colors vs. Boy names).
-                </p>
-            </div>
-        </div>
-</section>
-
-    
-    <!-- CHAPTER 3 -->
-    <!-- === Chapter 3: Categorical Logic & Square of Opposition (還原 A,E,I,O 紅色加粗版) === -->
-<section id="ch3" class="searchable-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 mt-10">
-    <div class="space-y-6">
-    
-        <!-- Ch 3 統一白色大背景外框 -->
-        <div class="bg-white p-6 md:p-8 rounded-2xl border border-blue-200 shadow-sm space-y-6">
-            
-            <!-- 章節頂部大標題 -->
-            <div class="flex items-center gap-3 pb-5 border-b border-slate-100">
-                <span class="px-3.5 py-1.5 bg-blue-600 text-white font-bold text-base rounded-lg shadow-xs">
-                    Ch 3
-                </span>
-                <div>
-                    <h3 class="font-bold text-slate-900 text-xl md:text-2xl">Categorical Logic & Square of Opposition (類別邏輯與對立方陣)</h3>
-                    <p class="text-sm text-slate-500 mt-0.5">Class Logic I: Foundations, Statement Structures & Venn Diagrams</p>
-                </div>
-            </div>
-    
-            <!-- 1. The Logic of Classes -->
-            <div class="space-y-3">
-                <h4 class="font-bold text-slate-900 text-lg flex items-center gap-2">
-                    <span class="w-3 h-3 rounded-full bg-blue-600"></span>
-                    1. The Logic of Classes: 類別間的 4 種基本關係 (Slide 2)
-                </h4>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-base text-slate-700">
-                    <div class="p-4 bg-slate-50/80 border border-slate-200 rounded-xl shadow-2xs space-y-1.5">
-                        <span class="font-bold text-slate-900 text-base block">① 完全包含 (Wholly includes)</span>
-                        <p class="text-slate-600">一類別完全包含於另一類別中。</p>
-                        <p class="text-blue-700 font-semibold pt-0.5">e.g., All cars are machines / All birds are animals</p>
-                    </div>
-                    <div class="p-4 bg-slate-50/80 border border-slate-200 rounded-xl shadow-2xs space-y-1.5">
-                        <span class="font-bold text-slate-900 text-base block">② 完全排除 (Wholly excludes)</span>
-                        <p class="text-slate-600">一類別完全自另一類別中排除。</p>
-                        <p class="text-blue-700 font-semibold pt-0.5">e.g., No men are women / No black are white</p>
-                    </div>
-                    <div class="p-4 bg-slate-50/80 border border-slate-200 rounded-xl shadow-2xs space-y-1.5">
-                        <span class="font-bold text-slate-900 text-base block">③ 部分包含 (Partly includes)</span>
-                        <p class="text-slate-600">一類別至少部分包含於另一類別中。</p>
-                        <p class="text-blue-700 font-semibold pt-0.5">e.g., Some odd numbers include prime numbers / Some animals are mammals</p>
-                    </div>
-                    <div class="p-4 bg-slate-50/80 border border-slate-200 rounded-xl shadow-2xs space-y-1.5">
-                        <span class="font-bold text-slate-900 text-base block">④ 部分排除 (Partly excludes)</span>
-                        <p class="text-slate-600">一類別至少部分自另一類別中排除。</p>
-                        <p class="text-blue-700 font-semibold pt-0.5">e.g., Some GEST1006 students are not from FBA / Some American people are not black</p>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- 2. Statement Structure -->
-            <div class="space-y-4 border-t border-slate-100 pt-5">
-                <h4 class="font-bold text-slate-900 text-lg flex items-center gap-2">
-                    <span class="w-3 h-3 rounded-full bg-blue-600"></span>
-                    2. Statement Structure: 陳述的結構、質性與量詞 (Slide 3-7)
-                </h4>
-                <ul class="space-y-3.5 text-base text-slate-700 pl-4">
-                    <li>
-                        <span class="font-bold text-slate-900">基本組成 (Basic Parts):</span> 包含主詞 Subject (S)（我們談論的事物）與謂詞 Predicate (P)（針對主詞所作的陳述）。
+            <!-- Examples -->
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                <h3 class="font-bold text-base md:text-lg text-blue-800 flex items-center gap-2">
+                    <i class="fa-solid fa-lightbulb text-blue-500"></i> 典型範例 (Examples 1, 2, 3)
+                </h3>
+                <ul class="space-y-2 text-sm text-slate-700">
+                    <li class="bg-white p-3 rounded-lg border border-slate-100">
+                        <strong>Example 1:</strong> 學生 $A$ 與課程 $B$ 集合，$(a,b) \in R$ 代表學生 $a$ 選修課程 $b$。
                     </li>
-                    <li>
-                        <span class="font-bold text-slate-900">質性 (Quality):</span>
-                        <span class="ml-1 text-slate-700">分為肯定 (Affirmative) 與否定 (Negative)。</span>
-                        <div class="mt-2.5 space-y-2 ml-4 text-base">
-                            <div class="flex items-start gap-2">
-                                <span class="text-blue-600 font-bold">•</span>
-                                <div>
-                                    <strong class="text-slate-900">Affirmative:</strong> 
-                                    <span class="text-slate-800 font-medium">The Moon rotates around the Earth</span> 
-                                    <span class="text-slate-500 text-sm ml-1">（肯定陳述）</span>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-2">
-                                <span class="text-blue-600 font-bold">•</span>
-                                <div>
-                                    <strong class="text-slate-900">Negative:</strong> 
-                                    <span class="text-slate-800 font-medium">The Sun does not rotate around the Earth</span> 
-                                    <span class="text-slate-500 text-sm ml-1">（否定陳述）</span>
-                                </div>
-                            </div>
-                        </div>
+                    <li class="bg-white p-3 rounded-lg border border-slate-100">
+                        <strong>Example 2:</strong> 城市 $A$ 與州 $B$ 集合，$(a,b) \in R$ 代表城市位於該州。
                     </li>
-                    <li>
-                        <span class="font-bold text-slate-900">量的範疇 (Quantity):</span>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-3 text-base">
-                            <div class="p-4 bg-blue-50/60 rounded-xl border border-blue-100 shadow-2xs">
-                                <span class="font-bold text-blue-900 block mb-1 text-base">Complete Affirmation (完全肯定):</span> 
-                                <span class="text-slate-800">All students are intelligent.</span>
-                            </div>
-                            <div class="p-4 bg-blue-50/60 rounded-xl border border-blue-100 shadow-2xs">
-                                <span class="font-bold text-blue-900 block mb-1 text-base">Partial Affirmation (部分肯定):</span> 
-                                <span class="text-slate-800">Some mathematicians are women.</span>
-                            </div>
-                            <div class="p-4 bg-red-50/50 rounded-xl border border-red-100 shadow-2xs">
-                                <span class="font-bold text-red-900 block mb-1 text-base">Complete Negation (完全否定):</span> 
-                                <span class="text-slate-800">No boys are girls.</span>
-                            </div>
-                            <div class="p-4 bg-red-50/50 rounded-xl border border-red-100 shadow-2xs">
-                                <span class="font-bold text-red-900 block mb-1 text-base">Partial Negation (部分否定):</span> 
-                                <span class="text-slate-800">Some students are not hard working.</span>
-                            </div>
-                        </div>
+                    <li class="bg-white p-3 rounded-lg border border-slate-100">
+                        <strong>Example 3:</strong> $A = \{0, 1, 2\}, B = \{a, b\}$，$R = \{(0,a), (0,b), (1,a), (2,b)\}$。
                     </li>
                 </ul>
             </div>
-
-            <!-- Statement Structure & Formula (Slide 8) -->
-            <!--
-            <div class="space-y-4 border-t border-slate-100 pt-5 mt-5">
-                <h4 class="font-bold text-slate-900 text-lg flex items-center gap-2">
-                    <span class="w-3 h-3 rounded-full bg-indigo-600"></span>
-                    Statement Structure Formula & Components (標準結構與組成要素)
-                </h4>
-            -->
-                <!-- 特性說明 -->
-                <!--
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-base text-slate-700">
-                    <p class="font-bold text-slate-900">Consider a statement that (考慮一個命題，它具備以下特性)：</p>
-                    <ul class="list-disc list-inside space-y-1 pl-2 text-slate-600">
-                        <li><strong>Has two basic parts, subject and predicate</strong>（包含兩個基本部分：主詞與述詞）</li>
-                        <li><strong>Can be either affirmative or negative</strong>（其性質可以是肯定或否定）</li>
-                        <li><strong>Can refer to part or the whole of the subject term</strong>（其範圍可以指向主詞的部分或全部）</li>
-                    </ul>
-                </div>
-                -->
-            
-                <!-- 標準命題結構公式大框 -->
-                <div class="bg-indigo-900 text-white p-4 rounded-xl shadow-md text-center space-y-1.5">
-                    <span class="text-xs uppercase tracking-wider text-indigo-300 font-semibold block">Standard Categorical Proposition Structure (標準命題結構公式)</span>
-                    <div class="text-base md:text-lg font-mono font-bold text-amber-300 overflow-x-auto py-1">
-                        Quantifier (量詞) + Subject (主詞) + Copula (繫詞) + Predicate (述詞)
-                    </div>
-                </div>
-
-                <!-- 四大組成要素解析網格 -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
-                    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-1.5">
-                        <strong class="text-indigo-900 block text-base font-bold">1. Quantifier (量詞):</strong>
-                        <p class="text-slate-700">決定命題的量 (Quantity)，指向主詞的涵蓋範圍。</p>
-                        <div class="flex gap-2 pt-1">
-                            <span class="px-2.5 py-0.5 bg-slate-100 rounded text-slate-800 font-mono text-xs">All / No (全稱 Universal)</span>
-                            <span class="px-2.5 py-0.5 bg-slate-100 rounded text-slate-800 font-mono text-xs">Some (特稱 Particular)</span>
-                        </div>
-                    </div>
-
-                    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-1.5">
-                        <strong class="text-indigo-900 block text-base font-bold">2. Subject (主詞):</strong>
-                        <p class="text-slate-700">命題所討論的主體類別 (The main class or category being discussed).</p>
-                    </div>
-
-                    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-1.5">
-                        <strong class="text-indigo-900 block text-base font-bold">3. Copula (繫詞):</strong>
-                        <p class="text-slate-700">決定命題的質 (Quality)，連接主詞與述詞。</p>
-                        <div class="flex gap-2 pt-1">
-                            <span class="px-2.5 py-0.5 bg-emerald-50 text-emerald-800 rounded font-mono text-xs">are (肯定 Affirmative)</span>
-                            <span class="px-2.5 py-0.5 bg-rose-50 text-rose-800 rounded font-mono text-xs">are not (否定 Negative)</span>
-                        </div>
-                    </div>
-
-                    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-1.5">
-                        <strong class="text-indigo-900 block text-base font-bold">4. Predicate (述詞):</strong>
-                        <p class="text-slate-700">針對主詞所給予的屬性、性質或類別描述 (The attribute or category applied to the subject).</p>
-                    </div>
-                </div>
-
-                <!-- 組合範例對照 -->
-                <div class="bg-white p-4 rounded-xl border border-indigo-200 shadow-2xs space-y-3">
-                    <span class="font-bold text-slate-900 text-base block">Combination Examples (組合範例對照)：</span>
-                    <div class="space-y-2.5 font-mono text-base">
-                        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 flex flex-wrap items-center justify-between gap-2">
-                            <div class="flex items-center gap-2">
-                                <span class="text-blue-600 font-bold underline">All</span>
-                                <span class="text-slate-700">students</span>
-                                <span class="text-emerald-600 font-bold underline">are</span>
-                                <span class="text-purple-600 font-bold underline">intelligent</span>
-                            </div>
-                            <span class="font-sans font-bold text-indigo-800 bg-indigo-50 px-2.5 py-1 rounded text-sm">（全稱肯定 A 命題）</span>
-                        </div>
-
-                        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 flex flex-wrap items-center justify-between gap-2">
-                            <div class="flex items-center gap-2">
-                                <span class="text-blue-600 font-bold underline">Some</span>
-                                <span class="text-slate-700">students</span>
-                                <span class="text-rose-600 font-bold underline">are not</span>
-                                <span class="text-purple-600 font-bold underline">hard working</span>
-                            </div>
-                            <span class="font-sans font-bold text-rose-800 bg-rose-50 px-2.5 py-1 rounded text-sm">（特稱否定 O 命題）</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-    
-            <!-- 3. Types of Categorical Statements & Venn Diagram -->
-            <div class="space-y-4 border-t border-slate-100 pt-5">
-                <h4 class="font-bold text-slate-900 text-lg flex items-center gap-2">
-                    <span class="w-3 h-3 rounded-full bg-blue-600"></span>
-                    3. Types of Categorical Statements & Venn Diagram (Slide 9-15)
-                </h4>
-                
-                <div class="pl-4 text-base text-slate-700 space-y-6">
-                    <!-- 定義與 A, E, I, O 分布表（已精確還原 PPT 紅色加粗字元） -->
-                    <div class="space-y-4 bg-slate-50 p-5 rounded-2xl border border-slate-200">
-                        <p class="text-base text-slate-800">
-                            • <strong>Categorical statement (分類陳述)：</strong>a definite statement not involving terms (i.e. connectives) like “if”, “and” or “or”.
-                        </p>
-                        <p class="text-base text-slate-800">
-                            • Categorical statement can be either affirmative or negative and either universal or partial.
-                        </p>
-                        <p class="text-base text-slate-900 font-semibold pt-1 border-t border-slate-200">
-                            There are four types of categorical statements (分類陳述的四種類型)：
-                        </p>
-    
-                        <!-- A、E、I、O 傳統分布表（帶有投影片同款紅字加粗） -->
-                        <div class="grid grid-cols-3 gap-2 text-center text-sm font-mono pt-1">
-                            <div class="p-3 bg-slate-200/70 font-bold rounded"></div>
-                            <div class="p-3 bg-blue-100 text-blue-900 font-bold rounded text-base">
-                                Affirmative<br>
-                                <span class="font-sans text-xs font-normal">(<strong class="text-red-600 font-bold">A</strong>FF<strong class="text-red-600 font-bold">I</strong>RMO – I affirm)</span>
-                            </div>
-                            <div class="p-3 bg-indigo-100 text-indigo-900 font-bold rounded text-base">
-                                Negative<br>
-                                <span class="font-sans text-xs font-normal">(N<strong class="text-red-600 font-bold">E</strong>GO – I d<strong class="text-red-600 font-bold">o</strong>ny)</span>
-                            </div>
-    
-                            <div class="p-3 bg-slate-200/70 font-bold rounded flex items-center justify-center font-sans text-sm">universal (全稱)</div>
-                            <div class="p-3 bg-white rounded border border-slate-200 text-blue-700 font-bold text-xl flex items-center justify-center">A</div>
-                            <div class="p-3 bg-white rounded border border-slate-200 text-indigo-700 font-bold text-xl flex items-center justify-center">E</div>
-    
-                            <div class="p-3 bg-slate-200/70 font-bold rounded flex items-center justify-center font-sans text-sm">partial (特稱)</div>
-                            <div class="p-3 bg-white rounded border border-slate-200 text-blue-700 font-bold text-xl flex items-center justify-center">I</div>
-                            <div class="p-3 bg-white rounded border border-slate-200 text-indigo-700 font-bold text-xl flex items-center justify-center">O</div>
-                        </div>
-    
-                        <!-- 4 種詳細對應範例 -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-sm font-sans">
-                            <div class="p-3.5 bg-white rounded-xl border border-blue-200 shadow-2xs">
-                                <span class="font-bold text-blue-900">○ universal affirmative (type A)</span>
-                                <p class="text-slate-800 font-medium mt-0.5">All smart phones are IT devices.</p>
-                            </div>
-                            <div class="p-3.5 bg-white rounded-xl border border-indigo-200 shadow-2xs">
-                                <span class="font-bold text-indigo-900">○ universal negative (type E)</span>
-                                <p class="text-slate-800 font-medium mt-0.5">No monks are nuns.</p>
-                            </div>
-                            <div class="p-3.5 bg-white rounded-xl border border-emerald-200 shadow-2xs">
-                                <span class="font-bold text-emerald-900">○ partial affirmative (type I)</span>
-                                <p class="text-slate-800 font-medium mt-0.5">Some nurses are kind.</p>
-                            </div>
-                            <div class="p-3.5 bg-white rounded-xl border border-rose-200 shadow-2xs">
-                                <span class="font-bold text-rose-900">○ partial negative (type O)</span>
-                                <p class="text-slate-800 font-medium mt-0.5">Some girls are not fat.</p>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <!-- Venn Diagram 定義 -->
-                    <div class="space-y-2">
-                        <span class="font-bold text-slate-900 block text-base">Venn Diagram (文氏圖 — 投影片第 13 頁原意)：</span>
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm space-y-1.5 text-slate-800">
-                            <p class="text-base text-slate-900 font-medium">
-                                <strong>Venn Diagram:</strong> illustrates the relationships between two or more data sets. Useful for highlighting similarities and differences. Commonly used to compare and contrast the characteristics of different data sets.
-                            </p>
-                            <p class="text-xs text-slate-500">
-                                （中文意涵：文氏圖用以說明兩個或多個資料集之間的關係，有助於突顯相同點與相異點，通常用於比較和對比不同資料集的特徵。）
-                            </p>
-                        </div>
-                    </div>
-    
-                    <!-- Single Criterion Venn Diagram SVG -->
-                    <div class="space-y-2">
-                        <span class="font-bold text-slate-900 block text-base">Single Criterion (單一準則文氏圖)：</span>
-                        <div class="bg-white p-4 rounded-xl border border-blue-200 flex flex-col items-center justify-center">
-                            <svg viewBox="0 0 500 240" class="w-full max-w-[500px] h-auto font-sans text-xs">
-                                <rect x="50" y="20" width="300" height="180" fill="none" stroke="#2563eb" stroke-width="2"/>
-                                <circle cx="180" cy="110" r="60" fill="none" stroke="#1e1b4b" stroke-width="2"/>
-                                <text x="210" y="65" font-weight="bold" fill="#2563eb" font-size="16">F</text>
-                                
-                                <path d="M 270 200 L 175 125" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arrow-ch3-v5)"/>
-                                <text x="220" y="218" fill="#ef4444" font-weight="bold" font-size="13">Female students</text>
-    
-                                <path d="M 430 140 L 290 100" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arrow-ch3-v5)"/>
-                                <text x="330" y="155" fill="#ef4444" font-weight="bold" font-size="13">Non-female students</text>
-    
-                                <defs>
-                                    <marker id="arrow-ch3-v5" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#ef4444"/>
-                                    </marker>
-                                </defs>
-                            </svg>
-                        </div>
-                    </div>
-    
-                    <!-- Two Criteria Venn Diagram SVG -->
-                    <div class="space-y-3">
-                        <span class="font-bold text-slate-900 block text-base">With two criteria (雙重準則交叉文氏圖)：</span>
-                        <div class="bg-blue-50/70 p-4 rounded-xl border border-blue-200 space-y-1.5 font-bold text-blue-950">
-                            <p class="text-base">• With two criteria:</p>
-                            <p class="pl-5 text-blue-700 text-base font-semibold">◦ female or non-female</p>
-                            <p class="pl-5 text-blue-700 text-base font-semibold">◦ clever or not clever</p>
-                        </div>
-    
-                        <div class="bg-white p-4 rounded-xl border border-blue-200 flex flex-col items-center justify-center">
-                            <svg viewBox="0 0 540 280" class="w-full max-w-[540px] h-auto font-sans text-xs">
-                                <rect x="40" y="30" width="360" height="180" fill="none" stroke="#2563eb" stroke-width="2"/>
-                                <circle cx="180" cy="120" r="58" fill="none" stroke="#1e1b4b" stroke-width="1.5"/>
-                                <text x="130" y="85" font-weight="bold" fill="#000" font-size="15">F</text>
-    
-                                <circle cx="260" cy="120" r="58" fill="none" stroke="#1e1b4b" stroke-width="1.5"/>
-                                <text x="310" y="85" font-weight="bold" fill="#000" font-size="15">C</text>
-    
-                                <path d="M 80 250 L 140 145" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arrow2-ch3-v5)"/>
-                                <text x="10" y="265" fill="#ef4444" font-weight="bold" font-size="12">Female students who</text>
-                                <text x="10" y="278" fill="#ef4444" font-weight="bold" font-size="12">are not clever</text>
-    
-                                <path d="M 280 250 L 220 135" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arrow2-ch3-v5)"/>
-                                <text x="220" y="265" fill="#ef4444" font-weight="bold" font-size="12">Female students who</text>
-                                <text x="220" y="278" fill="#ef4444" font-weight="bold" font-size="12">are clever</text>
-    
-                                <path d="M 440 30 L 285 105" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arrow2-ch3-v5)"/>
-                                <text x="350" y="15" fill="#ef4444" font-weight="bold" font-size="12">Non-female students</text>
-                                <text x="350" y="28" fill="#ef4444" font-weight="bold" font-size="12">who are clever</text>
-    
-                                <path d="M 480 180 L 370 140" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arrow2-ch3-v5)"/>
-                                <text x="400" y="195" fill="#ef4444" font-weight="bold" font-size="12">Non-female students</text>
-                                <text x="400" y="208" fill="#ef4444" font-weight="bold" font-size="12">who are not clever</text>
-    
-                                <defs>
-                                    <marker id="arrow2-ch3-v5" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#ef4444"/>
-                                    </marker>
-                                </defs>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- 4. The 4 Categorical Propositions (四大直言命題與文氏圖) -->
-            <div class="space-y-4 border-t border-slate-100 pt-6">
-                <h4 class="font-bold text-slate-900 text-lg flex items-center gap-2">
-                    <span class="w-3 h-3 rounded-full bg-blue-600"></span>
-                    4. The 4 Categorical Propositions (四大直言命題與文氏圖)
-                </h4>
-    
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <!-- TYPE A -->
-                    <div class="bg-blue-50/70 border-t-4 border-blue-600 p-4 rounded-xl shadow-2xs flex flex-col justify-between">
-                        <div>
-                            <span class="text-xs font-bold text-blue-700 uppercase bg-blue-100 px-2 py-0.5 rounded">Type A</span>
-                            <h5 class="font-bold text-slate-900 text-base mt-2">Universal Affirmative</h5>
-                            <p class="text-xs font-mono font-bold text-blue-900 my-1">All S are P</p>
-                            <p class="text-sm text-slate-600">【全稱肯定】<br>e.g., All smartphones are IT devices.</p>
-                        </div>
-                        <div class="mt-4 pt-3 border-t border-blue-200/60 flex flex-col items-center">
-                            <svg width="120" height="80" viewBox="0 0 120 80">
-                                <defs>
-                                    <mask id="s-minus-p-v5">
-                                        <rect width="120" height="80" fill="white"/>
-                                        <circle cx="75" cy="40" r="25" fill="black"/>
-                                    </mask>
-                                </defs>
-                                <circle cx="45" cy="40" r="25" fill="#cbd5e1" mask="url(#s-minus-p-v5)"/>
-                                <circle cx="45" cy="40" r="25" fill="none" stroke="#475569" stroke-width="1.5" />
-                                <circle cx="75" cy="40" r="25" fill="none" stroke="#2563eb" stroke-width="2" />
-                                <text x="34" y="44" font-size="10" font-weight="bold" fill="#1e293b">S</text>
-                                <text x="82" y="44" font-size="10" font-weight="bold" fill="#1e3a8a">P</text>
-                            </svg>
-                            <span class="text-[11px] text-slate-500 mt-1">Shaded area = Empty set</span>
-                        </div>
-                    </div>
-    
-                    <!-- TYPE E -->
-                    <div class="bg-red-50/70 border-t-4 border-red-600 p-4 rounded-xl shadow-2xs flex flex-col justify-between">
-                        <div>
-                            <span class="text-xs font-bold text-red-700 uppercase bg-red-100 px-2 py-0.5 rounded">Type E</span>
-                            <h5 class="font-bold text-slate-900 text-base mt-2">Universal Negative</h5>
-                            <p class="text-xs font-mono font-bold text-red-900 my-1">No S are P</p>
-                            <p class="text-sm text-slate-600">【全稱否定】<br>e.g., None of lemons are sweet.</p>
-                        </div>
-                        <div class="mt-4 pt-3 border-t border-red-200/60 flex flex-col items-center">
-                            <svg width="120" height="80" viewBox="0 0 120 80">
-                                <circle cx="40" cy="40" r="25" fill="none" stroke="#dc2626" stroke-width="2" />
-                                <circle cx="80" cy="40" r="25" fill="none" stroke="#dc2626" stroke-width="2" />
-                                <path d="M 60 23.5 A 25 25 0 0 1 60 56.5 A 25 25 0 0 1 60 23.5 Z" fill="#94a3b8" />
-                                <text x="30" y="44" font-size="10" font-weight="bold" fill="#991b1b">S</text>
-                                <text x="85" y="44" font-size="10" font-weight="bold" fill="#991b1b">P</text>
-                            </svg>
-                            <span class="text-[11px] text-slate-500 mt-1">Intersection shaded = Empty set</span>
-                        </div>
-                    </div>
-    
-                    <!-- TYPE I -->
-                    <div class="bg-emerald-50/70 border-t-4 border-emerald-600 p-4 rounded-xl shadow-2xs flex flex-col justify-between">
-                        <div>
-                            <span class="text-xs font-bold text-emerald-700 uppercase bg-emerald-100 px-2 py-0.5 rounded">Type I</span>
-                            <h5 class="font-bold text-slate-900 text-base mt-2">Particular Affirmative</h5>
-                            <p class="text-xs font-mono font-bold text-emerald-900 my-1">Some S are P</p>
-                            <p class="text-sm text-slate-600">【特稱肯定】<br>e.g., Some nurses are kind.</p>
-                        </div>
-                        <div class="mt-4 pt-3 border-t border-emerald-200/60 flex flex-col items-center">
-                            <svg width="120" height="80" viewBox="0 0 120 80">
-                                <circle cx="40" cy="40" r="25" fill="none" stroke="#059669" stroke-width="2" />
-                                <circle cx="80" cy="40" r="25" fill="none" stroke="#059669" stroke-width="2" />
-                                <text x="56" y="44" font-size="14" font-weight="bold" fill="#059669">✕</text>
-                                <text x="28" y="44" font-size="10" font-weight="bold" fill="#065f46">S</text>
-                                <text x="85" y="44" font-size="10" font-weight="bold" fill="#065f46">P</text>
-                            </svg>
-                            <span class="text-[11px] text-slate-500 mt-1">✕ indicates existence in intersection</span>
-                        </div>
-                    </div>
-    
-                    <!-- TYPE O -->
-                    <div class="bg-amber-50/70 border-t-4 border-amber-600 p-4 rounded-xl shadow-2xs flex flex-col justify-between">
-                        <div>
-                            <span class="text-xs font-bold text-amber-700 uppercase bg-amber-100 px-2 py-0.5 rounded">Type O</span>
-                            <h5 class="font-bold text-slate-900 text-base mt-2">Particular Negative</h5>
-                            <p class="text-xs font-mono font-bold text-amber-900 my-1">Some S are not P</p>
-                            <p class="text-sm text-slate-600">【特稱否定】<br>e.g., Some girls are not fat.</p>
-                        </div>
-                        <div class="mt-4 pt-3 border-t border-amber-200/60 flex flex-col items-center">
-                            <svg width="120" height="80" viewBox="0 0 120 80">
-                                <circle cx="40" cy="40" r="25" fill="none" stroke="#d97706" stroke-width="2" />
-                                <circle cx="80" cy="40" r="25" fill="none" stroke="#d97706" stroke-width="2" />
-                                <text x="32" y="44" font-size="14" font-weight="bold" fill="#d97706">✕</text>
-                                <text x="18" y="44" font-size="10" font-weight="bold" fill="#92400e">S</text>
-                                <text x="85" y="44" font-size="10" font-weight="bold" fill="#92400e">P</text>
-                            </svg>
-                            <span class="text-[11px] text-slate-500 mt-1">✕ indicates existence in S outside P</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Square of Opposition Graphic -->
-            <div class="bg-slate-900 text-white rounded-2xl p-6 md:p-8 shadow-xl border border-slate-800">
-                <h4 class="font-bold text-xl mb-6 text-emerald-400 flex items-center gap-2">
-                    <i class="fa-solid fa-shapes"></i> Square of Opposition (對立方陣圖解與六大邏輯關係)
-                </h4>
-    
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    <div class="lg:col-span-5 flex justify-center bg-slate-800 p-4 rounded-xl border border-slate-700">
-                        <svg width="280" height="280" viewBox="0 0 280 280" class="max-w-full">
-                            <line x1="50" y1="50" x2="230" y2="230" stroke="#f43f5e" stroke-width="2" stroke-dasharray="4,4" />
-                            <line x1="230" y1="50" x2="50" y2="230" stroke="#f43f5e" stroke-width="2" stroke-dasharray="4,4" />
-                            <line x1="50" y1="50" x2="230" y2="50" stroke="#38bdf8" stroke-width="2.5" />
-                            <line x1="50" y1="230" x2="230" y2="230" stroke="#34d399" stroke-width="2.5" />
-                            <line x1="50" y1="50" x2="50" y2="230" stroke="#a78bfa" stroke-dasharray="6,4" stroke-width="2.5" />
-                            <line x1="230" y1="50" x2="230" y2="230" stroke="#a78bfa" stroke-dasharray="6,4" stroke-width="2.5" />
-    
-                            <circle cx="50" cy="50" r="22" fill="#2563eb" stroke="#ffffff" stroke-width="2" />
-                            <text x="50" y="55" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">A</text>
-    
-                            <circle cx="230" cy="50" r="22" fill="#dc2626" stroke="#ffffff" stroke-width="2" />
-                            <text x="230" y="55" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">E</text>
-    
-                            <circle cx="50" cy="230" r="22" fill="#059669" stroke="#ffffff" stroke-width="2" />
-                            <text x="50" y="235" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">I</text>
-    
-                            <circle cx="230" cy="230" r="22" fill="#d97706" stroke="#ffffff" stroke-width="2" />
-                            <text x="230" y="235" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">O</text>
-    
-                            <text x="140" y="42" font-size="11" fill="#38bdf8" font-weight="bold" text-anchor="middle">Contrariety (對立)</text>
-                            <text x="140" y="248" font-size="11" fill="#34d399" font-weight="bold" text-anchor="middle">Sub-contrariety (分對立)</text>
-                            <text x="140" y="135" font-size="11" fill="#f43f5e" font-weight="bold" text-anchor="middle">Contradiction</text>
-                            <text x="140" y="150" font-size="11" fill="#f43f5e" font-weight="bold" text-anchor="middle">(矛盾)</text>
-                            <text x="20" y="140" font-size="10" fill="#a78bfa" font-weight="bold" text-anchor="middle" transform="rotate(-90 20 140)">Implication</text>
-                            <text x="260" y="140" font-size="10" fill="#a78bfa" font-weight="bold" text-anchor="middle" transform="rotate(90 260 140)">Implication</text>
-                        </svg>
-                    </div>
-    
-                    <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-                        <div class="bg-slate-800 p-4 rounded-lg border border-rose-500/30">
-                            <strong class="text-rose-400 block text-base mb-1">1. Contradiction (矛盾關係)</strong>
-                            <p class="text-slate-300"><strong>[A vs O] & [E vs I]</strong></p>
-                            <p class="text-slate-400 mt-1">Cannot be both true and cannot be both false (必為一真一假).</p>
-                        </div>
-                        <div class="bg-slate-800 p-4 rounded-lg border border-sky-500/30">
-                            <strong class="text-sky-400 block text-base mb-1">2. Contrariety (對立關係)</strong>
-                            <p class="text-slate-300"><strong>[A vs E]</strong></p>
-                            <p class="text-slate-400 mt-1">Cannot be both true, but CAN be both false (不能同真，但可同假).</p>
-                        </div>
-                        <div class="bg-slate-800 p-4 rounded-lg border border-emerald-500/30">
-                            <strong class="text-emerald-400 block text-base mb-1">3. Sub-contrariety (分對立)</strong>
-                            <p class="text-slate-300"><strong>[I vs O]</strong></p>
-                            <p class="text-slate-400 mt-1">CAN be both true, but cannot be both false (可同真，但不能同假).</p>
-                        </div>
-                        <div class="bg-slate-800 p-4 rounded-lg border border-purple-500/30">
-                            <strong class="text-purple-400 block text-base mb-1">4. Implication (牽連 / 暗示)</strong>
-                            <p class="text-slate-300"><strong>[A $\rightarrow$ I] & [E $\rightarrow$ O]</strong></p>
-                            <p class="text-slate-400 mt-1">
-                                1. Universal is True $\implies$ Particular is True.<br>
-                            </p>
-                            <p class="text-slate-300 mt-1"><strong>[I $\rightarrow$ A] & [O $\rightarrow$ E]</strong></p>
-                            <p class="text-slate-400 mt-1">
-                                2. Particular is False $\implies$ Universal is False.
-                            </p>
-                        </div>
-                        <div class="bg-slate-800 p-4 rounded-lg border border-amber-500/30 sm:col-span-2">
-                            <strong class="text-amber-400 block text-base mb-1">5. Equivalence (等價) & 6. Indifference (無關)</strong>
-                            <p class="text-slate-400 mt-1">
-                                <strong>Equivalence:</strong> Statements always have identical truth values.<br>
-                                <strong>Indifference:</strong> Truth value of one statement has no effect on the other.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    
         </div>
-    </div>
+
+        <!-- Representations: Graph & Table -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-blue-50/50 p-5 rounded-xl border border-blue-100 space-y-3">
+                <h4 class="font-bold text-blue-900 text-base flex items-center gap-2">
+                    <i class="fa-solid fa-diagram-project"></i> 1. 有向圖表示法 (Graphical Representation)
+                </h4>
+                <p class="text-xs text-slate-700">將集合元素的對應關係以節點與箭頭視覺化呈現。</p>
+                <div class="p-4 bg-white rounded-lg border border-blue-200 text-center font-mono text-xs text-slate-700 space-y-1">
+                    <div>0 &rarr; a, &nbsp; 0 &rarr; b</div>
+                    <div>1 &rarr; a</div>
+                    <div>2 &rarr; b</div>
+                </div>
+            </div>
+
+            <div class="bg-indigo-50/50 p-5 rounded-xl border border-indigo-100 space-y-3">
+                <h4 class="font-bold text-indigo-900 text-base flex items-center gap-2">
+                    <i class="fa-solid fa-table"></i> 2. 表格表示法 (Table Representation)
+                </h4>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs text-center border-collapse bg-white rounded-lg overflow-hidden border border-indigo-200">
+                        <thead>
+                            <tr class="bg-indigo-100 text-indigo-900">
+                                <th class="p-2 border border-indigo-200">R</th>
+                                <th class="p-2 border border-indigo-200">a</th>
+                                <th class="p-2 border border-indigo-200">b</th>
+                            </tr>
+                        </thead>
+                        <tbody class="font-mono text-slate-700">
+                            <tr>
+                                <td class="p-2 border border-indigo-200 font-bold bg-slate-50">0</td>
+                                <td class="p-2 border border-indigo-200 text-emerald-600 font-bold">X</td>
+                                <td class="p-2 border border-indigo-200 text-emerald-600 font-bold">X</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 border border-indigo-200 font-bold bg-slate-50">1</td>
+                                <td class="p-2 border border-indigo-200 text-emerald-600 font-bold">X</td>
+                                <td class="p-2 border border-indigo-200 text-slate-400">-</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 border border-indigo-200 font-bold bg-slate-50">2</td>
+                                <td class="p-2 border border-indigo-200 text-slate-400">-</td>
+                                <td class="p-2 border border-indigo-200 text-emerald-600 font-bold">X</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Counting Question -->
+        <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 text-sm text-amber-950">
+            <strong>核心考點 (Question 4)：</strong> 若 $|A| = m$ 且 $|B| = n$，則從 $A$ 到 $B$ 一共可以建立多少個不同的關係？
+            <div class="mt-2 font-mono font-bold text-amber-700 text-base">
+                答案：$2^{m \times n}$ (等於 $A \times B$ 的冪集大小)
+            </div>
+        </div>
     </section>
 
-    <!-- MIDTERM EXAM ANALYSIS -->
-    <section id="midterm" class="searchable-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
-        <div class="border-b pb-4 mb-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            <div>
-                <h2 class="text-2xl font-bold text-slate-900 flex items-center gap-2">
-                    <span class="bg-blue-600 text-white px-3 py-1 rounded-lg text-lg"><i class="fa-solid fa-file-pen mr-1"></i> Midterm</span>
-                    Midterm Exam Full Question Bank (25 題原題 + Section B 完整剖析)
-                </h2>
-                <p class="text-xs text-slate-500 mt-1">點擊任何題目可展開/折疊詳細英文解答與廣東話/中文深度解析。</p>
-            </div>
-            <button onclick="toggleAllAnswers()" class="bg-slate-800 text-white px-4 py-2 rounded-lg text-xs font-semibold hover:bg-slate-700 transition">
-                Expand / Collapse All Answers
-            </button>
+    <!-- SECTION 2: Functions as Relations -->
+    <section id="sec2" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b pb-4 mb-6">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 9.2</span>
+                函數作為關係 (Functions as Relations)
+            </h2>
         </div>
 
-        <!-- SECTION A: 25 TRUE/FALSE QUESTIONS -->
-        <h3 class="font-bold text-lg text-slate-900 mb-4 border-l-4 border-blue-600 pl-3">Section A: True / False Questions (Q1 - Q25 完整版)</h3>
-        
-        <div id="tf-container" class="space-y-3">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-700">
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-2">
+                <strong class="text-indigo-800 text-base block font-bold">1. 從函數到關係 (From Function to Relation)</strong>
+                <p>函數 $f$ 從 $A$ 到 $B$ 的圖形為有序對 $(a,b)$ 的集合，其中 $b = f(a)$。</p>
+                <p class="text-xs text-slate-500 pt-1 border-t border-slate-200"><strong>關鍵性質：</strong> $A$ 中的每一個元素，都正好是圖形中<strong>有且僅有一個</strong>有序對的第一個元素。</p>
+            </div>
 
-            <!-- Q1 -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(1)">
-                    <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q1.</span> Logic is used as a powerful tool in philosophical analysis.
-                    </div>
-                    <span class="text-xs bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full font-bold">TRUE</span>
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-2">
+                <strong class="text-indigo-800 text-base block font-bold">2. 從關係到函數 (From Relation to Function)</strong>
+                <p>若關係 $R$ 滿足 $A$ 中每個元素恰好作為一個有序對的第一個元素，則可定義函數：</p>
+                <div class="p-2 bg-white rounded font-mono text-xs text-indigo-600 border border-slate-200">
+                    $\forall a \in A, \, f(a) = b \iff (a,b) \in R$
                 </div>
-                <div id="ans-1" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> Logic serves as an indispensable tool for analyzing the validity and sound reasoning of philosophical arguments.</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 正確（TRUE）。邏輯學本質上係哲學嘅核心分支，專門用嚟評估論證結構、推導過程同有效性。</p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 1 Intro: "Logic in Philosophical Analysis".</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Relations on a Set -->
+    <section id="sec3" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b pb-4 mb-6">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 9.3</span>
+                集合上的關係 (Relations on a Set)
+            </h2>
+        </div>
+
+        <div class="bg-purple-50/50 p-4 rounded-xl border border-purple-100 text-sm text-slate-700">
+            <strong>定義：</strong> 集合 $A$ 上的關係是指從 $A$ 到 $A$ 的關係（即 $A \times A$ 的子集）。
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-2 text-sm">
+                <strong class="text-purple-900 block font-bold">Example 4: "Divides" 整除關係</strong>
+                <p class="text-slate-600">在集合 $A = \{1, 2, 3, 4\}$ 上，定義 $a \mid b$：</p>
+                <div class="p-2 bg-white rounded font-mono text-xs text-purple-700 border border-slate-200">
+                    $R = \{(1,1), (1,2), (1,3), (1,4), (2,2), (2,4), (3,3), (4,4)\}$
                 </div>
             </div>
 
-            <!-- Q2 -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(2)">
-                    <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q2.</span> The sub-contrariety logical relation is formed by partial affirmative and universal affirmative statements.
-                    </div>
-                    <span class="text-xs bg-red-100 text-red-800 px-2.5 py-1 rounded-full font-bold">FALSE</span>
+            <div class="bg-amber-50 p-5 rounded-xl border border-amber-200 space-y-2 text-sm text-amber-950">
+                <strong class="block font-bold">核心考點 (Example 6)：集合上的關係總數</strong>
+                <p>若集合 $A$ 包含 $n$ 個元素，則一共可以定義多少個不同的關係？</p>
+                <div class="font-mono font-bold text-amber-700 text-base">
+                    答案：$2^{n^2}$ （因為 $|A \times A| = n^2$）
                 </div>
-                <div id="ans-2" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> Sub-contrariety exists strictly between Particular Affirmative (Type I) and Particular Negative (Type O) statements.</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 錯誤（FALSE）。概念混淆！Sub-contrariety（分對立關係）發生喺 <span class="font-bold text-blue-600">Type I (Some S are P)</span> 同 <span class="font-bold text-blue-600">Type O (Some S are not P)</span> 之間，絕非與 Universal Affirmative (Type A) 組成。</p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 3 Square of Opposition Diagram.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Properties of Relations -->
+    <section id="sec4" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b pb-4 mb-6">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 9.4</span>
+                關係的核心四大性質 (Properties of Relations)
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+            <!-- Reflexive -->
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-2">
+                <strong class="text-blue-700 text-base block font-bold"><i class="fa-solid fa-arrows-rotate mr-1"></i> (1) 自反性 (Reflexive)</strong>
+                <p class="text-slate-600">對所有 $a \in A$，皆有 $(a,a) \in R$。</p>
+                <div class="p-2 bg-white rounded font-mono text-xs text-blue-600 border border-slate-200">
+                    $\forall a \in A, \, (a,a) \in R$
+                </div>
+                <p class="text-xs text-amber-800 bg-amber-50 p-2 rounded border border-amber-200 mt-2">
+                    <strong>必考計數題 (Example 16)：</strong> $n$ 元集合上的自反關係總數為 $2^{n(n-1)}$。
+                </p>
+            </div>
+
+            <!-- Symmetric -->
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-2">
+                <strong class="text-emerald-700 text-base block font-bold"><i class="fa-solid fa-arrows-left-right mr-1"></i> (2) 對稱性 (Symmetric)</strong>
+                <p class="text-slate-600">若 $(a,b) \in R$，則必然有 $(b,a) \in R$。</p>
+                <div class="p-2 bg-white rounded font-mono text-xs text-emerald-600 border border-slate-200">
+                    $\forall a,b \in A, \, ((a,b) \in R \implies (b,a) \in R)$
                 </div>
             </div>
 
-            <!-- Q3 -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(3)">
-                    <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q3.</span> Logic can build our characters and critical thinking skills better.
-                    </div>
-                    <span class="text-xs bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full font-bold">TRUE</span>
-                </div>
-                <div id="ans-3" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> Studying logic fosters intellectual humility, rigorous thinking, and objective analysis.</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 正確（TRUE）。邏輯訓練能讓人審視事實客觀依據，鍛鍊理性思考與公信力。</p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 1 Learning Objectives: Benefits of Logic.</p>
+            <!-- Antisymmetric -->
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-2">
+                <strong class="text-indigo-700 text-base block font-bold"><i class="fa-solid fa-shield mr-1"></i> (3) 反對稱性 (Antisymmetric)</strong>
+                <p class="text-slate-600">若 $(a,b) \in R$ 且 $(b,a) \in R$，則必然 $a = b$。</p>
+                <div class="p-2 bg-white rounded font-mono text-xs text-indigo-600 border border-slate-200">
+                    $\forall a,b \in A, \, (((a,b) \in R \land (b,a) \in R) \implies a = b)$
                 </div>
             </div>
 
-            <!-- Q4 -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(4)">
-                    <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q4.</span> A matrix is a two-dimensional table consisting of more than two attributes.
-                    </div>
-                    <span class="text-xs bg-red-100 text-red-800 px-2.5 py-1 rounded-full font-bold">FALSE</span>
-                </div>
-                <div id="ans-4" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> A standard matrix grid crosses exactly two sets of attributes (Row vs. Column).</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 錯誤（FALSE）。文字陷阱！一個基本矩陣 (Matrix) 由 <span class="font-bold text-slate-900">兩個維度/屬性（2 attributes: Rows & Columns）</span> 交叉組成，非一定要 "more than two"。多維度時係靠多個 2D 矩陣聯立組合。</p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 2 Matrix Definition Slide.</p>
+            <!-- Transitive -->
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-2">
+                <strong class="text-purple-700 text-base block font-bold"><i class="fa-solid fa-share mr-1"></i> (4) 遞移性 (Transitive)</strong>
+                <p class="text-slate-600">若 $(a,b) \in R$ 且 $(b,c) \in R$，則必然有 $(a,c) \in R$。</p>
+                <div class="p-2 bg-white rounded font-mono text-xs text-purple-600 border border-slate-200">
+                    $\forall a,b,c \in A, \, (((a,b) \in R \land (b,c) \in R) \implies (a,c) \in R)$
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Q5 -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(5)">
-                    <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q5.</span> It is not possible for one statement to be true and the other one has different value if it is an equivalence logical relation.
-                    </div>
-                    <span class="text-xs bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full font-bold">TRUE</span>
-                </div>
-                <div id="ans-5" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> Equivalent statements always share identical truth values (Both True or Both False).</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 正確（TRUE）。雙重否定句讀法。Equivalence（等價）定義就係「兩者真假值永遠相同」，因此不可能一個為 True 而另一個為不同值（False）。</p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 3 Equivalence Relation Definition.</p>
-                </div>
+    <!-- SECTION 5: Combining Relations, Composite, Powers & Proof -->
+    <section id="sec5" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b pb-4 mb-6">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-blue-600 text-white px-3 py-1 rounded-lg text-base md:text-lg">§ 9.5</span>
+                組合、合成與定理證明 (Composite, Powers & Theorem 1)
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+            <!-- Composite -->
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-2">
+                <strong class="text-blue-900 text-base block font-bold"><i class="fa-solid fa-link"></i> 關係的合成 (Composite)</strong>
+                <p class="text-slate-600">
+                    設 $R$ 從 $A$ 到 $B$，$S$ 從 $B$ 到 $C$。合成關係 $S \circ R$ 包含所有有序對 $(a,c)$，使得存在 $b \in B$ 滿足 $(a,b) \in R$ 且 $(b,c) \in S$。
+                </p>
             </div>
 
-            <!-- Q6 -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(6)">
-                    <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q6.</span> 'Eliminate the possibilities that are ruled out by the given information' is the first step when using Truth Table.
-                    </div>
-                    <span class="text-xs bg-red-100 text-red-800 px-2.5 py-1 rounded-full font-bold">FALSE</span>
-                </div>
-                <div id="ans-6" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> The first step is listing all possible combinations ($2^n$). Elimination is Step 2.</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 錯誤（FALSE）。順序錯誤！真值表 Step 1 係 <span class="font-bold text-slate-900">List all possibilities ($2^n$)</span>，Eliminate 不可能組合係 Step 2。</p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 2 Truth Table 3-Step Procedure.</p>
-                </div>
+            <!-- Powers -->
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-2">
+                <strong class="text-blue-900 text-base block font-bold"><i class="fa-solid fa-cubes"></i> 關係的次方 (Powers)</strong>
+                <p class="text-slate-600">
+                    集合 $A$ 上的關係次方遞迴定義：$R^1 = R$ 且 $R^{n+1} = R^n \circ R$。
+                </p>
             </div>
+        </div>
 
-            <!-- Q7 -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(7)">
-                    <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q7.</span> The method of elimination includes not only Truth Table and matrix.
-                    </div>
-                    <span class="text-xs bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full font-bold">TRUE</span>
-                </div>
-                <div id="ans-7" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> Elimination methods encompass Truth Tables, Matrices, Venn Diagrams, and graphical tree diagrams.</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 正確（TRUE）。排除法除咗真值表同矩陣，仲包含文氏圖法同圖表樹狀排除法等。</p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 2 Overview of Elimination Methods.</p>
-                </div>
-            </div>
+        <!-- Theorem 1 Proof Box -->
+        <div class="bg-slate-900 text-white rounded-2xl p-6 shadow-xl border border-slate-800 space-y-4">
+            <h3 class="text-lg font-bold text-emerald-400 flex items-center gap-2">
+                <i class="fa-solid fa-graduation-cap"></i> Theorem 1 定理與完整數學證明 (Page 580-581)
+            </h3>
+            <p class="text-sm text-slate-300">
+                <strong>定理內容：</strong> 集合 $A$ 上的關係 $R$ 是<strong>遞移的 (Transitive)</strong>，若且唯若 $R^n \subseteq R$ 對所有 $n = 1, 2, 3, \dots$ 成立。
+            </p>
 
-            <!-- Q8 -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(8)">
-                    <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q8.</span> Computers are regarded as logic machines. As a computer is made up of logic circuits, which are in turn made up of logic gates.
-                    </div>
-                    <span class="text-xs bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full font-bold">TRUE</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-300 pt-2">
+                <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-1">
+                    <strong class="text-blue-400 block text-sm">1. 充分性 ("If" 證明)</strong>
+                    <p>若 $R^2 \subseteq R$，則對任意 $(a,b), (b,c) \in R$，可知 $(a,c) \in R^2 \subseteq R$，故具備遞移性。 $\blacksquare$</p>
                 </div>
-                <div id="ans-8" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> Computer hardware architectures rely on logic gates operating under Boolean logic principles.</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 正確（TRUE）。電腦底層結構完全由邏輯門（Logic Gates）同邏輯電路（Logic Circuits）所建造。</p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 1 Applications of Logic in Engineering.</p>
-                </div>
-            </div>
-
-            <!-- Q9 -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(9)">
-                    <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q9.</span> To solve logic puzzles, we only need to make reasoning with necessary information given.
-                    </div>
-                    <span class="text-xs bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full font-bold">TRUE</span>
-                </div>
-                <div id="ans-9" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> Solve puzzles strictly based on given facts without introducing unverified assumptions.</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 正確（TRUE）。解題原則：嚴格依據題目給予嘅必要已知條件（Necessary Information）進行推導，不能加個人主觀預設。</p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 2 Principles of Solving Puzzles.</p>
-                </div>
-            </div>
-
-            <!-- === Q10 (包含完整題目情景) === -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(10)">
-                    <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q10.</span> Refer to the scenario below. The girl in red is dancing with the boy in red.<br>
-                        <span class="text-xs text-slate-500 mt-1 block">
-                            "In a dancing party, there were three young couples. One girl was dressed in red, one in green, and one in blue. The boys wore outfits(服裝) of the same three colours. When all three couples were dancing, the boy in red danced close to the girl in green and spoke to her: 'Isn't it funny? Not one of us is dancing with a partner dressed in the same colour.'"
-                        </span>
-                    </div>
-                    <span class="text-xs bg-red-100 text-red-800 px-2.5 py-1 rounded-full font-bold h-fit shrink-0">FALSE</span>
-                </div>
-                <div id="ans-10" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> Refer to the scenario below. The girl in red is dancing with the boy in red.</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 錯誤（FALSE）。根據題目中「Not one of us is dancing with a partner dressed in the same colour」的規則，所有人的舞伴絕對不能是同顏色的，因此穿紅衣的女生不可能跟穿紅衣的男生跳舞。</p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 3 Dance Partners Logic Puzzle Analysis.</p>
-                </div>
-            </div>
-            
-            <!-- === Q11 === -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(11)">
-                    <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q11.</span> Refer to the scenario above. The girl in blue is dancing with the boy in red.
-                    </div>
-                    <span class="text-xs bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full font-bold h-fit shrink-0">TRUE</span>
-                </div>
-                <div id="ans-11" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> Refer to the scenario above. The girl in blue is dancing with the boy in red.</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 正確（TRUE）。推導過程：紅衣男走向綠衣女說話，代表紅衣男不是跟綠衣女跳舞；又因為不能跟同色（紅）跳舞，所以紅衣男只能與藍衣女跳舞。</p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 3 Dance Partners Logic Puzzle Analysis.</p>
-                </div>
-            </div>
-            
-            <!-- === Q12 === -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(12)">
-                    <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q12.</span> Refer to the scenario above. The girl in green is dancing with the boy in blue.
-                    </div>
-                    <span class="text-xs bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full font-bold h-fit shrink-0">TRUE</span>
-                </div>
-                <div id="ans-12" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> Refer to the scenario above. The girl in green is dancing with the boy in blue.</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 正確（TRUE）。完整配對結果為：紅衣男 ↔ 藍衣女、綠衣男 ↔ 紅衣女、藍衣男 ↔ 綠衣女。因此綠衣女確實是與藍衣男跳舞。</p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 3 Dance Partners Logic Puzzle Analysis.</p>
-                </div>
-            </div>
-
-           <!-- === Q13 (修正題目文字及精簡解釋) === -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(13)">
-                    <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q13.</span> A statement is neither affirmative nor negative.
-                    </div>
-                    <span class="text-xs bg-red-100 text-red-800 px-2.5 py-1 rounded-full font-bold">FALSE</span>
-                </div>
-                <div id="ans-13" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> A statement is neither affirmative nor negative.</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 錯誤（FALSE）。在邏輯學中，任何命題必定具備「質」（Quality），即不是肯定（Affirmative）就是否定（Negative），不可能兩者都不是。</p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 3 Quality of Propositions (Affirmative vs Negative).</p>
-                </div>
-            </div>
-
-            <!-- Q14 -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(14)">
-                    <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q14.</span> 'None of the lemons are sweet' is a Universal Negative statement (Type E).
-                    </div>
-                    <span class="text-xs bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full font-bold">TRUE</span>
-                </div>
-                <div id="ans-14" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> "None of S are P" fits the standard structure of Type E (Universal Negative).</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 正確（TRUE）。「沒有檸檬是甜的」全稱否定，代表 S 與 P 完全無交集。</p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 3 Type E Statement Examples.</p>
-                </div>
-            </div>
-
-            <!-- Q15 -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(15)">
-                    <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q15.</span> 'Not all employees are not hardworking' is logically equivalent to 'Some hardworking people are employees'.
-                    </div>
-                    <span class="text-xs bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full font-bold">TRUE</span>
-                </div>
-                <div id="ans-15" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【雙重否定化簡推導】:</strong> "Not all E are not H" $\equiv$ "Some E are H" (Type I). By Conversion rule, "Some E are H" $\equiv$ "Some H are E".</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 正確（TRUE）。「不是所有員工都不勤力」=「有些員工是勤力的」（Type I）。根據對換律 (Conversion)，可推出「有些勤力的人是員工」，兩者邏輯完全等價！</p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 3 Equivalence & Conversion Rules.</p>
-                </div>
-            </div>
-
-            <!-- Q16 -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(16)">
-                    <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q16.</span> Contradiction relation is formed between universal and partial statements.
-                    </div>
-                    <span class="text-xs bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full font-bold">TRUE</span>
-                </div>
-                <div id="ans-16" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> Contradiction links [A (Universal) vs O (Particular)] and [E (Universal) vs I (Particular)].</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 正確（TRUE）。對立方陣對角線：全稱 (Universal) 與特稱/部分 (Particular) 之間建立矛盾關係。</p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 3 Square of Opposition Diagram.</p>
-                </div>
-            </div>
-
-            <!-- Q17 -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(17)">
-                    <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q17.</span> Cognitive skills mean functions used to process information ineffectively.
-                    </div>
-                    <span class="text-xs bg-red-100 text-red-800 px-2.5 py-1 rounded-full font-bold">FALSE</span>
-                </div>
-                <div id="ans-17" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> Cognitive skills process information *effectively*, not ineffectively.</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 錯誤（FALSE）。單字陷阱！錯在 <span class="font-bold text-red-600">ineffectively（無效地）</span>，正確定義應為 effectively（有效地）。</p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 1 Cognitive Skills Definition.</p>
-                </div>
-            </div>
-
-            <!-- Q18 -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(18)">
-                    <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q18.</span> We can use a matrix if a variable has only two possible values.
-                    </div>
-                    <span class="text-xs bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full font-bold">TRUE</span>
-                </div>
-                <div id="ans-18" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> Matrix methods are valid for binary ($2 \times N$) variable setups.</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 正確（TRUE）。二元變數雖然真值表最便利，但也完全可以使用 $2 \times N$ 的矩陣進行畫表交叉排除。</p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 2 Applicability of Matrix.</p>
-                </div>
-            </div>
-
-            <!-- Q19 -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(19)">
-                    <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q19.</span> The square of opposition is formed by four types of categorical statements.
-                    </div>
-                    <span class="text-xs bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full font-bold">TRUE</span>
-                </div>
-                <div id="ans-19" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> Square of opposition links Type A, Type E, Type I, and Type O.</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 正確（TRUE）。由四個頂點 (A, E, I, O) 構成經典對立方陣。</p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 3 Square Diagram Definition.</p>
-                </div>
-            </div>
-
-            <!-- Q20 -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(20)">
-                    <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q20.</span> Contradiction: Two statements cannot be both true, but can be both false.
-                    </div>
-                    <span class="text-xs bg-red-100 text-red-800 px-2.5 py-1 rounded-full font-bold">FALSE</span>
-                </div>
-                <div id="ans-20" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> Contradictory statements cannot be both true AND cannot be both false.</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 錯誤（FALSE）。觀念混淆！「不能同真，但可以同假」係 **Contrariety (對立關係)** 嘅特性！矛盾關係 (Contradiction) 係 **既不能同真，亦不能同假**。</p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 3 Contradiction Rules.</p>
-                </div>
-            </div>
-
-            <!-- Q21 -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(21)">
-                    <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q21.</span> Contrariety is formed by Type A ('All men are handsome') and Type I ('Some men are handsome').
-                    </div>
-                    <span class="text-xs bg-red-100 text-red-800 px-2.5 py-1 rounded-full font-bold">FALSE</span>
-                </div>
-                <div id="ans-21" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> Contrariety exists between Type A and Type E. Relation between A and I is Implication.</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 錯誤（FALSE）。Type A 與 Type I 之間係 **Implication（牽連/暗示）** 關係。Contrariety 只存在於 Type A 與 Type E 之間。</p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 3 Square Relations.</p>
-                </div>
-            </div>
-
-            <!-- Q22 -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(22)">
-                    <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q22.</span> In a Truth Table, the number of possibilities is determined by variables and 2 values per variable ($2^n$).
-                    </div>
-                    <span class="text-xs bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full font-bold">TRUE</span>
-                </div>
-                <div id="ans-22" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> Exponential combination rule $2^n$ governs binary truth table dimensions.</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 正確（TRUE）。公式 $2^n$（$n$ 代表二元變數個數）。</p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 2 Truth Table Rules.</p>
-                </div>
-            </div>
-
-            <!-- Q23 -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(23)">
-                    <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q23.</span> 'Only classmates are invited to a dinner' is Universal Affirmative (Type A).
-                    </div>
-                    <span class="text-xs bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full font-bold">TRUE</span>
-                </div>
-                <div id="ans-23" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【句型轉換】:</strong> "Only A are B" translates to "All B are A" (Universal Affirmative Type A).</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 正確（TRUE）。「Only A are B」改寫為標準句型係「All B are A」（所有獲邀晚宴的人都是同學），屬於 Type A 全稱肯定。</p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 3 Special Grammatical Form Translations.</p>
-                </div>
-            </div>
-
-            <!-- Q24 -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(24)">
-                    <div class="text-sm font-medium text-slate-800">
-                        <span class="font-bold text-blue-600 mr-2">Q24.</span> Sub-contrariety: If 'Some mangoes are not ripe' (O) is true, then 'Some mangoes are ripe' (I) is doubtful.
-                    </div>
-                    <span class="text-xs bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full font-bold">TRUE</span>
-                </div>
-                <div id="ans-24" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> Under sub-contrariety, if one statement is True, the truth value of the other statement is Doubtful/Undetermined.</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 正確（TRUE）。Sub-contrariety (I vs O) 允許兩者同為 True。當 O 為 True 時，I 既可能為 T 也可能為 F，故判定為 <span class="font-bold text-blue-600">Doubtful</span>。</p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 3 Mangoes Practice Example.</p>
-                </div>
-            </div>
-
-            <!-- Q25 -->
-            <div class="tf-item border border-slate-200 rounded-xl p-4 bg-slate-50/50 hover:bg-slate-50 transition">
-                <div class="flex justify-between items-start gap-4 cursor-pointer" onclick="toggleAnswer(25)">
-                    <div class="text-sm font-medium text-slate-850">
-                        <span class="font-bold text-blue-600 mr-2">Q25.</span> The following two Venn Diagrams represent implication logical relation.
-                    </div>
-                    <span class="text-xs bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full font-bold h-fit shrink-0">TRUE</span>
-                </div>
-
-                <!-- 內嵌圖表：正確對應 E 命題與 O 命題 -->
-                <div class="flex flex-wrap items-center justify-center gap-8 my-3 p-3 bg-white rounded-xl border border-slate-200">
-                    <!-- Diagram 1: Type O (特稱) -->
-                    <div class="text-center">
-                        <svg width="120" height="70" viewBox="0 0 120 70">
-                            <circle cx="40" cy="35" r="25" fill="none" stroke="#059669" stroke-width="2"/>
-                            <circle cx="80" cy="35" r="25" fill="none" stroke="#059669" stroke-width="2"/>
-                            <line x1="40" y1="20" x2="40" y2="50" stroke="#059669" stroke-width="2"/>
-                            <text x="36" y="18" font-size="10" font-weight="bold" fill="#059669">F</text>
-                            <text x="83" y="18" font-size="10" font-weight="bold" fill="#059669">D</text>
-                        </svg>
-                        <span class="block text-[11px] font-bold text-emerald-600 mt-1">Diagram 1 (Type O: 特稱)</span>
-                    </div>
-                    <!-- Diagram 2: Type E (全稱) -->
-                    <div class="text-center">
-                        <svg width="120" height="70" viewBox="0 0 120 70">
-                            <circle cx="40" cy="35" r="25" fill="none" stroke="#2563eb" stroke-width="2"/>
-                            <circle cx="80" cy="35" r="25" fill="none" stroke="#2563eb" stroke-width="2"/>
-                            <path d="M 60 15.35 A 25 25 0 0 1 60 54.65 A 25 25 0 0 1 60 15.35 Z" fill="#2563eb"/>
-                            <text x="36" y="18" font-size="10" font-weight="bold" fill="#2563eb">F</text>
-                            <text x="83" y="18" font-size="10" font-weight="bold" fill="#2563eb">D</text>
-                        </svg>
-                        <span class="block text-[11px] font-bold text-blue-600 mt-1">Diagram 2 (Type E: 全稱)</span>
-                    </div>
-                </div>
-
-                <div id="ans-25" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p><strong class="text-slate-900">【英文原意】:</strong> The provided Venn Diagrams represent the implication logical relation between Type O and Type E propositions.</p>
-                    <p><strong class="text-emerald-700">【廣東話/中文精析】:</strong> 正確（TRUE）。
-                        <br>• <strong>左圖（Diagram 1）屬 Type O 命題（Particular / 特稱）</strong>。
-                        <br>• <strong>右圖（Diagram 2）屬 Type E 命題（Universal / 全稱）</strong>。
-                        <br>對應 Implication 規則中的 <strong>[E $\rightarrow$ O]</strong> 牽連邏輯。
+                <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-1">
+                    <strong class="text-emerald-400 block text-sm">2. 必要性 ("Only If" 數學歸納法)</strong>
+                    <p>
+                        • 基礎 ($n=1$): $R^1 \subseteq R$ 成立。<br>
+                        • 假設 $n=k$ 時 $R^k \subseteq R$。<br>
+                        • 推導至 $n=k+1$ 時亦成立。 $\blacksquare$
                     </p>
-                    <p><strong class="text-blue-600">【PPT 出處對照】:</strong> Ch 3 AEIO Categorical Logic & Venn Diagram Mapping.</p>
-                </div>
-            </div>
-
-            
-
-        </div>
-
-        <!-- SECTION B: COMPREHENSIVE CASE STUDY (FULL-WIDTH JUSTIFICATIONS) -->
-        <div class="mt-10 pt-8 border-t-2 border-slate-300">
-            <div class="flex items-center gap-3 mb-5">
-                <span class="bg-indigo-600 text-white font-bold px-3.5 py-1.5 rounded-lg text-base">Section B</span>
-                <h3 class="font-bold text-xl md:text-2xl text-slate-900">Comprehensive Logic Case Analysis: The 4 Bankers Fraud Case (澳門銀行家詐欺案完整題解)</h3>
-            </div>
-        
-            <!-- Problem Scenario Box -->
-            <div class="bg-indigo-50/70 border border-indigo-200 rounded-2xl p-6 md:p-8 mb-6 text-slate-800 space-y-5">
-                <div class="border-b border-indigo-200 pb-4">
-                    <h4 class="font-bold text-indigo-900 text-lg flex items-center gap-2">
-                        <i class="fa-solid fa-user-secret text-indigo-600"></i> Case Background & Clues (案件背景與 5 大真實線索)
-                    </h4>
-                    <p class="text-sm md:text-base text-slate-700 mt-1.5">Four financial bankers — <strong>Amy (A), Betty (B), Carol (C), Debbie (D)</strong> in a famous bank in Macau are suspected of making faulty claims for their clients. The following evidences were collected:</p>
-                </div>
-        
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
-                    <div class="bg-white p-4 rounded-xl border border-indigo-100 shadow-2xs space-y-1.5">
-                        <span class="font-bold text-indigo-800 block text-base">Clue (i):</span>
-                        <p class="text-slate-900 font-medium text-base">If two or more people are involved, then Betty is one of them.</p>
-                        <p class="text-xs text-slate-500 font-mono">(Count(A,B,C,D) ≥ 2 ⇒ B = T)</p>
-                    </div>
-        
-                    <div class="bg-white p-4 rounded-xl border border-indigo-100 shadow-2xs space-y-1.5">
-                        <span class="font-bold text-indigo-800 block text-base">Clue (ii):</span>
-                        <p class="text-slate-900 font-medium text-base">At least one of the three persons other than Betty is involved.</p>
-                        <p class="text-xs text-slate-500 font-mono">(A ∨ C ∨ D = T)</p>
-                    </div>
-        
-                    <div class="bg-white p-4 rounded-xl border border-indigo-100 shadow-2xs space-y-1.5">
-                        <span class="font-bold text-indigo-800 block text-base">Clue (iii):</span>
-                        <p class="text-slate-900 font-medium text-base">Either Carol and Betty are involved or both of them are not involved.</p>
-                        <p class="text-xs text-slate-500 font-mono">(C ⇔ B)</p>
-                    </div>
-        
-                    <div class="bg-white p-4 rounded-xl border border-indigo-100 shadow-2xs space-y-1.5">
-                        <span class="font-bold text-indigo-800 block text-base">Clue (iv):</span>
-                        <p class="text-slate-900 font-medium text-base">If Betty is involved, either Carol or Amy is not involved.</p>
-                        <p class="text-xs text-slate-500 font-mono">(B ⇒ ¬C ∨ ¬A)</p>
-                    </div>
-        
-                    <div class="bg-white p-4 rounded-xl border border-indigo-100 shadow-2xs space-y-1.5 md:col-span-2">
-                        <span class="font-bold text-indigo-800 block text-base">Clue (v):</span>
-                        <p class="text-slate-900 font-medium text-base">Carol or Amy is involved only if Debbie be involved.</p>
-                        <p class="text-xs text-slate-500 font-mono">(C ∨ A ⇒ D)</p>
-                    </div>
-                </div>
-        
-                <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 text-sm md:text-base text-amber-950 font-medium">
-                    <strong>Question:</strong> Based on the evidences collected, determine who are involved in making faulty claims for their clients using the $2^4 = 16$ Truth Table below. (Mark all valid solutions).
-                </div>
-            </div>
-        
-            <!-- Full 16-Row Truth Table -->
-            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-x-auto p-4 mb-6">
-                <h4 class="font-bold text-slate-900 text-base mb-3 flex items-center gap-2">
-                    <i class="fa-solid fa-table"></i> Complete 16-Row Truth Table Elimination Matrix ($2^4 = 16$)
-                </h4>
-                <table class="w-full text-xs md:text-sm text-center border-collapse">
-                    <thead>
-                        <tr class="bg-slate-800 text-white font-bold">
-                            <th class="p-2.5 border border-slate-700">Row</th>
-                            <th class="p-2.5 border border-slate-700">Amy (A)</th>
-                            <th class="p-2.5 border border-slate-700">Betty (B)</th>
-                            <th class="p-2.5 border border-slate-700">Carol (C)</th>
-                            <th class="p-2.5 border border-slate-700">Debbie (D)</th>
-                            <th class="p-2.5 border border-slate-700">Clue (i)<br><span class="text-[11px] font-normal">≥2 ⇒ B</span></th>
-                            <th class="p-2.5 border border-slate-700">Clue (ii)<br><span class="text-[11px] font-normal">A∨C∨D</span></th>
-                            <th class="p-2.5 border border-slate-700">Clue (iii)<br><span class="text-[11px] font-normal">C ⇔ B</span></th>
-                            <th class="p-2.5 border border-slate-700">Clue (iv)<br><span class="text-[11px] font-normal">B ⇒ ¬C∨¬A</span></th>
-                            <th class="p-2.5 border border-slate-700">Clue (v)<br><span class="text-[11px] font-normal">C∨A ⇒ D</span></th>
-                            <th class="p-2.5 border border-slate-700">Status / Elimination Reason</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-200 font-mono text-xs md:text-sm">
-                        <tr class="bg-slate-100 text-slate-400"><td>1</td><td>T</td><td>T</td><td>T</td><td>T</td><td>✓</td><td>✓</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td>✓</td><td class="text-red-500 font-sans">Eliminated by (iv)</td></tr>
-                        <tr class="bg-slate-100 text-slate-400"><td>2</td><td>T</td><td>T</td><td>T</td><td>F</td><td>✓</td><td>✓</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td class="text-red-600 font-bold">✗</td><td class="text-red-500 font-sans">Eliminated by (iv),(v)</td></tr>
-                        <tr class="bg-slate-100 text-slate-400"><td>3</td><td>T</td><td>T</td><td>F</td><td>T</td><td>✓</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td>✓</td><td>✓</td><td class="text-red-500 font-sans">Eliminated by (iii)</td></tr>
-                        <tr class="bg-slate-100 text-slate-400"><td>4</td><td>T</td><td>T</td><td>F</td><td>F</td><td>✓</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td class="text-red-500 font-sans">Eliminated by (iii),(v)</td></tr>
-                        <tr class="bg-slate-100 text-slate-400"><td>5</td><td>T</td><td>F</td><td>T</td><td>T</td><td class="text-red-600 font-bold">✗</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td>✓</td><td>✓</td><td class="text-red-500 font-sans">Eliminated by (i),(iii)</td></tr>
-                        <tr class="bg-slate-100 text-slate-400"><td>6</td><td>T</td><td>F</td><td>T</td><td>F</td><td class="text-red-600 font-bold">✗</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td class="text-red-500 font-sans">Eliminated by (i),(iii),(v)</td></tr>
-                        <tr class="bg-slate-100 text-slate-400"><td>7</td><td>T</td><td>F</td><td>F</td><td>T</td><td class="text-red-600 font-bold">✗</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td class="text-red-500 font-sans">Eliminated by (i)</td></tr>
-                        <tr class="bg-slate-100 text-slate-400"><td>8</td><td>T</td><td>F</td><td>F</td><td>F</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td class="text-red-500 font-sans">Eliminated by (v)</td></tr>
-                        
-                        <!-- VALID SOLUTION #1: Row 9 -->
-                        <tr class="bg-emerald-100 text-slate-900 font-bold border-2 border-emerald-500"><td>9</td><td>F</td><td>T</td><td>T</td><td>T</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td class="text-emerald-700 font-sans font-bold"><i class="fa-solid fa-check-circle mr-1"></i> VALID SOLUTION #1!</td></tr>
-        
-                        <tr class="bg-slate-100 text-slate-400"><td>10</td><td>F</td><td>T</td><td>T</td><td>F</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td class="text-red-500 font-sans">Eliminated by (v)</td></tr>
-                        <tr class="bg-slate-100 text-slate-400"><td>11</td><td>F</td><td>T</td><td>F</td><td>T</td><td>✓</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td>✓</td><td>✓</td><td class="text-red-500 font-sans">Eliminated by (iii)</td></tr>
-                        <tr class="bg-slate-100 text-slate-400"><td>12</td><td>F</td><td>T</td><td>F</td><td>F</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td class="text-red-600 font-bold">✗</td><td>✓</td><td>✓</td><td class="text-red-500 font-sans">Eliminated by (ii),(iii)</td></tr>
-                        <tr class="bg-slate-100 text-slate-400"><td>13</td><td>F</td><td>F</td><td>T</td><td>T</td><td class="text-red-600 font-bold">✗</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td>✓</td><td>✓</td><td class="text-red-500 font-sans">Eliminated by (i),(iii)</td></tr>
-                        <tr class="bg-slate-100 text-slate-400"><td>14</td><td>F</td><td>F</td><td>T</td><td>F</td><td>✓</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td class="text-red-500 font-sans">Eliminated by (iii),(v)</td></tr>
-                        
-                        <!-- VALID SOLUTION #2: Row 15 -->
-                        <tr class="bg-emerald-100 text-slate-900 font-bold border-2 border-emerald-500"><td>15</td><td>F</td><td>F</td><td>F</td><td>T</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td class="text-emerald-700 font-sans font-bold"><i class="fa-solid fa-check-circle mr-1"></i> VALID SOLUTION #2!</td></tr>
-        
-                        <tr class="bg-slate-100 text-slate-400"><td>16</td><td>F</td><td>F</td><td>F</td><td>F</td><td>✓</td><td class="text-red-600 font-bold">✗</td><td>✓</td><td>✓</td><td>✓</td><td class="text-red-500 font-sans">Eliminated by (ii)</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        
-            <!-- Findings with Justifications (整行 Full-width 版) -->
-            <div class="bg-slate-900 text-white p-6 rounded-2xl shadow-md space-y-4 text-xs md:text-sm">
-                <h4 class="text-base md:text-lg font-bold text-emerald-400 flex items-center gap-2">
-                    <i class="fa-solid fa-square-check"></i> Findings with Justifications (調查發現與理據說明)
-                </h4>
-                
-                <div class="space-y-3">
-                    <!-- Solution 1 -->
-                    <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-1">
-                        <strong class="text-emerald-400 text-sm md:text-base">Solution 1 (Row 9 情況):</strong>
-                        <p class="text-slate-200 text-xs md:text-sm">
-                            <span class="text-white font-bold">Betty (B), Carol (C), and Debbie (D)</span> are involved; <span class="text-rose-300 font-bold">Amy (A)</span> is innocent.
-                        </p>
-                        <p class="text-slate-400 text-xs pt-1 border-t border-slate-700/60">
-                            <em>Justification:</em> Satisfies all 5 clues simultaneously when multiple bankers are involved.
-                        </p>
-                    </div>
-        
-                    <!-- Solution 2 -->
-                    <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-1">
-                        <strong class="text-emerald-400 text-sm md:text-base">Solution 2 (Row 15 情況):</strong>
-                        <p class="text-slate-200 text-xs md:text-sm">
-                            <span class="text-white font-bold">Debbie (D)</span> is involved; <span class="text-rose-300 font-bold">Amy (A), Betty (B), Carol (C)</span> are innocent.
-                        </p>
-                        <p class="text-slate-400 text-xs pt-1 border-t border-slate-700/60">
-                            <em>Justification:</em> Satisfies all 5 clues under single-person involvement (Debbie only).
-                        </p>
-                    </div>
                 </div>
             </div>
         </div>
-
-
-        <!-- SECTION: LOGICAL CONNECTIVES SUMMARY SHEET (補充頁：邏輯連接詞完整總結) -->
-        <div id="appendix" class="mt-10 pt-8 border-t-2 border-slate-300 searchable-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
-        <div class="mt-10 pt-8 border-t-2 border-slate-300 searchable-section">
-            <div class="flex items-center gap-3 mb-6">
-                <span class="bg-blue-600 text-white font-bold px-3.5 py-1.5 rounded-lg text-base">Appendix</span>
-                <h3 class="font-bold text-xl md:text-2xl text-slate-900">Logical Connectives Reference Sheet (邏輯連接詞與符號總表)</h3>
-            </div>
-        
-            <!-- 1. Basic Connectives -->
-            <div class="bg-white rounded-2xl p-5 md:p-6 shadow-sm border border-slate-200 mb-6 space-y-3">
-                <h4 class="font-bold text-slate-900 text-base md:text-lg flex items-center gap-2">
-                    <span class="w-3 h-3 rounded-full bg-blue-600"></span> 1. Basic Connectives (基本邏輯連接詞)
-                </h4>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-xs md:text-sm text-left border-collapse">
-                        <thead>
-                            <tr class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
-                                <th class="p-3">Connective</th>
-                                <th class="p-3">Symbol</th>
-                                <th class="p-3">Natural Language Patterns</th>
-                                <th class="p-3">Truth Value Rule</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-100 text-slate-700">
-                            <tr>
-                                <td class="p-3 font-bold text-slate-900">Negation (Not)</td>
-                                <td class="p-3 font-mono text-blue-600 font-bold">$\neg A$ / $\sim A$</td>
-                                <td class="p-3">Not A, It is not the case that A<br><span class="text-slate-400 text-xs">（非 A / 並非 A）</span></td>
-                                <td class="p-3">Inverts the truth value ($T \to F, F \to T$).</td>
-                            </tr>
-                            <tr>
-                                <td class="p-3 font-bold text-slate-900">Conjunction (And)</td>
-                                <td class="p-3 font-mono text-blue-600 font-bold">$A \land B$</td>
-                                <td class="p-3">A and B, Both A and B<br><span class="text-slate-400 text-xs">（A 且 B / 既 A 又 B）</span></td>
-                                <td class="p-3"><strong class="text-slate-900">True</strong> only if both A and B are True.</td>
-                            </tr>
-                            <tr>
-                                <td class="p-3 font-bold text-slate-900">Disjunction (Or)</td>
-                                <td class="p-3 font-mono text-blue-600 font-bold">$A \lor B$</td>
-                                <td class="p-3">A or B, Either A or B<br><span class="text-slate-400 text-xs">（A 或 B / 至少一個為真）</span></td>
-                                <td class="p-3"><strong class="text-slate-900">True</strong> if at least one proposition is True.</td>
-                            </tr>
-                            <tr>
-                                <td class="p-3 font-bold text-slate-900">Exclusive Or (XOR)</td>
-                                <td class="p-3 font-mono text-blue-600 font-bold">$A \oplus B$</td>
-                                <td class="p-3">Either A or B, but not both<br><span class="text-slate-400 text-xs">（不是 A 就是 B，不能同時為真）</span></td>
-                                <td class="p-3"><strong class="text-slate-900">True</strong> if A and B have different truth values.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        
-            <!-- 2. Conditionals & Implication -->
-            <div class="bg-white rounded-2xl p-5 md:p-6 shadow-sm border border-slate-200 mb-6 space-y-3">
-                <h4 class="font-bold text-slate-900 text-base md:text-lg flex items-center gap-2">
-                    <span class="w-3 h-3 rounded-full bg-indigo-600"></span> 2. Conditionals & Implication (條件與蘊涵連接詞)
-                </h4>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-xs md:text-sm text-left border-collapse">
-                        <thead>
-                            <tr class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
-                                <th class="p-3">Type</th>
-                                <th class="p-3">Symbol</th>
-                                <th class="p-3">Natural Language Patterns</th>
-                                <th class="p-3">Core Rule & Notes</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-100 text-slate-700">
-                            <tr>
-                                <td class="p-3 font-bold text-slate-900">Conditional (If-Then)</td>
-                                <td class="p-3 font-mono text-indigo-600 font-bold">$A \to B$</td>
-                                <td class="p-3">If A then B, B if A, A implies B<br><span class="text-slate-400 text-xs">（若 A 則 B / 只要 A 就 B）</span></td>
-                                <td class="p-3"><strong class="text-rose-600">False</strong> only when $A = T$ and $B = F$.</td>
-                            </tr>
-                            <tr>
-                                <td class="p-3 font-bold text-slate-900">Necessary Condition (Only If)</td>
-                                <td class="p-3 font-mono text-indigo-600 font-bold">$A \to B$</td>
-                                <td class="p-3">A only if B<br><span class="text-slate-400 text-xs">（只有當 B 發生時，A 才發生）</span></td>
-                                <td class="p-3">Necessary condition ($B$) goes on the right side of $\to$.</td>
-                            </tr>
-                            <tr>
-                                <td class="p-3 font-bold text-slate-900">Unless (若非)</td>
-                                <td class="p-3 font-mono text-indigo-600 font-bold">$\neg A \to B$ / $A \lor B$</td>
-                                <td class="p-3">B unless A<br><span class="text-slate-400 text-xs">（除非 A，否則 B）</span></td>
-                                <td class="p-3">Equivalent to $\neg A \to B$ or $A \lor B$.</td>
-                            </tr>
-                            <tr>
-                                <td class="p-3 font-bold text-slate-900">Biconditional (If and Only If)</td>
-                                <td class="p-3 font-mono text-indigo-600 font-bold">$A \leftrightarrow B$</td>
-                                <td class="p-3">A if and only if B (iff)<br><span class="text-slate-400 text-xs">（若且唯若 / 充分必要條件）</span></td>
-                                <td class="p-3"><strong class="text-slate-900">True</strong> only when both have identical truth values.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        
-            <!-- 3. Quantifiers -->
-            <div class="bg-white rounded-2xl p-5 md:p-6 shadow-sm border border-slate-200 space-y-3">
-                <h4 class="font-bold text-slate-900 text-base md:text-lg flex items-center gap-2">
-                    <span class="w-3 h-3 rounded-full bg-purple-600"></span> 3. Categorical Quantifiers (量詞命題)
-                </h4>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-xs md:text-sm text-left border-collapse">
-                        <thead>
-                            <tr class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
-                                <th class="p-3">Type</th>
-                                <th class="p-3">Formal Representation</th>
-                                <th class="p-3">Natural Language</th>
-                                <th class="p-3">Logical Equivalent</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-100 text-slate-700 font-mono text-xs md:text-sm">
-                            <tr>
-                                <td class="p-3 font-bold font-sans text-slate-900">Universal Affirmative (A)</td>
-                                <td class="p-3 text-purple-600 font-bold">$\forall x (A(x) \to B(x))$</td>
-                                <td class="p-3 font-sans">All A are B<span class="text-slate-400 text-xs block">（所有 A 都是 B）</span></td>
-                                <td class="p-3 text-slate-500 font-sans">—</td>
-                            </tr>
-                            <tr>
-                                <td class="p-3 font-bold font-sans text-slate-900">Universal Negative (E)</td>
-                                <td class="p-3 text-purple-600 font-bold">$\forall x (A(x) \to \neg B(x))$</td>
-                                <td class="p-3 font-sans">No A are B<span class="text-slate-400 text-xs block">（沒有 A 是 B）</span></td>
-                                <td class="p-3 text-slate-600 font-mono">$\neg \exists x (A(x) \land B(x))$</td>
-                            </tr>
-                            <tr>
-                                <td class="p-3 font-bold font-sans text-slate-900">Particular Affirmative (I)</td>
-                                <td class="p-3 text-purple-600 font-bold">$\exists x (A(x) \land B(x))$</td>
-                                <td class="p-3 font-sans">Some A are B<span class="text-slate-400 text-xs block">（有些 A 是 B）</span></td>
-                                <td class="p-3 text-slate-500 font-sans">—</td>
-                            </tr>
-                            <tr>
-                                <td class="p-3 font-bold font-sans text-slate-900">Particular Negative (O)</td>
-                                <td class="p-3 text-purple-600 font-bold">$\exists x (A(x) \land \neg B(x))$</td>
-                                <td class="p-3 font-sans">Some A are not B<span class="text-slate-400 text-xs block">（有些 A 不是 B）</span></td>
-                                <td class="p-3 text-slate-600 font-mono">$\neg \forall x (A(x) \to B(x))$</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        
-        
     </section>
 
 </main>
 
-<footer class="bg-slate-900 text-slate-400 text-center py-6 text-xs">
-    <p>Business Logic & Reasoning Review Guide — Ch 1 to Ch 3 Complete Edition with Full Section B Solution</p>
+<footer class="bg-slate-900 text-slate-400 text-center py-6 text-xs mt-12">
+    <p>CISC1002 Discrete Structures Revision Center • Chapter 9 Relations § 9.1 Complete Guide</p>
 </footer>
-
-<!-- Interactive Script -->
-<script>
-    function toggleAnswer(id) {
-        const el = document.getElementById(`ans-${id}`);
-        if (el) {
-            el.classList.toggle('show');
-        }
-    }
-
-    function toggleAllAnswers() {
-        const contents = document.querySelectorAll('.toggle-content');
-        const anyHidden = Array.from(contents).some(c => !c.classList.contains('show'));
-        contents.forEach(c => {
-            if (anyHidden) {
-                c.classList.add('show');
-            } else {
-                c.classList.remove('show');
-            }
-        });
-    }
-
-    function filterContent() {
-        const input = document.getElementById('searchInput').value.toLowerCase();
-        const tfItems = document.querySelectorAll('.tf-item');
-
-        tfItems.forEach(item => {
-            const text = item.innerText.toLowerCase();
-            if (text.includes(input)) {
-                item.style.display = '';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-    }
-</script>
 
 </body>
 </html>
