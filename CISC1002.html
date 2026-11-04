@@ -414,6 +414,147 @@
             </div>
         </div>
     </section>
+    
+
+    <!-- ================= SECTION 2.3 ================= -->
+    <section id="sec2-3" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b pb-4 flex items-center justify-between">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 2.3</span>
+                Functions (函數)
+            </h2>
+            <span class="text-xs text-slate-500 font-mono">Page 139 - 152</span>
+        </div>
+    
+        <!-- 1. Introduction & Basic Definitions -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-emerald-800 flex items-center gap-2">
+                <i class="fa-solid fa-circle-dot text-emerald-500 text-sm"></i> 1. Introduction & Basic Definitions (基本定義與相關概念)[cite: 204]
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-slate-900 block text-base font-bold">Definition 1 (page 139): Function (函數)[cite: 204]</strong>
+                    <p class="text-slate-700">Let A and B be sets. A function from A to B is an assignment of exactly one element of B to each element of A. We write $f(a)=b$ if b is the unique element of B assigned by the function f to the element a of A. We write $f: A \to B$[cite: 204].</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-slate-900 block text-base font-bold">Definition 2 (page 139): Domain, Codomain & Range (定義域、共域與值域)[cite: 206]</strong>
+                    <p class="text-slate-700"><strong>Domain (定義域):</strong> Set A[cite: 206].</p>
+                    <p class="text-slate-700"><strong>Codomain (共域):</strong> Set B[cite: 206].</p>
+                    <p class="text-slate-700"><strong>Range (值域):</strong> The set of all images of elements of A[cite: 206].</p>
+                    <p class="text-xs text-slate-500">Image (像) and Pre-image (原像): If $f(a)=b$, $b$ is the image of $a$, and $a$ is a pre-image of $b$[cite: 206].</p>
+                </div>
+            </div>
+
+            <!-- Image of a Subset -->
+            <div class="p-4 bg-emerald-50/50 rounded-xl border border-emerald-200 text-sm space-y-2">
+                <strong class="text-emerald-900 block font-bold">Definition 4 (page 136): Image of a Subset (子集的像)[cite: 210]</strong>
+                <p class="text-slate-700">Let $f$ be a function from $A$ to $B$ and let $S$ be a subset of $A$. The image of $S$ is the subset of $B$ consisting of the images of the elements of $S$: $f(S) = \{f(s) \mid s \in S\}$[cite: 210].</p>
+            </div>
+
+            <!-- Function Operations -->
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-sm space-y-2">
+                <strong class="text-slate-900 block font-bold">Definition 3 (page 141): Function Operations (函數加法與乘法)[cite: 208]</strong>
+                <p class="text-slate-700">Let $f_1$ and $f_2$ be functions from $A$ to $\mathbb{R}$. Then $f_1 + f_2$ and $f_1 f_2$ are defined by[cite: 208]:</p>
+                <p class="font-mono text-xs text-emerald-800 bg-white p-2 rounded border">
+                    $(f_1 + f_2)(x) = f_1(x) + f_2(x)<br>
+                    (f_1 f_2)(x) = f_1(x) f_2(x)$[cite: 208]
+                </p>
+            </div>
+        </div>
+    
+        <!-- 2. One-to-one and Onto functions -->
+        <div class="space-y-4 pt-4 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-emerald-800 flex items-center gap-2">
+                <i class="fa-solid fa-arrows-split-up-and-left text-emerald-500 text-sm"></i> 2. One-to-one and Onto Functions (單射、滿射與雙射)[cite: 212]
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <!-- One-to-one -->
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-slate-900 block font-bold">Definition 5 (page 141): One-to-one / Injective (單射)[cite: 212]</strong>
+                    <p class="text-slate-700">A function $f$ is one-to-one if and only if $f(x) = f(y)$ implies $x = y$ for all $x, y$ in the domain[cite: 212]. (Also called an <strong>injection</strong>[cite: 212]).</p>
+                    <p class="text-xs text-slate-500"><strong>Strictly Monotonic:</strong> A strictly increasing or strictly decreasing function is always one-to-one[cite: 216, 217, 218].</p>
+                </div>
+                <!-- Onto -->
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-slate-900 block font-bold">Definition 7 (page 143): Onto / Surjective (滿射)[cite: 219]</strong>
+                    <p class="text-slate-700">A function $f$ from $A$ to $B$ is onto if and only if for every element $b \in B$, there is an element $a \in A$ with $f(a) = b$[cite: 219]. (Also called a <strong>surjection</strong>[cite: 219]).</p>
+                </div>
+            </div>
+
+            <!-- Bijection & Identity -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-slate-900 block font-bold">Definition 8 (page 144): Bijection / One-to-one Correspondence (雙射)[cite: 221]</strong>
+                    <p class="text-slate-700">A function is a one-to-one correspondence (bijection) if it is both one-to-one and onto[cite: 221].</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-slate-900 block font-bold">Identity Function (恒等函數)[cite: 223]</strong>
+                    <p class="text-slate-700">The identity function on a set $A$ is $i_A: A \to A$ defined by $i_A(x) = x$[cite: 223].</p>
+                </div>
+            </div>
+        </div>
+    
+        <!-- 3. Inverse Functions and Compositions -->
+        <div class="space-y-4 pt-4 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-emerald-800 flex items-center gap-2">
+                <i class="fa-solid fa-rotate text-emerald-500 text-sm"></i> 3. Inverse Functions and Compositions of Functions (反函數與函數複合)[cite: 226]
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-slate-900 block font-bold">Definition 9 (page 145): Inverse Function (反函數)[cite: 228]</strong>
+                    <p class="text-slate-700">Let $f$ be a bijection from $A$ to $B$. The inverse function $f^{-1}$ assigns to $b \in B$ the unique element $a \in A$ such that $f(a) = b$[cite: 228]. Thus, $f^{-1}(b) = a \iff f(a) = b$[cite: 228]. <span class="text-xs text-red-600 block mt-1">*Note: Only bijections are invertible[cite: 229].*</span></p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-slate-900 block font-bold">Definition 10 (page 147): Composition (函數複合)[cite: 233]</strong>
+                    <p class="text-slate-700">Let $g: A \to B$ and $f: B \to C$. The composition of $f$ and $g$, denoted by $f \circ g$, is defined by[cite: 233]:</p>
+                    <p class="font-mono text-xs text-emerald-800 bg-white p-2 rounded border">$(f \circ g)(a) = f(g(a))$[cite: 233]</p>
+                    <p class="text-xs text-slate-500 mt-1">Note: Function composition is generally not commutative ($f \circ g \neq g \circ f$)[cite: 237].</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Graph of Functions -->
+        <div class="space-y-4 pt-4 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-emerald-800 flex items-center gap-2">
+                <i class="fa-solid fa-chart-line text-emerald-500 text-sm"></i> 4. Graph of Functions (函數圖形)[cite: 239]
+            </h3>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-sm space-y-2">
+                <strong class="text-slate-900 block font-bold">Definition 11 (page 148): Graph (圖形)[cite: 239]</strong>
+                <p class="text-slate-700">Let $f$ be a function from $A$ to $B$. The graph of $f$ is the set of ordered pairs $\{(a, b) \mid a \in A \text{ and } f(a) = b\}$[cite: 239].</p>
+            </div>
+        </div>
+
+        <!-- 5. Important Functions: Floor, Ceiling & Factorial -->
+        <div class="space-y-4 pt-4 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-emerald-800 flex items-center gap-2">
+                <i class="fa-solid fa-square-root-variable text-emerald-500 text-sm"></i> 5. Important Functions: Floor, Ceiling & Factorial (重要函數：地板、天花板與階乘)[cite: 242]
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-slate-900 block font-bold">Definition 12 (page 149): Floor & Ceiling Functions[cite: 242, 243]</strong>
+                    <p class="text-slate-700"><strong>Floor function ($\lfloor x \rfloor$):</strong> Assigns the largest integer that is less than or equal to $x$[cite: 242].</p>
+                    <p class="text-slate-700"><strong>Ceiling function ($\lceil x \rceil$):</strong> Assigns the smallest integer that is greater than or equal to $x$[cite: 243].</p>
+                    <div class="p-3 bg-white rounded border border-slate-200 text-xs font-mono space-y-1">
+                        <p>• $\lfloor 0.5 \rfloor = 0$, $\lceil 0.5 \rceil = 1$, $\lfloor -0.5 \rfloor = -1$, $\lceil -0.5 \rceil = 0$[cite: 244]</p>
+                        <p>• Useful Property: $\lfloor x \rfloor = n \iff n \le x < n+1$[cite: 245]</p>
+                    </div>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-slate-900 block font-bold">Factorial Function (階乘函數)[cite: 248]</strong>
+                    <p class="text-slate-700">The factorial function $f: \mathbb{N} \to \mathbb{Z}^+$ is defined by $f(n) = n!$, where[cite: 248]:</p>
+                    <p class="font-mono text-xs text-emerald-800 bg-white p-2 rounded border">
+                        $n! = 1 \times 2 \times \dots \times (n-1) \times n$<br>
+                        (and $0! = 1$)[cite: 248]
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- ================= SECTION 2.5 ================= -->
     <section id="sec2-5" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
