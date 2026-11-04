@@ -52,6 +52,277 @@
 
 <main class="max-w-7xl mx-auto px-4 py-8 space-y-8">
 
+<!-- 第二課新加測試 -->
+    <!-- CHAPTER 2 OVERVIEW -->
+    <section class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
+        <div class="border-b pb-4 mb-4">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <i class="fa-solid fa-layer-group text-emerald-600"></i> Chapter 2 Basic Structures Overview (基本結構總覽)
+            </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                <span class="font-bold text-emerald-700 block text-base mb-1">§ 2.1 Sets</span>
+                <p class="text-slate-600">集合定義、列舉法與 Builder Notation、相等性、空集 ($\emptyset$)、全集 ($U$)、Venn 圖、子集 ($A \subseteq B$)、真子集 ($A \subset B$)、基數 ($|S|$)、冪集 ($P(S)$) 與笛卡兒積 ($A \times B$)。</p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                <span class="font-bold text-emerald-700 block text-base mb-1">§ 2.2 Set Operations</span>
+                <p class="text-slate-600">交集 ($A \cap B$)、聯集 ($A \cup B$)、差集 ($A - B$)、補集 ($\sim A$)、不相交 (Disjoint)、容斥原理 ($|A \cup B| = |A| + |B| - |A \cap B|$) 與 De Morgan 等集合恒等式。</p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                <span class="font-bold text-emerald-700 block text-base mb-1">§ 2.3 Functions</span>
+                <p class="text-slate-600">函數定義、$f: A \to B$、定義域 (Domain)、共域 (Codomain)、值域 (Range)、單射 (One-to-one/Injective)、滿射 (Onto/Surjective)、雙射 (Bijection)、反函數 ($f^{-1}$) 與複合函數 ($f \circ g$)。</p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                <span class="font-bold text-emerald-700 block text-base mb-1">§ 2.5 Cardinality of Sets</span>
+                <p class="text-slate-600">集合基數比較 ($|A| = |B|$)、可數集 (Countable Set, $\mathbb{Z}, \mathbb{Q}$)、不可數集 (Uncountable Set, $\mathbb{R}$)、對角線證明法與 Schröder-Bernstein 定理。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2.1 -->
+    <section id="sec2-1" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b pb-4 flex items-center justify-between">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 2.1</span>
+                Sets (集合)
+            </h2>
+        </div>
+
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-emerald-800 flex items-center gap-2">
+                <i class="fa-solid fa-shapes text-emerald-500"></i> 1. Basic Definitions & Set Descriptions (基本定義與表示法)
+            </h3>
+            
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                    <div class="bg-white p-4 rounded-lg border border-slate-200 space-y-2">
+                        <strong class="text-emerald-900 font-bold block text-base">Definition: Set & Element</strong>
+                        <p class="text-slate-800">A <strong>set</strong> is an unordered collection of objects. The objects in a set are called <strong>elements</strong> or <strong>members</strong>.</p>
+                        <p class="text-xs text-slate-500 pt-1 border-t border-slate-100">Common sets: $\mathbb{N}, \mathbb{Z}, \mathbb{Z}^+, \mathbb{Q}, \mathbb{R}$</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg border border-slate-200 space-y-2">
+                        <strong class="text-emerald-900 font-bold block text-base">Two Ways to Describe a Set</strong>
+                        <p class="text-slate-800">1. <strong>Listing All Members:</strong> $O = \{1, 3, 5, 7, 9\}$</p>
+                        <p class="text-slate-800">2. <strong>Set Builder Notation:</strong> $O = \{x \mid x \text{ is an odd positive integer } < 10\}$</p>
+                    </div>
+                </div>
+
+                <!-- Subsets & Equality -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm pt-2">
+                    <div class="p-4 bg-white rounded-lg border border-slate-200">
+                        <strong class="text-slate-900 font-bold block mb-1">Set Equality (集合相等)</strong>
+                        <p class="text-slate-700">$A = B \iff \forall x(x \in A \leftrightarrow x \in B)$</p>
+                        <p class="text-xs text-slate-500 mt-1">例如：$\{1,3,5\} = \{3,5,1\} = \{1,3,3,5\}$</p>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-slate-200">
+                        <strong class="text-slate-900 font-bold block mb-1">Subset (子集 $\subseteq$)</strong>
+                        <p class="text-slate-700">$A \subseteq B \iff \forall x(x \in A \rightarrow x \in B)$</p>
+                        <p class="text-xs text-slate-500 mt-1">定理：$\emptyset \subseteq S$ 且 $S \subseteq S$</p>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg border border-slate-200">
+                        <strong class="text-slate-900 font-bold block mb-1">Proper Subset (真子集 $\subset$)</strong>
+                        <p class="text-slate-700">$A \subset B \iff A \subseteq B \land A \ne B$</p>
+                        <p class="text-xs text-slate-500 mt-1">$B$ 至少包含一個不屬於 $A$ 的元素</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Power Set & Cartesian Product -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-emerald-800 flex items-center gap-2">
+                <i class="fa-solid fa-cubes text-emerald-500"></i> 2. Power Set & Cartesian Product (冪集與笛卡兒積)
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Power Set -->
+                <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-emerald-900 font-bold text-base block">Power Set $\mathcal{P}(S)$ (冪集)</strong>
+                    <p class="text-sm text-slate-800">Given a set $S$, the power set $\mathcal{P}(S)$ is the set of all subsets of $S$.</p>
+                    <div class="p-3 bg-white font-mono text-xs text-emerald-800 rounded border space-y-1">
+                        <p>$\mathcal{P}(\{0,1,2\}) = \{\emptyset, \{0\}, \{1\}, \{2\}, \{0,1\}, \{0,2\}, \{1,2\}, \{0,1,2\}\}$</p>
+                        <p>$\mathcal{P}(\emptyset) = \{\emptyset\} \implies |\mathcal{P}(\emptyset)| = 1$</p>
+                    </div>
+                    <p class="text-xs text-slate-600">若 $|S| = n$，則 $|\mathcal{P}(S)| = 2^n$。</p>
+                </div>
+
+                <!-- Cartesian Product -->
+                <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-emerald-900 font-bold text-base block">Cartesian Product $A \times B$ (笛卡兒積)</strong>
+                    <p class="text-sm text-slate-800">$A \times B = \{(a,b) \mid a \in A \land b \in B\}$</p>
+                    <div class="p-3 bg-white font-mono text-xs text-emerald-800 rounded border space-y-1">
+                        <p>Let $A = \{1,2\}, B = \{a,b,c\}$</p>
+                        <p>$A \times B = \{(1,a), (1,b), (1,c), (2,a), (2,b), (2,c)\}$</p>
+                    </div>
+                    <p class="text-xs text-slate-600">注意：一般情況下 $A \times B \ne B \times A$。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2.2 -->
+    <section id="sec2-2" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b pb-4">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-teal-100 text-teal-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 2.2</span>
+                Set Operations (集合運算)
+            </h2>
+        </div>
+
+        <div class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                    <strong class="text-teal-900 font-bold block mb-1">Union (聯集 $\cup$)</strong>
+                    <p class="font-mono text-xs bg-white p-2 rounded border">$A \cup B = \{x \mid x \in A \lor x \in B\}$</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                    <strong class="text-teal-900 font-bold block mb-1">Intersection (交集 $\cap$)</strong>
+                    <p class="font-mono text-xs bg-white p-2 rounded border">$A \cap B = \{x \mid x \in A \land x \in B\}$</p>
+                    <p class="text-xs text-slate-500 mt-1">若 $A \cap B = \emptyset$，稱 $A, B$ 為 <strong>Disjoint</strong>。</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                    <strong class="text-teal-900 font-bold block mb-1">Difference (差集 $-$)</strong>
+                    <p class="font-mono text-xs bg-white p-2 rounded border">$A - B = \{x \mid x \in A \land x \notin B\}$</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                    <strong class="text-teal-900 font-bold block mb-1">Complement (補集 $\sim A$)</strong>
+                    <p class="font-mono text-xs bg-white p-2 rounded border">$\sim A = U - A = \{x \mid x \notin A\}$</p>
+                </div>
+            </div>
+
+            <!-- Inclusion-Exclusion & Set Identities Toggle -->
+            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                <button onclick="toggleCard('ex-2-2-ident')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                    <span><i class="fa-solid fa-code-fork mr-2 text-teal-600"></i> Set Identities & Inclusion-Exclusion Principle (集合恒等式與容斥原理)</span>
+                    <span class="text-xs bg-teal-600 text-white px-2.5 py-1 rounded-full">Expand Details</span>
+                </button>
+                <div id="ex-2-2-ident" class="toggle-content p-5 space-y-3 text-sm border-t border-slate-200">
+                    <div class="p-3 bg-amber-50 rounded border border-amber-200">
+                        <strong class="text-amber-900 block font-bold">Principle of Inclusion-Exclusion (容斥原理):</strong>
+                        <p class="font-mono text-sm font-bold text-teal-800 mt-1">$|A \cup B| = |A| + |B| - |A \cap B|$</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs font-mono">
+                        <div class="p-2.5 bg-slate-50 rounded border">• De Morgan's Law: $\sim(A \cap B) = \sim A \cup \sim B$</div>
+                        <div class="p-2.5 bg-slate-50 rounded border">• De Morgan's Law: $\sim(A \cup B) = \sim A \cap \sim B$</div>
+                        <div class="p-2.5 bg-slate-50 rounded border">• Distributive: $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$</div>
+                        <div class="p-2.5 bg-slate-50 rounded border">• Distributive: $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2.3 -->
+    <section id="sec2-3" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b pb-4">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 2.3</span>
+                Functions (函數)
+            </h2>
+        </div>
+
+        <div class="space-y-4">
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                <strong class="text-blue-900 text-base font-bold block">Definition: Function $f: A \to B$</strong>
+                <p class="text-slate-800 text-sm md:text-base">
+                    A function $f$ from $A$ to $B$ is an assignment of <strong>exactly one element</strong> of $B$ to each element of $A$.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-2 text-xs md:text-sm">
+                    <div class="p-3 bg-white rounded border"><strong>Domain (定義域):</strong> Set $A$</div>
+                    <div class="p-3 bg-white rounded border"><strong>Codomain (共域):</strong> Set $B$</div>
+                    <div class="p-3 bg-white rounded border"><strong>Range (值域):</strong> $f(A) = \{f(a) \mid a \in A\} \subseteq B$</div>
+                </div>
+            </div>
+
+            <!-- Injective, Surjective, Bijective Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-blue-900 font-bold block text-sm">One-to-One / Injective (單射)</strong>
+                    <p class="text-xs text-slate-700 font-mono">$f(x) = f(y) \implies x = y$</p>
+                    <p class="text-xs text-slate-500">沒有兩個不同的 $x$ 映射到相同的 $y$。</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-blue-900 font-bold block text-sm">Onto / Surjective (滿射)</strong>
+                    <p class="text-xs text-slate-700 font-mono">$\forall b \in B, \exists a \in A (f(a) = b)$</p>
+                    <p class="text-xs text-slate-500">值域等於共域 ($\text{Range} = B$)。</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-blue-900 font-bold block text-sm">Bijection / One-to-One Correspondence (雙射)</strong>
+                    <p class="text-xs text-slate-700 font-mono">Both Injective & Surjective</p>
+                    <p class="text-xs text-slate-500">唯有雙射函數才存在反函數 $f^{-1}$。</p>
+                </div>
+            </div>
+
+            <!-- Floor and Ceiling Functions -->
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                <strong class="text-blue-900 font-bold text-base block">Floor ($\lfloor x \rfloor$) & Ceiling ($\lceil x \rceil$) Functions (高斯/地板與天花板函數)</strong>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs md:text-sm">
+                    <div class="p-3 bg-white rounded border">
+                        <p><strong>Floor:</strong> $\lfloor x \rfloor =$ largest integer $\le x$</p>
+                        <p class="font-mono text-blue-700 mt-1">$\lfloor 0.5 \rfloor = 0, \lfloor -0.5 \rfloor = -1$</p>
+                    </div>
+                    <div class="p-3 bg-white rounded border">
+                        <p><strong>Ceiling:</strong> $\lceil x \rceil =$ smallest integer $\ge x$</p>
+                        <p class="font-mono text-blue-700 mt-1">$\lceil 0.5 \rceil = 1, \lceil -0.5 \rceil = 0$</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2.5 -->
+    <section id="sec2-5" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b pb-4">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 2.5</span>
+                Cardinality of Sets (集合的基數與無窮)
+            </h2>
+        </div>
+
+        <div class="space-y-4">
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                <strong class="text-purple-900 text-base font-bold block">Countable vs. Uncountable Sets (可數集與不可數集)</strong>
+                <p class="text-slate-800 text-sm md:text-base">
+                    A set is <strong>countable (可數)</strong> if it is finite or has the same cardinality as $\mathbb{Z}^+$ (denoted by $\aleph_0$).
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs md:text-sm">
+                    <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-xl">
+                        <strong class="text-emerald-900 block font-bold mb-1"><i class="fa-solid fa-check mr-1"></i> Countable Sets (可數)</strong>
+                        <ul class="list-disc list-inside space-y-1 text-slate-700">
+                            <li>Set of Odd Positive Integers ($f(n) = 2n-1$)</li>
+                            <li>Set of All Integers $\mathbb{Z}$ ($0, 1, -1, 2, -2, \dots$)</li>
+                            <li>Set of Positive Rational Numbers $\mathbb{Q}^+$</li>
+                        </ul>
+                    </div>
+                    <div class="p-4 bg-rose-50 border border-rose-200 rounded-xl">
+                        <strong class="text-rose-900 block font-bold mb-1"><i class="fa-solid fa-xmark mr-1"></i> Uncountable Sets (不可數)</strong>
+                        <ul class="list-disc list-inside space-y-1 text-slate-700">
+                            <li>Set of Real Numbers $\mathbb{R}$</li>
+                            <li>Interval $(0, 1)$ (Proved by Cantor's Diagonal Argument)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Schröder-Bernstein Theorem -->
+            <div class="p-5 bg-purple-50/70 border border-purple-200 rounded-xl space-y-2">
+                <strong class="text-purple-950 text-base font-bold block">Schröder-Bernstein Theorem</strong>
+                <p class="text-slate-800 text-sm md:text-base">
+                    If $A$ and $B$ are sets such that $|A| \le |B|$ and $|B| \le |A|$, then $|A| = |B|$.
+                </p>
+                <p class="text-xs text-slate-600">
+                    只要存在單射 $f: A \to B$ 與單射 $g: B \to A$，即可證明 $A$ 與 $B$ 之間存在雙射（基數相等）。例如 $|(0,1)| = |(0,1]|$.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    
+
+
+    
     <!-- OVERVIEW / TABLE OF CONTENTS -->
     <section class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
         <div class="border-b pb-4 mb-4">
