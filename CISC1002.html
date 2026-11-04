@@ -62,7 +62,7 @@
             <!-- Definition -->
             <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
                 <h3 class="font-bold text-base md:text-lg text-blue-800 flex items-center gap-2">
-                    <i class="fa-solid fa-book-bookmark text-amber-500"></i> 定義 (Definition)
+                    <i class="fa-solid fa-book-bookmark text-amber-500"></i> 定義 (Definition - page 573)
                 </h3>
                 <p class="text-slate-700 text-sm md:text-base leading-relaxed">
                     設 $A$ 與 $B$ 為兩個集合。從 $A$ 到 $B$ 的<strong>二元關係 (Binary Relation)</strong> 是笛卡兒積 $A \times B$ 的一個<strong>子集 (Subset)</strong>。
@@ -70,7 +70,7 @@
                 <div class="p-3 bg-white rounded-lg shadow-sm border border-slate-100 font-mono text-sm text-blue-600">
                     記法：$a \, R \, b \iff (a, b) \in R$
                 </div>
-                <p class="text-xs text-slate-500">若 $(a,b) \in R$，則稱 $a$ 與 $b$ 經由關係 $R$ 建立聯繫。</p>
+                <p class="text-xs text-slate-500">若 $(a,b) \in R$，則稱 $a$ 與 $b$ 經由關係 $R$ 建立聯繫。<strong>（One subset = One relation）</strong></p>
             </div>
 
             <!-- Examples -->
@@ -80,10 +80,10 @@
                 </h3>
                 <ul class="space-y-2 text-sm text-slate-700">
                     <li class="bg-white p-3 rounded-lg border border-slate-100">
-                        <strong>Example 1:</strong> 學生 $A$ 與課程 $B$ 集合，$(a,b) \in R$ 代表學生 $a$ 選修課程 $b$。
+                        <strong>Example 1:</strong> 學校學生 $A$ 與課程 $B$ 集合，$(a,b) \in R$ 代表學生 $a$ 選修課程 $b$。
                     </li>
                     <li class="bg-white p-3 rounded-lg border border-slate-100">
-                        <strong>Example 2:</strong> 城市 $A$ 與州 $B$ 集合，$(a,b) \in R$ 代表城市位於該州。
+                        <strong>Example 2:</strong> 所有城市 $A$ 與美國 50 個州 $B$ 集合，$(a,b) \in R$ 代表城市位於該州。
                     </li>
                     <li class="bg-white p-3 rounded-lg border border-slate-100">
                         <strong>Example 3:</strong> $A = \{0, 1, 2\}, B = \{a, b\}$，$R = \{(0,a), (0,b), (1,a), (2,b)\}$。
@@ -143,7 +143,7 @@
 
         <!-- Counting Question -->
         <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 text-sm text-amber-950">
-            <strong>核心考點 (Question 4)：</strong> 若 $|A| = m$ 且 $|B| = n$，則從 $A$ 到 $B$ 一共可以建立多少個不同的關係？
+            <strong>核心考點 (Question 4)：關係總數計算</strong> 若 $|A| = m$ 且 $|B| = n$，則從 $A$ 到 $B$ 一共可以建立多少個不同的關係？
             <div class="mt-2 font-mono font-bold text-amber-700 text-base">
                 答案：$2^{m \times n}$ (等於 $A \times B$ 的冪集大小)
             </div>
@@ -163,7 +163,7 @@
             <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-2">
                 <strong class="text-indigo-800 text-base block font-bold">1. 從函數到關係 (From Function to Relation)</strong>
                 <p>函數 $f$ 從 $A$ 到 $B$ 的圖形為有序對 $(a,b)$ 的集合，其中 $b = f(a)$。</p>
-                <p class="text-xs text-slate-500 pt-1 border-t border-slate-200"><strong>關鍵性質：</strong> $A$ 中的每一個元素，都正好是圖形中<strong>有且僅有一個</strong>有序對的第一個元素。</p>
+                <p class="text-xs text-slate-500 pt-1 border-t border-slate-200"><strong>關鍵性質：</strong> $A$ 中的每一個元素，都正好是圖形中<strong>有且僅有一個 (exactly one)</strong> 有序對的第一個元素。</p>
             </div>
 
             <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-2">
@@ -186,7 +186,7 @@
         </div>
 
         <div class="bg-purple-50/50 p-4 rounded-xl border border-purple-100 text-sm text-slate-700">
-            <strong>定義：</strong> 集合 $A$ 上的關係是指從 $A$ 到 $A$ 的關係（即 $A \times A$ 的子集）。
+            <strong>定義 (Definition - page 575)：</strong> 集合 $A$ 上的關係是指從 $A$ 到 $A$ 的關係（即 $A \times A$ 的子集）。
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -226,7 +226,7 @@
                     $\forall a \in A, \, (a,a) \in R$
                 </div>
                 <p class="text-xs text-amber-800 bg-amber-50 p-2 rounded border border-amber-200 mt-2">
-                    <strong>必考計數題 (Example 16)：</strong> $n$ 元集合上的自反關係總數為 $2^{n(n-1)}$。
+                    <strong>必考計數題 (Example 16)：</strong> $n$ 元集合上的自反關係總數為 $2^{n(n-1)}$ 或 $2^{n^2 - n}$。
                 </p>
             </div>
 
