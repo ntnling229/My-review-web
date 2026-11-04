@@ -526,10 +526,84 @@
             </div>
     
             <!-- Example 4: Rational numbers -->
-            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2 text-sm">
-                <strong class="text-slate-900 block font-bold">Example 4 (page 172): Positive Rational Numbers Are Countable (正有理數集是可數集)</strong>
-                <p class="text-slate-700 text-xs">The positive rational numbers can be arranged in a grid or sequence (skipping duplicates/previously listed terms such as $2/2 = 1$) to show they can be listed in a sequence, hence countable.</p>
+            <!-- Example 4: Rational numbers with SVG -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex-sec2-5-4')" class="w-full p-4 text-left font-bold text-slate-800 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition text-sm">
+                    <span><i class="fa-solid fa-image mr-2 text-purple-600"></i> Example 4: Positive Rational Numbers Are Countable (正有理數集可數性與網格圖解，點擊展開)</span>
+                    <span class="text-xs bg-purple-600 text-white px-2.5 py-1 rounded-full">Expand / Collapse</span>
+                </button>
+                <div id="ex-sec2-5-4" class="toggle-content p-6 space-y-4 border-t border-slate-200 text-sm">
+                    <p class="text-xs text-slate-700"><strong>Show that the set of positive rational numbers is countable (Page 172).</strong></p>
+                    <div class="text-center space-y-2">
+                        <p class="text-xs font-bold text-slate-600">FIGURE 3: The Positive Rational Numbers Are Countable (蛇形對角線列舉路徑圖)</p>
+                        <svg viewBox="0 0 420 300" class="w-full max-w-[400px] mx-auto bg-slate-50 rounded border border-slate-200 p-3">
+                            <defs>
+                                <marker id="arrow-grid" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#0284c7"/>
+                                </marker>
+                            </defs>
+                            <!-- Grid Entries -->
+                            <!-- Row 1 -->
+                            <text x="30" y="30" font-size="13" font-weight="bold" fill="#0369a1">1/1</text>
+                            <text x="110" y="30" font-size="13" font-weight="bold" fill="#0369a1">1/2</text>
+                            <text x="190" y="30" font-size="13" font-weight="bold" fill="#0369a1">1/3</text>
+                            <text x="270" y="30" font-size="13" font-weight="bold" fill="#0369a1">1/4</text>
+                            <text x="350" y="30" font-size="13" font-weight="bold" fill="#0369a1">1/5</text>
+    
+                            <!-- Row 2 -->
+                            <text x="30" y="90" font-size="13" font-weight="bold" fill="#0369a1">2/1</text>
+                            <!-- 2/2 is duplicate (=1), circle dotted red -->
+                            <text x="110" y="90" font-size="12" fill="#94a3b8">2/2</text>
+                            <circle cx="120" cy="86" r="14" fill="none" stroke="#ef4444" stroke-dasharray="3,3" stroke-width="1.5"/>
+                            <text x="190" y="90" font-size="13" font-weight="bold" fill="#0369a1">2/3</text>
+                            <!-- 2/4 is duplicate (=1/2) -->
+                            <text x="270" y="90" font-size="12" fill="#94a3b8">2/4</text>
+                            <circle cx="280" cy="86" r="14" fill="none" stroke="#ef4444" stroke-dasharray="3,3" stroke-width="1.5"/>
+                            <text x="350" y="90" font-size="13" font-weight="bold" fill="#0369a1">2/5</text>
+    
+                            <!-- Row 3 -->
+                            <text x="30" y="150" font-size="13" font-weight="bold" fill="#0369a1">3/1</text>
+                            <text x="110" y="150" font-size="13" font-weight="bold" fill="#0369a1">3/2</text>
+                            <!-- 3/3 is duplicate -->
+                            <text x="190" y="150" font-size="12" fill="#94a3b8">3/3</text>
+                            <circle cx="200" cy="146" r="14" fill="none" stroke="#ef4444" stroke-dasharray="3,3" stroke-width="1.5"/>
+                            <text x="270" y="150" font-size="13" font-weight="bold" fill="#0369a1">3/4</text>
+                            <text x="350" y="150" font-size="13" font-weight="bold" fill="#0369a1">3/5</text>
+    
+                            <!-- Row 4 -->
+                            <text x="30" y="210" font-size="13" font-weight="bold" fill="#0369a1">4/1</text>
+                            <!-- 4/2 is duplicate -->
+                            <text x="110" y="210" font-size="12" fill="#94a3b8">4/2</text>
+                            <circle cx="120" cy="206" r="14" fill="none" stroke="#ef4444" stroke-dasharray="3,3" stroke-width="1.5"/>
+                            <text x="190" y="210" font-size="13" font-weight="bold" fill="#0369a1">4/3</text>
+                            <!-- 4/4 is duplicate -->
+                            <text x="270" y="210" font-size="12" fill="#94a3b8">4/4</text>
+                            <circle cx="280" cy="206" r="14" fill="none" stroke="#ef4444" stroke-dasharray="3,3" stroke-width="1.5"/>
+                            <text x="350" y="210" font-size="13" font-weight="bold" fill="#0369a1">4/5</text>
+    
+                            <!-- Row 5 -->
+                            <text x="30" y="270" font-size="13" font-weight="bold" fill="#0369a1">5/1</text>
+                            <text x="110" y="270" font-size="13" font-weight="bold" fill="#0369a1">5/2</text>
+                            <text x="190" y="270" font-size="13" font-weight="bold" fill="#0369a1">5/3</text>
+                            <text x="270" y="270" font-size="13" font-weight="bold" fill="#0369a1">5/4</text>
+                            <!-- 5/5 is duplicate -->
+                            <text x="350" y="270" font-size="12" fill="#94a3b8">5/5</text>
+                            <circle cx="360" cy="266" r="14" fill="none" stroke="#ef4444" stroke-dasharray="3,3" stroke-width="1.5"/>
+    
+                            <!-- Zig-zag Path Arrows -->
+                            <path d="M 45 26 L 105 26" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow-grid)"/>
+                            <path d="M 115 35 L 45 80" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow-grid)"/>
+                            <path d="M 38 100 L 38 135" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow-grid)"/>
+                            <path d="M 45 142 L 180 35" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow-grid)"/>
+                            <path d="M 200 26 L 260 26" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow-grid)"/>
+                            <path d="M 270 35 L 45 200" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow-grid)"/>
+                            <path d="M 38 215 L 38 255" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow-grid)"/>
+                        </svg>
+                    </div>
+                    <p class="text-xs text-slate-700"><strong>Proof Explanation:</strong> Terms with red dotted circles (e.g. $2/2, 3/3, 4/2$) are skipped because they repeat previously listed reduced fractions. Following this diagonal path lists every positive rational number into a single sequence, proving $\mathbb{Q}^+$ is countable.</p>
+                </div>
             </div>
+            
         </div>
     
         <!-- 3. Uncountable Sets & Cantor's Diagonal Argument -->
@@ -600,8 +674,8 @@
                 <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
                     <strong class="text-slate-900 block font-bold">Uncomputable Functions & Question Answers</strong>
                     <p class="text-slate-700 text-xs">• The set of functions $f: \mathbb{Z} \to \mathbb{Z}$ is uncountable (Exercise 38).</p>
-                    <p class="text-slate-700 text-xs">• **The set of functions $f: \mathbb{Z} \to \{0,1\}$:** **Uncountable** (equivalent to power set of $\mathbb{Z}$).</p>
-                    <p class="text-slate-700 text-xs">• **The set of functions $f: \{0,1\} \to \mathbb{Z}$:** **Countable** (isomorphic to $\mathbb{Z} \times \mathbb{Z}$).</p>
+                    <p class="text-slate-700 text-xs">• <strong>The set of functions $f: \mathbb{Z} \to \{0,1\}$:</strong> <strong class="text-purple-700">Uncountable</strong> (equivalent to power set of $\mathbb{Z}$).</p>
+                    <p class="text-slate-700 text-xs">• <strong>The set of functions $f: \{0,1\} \to \mathbb{Z}$:</strong> <strong class="text-emerald-700">Countable</strong> (isomorphic to $\mathbb{Z} \times \mathbb{Z}$).</p>
                 </div>
             </div>
     
