@@ -1,695 +1,759 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CISC1002 - Ch 9.1 Relations and Their Properties</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- MathJax for TeX rendering -->
+    <title>Chapter 9 Relations 完整考點與觀念梳理複習網頁</title>
+    <!-- MathJax for rendering LaTeX formulas -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']]
-            }
-        };
-    </script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --accent-bg: #eff6ff;
+            --badge-bg: #dbeafe;
+            --badge-text: #1e40af;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        header p {
+            margin-top: 0.5rem;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        nav.toc {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        nav.toc h2 {
+            margin-top: 0;
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-bg);
+            padding-bottom: 0.5rem;
+        }
+
+        nav.toc ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 0.5rem 1.5rem;
+        }
+
+        nav.toc a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav.toc a:hover {
+            color: var(--primary-color);
+        }
+
+        section.chapter-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        h2.section-title {
+            color: #1e3a8a;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+            font-size: 1.6rem;
+        }
+
+        h3.subsection-title {
+            color: var(--primary-color);
+            margin-top: 1.8rem;
+            font-size: 1.25rem;
+        }
+
+        .keyword {
+            background-color: #fef3c7;
+            color: #92400e;
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        .definition-box, .theorem-box {
+            background-color: var(--accent-bg);
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .theorem-box {
+            background-color: #f0fdf4;
+            border-left-color: #16a34a;
+        }
+
+        .definition-title, .theorem-title {
+            font-weight: bold;
+            margin-bottom: 0.4rem;
+        }
+
+        details {
+            background-color: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin: 1rem 0;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.2s;
+        }
+
+        details[open] {
+            background-color: #ffffff;
+            border-color: #cbd5e1;
+        }
+
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--primary-color);
+            padding: 0.4rem 0;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        summary:hover {
+            color: var(--primary-hover);
+        }
+
+        .details-content {
+            padding: 1rem 0 0.5rem 0;
+            border-top: 1px dashed var(--border-color);
+            margin-top: 0.5rem;
+        }
+
+        .svg-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        table.matrix-table {
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        table.matrix-table td, table.matrix-table th {
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            text-align: center;
+        }
+
+        table.matrix-table th {
+            background-color: var(--accent-bg);
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-900 min-h-screen p-4 md:p-8 font-sans">
+<body>
 
-    <!-- Sticky Top Navigation Bar -->
-    <div class="max-w-6xl mx-auto mb-8 sticky top-4 z-50">
-        <div class="flex items-center justify-between bg-white/90 backdrop-blur-md p-4 rounded-2xl border border-slate-200 shadow-lg">
-            <a href="y2-s1.html" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-indigo-600 rounded-xl text-sm font-bold transition flex items-center gap-2">
-                <i class="fa-solid fa-arrow-left"></i> 返回學期選單 (y2-s1)
-            </a>
-            <div class="text-right">
-                <span class="text-xs text-indigo-600 font-mono block uppercase tracking-widest">CISC1002 Discrete Structures</span>
-                <span class="text-sm md:text-base font-bold text-slate-800">Ch 9.1 Relations and Their Properties</span>
-            </div>
+<header>
+    <h1>Chapter 9: Relations (關係) 離散數學複習全書</h1>
+    <p>逐章逐節考點梳理 · 專有名詞解析 · 公式與數據匯集 · 交互式例題證明</p>
+</header>
+
+<div class="container">
+
+    <!-- 目錄導覽 -->
+    <nav class="toc">
+        <h2>章節目錄 (Table of Contents)</h2>
+        <ul>
+            <li><a href="#sec9-1">§ 9.1 Relations and Their Properties (關係及其性質)</a></li>
+            <li><a href="#sec9-2">§ 9.2 n-ary Relations and Their Applications (n元關係及其應用)</a></li>
+            <li><a href="#sec9-4">§ 9.4 Closures of Relations (關係的閉包)</a></li>
+            <li><a href="#sec9-5">§ 9.5 Equivalence Relations (等價關係)</a></li>
+        </ul>
+    </nav>
+
+    <!-- § 9.1 -->
+    <section id="sec9-1" class="chapter-section">
+        <h2 class="section-title">§ 9.1 Relations and Their Properties (關係及其性質)</h2>
+
+        <h3 class="subsection-title">1. 基本定義 (Basic Definitions)</h3>
+        <div class="definition-box">
+            <div class="definition-title">二元關係 (Binary Relation)</div>
+            設 $A$ 與 $B$ 為兩個集合。從 $A$ 到 $B$ 的<span class="keyword">二元關係 (Binary Relation)</span> 是笛卡兒積 $A \times B$ 的一個子集。
+            <br>記號：若 $(a,b) \in R$，則記作 $a\,R\,b$，表示 $a$ 與 $b$ 存在關係 $R$；若 $(a,b) \notin R$，則記作 $a\,\not R\,b$。
         </div>
-    </div>
 
-    <!-- Main Container -->
-    <main class="max-w-6xl mx-auto space-y-8 pb-16">
+        <div class="definition-box">
+            <div class="definition-title">集合上的關係 (Relation on a Set)</div>
+            集合 $A$ 上的關係是指從集合 $A$ 到 $A$ 本身的關係（即 $A \times B$ 當中 $A=B$ 的特例，為 $A \times A$ 的子集）。
+        </div>
 
-        <!-- Page Header -->
-        <header class="bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-3">
-            <div class="inline-flex items-center gap-2 px-3 py-1 bg-indigo-50 border border-indigo-100 rounded-full text-indigo-600 text-xs font-mono">
-                <i class="fa-solid fa-project-diagram"></i> Chapter 9.1 Core Guide
-            </div>
-            <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900">§ 9.1 關係及其性質 (Relations and Their Properties)</h1>
-            <p class="text-slate-600 text-sm md:text-base leading-relaxed">
-                本章梳理二元關係（Binary Relations）、函數與關係的聯繫、集合上的關係（Relations on a Set）、四種核心基本性質（Reflexive, Symmetric, Antisymmetric, Transitive）、關係的組合與合成（Composite & Powers）以及相關定理的完整數學證明。
-            </p>
-        </header>
+        <h3 class="subsection-title">2. 關係的計數考點 (Counting Relations)</h3>
+        <ul>
+            <li>若集合 $|A| = m$ 且 $|B| = n$，則笛卡兒積 $|A \times B| = m \times n$。因此，從 $A$ 到 $B$ 的總關係數為其冪集的大小：<br>
+                <strong>從 $A$ 到 $B$ 的關係總數：</strong> $\mathbf{2^{m \times n}}$
+            </li>
+            <li>若集合 $A$ 包含 $n$ 個元素，則集合 $A$ 上的關係總數為：<br>
+                <strong>集合 $A$ 上的關係總數：</strong> $\mathbf{2^{n^2}}$
+            </li>
+            <li><strong>自反關係的總數：</strong> 在包含 $n$ 個元素的集合上，自反關係的數量為 $\mathbf{2^{n(n-1)}}$。（因為主對角線上的 $n$ 個元素 $(a,a)$ 必須存在，剩餘 $n^2 - n = n(n-1)$ 個位置可自由選擇取或不取）。</li>
+        </ul>
 
-        <!-- Chapter Outline Navigation -->
-        <section class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
-            <h2 class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-3 flex items-center gap-2">
-                <i class="fa-solid fa-list-ul text-indigo-600"></i> 本頁章節導覽
-            </h2>
-            <div class="flex flex-wrap gap-2 text-xs md:text-sm">
-                <a href="#sec1" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition">1. 導論與二元關係定義</a>
-                <a href="#sec2" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition">2. 函數與關係之比較</a>
-                <a href="#sec3" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition">3. 集合上的關係 (Relations on a Set)</a>
-                <a href="#sec4" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition">4. 關係的核心四大性質</a>
-                <a href="#sec5" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition">5. 關係的組合、合成與次方的證明</a>
-            </div>
-        </section>
+        <h3 class="subsection-title">3. 函數與關係的對應 (Functions as Relations)</h3>
+        <ul>
+            <li><strong>函數導出關係：</strong> 任意從 $A$ 到 $B$ 的函數 $f$，其圖像（Graph）包含所有 $(a, f(a))$ 的有序對，這本質上就是從 $A$ 到 $B$ 的一種特殊二元關係。其特性為：$A$ 中的每一個元素都恰好作為關係中某一個有序對的第一個元素。</li>
+            <li><strong>關係導出函數：</strong> 若從 $A$ 到 $B$ 的關係 $R$ 滿足 $A$ 中每個元素都恰好是 $R$ 中唯一的有序對的第一個元素，則 $R$ 可定義一個函數 $f(a) = b \iff (a,b) \in R$。</li>
+            <li><strong>區別：</strong> 關係可以表示「一對多（One-to-Many）」的映射；而函數只能表示「多對一（Many-to-One）」或「一對一（One-to-One）」的對應，每個自變量恰好對應一個因變量。</li>
+        </ul>
 
-        <!-- Section 1: Introduction -->
-        <section id="sec1" class="bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
-            <div class="border-b border-slate-100 pb-4">
-                <h2 class="text-2xl font-bold text-indigo-600 flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-sm font-mono">1</span>
-                    二元關係定義與表示法 (Introduction & Binary Relations)
-                </h2>
-            </div>
+        <h3 class="subsection-title">4. 關係的四大核心性質 (Four Core Properties)</h3>
+        <p>設 $R$ 為集合 $A$ 上的關係：</p>
+        <ol>
+            <li><span class="keyword">自反性 (Reflexive)</span>：對所有 $a \in A$，均有 $(a,a) \in R$。</li>
+            <li><span class="keyword">對稱性 (Symmetric)</span>：對所有 $a, b \in A$，若 $(a,b) \in R$，則必有 $(b,a) \in R$。</li>
+            <li><span class="keyword">反对稱性 (Antisymmetric)</span>：對所有 $a, b \in A$，若 $(a,b) \in R$ 且 $(b,a) \in R$，則必有 $a = b$。（等價逆否命題：若 $a \neq b$ 且 $(a,b) \in R$，則 $(b,a) \notin R$）。</li>
+            <li><span class="keyword">傳遞性 (Transitive)</span>：對所有 $a, b, c \in A$，若 $(a,b) \in R$ 且 $(b,c) \in R$，則必有 $(a,c) \in R$。</li>
+        </ol>
 
-            <!-- Definition Box -->
-            <div class="bg-indigo-50/60 border border-indigo-100 p-5 rounded-2xl space-y-2">
-                <h3 class="text-lg font-bold text-indigo-900 flex items-center gap-2">
-                    <i class="fa-solid fa-book-bookmark"></i> 定義 (Definition - page 573)
-                </h3>
-                <p class="text-slate-700 text-sm md:text-base leading-relaxed">
-                    設 $A$ 與 $B$ 為兩個集合。從 $A$ 到 $B$ 的<strong>二元關係 (Binary Relation)</strong> 是笛卡兒積 $A \times B$ 的一個<strong>子集 (Subset)</strong>。
-                </p>
-                <div class="p-3 bg-white rounded-xl font-mono text-sm text-indigo-600 border border-indigo-100 shadow-sm">
-                    記法：$a \, R \, b \iff (a, b) \in R$
-                </div>
-                <p class="text-xs text-slate-500">若 $(a,b) \in R$，則稱 $a$ 與 $b$ 經由關係 $R$ 建立聯繫。<strong>（One subset = One relation）</strong></p>
-            </div>
+        <h3 class="subsection-title">5. 關係的組合與複合 (Combining and Composite of Relations)</h3>
+        <ul>
+            <li><strong>集合運算組合：</strong> 由於關係本質是集合，因此可以進行交集 $R_1 \cap R_2$、聯集 $R_1 \cup R_2$、差集 $R_1 - R_2$ 以及對稱差 $R_1 \oplus R_2$。</li>
+            <li><strong>關係的複合 (Composite Relation)：</strong> 設 $R$ 是從 $A$ 到 $B$ 的關係，$S$ 是從 $B$ 到 $C$ 的關係。則 $R$ 與 $S$ 的複合關係記作 $\mathbf{S \circ R}$，定義為包含所有有序對 $(a,c)$（其中 $a \in A, c \in C$），使得存在至少一個 $b \in B$ 滿足 $(a,b) \in R$ 且 $(b,c) \in S$。</li>
+            <li><strong>關係的次冪 (Power of a Relation)：</strong> 設 $R$ 是集合 $A$ 上的關係，其次冪遞歸定義為：
+                $$R^1 = R, \quad R^{n+1} = R^n \circ R$$
+            </li>
+        </ul>
 
-            <!-- Examples (Collapsible) -->
-            <details class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm group">
-                <summary class="font-bold text-slate-800 cursor-pointer flex items-center justify-between text-sm md:text-base">
-                    <span class="flex items-center gap-2">
-                        <i class="fa-solid fa-chevron-right text-xs text-indigo-500 group-open:rotate-90 transition-transform"></i>
-                        典型範例 (Examples 1, 2, 3) [點擊展開]
-                    </span>
-                    <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-500">Example</span>
-                </summary>
-                <div class="space-y-4 pt-4 mt-2 border-t border-slate-100">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs md:text-sm">
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
-                            <span class="px-2 py-0.5 bg-blue-100 text-blue-700 rounded font-mono text-xs">Example 1</span>
-                            <p class="text-slate-700"><strong>$A$</strong>: 學校學生集合<br><strong>$B$</strong>: 學校課程集合</p>
-                            <p class="text-slate-500 italic">$(a,b) \in R \iff$ 學生 $a$ 選修了課程 $b$</p>
-                        </div>
+        <div class="theorem-box">
+            <div class="theorem-title">定理 1 (Theorem 1 - 傳遞性與次冪特徵)</div>
+            集合 $A$ 上的關係 $R$ 是傳遞的（Transitive）當且僅當對所有 positive integers $n = 1, 2, 3, \dots$，均有：
+            $$R^n \subseteq R$$
+        </div>
 
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
-                            <span class="px-2 py-0.5 bg-blue-100 text-blue-700 rounded font-mono text-xs">Example 2</span>
-                            <p class="text-slate-700"><strong>$A$</strong>: 所有城市集合<br><strong>$B$</strong>: 美國 50 個州集合</p>
-                            <p class="text-slate-500 italic">$(a,b) \in R \iff$ 城市 $a$ 位於州 $b$</p>
-                        </div>
+        <!-- 例題與證明展開項 -->
+        <details>
+            <summary>▶ 展開查看：§ 9.1 例題 1~3 (Example 1-3) & 圖形表示</summary>
+            <div class="details-content">
+                <p><strong>Example 1:</strong> $A$ 為學生集合，$B$ 為課程集合，$R$ 表示「學生 $a$ 選修了課程 $b$」。</p>
+                <p><strong>Example 2:</strong> $A$ 為城市集合，$B$ 為美國50個州，$R$ 表示「城市 $a$ 位於州 $b$」。</p>
+                <p><strong>Example 3:</strong> 設 $A=\{0,1,2\}, B=\{a,b\}$，$R=\{(0,a), (0,b), (1,a), (2,b)\}$。</p>
+                <p>此關係的箭號圖 (Graph) 與 表格 (Table) 表示如下：</p>
 
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
-                            <span class="px-2 py-0.5 bg-blue-100 text-blue-700 rounded font-mono text-xs">Example 3</span>
-                            <p class="text-slate-700">$A = \{0, 1, 2\}$, $B = \{a, b\}$</p>
-                            <p class="text-slate-600 font-mono">$R = \{(0,a), (0,b), (1,a), (2,b)\}$</p>
-                        </div>
-                    </div>
-                </div>
-            </details>
-
-            <!-- Representation -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
-                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
-                    <h4 class="font-bold text-slate-800 flex items-center gap-2">
-                        <i class="fa-solid fa-diagram-project text-indigo-600"></i> 1. 有向圖表示法 (Graphical Representation)
-                    </h4>
-                    <p class="text-xs text-slate-500">對應 Example 3 的點與箭頭指引：</p>
-                    <div class="p-4 bg-white rounded-xl text-center font-mono text-xs text-slate-700 border border-slate-200 space-y-1">
-                        <div>0 &rarr; a, &nbsp; 0 &rarr; b</div>
-                        <div>1 &rarr; a</div>
-                        <div>2 &rarr; b</div>
-                    </div>
+                <div class="svg-container">
+                    <svg width="260" height="200" viewBox="0 0 260 200" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Left set A -->
+                        <circle cx="50" cy="30" r="5" fill="#000"/><text x="30" y="35" font-size="14">0</text>
+                        <circle cx="50" cy="100" r="5" fill="#000"/><text x="30" y="105" font-size="14">1</text>
+                        <circle cx="50" cy="170" r="5" fill="#000"/><text x="30" y="175" font-size="14">2</text>
+                        <!-- Right set B -->
+                        <circle cx="210" cy="65" r="5" fill="#000"/><text x="225" y="70" font-size="14">a</text>
+                        <circle cx="210" cy="135" r="5" fill="#000"/><text x="225" y="140" font-size="14">b</text>
+                        <!-- Arrows -->
+                        <!-- (0,a) -->
+                        <line x1="55" y1="32" x2="200" y2="62" stroke="#000" stroke-width="1.5" marker-end="url(#arrow)"/>
+                        <!-- (0,b) -->
+                        <line x1="55" y1="35" x2="200" y2="130" stroke="#000" stroke-width="1.5" marker-end="url(#arrow)"/>
+                        <!-- (1,a) -->
+                        <line x1="55" y1="98" x2="200" y2="68" stroke="#000" stroke-width="1.5" marker-end="url(#arrow)"/>
+                        <!-- (2,b) -->
+                        <line x1="55" y1="168" x2="200" y2="138" stroke="#000" stroke-width="1.5" marker-end="url(#arrow)"/>
+                        <defs>
+                            <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#000"/>
+                            </marker>
+                        </defs>
+                    </svg>
                 </div>
 
-                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
-                    <h4 class="font-bold text-slate-800 flex items-center gap-2">
-                        <i class="fa-solid fa-table text-indigo-600"></i> 2. 表格表示法 (Table Representation)
-                    </h4>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-xs text-center border-collapse bg-white rounded-xl overflow-hidden border border-slate-200">
-                            <thead>
-                                <tr class="border-b border-slate-200 bg-slate-100 text-indigo-700">
-                                    <th class="p-2 border border-slate-200">R</th>
-                                    <th class="p-2 border border-slate-200">a</th>
-                                    <th class="p-2 border border-slate-200">b</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-slate-700 font-mono">
-                                <tr>
-                                    <td class="p-2 border border-slate-200 font-bold bg-slate-50">0</td>
-                                    <td class="p-2 border border-slate-200 text-emerald-600 font-bold">X</td>
-                                    <td class="p-2 border border-slate-200 text-emerald-600 font-bold">X</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-2 border border-slate-200 font-bold bg-slate-50">1</td>
-                                    <td class="p-2 border border-slate-200 text-emerald-600 font-bold">X</td>
-                                    <td class="p-2 border border-slate-200 text-slate-400 font-bold">-</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-2 border border-slate-200 font-bold bg-slate-50">2</td>
-                                    <td class="p-2 border border-slate-200 text-slate-400 font-bold">-</td>
-                                    <td class="p-2 border border-slate-200 text-emerald-600 font-bold">X</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                <p>表格形式：</p>
+                <table class="matrix-table">
+                    <tr><th>R</th><th>a</th><th>b</th></tr>
+                    <tr><th>0</th><td>X</td><td>X</td></tr>
+                    <tr><th>1</th><td>X</td><td></td></tr>
+                    <tr><th>2</th><td></td><td>X</td></tr>
+                </table>
+            </div>
+        </details>
+
+        <details>
+            <summary>▶ 展開查看：§ 9.1 例題 4 (Example 4: 整除關係)</summary>
+            <div class="details-content">
+                <p><strong>Example 4:</strong> 設 $A = \{1, 2, 3, 4\}$，關係 $R = \{(a,b) \mid a \text{ divides } b\}$（即 $a \mid b$）。</p>
+                <p>關係集列舉：$R = \{(1,1), (1,2), (1,3), (1,4), (2,2), (2,4), (3,3), (4,4)\}$。</p>
+                <div class="svg-container">
+                    <svg width="260" height="220" viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Left set A -->
+                        <circle cx="50" cy="30" r="4" fill="#000"/><text x="30" y="35" font-size="14">1</text>
+                        <circle cx="50" cy="80" r="4" fill="#000"/><text x="30" y="85" font-size="14">2</text>
+                        <circle cx="50" cy="130" r="4" fill="#000"/><text x="30" y="135" font-size="14">3</text>
+                        <circle cx="50" cy="180" r="4" fill="#000"/><text x="30" y="185" font-size="14">4</text>
+                        <!-- Right set A -->
+                        <circle cx="210" cy="30" r="4" fill="#000"/><text x="225" y="35" font-size="14">1</text>
+                        <circle cx="210" cy="80" r="4" fill="#000"/><text x="225" y="85" font-size="14">2</text>
+                        <circle cx="210" cy="130" r="4" fill="#000"/><text x="225" y="135" font-size="14">3</text>
+                        <circle cx="210" cy="180" r="4" fill="#000"/><text x="225" y="185" font-size="14">4</text>
+                        <!-- Arrows -->
+                        <line x1="55" y1="30" x2="200" y2="30" stroke="#000" stroke-width="1.2" marker-end="url(#arrow)"/>
+                        <line x1="55" y1="32" x2="200" y2="78" stroke="#000" stroke-width="1.2" marker-end="url(#arrow)"/>
+                        <line x1="55" y1="33" x2="200" y2="127" stroke="#000" stroke-width="1.2" marker-end="url(#arrow)"/>
+                        <line x1="55" y1="34" x2="200" y2="176" stroke="#000" stroke-width="1.2" marker-end="url(#arrow)"/>
+                        <line x1="55" y1="80" x2="200" y2="80" stroke="#000" stroke-width="1.2" marker-end="url(#arrow)"/>
+                        <line x1="55" y1="82" x2="200" y2="178" stroke="#000" stroke-width="1.2" marker-end="url(#arrow)"/>
+                        <line x1="55" y1="130" x2="200" y2="130" stroke="#000" stroke-width="1.2" marker-end="url(#arrow)"/>
+                        <line x1="55" y1="180" x2="200" y2="180" stroke="#000" stroke-width="1.2" marker-end="url(#arrow)"/>
+                    </svg>
                 </div>
             </div>
+        </details>
 
-            <!-- Counting Question Box -->
-            <div class="bg-amber-50 border border-amber-200 p-5 rounded-2xl space-y-2">
-                <h3 class="text-md font-bold text-amber-800 flex items-center gap-2">
-                    <i class="fa-solid fa-calculator"></i> 核心考點：關係總數計算 (Question 4)
-                </h3>
-                <p class="text-sm text-slate-700">
-                    若 $|A| = m$ 且 $|B| = n$，則從 $A$ 到 $B$ 一共可以建立多少個不同的關係？
-                </p>
-                <div class="p-3 bg-white rounded-xl font-mono text-amber-600 font-bold text-center border border-amber-200 shadow-sm">
-                    答案：$2^{m \times n}$
-                </div>
-                <p class="text-xs text-slate-500">
-                    <strong>原理說明：</strong> 笛卡兒積 $A \times B$ 包含 $m \times n$ 個有序對元素。每個關係都是 $A \times B$ 的一個子集，故等於求其冪集 (Power set) 的大小，即 $2^{|A \times B|} = 2^{m \times n}$。
-                </p>
+        <details>
+            <summary>▶ 展開查看：§ 9.1 例題 5 & 7 (Example 5 & 7: 關係性質綜合判定表)</summary>
+            <div class="details-content">
+                <p><strong>整數集上的關係 (Example 5):</strong></p>
+                <ul>
+                    <li>$R_1 = \{(a,b) \mid a \le b\}$：自反、反对稱、傳遞。</li>
+                    <li>$R_2 = \{(a,b) \mid a > b\}$：非自反、反对稱、傳遞。</li>
+                    <li>$R_3 = \{(a,b) \mid a = b \text{ or } a = -b\}$：自反、對稱、傳遞。</li>
+                    <li>$R_4 = \{(a,b) \mid a = b\}$：自反、對稱、反对稱、傳遞。</li>
+                    <li>$R_5 = \{(a,b) \mid a = b+1\}$：非自反、反对稱、非傳遞。</li>
+                    <li>$R_6 = \{(a,b) \mid a+b \le 3\}$：非自反、對稱、非傳遞。</li>
+                </ul>
+
+                <p><strong>集合 $\{1,2,3,4\}$ 上的關係判定 (Example 7 & 10 & 13):</strong></p>
+                <ul>
+                    <li>$R_1 = \{(1,1), (1,2), (2,1), (2,2), (3,4), (4,1), (4,4)\}$：非自反（缺 $(3,3)$），非對稱，非反对稱，非傳遞。</li>
+                    <li>$R_2 = \{(1,1), (1,2), (2,1)\}$：對稱。</li>
+                    <li>$R_3 = \{(1,1), (1,2), (1,4), (2,1), (2,2), (3,2), (3,3), (4,1), (4,4)\}$：自反、對稱。</li>
+                    <li>$R_4 = \{(2,1), (3,1), (3,2), (4,1), (4,2), (4,3)\}$：反对稱、傳遞。</li>
+                    <li>$R_5 = \{(1,1), (1,2), (1,3), (1,4), (2,2), (2,3), (2,4), (3,3), (3,4), (4,4)\}$：自反、反对稱、傳遞。</li>
+                    <li>$R_6 = \{(3,4)\}$：反对稱、傳遞。</li>
+                </ul>
             </div>
-        </section>
+        </details>
 
-        <!-- Section 2: Functions as Relations -->
-        <section id="sec2" class="bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
-            <div class="border-b border-slate-100 pb-4">
-                <h2 class="text-2xl font-bold text-indigo-600 flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-sm font-mono">2</span>
-                    函數作為關係 (Functions as Relations)
-                </h2>
+        <details>
+            <summary>▶ 展開查看：§ 9.1 定理 1 完整證明 (Proof of Theorem 1)</summary>
+            <div class="details-content">
+                <p><strong>證明 $R$ 是傳遞的 $\iff R^n \subseteq R, \, \forall n \ge 1$：</strong></p>
+                <p><strong>(1) 充分性 ($\Leftarrow$):</strong><br>
+                假設對所有 $n \ge 1$ 均有 $R^n \subseteq R$。特別地，當 $n=2$ 時，$R^2 \subseteq R$。<br>
+                若 $(a,b) \in R$ 且 $(b,c) \in R$，根據關係複合的定義，必有 $(a,c) \in R^2$。<br>
+                因為 $R^2 \subseteq R$，故 $(a,c) \in R$。因此 $R$ 是傳遞關係。</p>
+
+                <p><strong>(2) 必要性 ($\Rightarrow$):</strong> 使用數學歸納法（Mathematical Induction）證明。<br>
+                <strong>基礎步驟 (Base Step):</strong> 當 $n=1$ 時，$R^1 = R \subseteq R$ 顯然成立。<br>
+                <strong>歸納假設 (Inductive Hypothesis):</strong> 假設當 $n=k$ 時，$R^k \subseteq R$ 成立。<br>
+                <strong>歸納遞推 (Inductive Step):</strong> 考慮 $n=k+1$ 的情況。對於任意 $(a,b) \in R^{k+1} = R^k \circ R$，由複合關係定義，存在 $x \in A$ 使得 $(a,x) \in R$ 且 $(x,b) \in R^k$。<br>
+                由歸納假設，$R^k \subseteq R$，因此 $(x,b) \in R$。<br>
+                因為 $R$ 是傳遞關係，且已知 $(a,x) \in R$ 和 $(x,b) \in R$，所以 $(a,b) \in R$。<br>
+                這證明了 $R^{k+1} \subseteq R$。歸納成立！</p>
             </div>
+        </details>
+    </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
-                    <h3 class="font-bold text-slate-800 text-base">1. 從函數到關係 (From Function to Relation)</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">
-                        從 $A$ 到 $B$ 的函數 $f$ 會將 $A$ 中每一個元素正好對應到 $B$ 中的恰好一個元素。
-                    </p>
-                    <p class="text-xs text-slate-600 leading-relaxed">
-                        $f$ 的圖形 (Graph) 為有序對 $(a,b)$ 的集合，其中 $b = f(a)$。
-                    </p>
-                    <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs text-indigo-600 font-mono">
-                        關鍵性質：$A$ 中的每一個元素，都正好是函數圖形中<strong>有且僅有一個 (exactly one)</strong> 有序對的第一個元素。
-                    </div>
-                </div>
+    <!-- § 9.2 -->
+    <section id="sec9-2" class="chapter-section">
+        <h2 class="section-title">§ 9.2 n-ary Relations and Their Applications (n元關係及其應用)</h2>
 
-                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
-                    <h3 class="font-bold text-slate-800 text-base">2. 從關係到函數 (From Relation to Function)</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">
-                        若 $R$ 為從 $A$ 到 $B$ 的一個關係，且滿足 $A$ 中每一個元素都<strong>恰好作為 $R$ 中一個有序對的第一個元素</strong>，則可以定義一個以 $R$ 為圖形的函數：
-                    </p>
-                    <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs text-emerald-600 font-mono">
-                        $\forall a \in A, \, f(a) = b \iff (a,b) \in R$
-                    </div>
-                </div>
-            </div>
+        <h3 class="subsection-title">1. 基本定義與專有名詞 (Definitions & Terminology)</h3>
+        <div class="definition-box">
+            <div class="definition-title">n 元關係 (n-ary Relation)</div>
+            設 $A_1, A_2, \dots, A_n$ 為集合。這 $n$ 個集合上的 <span class="keyword">n 元關係 (n-ary Relation)</span> 是笛卡兒積 $A_1 \times A_2 \times \dots \times A_n$ 的子集。
+            <ul>
+                <li><span class="keyword">定義域 (Domains)</span>：集合 $A_1, A_2, \dots, A_n$ 被稱為該關係的定義域。</li>
+                <li><span class="keyword">度數 / 階數 (Degree)</span>：整數 $n$ 被稱為該關係的度數。</li>
+            </ul>
+        </div>
 
-            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 text-xs text-slate-600 space-y-1">
-                <span class="font-bold text-indigo-600 block mb-1">對比總結 (Comparison):</span>
-                <p>• <strong>關係 (Relation):</strong> 可用於表達元素之間的一對多 (One-to-Many) 關係。</p>
-                <p>• <strong>函數 (Function):</strong> 是一種特殊的關係，確保 $A$ 中的每個元素恰好對應到 $B$ 中的一個元素。</p>
-            </div>
-        </section>
+        <!-- 例題與細節展開項 -->
+        <details>
+            <summary>▶ 展開查看：§ 9.2 例題 (Example 1 & Example 4)</summary>
+            <div class="details-content">
+                <p><strong>Example 1:</strong> 設 $R$ 為自然數三元組 $(a,b,c) \in \mathbb{N} \times \mathbb{N} \times \mathbb{N}$ 的關係，滿足 $a < b < c$。<br>
+                例如：$(1,2,3) \in R$，但 $(2,4,3) \notin R$。</p>
 
-        <!-- Section 3: Relations on a Set -->
-        <section id="sec3" class="bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
-            <div class="border-b border-slate-100 pb-4">
-                <h2 class="text-2xl font-bold text-indigo-600 flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-sm font-mono">3</span>
-                    集合上的關係 (Relations on a Set)
-                </h2>
-            </div>
-
-            <!-- Definition -->
-            <div class="bg-indigo-50/60 border border-indigo-100 p-4 rounded-2xl">
-                <p class="text-sm text-slate-700">
-                    <strong>定義 (Definition - page 575):</strong> 集合 $A$ 上的關係 (Relation on the set $A$) 是指從 $A$ 到 $A$ 的關係（即 $A \times A$ 的子集）。
+                <p><strong>Example 4 (航空航班資料庫關係):</strong><br>
+                設 $R$ 為 5 元關係 $(A, N, S, D, T)$，表示航班數據：
+                <ul>
+                    <li>$A$: 航空公司 (Airline)</li>
+                    <li>$N$: 航班號碼 (Flight Number)</li>
+                    <li>$S$: 出發點 (Starting point)</li>
+                    <li>$D$: 目的地 (Destination)</li>
+                    <li>$T$: 起飛時間 (Departure time)</li>
+                </ul>
+                例如：(Nadir, 963, Newark, Bangor, 15:00) $\in R$。此例展示了 $n$ 元關係在關聯式資料庫（Relational Database）中的實際應用。
                 </p>
             </div>
+        </details>
+    </section>
 
-            <!-- Examples 4 & 5 & 6 (Collapsible) -->
-            <details class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm group">
-                <summary class="font-bold text-slate-800 cursor-pointer flex items-center justify-between text-sm md:text-base">
-                    <span class="flex items-center gap-2">
-                        <i class="fa-solid fa-chevron-right text-xs text-indigo-500 group-open:rotate-90 transition-transform"></i>
-                        Example 4 & 5 (整除關係與整數關係判斷表) [點擊展開]
-                    </span>
-                    <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-500">Example</span>
-                </summary>
-                <div class="space-y-4 pt-4 mt-2 border-t border-slate-100">
-                    <!-- Example 4 -->
-                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
-                        <div class="flex items-center justify-between">
-                            <span class="font-bold text-sm text-blue-600">Example 4: "Divides" 整除關係</span>
-                            <span class="text-xs font-mono text-slate-500">A = {1, 2, 3, 4}</span>
-                        </div>
-                        <p class="text-xs text-slate-600">
-                            定義關係 $R = \{(a,b) \mid a \text{ divides } b \}$ （即 $a \mid b$）。有序對列表為：
-                        </p>
-                        <div class="p-3 bg-white rounded-xl font-mono text-xs text-indigo-600 border border-slate-200 shadow-sm">
-                            $R = \{(1,1), (1,2), (1,3), (1,4), (2,2), (2,4), (3,3), (4,4)\}$
-                        </div>
-                    </div>
+    <!-- § 9.4 -->
+    <section id="sec9-4" class="chapter-section">
+        <h2 class="section-title">§ 9.4 Closures of Relations (關係的閉包)</h2>
 
-                    <!-- Example 5 -->
-                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
-                        <span class="font-bold text-sm text-blue-600">Example 5: 整數集合 $\mathbb{Z}$ 上的六種關係</span>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-xs font-mono text-slate-700 pt-1">
-                            <div class="p-2 bg-white rounded border border-slate-200">$R_1 = \{(a,b) \mid a \le b\}$</div>
-                            <div class="p-2 bg-white rounded border border-slate-200">$R_2 = \{(a,b) \mid a > b\}$</div>
-                            <div class="p-2 bg-white rounded border border-slate-200">$R_3 = \{(a,b) \mid a=b \text{ or } a=-b\}$</div>
-                            <div class="p-2 bg-white rounded border border-slate-200">$R_4 = \{(a,b) \mid a = b\}$</div>
-                            <div class="p-2 bg-white rounded border border-slate-200">$R_5 = \{(a,b) \mid a = b+1\}$</div>
-                            <div class="p-2 bg-white rounded border border-slate-200">$R_6 = \{(a,b) \mid a+b \le 3\}$</div>
-                        </div>
+        <h3 class="subsection-title">1. 閉包的抽象定義 (Abstract Definition of Closure)</h3>
+        <div class="definition-box">
+            <div class="definition-title">性質 P 的閉包 (Closure with respect to Property P)</div>
+            設 $R$ 為集合 $A$ 上的關係。若存在一個包含 $R$ 且具有性質 $P$（如自反性、對稱性或傳遞性）的關係 $S$，使得 $S$ 是**任何**包含 $R$ 且滿足性質 $P$ 的關係的子集，則稱 $S$ 為 $R$ 關於性質 $P$ 的<span class="keyword">閉包 (Closure)</span>。
+        </div>
 
-                        <!-- Question Test Table -->
-                        <div class="pt-2">
-                            <p class="text-xs font-bold text-slate-600 mb-2">判定哪些關係包含以下特定有序對：</p>
-                            <div class="overflow-x-auto">
-                                <table class="w-full text-xs text-center border-collapse bg-white rounded-xl overflow-hidden border border-slate-200">
-                                    <thead>
-                                        <tr class="bg-slate-100 text-indigo-700 border-b border-slate-200">
-                                            <th class="p-2 border border-slate-200">Ordered Pair</th>
-                                            <th class="p-2 border border-slate-200">$R_1 \, (\le)$</th>
-                                            <th class="p-2 border border-slate-200">$R_2 \, (>)$</th>
-                                            <th class="p-2 border border-slate-200">$R_3$</th>
-                                            <th class="p-2 border border-slate-200">$R_4 \, (=)$</th>
-                                            <th class="p-2 border border-slate-200">$R_5$</th>
-                                            <th class="p-2 border border-slate-200">$R_6$</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="font-mono text-slate-700">
-                                        <tr>
-                                            <td class="p-2 border border-slate-200 font-bold bg-slate-50">(1, 1)</td>
-                                            <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                            <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                            <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                            <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                            <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                            <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-2 border border-slate-200 font-bold bg-slate-50">(1, 2)</td>
-                                            <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                            <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                            <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                            <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                            <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                            <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-2 border border-slate-200 font-bold bg-slate-50">(2, 1)</td>
-                                            <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                            <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                            <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                            <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                            <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                            <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-2 border border-slate-200 font-bold bg-slate-50">(1, -1)</td>
-                                            <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                            <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                            <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                            <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                            <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                            <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-2 border border-slate-200 font-bold bg-slate-50">(2, 2)</td>
-                                            <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                            <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                            <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                            <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                            <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                            <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+        <h3 class="subsection-title">2. 自反閉包與對稱閉包 (Reflexive and Symmetric Closures)</h3>
+        <ul>
+            <li><span class="keyword">對角線關係 (Diagonal Relation)</span>：設 $\Delta = \{(a,a) \mid a \in A\}$。</li>
+            <li><span class="keyword">自反閉包 (Reflexive Closure)</span>：$R$ 的自反閉包為：
+                $$\mathbf{R \cup \Delta}$$
+            </li>
+            <li><span class="keyword">逆關係 (Inverse Relation)</span>：設 $R^{-1} = \{(b,a) \mid (a,b) \in R\}$。</li>
+            <li><span class="keyword">對稱閉包 (Symmetric Closure)</span>：$R$ 的對稱閉包為：
+                $$\mathbf{R \cup R^{-1}}$$
+            </li>
+        </ul>
+
+        <h3 class="subsection-title">3. 圖論中的路徑與連通關係 (Paths and Connectivity Relation)</h3>
+        <div class="definition-box">
+            <div class="definition-title">路徑與迴路 (Path and Circuit)</div>
+            在有向圖 $G$ 中，從 $a$ 到 $b$ 的<span class="keyword">路徑 (Path)</span> 是指邊的序列 $(x_0, x_1), (x_1, x_2), \dots, (x_{n-1}, x_n)$，其中 $x_0 = a, x_n = b$，長度為非負整數 $n$。<br>
+            長度 $n \ge 1$ 且起點與終點重合（$a=b$）的路徑稱為<span class="keyword">迴路 / 環 (Circuit / Cycle)</span>。
+        </div>
+
+        <div class="theorem-box">
+            <div class="theorem-title">定理 1 (Theorem 1 - 路徑與關係次冪)</div>
+            設 $R$ 為集合 $A$ 上的關係。從 $a$ 到 $b$ 存在長度為正整數 $n$ 的路徑，當且僅當：
+            $$\mathbf{(a,b) \in R^n}$$
+        </div>
+
+        <h3 class="subsection-title">4. 傳遞閉包 (Transitive Closure)</h3>
+        <div class="definition-box">
+            <div class="definition-title">連通關係 (Connectivity Relation)</div>
+            連通關係 $\mathbf{R^*}$ 由所有滿足「在 $R$ 中從 $a$ 到 $b$ 存在長度至少為 1 的路徑」的序對 $(a,b)$ 組成。即：
+            $$R^* = \bigcup_{n=1}^{\infty} R^n$$
+        </div>
+
+        <div class="theorem-box">
+            <div class="theorem-title">定理 2 (Theorem 2 - 傳遞閉包等價性)</div>
+            關係 $R$ 的<span class="keyword">傳遞閉包 (Transitive Closure)</span> 等於其連通關係 $R^*$。
+        </div>
+
+        <div class="theorem-box">
+            <div class="theorem-title">引理 1 (Lemma 1 - 有限集路徑長度上限)</div>
+            設 $A$ 為包含 $n$ 個元素的集合，$R$ 為 $A$ 上的關係。
+            <ol>
+                <li>若在 $R$ 中存在從 $a$ 到 $b$ 長度至少為 1 的路徑，則必定存在一條長度<strong>不超過 $n$</strong> 的路徑。</li>
+                <li>當 $a \neq b$ 時，若存在路徑，則必定存在一條長度<strong>不超過 $n-1$</strong> 的路徑。</li>
+            </ol>
+        </div>
+
+        <div class="theorem-box" style="background-color: #fff7ed; border-left-color: #ea580c;">
+            <div class="theorem-title">關鍵計算公式 (Key Computation Formula for Transitive Closure)</div>
+            對於基數為 $n$ 的有限集合，傳遞閉包 $R^*$ 可以通過有限次聯集精確求得：
+            $$\mathbf{R^* = R \cup R^2 \cup R^3 \cup \dots \cup R^n}$$
+        </div>
+
+        <!-- 例題與證明展開項 -->
+        <details>
+            <summary>▶ 展開查看：§ 9.4 對稱閉包極小性證明 (Proof of Symmetric Closure)</summary>
+            <div class="details-content">
+                <p><strong>證明 $S = R \cup R^{-1}$ 為 $R$ 的對稱閉包：</strong></p>
+                <ol>
+                    <li><strong>$S$ 是對稱的：</strong> 對任意 $(a,b) \in S$，有兩種情況：
+                        <ul>
+                            <li>若 $(a,b) \in R$，則由逆關係定義，$(b,a) \in R^{-1} \subseteq S$。</li>
+                            <li>若 $(a,b) \in R^{-1}$，則 $(b,a) \in R \subseteq S$。</li>
+                        </ul>
+                        因此 $(b,a) \in S$，$S$ 具有對稱性。
+                    </li>
+                    <li><strong>$R \subseteq S$：</strong> 顯然成立。</li>
+                    <li><strong>極小性 ($S$ 包含於任何包含 $R$ 的對稱關係 $T$)：</strong><br>
+                        設 $T$ 為任意對稱關係且 $R \subseteq T$。對於任意 $(a,b) \in S$：
+                        <ul>
+                            <li>若 $(a,b) \in R$，因 $R \subseteq T$，故 $(a,b) \in T$。</li>
+                            <li>若 $(a,b) \in R^{-1}$，則 $(b,a) \in R \subseteq T$。因 $T$ 是對稱的，故 $(a,b) \in T$。</li>
+                        </ul>
+                        因此 $S \subseteq T$。證畢！
+                    </li>
+                </ol>
+            </div>
+        </details>
+
+        <details>
+            <summary>▶ 展開查看：§ 9.4 例題 3 (Example 3 - 有向圖路徑判斷 SVG 圖解)</summary>
+            <div class="details-content">
+                <p>對應講義中的有向圖 Figure 1：</p>
+                <div class="svg-container">
+                    <svg width="340" height="260" viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Nodes -->
+                        <circle cx="60" cy="50" r="8" fill="#000"/><text x="55" y="35" font-size="16" font-weight="bold">a</text>
+                        <circle cx="180" cy="50" r="8" fill="#000"/><text x="180" y="35" font-size="16" font-weight="bold">b</text>
+                        <circle cx="300" cy="50" r="8" fill="#000"/><text x="310" y="55" font-size="16" font-weight="bold">c</text>
+                        <circle cx="60" cy="210" r="8" fill="#000"/><text x="45" y="225" font-size="16" font-weight="bold">d</text>
+                        <circle cx="180" cy="210" r="8" fill="#000"/><text x="185" y="225" font-size="16" font-weight="bold">e</text>
+
+                        <!-- Self loops -->
+                        <path d="M 52,45 A 12,12 0 1 1 65,42" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arrow)"/>
+                        <path d="M 52,205 A 12,12 0 1 1 65,202" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+                        <!-- Edges -->
+                        <!-- a -> b and b -> a -->
+                        <path d="M 68,45 Q 120,35 172,45" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arrow)"/>
+                        <path d="M 172,55 Q 120,65 68,55" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+                        <!-- c -> a -->
+                        <path d="M 292,43 Q 175,5 68,43" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arrow)"/>
+                        <!-- c -> b -->
+                        <line x1="292" y1="50" x2="188" y2="50" stroke="#000" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+                        <!-- d -> a -->
+                        <line x1="60" y1="202" x2="60" y2="58" stroke="#000" stroke-width="1.5" marker-end="url(#arrow)"/>
+                        <!-- d -> b -->
+                        <line x1="66" y1="204" x2="174" y2="56" stroke="#000" stroke-width="1.5" marker-end="url(#arrow)"/>
+                        <!-- d -> c -->
+                        <line x1="67" y1="205" x2="293" y2="55" stroke="#000" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+                        <!-- a -> e -->
+                        <line x1="66" y1="56" x2="174" y2="204" stroke="#000" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+                        <!-- b -> e and e -> b -->
+                        <path d="M 175,58 Q 165,130 175,202" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arrow)"/>
+                        <path d="M 185,202 Q 195,130 185,58" fill="none" stroke="#000" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+                        <!-- e -> c -->
+                        <line x1="187" y1="204" x2="293" y2="56" stroke="#000" stroke-width="1.5" marker-end="url(#arrow)"/>
+                        <!-- e -> d -->
+                        <line x1="172" y1="210" x2="68" y2="210" stroke="#000" stroke-width="1.5" marker-end="url(#arrow)"/>
+                    </svg>
                 </div>
-            </details>
+                <p><strong>序列分析：</strong></p>
+                <ul>
+                    <li><code>a, b, e, d</code>: 是路徑，長度為 3。</li>
+                    <li><code>a, e, c, d, b</code>: 不是路徑（不存在 $e \to c$ 的直接邊，實際上圖中是 $e \to c$ 存在？需對照箭頭方向：$e \to c$ 有邊，$c \to d$ 無邊）。</li>
+                    <li><code>b, a, c, b, a, a, b</code>: 不是路徑（$a \to c$ 無直接邊）。</li>
+                    <li><code>d, c</code>: 是路徑，長度為 1。</li>
+                    <li><code>c, b, a</code>: 是路徑，長度為 2。</li>
+                    <li><code>e, b, a, b, a, b, e</code>: 是路徑，長度為 6，且起止點相同，因此是一個<span class="keyword">回路 (Circuit)</span>。</li>
+                </ul>
+            </div>
+        </details>
 
-            <!-- Example 6 -->
-            <div class="bg-amber-50 border border-amber-200 p-5 rounded-2xl space-y-2">
-                <h3 class="text-md font-bold text-amber-800 flex items-center gap-2">
-                    <i class="fa-solid fa-calculator"></i> 核心考點：單一集合上的關係總數 (Example 6)
-                </h3>
-                <p class="text-sm text-slate-700">
-                    在包含 $n$ 個元素的集合 $A$ 上，一共可以定義多少個不同的關係？
+        <details>
+            <summary>▶ 展開查看：§ 9.4 引理 1 證明示意圖 (Figure 2 SVG)</summary>
+            <div class="details-content">
+                <p>當路徑長度超過 $n$ 時，由鴿巢原理（Pigeonhole Principle），路徑中必定包含重複頂點（即存在迴路 $x_i = x_j$）。裁切掉該迴路即可得到更短的路徑：</p>
+                <div class="svg-container">
+                    <svg width="420" height="140" viewBox="0 0 420 140" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Path line -->
+                        <circle cx="30" cy="90" r="4" fill="#000"/><text x="15" y="110" font-size="12">a=x₀</text>
+                        <circle cx="70" cy="90" r="4" fill="#000"/><text x="65" y="110" font-size="12">x₁</text>
+                        <circle cx="110" cy="90" r="4" fill="#000"/><text x="105" y="110" font-size="12">x₂</text>
+                        <text x="145" y="90" font-size="14">...</text>
+                        <circle cx="190" cy="90" r="4" fill="#000"/><text x="175" y="110" font-size="12">xᵢ=xⱼ</text>
+                        <circle cx="270" cy="90" r="4" fill="#000"/><text x="265" y="110" font-size="12">xⱼ₊₁</text>
+                        <text x="320" y="90" font-size="14">...</text>
+                        <circle cx="380" cy="90" r="4" fill="#000"/><text x="365" y="110" font-size="12">xₘ=b</text>
+
+                        <!-- Straight arrows -->
+                        <line x1="34" y1="90" x2="64" y2="90" stroke="#000" stroke-width="1.2" marker-end="url(#arrow)"/>
+                        <line x1="74" y1="90" x2="104" y2="90" stroke="#000" stroke-width="1.2" marker-end="url(#arrow)"/>
+                        <line x1="194" y1="90" x2="264" y2="90" stroke="#000" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+                        <!-- Cycle loop -->
+                        <path d="M 190,86 Q 210,30 230,20 Q 250,30 260,60 Q 240,75 194,86" fill="none" stroke="#000" stroke-width="1.2" stroke-dasharray="3,3"/>
+                        <circle cx="205" cy="45" r="3" fill="#000"/><text x="185" y="40" font-size="11">xᵢ₊₁</text>
+                        <circle cx="230" cy="20" r="3" fill="#000"/><text x="225" y="10" font-size="11">xᵢ₊₂</text>
+                        <circle cx="255" cy="45" r="3" fill="#000"/><text x="260" y="40" font-size="11">xⱼ₋₁</text>
+                    </svg>
+                </div>
+            </div>
+        </details>
+    </section>
+
+    <!-- § 9.5 -->
+    <section id="sec9-5" class="chapter-section">
+        <h2 class="section-title">§ 9.5 Equivalence Relations (等價關係)</h2>
+
+        <h3 class="subsection-title">1. 定義與核心條件 (Definition and Core Conditions)</h3>
+        <div class="definition-box">
+            <div class="definition-title">等價關係 (Equivalence Relation)</div>
+            集合 $A$ 上的關係 $R$，若同時滿足以下三個條件，則稱為 <span class="keyword">等價關係 (Equivalence Relation)</span>：
+            <ol>
+                <li><span class="keyword">自反性 (Reflexive)</span></li>
+                <li><span class="keyword">對稱性 (Symmetric)</span></li>
+                <li><span class="keyword">傳遞性 (Transitive)</span></li>
+            </ol>
+            若 $(a,b) \in R$，則稱 $a$ 與 $b$ 是<span class="keyword">等價的 (Equivalent)</span>。
+        </div>
+
+        <h3 class="subsection-title">2. 等價類 (Equivalence Classes)</h3>
+        <div class="definition-box">
+            <div class="definition-title">等價類定義</div>
+            設 $R$ 為集合 $A$ 上的等價關係。與 $A$ 中元素 $a$ 存在關係 $R$ 的所有元素組成的集合稱為 $a$ 的<span class="keyword">等價類 (Equivalence Class)</span>，記作 $\mathbf{[a]_R}$ 或 $[a]$：
+            $$[a]_R = \{s \mid (a,s) \in R\}$$
+            若 $b \in [a]_R$，則 $b$ 被稱為該等價類的<span class="keyword">代表元 (Representative)</span>。
+        </div>
+
+        <div class="theorem-box">
+            <div class="theorem-title">定理 1 (Theorem 1 - 等價類的等價命題)</div>
+            設 $R$ 為集合 $A$ 上的等價關係，對於 $A$ 中的任意兩個元素 $a$ 與 $b$，以下三個敘述<strong>完全等價</strong>：
+            <ol>
+                <li>$a\,R\,b$</li>
+                <li>$[a] = [b]$</li>
+                <li>$[a] \cap [b] \neq \emptyset$</li>
+            </ol>
+        </div>
+
+        <h3 class="subsection-title">3. 集合的劃分 (Partition of a Set)</h3>
+        <div class="definition-box">
+            <div class="definition-title">集合劃分定義</div>
+            集合 $S$ 的<span class="keyword">劃分 (Partition)</span> 是指由 $S$ 的若干非空子集 $A_i (i \in I)$ 組成的集合族，滿足：
+            <ol>
+                <li>$A_i \neq \emptyset \quad (\forall i \in I)$</li>
+                <li>$A_i \cap A_j = \emptyset \quad (\text{當 } i \neq j \text{ 時，即兩兩不相交})$</li>
+                <li>$\bigcup_{i \in I} A_i = S \quad (\text{聯集等於全集 } S)$</li>
+            </ol>
+        </div>
+
+        <div class="theorem-box">
+            <div class="theorem-title">定理 2 (Theorem 2 - 等價關係與劃分的雙射對應)</div>
+            <ol>
+                <li>設 $R$ 為集合 $S$ 上的等價關係，則 $R$ 的所有等價類構成集合 $S$ 的一個<strong>劃分 (Partition)</strong>。</li>
+                <li>反之，給定集合 $S$ 的任意一個劃分 $\{A_i \mid i \in I\}$，必定存在一個以這些子集 $A_i$ 作為其等價類的<strong>等價關係 $R$</strong>。</li>
+            </ol>
+        </div>
+
+        <!-- 例題與證明展開項 -->
+        <details>
+            <summary>▶ 展開查看：§ 9.5 模 m 同餘關係 (Congruence Modulo m)</summary>
+            <div class="details-content">
+                <p><strong>模 $m$ 同餘關係 (Example 3):</strong><br>
+                設 $m > 1$ 為正整數。整數集 $\mathbb{Z}$ 上的關係 $R = \{(a,b) \mid a \equiv b \pmod m\}$（即 $m \mid (a-b)$）是一個等價關係。</p>
+
+                <p><strong>證明：</strong></p>
+                <ol>
+                    <li><strong>自反性：</strong> $a - a = 0 = 0 \cdot m$，故 $a \equiv a \pmod m$。</li>
+                    <li><strong>對稱性：</strong> 若 $a \equiv b \pmod m$，則 $a - b = k m$ ($k \in \mathbb{Z}$)，故 $b - a = (-k)m$，即 $b \equiv a \pmod m$。</li>
+                    <li><strong>傳遞性：</strong> 若 $a \equiv b \pmod m$ 且 $b \equiv c \pmod m$，則 $a - b = k m, \, b - c = j m$。兩式相加得 $a - c = (k+j)m$，故 $a \equiv c \pmod m$。</li>
+                </ol>
+
+                <p><strong>模 $m$ 同餘類與劃分：</strong><br>
+                模 $m$ 將整數集劃分為 $m$ 個互不相交的等價類：
+                $$[0]_m, [1]_m, \dots, [m-1]_m$$
+                其中 $[a]_m = \{\dots, a-2m, a-m, a, a+m, a+2m, \dots\}$。這 $m$ 個同餘類構成了整數集 $\mathbb{Z}$ 的一個劃分。
                 </p>
-                <div class="p-3 bg-white rounded-xl font-mono text-amber-600 font-bold text-center border border-amber-200 shadow-sm">
-                    答案：$2^{n^2}$
-                </div>
-                <p class="text-xs text-slate-500">
-                    <strong>原理說明：</strong> 集合 $A$ 上的關係是 $A \times A$ 的子集。因為 $|A \times A| = n \times n = n^2$，故子集總數為 $2^{n^2}$。
+            </div>
+        </details>
+
+        <details>
+            <summary>▶ 展開查看：§ 9.5 定理 1 完整證明 (Proof of Theorem 1)</summary>
+            <div class="details-content">
+                <p><strong>證明 (i) $\Rightarrow$ (ii) $\Rightarrow$ (iii) $\Rightarrow$ (i)：</strong></p>
+
+                <p><strong>(1) 證明 (i) $\Rightarrow$ (ii) [ 若 $a\,R\,b$，則 $[a] = [b]$ ]：</strong><br>
+                假設 $a\,R\,b$。對於任意 $c \in [a]$，由定義有 $a\,R\,c$。<br>
+                因為 $R$ 是對稱的，由 $a\,R\,b$ 可得 $b\,R\,a$。<br>
+                因為 $R$ 是傳遞的，由 $b\,R\,a$ 且 $a\,R\,c$，可推導出 $b\,R\,c$，故 $c \in [b]$。這證明了 $[a] \subseteq [b]$。<br>
+                同理可證 $[b] \subseteq [a]$。因此 $[a] = [b]$。</p>
+
+                <p><strong>(2) 證明 (ii) $\Rightarrow$ (iii) [ 若 $[a] = [b]$，則 $[a] \cap [b] \neq \emptyset$ ]：</strong><br>
+                因為 $R$ 具有自反性，所以 $a \in [a]$。故 $[a]$ 非空。<br>
+                由於 $[a] = [b]$，因此 $a \in [a] \cap [b]$，即 $[a] \cap [b] \neq \emptyset$。</p>
+
+                <p><strong>(3) 證明 (iii) $\Rightarrow$ (i) [ 若 $[a] \cap [b] \neq \emptyset$，則 $a\,R\,b$ ]：</strong><br>
+                假設 $[a] \cap [b] \neq \emptyset$，則存在元素 $c \in [a] \cap [b]$。<br>
+                由 $c \in [a]$ 可得 $a\,R\,c$；由 $c \in [b]$ 可得 $b\,R\,c$。<br>
+                由對稱性，$b\,R\,c \implies c\,R\,b$。<br>
+                再由傳遞性，由 $a\,R\,c$ 和 $c\,R\,b$，可推導出 $a\,R\,b$。證畢！</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>▶ 展開查看：§ 9.5 例題 7 (由劃分構造等價關係)</summary>
+            <div class="details-content">
+                <p><strong>Example 7:</strong> 設 $S = \{1, 2, 3, 4, 5, 6\}$，劃分為：
+                $$A_1 = \{1, 2, 3\}, \quad A_2 = \{4, 5\}, \quad A_3 = \{6\}$$
+                由該劃分產生的等價關係 $R$ 的有序對列舉如下：
+                <ul>
+                    <li>由 $A_1$ 產生：$(1,1), (1,2), (1,3), (2,1), (2,2), (2,3), (3,1), (3,2), (3,3)$</li>
+                    <li>由 $A_2$ 產生：$(4,4), (4,5), (5,4), (5,5)$</li>
+                    <li>由 $A_3$ 產生：$(6,6)$</li>
+                </ul>
+                關係 $R$ 為以上所有有序對的聯集。
                 </p>
             </div>
-        </section>
+        </details>
+    </section>
 
-        <!-- Section 4: Properties of Relations -->
-        <section id="sec4" class="bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-8">
-            <div class="border-b border-slate-100 pb-4">
-                <h2 class="text-2xl font-bold text-indigo-600 flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-sm font-mono">4</span>
-                    關係的核心四大性質 (Properties of Relations)
-                </h2>
-            </div>
+</div>
 
-            <!-- Property 1: Reflexive -->
-            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-4">
-                <div class="flex items-center justify-between border-b border-slate-200 pb-3">
-                    <h3 class="text-lg font-bold text-blue-600 flex items-center gap-2">
-                        <i class="fa-solid fa-arrows-rotate"></i> (1) 自反性 (Reflexive Relation)
-                    </h3>
-                    <span class="text-xs font-mono bg-blue-100 text-blue-700 px-2.5 py-1 rounded">Definition</span>
-                </div>
-                <p class="text-sm text-slate-700">
-                    <strong>定義：</strong> 集合 $A$ 上的關係 $R$ 被稱為自反的 (Reflexive)，若且唯若對每一個元素 $a \in A$，都有 $(a,a) \in R$。
-                </p>
-                <div class="p-3 bg-white rounded-xl font-mono text-xs text-blue-600 border border-slate-200 shadow-sm">
-                    $\forall a \in A, \, (a,a) \in R$
-                </div>
-
-                <!-- Counting Question for Reflexive -->
-                <div class="p-4 bg-amber-50 border border-amber-200 rounded-xl space-y-1">
-                    <span class="text-xs font-bold text-amber-800 uppercase tracking-wider block"><i class="fa-solid fa-star"></i> 必考計數題 (Example 16)：</span>
-                    <p class="text-xs text-slate-700">包含 $n$ 個元素的集合上，有多少個<strong>自反關係 (Reflexive Relations)</strong>？</p>
-                    <p class="text-sm font-mono text-amber-600 font-bold">答案：$2^{n(n-1)}$ 或 $2^{n^2 - n}$</p>
-                    <p class="text-xs text-slate-500 italic">原因：對角線上的 $n$ 個元素 $(a,a)$ 必須全部存在（各自只有 1 種可能）；非對角線的 $n^2 - n$ 個元素每個可選出現或不出現（各 2 種可能）。</p>
-                </div>
-            </div>
-
-            <!-- Property 2: Symmetric & Antisymmetric -->
-            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-4">
-                <div class="flex items-center justify-between border-b border-slate-200 pb-3">
-                    <h3 class="text-lg font-bold text-emerald-600 flex items-center gap-2">
-                        <i class="fa-solid fa-arrows-left-right"></i> (2) 對稱性與反對稱性 (Symmetric & Antisymmetric)
-                    </h3>
-                    <span class="text-xs font-mono bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded">Definition 4</span>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="p-4 bg-white rounded-xl border border-slate-200 space-y-2 shadow-sm">
-                        <h4 class="font-bold text-emerald-700 text-sm">對稱關係 (Symmetric)</h4>
-                        <p class="text-xs text-slate-600">只要 $(a,b) \in R$，則必然有 $(b,a) \in R$。</p>
-                        <div class="p-2 bg-slate-50 rounded font-mono text-xs text-emerald-600">
-                            $\forall a,b \in A, \, ((a,b) \in R \implies (b,a) \in R)$
-                        </div>
-                    </div>
-
-                    <div class="p-4 bg-white rounded-xl border border-slate-200 space-y-2 shadow-sm">
-                        <h4 class="font-bold text-emerald-700 text-sm">反對稱關係 (Antisymmetric)</h4>
-                        <p class="text-xs text-slate-600">若 $(a,b) \in R$ 且 $(b,a) \in R$，則必然 $a = b$。</p>
-                        <div class="p-2 bg-slate-50 rounded font-mono text-xs text-emerald-600">
-                            $\forall a,b \in A, \, (((a,b) \in R \land (b,a) \in R) \implies a = b)$
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs text-slate-600 shadow-sm">
-                    <strong class="text-amber-700">觀念澄清：</strong> 對稱與反對稱不是互斥的（關係可以同時是對稱且反對稱，例如恆等關係 $R = \{(a,a)\}$；也可以兩者皆非）。
-                </div>
-            </div>
-
-            <!-- Property 3: Transitive -->
-            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-4">
-                <div class="flex items-center justify-between border-b border-slate-200 pb-3">
-                    <h3 class="text-lg font-bold text-purple-600 flex items-center gap-2">
-                        <i class="fa-solid fa-share"></i> (3) 遞移性 (Transitive Relation)
-                    </h3>
-                    <span class="text-xs font-mono bg-purple-100 text-purple-700 px-2.5 py-1 rounded">Definition 5</span>
-                </div>
-                <p class="text-sm text-slate-700">
-                    <strong>定義：</strong> 每當 $(a,b) \in R$ 且 $(b,c) \in R$ 時，必然有 $(a,c) \in R$。
-                </p>
-                <div class="p-3 bg-white rounded-xl font-mono text-xs text-purple-600 border border-slate-200 shadow-sm">
-                    $\forall a,b,c \in A, \, (((a,b) \in R \land (b,c) \in R) \implies (a,c) \in R)$
-                </div>
-            </div>
-
-            <!-- Summary Analysis Table & Examples (Collapsible) -->
-            <details class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm group">
-                <summary class="font-bold text-slate-800 cursor-pointer flex items-center justify-between text-sm md:text-base">
-                    <span class="flex items-center gap-2">
-                        <i class="fa-solid fa-chevron-right text-xs text-indigo-500 group-open:rotate-90 transition-transform"></i>
-                        綜合題型判斷：Example 7, 10, 13 性質對照表與整除關係分析 [點擊展開]
-                    </span>
-                    <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-500">Example & Analysis</span>
-                </summary>
-                <div class="space-y-4 pt-4 mt-2 border-t border-slate-100">
-                    <p class="text-xs text-slate-500">集合 $A = \{1, 2, 3, 4\}$ 上的關係判定 (Example 7, 10, 13)：</p>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-xs text-center border-collapse bg-white rounded-xl overflow-hidden border border-slate-200">
-                            <thead>
-                                <tr class="bg-slate-100 text-indigo-700 border-b border-slate-200">
-                                    <th class="p-2 border border-slate-200">Relation</th>
-                                    <th class="p-2 border border-slate-200">Elements</th>
-                                    <th class="p-2 border border-slate-200">Reflexive</th>
-                                    <th class="p-2 border border-slate-200">Symmetric</th>
-                                    <th class="p-2 border border-slate-200">Antisymmetric</th>
-                                    <th class="p-2 border border-slate-200">Transitive</th>
-                                </tr>
-                            </thead>
-                            <tbody class="font-mono text-slate-700">
-                                <tr>
-                                    <td class="p-2 border border-slate-200 font-bold bg-slate-50">$R_1$</td>
-                                    <td class="p-2 border border-slate-200 text-left">{(1,1),(1,2),(2,1),(2,2),(3,4),(4,1),(4,4)}</td>
-                                    <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                    <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                    <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                    <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-2 border border-slate-200 font-bold bg-slate-50">$R_2$</td>
-                                    <td class="p-2 border border-slate-200 text-left">{(1,1),(1,2),(2,1)}</td>
-                                    <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                    <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                    <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                    <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-2 border border-slate-200 font-bold bg-slate-50">$R_3$</td>
-                                    <td class="p-2 border border-slate-200 text-left">{(1,1),(1,2),(1,4),(2,1),(2,2),(3,3),(4,1),(4,4)}</td>
-                                    <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                    <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                    <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                    <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-2 border border-slate-200 font-bold bg-slate-50">$R_4$</td>
-                                    <td class="p-2 border border-slate-200 text-left">{(2,1),(3,1),(3,2),(4,1),(4,2),(4,3)}</td>
-                                    <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                    <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                    <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                    <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-2 border border-slate-200 font-bold bg-slate-50">$R_5$</td>
-                                    <td class="p-2 border border-slate-200 text-left">{(1,1),(1,2),(1,3),(1,4),(2,2),(2,3),(2,4),(3,3),(3,4),(4,4)}</td>
-                                    <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                    <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                    <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                    <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-2 border border-slate-200 font-bold bg-slate-50">$R_6$</td>
-                                    <td class="p-2 border border-slate-200 text-left">{(3,4)}</td>
-                                    <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                    <td class="p-2 border border-slate-200 text-slate-300">-</td>
-                                    <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                    <td class="p-2 border border-slate-200 text-emerald-600 font-bold">✓</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- Divides Relation Special Analysis -->
-                    <div class="p-4 bg-indigo-50 border border-indigo-100 rounded-xl space-y-2">
-                        <h4 class="font-bold text-indigo-900 text-xs flex items-center gap-2">
-                            <i class="fa-solid fa-puzzle-piece"></i> 正整數集合 $\mathbb{Z}^+$ 上的 "Divides" (整除關係) 性質分析：
-                        </h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs pt-1">
-                            <div class="p-3 bg-white rounded-lg border border-indigo-100 shadow-sm">
-                                <strong class="text-blue-600 block mb-1">Reflexive? YES</strong>
-                                因為對任何正整數 $a$，都有 $a \mid a$。
-                            </div>
-                            <div class="p-3 bg-white rounded-lg border border-indigo-100 shadow-sm">
-                                <strong class="text-emerald-600 block mb-1">Antisymmetric? YES</strong>
-                                若 $a \mid b$ 且 $b \mid a$，則必有 $a = b$。
-                            </div>
-                            <div class="p-3 bg-white rounded-lg border border-indigo-100 shadow-sm">
-                                <strong class="text-purple-600 block mb-1">Transitive? YES</strong>
-                                若 $a \mid b$ 且 $b \mid c$，則 $a \mid c$。
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </details>
-        </section>
-
-        <!-- Section 5: Combining Relations, Composite, Powers & Proof -->
-        <section id="sec5" class="bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-8">
-            <div class="border-b border-slate-100 pb-4">
-                <h2 class="text-2xl font-bold text-indigo-600 flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-sm font-mono">5</span>
-                    關係的組合、合成與次方 (Combining Relations, Composite & Powers)
-                </h2>
-            </div>
-
-            <!-- 5.1 Set Operations (Collapsible Example 17, 18, 19) -->
-            <details class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm group">
-                <summary class="font-bold text-slate-800 cursor-pointer flex items-center justify-between text-sm md:text-base">
-                    <span class="flex items-center gap-2">
-                        <i class="fa-solid fa-chevron-right text-xs text-indigo-500 group-open:rotate-90 transition-transform"></i>
-                        5.1 集合論角度的關係組合與範例 17, 18, 19 [點擊展開]
-                    </span>
-                    <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-500">Examples</span>
-                </summary>
-                <div class="space-y-4 pt-4 mt-2 border-t border-slate-100 text-xs">
-                    <p class="text-slate-600">因為關係 $R_1, R_2 \subseteq A \times B$ 本質上是有序對的集合，因此可以直接進行交集、聯集等運算。</p>
-                    
-                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
-                        <span class="font-bold text-blue-600">Example 17 (page 579)</span>
-                        <p class="font-mono text-slate-700">$A = \{1, 2, 3\}, B = \{1, 2, 3, 4\}$<br>$R_1 = \{(1,1), (2,2), (3,3)\}, R_2 = \{(1,1), (1,2), (1,3)\}</p>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 font-mono text-slate-800">
-                            <div class="p-2 bg-white rounded border border-slate-200">$R_1 \cup R_2 = \{(1,1), (1,2), (1,3), (2,2), (3,3)\}$</div>
-                            <div class="p-2 bg-white rounded border border-slate-200">$R_1 \cap R_2 = \{(1,1)\}$</div>
-                            <div class="p-2 bg-white rounded border border-slate-200">$R_1 - R_2 = \{(2,2), (3,3)\}$</div>
-                            <div class="p-2 bg-white rounded border border-slate-200">$R_2 - R_1 = \{(1,2), (1,3)\}$</div>
-                        </div>
-                    </div>
-                </div>
-            </details>
-
-            <!-- 5.2 Composite of Relations -->
-            <div class="space-y-4">
-                <h3 class="text-lg font-bold text-slate-800">5.2 關係的合成 (Composite of Two Relations)</h3>
-                
-                <div class="bg-indigo-50/60 border border-indigo-100 p-4 rounded-2xl space-y-2">
-                    <h4 class="font-bold text-indigo-900 text-sm flex items-center gap-2">
-                        <i class="fa-solid fa-link"></i> 定義 6 (Definition 6 - page 580)
-                    </h4>
-                    <p class="text-xs md:text-sm text-slate-700">
-                        設 $R$ 是從 $A$ 到 $B$ 的關係，$S$ 是從 $B$ 到 $C$ 的關係。$R$ 與 $S$ 的<strong>合成關係 (Composite)</strong> 記作 $S \circ R$，包含所有有序對 $(a,c)$，使得存在元素 $b \in B$ 滿足 $(a,b) \in R$ 且 $(b,c) \in S$。
-                    </p>
-                </div>
-
-                <!-- Example 20 (Collapsible) -->
-                <details class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm group">
-                    <summary class="font-bold text-slate-800 cursor-pointer flex items-center justify-between text-sm md:text-base">
-                        <span class="flex items-center gap-2">
-                            <i class="fa-solid fa-chevron-right text-xs text-indigo-500 group-open:rotate-90 transition-transform"></i>
-                            Example 20 具體演算 (合成關係範例) [點擊展開]
-                        </span>
-                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-500">Example 20</span>
-                    </summary>
-                    <div class="space-y-2 pt-4 mt-2 border-t border-slate-100 text-xs font-mono text-slate-700">
-                        <p>$R = \{(1,1), (1,4), (2,3), (3,1), (3,4)\}$</p>
-                        <p>$S = \{(1,0), (2,0), (3,1), (3,2), (4,1)\}$</p>
-                        <div class="p-3 bg-slate-50 rounded-xl text-emerald-600 font-bold border border-slate-200">
-                            $S \circ R = \{(1,0), (1,1), (2,1), (2,2), (3,0), (3,1)\}$
-                        </div>
-                    </div>
-                </details>
-            </div>
-
-            <!-- 5.3 Powers of a Relation -->
-            <div class="space-y-4">
-                <h3 class="text-lg font-bold text-slate-800">5.3 關係的次方 (Powers of a Relation)</h3>
-                
-                <div class="bg-indigo-50/60 border border-indigo-100 p-4 rounded-2xl space-y-2">
-                    <h4 class="font-bold text-indigo-900 text-sm flex items-center gap-2">
-                        <i class="fa-solid fa-cubes"></i> 定義 7 (Definition 7 - page 580)
-                    </h4>
-                    <p class="text-xs md:text-sm text-slate-700">
-                        設 $R$ 是集合 $A$ 上的關係。次方 $R^n$ ($n=1,2,3,\dots$) 遞迴定義：$R^1 = R$ 且 $R^{n+1} = R^n \circ R$。
-                    </p>
-                </div>
-
-                <!-- Example 22 (Collapsible) -->
-                <details class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm group">
-                    <summary class="font-bold text-slate-800 cursor-pointer flex items-center justify-between text-sm md:text-base">
-                        <span class="flex items-center gap-2">
-                            <i class="fa-solid fa-chevron-right text-xs text-indigo-500 group-open:rotate-90 transition-transform"></i>
-                            Example 22 遞迴計算 (關係次方範例) [點擊展開]
-                        </span>
-                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-500">Example 22</span>
-                    </summary>
-                    <div class="space-y-1 pt-4 mt-2 border-t border-slate-100 text-xs font-mono text-slate-700">
-                        <p>設 $R = \{(1,1), (2,1), (3,2), (4,3)\}$：</p>
-                        <p>• $R^1 = \{(1,1), (2,1), (3,2), (4,3)\}$</p>
-                        <p>• $R^2 = \{(1,1), (2,1), (3,1), (4,2)\}$</p>
-                        <p>• $R^3 = \{(1,1), (2,1), (3,1), (4,1)\}$</p>
-                        <p class="text-slate-400 italic">（對所有 $n \ge 3$，都有 $R^n = R^3$）</p>
-                    </div>
-                </details>
-            </div>
-
-            <!-- 5.4 Theorem 1 and Full Proof (Collapsible Proof) -->
-            <details class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm group">
-                <summary class="font-bold text-slate-800 cursor-pointer flex items-center justify-between text-base">
-                    <span class="flex items-center gap-2 text-indigo-600">
-                        <i class="fa-solid fa-chevron-right text-xs text-indigo-500 group-open:rotate-90 transition-transform"></i>
-                        Theorem 1 定理與完整數學證明 (Page 580-581) [點擊展開]
-                    </span>
-                    <span class="text-xs font-mono bg-amber-100 text-amber-800 px-2.5 py-1 rounded">Core Proof</span>
-                </summary>
-                
-                <div class="space-y-4 pt-4 mt-4 border-t border-slate-200">
-                    <div class="p-4 bg-white rounded-xl border border-slate-200 text-sm text-slate-800 shadow-sm">
-                        <strong>定理內容：</strong> 集合 $A$ 上的關係 $R$ 是<strong>遞移的 (Transitive)</strong>，若且唯若 (if and only if)：
-                        <div class="text-center font-mono text-indigo-600 font-bold my-2 text-base">
-                            $R^n \subseteq R \quad \text{for } n = 1, 2, 3, \dots$
-                        </div>
-                    </div>
-
-                    <!-- Proof Steps -->
-                    <div class="space-y-3">
-                        <div class="p-4 bg-white rounded-xl border border-slate-200 space-y-2 shadow-sm">
-                            <h4 class="font-bold text-xs text-blue-600 uppercase tracking-wider">第一部分：證明 "If" 部分 (充分性)</h4>
-                            <p class="text-xs text-slate-600 leading-relaxed">
-                                假設 $R^n \subseteq R$ 對所有 $n \ge 1$ 成立（特別是 $R^2 \subseteq R$）。若 $(a,b) \in R$ 且 $(b,c) \in R$，則 $(a,c) \in R^2$。因為 $R^2 \subseteq R$，故 $(a,c) \in R$，即 $R$ 具備遞移性。 $\blacksquare$
-                            </p>
-                        </div>
-
-                        <div class="p-4 bg-white rounded-xl border border-slate-200 space-y-2 shadow-sm">
-                            <h4 class="font-bold text-xs text-emerald-600 uppercase tracking-wider">第二部分：使用數學歸納法證明 "Only If" 部分 (必要性)</h4>
-                            <p class="text-xs text-slate-600 leading-relaxed">
-                                <strong>1. 基礎步驟 ($n=1$)：</strong> $R^1 = R \subseteq R$ 顯然成立。<br>
-                                <strong>2. 歸納假設：</strong> 假設 $R^k \subseteq R$ 成立。<br>
-                                <strong>3. 歸納步驟 ($n=k+1$)：</strong> 對任意 $(a,b) \in R^{k+1} = R^k \circ R$，存在 $x$ 使得 $(a,x) \in R$ 且 $(x,b) \in R^k \subseteq R$。由 $R$ 之遞移性可推得 $(a,b) \in R$，故 $R^{k+1} \subseteq R$。 $\blacksquare$
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </details>
-        </section>
-
-        <!-- Footer -->
-        <footer class="text-center text-xs text-slate-400 py-6 border-t border-slate-200">
-            <p>CISC1002 Discrete Structures Revision Center • Chapter 9 Relations § 9.1</p>
-        </footer>
-
-    </main>
+<footer>
+    <p>離散數學 Chapter 9 Relations 複習全書 · 自動生成於 2026 年</p>
+</footer>
 
 </body>
 </html>
-
