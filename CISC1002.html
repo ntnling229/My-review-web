@@ -199,7 +199,180 @@
             </div>
         </div>
     </section>
-    <!-- test
+    <!-- test -->
+
+    <!-- ================= SECTION 2.2 ================= -->
+    <section id="sec2-2" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b pb-4 flex items-center justify-between">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-teal-100 text-teal-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 2.2</span>
+                Set Operations (集合運算)
+            </h2>
+            <span class="text-xs text-slate-500 font-mono">Page 127 - 134</span>
+        </div>
+    
+        <!-- 1. Introduction & Basic Operations -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-teal-800 flex items-center gap-2">
+                <i class="fa-solid fa-circle-dot text-teal-500 text-sm"></i> 1. Introduction & Basic Operations (基本運算定義)
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-slate-900 block text-base font-bold">Definition 1 (page 127): Union (聯集)</strong>
+                    <p class="text-slate-700">Let A and B be sets. The union of the sets A and B, denoted by $A \cup B$, is the set that contains those elements that either in A or in B, or in both.</p>
+                    <p class="text-xs font-mono text-teal-800 bg-white p-2 rounded border">$A \cup B = \{x \mid x \in A \vee x \in B\}$</p>
+                    <p class="text-xs text-slate-500">Example: $\{1,3,5\} \cup \{1,2,3\} = \{1,2,3,5\}$</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-slate-900 block text-base font-bold">Definition 2: Intersection (交集)</strong>
+                    <p class="text-slate-700">Let A and B be sets. The intersection of the sets A and B, denoted by $A \cap B$, is the set containing those elements in both A and B.</p>
+                    <p class="text-xs font-mono text-teal-800 bg-white p-2 rounded border">$A \cap B = \{x \mid x \in A \wedge x \in B\}$</p>
+                    <p class="text-xs text-slate-500">Example: $\{1,3,5\} \cap \{1,2,3\} = \{1,3\}$</p>
+                </div>
+            </div>
+    
+            <!-- Disjoint & Inclusion-Exclusion -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-slate-900 block text-base font-bold">Definition 3 (page 128): Disjoint (互斥集)</strong>
+                    <p class="text-slate-700">Two sets are called disjoint if their intersection is the empty set.</p>
+                    <p class="text-xs text-slate-500">Example 5 (page 128): Let $A = \{1,3,5,7,9\}$ and $B = \{2,4,6,8,10\}$. Since $A \cap B = \emptyset$, A and B are disjoint.</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-slate-900 block text-base font-bold">Cardinality of Union (有限集合聯集的基數)</strong>
+                    <p class="text-slate-700">For two finite sets A and B, we have:</p>
+                    <p class="text-xs font-mono text-teal-800 bg-white p-2 rounded border">$|A \cup B| = |A| + |B| - |A \cap B|$</p>
+                </div>
+            </div>
+    
+            <!-- SVG Venn Diagrams & Difference / Complement Toggle -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('sec2-2-svg')" class="w-full p-4 text-left font-bold text-slate-800 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                    <span><i class="fa-solid fa-image mr-2 text-teal-600"></i> Venn Diagrams for Union, Intersection & Difference (文氏圖與差集、補集圖解，點擊展開)</span>
+                    <span class="text-xs bg-teal-600 text-white px-2.5 py-1 rounded-full">Expand / Collapse</span>
+                </button>
+                <div id="sec2-2-svg" class="toggle-content p-6 space-y-6 border-t border-slate-200 text-sm">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                        <!-- SVG 1: Union -->
+                        <div class="text-center space-y-2">
+                            <p class="text-xs font-bold text-slate-600">$A \cup B$ Is Shaded (Page 127)</p>
+                            <svg viewBox="0 0 200 130" class="w-full bg-slate-50 rounded border border-slate-200">
+                                <rect x="5" y="5" width="190" height="120" fill="none" stroke="#64748b"/>
+                                <text x="180" y="20" fill="#64748b" font-weight="bold">U</text>
+                                <circle cx="75" cy="65" r="40" fill="#ccfbf1" fill-opacity="0.8" stroke="#0d9488" stroke-width="1.5"/>
+                                <circle cx="125" cy="65" r="40" fill="#ccfbf1" fill-opacity="0.8" stroke="#0d9488" stroke-width="1.5"/>
+                                <text x="65" y="70" font-weight="bold" fill="#0f766e">A</text>
+                                <text x="125" y="70" font-weight="bold" fill="#0f766e">B</text>
+                            </svg>
+                        </div>
+                        <!-- SVG 2: Intersection -->
+                        <div class="text-center space-y-2">
+                            <p class="text-xs font-bold text-slate-600">$A \cap B$ Is Shaded (Page 128)</p>
+                            <svg viewBox="0 0 200 130" class="w-full bg-slate-50 rounded border border-slate-200">
+                                <rect x="5" y="5" width="190" height="120" fill="none" stroke="#64748b"/>
+                                <text x="180" y="20" fill="#64748b" font-weight="bold">U</text>
+                                <circle cx="75" cy="65" r="40" fill="none" stroke="#0d9488" stroke-width="1.5"/>
+                                <circle cx="125" cy="65" r="40" fill="none" stroke="#0d9488" stroke-width="1.5"/>
+                                <path d="M 100 25 A 40 40 0 0 1 100 105 A 40 40 0 0 1 100 25" fill="#ccfbf1"/>
+                                <text x="65" y="70" font-weight="bold" fill="#0f766e">A</text>
+                                <text x="125" y="70" font-weight="bold" fill="#0f766e">B</text>
+                            </svg>
+                        </div>
+                        <!-- SVG 3: Difference -->
+                        <div class="text-center space-y-2">
+                            <p class="text-xs font-bold text-slate-600">$A - B$ Is Shaded (Page 129)</p>
+                            <svg viewBox="0 0 200 130" class="w-full bg-slate-50 rounded border border-slate-200">
+                                <rect x="5" y="5" width="190" height="120" fill="none" stroke="#64748b"/>
+                                <text x="180" y="20" fill="#64748b" font-weight="bold">U</text>
+                                <circle cx="75" cy="65" r="40" fill="#ccfbf1" fill-opacity="0.8" stroke="#0d9488" stroke-width="1.5"/>
+                                <circle cx="125" cy="65" r="40" fill="white" stroke="#0d9488" stroke-width="1.5"/>
+                                <text x="65" y="70" font-weight="bold" fill="#0f766e">A</text>
+                                <text x="125" y="70" font-weight="bold" fill="#0f766e">B</text>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="space-y-2 pt-2 border-t border-slate-200 text-xs text-slate-700">
+                        <p><strong>Definition 4 (page 128): The difference of two sets (差集)</strong></p>
+                        <p>Let A and B be sets. The difference of A and B, denoted by $A - B$, is the set that containing those elements that are in A but not in B. The difference of A and B is also called the complement of B with respect to A (關於A的集合B的補集).</p>
+                        <p class="font-mono">$A - B = \{x \mid x \in A \wedge x \text{ not in } B\}$</p>
+                        <p class="mt-2"><strong>Definition 5 (page 129): Complement of a set (補集)</strong></p>
+                        <p>Let U be universal set (全集). The complement of the set A, denoted by $\sim A$, is the complement of A with respect to U.</p>
+                        <p class="font-mono">$\sim A = U - A = \{x \mid x \text{ not in } A\}$</p>
+                        <p class="text-slate-500">Example 8: $A = \{a, e, i, o, u\}$, U = set of letters of the English alphabet, $\sim A = \text{?}$ | Example 9: A = set of positive integers greater than 10, U = all positive integers[cite: 695, 696].</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- 2. Set Identities -->
+        <div class="space-y-4 pt-4 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-teal-800 flex items-center gap-2">
+                <i class="fa-solid fa-code-fork text-teal-500 text-sm"></i> 2. Set Identities (集合的恒等式)
+            </h3>
+            
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2 text-sm">
+                <strong class="text-slate-900 block font-bold">Table 1 (page 130): Set Identity Laws (常見集合恒等式)</strong>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs font-mono">
+                    <div class="p-2 bg-white rounded border">• Identity law (同一律): $A \cup \emptyset = A$, $A \cap U = A$</div>
+                    <div class="p-2 bg-white rounded border">• Domination Law (零律): $A \cup U = U$, $A \cap \emptyset = \emptyset$</div>
+                    <div class="p-2 bg-white rounded border">• Idempotent law (冪等律): $A \cup A = A$, $A \cap A = A$</div>
+                    <div class="p-2 bg-white rounded border">• Complementation law (雙重否定律): $\sim(\sim A) = A$</div>
+                    <div class="p-2 bg-white rounded border">• Commutative law (交換律): $A \cup B = B \cup A$, $A \cap B = B \cap A$</div>
+                    <div class="p-2 bg-white rounded border">• Associative law (結合律): $A \cup (B \cup C) = (A \cup B) \cup C$</div>
+                    <div class="p-2 bg-white rounded border">• Distributive law (分配律): $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$</div>
+                    <div class="p-2 bg-white rounded border">• De Morgan's law (德摩根律): $\sim(A \cup B) = \sim A \cap \sim B$, $\sim(A \cap B) = \sim A \cup \sim B$</div>
+                    <div class="p-2 bg-white rounded border">• Absorption laws (吸收律): $A \cup (A \cap B) = A$, $A \cap (A \cup B) = A$</div>
+                    <div class="p-2 bg-white rounded border">• Complement laws: $A \cup \sim A = U$ (排中律), $A \cap \sim A = \emptyset$ (矛盾律)</div>
+                </div>
+            </div>
+    
+            <!-- Examples & Proofs Toggle -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('sec2-2-proofs')" class="w-full p-4 text-left font-bold text-slate-800 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                    <span><i class="fa-solid fa-file-lines mr-2 text-teal-600"></i> Example 10, 12 & Proofs (範例證明：德摩根律與分配律，點擊展開)</span>
+                    <span class="text-xs bg-teal-600 text-white px-2.5 py-1 rounded-full">Expand / Collapse</span>
+                </button>
+                <div id="sec2-2-proofs" class="toggle-content p-6 space-y-4 border-t border-slate-200 text-sm">
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                        <strong class="text-slate-900 block font-bold">Example 10 (page 130): Prove that $\sim(A \cap B) = \sim A \cup \sim B$</strong>
+                        <p class="text-xs text-slate-700">Solution steps: (a) Left $\subseteq$ Right, (b) Right $\subseteq$ Left. Alternatively, use set builder notation and logical equivalence (instructor prefers using basic set definitions).</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                        <strong class="text-slate-900 block font-bold">Example 12 (page 131): Prove Distributive Law</strong>
+                        <p class="text-xs text-slate-700">Prove that $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$ for all sets A, B, C.</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                        <strong class="text-slate-900 block font-bold">Additional Proof (page 132):</strong>
+                        <p class="text-xs text-slate-700">Let A, B, and C be sets. Show that $\sim(A \cup (B \cap C)) = (\sim C \cup \sim B) \cap \neg A$ by using the set identities proved previously.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- 3. Generalized Unions and Intersections -->
+        <div class="space-y-4 pt-4 border-t border-slate-200 text-sm">
+            <h3 class="font-bold text-lg text-teal-800 flex items-center gap-2">
+                <i class="fa-solid fa-layer-group text-teal-500 text-sm"></i> 3. Generalized Unions and Intersections (廣義聯集與交集)
+            </h3>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+                <p class="text-slate-700">The well-definedness of $A \cup B \cup C$ and $A \cap B \cap C$ is guaranteed by the associative law of union and intersection: $(A \cup B) \cup C = A \cup (B \cup C)$ and $A \cap (B \cap C) = (A \cap B) \cap C$.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-3 bg-white rounded border border-slate-200 space-y-1">
+                        <strong class="text-slate-900 block font-bold text-xs">Definition 6: Generalized Union</strong>
+                        <p class="text-xs text-slate-700 font-mono">$\bigcup_{i=1}^n A_i = A_1 \cup A_2 \cup \dots \cup A_n$</p>
+                        <p class="text-xs text-slate-500">Contains elements that are members of at least one set in the collection.</p>
+                    </div>
+                    <div class="p-3 bg-white rounded border border-slate-200 space-y-1">
+                        <strong class="text-slate-900 block font-bold text-xs">Definition 7: Generalized Intersection</strong>
+                        <p class="text-xs text-slate-700 font-mono">$\bigcap_{i=1}^n A_i = A_1 \cap A_2 \cap \dots \cap A_n$</p>
+                        <p class="text-xs text-slate-500">Contains elements that are members of all the sets in the collection.</p>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-600 mt-2">Example 15 (page 133): Let $A=\{0,2,4,6,8\}$, $B=\{0,1,2,3,4\}$, and $C=\{0,3,6,9\}$. Discussion in theory class: 7, 27.</p>
+            </div>
+        </div>
+    </section>
 
     
 
