@@ -1244,23 +1244,23 @@
     <section id="sec9-4" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
         <div class="border-b pb-4">
             <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
-                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 9.4</span>
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 9.4</span>
                 Closures of Relations (關係的閉包)
             </h2>
         </div>
 
         <!-- Introduction & General Closure Definition -->
         <div class="space-y-4">
-            <h3 class="font-bold text-lg text-purple-800 flex items-center gap-2">
-                <i class="fa-solid fa-lock text-purple-500"></i> 1. Introduction & General Definition (閉包通用定義)
+            <h3 class="font-bold text-lg text-blue-800 flex items-center gap-2">
+                <i class="fa-solid fa-lock text-blue-500"></i> 1. Introduction & General Definition (閉包通用定義)
             </h3>
 
             <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
-                <strong class="text-purple-900 text-base font-bold block">The Closure of Relation $R$ with Respect to Property $P$ (page 597)</strong>
+                <strong class="text-blue-900 text-base font-bold block">The Closure of Relation $R$ with Respect to Property $P$ (page 597)</strong>
                 <p class="text-slate-800 text-sm md:text-base">
                     Let $R$ be a relation on $A$. $R$ may or may not have some property $P$ (such as reflexive, symmetric, or transitive).
                 </p>
-                <p class="text-slate-800 text-sm md:text-base bg-white p-3 rounded border border-purple-200">
+                <p class="text-slate-800 text-sm md:text-base bg-white p-3 rounded border border-blue-200">
                     If there is a relation $S$ with property $P$ containing $R$ ($R \subseteq S$) such that $S$ is a subset of every relation with property $P$ containing $R$, then $S$ is called the <strong>closure of $R$ with respect to $P$ (關於性質 $P$ 的閉包)</strong>.
                 </p>
             </div>
@@ -1268,16 +1268,16 @@
 
         <!-- Reflexive & Symmetric Closures -->
         <div class="space-y-4">
-            <h3 class="font-bold text-lg text-purple-800 flex items-center gap-2">
-                <i class="fa-solid fa-layer-group text-purple-500"></i> 2. Reflexive & Symmetric Closures (自反閉包與對稱閉包)
+            <h3 class="font-bold text-lg text-blue-800 flex items-center gap-2">
+                <i class="fa-solid fa-layer-group text-blue-500"></i> 2. Reflexive & Symmetric Closures (自反閉包與對稱閉包)
             </h3>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <!-- Reflexive Closure -->
                 <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-                    <strong class="text-purple-900 font-bold text-base block">Reflexive Closure (自反閉包)</strong>
+                    <strong class="text-blue-900 font-bold text-base block">Reflexive Closure (自反閉包)</strong>
                     <p class="text-xs text-slate-600">Let $\Delta = \{(a,a) \mid a \in A\}$ be the <strong>diagonal relation (對角線關係)</strong>.</p>
-                    <div class="p-3 bg-white font-mono font-bold text-purple-700 rounded border">
+                    <div class="p-3 bg-white font-mono font-bold text-blue-700 rounded border">
                         Reflexive Closure $= R \cup \Delta$
                     </div>
                     <p class="text-xs text-slate-600">Example 1: $R = \{(a,b) \mid a < b\}$ on integers $\implies$ Reflexive closure $= R \cup \Delta = \{(a,b) \mid a \le b\}$.</p>
@@ -1285,9 +1285,9 @@
 
                 <!-- Symmetric Closure -->
                 <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-                    <strong class="text-purple-900 font-bold text-base block">Symmetric Closure (對稱閉包)</strong>
+                    <strong class="text-blue-900 font-bold text-base block">Symmetric Closure (對稱閉包)</strong>
                     <p class="text-xs text-slate-600">Let $R^{-1} = \{(b,a) \mid (a,b) \in R\}$ be the <strong>inverse relation</strong>.</p>
-                    <div class="p-3 bg-white font-mono font-bold text-purple-700 rounded border">
+                    <div class="p-3 bg-white font-mono font-bold text-blue-700 rounded border">
                         Symmetric Closure $= R \cup R^{-1}$
                     </div>
                     <p class="text-xs text-slate-600">Example 2: $R = \{(a,b) \mid a > b\}$ on positive integers $\implies$ Symmetric closure $= R \cup R^{-1} = \{(a,b) \mid a \ne b\}$.</p>
@@ -1297,13 +1297,13 @@
             <!-- Proof of Symmetric Closure Toggle -->
             <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
                 <button onclick="toggleCard('proof-sym')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
-                    <span><i class="fa-solid fa-file-signature mr-2 text-purple-600"></i> Proof that $S = R \cup R^{-1}$ is the Symmetric Closure (三步驟完整證明)</span>
-                    <span class="text-xs bg-purple-600 text-white px-2.5 py-1 rounded-full">Expand Proof</span>
+                    <span><i class="fa-solid fa-file-signature mr-2 text-blue-600"></i> Proof that $S = R \cup R^{-1}$ is the Symmetric Closure (三步驟完整證明)</span>
+                    <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full">Expand Proof</span>
                 </button>
                 <div id="proof-sym" class="toggle-content p-5 space-y-3 text-xs md:text-sm border-t border-slate-200 text-slate-800">
-                    <p class="font-bold text-purple-900">Let $S = R \cup R^{-1}$. We must prove three conditions:</p>
+                    <p class="font-bold text-blue-900">Let $S = R \cup R^{-1}$. We must prove three conditions:</p>
                     
-                    <div class="space-y-2 pl-3 border-l-2 border-purple-300">
+                    <div class="space-y-2 pl-3 border-l-2 border-blue-300">
                         <div>
                             <strong>1) Prove $S$ is symmetric:</strong>
                             <p>For any $(a,b) \in S = R \cup R^{-1}$, there are two cases:</p>
@@ -1328,12 +1328,12 @@
 
         <!-- Paths in Directed Graphs -->
         <div class="space-y-4">
-            <h3 class="font-bold text-lg text-purple-800 flex items-center gap-2">
-                <i class="fa-solid fa-route text-purple-500"></i> 3. Paths in Directed Graphs & Theorem 1 (有向圖路徑與定理)
+            <h3 class="font-bold text-lg text-blue-800 flex items-center gap-2">
+                <i class="fa-solid fa-route text-blue-500"></i> 3. Paths in Directed Graphs & Theorem 1 (有向圖路徑與定理)
             </h3>
 
             <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
-                <strong class="text-purple-900 text-base font-bold block">Definition 1: Path & Circuit (路徑與迴路) (page 599)</strong>
+                <strong class="text-blue-900 text-base font-bold block">Definition 1: Path & Circuit (路徑與迴路) (page 599)</strong>
                 <p class="text-slate-800 text-sm md:text-base">
                     A <strong>path (路徑)</strong> from $a$ to $b$ in directed graph $G$ is a sequence of edges $(x_0, x_1), (x_1, x_2), \dots, (x_{n-1}, x_n)$ where $n$ is a nonnegative integer, $x_0 = a$, $x_n = b$. Denoted by $x_0, x_1, \dots, x_n$ with length $n$.
                 </p>
@@ -1345,8 +1345,8 @@
             <!-- Figure 1 SVG Directed Graph & Example 3 -->
             <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
                 <button onclick="toggleCard('ex-9-4-path')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
-                    <span><i class="fa-solid fa-code-fork mr-2 text-purple-600"></i> Figure 1 Directed Graph & Example 3 (Path Identification)</span>
-                    <span class="text-xs bg-purple-600 text-white px-2.5 py-1 rounded-full">Expand Graph & Example</span>
+                    <span><i class="fa-solid fa-code-fork mr-2 text-blue-600"></i> Figure 1 Directed Graph & Example 3 (Path Identification)</span>
+                    <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full">Expand Graph & Example</span>
                 </button>
                 <div id="ex-9-4-path" class="toggle-content p-5 space-y-4 text-sm border-t border-slate-200">
                     <!-- SVG Figure 1 -->
@@ -1409,7 +1409,7 @@
 
             <!-- Path Theorem 1 -->
             <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-sm space-y-1">
-                <strong class="text-purple-900 font-bold block text-base">Theorem 1 (Path Theorem) (page 600)</strong>
+                <strong class="text-blue-900 font-bold block text-base">Theorem 1 (Path Theorem) (page 600)</strong>
                 <p class="text-slate-800">
                     Let $R$ be a relation on a set $A$. There is a path of length $n$ ($n \in \mathbb{Z}^+$) from $a$ to $b$ <strong>if and only if</strong> $(a,b) \in R^n$.
                 </p>
@@ -1418,34 +1418,34 @@
 
         <!-- Transitive Closure, Connectivity Relation, Lemma 1 -->
         <div class="space-y-4">
-            <h3 class="font-bold text-lg text-purple-800 flex items-center gap-2">
-                <i class="fa-solid fa-project-diagram text-purple-500"></i> 4. Transitive Closure & Connectivity Relation (遞移閉包與連通關係)
+            <h3 class="font-bold text-lg text-blue-800 flex items-center gap-2">
+                <i class="fa-solid fa-project-diagram text-blue-500"></i> 4. Transitive Closure & Connectivity Relation (遞移閉包與連通關係)
             </h3>
 
             <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
-                <strong class="text-purple-900 text-base font-bold block">Definition 2: Connectivity Relation $R^*$ (連通關係) (page 600)</strong>
+                <strong class="text-blue-900 text-base font-bold block">Definition 2: Connectivity Relation $R^*$ (連通關係) (page 600)</strong>
                 <p class="text-slate-800 text-sm md:text-base">
                     Let $R$ be a relation on a set $A$. The <strong>connectivity relation $R^*$</strong> consists of the pairs $(a,b)$ such that there is a path of length at least one from $a$ to $b$ in $R$.
                 </p>
-                <p class="font-mono font-bold text-purple-700 bg-white p-2.5 rounded border text-center">
+                <p class="font-mono font-bold text-blue-700 bg-white p-2.5 rounded border text-center">
                     $R^* = \bigcup_{n=1}^{\infty} R^n$
                 </p>
             </div>
 
             <!-- Theorem 2: Transitive Closure = R* -->
-            <div class="p-5 bg-purple-50/70 border border-purple-200 rounded-xl space-y-3">
-                <strong class="text-purple-950 text-base font-bold block">Theorem 2: Transitive Closure Theorem (page 601)</strong>
+            <div class="p-5 bg-blue-50/70 border border-blue-200 rounded-xl space-y-3">
+                <strong class="text-blue-950 text-base font-bold block">Theorem 2: Transitive Closure Theorem (page 601)</strong>
                 <p class="text-slate-800 text-sm md:text-base font-bold">
                     The transitive closure of a relation $R$ equals the connectivity relation $R^*$.
                 </p>
 
                 <!-- Proof Toggle -->
-                <div class="border border-purple-200 rounded-lg bg-white overflow-hidden">
-                    <button onclick="toggleCard('proof-thm2')" class="w-full p-3 text-left font-bold text-purple-900 flex justify-between items-center bg-purple-50 hover:bg-purple-100 transition text-sm">
-                        <span><i class="fa-solid fa-file-signature mr-2 text-purple-600"></i> Proof of Theorem 2 (完整三部曲證明)</span>
-                        <span class="text-xs bg-purple-600 text-white px-2.5 py-1 rounded-full">Expand Proof</span>
+                <div class="border border-blue-200 rounded-lg bg-white overflow-hidden">
+                    <button onclick="toggleCard('proof-thm2')" class="w-full p-3 text-left font-bold text-blue-900 flex justify-between items-center bg-blue-50 hover:bg-blue-100 transition text-sm">
+                        <span><i class="fa-solid fa-file-signature mr-2 text-blue-600"></i> Proof of Theorem 2 (完整三部曲證明)</span>
+                        <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full">Expand Proof</span>
                     </button>
-                    <div id="proof-thm2" class="toggle-content p-5 space-y-3 text-xs md:text-sm border-t border-purple-200 text-slate-800">
+                    <div id="proof-thm2" class="toggle-content p-5 space-y-3 text-xs md:text-sm border-t border-blue-200 text-slate-800">
                         <p><strong>1) $R^*$ contains $R$:</strong> $R^1 = R \subseteq R^*$ by definition.</p>
                         <p><strong>2) $R^*$ is transitive:</strong> If $(a,b) \in R^*$ and $(b,c) \in R^*$, there exist paths from $a$ to $b$ and $b$ to $c$. Combining them gives a path from $a$ to $c$, so $(a,c) \in R^*$. Thus $R^*$ is transitive.</p>
                         <p><strong>3) $R^*$ is the smallest transitive relation containing $R$:</strong> Suppose $S$ is any transitive relation containing $R$ ($R \subseteq S$). Since $S$ is transitive, $S^n \subseteq S$ for all $n \ge 1$ (by Theorem 1 of Section 9.1). It follows that $S^* \subseteq S$. Since $R \subseteq S$, any path in $R$ is a path in $S$, so $R^* \subseteq S^* \subseteq S$. Consequently, $R^* \subseteq S$. $\blacksquare$</p>
@@ -1455,7 +1455,7 @@
 
             <!-- Lemma 1 & Figure 2 -->
             <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
-                <strong class="text-purple-900 text-base font-bold block">Lemma 1 (Path Length Bound) (page 601)</strong>
+                <strong class="text-blue-900 text-base font-bold block">Lemma 1 (Path Length Bound) (page 601)</strong>
                 <p class="text-slate-800 text-sm md:text-base">
                     Let $A$ be a set with $n$ elements, and $R$ be a relation on $A$. If there is a path of length at least one in $R$ from $a$ to $b$, then there is a path with length <strong>not exceeding $n$</strong>.
                 </p>
@@ -1511,28 +1511,24 @@
                 </div>
 
                 <!-- Final Transitive Closure Finite Formula -->
-                <div class="p-3 bg-white rounded border border-purple-300">
+                <div class="p-3 bg-white rounded border border-blue-300">
                     <p class="text-xs md:text-sm font-bold text-slate-900">
                         From Lemma 1, the transitive closure $R^*$ of a relation $R$ on a set with $n$ elements is the finite union:
                     </p>
-                    <p class="text-sm md:text-base font-mono font-bold text-purple-700 text-center mt-1">
-                        
-                        <div class="space-y-2 text-xs md:text-sm font-mono bg-white p-4 rounded border border-purple-200 max-w-md mx-auto text-center">
-                            <div class="flex justify-between items-center px-4">
-                                <span>$R^* = R \cup R^2 \cup R^3 \cup \dots \cup R^{n-1}$</span>
-                                <span class="text-slate-600">if $n > 1$</span>
-                            </div>
-                            <div class="flex justify-between items-center px-4">
-                                <span>$R^* = R \phantom{\cup R^2 \cup R^3 \cup \dots \cup R^{n-1}}$</span>
-                                <span class="text-slate-600">if $n = 1$</span>
-                            </div>
-                            <div class="flex justify-between items-center px-4 pt-2 border-t border-slate-100 font-bold text-purple-700">
-                                <span>$R^* = R \cup R^2 \cup R^3 \cup \dots \cup R^n$</span>
-                                <span>if $n \ge 1$</span>
-                            </div>
+                    <div class="space-y-2 text-xs md:text-sm font-mono bg-white p-4 rounded border border-blue-200 max-w-md mx-auto text-center mt-2">
+                        <div class="flex justify-between items-center px-4">
+                            <span>$R^* = R \cup R^2 \cup R^3 \cup \dots \cup R^{n-1}$</span>
+                            <span class="text-slate-600">if $n > 1$</span>
                         </div>
-                    
-                    </p>
+                        <div class="flex justify-between items-center px-4">
+                            <span>$R^* = R \phantom{\cup R^2 \cup R^3 \cup \dots \cup R^{n-1}}$</span>
+                            <span class="text-slate-600">if $n = 1$</span>
+                        </div>
+                        <div class="flex justify-between items-center px-4 pt-2 border-t border-slate-100 font-bold text-blue-700">
+                            <span>$R^* = R \cup R^2 \cup R^3 \cup \dots \cup R^n$</span>
+                            <span>if $n \ge 1$</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
