@@ -294,15 +294,22 @@
                                 <text x="125" y="70" font-weight="bold" fill="#0f766e">B</text>
                             </svg>
                         </div>
-                        <!-- SVG 2: Intersection -->
+                        <!-- SVG 2: Intersection (已修正為精準的兩圓交集重疊區域) -->
                         <div class="text-center space-y-2">
                             <p class="text-xs font-bold text-slate-600">$A \cap B$ Is Shaded (Page 128)</p>
                             <svg viewBox="0 0 200 130" class="w-full bg-slate-50 rounded border border-slate-200">
                                 <rect x="5" y="5" width="190" height="120" fill="none" stroke="#64748b"/>
                                 <text x="180" y="20" fill="#64748b" font-weight="bold">U</text>
+                                <circle cx="75" cy="65" r="40" fill="white" stroke="#0d9488" stroke-width="1.5"/>
+                                <circle cx="125" cy="65" r="40" fill="white" stroke="#0d9488" stroke-width="1.5"/>
+                                <!-- 使用 clipPath 精準裁切兩圓重疊的交集區域進行填色 -->
+                                <clipPath id="intersect-clip">
+                                    <circle cx="75" cy="65" r="40"/>
+                                </clipPath>
+                                <circle cx="125" cy="65" r="40" fill="#ccfbf1" clip-path="url(#intersect-clip)"/>
+                                <!-- 重新描繪邊框確保外觀完美 -->
                                 <circle cx="75" cy="65" r="40" fill="none" stroke="#0d9488" stroke-width="1.5"/>
                                 <circle cx="125" cy="65" r="40" fill="none" stroke="#0d9488" stroke-width="1.5"/>
-                                <path d="M 100 25 A 40 40 0 0 1 100 105 A 40 40 0 0 1 100 25" fill="#ccfbf1"/>
                                 <text x="65" y="70" font-weight="bold" fill="#0f766e">A</text>
                                 <text x="125" y="70" font-weight="bold" fill="#0f766e">B</text>
                             </svg>
@@ -327,11 +334,17 @@
                         <p class="mt-2"><strong>Definition 5 (page 129): Complement of a set (補集)</strong></p>
                         <p>Let U be universal set (全集). The complement of the set A, denoted by $\sim A$, is the complement of A with respect to U.</p>
                         <p class="font-mono">$\sim A = U - A = \{x \mid x \text{ not in } A\}$</p>
-                        <p class="text-slate-500">Example 8: $A = \{a, e, i, o, u\}$, U = set of letters of the English alphabet, $\sim A = \text{?}$ | Example 9: A = set of positive integers greater than 10, U = all positive integers.</p>
+                        
+                        <!-- 已補全 Example 8 & Example 9 的詳細解答 -->
+                        <div class="mt-3 p-3 bg-teal-50 rounded-lg border border-teal-200 space-y-2 text-xs">
+                            <p><strong>Example 8 (page 129):</strong> Let $A = \{a, e, i, o, u\}$ and $U$ be the set of letters of the English alphabet.</p>
+                            <p class="font-mono text-teal-900">Answer: $\sim A = \{b, c, d, f, g, h, j, k, l, m, n, p, q, r, s, t, v, w, x, y, z\}$ (即所有英文字母中除了 5 個元音以外的輔音字母)。</p>
+                            <p class="pt-1 border-t border-teal-200"><strong>Example 9 (page 129):</strong> Let $A$ be the set of positive integers greater than 10 ($A = \{11, 12, 13, \dots\}$) and $U$ be all positive integers ($\mathbb{Z}^+ = \{1, 2, 3, \dots\}$).</p>
+                            <p class="font-mono text-teal-900">Answer: $\sim A = \{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\}$ (即小於或等於 10 的正整數集合)。</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     
         <!-- 2. Set Identities -->
         <div class="space-y-4 pt-4 border-t border-slate-200">
