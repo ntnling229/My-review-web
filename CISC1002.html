@@ -52,271 +52,467 @@
 
 <main class="max-w-7xl mx-auto px-4 py-8 space-y-8">
 
-<!-- 第二課新加測試 -->
+    <!-- 第二課新加測試 -->
+    <!-- ================= CHAPTER 2 BASIC STRUCTURES MODULE ================= -->
+    
     <!-- CHAPTER 2 OVERVIEW -->
-    <section class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
+    <section id="chap2-overview" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
         <div class="border-b pb-4 mb-4">
             <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
-                <i class="fa-solid fa-layer-group text-emerald-600"></i> Chapter 2 Basic Structures Overview (基本結構總覽)
+                <i class="fa-solid fa-book-open text-emerald-600"></i> Chapter 2 Basic Structures Overview (第二課基本結構總覽)[cite: 546]
             </h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
             <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
                 <span class="font-bold text-emerald-700 block text-base mb-1">§ 2.1 Sets</span>
-                <p class="text-slate-600">集合定義、列舉法與 Builder Notation、相等性、空集 ($\emptyset$)、全集 ($U$)、Venn 圖、子集 ($A \subseteq B$)、真子集 ($A \subset B$)、基數 ($|S|$)、冪集 ($P(S)$) 與笛卡兒積 ($A \times B$)。</p>
+                <p class="text-slate-600">集合定義、列舉法與集合建造者、子集與真子集、冪集、笛卡兒乘積、集合與量詞[cite: 532, 533, 535, 539, 540, 543, 546, 548]。</p>
             </div>
             <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
                 <span class="font-bold text-emerald-700 block text-base mb-1">§ 2.2 Set Operations</span>
-                <p class="text-slate-600">交集 ($A \cap B$)、聯集 ($A \cup B$)、差集 ($A - B$)、補集 ($\sim A$)、不相交 (Disjoint)、容斥原理 ($|A \cup B| = |A| + |B| - |A \cap B|$) 與 De Morgan 等集合恒等式。</p>
+                <p class="text-slate-600">聯集、交集、互斥、差集、補集、集合恒等式（Table 1）、廣義聯集與交集[cite: 550, 552, 554, 556]。</p>
             </div>
             <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
                 <span class="font-bold text-emerald-700 block text-base mb-1">§ 2.3 Functions</span>
-                <p class="text-slate-600">函數定義、$f: A \to B$、定義域 (Domain)、共域 (Codomain)、值域 (Range)、單射 (One-to-one/Injective)、滿射 (Onto/Surjective)、雙射 (Bijection)、反函數 ($f^{-1}$) 與複合函數 ($f \circ g$)。</p>
+                <p class="text-slate-600">定義域、共域、值域、像與原像、單射、滿射、雙射、反函數、複合函數、地板與天花板函數。</p>
             </div>
             <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
-                <span class="font-bold text-emerald-700 block text-base mb-1">§ 2.5 Cardinality of Sets</span>
-                <p class="text-slate-600">集合基數比較 ($|A| = |B|$)、可數集 (Countable Set, $\mathbb{Z}, \mathbb{Q}$)、不可數集 (Uncountable Set, $\mathbb{R}$)、對角線證明法與 Schröder-Bernstein 定理。</p>
+                <span class="font-bold text-emerald-700 block text-base mb-1">§ 2.5 Cardinality</span>
+                <p class="text-slate-600">相同基數、可數集與不可數集、Cantor 對角線法、Schröder-Bernstein 定理、可計算函數與希爾伯特第十問題。</p>
             </div>
         </div>
     </section>
-
+    
     <!-- SECTION 2.1 -->
     <section id="sec2-1" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
         <div class="border-b pb-4 flex items-center justify-between">
             <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
                 <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 2.1</span>
-                Sets (集合)
+                Sets (集合)[cite: 532]
             </h2>
+            <span class="text-xs text-slate-500 font-mono">Page 116 - 124[cite: 532, 547]</span>
         </div>
-
+    
+        <!-- 1. Introduction -->
         <div class="space-y-4">
             <h3 class="font-bold text-lg text-emerald-800 flex items-center gap-2">
-                <i class="fa-solid fa-shapes text-emerald-500"></i> 1. Basic Definitions & Set Descriptions (基本定義與表示法)
+                <i class="fa-solid fa-circle-dot text-emerald-500 text-sm"></i> 1. Introduction & Basic Definitions (基本定義)[cite: 532]
             </h3>
             
-            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                    <div class="bg-white p-4 rounded-lg border border-slate-200 space-y-2">
-                        <strong class="text-emerald-900 font-bold block text-base">Definition: Set & Element</strong>
-                        <p class="text-slate-800">A <strong>set</strong> is an unordered collection of objects. The objects in a set are called <strong>elements</strong> or <strong>members</strong>.</p>
-                        <p class="text-xs text-slate-500 pt-1 border-t border-slate-100">Common sets: $\mathbb{N}, \mathbb{Z}, \mathbb{Z}^+, \mathbb{Q}, \mathbb{R}$</p>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg border border-slate-200 space-y-2">
-                        <strong class="text-emerald-900 font-bold block text-base">Two Ways to Describe a Set</strong>
-                        <p class="text-slate-800">1. <strong>Listing All Members:</strong> $O = \{1, 3, 5, 7, 9\}$</p>
-                        <p class="text-slate-800">2. <strong>Set Builder Notation:</strong> $O = \{x \mid x \text{ is an odd positive integer } < 10\}$</p>
-                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-slate-900 block text-base font-bold">Definition 1 (Page 116): Set (集合)[cite: 532]</strong>
+                    <p class="text-slate-700">A set is an unordered collection of objects[cite: 532]. The objects in a set are also called the <strong>elements (元素)</strong> or <strong>members (成員)</strong> of the set[cite: 532]. A set is said to contain its elements[cite: 532].</p>
                 </div>
-
-                <!-- Subsets & Equality -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm pt-2">
-                    <div class="p-4 bg-white rounded-lg border border-slate-200">
-                        <strong class="text-slate-900 font-bold block mb-1">Set Equality (集合相等)</strong>
-                        <p class="text-slate-700">$A = B \iff \forall x(x \in A \leftrightarrow x \in B)$</p>
-                        <p class="text-xs text-slate-500 mt-1">例如：$\{1,3,5\} = \{3,5,1\} = \{1,3,3,5\}$</p>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-slate-900 block text-base font-bold">How to Describe a Set? (集合的描述方式)[cite: 533, 535]</strong>
+                    <p class="text-slate-700"><strong>The first way:</strong> Listing all the members of a set (列舉法)[cite: 533].</p>
+                    <p class="text-slate-700"><strong>The second way:</strong> Using set builder notation (集合建造者記法)[cite: 535].</p>
+                </div>
+            </div>
+    
+            <!-- Important Sets -->
+            <div class="p-4 bg-emerald-50/50 rounded-xl border border-emerald-200 text-sm space-y-1">
+                <strong class="text-emerald-900 block font-bold">Some important sets (重要數集，Page 116)[cite: 534]:</strong>
+                <p class="text-slate-700 font-mono">$\mathbb{N}$ (自然數), $\mathbb{Z}$ (整數), $\mathbb{Z}^+$ (正整數), $\mathbb{Q}$ (有理數), $\mathbb{R}$ (實數)[cite: 534]</p>
+            </div>
+    
+            <!-- Examples & SVG Diagrams Toggle -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex-sec2-1')" class="w-full p-4 text-left font-bold text-slate-800 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                    <span><i class="fa-solid fa-image mr-2 text-emerald-600"></i> Examples & Venn Diagrams (範例與文氏圖圖解，點擊展開)[cite: 533, 537, 539]</span>
+                    <span class="text-xs bg-emerald-600 text-white px-2.5 py-1 rounded-full">Expand / Collapse</span>
+                </button>
+                <div id="ex-sec2-1" class="toggle-content p-6 space-y-6 border-t border-slate-200 text-sm">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                        <div class="text-center space-y-2">
+                            <p class="text-xs font-bold text-slate-600">Venn Diagram for the Set of Vowels ($V$) (Page 118)[cite: 537]</p>
+                            <svg viewBox="0 0 320 220" class="w-full max-w-[280px] mx-auto bg-white border border-slate-200 rounded-lg shadow-xs">
+                                <rect x="10" y="10" width="300" height="200" fill="none" stroke="#64748b" stroke-width="2"/>
+                                <text x="290" y="30" fill="#64748b" font-size="14" font-weight="bold">U</text>
+                                <circle cx="160" cy="110" r="70" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+                                <text x="155" y="55" fill="#0284c7" font-size="16" font-weight="bold">V</text>
+                                <circle cx="140" cy="85" r="3" fill="#0284c7"/><text x="136" y="80" font-size="12">a</text>
+                                <circle cx="190" cy="95" r="3" fill="#0284c7"/><text x="187" y="90" font-size="12">e</text>
+                                <circle cx="175" cy="135" r="3" fill="#0284c7"/><text x="172" y="150" font-size="12">i</text>
+                                <circle cx="130" cy="130" r="3" fill="#0284c7"/><text x="125" y="145" font-size="12">o</text>
+                                <circle cx="110" cy="100" r="3" fill="#0284c7"/><text x="95" y="105" font-size="12">u</text>
+                            </svg>
+                        </div>
+                        <div class="text-center space-y-2">
+                            <p class="text-xs font-bold text-slate-600">Subset Relation $A \subseteq B$ (Page 119)[cite: 539]</p>
+                            <svg viewBox="0 0 320 220" class="w-full max-w-[280px] mx-auto bg-white border border-slate-200 rounded-lg shadow-xs">
+                                <rect x="10" y="10" width="300" height="200" fill="none" stroke="#64748b" stroke-width="2"/>
+                                <text x="290" y="30" fill="#64748b" font-size="14" font-weight="bold">U</text>
+                                <ellipse cx="160" cy="110" rx="90" ry="70" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+                                <text x="225" y="70" fill="#64748b" font-size="14" font-weight="bold">B</text>
+                                <circle cx="150" cy="110" r="40" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+                                <text x="145" y="115" fill="#0284c7" font-size="14" font-weight="bold">A</text>
+                            </svg>
+                        </div>
                     </div>
-                    <div class="p-4 bg-white rounded-lg border border-slate-200">
-                        <strong class="text-slate-900 font-bold block mb-1">Subset (子集 $\subseteq$)</strong>
-                        <p class="text-slate-700">$A \subseteq B \iff \forall x(x \in A \rightarrow x \in B)$</p>
-                        <p class="text-xs text-slate-500 mt-1">定理：$\emptyset \subseteq S$ 且 $S \subseteq S$</p>
-                    </div>
-                    <div class="p-4 bg-white rounded-lg border border-slate-200">
-                        <strong class="text-slate-900 font-bold block mb-1">Proper Subset (真子集 $\subset$)</strong>
-                        <p class="text-slate-700">$A \subset B \iff A \subseteq B \land A \ne B$</p>
-                        <p class="text-xs text-slate-500 mt-1">$B$ 至少包含一個不屬於 $A$ 的元素</p>
+                    <div class="space-y-2 pt-2 border-t border-slate-200 text-xs text-slate-700">
+                        <p><strong>Set Examples (Page 116)[cite: 533, 534]:</strong></p>
+                        <p>• (a) The set V of all vowels (元音字母) in the English alphabet: $V = \{a, e, i, o, u\}$[cite: 533]</p>
+                        <p>• (b) The set of odd positive integers less than 10: $O = \{1, 3, 5, 7, 9\}$[cite: 533]</p>
+                        <p>• (c) A set can contain some unrelated elements: $\{a, 2, \text{Fred}, \text{New Jersey}\}$[cite: 534]</p>
+                        <p>• (d) The set of positive integers less than 100: $\{1, 2, 3, \dots, 99\}$[cite: 534]</p>
+                        <p>• (e) Using set builder notation: $O = \{x \mid x \text{ is an odd positive integer less than } 10\}$[cite: 535]</p>
                     </div>
                 </div>
             </div>
+    
+            <!-- Set Equality, Subsets, Cardinality -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+                    <strong class="text-slate-900 block font-bold">Definition 2 (Page 117): Set Equality (集合相等)[cite: 536]</strong>
+                    <p class="text-slate-700">Two sets are equal if and only if they have the same elements[cite: 536]. ($A = B \iff \forall x(x \in A \leftrightarrow x \in B)$)</p>
+                    <p class="text-xs text-slate-500 mt-1">Example 6 (Page 117): $\{1,3,5\} = \{3,5,1\} = \{1,3,3,3,5,5,5,5\}$ (通常不重複計算元素)[cite: 536].</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+                    <strong class="text-slate-900 block font-bold">Definition 3 (Page 119): Subset & Proper Subset (子集與真子集)[cite: 539, 540]</strong>
+                    <p class="text-slate-700">$A \subseteq B \iff \forall x(x \in A \rightarrow x \in B)$[cite: 539].</p>
+                    <p class="text-xs text-slate-500 mt-1"><strong>Theorem 1 (Page 120):</strong> $\emptyset \subseteq S$ and $S \subseteq S$[cite: 540]. Proper subset ($A \subset B$): $A$ is a proper subset of $B$ if and only if $A$ is a subset of $B$ but $A \neq B$[cite: 540].</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+                    <strong class="text-slate-900 block font-bold">Definition 4 & 5 (Page 121): Cardinality (基數)[cite: 541, 542]</strong>
+                    <p class="text-slate-700">If there are exactly $n$ distinct elements in $S$ where $n$ is nonnegative integer, $S$ is a <strong>finite set</strong> and $n$ is the cardinality of $S$, denoted by $|S|$[cite: 541]. Otherwise <strong>infinite set</strong>[cite: 542].</p>
+                </div>
+            </div>
         </div>
-
-        <!-- Power Set & Cartesian Product -->
-        <div class="space-y-4">
+    
+        <!-- 2. Power Set -->
+        <div class="space-y-4 pt-4 border-t border-slate-200">
             <h3 class="font-bold text-lg text-emerald-800 flex items-center gap-2">
-                <i class="fa-solid fa-cubes text-emerald-500"></i> 2. Power Set & Cartesian Product (冪集與笛卡兒積)
+                <i class="fa-solid fa-cubes text-emerald-500 text-sm"></i> 2. The Power Set (冪集)[cite: 543]
             </h3>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <!-- Power Set -->
-                <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-                    <strong class="text-emerald-900 font-bold text-base block">Power Set $\mathcal{P}(S)$ (冪集)</strong>
-                    <p class="text-sm text-slate-800">Given a set $S$, the power set $\mathcal{P}(S)$ is the set of all subsets of $S$.</p>
-                    <div class="p-3 bg-white font-mono text-xs text-emerald-800 rounded border space-y-1">
-                        <p>$\mathcal{P}(\{0,1,2\}) = \{\emptyset, \{0\}, \{1\}, \{2\}, \{0,1\}, \{0,2\}, \{1,2\}, \{0,1,2\}\}$</p>
-                        <p>$\mathcal{P}(\emptyset) = \{\emptyset\} \implies |\mathcal{P}(\emptyset)| = 1$</p>
-                    </div>
-                    <p class="text-xs text-slate-600">若 $|S| = n$，則 $|\mathcal{P}(S)| = 2^n$。</p>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2 text-sm">
+                <strong class="text-slate-900 block font-bold">Definition 6 (Page 121): Power Set[cite: 543]</strong>
+                <p class="text-slate-700">Given a set $S$, the power set of $S$ is the set of all subsets of the set $S$, denoted by $\mathcal{P}(S)$[cite: 543].</p>
+                <div class="p-3 bg-white rounded border border-slate-200 font-mono text-xs text-emerald-800 space-y-1">
+                    <p>• Example 14: $\mathcal{P}(\{0,1,2\}) = \{\emptyset, \{0\}, \{1\}, \{2\}, \{0,1\}, \{0,2\}, \{1,2\}, \{0,1,2\}\}$[cite: 543]</p>
+                    <p>• Empty Set Powers: $\mathcal{P}(\emptyset) = \{\emptyset\}$, $\mathcal{P}(\{\emptyset\}) = \{\emptyset, \{\emptyset\}\}$[cite: 544]</p>
                 </div>
-
-                <!-- Cartesian Product -->
-                <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-                    <strong class="text-emerald-900 font-bold text-base block">Cartesian Product $A \times B$ (笛卡兒積)</strong>
-                    <p class="text-sm text-slate-800">$A \times B = \{(a,b) \mid a \in A \land b \in B\}$</p>
-                    <div class="p-3 bg-white font-mono text-xs text-emerald-800 rounded border space-y-1">
-                        <p>Let $A = \{1,2\}, B = \{a,b,c\}$</p>
-                        <p>$A \times B = \{(1,a), (1,b), (1,c), (2,a), (2,b), (2,c)\}$</p>
-                    </div>
-                    <p class="text-xs text-slate-600">注意：一般情況下 $A \times B \ne B \times A$。</p>
+            </div>
+        </div>
+    
+        <!-- 3. Cartesian Product -->
+        <div class="space-y-4 pt-4 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-emerald-800 flex items-center gap-2">
+                <i class="fa-solid fa-table-cells text-emerald-500 text-sm"></i> 3. Cartesian Product (笛卡兒乘積)[cite: 545, 546]
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-slate-900 block font-bold">Definition 7 (Page 122): Ordered n-tuple (有序n元組)[cite: 545]</strong>
+                    <p class="text-slate-700">The ordered $n$-tuple $(a_1, a_2, \dots, a_n)$ is the ordered collection that has $a_1$ as its first element, $a_2$ as its second element, ..., $a_n$ as its $n$-th element[cite: 545].</p>
+                    <p class="text-xs text-slate-500">Equality: $(a_1, a_2, \dots, a_n) = (b_1, b_2, \dots, b_n) \iff a_i = b_i$ for $i = 1, 2, \dots, n$[cite: 545].</p>
                 </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-slate-900 block font-bold">Cartesian Product of Sets (Page 123-124)[cite: 546, 547]</strong>
+                    <p class="text-slate-700">$A \times B = \{(a,b) \mid a \in A \wedge b \in B\}$[cite: 546]</p>
+                    <p class="text-xs text-slate-500">Generalized: $A_1 \times A_2 \times \dots \times A_n = \{(a_1, a_2, \dots, a_n) \mid a_i \in A_i \text{ for } i = 1, 2, \dots, n\}$[cite: 547].</p>
+                </div>
+            </div>
+        </div>
+    
+        <!-- 4. Quantifiers -->
+        <div class="space-y-4 pt-4 border-t border-slate-200 text-sm">
+            <h3 class="font-bold text-lg text-emerald-800 flex items-center gap-2">
+                <i class="fa-solid fa-filter text-emerald-500 text-sm"></i> 4. Using Set Notation with Quantifiers (集合與量詞)[cite: 548]
+            </h3>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 font-mono text-xs space-y-2">
+                <p>$\forall x \in S \, P(x) \equiv \forall x (x \in S \rightarrow P(x))$[cite: 548]</p>
+                <p>$\exists x \in S \, P(x) \equiv \exists x (x \in S \wedge P(x))$[cite: 548]</p>
+                <p class="text-slate-600 font-sans mt-1">Example 19 (Page 119): Meaning of statements $\forall x \in \mathbb{R} (x^2 \ge 0)$ and $\exists x \in \mathbb{Z} (x^2 \ge 1)$[cite: 548].</p>
             </div>
         </div>
     </section>
-
+    
     <!-- SECTION 2.2 -->
     <section id="sec2-2" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
-        <div class="border-b pb-4">
+        <div class="border-b pb-4 flex items-center justify-between">
             <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
                 <span class="bg-teal-100 text-teal-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 2.2</span>
-                Set Operations (集合運算)
+                Set Operations (集合運算)[cite: 550]
             </h2>
+            <span class="text-xs text-slate-500 font-mono">Page 127 - 134[cite: 550]</span>
         </div>
-
-        <div class="space-y-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
-                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
-                    <strong class="text-teal-900 font-bold block mb-1">Union (聯集 $\cup$)</strong>
-                    <p class="font-mono text-xs bg-white p-2 rounded border">$A \cup B = \{x \mid x \in A \lor x \in B\}$</p>
+    
+        <!-- Basic Operations Definitions -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                <strong class="text-teal-900 font-bold block">1. Union (聯集 $\cup$, Def 1)[cite: 550]</strong>
+                <p class="text-xs text-slate-700 font-mono bg-white p-2 rounded border">$A \cup B = \{x \mid x \in A \vee x \in B\}$[cite: 550]</p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                <strong class="text-teal-900 font-bold block">2. Intersection (交集 $\cap$, Def 2)[cite: 552, 553]</strong>
+                <p class="text-xs text-slate-700 font-mono bg-white p-2 rounded border">$A \cap B = \{x \mid x \in A \wedge x \in B\}$[cite: 553]</p>
+                <p class="text-xs text-slate-500">Def 3 (Page 128): Disjoint (互斥) if $A \cap B = \emptyset$[cite: 554].</p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                <strong class="text-teal-900 font-bold block">3. Difference (差集 $-$, Def 4)[cite: 556]</strong>
+                <p class="text-xs text-slate-700 font-mono bg-white p-2 rounded border">$A - B = \{x \mid x \in A \wedge x \notin B\}$[cite: 556]</p>
+                <p class="text-xs text-slate-500">Complement of $B$ with respect to $A$[cite: 556].</p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                <strong class="text-teal-900 font-bold block">4. Complement (補集 $\sim A$, Def 5)</strong>
+                <p class="text-xs text-slate-700 font-mono bg-white p-2 rounded border">$\sim A = U - A = \{x \mid x \notin A\}$</p>
+            </div>
+        </div>
+    
+        <!-- SVG Venn Diagrams for Set Operations Toggle -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+            <button onclick="toggleCard('sec2-2-svg')" class="w-full p-4 text-left font-bold text-slate-800 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                <span><i class="fa-solid fa-image mr-2 text-teal-600"></i> Set Operation Venn Diagrams (集合運算文氏圖圖解，點擊展開)[cite: 551, 553, 555]</span>
+                <span class="text-xs bg-teal-600 text-white px-2.5 py-1 rounded-full">Expand / Collapse</span>
+            </button>
+            <div id="sec2-2-svg" class="toggle-content p-6 grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-slate-200 text-center text-xs">
+                <div class="space-y-2">
+                    <p class="font-bold text-slate-700">$A \cup B$ Shaded (Page 127)[cite: 551]</p>
+                    <svg viewBox="0 0 200 130" class="w-full bg-slate-50 rounded border border-slate-200">
+                        <rect x="5" y="5" width="190" height="120" fill="none" stroke="#64748b"/>
+                        <text x="180" y="20" fill="#64748b" font-weight="bold">U</text>
+                        <circle cx="75" cy="65" r="40" fill="#bae6fd" fill-opacity="0.7" stroke="#0284c7"/>
+                        <circle cx="125" cy="65" r="40" fill="#bae6fd" fill-opacity="0.7" stroke="#0284c7"/>
+                        <text x="65" y="70" font-weight="bold">A</text>
+                        <text x="125" y="70" font-weight="bold">B</text>
+                    </svg>
                 </div>
-                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
-                    <strong class="text-teal-900 font-bold block mb-1">Intersection (交集 $\cap$)</strong>
-                    <p class="font-mono text-xs bg-white p-2 rounded border">$A \cap B = \{x \mid x \in A \land x \in B\}$</p>
-                    <p class="text-xs text-slate-500 mt-1">若 $A \cap B = \emptyset$，稱 $A, B$ 為 <strong>Disjoint</strong>。</p>
+                <div class="space-y-2">
+                    <p class="font-bold text-slate-700">$A \cap B$ Shaded (Page 128)[cite: 553]</p>
+                    <svg viewBox="0 0 200 130" class="w-full bg-slate-50 rounded border border-slate-200">
+                        <rect x="5" y="5" width="190" height="120" fill="none" stroke="#64748b"/>
+                        <text x="180" y="20" fill="#64748b" font-weight="bold">U</text>
+                        <circle cx="75" cy="65" r="40" fill="none" stroke="#0284c7"/>
+                        <circle cx="125" cy="65" r="40" fill="none" stroke="#0284c7"/>
+                        <path d="M 100 33 A 40 40 0 0 1 100 97 A 40 40 0 0 1 100 33" fill="#bae6fd"/>
+                        <text x="65" y="70" font-weight="bold">A</text>
+                        <text x="125" y="70" font-weight="bold">B</text>
+                    </svg>
                 </div>
-                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
-                    <strong class="text-teal-900 font-bold block mb-1">Difference (差集 $-$)</strong>
-                    <p class="font-mono text-xs bg-white p-2 rounded border">$A - B = \{x \mid x \in A \land x \notin B\}$</p>
-                </div>
-                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
-                    <strong class="text-teal-900 font-bold block mb-1">Complement (補集 $\sim A$)</strong>
-                    <p class="font-mono text-xs bg-white p-2 rounded border">$\sim A = U - A = \{x \mid x \notin A\}$</p>
+                <div class="space-y-2">
+                    <p class="font-bold text-slate-700">Inclusion-Exclusion Principle[cite: 555]</p>
+                    <div class="p-4 bg-amber-50 rounded border border-amber-200 text-left space-y-1">
+                        <strong class="text-amber-900 block font-bold text-xs">Formula (Page 128)[cite: 555]:</strong>
+                        <p class="font-mono font-bold text-teal-800">$|A \cup B| = |A| + |B| - |A \cap B|$[cite: 555]</p>
+                    </div>
                 </div>
             </div>
-
-            <!-- Inclusion-Exclusion & Set Identities Toggle -->
-            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
-                <button onclick="toggleCard('ex-2-2-ident')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
-                    <span><i class="fa-solid fa-code-fork mr-2 text-teal-600"></i> Set Identities & Inclusion-Exclusion Principle (集合恒等式與容斥原理)</span>
-                    <span class="text-xs bg-teal-600 text-white px-2.5 py-1 rounded-full">Expand Details</span>
-                </button>
-                <div id="ex-2-2-ident" class="toggle-content p-5 space-y-3 text-sm border-t border-slate-200">
-                    <div class="p-3 bg-amber-50 rounded border border-amber-200">
-                        <strong class="text-amber-900 block font-bold">Principle of Inclusion-Exclusion (容斥原理):</strong>
-                        <p class="font-mono text-sm font-bold text-teal-800 mt-1">$|A \cup B| = |A| + |B| - |A \cap B|$</p>
-                    </div>
+        </div>
+    
+        <!-- Set Identities & Proofs Toggle -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+            <button onclick="toggleCard('sec2-2-ident')" class="w-full p-4 text-left font-bold text-slate-800 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                <span><i class="fa-solid fa-code-fork mr-2 text-teal-600"></i> Set Identities Table 1 & Proofs (集合恒等式與範例證明，點擊展開)</span>
+                <span class="text-xs bg-teal-600 text-white px-2.5 py-1 rounded-full">Expand / Collapse</span>
+            </button>
+            <div id="sec2-2-ident" class="toggle-content p-6 space-y-4 border-t border-slate-200 text-sm">
+                <div>
+                    <strong class="text-slate-900 font-bold block mb-2">Table 1: Set Identities (常見集合恒等式，Page 130):</strong>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs font-mono">
-                        <div class="p-2.5 bg-slate-50 rounded border">• De Morgan's Law: $\sim(A \cap B) = \sim A \cup \sim B$</div>
-                        <div class="p-2.5 bg-slate-50 rounded border">• De Morgan's Law: $\sim(A \cup B) = \sim A \cap \sim B$</div>
-                        <div class="p-2.5 bg-slate-50 rounded border">• Distributive: $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$</div>
-                        <div class="p-2.5 bg-slate-50 rounded border">• Distributive: $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$</div>
+                        <div class="p-2.5 bg-slate-50 rounded border">• Identity law (同一律): $A \cup \emptyset = A$, $A \cap U = A$</div>
+                        <div class="p-2.5 bg-slate-50 rounded border">• Domination Law (零律): $A \cup U = U$, $A \cap \emptyset = \emptyset$</div>
+                        <div class="p-2.5 bg-slate-50 rounded border">• Idempotent law (冪等律): $A \cup A = A$, $A \cap A = A$</div>
+                        <div class="p-2.5 bg-slate-50 rounded border">• Complementation law (雙重否定律): $\sim(\sim A) = A$</div>
+                        <div class="p-2.5 bg-slate-50 rounded border">• Commutative law (交換律): $A \cup B = B \cup A$, $A \cap B = B \cap A$</div>
+                        <div class="p-2.5 bg-slate-50 rounded border">• Associative law (結合律): $A \cup (B \cup C) = (A \cup B) \cup C$</div>
+                        <div class="p-2.5 bg-slate-50 rounded border">• Distributive law (分配律): $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$</div>
+                        <div class="p-2.5 bg-slate-50 rounded border">• De Morgan's law (德摩根律): $\sim(A \cup B) = \sim A \cap \sim B$, $\sim(A \cap B) = \sim A \cup \sim B$</div>
+                        <div class="p-2.5 bg-slate-50 rounded border">• Absorption laws (吸收律): $A \cup (A \cap B) = A$, $A \cap (A \cup B) = A$</div>
+                        <div class="p-2.5 bg-slate-50 rounded border">• Complement laws: $A \cup \sim A = U$ (排中律), $A \cap \sim A = \emptyset$ (矛盾律)</div>
                     </div>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2 text-xs">
+                    <strong class="text-slate-900 block font-bold text-sm">Example 10 & 12 (Proofs):</strong>
+                    <p>• Prove $\sim(A \cap B) = \sim A \cup \sim B$ by showing (a) Left $\subseteq$ Right and (b) Right $\subseteq$ Left.</p>
+                    <p>• Prove $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$.</p>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Generalized Unions and Intersections -->
+        <div class="space-y-3 pt-2 text-sm">
+            <h3 class="font-bold text-base text-teal-800">3. Generalized Unions and Intersections (廣義聯集與交集，Page 133)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+                    <strong class="text-slate-900 block font-bold">Definition 6: Generalized Union</strong>
+                    <p class="text-slate-700 font-mono">$\bigcup_{i=1}^n A_i = A_1 \cup A_2 \cup \dots \cup A_n$</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+                    <strong class="text-slate-900 block font-bold">Definition 7: Generalized Intersection</strong>
+                    <p class="text-slate-700 font-mono">$\bigcap_{i=1}^n A_i = A_1 \cap A_2 \cap \dots \cap A_n$</p>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- SECTION 2.3 -->
     <section id="sec2-3" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
-        <div class="border-b pb-4">
+        <div class="border-b pb-4 flex items-center justify-between">
             <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
                 <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 2.3</span>
                 Functions (函數)
             </h2>
+            <span class="text-xs text-slate-500 font-mono">Page 139 - 151</span>
         </div>
-
-        <div class="space-y-4">
-            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
-                <strong class="text-blue-900 text-base font-bold block">Definition: Function $f: A \to B$</strong>
-                <p class="text-slate-800 text-sm md:text-base">
-                    A function $f$ from $A$ to $B$ is an assignment of <strong>exactly one element</strong> of $B$ to each element of $A$.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-2 text-xs md:text-sm">
-                    <div class="p-3 bg-white rounded border"><strong>Domain (定義域):</strong> Set $A$</div>
-                    <div class="p-3 bg-white rounded border"><strong>Codomain (共域):</strong> Set $B$</div>
-                    <div class="p-3 bg-white rounded border"><strong>Range (值域):</strong> $f(A) = \{f(a) \mid a \in A\} \subseteq B$</div>
+    
+        <!-- Introduction & Definitions -->
+        <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
+            <strong class="text-blue-900 text-base font-bold block">Definition 1 & 2 (Page 139-140): Function $f: A \to B$</strong>
+            <p class="text-slate-700">A function from A to B is an assignment of <strong>exactly one element</strong> of B to each element of A. A is the <strong>domain (定義域)</strong> of $f$ and B is the <strong>codomain (共域)</strong> of $f$. If $f(a)=b$, $b$ is the <strong>image (像)</strong> of $a$, and $a$ is a <strong>pre-image (原像)</strong> of $b$.</p>
+        </div>
+    
+        <!-- SVG for Function Mapping Toggle -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+            <button onclick="toggleCard('sec2-3-svg')" class="w-full p-4 text-left font-bold text-slate-800 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                <span><i class="fa-solid fa-image mr-2 text-blue-600"></i> Function Mapping & Types of Correspondences (函數對應圖解，點擊展開)</span>
+                <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full">Expand / Collapse</span>
+            </button>
+            <div id="sec2-3-svg" class="toggle-content p-6 space-y-6 border-t border-slate-200 text-center text-xs">
+                <div class="max-w-xs mx-auto space-y-2">
+                    <p class="font-bold text-slate-700">Function Assignment $f: A \to B$ (Page 139)</p>
+                    <svg viewBox="0 0 300 140" class="w-full bg-slate-50 rounded border border-slate-200">
+                        <defs>
+                            <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#0284c7"/>
+                            </marker>
+                        </defs>
+                        <ellipse cx="60" cy="70" rx="40" ry="50" fill="#e0f2fe" stroke="#0284c7"/>
+                        <text x="55" y="25" font-weight="bold">A</text>
+                        <circle cx="60" cy="70" r="3" fill="#0284c7"/><text x="40" y="74">a</text>
+                        <ellipse cx="240" cy="70" rx="40" ry="50" fill="#e0f2fe" stroke="#0284c7"/>
+                        <text x="235" y="25" font-weight="bold">B</text>
+                        <circle cx="240" cy="70" r="3" fill="#0284c7"/><text x="255" y="74">b = f(a)</text>
+                        <path d="M 68 70 Q 150 30 232 70" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
+                        <text x="145" y="45" fill="#0284c7" font-weight="bold">f</text>
+                    </svg>
                 </div>
             </div>
-
-            <!-- Injective, Surjective, Bijective Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        </div>
+    
+        <!-- Injective, Surjective, Bijective -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                <strong class="text-blue-900 font-bold block">1. One-to-one / Injective (單射, Def 5)</strong>
+                <p class="text-xs text-slate-700 font-mono">A function $f$ is one-to-one iff $f(x) = f(y)$ implies $x = y$.</p>
+                <p class="text-xs text-slate-500">Strictly increasing or decreasing functions are one-to-one.</p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                <strong class="text-blue-900 font-bold block">2. Onto / Surjective (滿射, Def 7)</strong>
+                <p class="text-xs text-slate-700 font-mono">For every $b \in B$ there is $a \in A$ with $f(a) = b$.</p>
+                <p class="text-xs text-slate-500">Range equals codomain.</p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                <strong class="text-blue-900 font-bold block">3. Bijection / Correspondence (雙射, Def 8)</strong>
+                <p class="text-xs text-slate-700 font-mono">Both one-to-one and onto.</p>
+                <p class="text-xs text-slate-500">Required for inverse functions.</p>
+            </div>
+        </div>
+    
+        <!-- Inverse & Composition Toggle -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+            <button onclick="toggleCard('sec2-3-advanced')" class="w-full p-4 text-left font-bold text-slate-800 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                <span><i class="fa-solid fa-rotate mr-2 text-blue-600"></i> Inverse Functions & Composition (反函數與複合函數詳情，點擊展開)</span>
+                <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full">Expand / Collapse</span>
+            </button>
+            <div id="sec2-3-advanced" class="toggle-content p-6 space-y-4 border-t border-slate-200 text-sm">
                 <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-                    <strong class="text-blue-900 font-bold block text-sm">One-to-One / Injective (單射)</strong>
-                    <p class="text-xs text-slate-700 font-mono">$f(x) = f(y) \implies x = y$</p>
-                    <p class="text-xs text-slate-500">沒有兩個不同的 $x$ 映射到相同的 $y$。</p>
+                    <strong class="text-blue-900 font-bold">Inverse Function (反函數, Definition 9):</strong>
+                    <p class="text-slate-700">Let $f$ be a one-to-one correspondence from $A$ to $B$. The inverse function $f^{-1}$ assigns to $b \in B$ the unique $a \in A$ such that $f(a) = b$. Non-bijections are not invertible.</p>
                 </div>
                 <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-                    <strong class="text-blue-900 font-bold block text-sm">Onto / Surjective (滿射)</strong>
-                    <p class="text-xs text-slate-700 font-mono">$\forall b \in B, \exists a \in A (f(a) = b)$</p>
-                    <p class="text-xs text-slate-500">值域等於共域 ($\text{Range} = B$)。</p>
-                </div>
-                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-                    <strong class="text-blue-900 font-bold block text-sm">Bijection / One-to-One Correspondence (雙射)</strong>
-                    <p class="text-xs text-slate-700 font-mono">Both Injective & Surjective</p>
-                    <p class="text-xs text-slate-500">唯有雙射函數才存在反函數 $f^{-1}$。</p>
+                    <strong class="text-blue-900 font-bold">Composition of Functions (函數複合, Definition 10):</strong>
+                    <p class="text-slate-700">$(f \circ g)(a) = f(g(a))$. Note: Composition is generally <strong>not commutative</strong> ($f \circ g \ne g \circ f$).</p>
                 </div>
             </div>
-
-            <!-- Floor and Ceiling Functions -->
-            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-                <strong class="text-blue-900 font-bold text-base block">Floor ($\lfloor x \rfloor$) & Ceiling ($\lceil x \rceil$) Functions (高斯/地板與天花板函數)</strong>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs md:text-sm">
-                    <div class="p-3 bg-white rounded border">
-                        <p><strong>Floor:</strong> $\lfloor x \rfloor =$ largest integer $\le x$</p>
-                        <p class="font-mono text-blue-700 mt-1">$\lfloor 0.5 \rfloor = 0, \lfloor -0.5 \rfloor = -1$</p>
-                    </div>
-                    <div class="p-3 bg-white rounded border">
-                        <p><strong>Ceiling:</strong> $\lceil x \rceil =$ smallest integer $\ge x$</p>
-                        <p class="font-mono text-blue-700 mt-1">$\lceil 0.5 \rceil = 1, \lceil -0.5 \rceil = 0$</p>
-                    </div>
+        </div>
+    
+        <!-- Floor and Ceiling Functions -->
+        <div class="space-y-4 pt-2 text-sm">
+            <h3 class="font-bold text-lg text-blue-800">6. Floor and Ceiling Functions (地板與天花板函數, Page 148-150)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-blue-900 font-bold">Floor Function ($\lfloor x \rfloor$):</strong>
+                    <p class="text-slate-700">Assigns the largest integer that is less than or equal to $x$. Example: $\lfloor 0.5 \rfloor = 0, \lfloor -0.5 \rfloor = -1$.</p>
                 </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-blue-900 font-bold">Ceiling Function ($\lceil x \rceil$):</strong>
+                    <p class="text-slate-700">Assigns the smallest integer that is greater than or equal to $x$. Example: $\lceil 0.5 \rceil = 1, \lceil -0.5 \rceil = 0$.</p>
+                </div>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs font-mono space-y-1">
+                <p class="font-bold text-slate-900 font-sans">Useful properties (Page 150):</p>
+                <p>• $\lfloor x \rfloor = n \iff n \le x < n+1$</p>
+                <p>• $\lceil x \rceil = n \iff n-1 < x \le n$</p>
+                <p>• $\lfloor 2x \rfloor = \lfloor x \rfloor + \lfloor x + 0.5 \rfloor$ (Example 27)</p>
             </div>
         </div>
     </section>
-
+    
     <!-- SECTION 2.5 -->
     <section id="sec2-5" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
-        <div class="border-b pb-4">
+        <div class="border-b pb-4 flex items-center justify-between">
             <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
                 <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 2.5</span>
-                Cardinality of Sets (集合的基數與無窮)
+                Cardinality of Sets (集合的基數)
             </h2>
+            <span class="text-xs text-slate-500 font-mono">Page 170 - 176</span>
         </div>
-
-        <div class="space-y-4">
-            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
-                <strong class="text-purple-900 text-base font-bold block">Countable vs. Uncountable Sets (可數集與不可數集)</strong>
-                <p class="text-slate-800 text-sm md:text-base">
-                    A set is <strong>countable (可數)</strong> if it is finite or has the same cardinality as $\mathbb{Z}^+$ (denoted by $\aleph_0$).
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs md:text-sm">
-                    <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-xl">
-                        <strong class="text-emerald-900 block font-bold mb-1"><i class="fa-solid fa-check mr-1"></i> Countable Sets (可數)</strong>
-                        <ul class="list-disc list-inside space-y-1 text-slate-700">
-                            <li>Set of Odd Positive Integers ($f(n) = 2n-1$)</li>
-                            <li>Set of All Integers $\mathbb{Z}$ ($0, 1, -1, 2, -2, \dots$)</li>
-                            <li>Set of Positive Rational Numbers $\mathbb{Q}^+$</li>
-                        </ul>
-                    </div>
-                    <div class="p-4 bg-rose-50 border border-rose-200 rounded-xl">
-                        <strong class="text-rose-900 block font-bold mb-1"><i class="fa-solid fa-xmark mr-1"></i> Uncountable Sets (不可數)</strong>
-                        <ul class="list-disc list-inside space-y-1 text-slate-700">
-                            <li>Set of Real Numbers $\mathbb{R}$</li>
-                            <li>Interval $(0, 1)$ (Proved by Cantor's Diagonal Argument)</li>
-                        </ul>
-                    </div>
+    
+        <!-- Definitions -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                <strong class="text-purple-900 font-bold block">Definition 1 & 2 (Page 170): Same Cardinality & $\le$</strong>
+                <p class="text-slate-700">$|A| = |B|$ iff there is a one-to-one correspondence from $A$ to $B$. $|A| \le |B|$ if there is a one-to-one function from $A$ to $B$.</p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                <strong class="text-purple-900 font-bold block">Definition 3 (Page 171): Countable vs. Uncountable (可數與不可數)</strong>
+                <p class="text-slate-700">A set is <strong>countable (可數的或可列的)</strong> if it is finite or has the same cardinality as the set of positive integers. Otherwise <strong>uncountable (不可數)</strong>.</p>
+            </div>
+        </div>
+    
+        <!-- Countable Proofs & Examples Toggle -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+            <button onclick="toggleCard('sec2-5-countable')" class="w-full p-4 text-left font-bold text-slate-800 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                <span><i class="fa-solid fa-list-ol mr-2 text-purple-600"></i> Countable & Uncountable Proofs (可數與不可數證明詳情，點擊展開)</span>
+                <span class="text-xs bg-purple-600 text-white px-2.5 py-1 rounded-full">Expand / Collapse</span>
+            </button>
+            <div id="sec2-5-countable" class="toggle-content p-6 space-y-4 border-t border-slate-200 text-sm">
+                <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-200 space-y-2">
+                    <strong class="text-emerald-900 block font-bold">Example 1 & 3: Odd Integers & Integers $\mathbb{Z}$ are Countable</strong>
+                    <p class="text-slate-700">• Odd positive integers: $f(n) = 2n-1$ from $\mathbb{Z}^+$.</p>
+                    <p class="text-slate-700">• All integers $\mathbb{Z}$ can be listed as: $0, 1, -1, 2, -2, 3, -3, \dots, n, -n, \dots$</p>
+                </div>
+                <div class="p-4 bg-rose-50 rounded-xl border border-rose-200 space-y-2">
+                    <strong class="text-rose-900 block font-bold">Cantor's Diagonal Argument: Real Numbers $\mathbb{R}$ are Uncountable</strong>
+                    <p class="text-slate-700">Suppose real numbers between 0 and 1 can be listed in a sequence $s_1, s_2, \dots$. Construct a new real number $s = 0.a_1a_2a_3\dots$ where decimal digits are determined by: $a_i = 5$ if $a_{ii} = 4$, and $a_i = 4$ if $a_{ii} \neq 4$. This number differs from every $s_i$ at the $i$-th decimal place, leading to a contradiction.</p>
                 </div>
             </div>
-
-            <!-- Schröder-Bernstein Theorem -->
-            <div class="p-5 bg-purple-50/70 border border-purple-200 rounded-xl space-y-2">
-                <strong class="text-purple-950 text-base font-bold block">Schröder-Bernstein Theorem</strong>
-                <p class="text-slate-800 text-sm md:text-base">
-                    If $A$ and $B$ are sets such that $|A| \le |B|$ and $|B| \le |A|$, then $|A| = |B|$.
-                </p>
-                <p class="text-xs text-slate-600">
-                    只要存在單射 $f: A \to B$ 與單射 $g: B \to A$，即可證明 $A$ 與 $B$ 之間存在雙射（基數相等）。例如 $|(0,1)| = |(0,1]|$.
-                </p>
+        </div>
+    
+        <!-- Schröder-Bernstein Theorem -->
+        <div class="p-5 bg-purple-50/60 rounded-xl border border-purple-200 space-y-2 text-sm">
+            <strong class="text-purple-950 font-bold block">Schröder-Bernstein Theorem (Page 175)</strong>
+            <p class="text-slate-700">If $A$ and $B$ are sets with $|A| \le |B|$ and $|B| \le |A|$, then $|A| = |B|$.</p>
+            <p class="text-xs text-slate-600">Example 6 (Page 175): Prove $|(0,1)| = |(0,1]|$ using $f(x)=x$ and $g(x)=x/2$. Named after Ernst Schröder, Felix Bernstein, and Richard Dedekind.</p>
+        </div>
+    
+        <!-- Computability & Hilbert's Tenth Problem -->
+        <div class="space-y-3 pt-2 text-sm">
+            <h3 class="font-bold text-base text-purple-800">Computability & Hilbert's Tenth Problem (Page 175-176)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+                    <strong class="text-slate-900 block font-bold">Definition 4: Computable Function (Page 175)</strong>
+                    <p class="text-slate-700">A function is computable if there is a computer program in some programming language that finds the values of this function. Otherwise <strong>uncomputable</strong>.</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+                    <strong class="text-slate-900 block font-bold">Hilbert's Tenth Problem (Page 175-176)</strong>
+                    <p class="text-slate-700">Decide whether a Diophantine equation has integer solutions. Answer is <strong>negative</strong> (Matiyasevich's theorem / MRDP theorem, 1970).</p>
+                </div>
             </div>
         </div>
     </section>
+    
+    <!-- ================= END OF CHAPTER 2 MODULE ================= -->
 
 
     
