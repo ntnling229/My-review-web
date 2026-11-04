@@ -1,715 +1,1071 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-HK">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>離散數學 第九章：關係 (Relations) 完整複習指南</title>
+    <title>Discrete Mathematics Review Guide - Chapter 9 Relations</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- MathJax for Math Symbols -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --bg-color: #f8f9fa;
-            --card-bg: #ffffff;
-            --text-color: #2c3e50;
-            --border-color: #e9ecef;
-            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+        .toggle-content {
+            display: none;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.7;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            display: flex;
-        }
-
-        /* 側邊欄 */
-        sidebar {
-            width: 280px;
-            height: 100vh;
-            position: sticky;
-            top: 0;
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 20px;
-            overflow-y: auto;
-            flex-shrink: 0;
-        }
-
-        sidebar h2 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--secondary-color);
-            color: #ecf0f1;
-        }
-
-        sidebar ul {
-            list-style: none;
-        }
-
-        sidebar li {
-            margin-bottom: 10px;
-        }
-
-        sidebar a {
-            color: #bdc3c7;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.2s;
+        .toggle-content.show {
             display: block;
-            padding: 6px 10px;
-            border-radius: 4px;
-        }
-
-        sidebar a:hover {
-            color: #fff;
-            background-color: rgba(255,255,255,0.1);
-        }
-
-        /* 主內容區 */
-        main {
-            flex-grow: 1;
-            padding: 40px;
-            max-width: 1100px;
-        }
-
-        header {
-            margin-bottom: 40px;
-            border-bottom: 3px solid var(--secondary-color);
-            padding-bottom: 20px;
-        }
-
-        header h1 {
-            font-size: 2.2rem;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        .chapter {
-            background: var(--card-bg);
-            border-radius: 8px;
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-        }
-
-        .chapter h2 {
-            font-size: 1.6rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid var(--border-color);
-        }
-
-        .section-title {
-            font-size: 1.25rem;
-            color: var(--secondary-color);
-            margin: 25px 0 15px 0;
-        }
-
-        .term-box {
-            background-color: #eef7fc;
-            border-left: 4px solid var(--secondary-color);
-            padding: 15px 20px;
-            margin: 15px 0;
-            border-radius: 0 4px 4px 0;
-        }
-
-        .term-title {
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 5px;
-        }
-
-        .formula-box {
-            background-color: #fff8e1;
-            border-left: 4px solid #ffc107;
-            padding: 15px 20px;
-            margin: 15px 0;
-            font-family: "Courier New", Courier, monospace;
-        }
-
-        /* 可展開組件 (Example, Proof) */
-        details {
-            background: #f1f3f5;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            margin: 15px 0;
-            padding: 10px 15px;
-        }
-
-        details summary {
-            font-weight: bold;
-            cursor: pointer;
-            color: var(--primary-color);
-            outline: none;
-            user-select: none;
-        }
-
-        details summary:hover {
-            color: var(--secondary-color);
-        }
-
-        details[open] {
-            background: #ffffff;
-            border-color: var(--secondary-color);
-        }
-
-        details[open] summary {
-            margin-bottom: 10px;
-            padding-bottom: 8px;
-            border-bottom: 1px dashed var(--border-color);
-        }
-
-        .details-content {
-            padding: 10px 5px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-
-        table, th, td {
-            border: 1px solid #dee2e6;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: center;
-        }
-
-        th {
-            background-color: #f8f9fa;
-        }
-
-        .svg-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 20px 0;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-        }
-
-        ul, ol {
-            margin-left: 25px;
-            margin-bottom: 15px;
-        }
-
-        li {
-            margin-bottom: 5px;
         }
     </style>
 </head>
-<body>
+<body class="bg-slate-100 text-slate-800 font-sans leading-relaxed">
 
-    <sidebar>
-        <h2>目錄導航</h2>
-        <ul>
-            <li><a href="#sec-9-1">§ 9.1 關係及其性質</a></li>
-            <li><a href="#sec-9-2">§ 9.2 n元關係及其應用</a></li>
-            <li><a href="#sec-9-4">§ 9.4 關係的閉包</a></li>
-            <li><a href="#sec-9-5">§ 9.5 等價關係</a></li>
-        </ul>
-    </sidebar>
+<!-- Header / Navbar -->
+<header class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div class="flex items-center gap-3">
+            <i class="fa-solid fa-diagram-project text-2xl text-blue-400"></i>
+            <h1 class="text-xl font-bold tracking-wide">Discrete Mathematics: Chapter 9 Relations Review Guide</h1>
+        </div>
+        <nav class="flex flex-wrap gap-2 text-xs md:text-sm font-medium">
+            <a href="#sec9-1" class="px-3 py-1.5 rounded hover:bg-slate-800 transition">§9.1 Relations & Properties</a>
+            <a href="#sec9-2" class="px-3 py-1.5 rounded hover:bg-slate-800 transition">§9.2 n-ary Relations</a>
+            <a href="#sec9-4" class="px-3 py-1.5 rounded hover:bg-slate-800 transition">§9.4 Closures</a>
+            <a href="#sec9-5" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 rounded text-white font-bold transition">§9.5 Equivalence Relations</a>
+        </nav>
+    </div>
+</header>
 
-    <main>
-        <header>
-            <h1>離散數學 第九章：關係 (Relations)</h1>
-            <p>全章考點梳理、數據公式總結與知識點解構複習網頁</p>
-        </header>
+<main class="max-w-7xl mx-auto px-4 py-8 space-y-8">
 
-        <!-- § 9.1 -->
-        <section id="sec-9-1" class="chapter">
-            <h2>§ 9.1 Relations and Their Properties (關係及其性質)</h2>
+    <!-- OVERVIEW / TABLE OF CONTENTS -->
+    <section class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
+        <div class="border-b pb-4 mb-4">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <i class="fa-solid fa-book-open text-blue-600"></i> Chapter 9 Relations Overview (關係章節總覽)
+            </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                <span class="font-bold text-blue-700 block text-base mb-1">§ 9.1 Relations and Their Properties</span>
+                <p class="text-slate-600">二元關係 (Binary relation)、關係與函數之比較、關係數目 ($2^{m \times n}$, $2^{n^2}$)、自反性 (Reflexive)、對稱性 (Symmetric)、反對稱性 (Antisymmetric)、遞移性 (Transitive)、關係的複合 (Composite) 與次方的遞移性定理 ($R^n \subseteq R$)。</p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                <span class="font-bold text-blue-700 block text-base mb-1">§ 9.2 n-ary Relations and Their Applications</span>
+                <p class="text-slate-600">$n$ 元關係 (n-ary relation)、定義域 (Domains) 與度數 (Degree)。</p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                <span class="font-bold text-blue-700 block text-base mb-1">§ 9.4 Closures of Relations</span>
+                <p class="text-slate-600">關係的閉包 (Closures)、自反閉包 ($R \cup \Delta$)、對稱閉包 ($R \cup R^{-1}$)、遞移閉包 ($R^* = \bigcup_{n=1}^{\infty} R^n$)、有向圖中的路徑 (Paths) 與 Warshall / Lemma 1 ($R^* = R \cup R^2 \cup \dots \cup R^n$)。</p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 md:col-span-2 lg:col-span-3">
+                <span class="font-bold text-blue-700 block text-base mb-1">§ 9.5 Equivalence Relations</span>
+                <p class="text-slate-600">等價關係 (Equivalence Relation: 自反 + 對稱 + 遞移)、模 $m$ 同餘 (Congruence Modulo $m$)、等價類 (Equivalence Classes $[a]_R$)、分割 (Partitions) 與定理對應。</p>
+            </div>
+        </div>
+    </section>
 
-            <div class="term-box">
-                <div class="term-title">專有名詞：二元關係 (Binary Relation)</div>
-                設 $A$ 與 $B$ 為兩個集合。從 $A$ 到 $B$ 的二元關係是笛卡兒積 $A \times B$ 的一個子集。記作 $a\,R\,b \iff (a,b) \in R$。若 $(a,b) \in R$，則稱 $a$ 與 $b$ 有關係 $R$。
+    <!-- SECTION 9.1 -->
+    <section id="sec9-1" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b pb-4 flex items-center justify-between">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 9.1</span>
+                Relations and Their Properties (關係及其性質)
+            </h2>
+        </div>
+
+        <!-- Definition & Basic Concepts -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-blue-800 flex items-center gap-2">
+                <i class="fa-solid fa-cube text-blue-500"></i> 1. Introduction & Basic Definitions (基本定義與表示法)
+            </h3>
+            
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                <div class="bg-white p-4 rounded-lg border border-slate-200 space-y-2">
+                    <strong class="text-blue-900 text-base font-bold block">Definition: Binary Relation (二元關係) (page 573)</strong>
+                    <p class="text-slate-800 text-sm md:text-base">
+                        Let $A$ and $B$ be two sets. A <strong>binary relation (二元關係)</strong> from $A$ to $B$ is a subset of $A \times B$.
+                    </p>
+                    <p class="text-slate-700 font-mono text-sm">Notation: $a \, R \, b \iff (a,b) \in R$</p>
+                    <p class="text-xs text-slate-500 pt-1 border-t border-slate-100">
+                        If $(a,b) \in R$, $a$ is said to be related to $b$ by $R$. One subset one relation.
+                    </p>
+                </div>
+
+                <!-- Example 1, 2, 3 Toggle -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-9-1-1')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                        <span><i class="fa-solid fa-code-fork mr-2 text-blue-600"></i> Example 1, 2, 3 (page 573-574) & Graphical/Table Representations</span>
+                        <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full">Expand Example</span>
+                    </button>
+                    <div id="ex-9-1-1" class="toggle-content p-5 space-y-4 text-sm border-t border-slate-200">
+                        <p><strong>Example 1:</strong> $A =$ the set of students in your school, $B =$ the set of courses, $R =$ relation where $(a,b) \in R \iff$ $a$ is a student enrolled in course $b$.</p>
+                        <p><strong>Example 2:</strong> $A =$ the set of all cities, $B =$ the set of 50 states in USA, $R =$ relation where $(a,b) \in R \iff$ city $a$ is in state $b$.</p>
+                        <p><strong>Example 3:</strong> $A = \{0, 1, 2\}$, $B = \{a, b\}$, $R = \{(0,a), (0,b), (1,a), (2,b)\}$.</p>
+                        
+                        <!-- SVG Graphic representation for Example 3 -->
+                        <div class="my-4 p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col md:flex-row items-center justify-around gap-6">
+                            <div class="text-center space-y-2">
+                                <span class="font-bold text-slate-700 text-xs block">Graphical Representation (二分有向圖表示法)</span>
+                                <svg viewBox="0 0 200 220" class="w-48 h-52">
+                                    <defs>
+                                        <marker id="arrow-ex3" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e293b"/>
+                                        </marker>
+                                    </defs>
+                                    <!-- Left Nodes (Set A) -->
+                                    <circle cx="40" cy="40" r="6" fill="#1e293b"/>
+                                    <text x="20" y="44" font-size="14" font-weight="bold">0</text>
+                                    
+                                    <circle cx="40" cy="110" r="6" fill="#1e293b"/>
+                                    <text x="20" y="114" font-size="14" font-weight="bold">1</text>
+                                    
+                                    <circle cx="40" cy="180" r="6" fill="#1e293b"/>
+                                    <text x="20" y="184" font-size="14" font-weight="bold">2</text>
+
+                                    <!-- Right Nodes (Set B) -->
+                                    <circle cx="160" cy="75" r="6" fill="#1e293b"/>
+                                    <text x="175" y="79" font-size="14" font-weight="bold">a</text>
+                                    
+                                    <circle cx="160" cy="145" r="6" fill="#1e293b"/>
+                                    <text x="175" y="149" font-size="14" font-weight="bold">b</text>
+
+                                    <!-- Edges -->
+                                    <line x1="46" y1="40" x2="154" y2="75" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow-ex3)"/>
+                                    <line x1="46" y1="40" x2="154" y2="145" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow-ex3)"/>
+                                    <line x1="46" y1="110" x2="154" y2="75" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow-ex3)"/>
+                                    <line x1="46" y1="180" x2="154" y2="145" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow-ex3)"/>
+                                </svg>
+                            </div>
+
+                            <div class="text-center space-y-2">
+                                <span class="font-bold text-slate-700 text-xs block">Table Form (表格表示法)</span>
+                                <table class="border-collapse border border-slate-300 text-sm font-mono bg-white">
+                                    <thead>
+                                        <tr class="bg-slate-100">
+                                            <th class="border border-slate-300 px-3 py-1.5">R</th>
+                                            <th class="border border-slate-300 px-3 py-1.5">a</th>
+                                            <th class="border border-slate-300 px-3 py-1.5">b</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="border border-slate-300 px-3 py-1.5 font-bold">0</td>
+                                            <td class="border border-slate-300 px-3 py-1.5 text-blue-600 font-bold">X</td>
+                                            <td class="border border-slate-300 px-3 py-1.5 text-blue-600 font-bold">X</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-slate-300 px-3 py-1.5 font-bold">1</td>
+                                            <td class="border border-slate-300 px-3 py-1.5 text-blue-600 font-bold">X</td>
+                                            <td class="border border-slate-300 px-3 py-1.5"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-slate-300 px-3 py-1.5 font-bold">2</td>
+                                            <td class="border border-slate-300 px-3 py-1.5"></td>
+                                            <td class="border border-slate-300 px-3 py-1.5 text-blue-600 font-bold">X</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Number of Relations Formula -->
+                <div class="bg-amber-50 p-4 rounded-lg border border-amber-200 text-amber-900 space-y-1">
+                    <strong class="text-base font-bold">Question & Formula: Number of Relations (關係總數)</strong>
+                    <p class="text-sm">If $|A| = m$, $|B| = n$, how many relations are there from $A$ to $B$?</p>
+                    <p class="text-base font-mono font-bold text-blue-700">Answer: $2^{m \times n}$</p>
+                    <p class="text-xs text-slate-600"><em>Why?</em> Because $|A \times B| = m \times n$, and a relation is a subset of $A \times B$. The number of subsets of a set with $k$ elements is $2^k$.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Functions as Relations -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-blue-800 flex items-center gap-2">
+                <i class="fa-solid fa-arrows-split-up-and-left text-blue-500"></i> 2. Functions as Relations (函數作為關係)
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-blue-900 font-bold text-base block">From Functions to Relations</strong>
+                    <p class="text-slate-700">A function $f$ from $A$ to $B$ assigns <strong>exactly one element</strong> of $B$ to each element of $A$.</p>
+                    <p class="text-slate-700">The <strong>graph of $f$</strong> is the set of ordered pairs $(a,b)$, where $b = f(a)$.</p>
+                    <p class="text-xs text-slate-500 pt-1 border-t border-slate-200">
+                        <strong>Properties:</strong> Every element of $A$ is the first element of <em>exactly one</em> ordered pair of the graph.
+                    </p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-blue-900 font-bold text-base block">Comparison & One-to-Many</strong>
+                    <p class="text-slate-700">If $R$ is a relation from $A$ to $B$ such that every element in $A$ is the first element of exactly one ordered pair of $R$, then a function $f(a)=b$ can be defined with $R$ as its graph.</p>
+                    <p class="text-slate-700 bg-white p-2.5 rounded border border-slate-200">
+                        • A <strong>relation</strong> can express a <strong>one-to-many (一對多)</strong> relationship.<br>
+                        • A <strong>function</strong> represents a relation where <strong>exactly one</strong> element of $B$ is related to each element of $A$.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Relations on a Set -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-blue-800 flex items-center gap-2">
+                <i class="fa-solid fa-arrows-spin text-blue-500"></i> 3. Relations on a Set (集合上的關係)
+            </h3>
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                <p class="text-sm md:text-base text-slate-800">
+                    <strong>Definition (page 575):</strong> A relation on the set $A$ is a relation from $A$ to $A$.
+                </p>
+                
+                <!-- Example 4 -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-9-1-4')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                        <span><i class="fa-solid fa-code-fork mr-2 text-blue-600"></i> Example 4 (divides relation on {1,2,3,4})</span>
+                        <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full">Expand Example</span>
+                    </button>
+                    <div id="ex-9-1-4" class="toggle-content p-5 space-y-3 text-sm border-t border-slate-200">
+                        <p>Let $A = \{1, 2, 3, 4\}$, which ordered pairs are in $R = \{(a,b) \mid a \text{ divides } b\}$?</p>
+                        <p class="font-mono text-blue-700 font-bold">$R = \{(1,1), (1,2), (1,3), (1,4), (2,2), (2,4), (3,3), (4,4)\}$</p>
+                        
+                        <!-- SVG Graphic for Example 4 -->
+                        <div class="my-4 p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col md:flex-row items-center justify-around gap-6">
+                            <div class="text-center space-y-2">
+                                <span class="font-bold text-slate-700 text-xs block">Graphical Representation</span>
+                                <svg viewBox="0 0 220 220" class="w-52 h-52">
+                                    <defs>
+                                        <marker id="arrow-ex4" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e293b"/>
+                                        </marker>
+                                    </defs>
+                                    <!-- Nodes Left -->
+                                    <circle cx="40" cy="30" r="5" fill="#1e293b"/><text x="20" y="34" font-size="13" font-weight="bold">1</text>
+                                    <circle cx="40" cy="80" r="5" fill="#1e293b"/><text x="20" y="84" font-size="13" font-weight="bold">2</text>
+                                    <circle cx="40" cy="130" r="5" fill="#1e293b"/><text x="20" y="134" font-size="13" font-weight="bold">3</text>
+                                    <circle cx="40" cy="180" r="5" fill="#1e293b"/><text x="20" y="184" font-size="13" font-weight="bold">4</text>
+                                    <!-- Nodes Right -->
+                                    <circle cx="180" cy="30" r="5" fill="#1e293b"/><text x="195" y="34" font-size="13" font-weight="bold">1</text>
+                                    <circle cx="180" cy="80" r="5" fill="#1e293b"/><text x="195" y="84" font-size="13" font-weight="bold">2</text>
+                                    <circle cx="180" cy="130" r="5" fill="#1e293b"/><text x="195" y="134" font-size="13" font-weight="bold">3</text>
+                                    <circle cx="180" cy="180" r="5" fill="#1e293b"/><text x="195" y="184" font-size="13" font-weight="bold">4</text>
+
+                                    <!-- Edges from 1 -->
+                                    <line x1="45" y1="30" x2="175" y2="30" stroke="#1e293b" stroke-width="1.2" marker-end="url(#arrow-ex4)"/>
+                                    <line x1="45" y1="30" x2="175" y2="80" stroke="#1e293b" stroke-width="1.2" marker-end="url(#arrow-ex4)"/>
+                                    <line x1="45" y1="30" x2="175" y2="130" stroke="#1e293b" stroke-width="1.2" marker-end="url(#arrow-ex4)"/>
+                                    <line x1="45" y1="30" x2="175" y2="180" stroke="#1e293b" stroke-width="1.2" marker-end="url(#arrow-ex4)"/>
+                                    <!-- Edges from 2 -->
+                                    <line x1="45" y1="80" x2="175" y2="80" stroke="#1e293b" stroke-width="1.2" marker-end="url(#arrow-ex4)"/>
+                                    <line x1="45" y1="80" x2="175" y2="180" stroke="#1e293b" stroke-width="1.2" marker-end="url(#arrow-ex4)"/>
+                                    <!-- Edges from 3 -->
+                                    <line x1="45" y1="130" x2="175" y2="130" stroke="#1e293b" stroke-width="1.2" marker-end="url(#arrow-ex4)"/>
+                                    <!-- Edges from 4 -->
+                                    <line x1="45" y1="180" x2="175" y2="180" stroke="#1e293b" stroke-width="1.2" marker-end="url(#arrow-ex4)"/>
+                                </svg>
+                            </div>
+
+                            <div class="text-center space-y-2">
+                                <span class="font-bold text-slate-700 text-xs block">Table Form</span>
+                                <table class="border-collapse border border-slate-300 text-sm font-mono bg-white">
+                                    <thead>
+                                        <tr class="bg-slate-100">
+                                            <th class="border border-slate-300 px-2 py-1">R</th>
+                                            <th class="border border-slate-300 px-2 py-1">1</th>
+                                            <th class="border border-slate-300 px-2 py-1">2</th>
+                                            <th class="border border-slate-300 px-2 py-1">3</th>
+                                            <th class="border border-slate-300 px-2 py-1">4</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td class="border border-slate-300 px-2 py-1 font-bold">1</td><td class="text-blue-600 font-bold">X</td><td class="text-blue-600 font-bold">X</td><td class="text-blue-600 font-bold">X</td><td class="text-blue-600 font-bold">X</td></tr>
+                                        <tr><td class="border border-slate-300 px-2 py-1 font-bold">2</td><td></td><td class="text-blue-600 font-bold">X</td><td></td><td class="text-blue-600 font-bold">X</td></tr>
+                                        <tr><td class="border border-slate-300 px-2 py-1 font-bold">3</td><td></td><td></td><td class="text-blue-600 font-bold">X</td><td></td></tr>
+                                        <tr><td class="border border-slate-300 px-2 py-1 font-bold">4</td><td></td><td></td><td></td><td class="text-blue-600 font-bold">X</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example 5 -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-9-1-5')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                        <span><i class="fa-solid fa-code-fork mr-2 text-blue-600"></i> Example 5 (Relations $R_1 \dots R_6$ on integers)</span>
+                        <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full">Expand Example</span>
+                    </button>
+                    <div id="ex-9-1-5" class="toggle-content p-5 space-y-3 text-sm border-t border-slate-200">
+                        <p>Relations on $\mathbb{Z}$:</p>
+                        <ul class="list-disc list-inside font-mono text-xs md:text-sm space-y-1 bg-slate-50 p-3 rounded border border-slate-200">
+                            <li>$R_1 = \{(a,b) \mid a \le b\}$</li>
+                            <li>$R_2 = \{(a,b) \mid a > b\}$</li>
+                            <li>$R_3 = \{(a,b) \mid a = b \text{ or } a = -b\}$</li>
+                            <li>$R_4 = \{(a,b) \mid a = b\}$</li>
+                            <li>$R_5 = \{(a,b) \mid a = b + 1\}$</li>
+                            <li>$R_6 = \{(a,b) \mid a + b \le 3\}$</li>
+                        </ul>
+                        <p><strong>Which contain the pairs (1,1), (1,2), (2,1), (1,-1), (2,2)?</strong></p>
+                        <ul class="space-y-1 text-xs md:text-sm">
+                            <li>• $(1,1) \in R_1, R_3, R_4, R_6$</li>
+                            <li>• $(1,2) \in R_1, R_6$</li>
+                            <li>• $(2,1) \in R_2, R_5, R_6$</li>
+                            <li>• $(1,-1) \in R_2, R_3, R_6$</li>
+                            <li>• $(2,2) \in R_1, R_3, R_4$</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Number of relations on set A with n elements -->
+                <div class="bg-amber-50 p-4 rounded-lg border border-amber-200 text-amber-900">
+                    <p class="text-sm"><strong>Example 6: How many relations are there on a set with $n$ elements?</strong></p>
+                    <p class="text-base font-mono font-bold text-blue-700 mt-1">Answer: $2^{n^2}$</p>
+                    <p class="text-xs text-slate-600">Since $|A \times A| = n^2$, total relations $= 2^{m}$ where $m = n^2$. (see page 576)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Properties of Relations -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-blue-800 flex items-center gap-2">
+                <i class="fa-solid fa-list-check text-blue-500"></i> 4. Properties of Relations (關係的四大性質)
+            </h3>
+
+            <!-- 4 Properties Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Reflexive -->
+                <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-blue-900 text-base block font-bold">(1) Reflexive Relation (自反關係) (page 576)</strong>
+                    <div class="p-3 bg-white rounded border border-slate-200 text-sm font-mono text-blue-800">
+                        $(a,a) \in R$ for every element $a \in A$.
+                    </div>
+                    <p class="text-xs text-slate-600">所有元素都有到自身的自環 (self-loop)。對角線元素全為 1。</p>
+                </div>
+
+                <!-- Symmetric -->
+                <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-blue-900 text-base block font-bold">(2a) Symmetric Relation (對稱關係) (page 577)</strong>
+                    <div class="p-3 bg-white rounded border border-slate-200 text-sm font-mono text-blue-800">
+                        $(b,a) \in R$ whenever $(a,b) \in R$, for all $a,b \in A$.
+                    </div>
+                    <p class="text-xs text-slate-600">若有由 $a$ 到 $b$ 的邊，必有由 $b$ 到 $a$ 的邊。</p>
+                </div>
+
+                <!-- Antisymmetric -->
+                <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-blue-900 text-base block font-bold">(2b) Antisymmetric Relation (反對稱關係) (page 577)</strong>
+                    <div class="p-3 bg-white rounded border border-slate-200 text-sm font-mono text-blue-800">
+                        $(a,b) \in R$ and $(b,a) \in R \implies a = b$, for all $a,b \in A$.
+                    </div>
+                    <p class="text-xs text-slate-600">若 $a \ne b$，則 $(a,b)$ 與 $(b,a)$ 不可能同時存在於 $R$ 中。</p>
+                </div>
+
+                <!-- Transitive -->
+                <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-blue-900 text-base block font-bold">(3) Transitive Relation (遞移關係) (page 578)</strong>
+                    <div class="p-3 bg-white rounded border border-slate-200 text-sm font-mono text-blue-800">
+                        $(a,b) \in R$ and $(b,c) \in R \implies (a,c) \in R$, for all $a,b,c \in A$.
+                    </div>
+                    <p class="text-xs text-slate-600">有路徑長度 2 的起終點必有長度 1 的直接邊。</p>
+                </div>
             </div>
 
-            <div class="formula-box">
-                <strong>核心考點數據 1：關係的數量</strong><br>
-                若 $|A| = m, |B| = n$，則從 $A$ 到 $B$ 的不同二元關係總數為：<strong>$2^{m \times n}$</strong>。<br>
-                若 $A = B$ ($|A| = n$)，集合 $A$ 上的二元關係總數為：<strong>$2^{n^2}$</strong>。
+            <!-- Property Classification Examples Toggle -->
+            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                <button onclick="toggleCard('ex-9-1-props')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                    <span><i class="fa-solid fa-code-fork mr-2 text-blue-600"></i> Property Analysis Examples (Example 7, 10, 11, 12, 13, 14, 15)</span>
+                    <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full">Expand Analysis</span>
+                </button>
+                <div id="ex-9-1-props" class="toggle-content p-5 space-y-4 text-sm border-t border-slate-200">
+                    <div>
+                        <strong class="text-slate-900 font-bold block mb-1">Relations on $\{1, 2, 3, 4\}$ (Example 7 & 10 & 13):</strong>
+                        <ul class="list-disc list-inside font-mono text-xs space-y-1 bg-slate-50 p-3 rounded border">
+                            <li>$R_1 = \{(1,1), (1,2), (2,1), (2,2), (3,4), (4,1), (4,4)\}$</li>
+                            <li>$R_2 = \{(1,1), (1,2), (2,1)\}$</li>
+                            <li>$R_3 = \{(1,1), (1,2), (1,4), (2,1), (2,2), (3,2), (3,3), (4,1), (4,4)\}$</li>
+                            <li>$R_4 = \{(2,1), (3,1), (3,2), (4,1), (4,2), (4,3)\}$</li>
+                            <li>$R_5 = \{(1,1), (1,2), (1,3), (1,4), (2,2), (2,3), (2,4), (3,3), (3,4), (4,4)\}$</li>
+                            <li>$R_6 = \{(3,4)\}$</li>
+                        </ul>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 mt-2 text-xs">
+                            <div class="p-2 bg-blue-50 border rounded"><strong>Reflexive:</strong> $R_3, R_5$</div>
+                            <div class="p-2 bg-indigo-50 border rounded"><strong>Symmetric:</strong> $R_2, R_3$</div>
+                            <div class="p-2 bg-emerald-50 border rounded"><strong>Antisymmetric:</strong> $R_4, R_5, R_6$</div>
+                            <div class="p-2 bg-purple-50 border rounded"><strong>Transitive:</strong> $R_4, R_5, R_6$</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <strong class="text-slate-900 font-bold block mb-1">Integer Relations Analysis (Example 5 & 11 & 14):</strong>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 text-xs">
+                            <div class="p-2 bg-slate-50 border rounded"><strong>Reflexive:</strong> $R_1 (\le), R_3 (= \text{or} -), R_4 (=)$</div>
+                            <div class="p-2 bg-slate-50 border rounded"><strong>Symmetric:</strong> $R_3, R_4, R_6 (a+b \le 3)$</div>
+                            <div class="p-2 bg-slate-50 border rounded"><strong>Antisymmetric:</strong> $R_1, R_2 (>), R_4, R_5 (=b+1)$</div>
+                            <div class="p-2 bg-slate-50 border rounded"><strong>Transitive:</strong> $R_1, R_2, R_3, R_4$</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <strong class="text-slate-900 font-bold block mb-1">Divides relation ($\mid$) on positive integers (Example 12 & 15):</strong>
+                        <p class="text-xs text-slate-700">• <strong>Reflexive:</strong> Yes ($a \mid a$).</p>
+                        <p class="text-xs text-slate-700">• <strong>Symmetric:</strong> No ($1 \mid 2$ but $2 \nmid 1$).</p>
+                        <p class="text-xs text-slate-700">• <strong>Antisymmetric:</strong> Yes (if $a \mid b$ and $b \mid a$, then $a = b$ for positive integers).</p>
+                        <p class="text-xs text-slate-700">• <strong>Transitive:</strong> Yes (if $a \mid b$ and $b \mid c$, then $a \mid c$).</p>
+                    </div>
+                </div>
             </div>
 
-            <h3 class="section-title">1. 函數與關係的聯繫 (Functions as Relations)</h3>
-            <ul>
-                <li><strong>從函數到關係：</strong>函數 $f: A \to B$ 為每個 $A$ 中元素指定唯一一個 $B$ 中的元素。其圖像 $\text{graph}(f) = \{(a, b) \mid b = f(a)\}$ 是 $A \times B$ 的子集。</li>
-                <li><strong>性質：</strong> $A$ 中的每個元素恰好作為圖像中一個有序對的第一個元素。</li>
-                <li><strong>一對多映射：</strong>關係可用於表示一對多關係 (one-to-many)，而函數是關係的特例（恰好一對一或多對一）。</li>
-            </ul>
+            <!-- Number of Reflexive Relations -->
+            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200 text-amber-900">
+                <p class="text-sm"><strong>Question (Example 16): How many reflexive relations are there on a set with $n$ elements?</strong></p>
+                <p class="text-base font-mono font-bold text-blue-700 mt-1">Answer: $2^{n(n-1)}$</p>
+                <p class="text-xs text-slate-600"><em>Reason:</em> In an $n \times n$ matrix, the $n$ diagonal elements $(a,a)$ MUST be 1. The remaining $n^2 - n = n(n-1)$ entries can be either 0 or 1, yielding $2^{n(n-1)}$ choices.</p>
+            </div>
+        </div>
 
-            <h3 class="section-title">2. 關係的四大性質 (Properties of Relations)</h3>
-            <p>設 $R$ 是集合 $A$ 上的關係：</p>
+        <!-- Combining Relations & Composite & Power -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-blue-800 flex items-center gap-2">
+                <i class="fa-solid fa-object-group text-blue-500"></i> 5. Combining Relations, Composite & Power (關係的組合、複合與次數)
+            </h3>
 
-            <div class="term-box">
-                <div class="term-title">(1) 自反性 (Reflexive)</div>
-                對任意 $a \in A$，均有 $(a,a) \in R$。
+            <!-- Combining relations set ops -->
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm space-y-2">
+                <strong class="text-blue-900 font-bold text-base block">Combining Relations (集合運算組合)</strong>
+                <p class="text-slate-700">Since relations $R_1, R_2 \subseteq A \times B$ are sets, we can combine them using standard set operations: $R_1 \cup R_2$, $R_1 \cap R_2$, $R_1 - R_2$, $R_2 - R_1$, $R_1 \oplus R_2$.</p>
             </div>
 
-            <div class="term-box">
-                <div class="term-title">(2) 對稱性 (Symmetric) 與 反對稱性 (Antisymmetric)</div>
-                <ul>
-                    <li><strong>對稱性：</strong>若對任意 $a,b \in A$，當 $(a,b) \in R$ 時，必有 $(b,a) \in R$。</li>
-                    <li><strong>反對稱性：</strong>若對任意 $a,b \in A$，當 $(a,b) \in R$ 且 $(b,a) \in R$ 時，必有 $a = b$。（等價逆否命題：若 $a \neq b$，則 $(a,b)$ 與 $(b,a)$ 不能同時屬於 $R$）。</li>
+            <!-- Example 17, 18, 19 Toggle -->
+            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                <button onclick="toggleCard('ex-9-1-comb')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                    <span><i class="fa-solid fa-code-fork mr-2 text-blue-600"></i> Examples 17, 18, 19 (Set Operations on Relations)</span>
+                    <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full">Expand Example</span>
+                </button>
+                <div id="ex-9-1-comb" class="toggle-content p-5 space-y-3 text-sm border-t border-slate-200">
+                    <p><strong>Example 17 (page 579):</strong> $A=\{1,2,3\}$, $B=\{1,2,3,4\}$, $R_1 = \{(1,1), (2,2), (3,3)\}$, $R_2 = \{(1,1), (1,2), (1,3)\}$.</p>
+                    <ul class="list-disc list-inside font-mono text-xs space-y-1 bg-slate-50 p-3 rounded">
+                        <li>$R_1 \cup R_2 = \{(1,1), (1,2), (1,3), (2,2), (3,3)\}$</li>
+                        <li>$R_1 \cap R_2 = \{(1,1)\}$</li>
+                        <li>$R_1 - R_2 = \{(2,2), (3,3)\}$</li>
+                        <li>$R_2 - R_1 = \{(1,2), (1,3)\}$</li>
+                    </ul>
+
+                    <p><strong>Example 18 (page 579):</strong> $R_1 = \{(a,b) \mid a \text{ has taken course } b\}$, $R_2 = \{(a,b) \mid a \text{ requires course } b \text{ to graduate}\}$.</p>
+                    <ul class="list-disc list-inside text-xs space-y-1">
+                        <li>• $R_1 \cup R_2$: student $a$ has taken course $b$ OR requires course $b$ to graduate.</li>
+                        <li>• $R_1 \cap R_2$: student $a$ has taken course $b$ AND requires course $b$ to graduate.</li>
+                        <li>• $R_1 - R_2$: student $a$ has taken course $b$ BUT course $b$ is NOT required for graduation.</li>
+                        <li>• $R_2 - R_1$: student $a$ requires course $b$ to graduate BUT has NOT taken it yet.</li>
+                    </ul>
+
+                    <p><strong>Example 19:</strong> $R_1 = \{(x,y) \mid x < y\}$, $R_2 = \{(x,y) \mid x > y\}$.</p>
+                    <p class="text-xs font-mono">• $R_1 \cup R_2 = \{(x,y) \mid x \ne y\}$, $R_1 \cap R_2 = \emptyset$, $R_1 \oplus R_2 = \{(x,y) \mid x \ne y\}$, $R_1 - R_2 = R_1$, $R_2 - R_1 = R_2$.</p>
+                </div>
+            </div>
+
+            <!-- Composite Definition -->
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+                <strong class="text-blue-900 text-base font-bold block">Definition 6: Composite of Two Relations (關係的複合) (page 580)</strong>
+                <p class="text-slate-800 text-sm md:text-base">
+                    Let $R$ be a relation from set $A$ to set $B$ and $S$ a relation from $B$ to $C$. The <strong>composite of $R$ and $S$</strong> is the relation consisting of ordered pairs $(a,c)$, where $a \in A$, $c \in C$, and for which there exists an element $b \in B$ such that $(a,b) \in R$ and $(b,c) \in S$.
+                </p>
+                <p class="text-sm font-mono font-bold text-blue-700">Notation: $S \circ R$</p>
+            </div>
+
+            <!-- Example 20 Toggle -->
+            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                <button onclick="toggleCard('ex-9-1-comp')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                    <span><i class="fa-solid fa-code-fork mr-2 text-blue-600"></i> Example 20 (Composite calculation)</span>
+                    <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full">Expand Example</span>
+                </button>
+                <div id="ex-9-1-comp" class="toggle-content p-5 space-y-2 text-sm border-t border-slate-200">
+                    <p>$R$ from $\{1,2,3\}$ to $\{1,2,3,4\}$ with $R = \{(1,1), (1,4), (2,3), (3,1), (3,4)\}$.</p>
+                    <p>$S$ from $\{1,2,3,4\}$ to $\{0,1,2\}$ with $S = \{(1,0), (2,0), (3,1), (3,2), (4,1)\}$.</p>
+                    <p class="font-mono font-bold text-blue-700">$S \circ R = \{(1,0), (1,1), (2,1), (2,2), (3,0), (3,1)\}$</p>
+                </div>
+            </div>
+
+            <!-- Power Definition & Example 22 -->
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+                <strong class="text-blue-900 text-base font-bold block">Definition 7: Power of a Relation (關係的次數) (page 580)</strong>
+                <p class="text-slate-800 text-sm md:text-base">
+                    Let $R$ be a relation on the set $A$. The powers $R^n$, $n=1,2,3,\dots$ are defined recursively by:
+                </p>
+                <p class="text-sm font-mono font-bold text-blue-700 bg-white p-2.5 rounded border">
+                    $R^1 = R \quad \text{and} \quad R^{n+1} = R^n \circ R$
+                </p>
+            </div>
+
+            <!-- Example 22 Toggle -->
+            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                <button onclick="toggleCard('ex-9-1-pow')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                    <span><i class="fa-solid fa-code-fork mr-2 text-blue-600"></i> Example 22 (Powers of $R$)</span>
+                    <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full">Expand Example</span>
+                </button>
+                <div id="ex-9-1-pow" class="toggle-content p-5 space-y-2 text-sm border-t border-slate-200 font-mono">
+                    <p>Let $R = \{(1,1), (2,1), (3,2), (4,3)\}$.</p>
+                    <p>• $R^2 = R \circ R = \{(1,1), (2,1), (3,1), (4,2)\}$</p>
+                    <p>• $R^3 = R^2 \circ R = \{(1,1), (2,1), (3,1), (4,1)\}$</p>
+                    <p>• $R^4 = R^3 \circ R = \{(1,1), (2,1), (3,1), (4,1)\}$</p>
+                    <p>• For $n \ge 3$, $R^n = R^3$.</p>
+                </div>
+            </div>
+
+            <!-- Theorem 1 and Proof -->
+            <div class="p-5 bg-indigo-50/70 border border-indigo-200 rounded-xl space-y-3">
+                <strong class="text-indigo-950 text-base font-bold block">Theorem 1: Characterization of Transitivity by Powers (遞移性定理)</strong>
+                <p class="text-slate-800 text-sm md:text-base font-bold">
+                    The relation $R$ on a set $A$ is transitive if and only if $R^n \subseteq R$ for $n = 1, 2, 3, \dots$
+                </p>
+
+                <!-- Proof Toggle -->
+                <div class="border border-indigo-200 rounded-lg bg-white overflow-hidden">
+                    <button onclick="toggleCard('proof-thm1')" class="w-full p-3 text-left font-bold text-indigo-900 flex justify-between items-center bg-indigo-50 hover:bg-indigo-100 transition text-sm">
+                        <span><i class="fa-solid fa-file-signature mr-2 text-indigo-600"></i> Complete Proof of Theorem 1 (完整數學歸納法證明)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full">Expand Proof</span>
+                    </button>
+                    <div id="proof-thm1" class="toggle-content p-5 space-y-4 text-xs md:text-sm border-t border-indigo-200 text-slate-800">
+                        <div>
+                            <strong class="text-indigo-900 block font-bold">Part 1: Proof of "If" part ($\impliedby$)</strong>
+                            <p>Suppose that $R^n \subseteq R$ for $n=1,2,\dots$. In particular, $R^2 \subseteq R$.</p>
+                            <p>To see that this implies $R$ is transitive, note that if $(a,b) \in R$ and $(b,c) \in R$, then by definition of composite, $(a,c) \in R^2$. Because $R^2 \subseteq R$, this means $(a,c) \in R$. Hence, $R$ is transitive.</p>
+                        </div>
+
+                        <div class="pt-3 border-t border-slate-200">
+                            <strong class="text-indigo-900 block font-bold">Part 2: Proof of "Only If" part ($\implies$) using Mathematical Induction</strong>
+                            <p>Assume $R$ is transitive. We prove $R^n \subseteq R$ for all $n \ge 1$ by induction on $n$.</p>
+                            <ul class="list-disc list-inside space-y-1.5 pl-2">
+                                <li><strong>Basis Step ($n=1$):</strong> $R^1 = R \subseteq R$ is trivially true.</li>
+                                <li><strong>Inductive Hypothesis:</strong> Suppose $R^n \subseteq R$ holds for a positive integer $n$.</li>
+                                <li><strong>Inductive Step:</strong> Consider any $(a,b) \in R^{n+1} = R^n \circ R$. By definition of composition, there exists $x \in A$ such that $(a,x) \in R$ and $(x,b) \in R^n$.<br>
+                                By the inductive hypothesis $R^n \subseteq R$, so $(x,b) \in R$.<br>
+                                Since $R$ is transitive, $(a,x) \in R$ and $(x,b) \in R$ implies $(a,b) \in R$.<br>
+                                This proves $R^{n+1} \subseteq R$.</li>
+                            </ul>
+                            <p class="font-bold text-indigo-950 mt-2">By mathematical induction, $R^n \subseteq R$ for all $n \ge 1$. $\blacksquare$</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 9.2 -->
+    <section id="sec9-2" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b pb-4">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 9.2</span>
+                n-ary Relations and Their Applications ($n$ 元關係及其應用)
+            </h2>
+        </div>
+
+        <div class="space-y-4">
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                <strong class="text-indigo-900 text-base font-bold block">Definition 1: n-ary Relation ($n$ 元關係) (page 583)</strong>
+                <p class="text-slate-800 text-sm md:text-base">
+                    Let $A_1, A_2, \dots, A_n$ be sets. An <strong>n-ary relation</strong> on these sets is a subset of
+                </p>
+                <p class="font-mono text-indigo-700 font-bold bg-white p-2.5 rounded border text-center">
+                    $A_1 \times A_2 \times \dots \times A_n$
+                </p>
+                <ul class="list-disc list-inside text-sm text-slate-700 space-y-1">
+                    <li>The sets $A_1, A_2, \dots, A_n$ are called the <strong>domains (定義域)</strong> of the relation.</li>
+                    <li>$n$ is called its <strong>degree (度數)</strong>.</li>
                 </ul>
             </div>
 
-            <div class="term-box">
-                <div class="term-title">(3) 傳遞性 (Transitive)</div>
-                對任意 $a,b,c \in A$，若 $(a,b) \in R$ 且 $(b,c) \in R$，則必有 $(a,c) \in R$。
+            <!-- Example 1 & 4 Toggle -->
+            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                <button onclick="toggleCard('ex-9-2')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                    <span><i class="fa-solid fa-code-fork mr-2 text-indigo-600"></i> Examples 1 & 4 (n-ary Relation Examples)</span>
+                    <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full">Expand Examples</span>
+                </button>
+                <div id="ex-9-2" class="toggle-content p-5 space-y-3 text-sm border-t border-slate-200">
+                    <p><strong>Example 1:</strong> Let $R$ be the relation on $\mathbb{N} \times \mathbb{N} \times \mathbb{N}$ consisting of triples $(a,b,c)$ where $a,b,c$ are integers with $a < b < c$.</p>
+                    <p class="text-xs font-mono">• $(1,2,3) \in R$, but $(2,4,3) \notin R$.</p>
+
+                    <p><strong>Example 4 (page 584):</strong> Let $R$ be the relation consisting of 5-tuples $(A,N,S,D,T)$ representing airplane flights, where $A$ is the airline, $N$ is the flight number, $S$ is the starting point, $D$ is the destination, and $T$ is the departure time.</p>
+                    <p class="text-xs font-mono">• $(\text{Nadir}, 963, \text{Newark}, \text{Bangor}, 15:00) \in R$.</p>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="formula-box">
-                <strong>核心考點數據 2：自反關係的數量</strong><br>
-                基於大小為 $n$ 的集合 $A$，其上自反關係的數量為：<strong>$2^{n(n-1)}$</strong>。
+    <!-- SECTION 9.4 -->
+    <section id="sec9-4" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b pb-4">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 9.4</span>
+                Closures of Relations (關係的閉包)
+            </h2>
+        </div>
+
+        <!-- Introduction & General Closure Definition -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-purple-800 flex items-center gap-2">
+                <i class="fa-solid fa-lock text-purple-500"></i> 1. Introduction & General Definition (閉包通用定義)
+            </h3>
+
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                <strong class="text-purple-900 text-base font-bold block">The Closure of Relation $R$ with Respect to Property $P$ (page 597)</strong>
+                <p class="text-slate-800 text-sm md:text-base">
+                    Let $R$ be a relation on $A$. $R$ may or may not have some property $P$ (such as reflexive, symmetric, or transitive).
+                </p>
+                <p class="text-slate-800 text-sm md:text-base bg-white p-3 rounded border border-purple-200">
+                    If there is a relation $S$ with property $P$ containing $R$ ($R \subseteq S$) such that $S$ is a subset of every relation with property $P$ containing $R$, then $S$ is called the <strong>closure of $R$ with respect to $P$ (關於性質 $P$ 的閉包)</strong>.
+                </p>
             </div>
+        </div>
 
-            <h3 class="section-title">3. 關係的複合與冪 (Composition & Powers of Relations)</h3>
-            <div class="term-box">
-                <div class="term-title">關係複合 (Composite)</div>
-                設 $R$ 是從 $A$ 到 $B$ 的關係，$S$ 是從 $B$ 到 $C$ 的關係。複合關係 $S \circ R$ 是從 $A$ 到 $C$ 的關係，包含有序對 $(a,c)$，滿足存在 $b \in B$ 使得 $(a,b) \in R$ 且 $(b,c) \in S$。
-            </div>
+        <!-- Reflexive & Symmetric Closures -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-purple-800 flex items-center gap-2">
+                <i class="fa-solid fa-layer-group text-purple-500"></i> 2. Reflexive & Symmetric Closures (自反閉包與對稱閉包)
+            </h3>
 
-            <div class="term-box">
-                <div class="term-title">關係的冪 (Power of a Relation)</div>
-                設 $R$ 是集合 $A$ 上的關係，其冪 $R^n$ 遞歸定義為：
-                $R^1 = R$， $R^{n+1} = R^n \circ R$。
-            </div>
-
-            <div class="formula-box">
-                <strong>關鍵定理 (Theorem 1):</strong><br>
-                集合 $A$ 上的關係 $R$ 是傳遞的 <strong>當且僅當</strong> 對所有 $n = 1, 2, 3, \dots$，均有 <strong>$R^n \subseteq R$</strong>。
-            </div>
-
-            <!-- 折疊元素區塊 -->
-            <details>
-                <summary>點擊展開：Example 3 示意圖 (關係圖解與表格表示)</summary>
-                <div class="details-content">
-                    <p><strong>關係 $R = \{(0,a), (0,b), (1,a), (2,b)\}$ 的雙分圖示範：</strong></p>
-                    <div class="svg-container">
-                        <svg width="300" height="220" viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#2c3e50"/>
-                                </marker>
-                            </defs>
-                            <!-- A 集合點 -->
-                            <circle cx="60" cy="40" r="6" fill="#2c3e50"/>
-                            <text x="40" y="45" font-size="16">0</text>
-                            
-                            <circle cx="60" cy="110" r="6" fill="#2c3e50"/>
-                            <text x="40" y="115" font-size="16">1</text>
-                            
-                            <circle cx="60" cy="180" r="6" fill="#2c3e50"/>
-                            <text x="40" y="185" font-size="16">2</text>
-
-                            <!-- B 集合點 -->
-                            <circle cx="240" cy="75" r="6" fill="#2c3e50"/>
-                            <text x="255" y="80" font-size="16">a</text>
-                            
-                            <circle cx="240" cy="145" r="6" fill="#2c3e50"/>
-                            <text x="255" y="150" font-size="16">b</text>
-
-                            <!-- 邊 (0,a), (0,b), (1,a), (2,b) -->
-                            <line x1="66" y1="40" x2="234" y2="75" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow)"/>
-                            <line x1="66" y1="40" x2="234" y2="145" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow)"/>
-                            <line x1="66" y1="110" x2="234" y2="75" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow)"/>
-                            <line x1="66" y1="180" x2="234" y2="145" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow)"/>
-                        </svg>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Reflexive Closure -->
+                <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-purple-900 font-bold text-base block">Reflexive Closure (自反閉包)</strong>
+                    <p class="text-xs text-slate-600">Let $\Delta = \{(a,a) \mid a \in A\}$ be the <strong>diagonal relation (對角線關係)</strong>.</p>
+                    <div class="p-3 bg-white font-mono font-bold text-purple-700 rounded border">
+                        Reflexive Closure $= R \cup \Delta$
                     </div>
-
-                    <p><strong>表格表示法：</strong></p>
-                    <table>
-                        <tr><th>R</th><th>a</th><th>b</th></tr>
-                        <tr><th>0</th><td>X</td><td>X</td></tr>
-                        <tr><th>1</th><td>X</td><td></td></tr>
-                        <tr><th>2</th><td></td><td>X</td></tr>
-                    </table>
+                    <p class="text-xs text-slate-600">Example 1: $R = \{(a,b) \mid a < b\}$ on integers $\implies$ Reflexive closure $= R \cup \Delta = \{(a,b) \mid a \le b\}$.</p>
                 </div>
-            </details>
 
-            <details>
-                <summary>點擊展開：Example 4 整除關係示意圖 (Divides Relation)</summary>
-                <div class="details-content">
-                    <p>在集合 $A = \{1, 2, 3, 4\}$ 上，整除關係 $R = \{(a,b) \mid a \mid b\}$：<br>
-                    $R = \{(1,1), (1,2), (1,3), (1,4), (2,2), (2,4), (3,3), (4,4)\}$</p>
-                    <div class="svg-container">
-                        <svg width="300" height="240" viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <marker id="arrow2" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#3498db"/>
-                                </marker>
-                            </defs>
-                            <!-- 左側點 -->
-                            <circle cx="60" cy="30" r="5"/><text x="40" y="35">1</text>
-                            <circle cx="60" cy="90" r="5"/><text x="40" y="95">2</text>
-                            <circle cx="60" cy="150" r="5"/><text x="40" y="155">3</text>
-                            <circle cx="60" cy="210" r="5"/><text x="40" y="215">4</text>
-
-                            <!-- 右側點 -->
-                            <circle cx="240" cy="30" r="5"/><text x="255" y="35">1</text>
-                            <circle cx="240" cy="90" r="5"/><text x="255" y="95">2</text>
-                            <circle cx="240" cy="150" r="5"/><text x="255" y="155">3</text>
-                            <circle cx="240" cy="210" r="5"/><text x="255" y="215">4</text>
-
-                            <!-- 邊 -->
-                            <line x1="65" y1="30" x2="235" y2="30" stroke="#3498db" stroke-width="1.5" marker-end="url(#arrow2)"/>
-                            <line x1="65" y1="30" x2="235" y2="90" stroke="#3498db" stroke-width="1.5" marker-end="url(#arrow2)"/>
-                            <line x1="65" y1="30" x2="235" y2="150" stroke="#3498db" stroke-width="1.5" marker-end="url(#arrow2)"/>
-                            <line x1="65" y1="30" x2="235" y2="210" stroke="#3498db" stroke-width="1.5" marker-end="url(#arrow2)"/>
-                            <line x1="65" y1="90" x2="235" y2="90" stroke="#3498db" stroke-width="1.5" marker-end="url(#arrow2)"/>
-                            <line x1="65" y1="90" x2="235" y2="210" stroke="#3498db" stroke-width="1.5" marker-end="url(#arrow2)"/>
-                            <line x1="65" y1="150" x2="235" y2="150" stroke="#3498db" stroke-width="1.5" marker-end="url(#arrow2)"/>
-                            <line x1="65" y1="210" x2="235" y2="210" stroke="#3498db" stroke-width="1.5" marker-end="url(#arrow2)"/>
-                        </svg>
+                <!-- Symmetric Closure -->
+                <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-purple-900 font-bold text-base block">Symmetric Closure (對稱閉包)</strong>
+                    <p class="text-xs text-slate-600">Let $R^{-1} = \{(b,a) \mid (a,b) \in R\}$ be the <strong>inverse relation</strong>.</p>
+                    <div class="p-3 bg-white font-mono font-bold text-purple-700 rounded border">
+                        Symmetric Closure $= R \cup R^{-1}$
                     </div>
+                    <p class="text-xs text-slate-600">Example 2: $R = \{(a,b) \mid a > b\}$ on positive integers $\implies$ Symmetric closure $= R \cup R^{-1} = \{(a,b) \mid a \ne b\}$.</p>
                 </div>
-            </details>
-
-            <details>
-                <summary>點擊展開：Example 5 & 7, 10, 11, 13, 14 關係性質判斷解答彙總</summary>
-                <div class="details-content">
-                    <h4>整數集上的關係性質判定 (Example 5, 11, 14)：</h4>
-                    <ul>
-                        <li>$R_1 = \{(a,b) \mid a \le b\}$：自反、反對稱、傳遞。</li>
-                        <li>$R_2 = \{(a,b) \mid a > b\}$：非自反、反對稱、傳遞。</li>
-                        <li>$R_3 = \{(a,b) \mid a=b \text{ 或 } a=-b\}$：自反、對稱、傳遞。</li>
-                        <li>$R_4 = \{(a,b) \mid a=b\}$：自反、對稱、反對稱、傳遞。</li>
-                        <li>$R_5 = \{(a,b) \mid a=b+1\}$：非自反、反對稱、非傳遞。</li>
-                        <li>$R_6 = \{(a,b) \mid a+b \le 3\}$：非自反、對稱、非傳遞。</li>
-                    </ul>
-                    <h4>有限集 $\{1,2,3,4\}$ 上的關係判定 (Example 7, 10, 13)：</h4>
-                    <ul>
-                        <li><strong>自反關係：</strong> $R_3, R_5$</li>
-                        <li><strong>對稱關係：</strong> $R_2, R_3$</li>
-                        <li><strong>反對稱關係：</strong> $R_4, R_5, R_6$</li>
-                        <li><strong>傳遞關係：</strong> $R_4, R_5, R_6$</li>
-                    </ul>
-                </div>
-            </details>
-
-            <details>
-                <summary>點擊展開：Theorem 1 完整證明 (Proof of Theorem 1)</summary>
-                <div class="details-content">
-                    <p><strong>定理：</strong>集合 $A$ 上的關係 $R$ 是傳遞的當且僅當 $R^n \subseteq R, \forall n=1,2,3,\dots$。</p>
-                    <p><strong>【充分性證明 (If part)】：</strong><br>
-                    假設 $R^n \subseteq R$ 對所有 $n \ge 1$ 成立，特別地有 $R^2 \subseteq R$。<br>
-                    若 $(a,b) \in R$ 且 $(b,c) \in R$，根據關係複合的定義，可得 $(a,c) \in R^2$。<br>
-                    因為 $R^2 \subseteq R$，所以 $(a,c) \in R$，故 $R$ 具有傳遞性。</p>
-                    <p><strong>【必要性證明 (Only-if part)】：</strong>使用數學歸納法證明若 $R$ 傳遞，則 $R^n \subseteq R$。<br>
-                    1. <strong>基礎步驟：</strong> 當 $n=1$ 時，$R^1 = R \subseteq R$ 明顯成立。<br>
-                    2. <strong>歸納假設：</strong> 假設當 $n=k$ 時成立，即 $R^k \subseteq R$。<br>
-                    3. <strong>歸納遞推：</strong> 對於任意 $(a,b) \in R^{k+1} = R^k \circ R$，存在 $x \in A$ 使得 $(a,x) \in R$ 且 $(x,b) \in R^k$。<br>
-                       由歸納假設，$R^k \subseteq R$，因此 $(x,b) \in R$。<br>
-                       因為 $R$ 是傳遞的，由 $(a,x) \in R$ 及 $(x,b) \in R$ 可推出 $(a,b) \in R$。<br>
-                       這證明了 $R^{k+1} \subseteq R$。<br>
-                    綜上所述，定理成立。</p>
-                </div>
-            </details>
-        </section>
-
-        <!-- § 9.2 -->
-        <section id="sec-9-2" class="chapter">
-            <h2>§ 9.2 n-ary Relations and Their Applications (n元關係及其應用)</h2>
-            
-            <div class="term-box">
-                <div class="term-title">專有名詞：n元關係 (n-ary Relation)</div>
-                設 $A_1, A_2, \dots, A_n$ 為集合。在這些集合上的 <strong>n元關係</strong> 是笛卡兒積 $A_1 \times A_2 \times \dots \times A_n$ 的子集。<br>
-                集合 $A_1, A_2, \dots, A_n$ 稱為該關係的<strong>定義域 (Domains)</strong>，$n$ 稱為該關係的<strong>度數 (Degree)</strong>。
             </div>
 
-            <details>
-                <summary>點擊展開：Example 1 & Example 4 實例</summary>
-                <div class="details-content">
-                    <p><strong>Example 1：</strong><br>
-                    設 $R$ 是 $\mathbb{N} \times \mathbb{N} \times \mathbb{N}$ 上的 3元關係，由滿足 $a < b < c$ 的三元組 $(a,b,c)$ 組成。<br>
-                    則 $(1,2,3) \in R$，但 $(2,4,3) \notin R$。</p>
+            <!-- Proof of Symmetric Closure Toggle -->
+            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                <button onclick="toggleCard('proof-sym')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                    <span><i class="fa-solid fa-file-signature mr-2 text-purple-600"></i> Proof that $S = R \cup R^{-1}$ is the Symmetric Closure (三步驟完整證明)</span>
+                    <span class="text-xs bg-purple-600 text-white px-2.5 py-1 rounded-full">Expand Proof</span>
+                </button>
+                <div id="proof-sym" class="toggle-content p-5 space-y-3 text-xs md:text-sm border-t border-slate-200 text-slate-800">
+                    <p class="font-bold text-purple-900">Let $S = R \cup R^{-1}$. We must prove three conditions:</p>
                     
-                    <p><strong>Example 4 (航班數據庫模型)：</strong><br>
-                    設 $R$ 為表示航班的 5元關係，元素為五元組 $(A, N, S, D, T)$：<br>
-                    $A$: 航空公司 (Airline), $N$: 航班號 (Flight Number), $S$: 起飛地 (Starting Point), $D$: 目的地 (Destination), $T$: 起飛時間 (Departure Time)。<br>
-                    例：$(\text{Nadir}, 963, \text{Newark}, \text{Bangor}, 15:00) \in R$。</p>
-                </div>
-            </details>
-        </section>
-
-        <!-- § 9.4 -->
-        <section id="sec-9-4" class="chapter">
-            <h2>§ 9.4 Closures of Relations (關係的閉包)</h2>
-
-            <div class="term-box">
-                <div class="term-title">專有名詞：性質 P 的閉包 (Closure with Respect to Property P)</div>
-                設 $R$ 是集合 $A$ 上的關係。若存在一個包含 $R$ 且具有性質 P 的關係 $S$，使得 $S$ 是任何包含 $R$ 且具有性質 P 的關係的子集，則稱 $S$ 為 $R$ 關於性質 P 的<strong>閉包 (Closure)</strong>。
-            </div>
-
-            <h3 class="section-title">1. 自反閉包與對稱閉包 (Reflexive & Symmetric Closures)</h3>
-            
-            <div class="formula-box">
-                <strong>(1) 自反閉包 (Reflexive Closure):</strong><br>
-                設 $\Delta = \{(a,a) \mid a \in A\}$ 為對角線關係 (Diagonal Relation)。<br>
-                關係 $R$ 的自反閉包為：<strong>$R \cup \Delta$</strong>。
-            </div>
-
-            <div class="formula-box">
-                <strong>(2) 對稱閉包 (Symmetric Closure):</strong><br>
-                設 $R^{-1} = \{(b,a) \mid (a,b) \in R\}$ 為逆關係。<br>
-                關係 $R$ 的對稱閉包為：<strong>$R \cup R^{-1}$</strong>。
-            </div>
-
-            <h3 class="section-title">2. 有向圖中的路徑 (Paths in Directed Graphs)</h3>
-            <div class="term-box">
-                <div class="term-title">專有名詞：路徑 (Path) 與 回路 (Circuit/Cycle)</div>
-                <ul>
-                    <li>在有向圖 $G$ 中，從 $a$ 到 $b$ 的<strong>路徑</strong>是指邊的序列 $(x_0, x_1), (x_1, x_2), \dots, (x_{n-1}, x_n)$，其中 $x_0 = a, x_n = b$，長度為非負整數 $n$。</li>
-                    <li>長度 $n \ge 1$ 且起點與終點重合的路徑稱為<strong>回路 / 迴路 (Circuit or Cycle)</strong>。</li>
-                    <li><strong>關係中的路徑：</strong>若存在序列 $a, x_1, x_2, \dots, x_{n-1}, b$ 使得 $(a,x_1) \in R, (x_1,x_2) \in R, \dots, (x_{n-1},b) \in R$，則稱在 $R$ 中存在從 $a$ 到 $b$ 長度為 $n$ 的路徑。</li>
-                </ul>
-            </div>
-
-            <div class="formula-box">
-                <strong>定理 1 (Theorem 1):</strong><br>
-                在關係 $R$ 中存在從 $a$ 到 $b$ 長度為 $n$ ($n \ge 1$) 的路徑 <strong>當且僅當</strong> <strong>$(a,b) \in R^n$</strong>。
-            </div>
-
-            <h3 class="section-title">3. 傳遞閉包與連通關係 (Transitive Closure & Connectivity Relation)</h3>
-            <div class="term-box">
-                <div class="term-title">專有名詞：連通關係 (Connectivity Relation)</div>
-                集合 $A$ 上關係 $R$ 的連通關係 $R^*$ 由所有滿足「存在從 $a$ 到 $b$ 長度至少為 1 的路徑」的序對 $(a,b)$ 組成：
-                $$R^* = \bigcup_{n=1}^{\infty} R^n$$
-            </div>
-
-            <div class="formula-box">
-                <strong>定理 2 (Theorem 2):</strong><br>
-                關係 $R$ 的傳遞閉包等於其連通關係 <strong>$R^*$</strong>。
-            </div>
-
-            <div class="formula-box">
-                <strong>引理 1 (Lemma 1) & 傳遞閉包有限計算公式:</strong><br>
-                設 $|A| = n$。若在 $R$ 中存在從 $a$ 到 $b$ 長度至少為 1 的路徑，則必定存在一條長度<strong>不超過 $n$</strong> 的路徑（若 $a \neq b$，則長度不超過 $n-1$）。<br>
-                <strong>計算公式：</strong>
-                $$R^* = R \cup R^2 \cup R^3 \cup \dots \cup R^n$$
-            </div>
-
-            <!-- 折疊區塊 -->
-            <details>
-                <summary>點擊展開：對稱閉包三步性證明 ($S = R \cup R^{-1}$)</summary>
-                <div class="details-content">
-                    <p><strong>證明 $S = R \cup R^{-1}$ 是 $R$ 的對稱閉包：</strong></p>
-                    <ol>
-                        <li><strong>證明 $S$ 是對稱的：</strong> 對於任意 $(a,b) \in S$，有兩種情況：
-                            <ul>
-                                <li>若 $(a,b) \in R$，則由逆關係定義 $(b,a) \in R^{-1} \subseteq S$；</li>
-                                <li>若 $(a,b) \in R^{-1}$，則由定義 $(b,a) \in R \subseteq S$。</li>
-                            </ul>
-                            故 $(b,a) \in S$，$S$ 具有對稱性。
-                        </li>
-                        <li><strong>證明 $R \subseteq S$：</strong> 由聯集定義顯然成立。</li>
-                        <li><strong>證明最小性：</strong> 設 $T$ 是任意包含 $R$ 的對稱關係（即 $R \subseteq T$ 且 $T$ 對稱）。<br>
-                            對任意 $(a,b) \in S = R \cup R^{-1}$：
-                            <ul>
-                                <li>若 $(a,b) \in R$，因 $R \subseteq T$，故 $(a,b) \in T$；</li>
-                                <li>若 $(a,b) \in R^{-1}$，則 $(b,a) \in R \subseteq T$。因 $T$ 對稱，故 $(a,b) \in T$。</li>
-                            </ul>
-                            因此 $S \subseteq T$。證畢。
-                        </li>
-                    </ol>
-                </div>
-            </details>
-
-            <details>
-                <summary>點擊展開：Figure 1 有向圖 (Example 3 Diagram)</summary>
-                <div class="details-content">
-                    <div class="svg-container">
-                        <svg width="360" height="300" viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <marker id="arrow3" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#2c3e50"/>
-                                </marker>
-                            </defs>
-                            <!-- 頂點 -->
-                            <circle cx="60" cy="50" r="8" fill="#2c3e50"/><text x="40" y="45" font-size="16" font-weight="bold">a</text>
-                            <circle cx="200" cy="50" r="8" fill="#2c3e50"/><text x="205" y="40" font-size="16" font-weight="bold">b</text>
-                            <circle cx="320" cy="50" r="8" fill="#2c3e50"/><text x="330" y="45" font-size="16" font-weight="bold">c</text>
-                            <circle cx="60" cy="230" r="8" fill="#2c3e50"/><text x="40" y="245" font-size="16" font-weight="bold">d</text>
-                            <circle cx="200" cy="230" r="8" fill="#2c3e50"/><text x="205" y="250" font-size="16" font-weight="bold">e</text>
-
-                            <!-- 自環 -->
-                            <path d="M 52,44 A 12,12 0 1,1 68,44" fill="none" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow3)"/>
-                            <path d="M 52,224 A 12,12 0 1,1 68,224" fill="none" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow3)"/>
-
-                            <!-- 雙向邊與單向邊 -->
-                            <line x1="68" y1="45" x2="192" y2="45" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow3)"/>
-                            <line x1="192" y1="55" x2="68" y2="55" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow3)"/>
-                            
-                            <line x1="312" y1="50" x2="208" y2="50" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow3)"/>
-                            <path d="M 68,40 Q 190,-10 312,45" fill="none" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow3)"/>
-
-                            <line x1="60" y1="222" x2="60" y2="58" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow3)"/>
-                            <line x1="68" y1="58" x2="192" y2="222" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow3)"/>
-                            <line x1="68" y1="230" x2="192" y2="230" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow3)"/>
-
-                            <line x1="195" y1="222" x2="195" y2="58" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow3)"/>
-                            <line x1="205" y1="58" x2="205" y2="222" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow3)"/>
-
-                            <line x1="313" y1="56" x2="207" y2="224" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow3)"/>
-                            <line x1="67" y1="223" x2="313" y2="57" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow3)"/>
-                        </svg>
-                    </div>
-                    <p><strong>Example 3 路徑測試：</strong></p>
-                    <ul>
-                        <li><code>a, b, e, d</code>: 是路徑（長度 3）</li>
-                        <li><code>a, e, c, d, b</code>: 不是路徑（無 e->c 邊）</li>
-                        <li><code>b, a, c, b, a, a, b</code>: 是路徑（長度 6，且為回路 Circuit）</li>
-                        <li><code>d, c</code>: 是路徑（長度 1）</li>
-                    </ul>
-                </div>
-            </details>
-
-            <details>
-                <summary>點擊展開：Figure 2 引理 1 縮短路徑示意圖 (Producing a Path Length ≤ n)</summary>
-                <div class="details-content">
-                    <p><strong>原理：</strong>若路徑長度超過 $n$，由抽屜原理必存在重複頂點 $x_i = x_j$，將重複環路裁切即可獲得長度 $\le n$ 的簡化路徑。</p>
-                    <div class="svg-container">
-                        <svg width="450" height="150" viewBox="0 0 450 150" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <marker id="arrow4" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#e74c3c"/>
-                                </marker>
-                            </defs>
-                            <!-- 主主幹 -->
-                            <line x1="30" y1="100" x2="70" y2="100" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow4)"/>
-                            <line x1="80" y1="100" x2="120" y2="100" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow4)"/>
-                            <line x1="130" y1="100" x2="200" y2="100" stroke="#2c3e50" stroke-dasharray="4" stroke-width="2"/>
-                            <line x1="210" y1="100" x2="260" y2="100" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow4)"/>
-                            <line x1="270" y1="100" x2="340" y2="100" stroke="#2c3e50" stroke-dasharray="4" stroke-width="2"/>
-                            <line x1="350" y1="100" x2="410" y2="100" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow4)"/>
-
-                            <!-- 頂點點位 -->
-                            <circle cx="20" cy="100" r="4"/><text x="10" y="125">a=x₀</text>
-                            <circle cx="75" cy="100" r="4"/><text x="70" y="125">x₁</text>
-                            <circle cx="125" cy="100" r="4"/><text x="120" y="125">x₂</text>
-                            <circle cx="205" cy="100" r="5" fill="#e74c3c"/><text x="185" y="125" fill="#e74c3c" font-weight="bold">xᵢ=xⱼ</text>
-                            <circle cx="265" cy="100" r="4"/><text x="260" y="125">xⱼ₊₁</text>
-                            <circle cx="415" cy="100" r="4"/><text x="405" y="125">xₘ=b</text>
-
-                            <!-- 迴路切除弧線 -->
-                            <path d="M 205,95 C 205,20 300,20 205,95" fill="none" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3" marker-end="url(#arrow4)"/>
-                            <text x="230" y="35" fill="#e74c3c" font-size="12">裁切冗餘迴路</text>
-                        </svg>
+                    <div class="space-y-2 pl-3 border-l-2 border-purple-300">
+                        <div>
+                            <strong>1) Prove $S$ is symmetric:</strong>
+                            <p>For any $(a,b) \in S = R \cup R^{-1}$, there are two cases:</p>
+                            <p>i) $(a,b) \in R \implies (b,a) \in R^{-1} \implies (b,a) \in S$.</p>
+                            <p>ii) $(a,b) \in R^{-1} \implies (b,a) \in R \implies (b,a) \in S$. Thus $S$ is symmetric.</p>
+                        </div>
+                        <div>
+                            <strong>2) Prove $R \subseteq S$:</strong>
+                            <p>Obvious from $S = R \cup R^{-1}$.</p>
+                        </div>
+                        <div>
+                            <strong>3) Prove $S$ is the smallest such relation ($S \subseteq T$ for any symmetric $T \supseteq R$):</strong>
+                            <p>Suppose $T$ is symmetric and $R \subseteq T$. Let $(a,b) \in S = R \cup R^{-1}$.</p>
+                            <p>i) If $(a,b) \in R$, then $(a,b) \in T$ because $R \subseteq T$.</p>
+                            <p>ii) If $(a,b) \in R^{-1}$, then $(b,a) \in R \subseteq T$. Since $T$ is symmetric, $(b,a) \in T \implies (a,b) \in T$.</p>
+                            <p>In both cases $(a,b) \in T$. Thus $S \subseteq T$. $\blacksquare$</p>
+                        </div>
                     </div>
                 </div>
-            </details>
-        </section>
+            </div>
+        </div>
 
-        <!-- § 9.5 -->
-        <section id="sec-9-5" class="chapter">
-            <h2>§ 9.5 Equivalence Relations (等價關係)</h2>
+        <!-- Paths in Directed Graphs -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-purple-800 flex items-center gap-2">
+                <i class="fa-solid fa-route text-purple-500"></i> 3. Paths in Directed Graphs & Theorem 1 (有向圖路徑與定理)
+            </h3>
 
-            <div class="term-box">
-                <div class="term-title">專有名詞：等價關係 (Equivalence Relation) 與 等價 (Equivalent)</div>
-                集合 $A$ 上的關係 $R$ 若同時滿足<strong>自反性、對稱性、傳遞性</strong>，則稱 $R$ 為<strong>等價關係</strong>。<br>
-                若 $(a,b) \in R$，則稱元素 $a$ 與 $b$ 是<strong>等價的 (Equivalent)</strong>。
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                <strong class="text-purple-900 text-base font-bold block">Definition 1: Path & Circuit (路徑與迴路) (page 599)</strong>
+                <p class="text-slate-800 text-sm md:text-base">
+                    A <strong>path (路徑)</strong> from $a$ to $b$ in directed graph $G$ is a sequence of edges $(x_0, x_1), (x_1, x_2), \dots, (x_{n-1}, x_n)$ where $n$ is a nonnegative integer, $x_0 = a$, $x_n = b$. Denoted by $x_0, x_1, \dots, x_n$ with length $n$.
+                </p>
+                <p class="text-slate-800 text-sm md:text-base">
+                    A path of length $n \ge 1$ that begins and ends at the same vertex is called a <strong>circuit / cycle (迴路)</strong>.
+                </p>
             </div>
 
-            <div class="term-box">
-                <div class="term-title">專有名詞：模 m 同餘 (Congruence Modulo m)</div>
-                設 $m > 1$ 為正整數。若 $m$ 整除 $a-b$（即 $a$ 與 $b$ 除以 $m$ 餘數相同），則稱 $a$ 與 $b$ 模 $m$ 同餘，記作 $a \equiv b \pmod m$。<br>
-                模 $m$ 同餘關係是整數集 $\mathbb{Z}$ 上的等價關係。
+            <!-- Figure 1 SVG Directed Graph & Example 3 -->
+            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                <button onclick="toggleCard('ex-9-4-path')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                    <span><i class="fa-solid fa-code-fork mr-2 text-purple-600"></i> Figure 1 Directed Graph & Example 3 (Path Identification)</span>
+                    <span class="text-xs bg-purple-600 text-white px-2.5 py-1 rounded-full">Expand Graph & Example</span>
+                </button>
+                <div id="ex-9-4-path" class="toggle-content p-5 space-y-4 text-sm border-t border-slate-200">
+                    <!-- SVG Figure 1 -->
+                    <div class="my-2 p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col items-center justify-center">
+                        <span class="font-bold text-slate-700 text-xs mb-2 block">FIGURE 1: A Directed Graph (原教材圖形重現)</span>
+                        <svg viewBox="0 0 360 260" class="w-80 h-60">
+                            <defs>
+                                <marker id="arrow-fig1" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e293b"/>
+                                </marker>
+                            </defs>
+                            <!-- Vertices -->
+                            <circle cx="80" cy="50" r="6" fill="#1e293b"/><text x="60" y="45" font-weight="bold" font-size="14">a</text>
+                            <circle cx="200" cy="50" r="6" fill="#1e293b"/><text x="200" y="35" font-weight="bold" font-size="14">b</text>
+                            <circle cx="320" cy="50" r="6" fill="#1e293b"/><text x="330" y="45" font-weight="bold" font-size="14">c</text>
+                            <circle cx="80" cy="200" r="6" fill="#1e293b"/><text x="60" y="215" font-weight="bold" font-size="14">d</text>
+                            <circle cx="200" cy="200" r="6" fill="#1e293b"/><text x="200" y="220" font-weight="bold" font-size="14">e</text>
+
+                            <!-- Self loops -->
+                            <path d="M 75 45 C 50 20, 50 70, 75 55" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow-fig1)"/>
+                            <path d="M 75 195 C 50 170, 50 220, 75 205" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow-fig1)"/>
+
+                            <!-- Edges -->
+                            <!-- a-b double -->
+                            <path d="M 86 45 Q 140 30 194 45" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow-fig1)"/>
+                            <path d="M 194 55 Q 140 70 86 55" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow-fig1)"/>
+                            <!-- a to c top arc -->
+                            <path d="M 80 44 Q 200 -10 314 45" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow-fig1)"/>
+                            <!-- c to b -->
+                            <line x1="314" y1="50" x2="206" y2="50" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow-fig1)"/>
+                            <!-- d to a -->
+                            <line x1="80" y1="194" x2="80" y2="56" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow-fig1)"/>
+                            <!-- d to b -->
+                            <line x1="85" y1="195" x2="195" y2="55" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow-fig1)"/>
+                            <!-- d to c -->
+                            <line x1="85" y1="200" x2="315" y2="55" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow-fig1)"/>
+                            <!-- e to d -->
+                            <line x1="194" y1="200" x2="86" y2="200" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow-fig1)"/>
+                            <!-- a to e -->
+                            <line x1="85" y1="55" x2="195" y2="195" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow-fig1)"/>
+                            <!-- b-e double -->
+                            <path d="M 195 56 Q 180 125 195 194" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow-fig1)"/>
+                            <path d="M 205 194 Q 220 125 205 56" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow-fig1)"/>
+                            <!-- e to c -->
+                            <line x1="205" y1="195" x2="315" y2="55" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow-fig1)"/>
+                        </svg>
+                    </div>
+
+                    <div class="space-y-1 text-xs md:text-sm">
+                        <p><strong>Example 3 Path Questions:</strong></p>
+                        <p>• $a, b, e, d$: Path of length 3.</p>
+                        <p>• $a, e, c, d, b$: Not a path (no edge from $c$ to $d$).</p>
+                        <p>• $b, a, c, b, a, a, b$: Path of length 6; Circuit (starts and ends at $b$).</p>
+                        <p>• $d, c$: Path of length 1.</p>
+                        <p>• $c, b, a$: Path of length 2.</p>
+                        <p>• $e, b, a, b, a, b, e$: Path of length 6; Circuit (starts and ends at $e$).</p>
+                    </div>
+                </div>
             </div>
 
-            <h3 class="section-title">1. 等價類 (Equivalence Classes)</h3>
-            <div class="term-box">
-                <div class="term-title">專有名詞：等價類 (Equivalence Class)</div>
-                設 $R$ 是集合 $A$ 上的等價關係，$a \in A$。與 $a$ 有關係 $R$ 的所有元素的集合稱為 $a$ 的<strong>等價類</strong>，記作 $[a]_R$：
-                $$[a]_R = \{s \mid (a,s) \in R\}$$
+            <!-- Path Theorem 1 -->
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-sm space-y-1">
+                <strong class="text-purple-900 font-bold block text-base">Theorem 1 (Path Theorem) (page 600)</strong>
+                <p class="text-slate-800">
+                    Let $R$ be a relation on a set $A$. There is a path of length $n$ ($n \in \mathbb{Z}^+$) from $a$ to $b$ <strong>if and only if</strong> $(a,b) \in R^n$.
+                </p>
+            </div>
+        </div>
+
+        <!-- Transitive Closure, Connectivity Relation, Lemma 1 -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-purple-800 flex items-center gap-2">
+                <i class="fa-solid fa-project-diagram text-purple-500"></i> 4. Transitive Closure & Connectivity Relation (遞移閉包與連通關係)
+            </h3>
+
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                <strong class="text-purple-900 text-base font-bold block">Definition 2: Connectivity Relation $R^*$ (連通關係) (page 600)</strong>
+                <p class="text-slate-800 text-sm md:text-base">
+                    Let $R$ be a relation on a set $A$. The <strong>connectivity relation $R^*$</strong> consists of the pairs $(a,b)$ such that there is a path of length at least one from $a$ to $b$ in $R$.
+                </p>
+                <p class="font-mono font-bold text-purple-700 bg-white p-2.5 rounded border text-center">
+                    $R^* = \bigcup_{n=1}^{\infty} R^n$
+                </p>
             </div>
 
-            <div class="formula-box">
-                <strong>定理 1 (Theorem 1 - 等價條件切換):</strong><br>
-                設 $R$ 是集合 $A$ 上的等價關係，對任意 $a, b \in A$，以下三個陳述彼此<strong>完全等價</strong>：
-                <ol>
-                    <li>$a \, R \, b$</li>
-                    <li>$[a] = [b]$</li>
-                    <li>$[a] \cap [b] \neq \emptyset$</li>
-                </ol>
+            <!-- Theorem 2: Transitive Closure = R* -->
+            <div class="p-5 bg-purple-50/70 border border-purple-200 rounded-xl space-y-3">
+                <strong class="text-purple-950 text-base font-bold block">Theorem 2: Transitive Closure Theorem (page 601)</strong>
+                <p class="text-slate-800 text-sm md:text-base font-bold">
+                    The transitive closure of a relation $R$ equals the connectivity relation $R^*$.
+                </p>
+
+                <!-- Proof Toggle -->
+                <div class="border border-purple-200 rounded-lg bg-white overflow-hidden">
+                    <button onclick="toggleCard('proof-thm2')" class="w-full p-3 text-left font-bold text-purple-900 flex justify-between items-center bg-purple-50 hover:bg-purple-100 transition text-sm">
+                        <span><i class="fa-solid fa-file-signature mr-2 text-purple-600"></i> Proof of Theorem 2 (完整三部曲證明)</span>
+                        <span class="text-xs bg-purple-600 text-white px-2.5 py-1 rounded-full">Expand Proof</span>
+                    </button>
+                    <div id="proof-thm2" class="toggle-content p-5 space-y-3 text-xs md:text-sm border-t border-purple-200 text-slate-800">
+                        <p><strong>1) $R^*$ contains $R$:</strong> $R^1 = R \subseteq R^*$ by definition.</p>
+                        <p><strong>2) $R^*$ is transitive:</strong> If $(a,b) \in R^*$ and $(b,c) \in R^*$, there exist paths from $a$ to $b$ and $b$ to $c$. Combining them gives a path from $a$ to $c$, so $(a,c) \in R^*$. Thus $R^*$ is transitive.</p>
+                        <p><strong>3) $R^*$ is the smallest transitive relation containing $R$:</strong> Suppose $S$ is any transitive relation containing $R$ ($R \subseteq S$). Since $S$ is transitive, $S^n \subseteq S$ for all $n \ge 1$ (by Theorem 1 of Section 9.1). It follows that $S^* \subseteq S$. Since $R \subseteq S$, any path in $R$ is a path in $S$, so $R^* \subseteq S^* \subseteq S$. Consequently, $R^* \subseteq S$. $\blacksquare$</p>
+                    </div>
+                </div>
             </div>
 
-            <h3 class="section-title">2. 劃分 (Partitions)</h3>
-            <div class="term-box">
-                <div class="term-title">專有名詞：集合的劃分 (Partition of a Set)</div>
-                集合 $S$ 的劃分是指由 $S$ 的非空且兩兩不相交的子集組成的集合族 $\{A_i \mid i \in I\}$，滿足：
-                <ul>
-                    <li>$A_i \neq \emptyset, \forall i \in I$</li>
-                    <li>$A_i \cap A_j = \emptyset$, 當 $i \neq j$ 時</li>
-                    <li>$\bigcup_{i \in I} A_i = S$</li>
+            <!-- Lemma 1 & Figure 2 -->
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+                <strong class="text-purple-900 text-base font-bold block">Lemma 1 (Path Length Bound) (page 601)</strong>
+                <p class="text-slate-800 text-sm md:text-base">
+                    Let $A$ be a set with $n$ elements, and $R$ be a relation on $A$. If there is a path of length at least one in $R$ from $a$ to $b$, then there is a path with length <strong>not exceeding $n$</strong>.
+                </p>
+                <p class="text-slate-800 text-sm md:text-base font-semibold">
+                    Moreover, when $a \ne b$, if there is a path from $a$ to $b$, then there is such a path with length <strong>not exceeding $n-1$</strong>.
+                </p>
+
+                <!-- SVG Figure 2 -->
+                <div class="my-4 p-4 bg-white rounded-xl border border-slate-200 flex flex-col items-center justify-center">
+                    <span class="font-bold text-slate-700 text-xs mb-2 block">FIGURE 2: Producing a Path with Length Not Exceeding $n$ (原教材圖形重現)</span>
+                    <svg viewBox="0 0 520 160" class="w-full max-w-[500px] h-auto">
+                        <defs>
+                            <marker id="arrow-fig2" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e293b"/>
+                            </marker>
+                        </defs>
+                        <!-- Main Line Nodes -->
+                        <circle cx="30" cy="110" r="4" fill="#1e293b"/><text x="15" y="130" font-size="11" font-weight="bold">a=x₀</text>
+                        <circle cx="70" cy="110" r="4" fill="#1e293b"/><text x="65" y="130" font-size="11">x₁</text>
+                        <circle cx="110" cy="110" r="4" fill="#1e293b"/><text x="105" y="130" font-size="11">x₂</text>
+                        
+                        <text x="135" y="112" font-size="14" font-weight="bold">⋯</text>
+                        
+                        <circle cx="170" cy="110" r="4" fill="#1e293b"/><text x="160" y="130" font-size="11">xᵢ₋₁</text>
+                        <circle cx="230" cy="110" r="4" fill="#1e293b"/><text x="210" y="130" font-size="11" font-weight="bold">xᵢ=xⱼ</text>
+                        <circle cx="330" cy="110" r="4" fill="#1e293b"/><text x="325" y="130" font-size="11">xⱼ₊₁</text>
+                        
+                        <text x="375" y="112" font-size="14" font-weight="bold">⋯</text>
+                        
+                        <circle cx="430" cy="110" r="4" fill="#1e293b"/><text x="415" y="130" font-size="11">xₘ₋₁</text>
+                        <circle cx="480" cy="110" r="4" fill="#1e293b"/><text x="470" y="130" font-size="11" font-weight="bold">m=b</text>
+
+                        <!-- Main Line Edges -->
+                        <line x1="34" y1="110" x2="66" y2="110" stroke="#1e293b" stroke-width="1.2" marker-end="url(#arrow-fig2)"/>
+                        <line x1="74" y1="110" x2="106" y2="110" stroke="#1e293b" stroke-width="1.2" marker-end="url(#arrow-fig2)"/>
+                        <line x1="174" y1="110" x2="226" y2="110" stroke="#1e293b" stroke-width="1.2" marker-end="url(#arrow-fig2)"/>
+                        <line x1="234" y1="110" x2="326" y2="110" stroke="#1e293b" stroke-width="1.2" marker-end="url(#arrow-fig2)"/>
+                        <line x1="434" y1="110" x2="476" y2="110" stroke="#1e293b" stroke-width="1.2" marker-end="url(#arrow-fig2)"/>
+
+                        <!-- Loop Nodes -->
+                        <circle cx="210" cy="60" r="4" fill="#1e293b"/><text x="180" y="60" font-size="11">xᵢ₊₁</text>
+                        <circle cx="240" cy="25" r="4" fill="#1e293b"/><text x="235" y="15" font-size="11">xᵢ₊₂</text>
+                        <circle cx="300" cy="35" r="4" fill="#1e293b"/><text x="310" y="35" font-size="11">xⱼ₋₂</text>
+                        <circle cx="280" cy="75" r="4" fill="#1e293b"/><text x="290" y="80" font-size="11">xⱼ₋₁</text>
+
+                        <!-- Loop Edges -->
+                        <line x1="228" y1="106" x2="212" y2="64" stroke="#1e293b" stroke-width="1.2" marker-end="url(#arrow-fig2)"/>
+                        <line x1="212" y1="56" x2="236" y2="29" stroke="#1e293b" stroke-width="1.2" marker-end="url(#arrow-fig2)"/>
+                        <path d="M 244 25 Q 270 20 296 32" fill="none" stroke="#1e293b" stroke-width="1.2" stroke-dasharray="3,3" marker-end="url(#arrow-fig2)"/>
+                        <line x1="300" y1="39" x2="282" y2="71" stroke="#1e293b" stroke-width="1.2" marker-end="url(#arrow-fig2)"/>
+                        <line x1="278" y1="78" x2="234" y2="106" stroke="#1e293b" stroke-width="1.2" marker-end="url(#arrow-fig2)"/>
+                    </svg>
+                </div>
+
+                <!-- Final Transitive Closure Finite Formula -->
+                <div class="p-3 bg-white rounded border border-purple-300">
+                    <p class="text-xs md:text-sm font-bold text-slate-900">
+                        From Lemma 1, the transitive closure $R^*$ of a relation $R$ on a set with $n$ elements is the finite union:
+                    </p>
+                    <p class="text-sm md:text-base font-mono font-bold text-purple-700 text-center mt-1">
+                        $R^* = R \cup R^2 \cup R^3 \cup \dots \cup R^n$
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9.5 -->
+    <section id="sec9-5" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b pb-4">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-blue-600 text-white px-3 py-1 rounded-lg text-base md:text-lg">§ 9.5</span>
+                Equivalence Relations (等價關係)
+            </h2>
+        </div>
+
+        <!-- Definition 1 -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-blue-800 flex items-center gap-2">
+                <i class="fa-solid fa-scale-balanced text-blue-500"></i> 1. Definition of Equivalence Relation (等價關係定義)
+            </h3>
+
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                <strong class="text-blue-900 text-base font-bold block">Definition 1: Equivalence Relation (page 608)</strong>
+                <p class="text-slate-800 text-sm md:text-base">
+                    A relation $R$ on a set $A$ is called an <strong>equivalence relation (等價關係)</strong> if it is:
+                </p>
+                <div class="grid grid-cols-3 gap-2 text-center text-sm font-bold my-2">
+                    <div class="p-3 bg-white border border-blue-200 rounded text-blue-700">1. Reflexive (自反)</div>
+                    <div class="p-3 bg-white border border-blue-200 rounded text-blue-700">2. Symmetric (對稱)</div>
+                    <div class="p-3 bg-white border border-blue-200 rounded text-blue-700">3. Transitive (遞移)</div>
+                </div>
+                <p class="text-xs text-slate-600"><strong>Remark:</strong> Two elements $a,b$ that are related by an equivalence relation are called <strong>equivalent (等價)</strong>, written $a \sim b$ or $a \, R \, b$.</p>
+            </div>
+
+            <!-- Equivalence Examples Toggle -->
+            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                <button onclick="toggleCard('ex-9-5-eq')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                    <span><i class="fa-solid fa-code-fork mr-2 text-blue-600"></i> Examples of Equivalence Relations (String length, Absolute value, Real subtraction, Congruence Modulo m)</span>
+                    <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full">Expand Examples</span>
+                </button>
+                <div id="ex-9-5-eq" class="toggle-content p-5 space-y-4 text-sm border-t border-slate-200">
+                    <div>
+                        <strong>(a) String Length Relation:</strong> $a \, R \, b \iff l(a) = l(b)$ on English strings.<br>
+                        <span class="text-xs text-slate-600">Reflexive: $l(a)=l(a)$; Symmetric: $l(a)=l(b) \implies l(b)=l(a)$; Transitive: $l(a)=l(b) \land l(b)=l(c) \implies l(a)=l(c)$. $\implies$ Equivalence relation.</span>
+                    </div>
+
+                    <div>
+                        <strong>(b) Example 2 (page 608):</strong> $a \, R \, b \iff a = b \text{ or } a = -b \iff |a| = |b|$ on integers $\mathbb{Z}$.<br>
+                        <span class="text-xs text-slate-600">Reflexive, Symmetric, Transitive. $\implies$ Equivalence relation.</span>
+                    </div>
+
+                    <div>
+                        <strong>(c) Example 3:</strong> $a \, R \, b \iff a - b \in \mathbb{Z}$ on real numbers $\mathbb{R}$.<br>
+                        <span class="text-xs text-slate-600">1) $a - a = 0 \in \mathbb{Z} \implies a \, R \, a$.<br>
+                        2) If $a - b = k \in \mathbb{Z}$, then $b - a = -k \in \mathbb{Z} \implies b \, R \, a$.<br>
+                        3) If $a - b = k_1 \in \mathbb{Z}$ and $b - c = k_2 \in \mathbb{Z}$, then $a - c = (a-b) + (b-c) = k_1 + k_2 \in \mathbb{Z} \implies a \, R \, c$. $\implies$ Equivalence relation.</span>
+                    </div>
+
+                    <div class="p-3 bg-blue-50 rounded border border-blue-200">
+                        <strong>(d) Congruence Modulo $m$ (模 $m$ 同餘) (page 608):</strong><br>
+                        Let $m > 1$ be an integer. Relation $R = \{(a,b) \mid a \equiv b \pmod m\} \iff m \mid (a - b)$.<br>
+                        <span class="text-xs text-slate-700">This divides all integers into $m$ distinct congruence classes. Is an equivalence relation.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Equivalence Classes -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-blue-800 flex items-center gap-2">
+                <i class="fa-solid fa-boxes-packing text-blue-500"></i> 2. Equivalence Classes (等價類)
+            </h3>
+
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                <strong class="text-blue-900 text-base font-bold block">Definition 2: Equivalence Class (page 610)</strong>
+                <p class="text-slate-800 text-sm md:text-base">
+                    Let $R$ be an equivalence relation on a set $A$. The set of all elements that are related to an element $a$ of $A$ is called the <strong>equivalence class (等價類)</strong> of $a$.
+                </p>
+                <p class="font-mono font-bold text-blue-700 bg-white p-2.5 rounded border text-center">
+                    $[a]_R = \{s \mid (a,s) \in R\}$
+                </p>
+            </div>
+
+            <!-- Equivalence Class Examples Toggle -->
+            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                <button onclick="toggleCard('ex-9-5-classes')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                    <span><i class="fa-solid fa-code-fork mr-2 text-blue-600"></i> Examples of Equivalence Classes (Absolute value & Congruence Modulo m)</span>
+                    <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full">Expand Examples</span>
+                </button>
+                <div id="ex-9-5-classes" class="toggle-content p-5 space-y-3 text-sm border-t border-slate-200">
+                    <p><strong>Example 8 (page 610):</strong> For $a \, R \, b \iff |a| = |b|$, $[a] = \{-a, a\}$.</p>
+                    <p class="font-mono text-xs">• $[7] = \{-7, 7\}$, $[5] = \{-5, 5\}$, $[0] = \{0\}$.</p>
+
+                    <p><strong>Congruence Modulo $m$ Equivalence Classes:</strong></p>
+                    <p class="font-mono text-xs bg-slate-50 p-2.5 rounded border">
+                        $[a]_m = \{\dots, a-2m, a-m, a, a+m, a+2m, \dots\}$
+                    </p>
+                    <p class="text-xs">For modulo 4:</p>
+                    <p class="font-mono text-xs">• $[0]_4 = \{\dots, -8, -4, 0, 4, 8, \dots\}$</p>
+                    <p class="font-mono text-xs">• $[1]_4 = \{\dots, -7, -3, 1, 5, 9, \dots\}$</p>
+                    <p class="font-mono text-xs">• $[2]_4 = \{\dots, -6, -2, 2, 6, 10, \dots\}$</p>
+                    <p class="font-mono text-xs">• $[3]_4 = \{\dots, -5, -1, 3, 7, 11, \dots\}$</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Theorem 1 (3 Equivalent Statements) -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-blue-800 flex items-center gap-2">
+                <i class="fa-solid fa-circle-nodes text-blue-500"></i> 3. Equivalence Classes & Partition Theorems (等價類與分割定理)
+            </h3>
+
+            <div class="p-5 bg-blue-50/70 border border-blue-200 rounded-xl space-y-3">
+                <strong class="text-blue-950 text-base font-bold block">Theorem 1: Characterization of Equivalence Classes (page 612)</strong>
+                <p class="text-slate-800 text-sm md:text-base">
+                    Let $R$ be an equivalence relation on a set $A$. These statements are equivalent:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-2 text-center text-sm font-mono font-bold bg-white p-3 rounded border border-blue-200">
+                    <div class="p-2 bg-slate-50 rounded">(i) $a \, R \, b$</div>
+                    <div class="p-2 bg-slate-50 rounded">(ii) $[a] = [b]$</div>
+                    <div class="p-2 bg-slate-50 rounded">(iii) $[a] \cap [b] \ne \emptyset$</div>
+                </div>
+
+                <!-- Proof Toggle -->
+                <div class="border border-blue-200 rounded-lg bg-white overflow-hidden">
+                    <button onclick="toggleCard('proof-eq-thm1')" class="w-full p-3 text-left font-bold text-blue-900 flex justify-between items-center bg-blue-50 hover:bg-blue-100 transition text-sm">
+                        <span><i class="fa-solid fa-file-signature mr-2 text-blue-600"></i> Proof of Theorem 1 ((i) $\implies$ (ii) $\implies$ (iii) $\implies$ (i))</span>
+                        <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full">Expand Proof</span>
+                    </button>
+                    <div id="proof-eq-thm1" class="toggle-content p-5 space-y-3 text-xs md:text-sm border-t border-blue-200 text-slate-800">
+                        <div>
+                            <strong>(i) implies (ii):</strong> Suppose $a \, R \, b$. For any $c \in [a]$, we have $a \, R \, c$. Since $a \, R \, b$ and $R$ is symmetric, $b \, R \, a$. Since $R$ is transitive, $b \, R \, a$ and $a \, R \, c \implies b \, R \, c$, so $c \in [b]$. This proves $[a] \subseteq [b]$. Similarly, $[b] \subseteq [a]$. Therefore $[a] = [b]$.
+                        </div>
+                        <div>
+                            <strong>(ii) implies (iii):</strong> Assume $[a] = [b]$. Since $R$ is reflexive, $a \in [a]$. Thus $a \in [a] \cap [b]$, so $[a] \cap [b] \ne \emptyset$.
+                        </div>
+                        <div>
+                            <strong>(iii) implies (i):</strong> Suppose $[a] \cap [b] \ne \emptyset$. Then there exists $c \in [a] \cap [b]$, meaning $a \, R \, c$ and $b \, R \, c$. By symmetry, $c \, R \, b$. By transitivity, $a \, R \, c$ and $c \, R \, b \implies a \, R \, b$. $\blacksquare$
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Partition Definition & Theorem 2 -->
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                <strong class="text-blue-900 text-base font-bold block">Partition of a Set (集合的分割) (page 613)</strong>
+                <p class="text-slate-800 text-sm md:text-base">
+                    A <strong>partition (分割)</strong> of a set $S$ is a collection of disjoint nonempty subsets $A_i$ ($i \in I$) of $S$ that have $S$ as their union:
+                </p>
+                <ul class="list-disc list-inside text-xs md:text-sm text-slate-700 space-y-1 bg-white p-3 rounded border">
+                    <li>1. $A_i \ne \emptyset$ for all $i \in I$</li>
+                    <li>2. $A_i \cap A_j = \emptyset$ when $i \ne j$ (Disjoint)</li>
+                    <li>3. $\bigcup_{i \in I} A_i = S$</li>
                 </ul>
+
+                <!-- Example 7 -->
+                <div class="p-3 bg-white rounded border border-slate-200 text-xs md:text-sm space-y-1">
+                    <p><strong>Example 7 (page 613):</strong> Let $S = \{1, 2, 3, 4, 5, 6\}$. $A_1 = \{1,2,3\}$, $A_2 = \{4,5\}$, $A_3 = \{6\}$ forms a partition of $S$.</p>
+                    <p><strong>Constructing Relation from Partition:</strong> $a \, R \, b \iff a$ and $b$ are in the same subset.</p>
+                    <p class="font-mono text-xs text-blue-700 font-bold">• Ordered pairs: $A_1 \times A_1 \cup A_2 \times A_2 \cup A_3 \times A_3$.</p>
+                </div>
             </div>
 
-            <div class="formula-box">
-                <strong>定理 2 (Theorem 2 - 等價關係與劃分的雙射對應):</strong><br>
-                1. 設 $R$ 是集合 $S$ 上的等價關係，則 $R$ 的所有等價類構成 $S$ 的一個<strong>劃分</strong>。<br>
-                2. 反之，給定集合 $S$ 的任意劃分 $\{A_i \mid i \in I\}$，必存在一個等價關係 $R$，使得該劃分中的子集 $A_i$ 恰好為 $R$ 的所有等價類。
+            <!-- Theorem 2 -->
+            <div class="p-5 bg-indigo-50/70 border border-indigo-200 rounded-xl space-y-2">
+                <strong class="text-indigo-950 text-base font-bold block">Theorem 2: Fundamental Theorem of Equivalence Relations (page 613)</strong>
+                <p class="text-slate-800 text-sm md:text-base">
+                    Let $R$ be an equivalence relation on a set $S$. Then the equivalence classes of $R$ form a <strong>partition</strong> of $S$.
+                </p>
+                <p class="text-slate-800 text-sm md:text-base">
+                    Conversely, given a partition $\{A_i \mid i \in I\}$ of the set $S$, there is an equivalence relation $R$ that has the sets $A_i$ as its equivalence classes.
+                </p>
             </div>
+        </div>
+    </section>
 
-            <!-- 折疊區塊 -->
-            <details>
-                <summary>點擊展開：Theorem 1 證明過程 (Proof of Theorem 1)</summary>
-                <div class="details-content">
-                    <p><strong>【證明 (i) 推出 (ii)】：</strong><br>
-                    假設 $a \, R \, b$。任取 $c \in [a]$，則有 $a \, R \, c$。<br>
-                    因為 $a \, R \, b$ 且 $R$ 具有對稱性，故 $b \, R \, a$。<br>
-                    由 $b \, R \, a$ 且 $a \, R \, c$，根據 $R$ 的傳遞性得 $b \, R \, c$，即 $c \in [b]$。<br>
-                    這證明了 $[a] \subseteq [b]$。同理可證 $[b] \subseteq [a]$，故 $[a] = [b]$。</p>
+</main>
 
-                    <p><strong>【證明 (ii) 推出 (iii)】：</strong><br>
-                    假設 $[a] = [b]$。因為 $R$ 自反，故 $a \in [a]$，從而 $a \in [a] \cap [b]$，得 $[a] \cap [b] \neq \emptyset$。</p>
+<footer class="bg-slate-900 text-slate-400 text-center py-6 text-xs">
+    <p>Discrete Mathematics Review Guide — Chapter 9 Relations Complete Edition</p>
+</footer>
 
-                    <p><strong>【證明 (iii) 推出 (i)】：</strong><br>
-                    假設 $[a] \cap [b] \neq \emptyset$，即存在 $c \in [a] \cap [b]$。<br>
-                    由此可得 $a \, R \, c$ 且 $b \, R \, c$。<br>
-                    由對稱性，$b \, R \, c \implies c \, R \, b$。<br>
-                    由傳遞性，由 $a \, R \, c$ 且 $c \, R \, b$ 可推出 $a \, R \, b$。證畢。</p>
-                </div>
-            </details>
-
-            <details>
-                <summary>點擊展開：模 4 同餘與劃分範例 (Example 8 & Partition Example)</summary>
-                <div class="details-content">
-                    <p><strong>模 4 同餘的 4 個等價類（構成整數集 $\mathbb{Z}$ 的劃分）：</strong></p>
-                    <ul>
-                        <li>$[0]_4 = \{\dots, -8, -4, 0, 4, 8, \dots\}$</li>
-                        <li>$[1]_4 = \{\dots, -7, -3, 1, 5, 9, \dots\}$</li>
-                        <li>$[2]_4 = \{\dots, -6, -2, 2, 6, 10, \dots\}$</li>
-                        <li>$[3]_4 = \{\dots, -5, -1, 3, 7, 11, \dots\}$</li>
-                    </ul>
-                    <p><strong>由劃分構造等價關係 (Example 7)：</strong><br>
-                    集合 $S=\{1,2,3,4,5,6\}$ 被劃分為 $A_1=\{1,2,3\}, A_2=\{4,5\}, A_3=\{6\}$。<br>
-                    生成的等價關係序對包含：<br>
-                    $A_1 \times A_1 = \{(1,1),(1,2),(1,3),(2,1),(2,2),(2,3),(3,1),(3,2),(3,3)\}$;<br>
-                    $A_2 \times A_2 = \{(4,4),(4,5),(5,4),(5,5)\}$;<br>
-                    $A_3 \times A_3 = \{(6,6)\}$。<br>
-                    等價關係 $R = (A_1 \times A_1) \cup (A_2 \times A_2) \cup (A_3 \times A_3)$。</p>
-                </div>
-            </details>
-        </section>
-
-    </main>
+<!-- Interactive Script -->
+<script>
+    function toggleCard(id) {
+        const el = document.getElementById(id);
+        if (el) {
+            el.classList.toggle('show');
+        }
+    }
+</script>
 
 </body>
 </html>
