@@ -3199,11 +3199,59 @@
                             <p class="text-xs text-slate-600">$V_1 = \{v_1, v_3, v_5\}$，$V_2 = \{v_2, v_4, v_6\}$。</p>
                         </div>
 
-                        <div class="p-4 border border-slate-200 rounded-xl bg-slate-50 space-y-2 text-xs">
-                            <strong class="text-violet-900 font-bold block text-center">Example 11 (page 656): Graphs $G$ & $H$</strong>
-                            <p class="text-slate-700">• <strong>Graph $G$:</strong> <strong>Is bipartite</strong>，可劃分為兩個互斥子集 $\{a, b, d\}$ 與 $\{c, e, f, g\}$。</p>
-                            <p class="text-slate-700">• <strong>Graph $H$:</strong> <strong>Not bipartite</strong>，頂點 $a, b, f$ 兩兩相連形成三角形（奇數長度回路），無法進行二分劃分或 2-著色。</p>
-                        </div>
+                       <div class="p-4 border border-slate-200 rounded-xl bg-slate-50 space-y-2 text-xs">
+                        <strong class="text-violet-900 font-bold block text-center">Example 11 (page 656): Graphs $G$ & $H$</strong>
+                        <svg viewBox="0 0 340 150" class="w-full max-w-[320px] mx-auto bg-white rounded border border-slate-200 p-2">
+                            <!-- Graph G (Bipartite: {a,b,d} vs {c,e,f,g}) -->
+                            <g stroke="#334155" stroke-width="1.1">
+                                <line x1="70" y1="22" x2="145" y2="52"/>
+                                <line x1="70" y1="22" x2="35" y2="52"/>
+                                <line x1="70" y1="22" x2="70" y2="112"/>
+                                <line x1="35" y1="52" x2="70" y2="112"/>
+                                <line x1="35" y1="52" x2="115" y2="85"/>
+                                <line x1="115" y1="22" x2="145" y2="52"/>
+                                <line x1="115" y1="22" x2="70" y2="112"/>
+                                <line x1="70" y1="112" x2="115" y2="85"/>
+                                <line x1="115" y1="85" x2="145" y2="52"/>
+                                <line x1="35" y1="85" x2="115" y2="85"/>
+                            </g>
+                            <circle cx="70" cy="22" r="3" fill="#7c3aed"/><text x="66" y="15" font-size="9" font-weight="bold">a</text>
+                            <circle cx="115" cy="22" r="3" fill="#7c3aed"/><text x="112" y="15" font-size="9" font-weight="bold">b</text>
+                            <circle cx="145" cy="52" r="3" fill="#7c3aed"/><text x="150" y="55" font-size="9" font-weight="bold">c</text>
+                            <circle cx="115" cy="85" r="3" fill="#7c3aed"/><text x="120" y="95" font-size="9" font-weight="bold">d</text>
+                            <circle cx="70" cy="112" r="3" fill="#7c3aed"/><text x="67" y="124" font-size="9" font-weight="bold">e</text>
+                            <circle cx="35" cy="85" r="3" fill="#7c3aed"/><text x="24" y="88" font-size="9" font-weight="bold">f</text>
+                            <circle cx="35" cy="52" r="3" fill="#7c3aed"/><text x="24" y="55" font-size="9" font-weight="bold">g</text>
+                            <text x="85" y="140" font-size="10" font-weight="bold" text-anchor="middle" fill="#15803d">G (Bipartite)</text>
+                    
+                            <!-- Graph H (Not bipartite: triangle a-b-f highlighted in red) -->
+                            <g stroke="#334155" stroke-width="1.1">
+                                <line x1="230" y1="25" x2="285" y2="25"/>
+                                <line x1="230" y1="25" x2="205" y2="68"/>
+                                <line x1="230" y1="25" x2="230" y2="110"/>
+                                <line x1="230" y1="25" x2="285" y2="110"/>
+                                <line x1="285" y1="25" x2="312" y2="68"/>
+                                <line x1="285" y1="25" x2="285" y2="110"/>
+                                <line x1="285" y1="25" x2="230" y2="110"/>
+                                <line x1="205" y1="68" x2="230" y2="110"/>
+                                <line x1="205" y1="68" x2="285" y2="110"/>
+                                <line x1="205" y1="68" x2="312" y2="68"/>
+                                <line x1="230" y1="110" x2="285" y2="110"/>
+                                <line x1="285" y1="110" x2="312" y2="68"/>
+                            </g>
+                            <polyline points="230,25 285,25 205,68 230,25" fill="none" stroke="#dc2626" stroke-width="1.8"/>
+                            <circle cx="230" cy="25" r="3" fill="#dc2626"/><text x="226" y="18" font-size="9" font-weight="bold">a</text>
+                            <circle cx="285" cy="25" r="3" fill="#dc2626"/><text x="282" y="18" font-size="9" font-weight="bold">b</text>
+                            <circle cx="312" cy="68" r="3" fill="#7c3aed"/><text x="317" y="71" font-size="9" font-weight="bold">c</text>
+                            <circle cx="285" cy="110" r="3" fill="#7c3aed"/><text x="282" y="122" font-size="9" font-weight="bold">d</text>
+                            <circle cx="230" cy="110" r="3" fill="#7c3aed"/><text x="227" y="122" font-size="9" font-weight="bold">e</text>
+                            <circle cx="205" cy="68" r="3" fill="#dc2626"/><text x="194" y="71" font-size="9" font-weight="bold">f</text>
+                            <text x="260" y="140" font-size="10" font-weight="bold" text-anchor="middle" fill="#dc2626">H (Not Bipartite)</text>
+                        </svg>
+                        <p class="text-slate-700">• <strong>Graph $G$:</strong> <strong>Is bipartite</strong>，可劃分為兩個互斥子集 $\{a, b, d\}$ 與 $\{c, e, f, g\}$。</p>
+                        <p class="text-slate-700">• <strong>Graph $H$:</strong> <strong>Not bipartite</strong>，頂點 $a, b, f$ 兩兩相連形成三角形（奇數長度回路），無法進行二分劃分或 2-著色。</p>
+                    </div>
+                        
                     </div>
 
                     <!-- Complete Bipartite K_{m,n} -->
