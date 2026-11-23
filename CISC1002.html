@@ -45,6 +45,19 @@
         
         <!-- 導航選單：支援 Ch2 與 Ch9 子選單展開 -->
         <nav class="flex flex-wrap items-center gap-3 text-xs md:text-sm font-medium">
+
+            <!-- Chapter 1 Dropdown -->
+            <div class="relative group py-2">
+                <button class="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition flex items-center gap-1.5 font-medium">
+                    <span>Chapter 1 (Logic & Proof)</span>
+                    <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                </button>
+                <div class="absolute left-0 mt-0 w-56 bg-slate-800 border border-slate-700 rounded-lg shadow-lg hidden group-hover:block z-50 py-1">
+                    <a href="#chap1-overview" class="block px-4 py-2 hover:bg-slate-700 text-slate-200">Ch1 Overview</a>
+                    <a href="#sec1-1" class="block px-4 py-2 hover:bg-slate-700 text-slate-200">§1.1 Propositional Logic</a>
+                </div>
+            </div>
+            
             <!-- Chapter 2 Dropdown -->
             <div class="relative group py-2"> <!-- 加上 py-2 擴大上方與周圍的懸停觸發範圍 -->
                 <button class="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition flex items-center gap-1.5">
@@ -96,7 +109,196 @@
 
 <main class="max-w-7xl mx-auto px-4 py-8 space-y-8">
 
+    <!-- CHAPTER 1 OVERVIEW -->
+    <section id="chap1-overview" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
+        <div class="border-b pb-4 mb-4">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <i class="fa-solid fa-book-open text-indigo-600"></i> Chapter 1 Logic & Proof Overview (第一章邏輯與證明總覽)
+            </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                <span class="font-bold text-indigo-700 block text-base mb-1">§ 1.1 Propositional Logic & Applications</span>
+                <p class="text-slate-600">命題定義與真值、邏輯運算子（$\neg, \wedge, \vee, \oplus, \rightarrow, \leftrightarrow$）、逆／逆否／否命題、複合命題真值表、運算優先級與自然語言翻譯（if, only if, unless, necessary/sufficient）。</p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 opacity-70">
+                <span class="font-bold text-slate-500 block text-base mb-1">§ 1.2 – § 1.8 (後續章節)</span>
+                <p class="text-slate-500">Propositional Equivalences、Predicates & Quantifiers、Nested Quantifiers、Rules of Inference、Introduction to Proofs、Proof Methods & Strategy。</p>
+            </div>
+        </div>
+    </section>
 
+    <!-- ================= SECTION 1.1 ================= -->
+    <section id="sec1-1" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b pb-4 flex items-center justify-between">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 1.1</span>
+                Propositional Logic & Applications (命題邏輯與應用)
+            </h2>
+            <span class="text-xs text-slate-500 font-mono">Page 1 - 19</span>
+        </div>
+
+        <!-- 1. Propositions & Logical Operators -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-circle-dot text-indigo-500 text-sm"></i> 1. Propositions & Basic Logical Operators (命題與基本邏輯運算)
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-indigo-900 text-base font-bold block">Definition: Proposition (命題)</strong>
+                    <p class="text-slate-700">A <strong>proposition (命題)</strong> is a declarative statement that is <strong>true (T)</strong> or <strong>false (F)</strong>, but not both.</p>
+                    <p class="text-xs text-slate-600">• <strong>是命題：</strong>"Washington, D.C. is the capital of the United States." (T)、"Toronto is the capital of Canada." (F)、"$1+1=2$" (T)、"$2+2=3$" (F)。</p>
+                    <p class="text-xs text-slate-600">• <strong>非命題：</strong>疑問句（What time is it now?）、祈使句（Read it carefully!）、含自由變數的敘述（$x+1=2$、$x+y=z$）。</p>
+                </div>
+
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-indigo-900 text-base font-bold block">Negation $\neg p$ (否定／非)</strong>
+                    <p class="text-slate-700">Let $p$ be a proposition. The negation of $p$, denoted by $\neg p$ ("not $p$"), has the opposite truth value of $p$（$p$ 為 $\text{T}$ 時 $\neg p$ 為 $\text{F}$；$p$ 為 $\text{F}$ 時 $\neg p$ 為 $\text{T}$）。</p>
+                    <p class="text-xs text-slate-600 bg-white p-2 rounded border border-slate-200">
+                        <strong>Example 3:</strong> $p$: "Today is Friday." $\implies \neg p$: "It is not the case that today is Friday." / "Today is not Friday."
+                    </p>
+                </div>
+            </div>
+
+            <!-- Operators Table -->
+            <div class="overflow-x-auto rounded-xl border border-slate-200">
+                <table class="w-full text-left border-collapse text-sm bg-white">
+                    <thead>
+                        <tr class="bg-indigo-50 text-indigo-950 border-b border-slate-200">
+                            <th class="py-3 px-4 font-bold">Operator (運算)</th>
+                            <th class="py-3 px-4 font-bold">Notation (符號)</th>
+                            <th class="py-3 px-4 font-bold">Truth Rule (真值條件)</th>
+                            <th class="py-3 px-4 font-bold">$p,q$ 真值表 (TT, TF, FT, FF)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 text-slate-700">
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-3 px-4 font-bold text-slate-900">Negation (非)</td>
+                            <td class="py-3 px-4 font-mono">$\neg p$</td>
+                            <td class="py-3 px-4">與 $p$ 相反</td>
+                            <td class="py-3 px-4 font-mono text-xs">($p$: T, F $\to$ F, T)</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-3 px-4 font-bold text-slate-900">Conjunction (合取／且)</td>
+                            <td class="py-3 px-4 font-mono">$p \wedge q$</td>
+                            <td class="py-3 px-4"><strong>$p$ 與 $q$ 皆為 T</strong> 時為 T，否則為 F</td>
+                            <td class="py-3 px-4 font-mono text-xs">T, F, F, F</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-3 px-4 font-bold text-slate-900">Disjunction (析取／或)</td>
+                            <td class="py-3 px-4 font-mono">$p \vee q$</td>
+                            <td class="py-3 px-4"><strong>$p$ 與 $q$ 皆為 F</strong> 時為 F，否則為 T</td>
+                            <td class="py-3 px-4 font-mono text-xs">T, T, T, F</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-3 px-4 font-bold text-slate-900">Exclusive OR (異或)</td>
+                            <td class="py-3 px-4 font-mono">$p \oplus q$</td>
+                            <td class="py-3 px-4"><strong>恰有一個為 T</strong> 時為 T，相同時為 F</td>
+                            <td class="py-3 px-4 font-mono text-xs">F, T, T, F</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-3 px-4 font-bold text-slate-900">Implication (蘊含／條件)</td>
+                            <td class="py-3 px-4 font-mono">$p \rightarrow q$</td>
+                            <td class="py-3 px-4"><strong>$p$ 為 T 且 $q$ 為 F</strong> 時為 F，其餘皆為 T</td>
+                            <td class="py-3 px-4 font-mono text-xs">T, F, T, T</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-3 px-4 font-bold text-slate-900">Biconditional (雙條件／當且僅當)</td>
+                            <td class="py-3 px-4 font-mono">$p \leftrightarrow q$</td>
+                            <td class="py-3 px-4"><strong>$p$ 與 $q$ 真值相同</strong> 時為 T，等價於 $(p \rightarrow q) \wedge (q \rightarrow p)$</td>
+                            <td class="py-3 px-4 font-mono text-xs">T, F, F, T</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 2. Converse, Contrapositive, Inverse & Precedence -->
+        <div class="space-y-4 pt-4 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-arrows-rotate text-indigo-500 text-sm"></i> 2. Related Implications & Operator Precedence (相關條件命題與運算優先級)
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-indigo-900 font-bold block text-base">Variants of Implication $p \rightarrow q$</strong>
+                    <ul class="space-y-1 text-slate-700 text-xs md:text-sm">
+                        <li>• <strong>Converse (逆命題):</strong> $q \rightarrow p$</li>
+                        <li>• <strong>Contrapositive (逆否命題):</strong> $\neg q \rightarrow \neg p$</li>
+                        <li>• <strong>Inverse (否命題):</strong> $\neg p \rightarrow \neg q$</li>
+                    </ul>
+                    <p class="text-xs text-slate-600 bg-white p-2 rounded border border-slate-200">
+                        <strong>Example 9:</strong> "The home team wins whenever it is raining." $\equiv$ "If it is raining ($p$), then the home team wins ($q$)."
+                    </p>
+                </div>
+
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-indigo-900 font-bold block text-base">Precedence of Logical Operations (Page 11)</strong>
+                    <p class="text-xs text-slate-700">由高到低（1 最高、5 最低）：</p>
+                    <p class="text-xs font-mono bg-white p-2 rounded border border-slate-200 text-indigo-900">
+                        1: $\neg$ &nbsp;→&nbsp; 2: $\wedge$ &nbsp;→&nbsp; 3: $\vee$ &nbsp;→&nbsp; 4: $\rightarrow$ &nbsp;→&nbsp; 5: $\leftrightarrow$
+                    </p>
+                    <p class="text-xs text-slate-600">例：$p \wedge q \vee r$ 等價於 $(p \wedge q) \vee r$；$p \vee q \rightarrow r$ 等價於 $(p \vee q) \rightarrow r$。</p>
+                </div>
+            </div>
+
+            <!-- Toggle: Compound Truth Table Example 11 -->
+            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                <button onclick="toggleCard('fig-1-1-truthtable')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                    <span><i class="fa-solid fa-table-cells mr-2 text-indigo-600"></i> Example 11 Truth Table: $(p \vee \neg q) \rightarrow (p \wedge q)$ (點擊展開真值表)</span>
+                    <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full">Expand Table</span>
+                </button>
+                <div id="fig-1-1-truthtable" class="toggle-content p-6 text-xs md:text-sm border-t border-slate-200">
+                    <div class="overflow-x-auto rounded-lg border border-slate-200">
+                        <table class="w-full text-center border-collapse bg-white">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-900 border-b border-slate-200 font-mono">
+                                    <th class="py-2 px-3">$p$</th>
+                                    <th class="py-2 px-3">$q$</th>
+                                    <th class="py-2 px-3">$\neg q$</th>
+                                    <th class="py-2 px-3">$p \vee \neg q$</th>
+                                    <th class="py-2 px-3">$p \wedge q$</th>
+                                    <th class="py-2 px-3 text-indigo-800">$(p \vee \neg q) \rightarrow (p \wedge q)$</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 font-mono">
+                                <tr><td class="py-2 px-3">T</td><td class="py-2 px-3">T</td><td class="py-2 px-3">F</td><td class="py-2 px-3">T</td><td class="py-2 px-3">T</td><td class="py-2 px-3 font-bold text-indigo-700">T</td></tr>
+                                <tr><td class="py-2 px-3">T</td><td class="py-2 px-3">F</td><td class="py-2 px-3">T</td><td class="py-2 px-3">T</td><td class="py-2 px-3">F</td><td class="py-2 px-3 font-bold text-red-600">F</td></tr>
+                                <tr><td class="py-2 px-3">F</td><td class="py-2 px-3">T</td><td class="py-2 px-3">F</td><td class="py-2 px-3">F</td><td class="py-2 px-3">F</td><td class="py-2 px-3 font-bold text-indigo-700">T</td></tr>
+                                <tr><td class="py-2 px-3">F</td><td class="py-2 px-3">F</td><td class="py-2 px-3">T</td><td class="py-2 px-3">T</td><td class="py-2 px-3">F</td><td class="py-2 px-3 font-bold text-red-600">F</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Translating English Sentences -->
+        <div class="space-y-4 pt-4 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-language text-indigo-500 text-sm"></i> 3. Translating English Sentences (邏輯語句翻譯對照，Page 17)
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2 text-xs md:text-sm">
+                    <strong class="text-indigo-900 font-bold block text-base">常見條件句型對照</strong>
+                    <p class="text-slate-700">• <strong>If $p$, then $q$ / $q$ if $p$ / $p$ is sufficient for $q$:</strong> $p \rightarrow q$</p>
+                    <p class="text-slate-700">• <strong>$p$ only if $q$ / $q$ is necessary for $p$:</strong> $p \rightarrow q$</p>
+                    <p class="text-slate-700">• <strong>$p$ if and only if $q$ (necessary and sufficient):</strong> $p \leftrightarrow q$</p>
+                    <p class="text-slate-700">• <strong>$p$ unless $q$ ($p$ except if $q$):</strong> $\neg q \rightarrow p$（等價於 $p \vee q$）</p>
+                </div>
+
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2 text-xs md:text-sm">
+                    <strong class="text-indigo-900 font-bold block text-base">講義例題翻譯重點</strong>
+                    <p class="text-slate-700">• <strong>Example 1:</strong> "Access campus internet ($a$) <strong>only if</strong> CS major ($b$) or not freshman ($\neg c$)" $\implies a \rightarrow (b \vee \neg c)$。</p>
+                    <p class="text-slate-700">• <strong>Example 2:</strong> "Cannot ride roller coaster ($\neg q$) <strong>if</strong> under 4 ft ($r$) <strong>unless</strong> older than 16 ($s$)" $\implies (r \wedge \neg s) \rightarrow \neg q$（或 $\neg s \rightarrow (r \rightarrow \neg q)$）。</p>
+                    <p class="text-slate-700">• <strong>Exercises:</strong> Exercise 1.1 (13, 19)、Exercise 1.2 (1, 3)。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- CHAPTER 2 OVERVIEW -->
     <section id="chap2-overview" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
         <div class="border-b pb-4 mb-4">
