@@ -1088,13 +1088,24 @@
                         <span>Example 23 & Example 24 Translation Comparison (Way 1 vs Way 2, 點擊展開)</span>
                         <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
                     </button>
-                    <div id="ex-1-4-trans" class="toggle-content p-4 space-y-2 text-slate-700 border-t border-slate-200 bg-white">
-                        <p>• <strong>Example 23 (page 48):</strong> "Every student in this class has studied calculus."</p>
-                        <p class="pl-4">Way 1（個體域為本班全體學生，設 $C(x)$ 為 "$x$ has studied calculus"）：$\forall x\, C(x)$。</p>
-                        <p class="pl-4">Way 2（個體域為 all people，設 $S(x)$ 為 "person $x$ is in this class"，$C(x)$ 為 "person $x$ has studied calculus"）：$\forall x(S(x) \rightarrow C(x))$（正確；$\forall x(S(x) \wedge C(x))$ 錯誤）。</p>
-                        <p>• <strong>Example 24 (page 49):</strong></p>
-                        <p class="pl-4">(a) "Some students in this class has visited Mexico."：Way 1（個體域為本班學生）為 $\exists x\, M(x)$；Way 2（個體域為 all people）為 $\exists x(S(x) \wedge M(x))$（正確；$\exists x(S(x) \rightarrow M(x))$ 錯誤）。</p>
-                        <p class="pl-4">(b) "Every student in this class has visited Canada or Mexico."：Way 1（個體域為本班學生）為 $\forall x(C(x) \vee M(x))$；Way 2（個體域為 all people）為 $\forall x(S(x) \rightarrow (C(x) \vee M(x)))$。</p>
+                    <div id="ex-1-4-trans" class="toggle-content p-4 space-y-3 text-slate-700 border-t border-slate-200 bg-white">
+                        <div class="space-y-1">
+                            <p>• <strong>Example 23 (page 48):</strong> Express the statement "Every student in this class has studied calculus" in predicates and quantifiers.</p>
+                            <p class="pl-4"><strong>Way 1:</strong> 設 $C(x)$ 為 "$x$ has studied calculus"，domain 為 all the students in the class $\implies \forall x\, C(x)$。</p>
+                            <p class="pl-4"><strong>Way 2:</strong> 設 domain 為 all people，$S(x)$ 為 "person $x$ is in this class"，$C(x)$ 為 "person $x$ has studied calculus"（"For every person $x$, if person $x$ is in this class then $x$ has studied calculus."）$\implies \forall x(S(x) \rightarrow C(x))$（correct；$\forall x(S(x) \wedge C(x))$ wrong）。</p>
+                        </div>
+
+                        <div class="space-y-1.5 pt-2 border-t border-slate-100">
+                            <p>• <strong>Example 24 (page 49):</strong> Express the statements below in predicates and quantifiers:</p>
+                            <p class="pl-4">(1) "Some students in this class has visited Mexico"</p>
+                            <p class="pl-4">(2) "Every student in this class has visited Canada or Mexico"</p>
+                            <p class="pl-4 font-bold text-slate-800 pt-1">Answer (a) — For (1):</p>
+                            <p class="pl-8"><strong>Way 1:</strong> 設 $M(x)$ 為 "$x$ has visited Mexico"，domain 為 all the students in this class $\implies \exists x\, M(x)$。</p>
+                            <p class="pl-8"><strong>Way 2:</strong> 設 domain 為 all people，$S(x)$ 為 "$x$ is a student in this class"，$M(x)$ 為 "$x$ has visited Mexico" $\implies \exists x(S(x) \wedge M(x))$（correct；$\exists x(S(x) \rightarrow M(x))$ wrong）。</p>
+                            <p class="pl-4 font-bold text-slate-800 pt-1">Answer (b) — For (2):</p>
+                            <p class="pl-8"><strong>Way 1:</strong> 設 $C(x)$ 為 "$x$ has visited Canada"，$M(x)$ 為 "$x$ has visited Mexico"，domain 為 all the students in this class $\implies \forall x(C(x) \vee M(x))$。</p>
+                            <p class="pl-8"><strong>Way 2:</strong> 設 domain 為 all people，$S(x)$ 為 "$x$ is a student in this class"，$C(x)$ 為 "$x$ has visited Canada"，$M(x)$ 為 "$x$ has visited Mexico" $\implies \forall x(S(x) \rightarrow (C(x) \vee M(x)))$。</p>
+                        </div>
                     </div>
                 </div>
 
