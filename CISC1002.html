@@ -1186,30 +1186,42 @@
                         </tbody>
                     </table>
                 </div>
-
+                
                 <!-- Expandable: Example 3, 4, 5 -->
                 <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
                     <button onclick="toggleCard('ex-1-5-order')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
                         <span>Quantifier Order Examples: Example 3, Example 4 & Example 5 (點擊展開)</span>
                         <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
                     </button>
-                    <div id="ex-1-5-order" class="toggle-content p-4 space-y-2.5 text-slate-700 border-t border-slate-200 bg-white">
-                        <div>
-                            <p>• <strong>Example 3 (page 58):</strong> 設 $P(x, y)$ 為 "$x + y = y + x$"，所有變數的個體域為全體實數。</p>
-                            <p class="pl-4">$\forall x \forall y\, P(x, y)$ 為 <strong>true</strong>，$\forall y \forall x\, P(x, y)$ 為 <strong>true</strong>，故 $\forall x \forall y\, P(x, y) \equiv \forall y \forall x\, P(x, y)$。</p>
+                    <div id="ex-1-5-order" class="toggle-content p-4 space-y-4 text-slate-700 border-t border-slate-200 bg-white">
+                        <div class="space-y-2 pb-1">
+                            <p class="leading-relaxed">• <strong>Example 3 (page 58):</strong> 設 $P(x, y)$ 為 "$x + y = y + x$"，所有變數的個體域為全體實數。</p>
+                            <div class="ml-4 mt-1 p-2.5 bg-slate-50 rounded-lg border border-slate-200 font-mono text-xs md:text-sm overflow-x-auto space-y-1.5">
+                                <p>$\forall x \forall y\, P(x, y)$ <span class="font-sans">為</span> <strong class="font-sans">true</strong></p>
+                                <p>$\forall y \forall x\, P(x, y)$ <span class="font-sans">為</span> <strong class="font-sans">true</strong></p>
+                                <p class="pt-1 border-t border-slate-200"><span class="font-sans">故 </span>$\forall x \forall y\, P(x, y) \equiv \forall y \forall x\, P(x, y)$</p>
+                            </div>
                         </div>
-                        <div class="pt-2 border-t border-slate-100">
-                            <p>• <strong>Example 4 (page 59):</strong> 設 $Q(x, y)$ 為 "$x + y = 0$"，個體域為全體實數，比較 $\exists y \forall x\, Q(x, y)$ 與 $\forall x \exists y\, Q(x, y)$：</p>
-                            <p class="pl-4">(a) $\exists y \forall x\, Q(x, y)$："There is a real number $y$ such that for every real number $x$, $Q(x, y)$."（存在一個固定的實數 $y$ 使所有實數 $x$ 皆滿足 $x + y = 0$）$\implies$ <strong>false</strong>。</p>
-                            <p class="pl-4">(b) $\forall x \exists y\, Q(x, y)$："For every real number $x$ there is a real number $y$ such that $Q(x, y)$."（對每個實數 $x$ 皆可找到對應的 $y = -x$ 使 $x + y = 0$）$\implies$ <strong>true</strong>。</p>
-                            <p class="pl-4">(c) 因此 $\exists y \forall x\, Q(x, y) \not\equiv \forall x \exists y\, Q(x, y)$（not equivalent）。</p>
+                        <div class="pt-4 border-t border-slate-200 space-y-2.5">
+                            <p class="leading-relaxed">• <strong>Example 4 (page 59):</strong> 設 $Q(x, y)$ 為 "$x + y = 0$"，個體域為全體實數，比較 $\exists y \forall x\, Q(x, y)$ 與 $\forall x \exists y\, Q(x, y)$：</p>
+                            <div class="pl-4 space-y-1.5 leading-relaxed">
+                                <p>(a) $\exists y \forall x\, Q(x, y)$："There is a real number $y$ such that for every real number $x$, $Q(x, y)$."</p>
+                                <p class="pl-4 text-slate-600">（存在一個固定的實數 $y$ 使所有實數 $x$ 皆滿足 $x + y = 0$）$\implies$ <strong class="text-slate-800">false</strong>。</p>
+                            </div>
+                            <div class="pl-4 space-y-1.5 leading-relaxed">
+                                <p>(b) $\forall x \exists y\, Q(x, y)$："For every real number $x$ there is a real number $y$ such that $Q(x, y)$."</p>
+                                <p class="pl-4 text-slate-600">（對每個實數 $x$ 皆可找到對應的 $y = -x$ 使 $x + y = 0$）$\implies$ <strong class="text-slate-800">true</strong>。</p>
+                            </div>
+                            <p class="pl-4 pt-1 leading-relaxed">(c) 因此 $\exists y \forall x\, Q(x, y) \not\equiv \forall x \exists y\, Q(x, y)$（not equivalent）。</p>
                         </div>
-                        <div class="pt-2 border-t border-slate-100">
-                            <p>• <strong>Example 5 (page 59):</strong> 設 $Q(x, y, z)$ 為 "$x + y = z$"，個體域為全體實數：</p>
-                            <p class="pl-4">$\forall x \forall y \exists z\, Q(x, y, z)$ 為 <strong>true</strong>（取 $z = x + y$）；而 $\exists z \forall x \forall y\, Q(x, y, z)$ 為 <strong>false</strong>（不存在固定常數 $z$ 等於所有 $x + y$）。</p>
+                        <div class="pt-4 border-t border-slate-200 space-y-2">
+                            <p class="leading-relaxed">• <strong>Example 5 (page 59):</strong> 設 $Q(x, y, z)$ 為 "$x + y = z$"，個體域為全體實數：</p>
+                            <p class="pl-4 leading-relaxed">$\forall x \forall y \exists z\, Q(x, y, z)$ 為 <strong>true</strong>（取 $z = x + y$）；</p>
+                            <p class="pl-4 leading-relaxed">而 $\exists z \forall x \forall y\, Q(x, y, z)$ 為 <strong>false</strong>（不存在固定常數 $z$ 等於所有 $x + y$）。</p>
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
 
