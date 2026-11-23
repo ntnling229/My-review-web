@@ -76,15 +76,16 @@
                 </div>
             </div>
 
-            <!-- Chapter 10 Dropdown test-->
+            <!-- Chapter 10 Dropdown -->
             <div class="relative group py-2">
                 <button class="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition flex items-center gap-1.5 font-medium">
                     <span>Chapter 10 (Graphs)</span>
                     <i class="fa-solid fa-chevron-down text-[10px]"></i>
                 </button>
-                <div class="absolute left-0 mt-0 w-52 bg-slate-800 border border-slate-700 rounded-lg shadow-lg hidden group-hover:block z-50 py-1">
+                <div class="absolute left-0 mt-0 w-56 bg-slate-800 border border-slate-700 rounded-lg shadow-lg hidden group-hover:block z-50 py-1">
                     <a href="#chap10-overview" class="block px-4 py-2 hover:bg-slate-700 text-slate-200">Ch10 Overview</a>
                     <a href="#sec10-1" class="block px-4 py-2 hover:bg-slate-700 text-slate-200">§10.1 Introduction to Graphs</a>
+                    <a href="#sec10-2" class="block px-4 py-2 hover:bg-slate-700 text-slate-200">§10.2 Graph Terminology</a>
                 </div>
             </div>
             
@@ -2846,6 +2847,487 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION 10.2 ================= -->
+    <section id="sec10-2" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b pb-4 flex items-center justify-between">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-violet-100 text-violet-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 10.2</span>
+                Graph Terminology (圖的基本術語與特殊圖)
+            </h2>
+            <span class="text-xs text-slate-500 font-mono">Page 651 - 664</span>
+        </div>
+
+        <!-- 1. Basic Terminology & Degrees -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-violet-800 flex items-center gap-2">
+                <i class="fa-solid fa-circle-dot text-violet-500 text-sm"></i> 1. Basic Terminology & Degrees (基本術語與度數，Page 651 - 654)
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-violet-900 text-base font-bold block">Definition 1 (page 651): Adjacent, Incident & Endpoints</strong>
+                    <p class="text-slate-700">Two vertices $u$ and $v$ in an undirected graph $G$ are called <strong>adjacent (相鄰的)</strong> or <strong>neighbors (鄰居)</strong> in $G$ if $\{u, v\}$ is an edge of $G$.</p>
+                    <p class="text-slate-700">If $e = \{u, v\}$, the edge $e$ is called <strong>incident (關聯的)</strong> with vertices $u$ and $v$, connecting its <strong>endpoints (端點)</strong> $u$ and $v$.</p>
+                </div>
+
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-violet-900 text-base font-bold block">Definition 3 (page 652): Degree $\deg(v)$ (頂點度數)</strong>
+                    <p class="text-slate-700">The degree of a vertex $v$ in an undirected graph, denoted by $\deg(v)$, is the number of edges incident with it, except that a <strong>loop (自環) contributes twice</strong> to the degree.</p>
+                    <p class="text-xs text-slate-600 bg-white p-2 rounded border border-slate-200">
+                        • <strong>Isolated (孤立頂點):</strong> $\deg(v) = 0$（不與任何頂點相鄰）。<br>
+                        • <strong>Pendant (懸掛頂點):</strong> $\deg(v) = 1$（恰與一個頂點相鄰）。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Toggle: Figure 1 Degree Examples (G & H) -->
+            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                <button onclick="toggleCard('fig-10-2-deg')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                    <span><i class="fa-solid fa-diagram-project mr-2 text-violet-600"></i> Figure 1 (page 652): Degree Examples on Graphs G & H (點擊展開圖解)</span>
+                    <span class="text-xs bg-violet-600 text-white px-2.5 py-1 rounded-full">Expand Diagram</span>
+                </button>
+                <div id="fig-10-2-deg" class="toggle-content p-6 space-y-4 text-xs md:text-sm border-t border-slate-200">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                        <!-- Graph G SVG -->
+                        <div class="p-4 border border-slate-200 rounded-xl bg-slate-50 text-center space-y-2">
+                            <span class="font-bold text-violet-900 block">Graph $G$ ($\deg(e)=3, \deg(g)=0$)</span>
+                            <svg viewBox="0 0 320 180" class="w-full max-w-[300px] mx-auto bg-white rounded border border-slate-200 p-2">
+                                <!-- Edges in G -->
+                                <line x1="35" y1="145" x2="115" y2="45" stroke="#334155" stroke-width="1.5"/>
+                                <line x1="35" y1="145" x2="115" y2="145" stroke="#334155" stroke-width="1.5"/>
+                                <line x1="115" y1="45" x2="115" y2="145" stroke="#334155" stroke-width="1.5"/>
+                                <line x1="115" y1="45" x2="210" y2="45" stroke="#334155" stroke-width="1.5"/>
+                                <line x1="115" y1="45" x2="210" y2="145" stroke="#334155" stroke-width="1.5"/>
+                                <line x1="115" y1="145" x2="210" y2="45" stroke="#334155" stroke-width="1.5"/>
+                                <line x1="115" y1="145" x2="210" y2="145" stroke="#334155" stroke-width="1.5"/>
+                                <line x1="210" y1="45" x2="210" y2="145" stroke="#334155" stroke-width="1.5"/>
+                                <line x1="210" y1="45" x2="295" y2="45" stroke="#334155" stroke-width="1.5"/>
+                                <!-- Vertices -->
+                                <circle cx="35" cy="145" r="4" fill="#7c3aed"/><text x="28" y="163" font-size="12" font-weight="bold">a</text>
+                                <circle cx="115" cy="45" r="4" fill="#7c3aed"/><text x="110" y="33" font-size="12" font-weight="bold">b</text>
+                                <circle cx="210" cy="45" r="4" fill="#7c3aed"/><text x="205" y="33" font-size="12" font-weight="bold">c</text>
+                                <circle cx="295" cy="45" r="4" fill="#7c3aed"/><text x="290" y="33" font-size="12" font-weight="bold">d</text>
+                                <circle cx="115" cy="145" r="4" fill="#7c3aed"/><text x="110" y="163" font-size="12" font-weight="bold">f</text>
+                                <circle cx="210" cy="145" r="4" fill="#7c3aed"/><text x="205" y="163" font-size="12" font-weight="bold">e</text>
+                                <circle cx="295" cy="145" r="4" fill="#dc2626"/><text x="290" y="163" font-size="12" font-weight="bold" fill="#dc2626">g</text>
+                            </svg>
+                            <p class="text-xs text-slate-600">$e$ 連接 $b, c, f$（$\deg(e)=3$）；$g$ 為孤立頂點（$\deg(g)=0$）；$d$ 為懸掛頂點（$\deg(d)=1$）。</p>
+                        </div>
+
+                        <!-- Graph H SVG -->
+                        <div class="p-4 border border-slate-200 rounded-xl bg-slate-50 text-center space-y-2">
+                            <span class="font-bold text-violet-900 block">Graph $H$ ($\deg(e)=6, \deg(b)=6$)</span>
+                            <svg viewBox="0 0 320 180" class="w-full max-w-[300px] mx-auto bg-white rounded border border-slate-200 p-2">
+                                <!-- Loop at b -->
+                                <circle cx="155" cy="24" r="14" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+                                <!-- Edges -->
+                                <line x1="65" y1="45" x2="155" y2="45" stroke="#334155" stroke-width="1.5"/>
+                                <line x1="65" y1="45" x2="215" y2="145" stroke="#334155" stroke-width="1.5"/>
+                                <line x1="155" y1="45" x2="265" y2="45" stroke="#334155" stroke-width="1.5"/>
+                                <line x1="155" y1="45" x2="155" y2="145" stroke="#334155" stroke-width="1.5"/>
+                                <line x1="155" y1="45" x2="215" y2="145" stroke="#334155" stroke-width="1.5"/>
+                                <!-- a-e parallel edges -->
+                                <path d="M 65 45 Q 50 95 65 145" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+                                <path d="M 65 45 Q 80 95 65 145" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+                                <!-- e-d parallel edges -->
+                                <line x1="65" y1="145" x2="215" y2="145" stroke="#334155" stroke-width="1.5"/>
+                                <path d="M 65 145 Q 140 132 215 145" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+                                <path d="M 65 145 Q 140 158 215 145" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+                                <!-- Vertices -->
+                                <circle cx="65" cy="45" r="4" fill="#7c3aed"/><text x="50" y="38" font-size="12" font-weight="bold">a</text>
+                                <circle cx="155" cy="45" r="4" fill="#7c3aed"/><text x="142" y="38" font-size="12" font-weight="bold">b</text>
+                                <circle cx="265" cy="45" r="4" fill="#7c3aed"/><text x="272" y="48" font-size="12" font-weight="bold">c</text>
+                                <circle cx="65" cy="145" r="4" fill="#7c3aed"/><text x="50" y="160" font-size="12" font-weight="bold">e</text>
+                                <circle cx="215" cy="145" r="4" fill="#7c3aed"/><text x="222" y="160" font-size="12" font-weight="bold">d</text>
+                            </svg>
+                            <p class="text-xs text-slate-600">$b$ 含 1 個自環（+2）、連 $a$（+1）、連 $c$（+1）、連 $e$（+1）、連 $d$（+1），共 $\deg(b)=6$；$e$ 有 2 條連 $a$、3 條連 $d$、1 條連 $b$，共 $\deg(e)=6$。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Handshaking Theorem & Theorem 2 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div class="p-4 bg-violet-50/60 rounded-xl border border-violet-200 space-y-2">
+                    <strong class="text-violet-950 text-base font-bold block">The Handshaking Theorem (握手定理，Page 653)</strong>
+                    <p class="text-slate-700">Let $G = (V, E)$ be an undirected graph with $e$ edges. Then:</p>
+                    <div class="p-2.5 bg-white font-mono font-bold text-violet-800 rounded border border-violet-200 text-center">
+                        $2e = \sum_{v \in V} \deg(v)$
+                    </div>
+                    <p class="text-xs text-slate-600"><strong>Example 3 (page 653):</strong> 10 vertices each of degree 6 $\implies 2e = 10 \times 6 = 60 \implies e = 30$.</p>
+                </div>
+
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-violet-900 text-base font-bold block">Theorem 2 (page 653): Even Number of Odd-Degree Vertices</strong>
+                    <p class="text-slate-700">An undirected graph has an <strong>even (偶數)</strong> number of vertices of <strong>odd (奇數)</strong> degree.</p>
+                    <p class="text-xs font-mono text-slate-600 bg-white p-2 rounded border border-slate-200">
+                        $2e = \sum_{v \in V_1} \deg(v) + \sum_{v \in V_2} \deg(v)$<br>
+                        <span class="font-sans text-slate-500">($V_1$: 偶度數頂點集；$V_2$: 奇度數頂點集。因左式與 $\sum_{V_1}$ 皆為偶數，故 $\sum_{V_2}$ 必為偶數，推得 $|V_2|$ 為偶數。)</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Directed Graph Degrees & Theorem 3 -->
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
+                <strong class="text-violet-900 text-base font-bold block">Definitions 4 & 5 & Theorem 3 (page 654): Directed Graph Degrees (有向圖出入度)</strong>
+                <p class="text-slate-700">For directed edge $(u, v)$: $u$ is adjacent to $v$ ($u$ is the <strong>initial vertex 起點</strong>), and $v$ is adjacent from $u$ ($v$ is the <strong>terminal vertex 終點</strong>).</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div class="p-3 bg-white rounded border border-slate-200">
+                        <strong class="text-violet-800 block text-xs font-bold">In-degree $\deg^-(v)$ (入度)</strong>
+                        <p class="text-xs text-slate-600 mt-1">以 $v$ 為終點的邊數。</p>
+                    </div>
+                    <div class="p-3 bg-white rounded border border-slate-200">
+                        <strong class="text-violet-800 block text-xs font-bold">Out-degree $\deg^+(v)$ (出度)</strong>
+                        <p class="text-xs text-slate-600 mt-1">以 $v$ 為起點的邊數。</p>
+                    </div>
+                    <div class="p-3 bg-white rounded border border-slate-200">
+                        <strong class="text-violet-800 block text-xs font-bold">Loop & Theorem 3</strong>
+                        <p class="text-xs text-slate-600 mt-1">自環對入度與出度各貢獻 $1$；且 $\sum_{v \in V} \deg^-(v) = \sum_{v \in V} \deg^+(v) = |E|$。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Some Special Simple Graphs -->
+        <div class="space-y-4 pt-4 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-violet-800 flex items-center gap-2">
+                <i class="fa-solid fa-shapes text-violet-500 text-sm"></i> 2. Special Simple Graphs (特殊簡單圖，Page 655)
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+                    <strong class="text-violet-900 font-bold block text-base">Example 5: Complete Graph $K_n$ (完全圖)</strong>
+                    <p class="text-slate-700">Simple graph on $n$ vertices with exactly one edge between each pair of distinct vertices（邊數為 $\binom{n}{2} = \frac{n(n-1)}{2}$）。</p>
+                </div>
+
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+                    <strong class="text-violet-900 font-bold block text-base">Example 6: Cycle $C_n$ (圈圖，$n \ge 3$)</strong>
+                    <p class="text-slate-700">Consists of $n$ vertices $v_1, v_2, \dots, v_n$ and edges $\{v_1, v_2\}, \{v_2, v_3\}, \dots, \{v_{n-1}, v_n\}, \{v_n, v_1\}$。</p>
+                </div>
+
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+                    <strong class="text-violet-900 font-bold block text-base">Example 7: Wheel $W_n$ (輪圖，$n \ge 3$)</strong>
+                    <p class="text-slate-700">Obtained by adding one central vertex to $C_n$ and connecting it to all $n$ vertices of $C_n$（共 $n+1$ 個頂點、$2n$ 條邊）。</p>
+                </div>
+
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+                    <strong class="text-violet-900 font-bold block text-base">Example 8: $n$-Cube $Q_n$ ($n$ 維超立方體)</strong>
+                    <p class="text-slate-700">Has $2^n$ vertices representing bit strings of length $n$; two vertices are adjacent iff their bit strings differ in <strong>exactly one bit position</strong>。</p>
+                    <p class="text-xs text-slate-600 mt-1"><strong>建構 $Q_{n+1}$：</strong>取兩個 $Q_n$ 複本，分別在頂點標籤前加 `0` 與 `1`，再將僅首位元不同的對應頂點連邊。</p>
+                </div>
+            </div>
+
+            <!-- Toggle: Special Graphs SVG Diagrams -->
+            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                <button onclick="toggleCard('fig-10-2-special')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                    <span><i class="fa-solid fa-cubes mr-2 text-violet-600"></i> Special Graphs Diagrams: $K_6$, Cycles $C_3\text{–}C_6$, Wheels $W_3\text{–}W_6$ & Cubes $Q_1\text{–}Q_3$ (點擊展開)</span>
+                    <span class="text-xs bg-violet-600 text-white px-2.5 py-1 rounded-full">Expand Diagrams</span>
+                </button>
+                <div id="fig-10-2-special" class="toggle-content p-6 space-y-6 text-xs md:text-sm border-t border-slate-200">
+                    <!-- K6, Cycles, Wheels -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <!-- K6 -->
+                        <div class="p-4 border border-slate-200 rounded-xl bg-slate-50 text-center space-y-2">
+                            <span class="font-bold text-violet-900 block">Complete Graph $K_6$</span>
+                            <svg viewBox="0 0 160 160" class="w-36 h-36 mx-auto bg-white rounded border border-slate-200 p-1">
+                                <!-- 6 vertices on circle: (80,20),(132,50),(132,110),(80,140),(28,110),(28,50) -->
+                                <g stroke="#334155" stroke-width="1.2">
+                                    <line x1="80" y1="20" x2="132" y2="50"/><line x1="80" y1="20" x2="132" y2="110"/><line x1="80" y1="20" x2="80" y2="140"/><line x1="80" y1="20" x2="28" y2="110"/><line x1="80" y1="20" x2="28" y2="50"/>
+                                    <line x1="132" y1="50" x2="132" y2="110"/><line x1="132" y1="50" x2="80" y2="140"/><line x1="132" y1="50" x2="28" y2="110"/><line x1="132" y1="50" x2="28" y2="50"/>
+                                    <line x1="132" y1="110" x2="80" y2="140"/><line x1="132" y1="110" x2="28" y2="110"/><line x1="132" y1="110" x2="28" y2="50"/>
+                                    <line x1="80" y1="140" x2="28" y2="110"/><line x1="80" y1="140" x2="28" y2="50"/>
+                                    <line x1="28" y1="110" x2="28" y2="50"/>
+                                </g>
+                                <circle cx="80" cy="20" r="3.5" fill="#7c3aed"/><circle cx="132" cy="50" r="3.5" fill="#7c3aed"/><circle cx="132" cy="110" r="3.5" fill="#7c3aed"/>
+                                <circle cx="80" cy="140" r="3.5" fill="#7c3aed"/><circle cx="28" cy="110" r="3.5" fill="#7c3aed"/><circle cx="28" cy="50" r="3.5" fill="#7c3aed"/>
+                            </svg>
+                            <p class="text-xs text-slate-600">6 頂點、15 條邊，每頂點度數為 5。</p>
+                        </div>
+
+                        <!-- Cycles C3 - C6 -->
+                        <div class="p-4 border border-slate-200 rounded-xl bg-slate-50 text-center space-y-2">
+                            <span class="font-bold text-violet-900 block">Cycles $C_3, C_4, C_5, C_6$</span>
+                            <svg viewBox="0 0 240 120" class="w-full h-36 mx-auto bg-white rounded border border-slate-200 p-1">
+                                <!-- C3 -->
+                                <polygon points="30,30 12,75 48,75" fill="none" stroke="#334155" stroke-width="1.5"/>
+                                <circle cx="30" cy="30" r="3" fill="#7c3aed"/><circle cx="12" cy="75" r="3" fill="#7c3aed"/><circle cx="48" cy="75" r="3" fill="#7c3aed"/>
+                                <text x="30" y="95" font-size="10" text-anchor="middle" font-weight="bold">C₃</text>
+                                <!-- C4 -->
+                                <rect x="70" y="35" width="40" height="40" fill="none" stroke="#334155" stroke-width="1.5"/>
+                                <circle cx="70" cy="35" r="3" fill="#7c3aed"/><circle cx="110" cy="35" r="3" fill="#7c3aed"/><circle cx="70" cy="75" r="3" fill="#7c3aed"/><circle cx="110" cy="75" r="3" fill="#7c3aed"/>
+                                <text x="90" y="95" font-size="10" text-anchor="middle" font-weight="bold">C₄</text>
+                                <!-- C5 -->
+                                <polygon points="150,28 130,45 137,72 163,72 170,45" fill="none" stroke="#334155" stroke-width="1.5"/>
+                                <circle cx="150" cy="28" r="3" fill="#7c3aed"/><circle cx="130" cy="45" r="3" fill="#7c3aed"/><circle cx="137" cy="72" r="3" fill="#7c3aed"/><circle cx="163" cy="72" r="3" fill="#7c3aed"/><circle cx="170" cy="45" r="3" fill="#7c3aed"/>
+                                <text x="150" y="95" font-size="10" text-anchor="middle" font-weight="bold">C₅</text>
+                                <!-- C6 -->
+                                <polygon points="205,28 188,41 188,62 205,75 222,62 222,41" fill="none" stroke="#334155" stroke-width="1.5"/>
+                                <circle cx="205" cy="28" r="3" fill="#7c3aed"/><circle cx="188" cy="41" r="3" fill="#7c3aed"/><circle cx="188" cy="62" r="3" fill="#7c3aed"/><circle cx="205" cy="75" r="3" fill="#7c3aed"/><circle cx="222" cy="62" r="3" fill="#7c3aed"/><circle cx="222" cy="41" r="3" fill="#7c3aed"/>
+                                <text x="205" y="95" font-size="10" text-anchor="middle" font-weight="bold">C₆</text>
+                            </svg>
+                            <p class="text-xs text-slate-600">$C_n$ 有 $n$ 個頂點與 $n$ 條邊。</p>
+                        </div>
+
+                        <!-- Wheels W3 - W6 -->
+                        <div class="p-4 border border-slate-200 rounded-xl bg-slate-50 text-center space-y-2">
+                            <span class="font-bold text-violet-900 block">Wheels $W_3, W_4, W_5, W_6$</span>
+                            <svg viewBox="0 0 240 120" class="w-full h-36 mx-auto bg-white rounded border border-slate-200 p-1">
+                                <!-- W3 -->
+                                <polygon points="30,28 12,72 48,72" fill="none" stroke="#334155" stroke-width="1.5"/>
+                                <line x1="30" y1="57" x2="30" y2="28" stroke="#7c3aed" stroke-width="1.2"/><line x1="30" y1="57" x2="12" y2="72" stroke="#7c3aed" stroke-width="1.2"/><line x1="30" y1="57" x2="48" y2="72" stroke="#7c3aed" stroke-width="1.2"/>
+                                <circle cx="30" cy="57" r="3" fill="#7c3aed"/>
+                                <text x="30" y="95" font-size="10" text-anchor="middle" font-weight="bold">W₃</text>
+                                <!-- W4 -->
+                                <rect x="70" y="33" width="40" height="40" fill="none" stroke="#334155" stroke-width="1.5"/>
+                                <line x1="90" y1="53" x2="70" y2="33" stroke="#7c3aed" stroke-width="1.2"/><line x1="90" y1="53" x2="110" y2="33" stroke="#7c3aed" stroke-width="1.2"/><line x1="90" y1="53" x2="70" y2="73" stroke="#7c3aed" stroke-width="1.2"/><line x1="90" y1="53" x2="110" y2="73" stroke="#7c3aed" stroke-width="1.2"/>
+                                <circle cx="90" cy="53" r="3" fill="#7c3aed"/>
+                                <text x="90" y="95" font-size="10" text-anchor="middle" font-weight="bold">W₄</text>
+                                <!-- W5 -->
+                                <polygon points="150,28 130,45 137,72 163,72 170,45" fill="none" stroke="#334155" stroke-width="1.5"/>
+                                <line x1="150" y1="53" x2="150" y2="28" stroke="#7c3aed" stroke-width="1.2"/><line x1="150" y1="53" x2="130" y2="45" stroke="#7c3aed" stroke-width="1.2"/><line x1="150" y1="53" x2="137" y2="72" stroke="#7c3aed" stroke-width="1.2"/><line x1="150" y1="53" x2="163" y2="72" stroke="#7c3aed" stroke-width="1.2"/><line x1="150" y1="53" x2="170" y2="45" stroke="#7c3aed" stroke-width="1.2"/>
+                                <circle cx="150" cy="53" r="3" fill="#7c3aed"/>
+                                <text x="150" y="95" font-size="10" text-anchor="middle" font-weight="bold">W₅</text>
+                                <!-- W6 -->
+                                <polygon points="205,28 188,41 188,62 205,75 222,62 222,41" fill="none" stroke="#334155" stroke-width="1.5"/>
+                                <line x1="205" y1="51.5" x2="205" y2="28" stroke="#7c3aed" stroke-width="1.2"/><line x1="205" y1="51.5" x2="188" y2="41" stroke="#7c3aed" stroke-width="1.2"/><line x1="205" y1="51.5" x2="188" y2="62" stroke="#7c3aed" stroke-width="1.2"/><line x1="205" y1="51.5" x2="205" y2="75" stroke="#7c3aed" stroke-width="1.2"/><line x1="205" y1="51.5" x2="222" y2="62" stroke="#7c3aed" stroke-width="1.2"/><line x1="205" y1="51.5" x2="222" y2="41" stroke="#7c3aed" stroke-width="1.2"/>
+                                <circle cx="205" cy="51.5" r="3" fill="#7c3aed"/>
+                                <text x="205" y="95" font-size="10" text-anchor="middle" font-weight="bold">W₆</text>
+                            </svg>
+                            <p class="text-xs text-slate-600">$W_n$ 中心頂點度數為 $n$，外圈頂點度數皆為 $3$。</p>
+                        </div>
+                    </div>
+
+                    <!-- Q1, Q2, Q3 SVG -->
+                    <div class="p-4 border border-slate-200 rounded-xl bg-slate-50 text-center space-y-2">
+                        <span class="font-bold text-violet-900 block">$n$-Cubes $Q_1, Q_2, Q_3$ (位元字串差 1 位元即相鄰)</span>
+                        <svg viewBox="0 0 460 150" class="w-full max-w-[440px] mx-auto bg-white rounded border border-slate-200 p-2">
+                            <!-- Q1 -->
+                            <line x1="45" y1="45" x2="45" y2="105" stroke="#334155" stroke-width="1.5"/>
+                            <circle cx="45" cy="45" r="3.5" fill="#7c3aed"/><text x="53" y="49" font-size="11" font-weight="bold">1</text>
+                            <circle cx="45" cy="105" r="3.5" fill="#7c3aed"/><text x="53" y="109" font-size="11" font-weight="bold">0</text>
+                            <text x="45" y="135" font-size="11" font-weight="bold" text-anchor="middle">Q₁</text>
+
+                            <!-- Q2 -->
+                            <rect x="125" y="45" width="55" height="55" fill="none" stroke="#334155" stroke-width="1.5"/>
+                            <circle cx="125" cy="45" r="3.5" fill="#7c3aed"/><text x="115" y="40" font-size="11" font-weight="bold">10</text>
+                            <circle cx="180" cy="45" r="3.5" fill="#7c3aed"/><text x="184" y="40" font-size="11" font-weight="bold">11</text>
+                            <circle cx="125" cy="100" r="3.5" fill="#7c3aed"/><text x="115" y="114" font-size="11" font-weight="bold">00</text>
+                            <circle cx="180" cy="100" r="3.5" fill="#7c3aed"/><text x="184" y="114" font-size="11" font-weight="bold">01</text>
+                            <text x="152" y="135" font-size="11" font-weight="bold" text-anchor="middle">Q₂</text>
+
+                            <!-- Q3 -->
+                            <!-- Front square: (290,50),(345,50),(345,105),(290,105) -->
+                            <!-- Back square: (315,28),(370,28),(370,83),(315,83) -->
+                            <g stroke="#334155" stroke-width="1.5" fill="none">
+                                <rect x="290" y="50" width="55" height="55"/>
+                                <rect x="315" y="28" width="55" height="55"/>
+                                <line x1="290" y1="50" x2="315" y2="28"/>
+                                <line x1="345" y1="50" x2="370" y2="28"/>
+                                <line x1="290" y1="105" x2="315" y2="83"/>
+                                <line x1="345" y1="105" x2="370" y2="83"/>
+                            </g>
+                            <circle cx="290" cy="50" r="3.5" fill="#7c3aed"/><text x="262" y="53" font-size="10" font-weight="bold">100</text>
+                            <circle cx="345" cy="50" r="3.5" fill="#7c3aed"/><text x="350" y="53" font-size="10" font-weight="bold">101</text>
+                            <circle cx="290" cy="105" r="3.5" fill="#7c3aed"/><text x="262" y="112" font-size="10" font-weight="bold">000</text>
+                            <circle cx="345" cy="105" r="3.5" fill="#7c3aed"/><text x="350" y="112" font-size="10" font-weight="bold">001</text>
+                            <circle cx="315" cy="28" r="3.5" fill="#7c3aed"/><text x="305" y="20" font-size="10" font-weight="bold">110</text>
+                            <circle cx="370" cy="28" r="3.5" fill="#7c3aed"/><text x="375" y="22" font-size="10" font-weight="bold">111</text>
+                            <circle cx="315" cy="83" r="3.5" fill="#7c3aed"/><text x="288" y="85" font-size="10" font-weight="bold">010</text>
+                            <circle cx="370" cy="83" r="3.5" fill="#7c3aed"/><text x="375" y="85" font-size="10" font-weight="bold">011</text>
+                            <text x="330" y="135" font-size="11" font-weight="bold" text-anchor="middle">Q₃</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Bipartite Graphs -->
+        <div class="space-y-4 pt-4 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-violet-800 flex items-center gap-2">
+                <i class="fa-solid fa-object-ungroup text-violet-500 text-sm"></i> 3. Bipartite Graphs (二分圖，Page 656 - 658)
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-violet-900 font-bold block text-base">Definition 5 (page 656): Bipartite Graph (二分圖)</strong>
+                    <p class="text-slate-700">A simple graph $G$ is bipartite if its vertex set $V$ can be partitioned into two <strong>disjoint sets $V_1$ and $V_2$</strong> such that every edge connects a vertex in $V_1$ and a vertex in $V_2$（$V_1$ 內部與 $V_2$ 內部皆無邊）。</p>
+                    <p class="text-xs text-slate-600">• <strong>Example 9:</strong> $C_6$ is bipartite with $V_1 = \{v_1, v_3, v_5\}$, $V_2 = \{v_2, v_4, v_6\}$。</p>
+                    <p class="text-xs text-slate-600">• <strong>Example 10:</strong> $K_3$ is <strong>not</strong> bipartite（含奇數長度圈）。</p>
+                </div>
+
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-violet-900 font-bold block text-base">Theorem 4 & Complete Bipartite $K_{m,n}$ (Page 657 - 658)</strong>
+                    <p class="text-slate-700"><strong>Theorem 4:</strong> A simple graph is bipartite iff it can be 2-colored so no two adjacent vertices share the same color（等價於不存在奇數條相異邊組成的奇環回路）。</p>
+                    <p class="text-xs text-slate-600"><strong>Example 13 ($K_{m,n}$):</strong> Vertex set partitioned into subsets of size $m$ and $n$, with an edge between every pair of vertices from different subsets（共 $m+n$ 個頂點、$mn$ 條邊）。</p>
+                </div>
+            </div>
+
+            <!-- Toggle: Bipartite Examples & K_{m,n} SVG -->
+            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                <button onclick="toggleCard('fig-10-2-bipartite')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                    <span><i class="fa-solid fa-diagram-project mr-2 text-violet-600"></i> Bipartite Partition ($C_6$, Example 11 $G$ & $H$) & Complete Bipartite $K_{m,n}$ Diagrams (點擊展開)</span>
+                    <span class="text-xs bg-violet-600 text-white px-2.5 py-1 rounded-full">Expand Diagrams</span>
+                </button>
+                <div id="fig-10-2-bipartite" class="toggle-content p-6 space-y-6 text-xs md:text-sm border-t border-slate-200">
+                    <!-- C6 Bipartite & Example 11 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-4 border border-slate-200 rounded-xl bg-slate-50 text-center space-y-2">
+                            <span class="font-bold text-violet-900 block">Example 9: $C_6$ Bipartite Partition</span>
+                            <svg viewBox="0 0 280 125" class="w-full max-w-[260px] mx-auto bg-white rounded border border-slate-200 p-2">
+                                <ellipse cx="55" cy="62" rx="35" ry="48" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+                                <ellipse cx="225" cy="62" rx="35" ry="48" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+                                <text x="55" y="28" font-size="11" font-weight="bold" text-anchor="middle" fill="#5b21b6">V₁</text>
+                                <text x="225" y="28" font-size="11" font-weight="bold" text-anchor="middle" fill="#5b21b6">V₂</text>
+                                <!-- Edges of C6: v1-v2-v3-v4-v5-v6-v1 -->
+                                <line x1="55" y1="42" x2="225" y2="42" stroke="#334155" stroke-width="1.2"/>
+                                <line x1="225" y1="42" x2="55" y2="65" stroke="#334155" stroke-width="1.2"/>
+                                <line x1="55" y1="65" x2="225" y2="65" stroke="#334155" stroke-width="1.2"/>
+                                <line x1="225" y1="65" x2="55" y2="88" stroke="#334155" stroke-width="1.2"/>
+                                <line x1="55" y1="88" x2="225" y2="88" stroke="#334155" stroke-width="1.2"/>
+                                <line x1="225" y1="88" x2="55" y2="42" stroke="#334155" stroke-width="1.2"/>
+                                <circle cx="55" cy="42" r="3.5" fill="#7c3aed"/><text x="37" y="46" font-size="10" font-weight="bold">v₁</text>
+                                <circle cx="55" cy="65" r="3.5" fill="#7c3aed"/><text x="37" y="69" font-size="10" font-weight="bold">v₃</text>
+                                <circle cx="55" cy="88" r="3.5" fill="#7c3aed"/><text x="37" y="92" font-size="10" font-weight="bold">v₅</text>
+                                <circle cx="225" cy="42" r="3.5" fill="#7c3aed"/><text x="233" y="46" font-size="10" font-weight="bold">v₂</text>
+                                <circle cx="225" cy="65" r="3.5" fill="#7c3aed"/><text x="233" y="69" font-size="10" font-weight="bold">v₄</text>
+                                <circle cx="225" cy="88" r="3.5" fill="#7c3aed"/><text x="233" y="92" font-size="10" font-weight="bold">v₆</text>
+                            </svg>
+                            <p class="text-xs text-slate-600">$V_1 = \{v_1, v_3, v_5\}$，$V_2 = \{v_2, v_4, v_6\}$。</p>
+                        </div>
+
+                        <div class="p-4 border border-slate-200 rounded-xl bg-slate-50 space-y-2 text-xs">
+                            <strong class="text-violet-900 font-bold block text-center">Example 11 (page 656): Graphs $G$ & $H$</strong>
+                            <p class="text-slate-700">• <strong>Graph $G$:</strong> <strong>Is bipartite</strong>，可劃分為兩個互斥子集 $\{a, b, d\}$ 與 $\{c, e, f, g\}$。</p>
+                            <p class="text-slate-700">• <strong>Graph $H$:</strong> <strong>Not bipartite</strong>，頂點 $a, b, f$ 兩兩相連形成三角形（奇數長度回路），無法進行二分劃分或 2-著色。</p>
+                        </div>
+                    </div>
+
+                    <!-- Complete Bipartite K_{m,n} -->
+                    <div class="p-4 border border-slate-200 rounded-xl bg-slate-50 text-center space-y-2">
+                        <span class="font-bold text-violet-900 block">Example 13: Complete Bipartite Graphs $K_{2,3}$ & $K_{3,3}$</span>
+                        <svg viewBox="0 0 360 110" class="w-full max-w-[340px] mx-auto bg-white rounded border border-slate-200 p-2">
+                            <!-- K2,3 -->
+                            <g stroke="#334155" stroke-width="1.1">
+                                <line x1="55" y1="25" x2="30" y2="80"/><line x1="55" y1="25" x2="75" y2="80"/><line x1="55" y1="25" x2="120" y2="80"/>
+                                <line x1="95" y1="25" x2="30" y2="80"/><line x1="95" y1="25" x2="75" y2="80"/><line x1="95" y1="25" x2="120" y2="80"/>
+                            </g>
+                            <circle cx="55" cy="25" r="3.5" fill="#7c3aed"/><circle cx="95" cy="25" r="3.5" fill="#7c3aed"/>
+                            <circle cx="30" cy="80" r="3.5" fill="#7c3aed"/><circle cx="75" cy="80" r="3.5" fill="#7c3aed"/><circle cx="120" cy="80" r="3.5" fill="#7c3aed"/>
+                            <text x="75" y="102" font-size="11" font-weight="bold" text-anchor="middle">K₂,₃</text>
+
+                            <!-- K3,3 -->
+                            <g stroke="#334155" stroke-width="1.1">
+                                <line x1="215" y1="25" x2="215" y2="80"/><line x1="215" y1="25" x2="260" y2="80"/><line x1="215" y1="25" x2="305" y2="80"/>
+                                <line x1="260" y1="25" x2="215" y2="80"/><line x1="260" y1="25" x2="260" y2="80"/><line x1="260" y1="25" x2="305" y2="80"/>
+                                <line x1="305" y1="25" x2="215" y2="80"/><line x1="305" y1="25" x2="260" y2="80"/><line x1="305" y1="25" x2="305" y2="80"/>
+                            </g>
+                            <circle cx="215" cy="25" r="3.5" fill="#7c3aed"/><circle cx="260" cy="25" r="3.5" fill="#7c3aed"/><circle cx="305" cy="25" r="3.5" fill="#7c3aed"/>
+                            <circle cx="215" cy="80" r="3.5" fill="#7c3aed"/><circle cx="260" cy="80" r="3.5" fill="#7c3aed"/><circle cx="305" cy="80" r="3.5" fill="#7c3aed"/>
+                            <text x="260" y="102" font-size="11" font-weight="bold" text-anchor="middle">K₃,₃</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. New Graphs from Old -->
+        <div class="space-y-4 pt-4 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-violet-800 flex items-center gap-2">
+                <i class="fa-solid fa-layer-plus text-violet-500 text-sm"></i> 4. New Graphs from Old (由舊圖構造新圖，Page 663 - 664)
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-violet-900 font-bold block text-base">Definition 7 (page 663): Subgraph & Proper Subgraph (子圖與真子圖)</strong>
+                    <p class="text-slate-700">A <strong>subgraph (子圖)</strong> of $G = (V, E)$ is a graph $H = (W, F)$ where $W \subseteq V$ and $F \subseteq E$（$F$ 中的邊端點皆須在 $W$ 中）。若 $H \neq G$，則稱 $H$ 為 $G$ 的 <strong>proper subgraph (真子圖)</strong>。</p>
+                </div>
+
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-violet-900 font-bold block text-base">Definition 9 & Example 19 (page 664): Union $G_1 \cup G_2$ (圖的聯集)</strong>
+                    <p class="text-slate-700">The union of two simple graphs $G_1 = (V_1, E_1)$ and $G_2 = (V_2, E_2)$, denoted by $G_1 \cup G_2$, is the simple graph with vertex set $V_1 \cup V_2$ and edge set $E_1 \cup E_2$。</p>
+                </div>
+            </div>
+
+            <!-- Toggle: Subgraph & Union SVG Diagrams -->
+            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                <button onclick="toggleCard('fig-10-2-newgraphs')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                    <span><i class="fa-solid fa-diagram-project mr-2 text-violet-600"></i> Subgraph ($K_5$ Subgraph) & Union $G_1 \cup G_2$ Diagrams (點擊展開)</span>
+                    <span class="text-xs bg-violet-600 text-white px-2.5 py-1 rounded-full">Expand Diagrams</span>
+                </button>
+                <div id="fig-10-2-newgraphs" class="toggle-content p-6 space-y-6 text-xs md:text-sm border-t border-slate-200">
+                    <!-- Subgraph -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+                        <div class="p-4 border border-slate-200 rounded-xl bg-slate-50 text-center space-y-2">
+                            <span class="font-bold text-violet-900 block">Original Graph $G$ ($K_5$)</span>
+                            <svg viewBox="0 0 150 140" class="w-36 h-32 mx-auto bg-white rounded border border-slate-200 p-1">
+                                <!-- Pentagon: a(75,18), b(125,52), c(105,112), d(45,112), e(25,52) -->
+                                <g stroke="#334155" stroke-width="1.2">
+                                    <polygon points="75,18 125,52 105,112 45,112 25,52" fill="none"/>
+                                    <line x1="75" y1="18" x2="105" y2="112"/><line x1="75" y1="18" x2="45" y2="112"/>
+                                    <line x1="125" y1="52" x2="45" y2="112"/><line x1="125" y1="52" x2="25" y2="52"/>
+                                    <line x1="105" y1="112" x2="25" y2="52"/>
+                                </g>
+                                <circle cx="75" cy="18" r="3" fill="#7c3aed"/><text x="72" y="12" font-size="10" font-weight="bold">a</text>
+                                <circle cx="125" cy="52" r="3" fill="#7c3aed"/><text x="131" y="55" font-size="10" font-weight="bold">b</text>
+                                <circle cx="105" cy="112" r="3" fill="#7c3aed"/><text x="110" y="122" font-size="10" font-weight="bold">c</text>
+                                <circle cx="45" cy="112" r="3" fill="#7c3aed"/><text x="35" y="122" font-size="10" font-weight="bold">d</text>
+                                <circle cx="25" cy="52" r="3" fill="#7c3aed"/><text x="14" y="55" font-size="10" font-weight="bold">e</text>
+                            </svg>
+                        </div>
+
+                        <div class="p-4 border border-slate-200 rounded-xl bg-slate-50 text-center space-y-2">
+                            <span class="font-bold text-violet-900 block">Proper Subgraph $H$ (保留頂點 $a,b,c,e$ 與部分邊)</span>
+                            <svg viewBox="0 0 150 140" class="w-36 h-32 mx-auto bg-white rounded border border-slate-200 p-1">
+                                <g stroke="#7c3aed" stroke-width="1.5">
+                                    <line x1="75" y1="18" x2="125" y2="52"/>
+                                    <line x1="75" y1="18" x2="25" y2="52"/>
+                                    <line x1="125" y1="52" x2="25" y2="52"/>
+                                    <line x1="75" y1="18" x2="105" y2="112"/>
+                                    <line x1="125" y1="52" x2="105" y2="112"/>
+                                </g>
+                                <circle cx="75" cy="18" r="3" fill="#7c3aed"/><text x="72" y="12" font-size="10" font-weight="bold">a</text>
+                                <circle cx="125" cy="52" r="3" fill="#7c3aed"/><text x="131" y="55" font-size="10" font-weight="bold">b</text>
+                                <circle cx="105" cy="112" r="3" fill="#7c3aed"/><text x="110" y="122" font-size="10" font-weight="bold">c</text>
+                                <circle cx="25" cy="52" r="3" fill="#7c3aed"/><text x="14" y="55" font-size="10" font-weight="bold">e</text>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Union G1 U G2 -->
+                    <div class="p-4 border border-slate-200 rounded-xl bg-slate-50 text-center space-y-2">
+                        <span class="font-bold text-violet-900 block">Example 19: Union $G_1 \cup G_2$ (合併 $G_1$ 與 $G_2$ 的頂點集與邊集)</span>
+                        <svg viewBox="0 0 420 130" class="w-full max-w-[400px] mx-auto bg-white rounded border border-slate-200 p-2">
+                            <!-- G1 -->
+                            <g stroke="#334155" stroke-width="1.2" fill="none">
+                                <rect x="20" y="30" width="45" height="65"/>
+                                <line x1="65" y1="30" x2="105" y2="30"/><line x1="65" y1="95" x2="105" y2="30"/><line x1="65" y1="30" x2="65" y2="95"/>
+                            </g>
+                            <text x="62" y="20" font-size="9" font-weight="bold">a</text><text x="62" y="108" font-size="9" font-weight="bold">e</text><text x="108" y="33" font-size="9" font-weight="bold">c</text><text x="10" y="33" font-size="9" font-weight="bold">b</text><text x="10" y="98" font-size="9" font-weight="bold">d</text>
+                            <text x="62" y="122" font-size="10" font-weight="bold" text-anchor="middle">G₁</text>
+
+                            <!-- G2 -->
+                            <g stroke="#334155" stroke-width="1.2" fill="none">
+                                <line x1="155" y1="30" x2="235" y2="30"/><line x1="195" y1="30" x2="155" y2="95"/><line x1="195" y1="30" x2="235" y2="95"/><line x1="235" y1="30" x2="235" y2="95"/>
+                            </g>
+                            <text x="150" y="20" font-size="9" font-weight="bold">a</text><text x="192" y="20" font-size="9" font-weight="bold">b</text><text x="233" y="20" font-size="9" font-weight="bold">c</text><text x="148" y="108" font-size="9" font-weight="bold">d</text><text x="233" y="108" font-size="9" font-weight="bold">f</text>
+                            <text x="195" y="122" font-size="10" font-weight="bold" text-anchor="middle">G₂</text>
+
+                            <!-- G1 U G2 -->
+                            <g stroke="#7c3aed" stroke-width="1.3" fill="none">
+                                <rect x="295" y="30" width="45" height="65"/>
+                                <line x1="340" y1="30" x2="385" y2="30"/><line x1="340" y1="95" x2="385" y2="30"/><line x1="340" y1="30" x2="340" y2="95"/>
+                                <line x1="340" y1="30" x2="295" y2="95"/><line x1="340" y1="30" x2="385" y2="95"/><line x1="385" y1="30" x2="385" y2="95"/>
+                            </g>
+                            <text x="292" y="20" font-size="9" font-weight="bold">a</text><text x="337" y="20" font-size="9" font-weight="bold">b</text><text x="383" y="20" font-size="9" font-weight="bold">c</text>
+                            <text x="290" y="108" font-size="9" font-weight="bold">d</text><text x="337" y="108" font-size="9" font-weight="bold">e</text><text x="383" y="108" font-size="9" font-weight="bold">f</text>
+                            <text x="340" y="122" font-size="10" font-weight="bold" text-anchor="middle">G₁ ∪ G₂</text>
+                        </svg>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
