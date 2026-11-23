@@ -1288,18 +1288,26 @@
                         <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
                     </button>
                     <div id="ex-1-5-to-logic" class="toggle-content p-4 space-y-2.5 text-slate-700 border-t border-slate-200 bg-white">
-                        <div>
+                        
+                        <div class="space-y-2 pb-2">
                             <p>• <strong>Example 11 (page 62):</strong> "If a person is female and is parent, then this person is someone's mother."（domain = all people）</p>
-                            <p class="pl-4">改寫："For every person $x$, if person $x$ is a female and person $x$ is a parent, then there exists a person $y$ such that person $x$ is the mother of person $y$."</p>
-                            <p class="pl-4">設 $F(x)$: "$x$ is female"，$P(x)$: "$x$ is a parent"，$M(x, y)$: "$x$ is the mother of $y$"：</p>
-                            <p class="pl-4 font-mono">$\forall x ((F(x) \wedge P(x)) \rightarrow \exists y\, M(x, y))$ &nbsp;或&nbsp; $\forall x \exists y ((F(x) \wedge P(x)) \rightarrow M(x, y))$</p>
+                            <p class="pl-4 leading-relaxed"><strong>改寫：</strong>"For every person $x$, if person $x$ is a female and person $x$ is a parent, then there exists a person $y$ such that person $x$ is the mother of person $y$."</p>
+                            <p class="pl-4 leading-relaxed"><strong>設：</strong>$F(x)$: "$x$ is female"，$P(x)$: "$x$ is a parent"，$M(x, y)$: "$x$ is the mother of $y$"</p>
+                            <div class="ml-4 mt-1 p-2.5 bg-slate-50 rounded-lg border border-slate-200 font-mono text-xs md:text-sm overflow-x-auto space-y-1">
+                                <p>$\forall x ((F(x) \wedge P(x)) \rightarrow \exists y\, M(x, y))$</p>
+                                <p class="text-slate-500 font-sans text-xs">或</p>
+                                <p>$\forall x \exists y ((F(x) \wedge P(x)) \rightarrow M(x, y))$</p>
+                            </div>
                         </div>
-                        <div class="pt-2 border-t border-slate-100">
+                        <div class="pt-4 mt-2 border-t border-slate-200 space-y-2">
                             <p>• <strong>Example 12 (page 62):</strong> "Everyone has exactly one best friend"（domain = all people）</p>
-                            <p class="pl-4">改寫："For every person $x$, person $x$ has exactly one best friend."</p>
-                            <p class="pl-4">設 $B(x, y)$: "$y$ is the best friend of $x$"：</p>
-                            <p class="pl-4 font-mono">$\forall x \exists y (B(x, y) \wedge \forall z ((z \neq y) \rightarrow \neg B(x, z)))$</p>
+                            <p class="pl-4 leading-relaxed"><strong>改寫：</strong>"For every person $x$, person $x$ has exactly one best friend."</p>
+                            <p class="pl-4 leading-relaxed"><strong>設：</strong>$B(x, y)$: "$y$ is the best friend of $x$"</p>
+                            <div class="ml-4 mt-1 p-2.5 bg-slate-50 rounded-lg border border-slate-200 font-mono text-xs md:text-sm overflow-x-auto">
+                                <p>$\forall x \exists y (B(x, y) \wedge \forall z ((z \neq y) \rightarrow \neg B(x, z)))$</p>
+                            </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>
