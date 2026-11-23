@@ -819,6 +819,240 @@
             </div>
         </div>
     </section>
+
+    <!-- ================= SECTION 1.5 ================= -->
+    <section id="sec1-5" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-8">
+        <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 1.5</span>
+                Nested Quantifiers (量詞嵌套)
+            </h2>
+            <span class="text-xs text-slate-500 font-mono">Page 57 - 63</span>
+        </div>
+
+        <!-- 1. Introduction -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-layer-group text-indigo-500 text-sm"></i> 1. Introduction (引言，Page 57 - 58)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <p class="text-slate-800">
+                    <strong>Nested Quantifiers (量詞嵌套):</strong> Quantifiers that occur within the scope of other quantifiers（出現在其他量詞作用域內的量詞），例如 $\forall x \exists y(x + y = 0)$。
+                </p>
+
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-1-5-intro')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-list-check mr-2 text-indigo-600"></i> Example 1 (Page 57) & Example 2 (Page 58): 實數運算律與條件式真值 (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                    </button>
+                    <div id="ex-1-5-intro" class="toggle-content p-4 space-y-2 text-slate-700 border-t border-slate-200 bg-white">
+                        <p>• <strong>Example 1 (page 57, domain for $x, y, z$ = all real numbers)：</strong></p>
+                        <p class="pl-4">1. $\forall x \forall y (x + y = y + x)$（Commutative law，加法交換律）$\implies$ <strong>true</strong></p>
+                        <p class="pl-4">2. $\forall x \exists y (x + y = 0)$（加法反元素存在性）$\implies$ <strong>true</strong></p>
+                        <p class="pl-4">3. $\forall x \forall y \forall z (x + (y + z) = (x + y) + z)$（Associative law，加法結合律）$\implies$ <strong>true</strong></p>
+                        <p>• <strong>Example 2 (page 58, domain = all real numbers)：</strong></p>
+                        <p class="pl-4">$\forall x \forall y ((x > 0) \wedge (y < 0) \rightarrow (xy < 0))$（正數與負數之積恒為負數）$\implies$ <strong>true</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. The Order of Quantifiers -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-arrows-left-right text-indigo-500 text-sm"></i> 2. The Order of Quantifiers (量詞的順序，Page 58 - 60)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1.5 text-slate-700">
+                    <strong class="text-indigo-900 block">量詞順序交換規則與蘊含關係</strong>
+                    <p>• <strong>同類量詞可交換順序：</strong>$\forall x \forall y\, P(x, y) \equiv \forall y \forall x\, P(x, y)$，且 $\exists x \exists y\, P(x, y) \equiv \exists y \exists x\, P(x, y)$。</p>
+                    <p>• <strong>不同類量詞不可隨意交換順序：</strong>$\exists y \forall x\, P(x, y) \not\equiv \forall x \exists y\, P(x, y)$。</p>
+                    <p>• <strong>單向蘊含關係（Further, Page 60）：</strong></p>
+                    <p class="pl-4">(a) 若 $\exists y \forall x\, P(x, y)$ 為真，則 $\forall x \exists y\, P(x, y)$ <strong>必為真</strong>（即 $\exists y \forall x\, P(x, y) \rightarrow \forall x \exists y\, P(x, y)$ 為永真）。</p>
+                    <p class="pl-4">(b) 若 $\forall x \exists y\, P(x, y)$ 為真，則 $\exists y \forall x\, P(x, y)$ <strong>未必為真</strong>（參見第 113 頁 Exercise 28 與 30）。</p>
+                </div>
+
+                <!-- Summary Table 1 (Page 60) -->
+                <div class="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+                    <table class="w-full text-left border-collapse text-xs md:text-sm">
+                        <thead>
+                            <tr class="bg-indigo-50 text-indigo-950 border-b border-slate-200">
+                                <th class="py-2.5 px-4 font-bold">Statement (語句)</th>
+                                <th class="py-2.5 px-4 font-bold">When True? (何時為真)</th>
+                                <th class="py-2.5 px-4 font-bold">When False? (何時為假)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 text-slate-700">
+                            <tr>
+                                <td class="py-2.5 px-4 font-mono">$\forall x \forall y\, P(x, y)$<br>$\forall y \forall x\, P(x, y)$</td>
+                                <td class="py-2.5 px-4">$P(x, y)$ is true for every pair $x, y$.</td>
+                                <td class="py-2.5 px-4">There is a pair $x, y$ for which $P(x, y)$ is false.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2.5 px-4 font-mono">$\forall x \exists y\, P(x, y)$</td>
+                                <td class="py-2.5 px-4">For every $x$ there is a $y$ for which $P(x, y)$ is true.</td>
+                                <td class="py-2.5 px-4">There is an $x$ such that $P(x, y)$ is false for every $y$.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2.5 px-4 font-mono">$\exists x \forall y\, P(x, y)$</td>
+                                <td class="py-2.5 px-4">There is an $x$ for which $P(x, y)$ is true for every $y$.</td>
+                                <td class="py-2.5 px-4">For every $x$ there is a $y$ for which $P(x, y)$ is false.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2.5 px-4 font-mono">$\exists x \exists y\, P(x, y)$<br>$\exists y \exists x\, P(x, y)$</td>
+                                <td class="py-2.5 px-4">There is a pair $x, y$ for which $P(x, y)$ is true.</td>
+                                <td class="py-2.5 px-4">$P(x, y)$ is false for every pair $x, y$.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Expandable: Example 3, 4, 5 -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-1-5-order')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span>Quantifier Order Examples: Example 3, Example 4 & Example 5 (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                    </button>
+                    <div id="ex-1-5-order" class="toggle-content p-4 space-y-2.5 text-slate-700 border-t border-slate-200 bg-white">
+                        <div>
+                            <p>• <strong>Example 3 (page 58):</strong> 設 $P(x, y)$ 為 "$x + y = y + x$"，所有變數的個體域為全體實數。</p>
+                            <p class="pl-4">$\forall x \forall y\, P(x, y)$ 為 <strong>true</strong>，$\forall y \forall x\, P(x, y)$ 為 <strong>true</strong>，故 $\forall x \forall y\, P(x, y) \equiv \forall y \forall x\, P(x, y)$。</p>
+                        </div>
+                        <div class="pt-2 border-t border-slate-100">
+                            <p>• <strong>Example 4 (page 59):</strong> 設 $Q(x, y)$ 為 "$x + y = 0$"，個體域為全體實數，比較 $\exists y \forall x\, Q(x, y)$ 與 $\forall x \exists y\, Q(x, y)$：</p>
+                            <p class="pl-4">(a) $\exists y \forall x\, Q(x, y)$："There is a real number $y$ such that for every real number $x$, $Q(x, y)$."（存在一個固定的實數 $y$ 使所有實數 $x$ 皆滿足 $x + y = 0$）$\implies$ <strong>false</strong>。</p>
+                            <p class="pl-4">(b) $\forall x \exists y\, Q(x, y)$："For every real number $x$ there is a real number $y$ such that $Q(x, y)$."（對每個實數 $x$ 皆可找到對應的 $y = -x$ 使 $x + y = 0$）$\implies$ <strong>true</strong>。</p>
+                            <p class="pl-4">(c) 因此 $\exists y \forall x\, Q(x, y) \not\equiv \forall x \exists y\, Q(x, y)$（not equivalent）。</p>
+                        </div>
+                        <div class="pt-2 border-t border-slate-100">
+                            <p>• <strong>Example 5 (page 59):</strong> 設 $Q(x, y, z)$ 為 "$x + y = z$"，個體域為全體實數：</p>
+                            <p class="pl-4">$\forall x \forall y \exists z\, Q(x, y, z)$ 為 <strong>true</strong>（取 $z = x + y$）；而 $\exists z \forall x \forall y\, Q(x, y, z)$ 為 <strong>false</strong>（不存在固定常數 $z$ 等於所有 $x + y$）。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Translating Mathematical Statements into Nested Quantifiers -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-square-root-variable text-indigo-500 text-sm"></i> 3. Translating Mathematical Statements (數學命題翻譯，Page 60)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <p class="text-slate-700">將數學定理或性質寫成含嵌套量詞的邏輯表達式時，可透過設定不同的個體域（全體整數 vs 正整數）搭配條件式（$\rightarrow$）來精確限制變數範圍。</p>
+
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-1-5-math')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span>Mathematical Translation Examples: Example 6 & Example 7 (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                    </button>
+                    <div id="ex-1-5-math" class="toggle-content p-4 space-y-2.5 text-slate-700 border-t border-slate-200 bg-white">
+                        <div>
+                            <p>• <strong>Example 6:</strong> Translate the statement "The sum of two positive integers is always positive" into a logical expression.</p>
+                            <p class="pl-4"><strong>Way 1（domain for $x$ and $y$ = all integers）：</strong>$\forall x \forall y ((x > 0) \wedge (y > 0) \rightarrow (x + y > 0))$</p>
+                            <p class="pl-4"><strong>Way 2（domain for $x$ and $y$ = all positive integers）：</strong>$\forall x \forall y (x + y > 0)$</p>
+                        </div>
+                        <div class="pt-2 border-t border-slate-100">
+                            <p>• <strong>Example 7:</strong> Translate the statement "Every real number except zero has a multiplicative inverse."</p>
+                            <p class="pl-4"><strong>Answer（domain for $x$ and $y$ = all real numbers）：</strong>$\forall x ((x \neq 0) \rightarrow \exists y (xy = 1))$</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Translating from Nested Quantifiers into English -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-comments text-indigo-500 text-sm"></i> 4. Translating Nested Quantifiers into English (邏輯公式轉自然語言，Page 61)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <p class="text-slate-700">解讀嵌套量詞公式時，由外而內逐層將 $\forall$ 與 $\exists$ 還原為對應個體域的自然語言描述。</p>
+
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-1-5-to-eng')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span>Formula to English Examples: Example 9 & Example 10 (Page 61, 點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                    </button>
+                    <div id="ex-1-5-to-eng" class="toggle-content p-4 space-y-2.5 text-slate-700 border-t border-slate-200 bg-white">
+                        <div>
+                            <p>• <strong>Example 9 (page 61):</strong> $\forall x (C(x) \vee \exists y (C(y) \wedge F(x, y)))$，其中 $C(x)$ 為 "$x$ has a computer"，$F(x, y)$ 為 "$x, y$ are friends"，個體域為全校所有學生（all students in the school）。</p>
+                            <p class="pl-4"><strong>語意：</strong>學校裡的每一位學生，要嘛自己有一台電腦，要嘛有一位擁有電腦的朋友（Every student in your school has a computer or has a friend who has a computer）。</p>
+                        </div>
+                        <div class="pt-2 border-t border-slate-100">
+                            <p>• <strong>Example 10 (page 61):</strong> $\exists x \forall y \forall z ((F(x, y) \wedge F(x, z) \wedge (y \neq z)) \rightarrow \neg F(y, z))$，其中 $F(a, b)$ 為 "$a$ and $b$ are friends"，個體域為全校所有學生。</p>
+                            <p class="pl-4"><strong>語意：</strong>學校裡存在某位學生 $x$，他／她任意兩位不同的朋友 $y$ 與 $z$ 彼此之間都不是朋友（There is a student none of whose friends are also friends with each other）。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Translating English Sentences into Logical Expressions -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-language text-indigo-500 text-sm"></i> 5. Translating English Sentences into Logical Expressions (自然語言轉邏輯式，Page 62)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1.5 text-slate-700">
+                    <strong class="text-indigo-900 block">「唯一性（Uniqueness / Exactly One）」表達技巧</strong>
+                    <p>• 要表示「對某個 $x$ 存在<strong>唯一一個</strong> $y$ 滿足性質 $B(x, y)$」，寫作：$\exists y (B(x, y) \wedge \forall z ((z \neq y) \rightarrow \neg B(x, z)))$（即存在 $y$ 滿足條件，且任何異於 $y$ 的 $z$ 皆不滿足該條件）。</p>
+                </div>
+
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-1-5-to-logic')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span>English to Logic Examples: Example 11 & Example 12 (Page 62, 點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                    </button>
+                    <div id="ex-1-5-to-logic" class="toggle-content p-4 space-y-2.5 text-slate-700 border-t border-slate-200 bg-white">
+                        <div>
+                            <p>• <strong>Example 11 (page 62):</strong> "If a person is female and is parent, then this person is someone's mother."（domain = all people）</p>
+                            <p class="pl-4">改寫："For every person $x$, if person $x$ is a female and person $x$ is a parent, then there exists a person $y$ such that person $x$ is the mother of person $y$."</p>
+                            <p class="pl-4">設 $F(x)$: "$x$ is female"，$P(x)$: "$x$ is a parent"，$M(x, y)$: "$x$ is the mother of $y$"：</p>
+                            <p class="pl-4 font-mono">$\forall x ((F(x) \wedge P(x)) \rightarrow \exists y\, M(x, y))$ &nbsp;或&nbsp; $\forall x \exists y ((F(x) \wedge P(x)) \rightarrow M(x, y))$</p>
+                        </div>
+                        <div class="pt-2 border-t border-slate-100">
+                            <p>• <strong>Example 12 (page 62):</strong> "Everyone has exactly one best friend"（domain = all people）</p>
+                            <p class="pl-4">改寫："For every person $x$, person $x$ has exactly one best friend."</p>
+                            <p class="pl-4">設 $B(x, y)$: "$y$ is the best friend of $x$"：</p>
+                            <p class="pl-4 font-mono">$\forall x \exists y (B(x, y) \wedge \forall z ((z \neq y) \rightarrow \neg B(x, z)))$</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Negating Nested Quantifiers & Discussion -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-ban text-indigo-500 text-sm"></i> 6. Negating Nested Quantifiers & Discussion (嵌套量詞的否定，Page 63)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <p class="text-slate-700">對嵌套量詞取否定時，由最外層量詞開始，逐層向右套用量詞否定等價律（$\neg \forall \equiv \exists \neg$、$\neg \exists \equiv \forall \neg$），直到沒有否定符號出現在任何量詞之前。</p>
+
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-1-5-neg')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span>Example 14 (page 63): Express the negation of $\forall x \exists y (xy = 1)$ (點擊展開推導)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof</span>
+                    </button>
+                    <div id="ex-1-5-neg" class="toggle-content p-4 space-y-1.5 text-slate-700 border-t border-slate-200 bg-white">
+                        <p>將 $\neg \forall x \exists y (xy = 1)$ 化簡使沒有否定符號位於量詞前：</p>
+                        <p class="pl-4 font-mono">$\neg \forall x \exists y (xy = 1) \equiv \exists x \neg \exists y (xy = 1) \equiv \exists x \forall y \neg(xy = 1) \equiv \exists x \forall y (xy \neq 1)$</p>
+                    </div>
+                </div>
+
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1 text-slate-700">
+                    <p>• <strong>Discussion (in theory class):</strong> Exercises 9, 27, 33。</p>
+                </div>
+            </div>
+        </div>
+    </section>
     
     <!-- CHAPTER 2 OVERVIEW -->
     <section id="chap2-overview" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
