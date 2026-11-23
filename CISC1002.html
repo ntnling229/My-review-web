@@ -1257,14 +1257,22 @@
                         <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
                     </button>
                     <div id="ex-1-5-to-eng" class="toggle-content p-4 space-y-2.5 text-slate-700 border-t border-slate-200 bg-white">
-                        <div>
-                            <p>• <strong>Example 9 (page 61):</strong> $\forall x (C(x) \vee \exists y (C(y) \wedge F(x, y)))$，其中 $C(x)$ 為 "$x$ has a computer"，$F(x, y)$ 為 "$x, y$ are friends"，個體域為全校所有學生（all students in the school）。</p>
-                            <p class="pl-4"><strong>語意：</strong>學校裡的每一位學生，要嘛自己有一台電腦，要嘛有一位擁有電腦的朋友（Every student in your school has a computer or has a friend who has a computer）。</p>
+                        
+                        <div class="space-y-2 pb-2">
+                            <p class="leading-relaxed">• <strong>Example 9 (page 61):</strong> 其中 $C(x)$ 為 "$x$ has a computer"，$F(x, y)$ 為 "$x, y$ are friends"，個體域為全校所有學生（all students in the school）。</p>
+                            <div class="ml-4 mt-1 p-2.5 bg-slate-50 rounded-lg border border-slate-200 font-mono text-xs md:text-sm overflow-x-auto">
+                                <p>$\forall x (C(x) \vee \exists y (C(y) \wedge F(x, y)))$</p>
+                            </div>
+                            <p class="pl-4 leading-relaxed"><strong>語意：</strong>學校裡的每一位學生，要嘛自己有一台電腦，要嘛有一位擁有電腦的朋友（Every student in your school has a computer or has a friend who has a computer）。</p>
                         </div>
-                        <div class="pt-2 border-t border-slate-100">
-                            <p>• <strong>Example 10 (page 61):</strong> $\exists x \forall y \forall z ((F(x, y) \wedge F(x, z) \wedge (y \neq z)) \rightarrow \neg F(y, z))$，其中 $F(a, b)$ 為 "$a$ and $b$ are friends"，個體域為全校所有學生。</p>
-                            <p class="pl-4"><strong>語意：</strong>學校裡存在某位學生 $x$，他／她任意兩位不同的朋友 $y$ 與 $z$ 彼此之間都不是朋友（There is a student none of whose friends are also friends with each other）。</p>
+                        <div class="pt-4 mt-2 border-t border-slate-200 space-y-2">
+                            <p class="leading-relaxed">• <strong>Example 10 (page 61):</strong> 其中 $F(a, b)$ 為 "$a$ and $b$ are friends"，個體域為全校所有學生。</p>
+                            <div class="ml-4 mt-1 p-2.5 bg-slate-50 rounded-lg border border-slate-200 font-mono text-xs md:text-sm overflow-x-auto">
+                                <p>$\exists x \forall y \forall z ((F(x, y) \wedge F(x, z) \wedge (y \neq z)) \rightarrow \neg F(y, z))$</p>
+                            </div>
+                            <p class="pl-4 leading-relaxed"><strong>語意：</strong>學校裡存在某位學生 $x$，他／她任意兩位不同的朋友 $y$ 與 $z$ 彼此之間都不是朋友（There is a student none of whose friends are also friends with each other）。</p>
                         </div>
+                        
                     </div>
                 </div>
             </div>
