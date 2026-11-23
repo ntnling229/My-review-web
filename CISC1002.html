@@ -75,6 +75,19 @@
                     <a href="#sec9-5" class="block px-4 py-2 hover:bg-slate-700 text-slate-200">§9.5 Equivalence Relations</a>
                 </div>
             </div>
+
+            <!-- Chapter 10 Dropdown test-->
+            <div class="relative group py-2">
+                <button class="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition flex items-center gap-1.5 font-medium">
+                    <span>Chapter 10 (Graphs)</span>
+                    <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                </button>
+                <div class="absolute left-0 mt-0 w-52 bg-slate-800 border border-slate-700 rounded-lg shadow-lg hidden group-hover:block z-50 py-1">
+                    <a href="#chap10-overview" class="block px-4 py-2 hover:bg-slate-700 text-slate-200">Ch10 Overview</a>
+                    <a href="#sec10-1" class="block px-4 py-2 hover:bg-slate-700 text-slate-200">§10.1 Introduction to Graphs</a>
+                </div>
+            </div>
+            
         </nav>
         
     </div>
@@ -2505,6 +2518,334 @@
                 <p class="text-slate-800 text-sm md:text-base">
                     Conversely, given a partition $\{A_i \mid i \in I\}$ of the set $S$, there is an equivalence relation $R$ that has the sets $A_i$ as its equivalence classes.
                 </p>
+            </div>
+        </div>
+    </section>
+                        
+    <!-- CHAPTER 10 OVERVIEW -->
+    <section id="chap10-overview" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
+        <div class="border-b pb-4 mb-4">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <i class="fa-solid fa-book-open text-violet-600"></i> Chapter 10 Graphs Overview (第十課圖論總覽)
+            </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                <span class="font-bold text-violet-700 block text-base mb-1">§ 10.1 Introduction to Graphs</span>
+                <p class="text-slate-600">圖的基本定義 $G=(V,E)$、無向圖分類（簡單圖、多重圖、偽圖）、有向圖分類（簡單有向圖、有向多重圖）與術語總結。</p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 opacity-70">
+                <span class="font-bold text-slate-500 block text-base mb-1">§ 10.2 – § 10.8 (後續章節)</span>
+                <p class="text-slate-500">Graph Terminology、Isomorphism、Connectivity、Euler & Hamilton Paths、Shortest-Path、Planar Graphs、Graph Coloring。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION 10.1 ================= -->
+    <section id="sec10-1" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b pb-4 flex items-center justify-between">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-violet-100 text-violet-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 10.1</span>
+                Introduction to Graphs (圖論簡介)
+            </h2>
+            <span class="text-xs text-slate-500 font-mono">Page 641 - 644</span>
+        </div>
+
+        <!-- 1. Basic Definition of a Graph -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-violet-800 flex items-center gap-2">
+                <i class="fa-solid fa-circle-dot text-violet-500 text-sm"></i> 1. Basic Definition of a Graph (圖的基本定義)
+            </h3>
+
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                <strong class="text-violet-900 text-base font-bold block">Definition 1 (page 641): Graph (圖)</strong>
+                <p class="text-slate-800 text-sm md:text-base">
+                    A <strong>graph</strong> $G = (V, E)$ consists of $V$, a <strong>nonempty set of vertices (頂點)</strong> or nodes, and $E$, a <strong>set of edges (邊)</strong>.
+                </p>
+                <p class="text-slate-800 text-sm md:text-base">
+                    Each edge has either one or two vertices associated with it, called its <strong>endpoints (端點)</strong>. An edge is said to connect its endpoints.
+                </p>
+            </div>
+        </div>
+
+        <!-- 2. Types of Undirected Graphs -->
+        <div class="space-y-4 pt-4 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-violet-800 flex items-center gap-2">
+                <i class="fa-solid fa-share-nodes text-violet-500 text-sm"></i> 2. Types of Undirected Graphs (無向圖的種類，Page 642 - 643)
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                <!-- (a) Simple Graph -->
+                <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-violet-900 text-base font-bold block">(a) Simple Graph (簡單圖)</strong>
+                    <p class="text-slate-700">
+                        A graph in which each edge connects <strong>two different vertices</strong> and where <strong>no two edges connect the same pair of vertices</strong> is called a simple graph.
+                    </p>
+                    <p class="text-xs font-mono text-violet-800 bg-white p-2 rounded border border-violet-200">
+                        Notation: $\{u, v\}$ stands for an undirected edge associated with vertices $u$ and $v$.
+                    </p>
+                </div>
+
+                <!-- (b) Multigraph -->
+                <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-violet-900 text-base font-bold block">(b) Multigraph (多重圖)</strong>
+                    <p class="text-slate-700">
+                        Graphs that may have <strong>multiple edges (多重邊)</strong> connecting the same vertices are called multigraphs. (Does not allow loops).
+                    </p>
+                </div>
+
+                <!-- (c) Pseudograph -->
+                <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-violet-900 text-base font-bold block">(c) Pseudograph (偽圖，Page 643)</strong>
+                    <p class="text-slate-700">
+                        Graphs that may include <strong>loops (自環)</strong>, and possibly <strong>multiple edges</strong> connecting the same pair of vertices, are called pseudographs.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Toggle: Undirected Graphs SVG Diagrams -->
+            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                <button onclick="toggleCard('fig-10-1-undirected')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                    <span><i class="fa-solid fa-diagram-project mr-2 text-violet-600"></i> Visual Comparison: Simple Graph, Multigraph & Pseudograph (教材航線圖例重現，點擊展開)</span>
+                    <span class="text-xs bg-violet-600 text-white px-2.5 py-1 rounded-full">Expand Diagrams</span>
+                </button>
+                <div id="fig-10-1-undirected" class="toggle-content p-6 space-y-6 text-xs md:text-sm border-t border-slate-200">
+                    <!-- (a) Simple Graph SVG -->
+                    <div class="p-4 border border-slate-200 rounded-xl bg-slate-50 space-y-2">
+                        <span class="font-bold text-violet-900 block text-center">Figure 1 (Page 642): Simple Graph (無多重邊、無自環)</span>
+                        <svg viewBox="0 0 640 160" class="w-full max-w-[600px] mx-auto bg-white rounded-lg border border-slate-200 p-2">
+                            <!-- Edges -->
+                            <line x1="60" y1="75" x2="90" y2="135" stroke="#334155" stroke-width="1.5"/>
+                            <line x1="60" y1="75" x2="230" y2="85" stroke="#334155" stroke-width="1.5"/>
+                            <line x1="90" y1="135" x2="230" y2="85" stroke="#334155" stroke-width="1.5"/>
+                            <line x1="230" y1="85" x2="400" y2="45" stroke="#334155" stroke-width="1.5"/>
+                            <line x1="400" y1="45" x2="465" y2="25" stroke="#334155" stroke-width="1.5"/>
+                            <line x1="400" y1="45" x2="575" y2="40" stroke="#334155" stroke-width="1.5"/>
+                            <line x1="400" y1="45" x2="545" y2="95" stroke="#334155" stroke-width="1.5"/>
+                            <line x1="465" y1="25" x2="575" y2="40" stroke="#334155" stroke-width="1.5"/>
+                            <line x1="575" y1="40" x2="545" y2="95" stroke="#334155" stroke-width="1.5"/>
+                            <!-- Vertices -->
+                            <circle cx="60" cy="75" r="4.5" fill="#7c3aed"/><text x="15" y="62" font-size="11" font-weight="bold">San Francisco</text>
+                            <circle cx="90" cy="135" r="4.5" fill="#7c3aed"/><text x="55" y="152" font-size="11" font-weight="bold">Los Angeles</text>
+                            <circle cx="230" cy="85" r="4.5" fill="#7c3aed"/><text x="215" y="103" font-size="11" font-weight="bold">Denver</text>
+                            <circle cx="400" cy="45" r="4.5" fill="#7c3aed"/><text x="370" y="65" font-size="11" font-weight="bold">Chicago</text>
+                            <circle cx="465" cy="25" r="4.5" fill="#7c3aed"/><text x="448" y="15" font-size="11" font-weight="bold">Detroit</text>
+                            <circle cx="575" cy="40" r="4.5" fill="#7c3aed"/><text x="583" y="44" font-size="11" font-weight="bold">New York</text>
+                            <circle cx="545" cy="95" r="4.5" fill="#7c3aed"/><text x="515" y="113" font-size="11" font-weight="bold">Washington</text>
+                        </svg>
+                    </div>
+
+                    <!-- (b) Multigraph SVG -->
+                    <div class="p-4 border border-slate-200 rounded-xl bg-slate-50 space-y-2">
+                        <span class="font-bold text-violet-900 block text-center">Multigraph (Page 642): 允許兩頂點間有多條邊 (Multiple Edges)</span>
+                        <svg viewBox="0 0 640 160" class="w-full max-w-[600px] mx-auto bg-white rounded-lg border border-slate-200 p-2">
+                            <!-- Edges -->
+                            <line x1="60" y1="75" x2="90" y2="135" stroke="#334155" stroke-width="1.5"/>
+                            <line x1="60" y1="75" x2="230" y2="85" stroke="#334155" stroke-width="1.5"/>
+                            <!-- LA - Denver multiple edges -->
+                            <line x1="90" y1="135" x2="230" y2="85" stroke="#334155" stroke-width="1.5"/>
+                            <path d="M 90 135 Q 165 125 230 85" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+                            <!-- Denver - Chicago 3 edges -->
+                            <path d="M 230 85 Q 310 48 400 45" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+                            <line x1="230" y1="85" x2="400" y2="45" stroke="#334155" stroke-width="1.5"/>
+                            <path d="M 230 85 Q 320 82 400 45" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+                            <!-- Chicago - Detroit -->
+                            <line x1="400" y1="45" x2="465" y2="25" stroke="#334155" stroke-width="1.5"/>
+                            <!-- Chicago - NY 2 edges -->
+                            <line x1="400" y1="45" x2="575" y2="40" stroke="#334155" stroke-width="1.5"/>
+                            <path d="M 400 45 Q 488 60 575 40" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+                            <!-- Chicago - Washington -->
+                            <line x1="400" y1="45" x2="545" y2="95" stroke="#334155" stroke-width="1.5"/>
+                            <!-- Detroit - NY -->
+                            <line x1="465" y1="25" x2="575" y2="40" stroke="#334155" stroke-width="1.5"/>
+                            <!-- NY - Washington 2 edges -->
+                            <path d="M 575 40 Q 548 63 545 95" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+                            <path d="M 575 40 Q 572 72 545 95" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+                            <!-- Vertices -->
+                            <circle cx="60" cy="75" r="4.5" fill="#7c3aed"/><text x="15" y="62" font-size="11" font-weight="bold">San Francisco</text>
+                            <circle cx="90" cy="135" r="4.5" fill="#7c3aed"/><text x="55" y="152" font-size="11" font-weight="bold">Los Angeles</text>
+                            <circle cx="230" cy="85" r="4.5" fill="#7c3aed"/><text x="215" y="103" font-size="11" font-weight="bold">Denver</text>
+                            <circle cx="400" cy="45" r="4.5" fill="#7c3aed"/><text x="370" y="34" font-size="11" font-weight="bold">Chicago</text>
+                            <circle cx="465" cy="25" r="4.5" fill="#7c3aed"/><text x="448" y="15" font-size="11" font-weight="bold">Detroit</text>
+                            <circle cx="575" cy="40" r="4.5" fill="#7c3aed"/><text x="583" y="44" font-size="11" font-weight="bold">New York</text>
+                            <circle cx="545" cy="95" r="4.5" fill="#7c3aed"/><text x="515" y="113" font-size="11" font-weight="bold">Washington</text>
+                        </svg>
+                    </div>
+
+                    <!-- (c) Pseudograph SVG -->
+                    <div class="p-4 border border-slate-200 rounded-xl bg-slate-50 space-y-2">
+                        <span class="font-bold text-violet-900 block text-center">Pseudograph (Page 643): 同時允許自環 (Loops) 與多重邊</span>
+                        <svg viewBox="0 0 640 175" class="w-full max-w-[600px] mx-auto bg-white rounded-lg border border-slate-200 p-2">
+                            <!-- Self-loops -->
+                            <circle cx="49" cy="83" r="10" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+                            <circle cx="90" cy="146" r="10" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+                            <circle cx="230" cy="74" r="10" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+                            <circle cx="400" cy="44" r="10" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+                            <circle cx="465" cy="24" r="10" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+                            <circle cx="586" cy="45" r="10" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+                            <circle cx="541" cy="116" r="10" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+                            <!-- Edges -->
+                            <line x1="60" y1="85" x2="90" y2="135" stroke="#334155" stroke-width="1.5"/>
+                            <line x1="60" y1="85" x2="230" y2="85" stroke="#334155" stroke-width="1.5"/>
+                            <line x1="90" y1="135" x2="230" y2="85" stroke="#334155" stroke-width="1.5"/>
+                            <path d="M 90 135 Q 165 125 230 85" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+                            <path d="M 230 85 Q 310 55 400 55" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+                            <line x1="230" y1="85" x2="400" y2="55" stroke="#334155" stroke-width="1.5"/>
+                            <path d="M 230 85 Q 320 88 400 55" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+                            <line x1="400" y1="55" x2="465" y2="35" stroke="#334155" stroke-width="1.5"/>
+                            <line x1="400" y1="55" x2="575" y2="48" stroke="#334155" stroke-width="1.5"/>
+                            <path d="M 400 55 Q 488 70 575 48" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+                            <line x1="400" y1="55" x2="545" y2="105" stroke="#334155" stroke-width="1.5"/>
+                            <line x1="465" y1="35" x2="575" y2="48" stroke="#334155" stroke-width="1.5"/>
+                            <path d="M 575 48 Q 548 73 545 105" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+                            <path d="M 575 48 Q 572 82 545 105" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+                            <!-- Vertices -->
+                            <circle cx="60" cy="85" r="4.5" fill="#7c3aed"/><text x="10" y="68" font-size="11" font-weight="bold">San Francisco</text>
+                            <circle cx="90" cy="135" r="4.5" fill="#7c3aed"/><text x="55" y="168" font-size="11" font-weight="bold">Los Angeles</text>
+                            <circle cx="230" cy="85" r="4.5" fill="#7c3aed"/><text x="215" y="105" font-size="11" font-weight="bold">Denver</text>
+                            <circle cx="400" cy="55" r="4.5" fill="#7c3aed"/><text x="372" y="30" font-size="11" font-weight="bold">Chicago</text>
+                            <circle cx="465" cy="35" r="4.5" fill="#7c3aed"/><text x="448" y="12" font-size="11" font-weight="bold">Detroit</text>
+                            <circle cx="575" cy="48" r="4.5" fill="#7c3aed"/><text x="572" y="30" font-size="11" font-weight="bold">New York</text>
+                            <circle cx="545" cy="105" r="4.5" fill="#7c3aed"/><text x="515" y="138" font-size="11" font-weight="bold">Washington</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Directed Graphs -->
+        <div class="space-y-4 pt-4 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-violet-800 flex items-center gap-2">
+                <i class="fa-solid fa-arrow-right-long text-violet-500 text-sm"></i> 3. Directed Graphs (有向圖，Page 643)
+            </h3>
+
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                <strong class="text-violet-900 text-base font-bold block">Definition 4 (page 643): Directed Graph (有向圖)</strong>
+                <p class="text-slate-800 text-sm md:text-base">
+                    A <strong>directed graph</strong> (or <strong>digraph</strong>) $G = (V, E)$ consists of a nonempty set of vertices $V$ and a set of <strong>directed edges</strong> (or arcs) $E$ that are <strong>ordered pairs</strong> of elements of $V$.
+                </p>
+                <div class="p-2.5 bg-white font-mono font-bold text-violet-800 rounded border border-violet-200 text-center text-sm">
+                    The directed edge from $u$ to $v$ is denoted by $(u, v)$
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-violet-900 text-base font-bold block">(a) Simple Directed Graphs (簡單有向圖)</strong>
+                    <p class="text-slate-700">
+                        When a directed graph has <strong>no loops</strong> and has <strong>no multiple directed edges</strong>, it is called a simple directed graph. (Note: Edges $(u, v)$ and $(v, u)$ in opposite directions are allowed).
+                    </p>
+                </div>
+                <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                    <strong class="text-violet-900 text-base font-bold block">(b) Directed Multigraphs (有向多重圖)</strong>
+                    <p class="text-slate-700">
+                        Directed graphs that may have <strong>multiple directed edges</strong> from a vertex to a second (possibly the same, i.e., loops) vertex are called directed multigraphs.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Toggle: Directed Graph SVG Diagram -->
+            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                <button onclick="toggleCard('fig-10-1-directed')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                    <span><i class="fa-solid fa-diagram-project mr-2 text-violet-600"></i> Directed Graph Example Diagram (有向圖箭頭方向圖例重現，點擊展開)</span>
+                    <span class="text-xs bg-violet-600 text-white px-2.5 py-1 rounded-full">Expand Diagram</span>
+                </button>
+                <div id="fig-10-1-directed" class="toggle-content p-6 space-y-3 text-xs md:text-sm border-t border-slate-200">
+                    <div class="p-4 border border-slate-200 rounded-xl bg-slate-50 space-y-2">
+                        <span class="font-bold text-violet-900 block text-center">Directed Graph (Page 643): 有序對 $(u, v)$ 表示從 $u$ 指向 $v$ 的方向</span>
+                        <svg viewBox="0 0 640 165" class="w-full max-w-[600px] mx-auto bg-white rounded-lg border border-slate-200 p-2">
+                            <defs>
+                                <marker id="arrow-violet-dir" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#7c3aed"/>
+                                </marker>
+                            </defs>
+                            <!-- Directed Edges -->
+                            <!-- SF -> LA -->
+                            <line x1="60" y1="75" x2="88" y2="131" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrow-violet-dir)"/>
+                            <!-- SF -> Denver -->
+                            <line x1="60" y1="75" x2="225" y2="85" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrow-violet-dir)"/>
+                            <!-- LA -> Denver & Denver -> LA -->
+                            <line x1="90" y1="135" x2="226" y2="87" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrow-violet-dir)"/>
+                            <path d="M 230 85 Q 168 122 94 134" fill="none" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrow-violet-dir)"/>
+                            <!-- Denver -> Chicago & Chicago -> Denver -->
+                            <path d="M 230 85 Q 310 50 395 45" fill="none" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrow-violet-dir)"/>
+                            <path d="M 400 45 Q 320 80 235 85" fill="none" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrow-violet-dir)"/>
+                            <!-- Chicago -> Detroit (2 parallel directed edges) -->
+                            <path d="M 400 45 Q 430 22 461 25" fill="none" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrow-violet-dir)"/>
+                            <line x1="400" y1="45" x2="460" y2="27" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrow-violet-dir)"/>
+                            <!-- Detroit -> NY -->
+                            <line x1="465" y1="25" x2="570" y2="39" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrow-violet-dir)"/>
+                            <!-- NY -> Chicago -->
+                            <line x1="575" y1="40" x2="405" y2="45" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrow-violet-dir)"/>
+                            <!-- Washington -> Chicago & Chicago -> Washington -->
+                            <line x1="545" y1="95" x2="404" y2="47" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrow-violet-dir)"/>
+                            <path d="M 400 45 Q 465 88 540 95" fill="none" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrow-violet-dir)"/>
+                            <!-- Washington -> NY -->
+                            <line x1="545" y1="95" x2="573" y2="45" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrow-violet-dir)"/>
+
+                            <!-- Vertices -->
+                            <circle cx="60" cy="75" r="4.5" fill="#1e293b"/><text x="15" y="62" font-size="11" font-weight="bold">San Francisco</text>
+                            <circle cx="90" cy="135" r="4.5" fill="#1e293b"/><text x="55" y="152" font-size="11" font-weight="bold">Los Angeles</text>
+                            <circle cx="230" cy="85" r="4.5" fill="#1e293b"/><text x="215" y="103" font-size="11" font-weight="bold">Denver</text>
+                            <circle cx="400" cy="45" r="4.5" fill="#1e293b"/><text x="365" y="34" font-size="11" font-weight="bold">Chicago</text>
+                            <circle cx="465" cy="25" r="4.5" fill="#1e293b"/><text x="448" y="15" font-size="11" font-weight="bold">Detroit</text>
+                            <circle cx="575" cy="40" r="4.5" fill="#1e293b"/><text x="583" y="44" font-size="11" font-weight="bold">New York</text>
+                            <circle cx="545" cy="95" r="4.5" fill="#1e293b"/><text x="515" y="113" font-size="11" font-weight="bold">Washington</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Summary Table (Graph Terminology) -->
+        <div class="space-y-4 pt-4 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-violet-800 flex items-center gap-2">
+                <i class="fa-solid fa-table text-violet-500 text-sm"></i> 4. Summary: Graph Terminology (圖類型術語總結表，Page 644)
+            </h3>
+
+            <div class="overflow-x-auto rounded-xl border border-slate-200">
+                <table class="w-full text-left border-collapse text-sm bg-white">
+                    <thead>
+                        <tr class="bg-violet-50 text-violet-950 border-b border-slate-200">
+                            <th class="py-3 px-4 font-bold">Type (圖類型)</th>
+                            <th class="py-3 px-4 font-bold">Edges (邊的方向)</th>
+                            <th class="py-3 px-4 font-bold">Multiple Edges? (允許重邊？)</th>
+                            <th class="py-3 px-4 font-bold">Loops? (允許自環？)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 text-slate-700">
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-3 px-4 font-bold text-slate-900">Simple graph (簡單圖)</td>
+                            <td class="py-3 px-4">Undirected (無向)</td>
+                            <td class="py-3 px-4 text-red-600 font-semibold">No</td>
+                            <td class="py-3 px-4 text-red-600 font-semibold">No</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-3 px-4 font-bold text-slate-900">Multigraph (多重圖)</td>
+                            <td class="py-3 px-4">Undirected (無向)</td>
+                            <td class="py-3 px-4 text-emerald-600 font-semibold">Yes</td>
+                            <td class="py-3 px-4 text-red-600 font-semibold">No</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-3 px-4 font-bold text-slate-900">Pseudograph (偽圖)</td>
+                            <td class="py-3 px-4">Undirected (無向)</td>
+                            <td class="py-3 px-4 text-emerald-600 font-semibold">Yes</td>
+                            <td class="py-3 px-4 text-emerald-600 font-semibold">Yes</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-3 px-4 font-bold text-slate-900">Simple directed graph (簡單有向圖)</td>
+                            <td class="py-3 px-4">Directed (有向)</td>
+                            <td class="py-3 px-4 text-red-600 font-semibold">No</td>
+                            <td class="py-3 px-4 text-red-600 font-semibold">No</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-3 px-4 font-bold text-slate-900">Directed multigraph (有向多重圖)</td>
+                            <td class="py-3 px-4">Directed (有向)</td>
+                            <td class="py-3 px-4 text-emerald-600 font-semibold">Yes</td>
+                            <td class="py-3 px-4 text-emerald-600 font-semibold">Yes</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
