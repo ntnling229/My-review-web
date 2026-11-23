@@ -1135,7 +1135,7 @@
                         <p class="pl-4">2. $\forall x \exists y (x + y = 0)$（加法反元素存在性）$\implies$ <strong>true</strong></p>
                         <p class="pl-4">3. $\forall x \forall y \forall z (x + (y + z) = (x + y) + z)$（Associative law，加法結合律）$\implies$ <strong>true</strong></p>
                         <p>• <strong>Example 2 (page 58, domain = all real numbers)：</strong></p>
-                        <p class="pl-4">$\forall x \forall y ((x > 0) \wedge (y < 0) \rightarrow (xy < 0))$（正數與負數之積恒為負數）$\implies$ <strong>true</strong></p>
+                        <p class="pl-4">$\forall x \forall y ((x &gt; 0) \wedge (y &lt; 0) \rightarrow (xy &lt; 0))$（正數與負數之積恒為負數）$\implies$ <strong>true</strong></p>
                     </div>
                 </div>
             </div>
@@ -1247,8 +1247,8 @@
                     <div id="ex-1-5-math" class="toggle-content p-4 space-y-2.5 text-slate-700 border-t border-slate-200 bg-white">
                         <div>
                             <p>• <strong>Example 6:</strong> Translate the statement "The sum of two positive integers is always positive" into a logical expression.</p>
-                            <p class="pl-4"><strong>Way 1（domain for $x$ and $y$ = all integers）：</strong>$\forall x \forall y ((x > 0) \wedge (y > 0) \rightarrow (x + y > 0))$</p>
-                            <p class="pl-4"><strong>Way 2（domain for $x$ and $y$ = all positive integers）：</strong>$\forall x \forall y (x + y > 0)$</p>
+                            <p class="pl-4"><strong>Way 1（domain for $x$ and $y$ = all integers）：</strong>$\forall x \forall y ((x &gt; 0) \wedge (y &gt; 0) \rightarrow (x + y &gt; 0))$</p>
+                            <p class="pl-4"><strong>Way 2（domain for $x$ and $y$ = all positive integers）：</strong>$\forall x \forall y (x + y &gt; 0)$</p>
                         </div>
                         <div class="pt-2 border-t border-slate-100">
                             <p>• <strong>Example 7:</strong> Translate the statement "Every real number except zero has a multiplicative inverse."</p>
@@ -1359,6 +1359,308 @@
 
                 <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1 text-slate-700">
                     <p>• <strong>Discussion (in theory class):</strong> Exercises 9, 27, 33。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION 1.6 ================= -->
+    <section id="sec1-6" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-8">
+        <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 1.6</span>
+                Rules of Inference (推理規則)
+            </h2>
+            <span class="text-xs text-slate-500 font-mono">Page 69 - 77 + 補充</span>
+        </div>
+
+        <!-- 1. Introduction -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-lightbulb text-indigo-500 text-sm"></i> 1. Introduction (引言，Page 69 + 補充)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-2 text-slate-700">
+                    <strong class="text-indigo-900 block">有效結論與論證定義（補充）</strong>
+                    <p class="leading-relaxed">• 設 $H_1, H_2, \dots, H_n, C$ 是一組邏輯公式，當且僅當 $(H_1 \wedge H_2 \wedge \dots \wedge H_n) \rightarrow C$ 是<strong>永真公式（tautology）</strong>，稱 $C$ 是一組前提 $H_1, H_2, \dots, H_n$ 的<strong>有效結論</strong>。</p>
+                    <p class="leading-relaxed">• 判斷有效結論的過程就是<strong>論證過程</strong>，常用方法包括：<strong>真值表法</strong>、<strong>直接證法</strong>、<strong>間接證法</strong>。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Valid Arguments in Propositional Logic -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-check-double text-indigo-500 text-sm"></i> 2. Valid Arguments in Propositional Logic (命題邏輯中的有效推理，Page 70)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-2 text-slate-700">
+                    <strong class="text-indigo-900 block">有效推理定義（Definition, Page 70）與假言推理（Modus Ponens）</strong>
+                    <p class="leading-relaxed">• <strong>Valid Argument Form：</strong>若每當所有前提（hypotheses / premises）皆為真時，結論（conclusion）也必為真，則稱該推理形式有效。</p>
+                    <p class="leading-relaxed">• 證明 $q$ 從前提 $p_1, p_2, \dots, p_n$ 邏輯推出，等價於證明蘊含式 $(p_1 \wedge p_2 \wedge \dots \wedge p_n) \rightarrow q$ 為<strong>永真公式</strong>。</p>
+                    <p class="leading-relaxed">• <strong>Modus Ponens（假言推理）：</strong>前提為 $p$ 與 $p \rightarrow q$，結論為 $q$；其正確性源於 $(p \wedge (p \rightarrow q)) \rightarrow q$ 為永真公式。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Rules of Inference in Propositional Logic -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-list-ol text-indigo-500 text-sm"></i> 3. Rules of Inference in Propositional Logic (命題邏輯推理規則，Page 72 - 73)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <div class="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+                    <table class="w-full text-left border-collapse text-xs md:text-sm">
+                        <thead>
+                            <tr class="bg-indigo-50 text-indigo-950 border-b border-slate-200">
+                                <th class="py-2.5 px-4 font-bold">Rule of Inference (推理規則)</th>
+                                <th class="py-2.5 px-4 font-bold">Premises (前提)</th>
+                                <th class="py-2.5 px-4 font-bold">Conclusion (結論)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 text-slate-700">
+                            <tr>
+                                <td class="py-2.5 px-4 font-bold">Modus Ponens（假言推理）</td>
+                                <td class="py-2.5 px-4 font-mono">$p,\; p \rightarrow q$</td>
+                                <td class="py-2.5 px-4 font-mono">$\therefore q$</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2.5 px-4 font-bold">Modus Tollens（拒取式）</td>
+                                <td class="py-2.5 px-4 font-mono">$\neg q,\; p \rightarrow q$</td>
+                                <td class="py-2.5 px-4 font-mono">$\therefore \neg p$</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2.5 px-4 font-bold">Hypothetical Syllogism（假言三段論）</td>
+                                <td class="py-2.5 px-4 font-mono">$p \rightarrow q,\; q \rightarrow r$</td>
+                                <td class="py-2.5 px-4 font-mono">$\therefore p \rightarrow r$</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2.5 px-4 font-bold">Disjunctive Syllogism（析取三段論）</td>
+                                <td class="py-2.5 px-4 font-mono">$p \vee q,\; \neg p$</td>
+                                <td class="py-2.5 px-4 font-mono">$\therefore q$</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2.5 px-4 font-bold">Addition（附加）</td>
+                                <td class="py-2.5 px-4 font-mono">$p$</td>
+                                <td class="py-2.5 px-4 font-mono">$\therefore p \vee q$</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2.5 px-4 font-bold">Simplification（化簡）</td>
+                                <td class="py-2.5 px-4 font-mono">$p \wedge q$</td>
+                                <td class="py-2.5 px-4 font-mono">$\therefore p$</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2.5 px-4 font-bold">Conjunction（合取）</td>
+                                <td class="py-2.5 px-4 font-mono">$p,\; q$</td>
+                                <td class="py-2.5 px-4 font-mono">$\therefore p \wedge q$</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2.5 px-4 font-bold">Resolution（消解律）</td>
+                                <td class="py-2.5 px-4 font-mono">$p \vee q,\; \neg p \vee r$</td>
+                                <td class="py-2.5 px-4 font-mono">$\therefore q \vee r$</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-1-6-ex5')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span>Example 5 (page 73): Rain & Barbecue Argument (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example</span>
+                    </button>
+                    <div id="ex-1-6-ex5" class="toggle-content p-4 space-y-2.5 text-slate-700 border-t border-slate-200 bg-white">
+                        <p class="leading-relaxed">• <strong>Example 5 (page 73):</strong> "If it rains today, then we will not have a barbecue today. If we do not have a barbecue today, then we will have a barbecue tomorrow. Therefore, if it rains today, we will have a barbecue tomorrow."</p>
+                        <p class="pl-4 leading-relaxed">設 $p$: "It is raining today"， $q$: "We will not have a barbecue today"， $r$: "We will have a barbecue tomorrow"。</p>
+                        <div class="ml-4 mt-1 p-2.5 bg-slate-50 rounded-lg border border-slate-200 font-mono text-xs md:text-sm overflow-x-auto space-y-1">
+                            <p>$p \rightarrow q$</p>
+                            <p>$q \rightarrow r$</p>
+                            <p class="pt-1 border-t border-slate-200">$\therefore p \rightarrow r$ <span class="font-sans text-slate-600">（Hypothetical Syllogism / 假言三段論）</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Using Rules of Inference to Build Arguments & Other Methods -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-sitemap text-indigo-500 text-sm"></i> 4. Building Arguments & Other Propositional Methods (構造論證與其他推理方法，Page 73 - 74 + 補充)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-1-6-build')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span>Example 6 & Example 7 Step-by-Step Arguments (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                    </button>
+                    <div id="ex-1-6-build" class="toggle-content p-4 space-y-4 text-slate-700 border-t border-slate-200 bg-white">
+                        <div class="space-y-2 pb-2">
+                            <p class="leading-relaxed">• <strong>Example 6 (page 73):</strong> 由前提 "It is not sunny this afternoon and it is colder than yesterday"、"We will go swimming only if it is sunny"、"If we do not go swimming, then we will take a canoe trip"、"If we take a canoe trip, then we will be home by sunset"，推導出結論 "We will be home by sunset"。</p>
+                            <p class="pl-4 leading-relaxed">設 $p$: "It is sunny this afternoon"， $q$: "It is colder than yesterday"， $r$: "We will go swimming"， $s$: "We will take a canoe trip"， $t$: "We will be home by sunset"。前提為 $\neg p \wedge q,\; r \rightarrow p,\; \neg r \rightarrow s,\; s \rightarrow t$，結論為 $t$。</p>
+                            <div class="ml-4 overflow-x-auto rounded-lg border border-slate-200 bg-slate-50">
+                                <table class="w-full text-left border-collapse text-xs">
+                                    <thead>
+                                        <tr class="bg-slate-100 text-slate-800 border-b border-slate-200">
+                                            <th class="py-2 px-3">Step</th>
+                                            <th class="py-2 px-3">Statement</th>
+                                            <th class="py-2 px-3">Reason (中／英)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-200">
+                                        <tr><td class="py-1.5 px-3">1</td><td class="py-1.5 px-3 font-mono">$\neg p \wedge q$</td><td class="py-1.5 px-3">前提引入 / Hypothesis</td></tr>
+                                        <tr><td class="py-1.5 px-3">2</td><td class="py-1.5 px-3 font-mono">$\neg p$</td><td class="py-1.5 px-3">(1) 化簡 / Simplification using (1)</td></tr>
+                                        <tr><td class="py-1.5 px-3">3</td><td class="py-1.5 px-3 font-mono">$r \rightarrow p$</td><td class="py-1.5 px-3">前提引入 / Hypothesis</td></tr>
+                                        <tr><td class="py-1.5 px-3">4</td><td class="py-1.5 px-3 font-mono">$\neg r$</td><td class="py-1.5 px-3">(2)(3) 拒取式 / Modus tollens using (2) and (3)</td></tr>
+                                        <tr><td class="py-1.5 px-3">5</td><td class="py-1.5 px-3 font-mono">$\neg r \rightarrow s$</td><td class="py-1.5 px-3">前提引入 / Hypothesis</td></tr>
+                                        <tr><td class="py-1.5 px-3">6</td><td class="py-1.5 px-3 font-mono">$s$</td><td class="py-1.5 px-3">(4)(5) 假言推理 / Modus ponens using (4) and (5)</td></tr>
+                                        <tr><td class="py-1.5 px-3">7</td><td class="py-1.5 px-3 font-mono">$s \rightarrow t$</td><td class="py-1.5 px-3">前提引入 / Hypothesis</td></tr>
+                                        <tr><td class="py-1.5 px-3">8</td><td class="py-1.5 px-3 font-mono">$t$</td><td class="py-1.5 px-3">(6)(7) 假言推理 / Modus ponens using (6) and (7)</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-200 space-y-2">
+                            <p class="leading-relaxed">• <strong>Example 7 (page 74):</strong> 由前提 "If you send me an e-mail message, then I will finish writing the program"、"If you do not send me an e-mail message, then I will go to sleep early"、"If I go to sleep early, then I will wake up feeling refreshed"，推導出結論 "If I do not finish writing the program, then I will wake up feeling refreshed"（$\neg q \rightarrow s$）。</p>
+                            <p class="pl-4 leading-relaxed">設 $p$: "You send me an e-mail message"， $q$: "I will finish writing the program"， $r$: "I will go to sleep early"， $s$: "I will wake up feeling refreshed"。</p>
+                            <div class="ml-4 overflow-x-auto rounded-lg border border-slate-200 bg-slate-50">
+                                <table class="w-full text-left border-collapse text-xs">
+                                    <thead>
+                                        <tr class="bg-slate-100 text-slate-800 border-b border-slate-200">
+                                            <th class="py-2 px-3">Step</th>
+                                            <th class="py-2 px-3">Statement</th>
+                                            <th class="py-2 px-3">Reason (中／英)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-200">
+                                        <tr><td class="py-1.5 px-3">1</td><td class="py-1.5 px-3 font-mono">$p \rightarrow q$</td><td class="py-1.5 px-3">前提引入 / Hypothesis</td></tr>
+                                        <tr><td class="py-1.5 px-3">2</td><td class="py-1.5 px-3 font-mono">$\neg q \rightarrow \neg p$</td><td class="py-1.5 px-3">(1) 逆否命題／置換 / Contrapositive of (1)</td></tr>
+                                        <tr><td class="py-1.5 px-3">3</td><td class="py-1.5 px-3 font-mono">$\neg p \rightarrow r$</td><td class="py-1.5 px-3">前提引入 / Hypothesis</td></tr>
+                                        <tr><td class="py-1.5 px-3">4</td><td class="py-1.5 px-3 font-mono">$\neg q \rightarrow r$</td><td class="py-1.5 px-3">(2)(3) 假言三段論 / Hypothetical Syllogism using (2) and (3)</td></tr>
+                                        <tr><td class="py-1.5 px-3">5</td><td class="py-1.5 px-3 font-mono">$r \rightarrow s$</td><td class="py-1.5 px-3">前提引入 / Hypothesis</td></tr>
+                                        <tr><td class="py-1.5 px-3">6</td><td class="py-1.5 px-3 font-mono">$\neg q \rightarrow s$</td><td class="py-1.5 px-3">(4)(5) 假言三段論 / Hypothetical Syllogism using (4) and (5)</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-1-6-extra')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span>補充方法：附加前提法、歸谬法與例 1、例 2 (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Extra Methods</span>
+                    </button>
+                    <div id="ex-1-6-extra" class="toggle-content p-4 space-y-4 text-slate-700 border-t border-slate-200 bg-white">
+                        <div class="space-y-2 pb-2">
+                            <p class="leading-relaxed">• <strong>(1) 附加前提法：</strong>因 $(A_1 \wedge A_2 \wedge \dots \wedge A_k) \rightarrow (A \rightarrow B) \equiv (A_1 \wedge A_2 \wedge \dots \wedge A_k \wedge A) \rightarrow B$，可將 $A$ 作為附加前提引入推導 $B$。</p>
+                            <p class="pl-4 leading-relaxed"><strong>例 1：</strong>前提 $p \rightarrow q,\; (r \vee \neg s) \rightarrow \neg q$，結論 $p \rightarrow (\neg r \wedge s)$。</p>
+                            <div class="ml-4 p-2.5 bg-slate-50 rounded-lg border border-slate-200 font-mono text-xs md:text-sm space-y-1">
+                                <p>1. $p$ <span class="font-sans text-slate-600">—— 附加前提引入</span></p>
+                                <p>2. $p \rightarrow q$ <span class="font-sans text-slate-600">—— 前提引入</span></p>
+                                <p>3. $q$ <span class="font-sans text-slate-600">—— (1)(2) 假言推理</span></p>
+                                <p>4. $(r \vee \neg s) \rightarrow \neg q$ <span class="font-sans text-slate-600">—— 前提引入</span></p>
+                                <p>5. $q \rightarrow \neg(r \vee \neg s)$ <span class="font-sans text-slate-600">—— (4) 逆否／置換</span></p>
+                                <p>6. $\neg(r \vee \neg s)$ <span class="font-sans text-slate-600">—— (3)(5) 假言推理</span></p>
+                                <p>7. $\neg r \wedge s$ <span class="font-sans text-slate-600">—— (6) De Morgan / 置換</span></p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-200 space-y-2">
+                            <p class="leading-relaxed">• <strong>(2) 歸谬法：</strong>將結論否定 $\neg B$ 作為附加前提引入；若推導出矛盾（永假式），則原結論成立。</p>
+                            <p class="pl-4 leading-relaxed"><strong>例 2：</strong>前提 $p \rightarrow \neg q,\; r \rightarrow q,\; r$，結論 $p$。</p>
+                            <div class="ml-4 p-2.5 bg-slate-50 rounded-lg border border-slate-200 font-mono text-xs md:text-sm space-y-1">
+                                <p>1. $\neg p$ <span class="font-sans text-slate-600">—— 結論否定引入</span></p>
+                                <p>2. $p \rightarrow \neg q$ <span class="font-sans text-slate-600">—— 前提引入</span></p>
+                                <p>3. $\neg q$ <span class="font-sans text-slate-600">—— (1)(2) 假言推理（或由前提 $r$ 與 $r \rightarrow q$ 得 $q$，與 $\neg q$ 矛盾）</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Rules of Inference for Quantified Statements -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-superscript text-indigo-500 text-sm"></i> 5. Rules of Inference for Quantified Statements (量詞語句推理規則，Page 76 - 77)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <div class="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+                    <table class="w-full text-left border-collapse text-xs md:text-sm">
+                        <thead>
+                            <tr class="bg-indigo-50 text-indigo-950 border-b border-slate-200">
+                                <th class="py-2.5 px-4 font-bold">Rule (規則)</th>
+                                <th class="py-2.5 px-4 font-bold">Premise (前提)</th>
+                                <th class="py-2.5 px-4 font-bold">Conclusion (結論)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 text-slate-700">
+                            <tr>
+                                <td class="py-2.5 px-4 font-bold">Universal Instantiation (UI / 全稱量詞消去)</td>
+                                <td class="py-2.5 px-4 font-mono">$\forall x\, P(x)$</td>
+                                <td class="py-2.5 px-4 font-mono">$\therefore P(c)$ <span class="font-sans text-xs text-slate-500">（$c$ 為個體域中特定元素）</span></td>
+                            </tr>
+                            <tr>
+                                <td class="py-2.5 px-4 font-bold">Universal Generalization (UG / 全稱量詞引入)</td>
+                                <td class="py-2.5 px-4 font-mono">$P(c)$ <span class="font-sans text-xs text-slate-500">（對任意 $c$）</span></td>
+                                <td class="py-2.5 px-4 font-mono">$\therefore \forall x\, P(x)$</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2.5 px-4 font-bold">Existential Instantiation (EI / 存在量詞消去)</td>
+                                <td class="py-2.5 px-4 font-mono">$\exists x\, P(x)$</td>
+                                <td class="py-2.5 px-4 font-mono">$\therefore P(c)$ <span class="font-sans text-xs text-slate-500">（對某個特定元素 $c$）</span></td>
+                            </tr>
+                            <tr>
+                                <td class="py-2.5 px-4 font-bold">Existential Generalization (EG / 存在量詞引入)</td>
+                                <td class="py-2.5 px-4 font-mono">$P(c)$ <span class="font-sans text-xs text-slate-500">（對某個元素 $c$）</span></td>
+                                <td class="py-2.5 px-4 font-mono">$\therefore \exists x\, P(x)$</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-1-6-quant')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span>Example 12 & Example 13 Quantified Proofs (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                    </button>
+                    <div id="ex-1-6-quant" class="toggle-content p-4 space-y-4 text-slate-700 border-t border-slate-200 bg-white">
+                        <div class="space-y-2 pb-2">
+                            <p class="leading-relaxed">• <strong>Example 12 (page 76):</strong> 由 "Everyone in the discrete mathematics class has taken a course in computer science" 與 "Marla is a student in this class"，推出 "Marla has taken a course in computer science"。</p>
+                            <p class="pl-4 leading-relaxed">設 $D(x)$: "$x$ is in this discrete mathematics class"， $C(x)$: "$x$ has taken a course in computer science"。前提為 $\forall x(D(x) \rightarrow C(x))$ 與 $D(\text{Marla})$，結論為 $C(\text{Marla})$。</p>
+                            <div class="ml-4 p-2.5 bg-slate-50 rounded-lg border border-slate-200 font-mono text-xs md:text-sm space-y-1">
+                                <p>1. $\forall x(D(x) \rightarrow C(x))$ <span class="font-sans text-slate-600">—— 前提引入 / Premise</span></p>
+                                <p>2. $D(\text{Marla}) \rightarrow C(\text{Marla})$ <span class="font-sans text-slate-600">—— (1) UI 規則</span></p>
+                                <p>3. $D(\text{Marla})$ <span class="font-sans text-slate-600">—— 前提引入 / Premise</span></p>
+                                <p>4. $C(\text{Marla})$ <span class="font-sans text-slate-600">—— (2)(3) 假言推理 / Modus ponens</span></p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-200 space-y-2">
+                            <p class="leading-relaxed">• <strong>Example 13 (page 77):</strong> 由 "A student in this class has not read the book" 與 "Everyone in this class passed the first exam"，推出 "Someone who passed the first exam has not read the book"。</p>
+                            <p class="pl-4 leading-relaxed">設 $C(x)$: "$x$ is in this class"， $B(x)$: "$x$ has read the book"， $P(x)$: "$x$ passed the first exam"。前提為 $\exists x(C(x) \wedge \neg B(x))$ 與 $\forall x(C(x) \rightarrow P(x))$，結論為 $\exists x(P(x) \wedge \neg B(x))$。</p>
+                            <div class="ml-4 p-2.5 bg-slate-50 rounded-lg border border-slate-200 font-mono text-xs md:text-sm space-y-1">
+                                <p>1. $\exists x(C(x) \wedge \neg B(x))$ <span class="font-sans text-slate-600">—— 前提引入 / Premise</span></p>
+                                <p>2. $C(a) \wedge \neg B(a)$ <span class="font-sans text-slate-600">—— (1) EI 規則（取特定元素 $a$）</span></p>
+                                <p>3. $C(a)$ <span class="font-sans text-slate-600">—— (2) 化簡 / Simplification</span></p>
+                                <p>4. $\forall x(C(x) \rightarrow P(x))$ <span class="font-sans text-slate-600">—— 前提引入 / Premise</span></p>
+                                <p>5. $C(a) \rightarrow P(a)$ <span class="font-sans text-slate-600">—— (4) UI 規則</span></p>
+                                <p>6. $P(a)$ <span class="font-sans text-slate-600">—— (3)(5) 假言推理 / Modus ponens</span></p>
+                                <p>7. $\neg B(a)$ <span class="font-sans text-slate-600">—— (2) 化簡 / Simplification</span></p>
+                                <p>8. $P(a) \wedge \neg B(a)$ <span class="font-sans text-slate-600">—— (6)(7) 合取 / Conjunction</span></p>
+                                <p>9. $\exists x(P(x) \wedge \neg B(x))$ <span class="font-sans text-slate-600">—— (8) EG 規則 / Existential generalization</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1 text-slate-700">
+                    <p>• <strong>Homework:</strong> Exercises 12, 24, 26, 28, 30 + 補充題目。</p>
                 </div>
             </div>
         </div>
