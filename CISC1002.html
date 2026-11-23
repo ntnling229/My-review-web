@@ -55,6 +55,7 @@
                 <div class="absolute left-0 mt-0 w-56 bg-slate-800 border border-slate-700 rounded-lg shadow-lg hidden group-hover:block z-50 py-1">
                     <a href="#chap1-overview" class="block px-4 py-2 hover:bg-slate-700 text-slate-200">Ch1 Overview</a>
                     <a href="#sec1-1" class="block px-4 py-2 hover:bg-slate-700 text-slate-200">§1.1 Propositional Logic</a>
+                    <a href="#sec1-3" class="block px-4 py-2 hover:bg-slate-700 text-slate-200">§1.3 Propositional Equivalence</a>
                 </div>
             </div>
             
@@ -440,6 +441,275 @@
                 </div>
             </div>
         </div>        
+    </section>
+
+    <!-- ================= SECTION 1.3 ================= -->
+    <section id="sec1-3" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-8">
+        <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 1.3</span>
+                Propositional Equivalence (命題等價)
+            </h2>
+            <span class="text-xs text-slate-500 font-mono">Page 21 - 27</span>
+        </div>
+
+        <!-- 1. Introduction: Tautology, Contradiction & Contingency -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-circle-dot text-indigo-500 text-sm"></i> 1. Tautology, Contradiction & Contingency (永真、永假與中性公式，Page 21)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
+                <strong class="text-indigo-900 text-base font-bold block">Definition 1 (see page 21)</strong>
+                <div class="space-y-2 text-slate-700">
+                    <p>• <strong>(1) Tautology (永真公式):</strong> A compound proposition that is <strong>always true (T)</strong>, no matter what the truth values of the propositions that occur in it（例如 $p \vee \neg p$）。</p>
+                    <p>• <strong>(2) Contradiction (永假公式):</strong> A compound proposition that is <strong>always false (F)</strong>, no matter what the truth values of the propositions that occur in it（例如 $p \wedge \neg p$）。</p>
+                    <p>• <strong>(3) Contingency (中性公式):</strong> A proposition that is <strong>neither a tautology nor a contradiction</strong>（真值隨組成命題而有真有假）。</p>
+                </div>
+                <p class="text-xs text-slate-600 bg-white p-3 rounded-lg border border-slate-200">
+                    <strong>Example 1 (page 21):</strong> 永真公式恆為真（T），永假公式恆為假（F）。
+                </p>
+            </div>
+        </div>
+
+        <!-- 2. Logical Equivalence & Truth Tables -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-equals text-indigo-500 text-sm"></i> 2. Logical Equivalence & Truth Table Examples (邏輯等價與真值表驗證，Page 22 - 27)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
+                <strong class="text-indigo-900 text-base font-bold block">Definition 2: Logical Equivalence (邏輯等價)</strong>
+                <p class="text-slate-700">The propositions $p$ and $q$ are called <strong>logically equivalent</strong> if $p \leftrightarrow q$ is a tautology.</p>
+                <p class="text-slate-700">• 記法：$p \equiv q$ 表示 $p$ 與 $q$ 邏輯等價；$p \equiv \text{T}$ 表示 $p$ 是永真公式（tautology）。</p>
+                <p class="text-slate-700">• <strong>驗證方式：</strong>可透過建構真值表（truth table）或套用已知等價律推導。</p>
+            </div>
+
+            <!-- Toggle: Examples 2, 3, 4 Truth Tables -->
+            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                <button onclick="toggleCard('fig-1-3-examples')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                    <span><i class="fa-solid fa-table-cells mr-2 text-indigo-600"></i> Examples 2, 3 & 4 Truth Tables (De Morgan 初步驗證、蘊含等價與分配律，點擊展開)</span>
+                    <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full">Expand Tables</span>
+                </button>
+                <div id="fig-1-3-examples" class="toggle-content p-6 space-y-6 text-xs md:text-sm border-t border-slate-200">
+                    <!-- Example 2 -->
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                        <strong class="text-indigo-900 block">Example 2 (page 22): Show that $\neg(p \vee q)$ and $\neg p \wedge \neg q$ are logically equivalent.</strong>
+                        <div class="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+                            <table class="w-full text-center border-collapse font-mono">
+                                <thead>
+                                    <tr class="bg-slate-100 border-b border-slate-200">
+                                        <th class="py-2 px-3">$p$</th>
+                                        <th class="py-2 px-3">$q$</th>
+                                        <th class="py-2 px-3">$p \vee q$</th>
+                                        <th class="py-2 px-3 text-indigo-800">$\neg(p \vee q)$</th>
+                                        <th class="py-2 px-3">$\neg p$</th>
+                                        <th class="py-2 px-3">$\neg q$</th>
+                                        <th class="py-2 px-3 text-indigo-800">$\neg p \wedge \neg q$</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200">
+                                    <tr><td class="py-2 px-3">T</td><td class="py-2 px-3">T</td><td class="py-2 px-3">T</td><td class="py-2 px-3 font-bold">F</td><td class="py-2 px-3">F</td><td class="py-2 px-3">F</td><td class="py-2 px-3 font-bold">F</td></tr>
+                                    <tr><td class="py-2 px-3">T</td><td class="py-2 px-3">F</td><td class="py-2 px-3">T</td><td class="py-2 px-3 font-bold">F</td><td class="py-2 px-3">F</td><td class="py-2 px-3">T</td><td class="py-2 px-3 font-bold">F</td></tr>
+                                    <tr><td class="py-2 px-3">F</td><td class="py-2 px-3">T</td><td class="py-2 px-3">T</td><td class="py-2 px-3 font-bold">F</td><td class="py-2 px-3">T</td><td class="py-2 px-3">F</td><td class="py-2 px-3 font-bold">F</td></tr>
+                                    <tr><td class="py-2 px-3">F</td><td class="py-2 px-3">F</td><td class="py-2 px-3">F</td><td class="py-2 px-3 font-bold text-indigo-700">T</td><td class="py-2 px-3">T</td><td class="py-2 px-3">T</td><td class="py-2 px-3 font-bold text-indigo-700">T</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Example 3 -->
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                        <strong class="text-indigo-900 block">Example 3 (page 23): Show that $p \rightarrow q$ and $\neg p \vee q$ are logically equivalent.</strong>
+                        <p class="text-slate-700 text-xs">兩者真值表各列完全一致，故 $p \rightarrow q \equiv \neg p \vee q$。</p>
+                        <div class="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+                            <table class="w-full text-center border-collapse font-mono">
+                                <thead>
+                                    <tr class="bg-slate-100 border-b border-slate-200">
+                                        <th class="py-2 px-3">$p$</th>
+                                        <th class="py-2 px-3">$q$</th>
+                                        <th class="py-2 px-3">$\neg p$</th>
+                                        <th class="py-2 px-3 text-indigo-800">$\neg p \vee q$</th>
+                                        <th class="py-2 px-3 text-indigo-800">$p \rightarrow q$</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200">
+                                    <tr><td class="py-2 px-3">T</td><td class="py-2 px-3">T</td><td class="py-2 px-3">F</td><td class="py-2 px-3 font-bold text-indigo-700">T</td><td class="py-2 px-3 font-bold text-indigo-700">T</td></tr>
+                                    <tr><td class="py-2 px-3">T</td><td class="py-2 px-3">F</td><td class="py-2 px-3">F</td><td class="py-2 px-3 font-bold text-red-600">F</td><td class="py-2 px-3 font-bold text-red-600">F</td></tr>
+                                    <tr><td class="py-2 px-3">F</td><td class="py-2 px-3">T</td><td class="py-2 px-3">T</td><td class="py-2 px-3 font-bold text-indigo-700">T</td><td class="py-2 px-3 font-bold text-indigo-700">T</td></tr>
+                                    <tr><td class="py-2 px-3">F</td><td class="py-2 px-3">F</td><td class="py-2 px-3">T</td><td class="py-2 px-3 font-bold text-indigo-700">T</td><td class="py-2 px-3 font-bold text-indigo-700">T</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Example 4 -->
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                        <strong class="text-indigo-900 block">Example 4 (page 27): Show that $p \vee (q \wedge r)$ and $(p \vee q) \wedge (p \vee r)$ are logically equivalent.</strong>
+                        <div class="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+                            <table class="w-full text-center border-collapse font-mono text-xs">
+                                <thead>
+                                    <tr class="bg-slate-100 border-b border-slate-200">
+                                        <th class="py-2 px-2">$p$</th>
+                                        <th class="py-2 px-2">$q$</th>
+                                        <th class="py-2 px-2">$r$</th>
+                                        <th class="py-2 px-2">$q \wedge r$</th>
+                                        <th class="py-2 px-2 text-indigo-800">$p \vee (q \wedge r)$</th>
+                                        <th class="py-2 px-2">$p \vee q$</th>
+                                        <th class="py-2 px-2">$p \vee r$</th>
+                                        <th class="py-2 px-2 text-indigo-800">$(p \vee q) \wedge (p \vee r)$</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200">
+                                    <tr><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2 font-bold">T</td><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2 font-bold">T</td></tr>
+                                    <tr><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2">F</td><td class="py-1.5 px-2">F</td><td class="py-1.5 px-2 font-bold">T</td><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2 font-bold">T</td></tr>
+                                    <tr><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2">F</td><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2">F</td><td class="py-1.5 px-2 font-bold">T</td><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2 font-bold">T</td></tr>
+                                    <tr><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2">F</td><td class="py-1.5 px-2">F</td><td class="py-1.5 px-2">F</td><td class="py-1.5 px-2 font-bold">T</td><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2 font-bold">T</td></tr>
+                                    <tr><td class="py-1.5 px-2">F</td><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2 font-bold">T</td><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2 font-bold">T</td></tr>
+                                    <tr><td class="py-1.5 px-2">F</td><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2">F</td><td class="py-1.5 px-2">F</td><td class="py-1.5 px-2 font-bold">F</td><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2">F</td><td class="py-1.5 px-2 font-bold">F</td></tr>
+                                    <tr><td class="py-1.5 px-2">F</td><td class="py-1.5 px-2">F</td><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2">F</td><td class="py-1.5 px-2 font-bold">F</td><td class="py-1.5 px-2">F</td><td class="py-1.5 px-2">T</td><td class="py-1.5 px-2 font-bold">F</td></tr>
+                                    <tr><td class="py-1.5 px-2">F</td><td class="py-1.5 px-2">F</td><td class="py-1.5 px-2">F</td><td class="py-1.5 px-2">F</td><td class="py-1.5 px-2 font-bold">F</td><td class="py-1.5 px-2">F</td><td class="py-1.5 px-2">F</td><td class="py-1.5 px-2 font-bold">F</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Important Logical Equivalences (Table 5 & Table 6) -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-book-bookmark text-indigo-500 text-sm"></i> 3. Important Logical Equivalences (重要邏輯等價律，Table 5 & Table 6)
+            </h3>
+
+            <!-- Table 5 -->
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
+                <strong class="text-indigo-900 text-base font-bold block">(a) Table 5: Fundamental Logical Equivalences (基本等價律)</strong>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs md:text-sm">
+                    <div class="p-3.5 bg-white rounded-lg border border-slate-200 space-y-1">
+                        <strong class="text-indigo-900 block">Identity laws (同一律)</strong>
+                        <p class="font-mono text-slate-700">$p \wedge \text{T} \equiv p$</p>
+                        <p class="font-mono text-slate-700">$p \vee \text{F} \equiv p$</p>
+                    </div>
+                    <div class="p-3.5 bg-white rounded-lg border border-slate-200 space-y-1">
+                        <strong class="text-indigo-900 block">Domination laws (零律／支配律)</strong>
+                        <p class="font-mono text-slate-700">$p \vee \text{T} \equiv \text{T}$</p>
+                        <p class="font-mono text-slate-700">$p \wedge \text{F} \equiv \text{F}$</p>
+                    </div>
+                    <div class="p-3.5 bg-white rounded-lg border border-slate-200 space-y-1">
+                        <strong class="text-indigo-900 block">Idempotent laws (冪等律)</strong>
+                        <p class="font-mono text-slate-700">$p \vee p \equiv p$</p>
+                        <p class="font-mono text-slate-700">$p \wedge p \equiv p$</p>
+                    </div>
+                    <div class="p-3.5 bg-white rounded-lg border border-slate-200 space-y-1">
+                        <strong class="text-indigo-900 block">Double negation law (雙重否定律)</strong>
+                        <p class="font-mono text-slate-700">$\neg(\neg p) \equiv p$</p>
+                    </div>
+                    <div class="p-3.5 bg-white rounded-lg border border-slate-200 space-y-1">
+                        <strong class="text-indigo-900 block">Commutative laws (交換律)</strong>
+                        <p class="font-mono text-slate-700">$p \vee q \equiv q \vee p$</p>
+                        <p class="font-mono text-slate-700">$p \wedge q \equiv q \wedge p$</p>
+                    </div>
+                    <div class="p-3.5 bg-white rounded-lg border border-slate-200 space-y-1">
+                        <strong class="text-indigo-900 block">Associative laws (結合律)</strong>
+                        <p class="font-mono text-slate-700">$(p \vee q) \vee r \equiv p \vee (q \vee r)$</p>
+                        <p class="font-mono text-slate-700">$(p \wedge q) \wedge r \equiv p \wedge (q \wedge r)$</p>
+                    </div>
+                    <div class="p-3.5 bg-white rounded-lg border border-slate-200 space-y-1">
+                        <strong class="text-indigo-900 block">Distributive laws (分配律)</strong>
+                        <p class="font-mono text-slate-700">$p \vee (q \wedge r) \equiv (p \vee q) \wedge (p \vee r)$</p>
+                        <p class="font-mono text-slate-700">$p \wedge (q \vee r) \equiv (p \wedge q) \vee (p \wedge r)$</p>
+                    </div>
+                    <div class="p-3.5 bg-white rounded-lg border border-slate-200 space-y-1">
+                        <strong class="text-indigo-900 block">De Morgan's laws (德摩根律)</strong>
+                        <p class="font-mono text-slate-700">$\neg(p \wedge q) \equiv \neg p \vee \neg q$</p>
+                        <p class="font-mono text-slate-700">$\neg(p \vee q) \equiv \neg p \wedge \neg q$</p>
+                    </div>
+                    <div class="p-3.5 bg-white rounded-lg border border-slate-200 space-y-1">
+                        <strong class="text-indigo-900 block">Absorption laws (吸收律)</strong>
+                        <p class="font-mono text-slate-700">$p \vee (p \wedge q) \equiv p$</p>
+                        <p class="font-mono text-slate-700">$p \wedge (p \vee q) \equiv p$</p>
+                    </div>
+                    <div class="p-3.5 bg-white rounded-lg border border-slate-200 space-y-1">
+                        <strong class="text-indigo-900 block">Negation laws (排中律與矛盾律)</strong>
+                        <p class="font-mono text-slate-700">$p \vee \neg p \equiv \text{T}$（排中律）</p>
+                        <p class="font-mono text-slate-700">$p \wedge \neg p \equiv \text{F}$（矛盾律）</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table 6: Implication & Biconditional -->
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
+                <strong class="text-indigo-900 text-base font-bold block">(b) Table 6: Logical Equivalences Involving Implication & Biconditional</strong>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs md:text-sm">
+                    <div class="p-3.5 bg-white rounded-lg border border-slate-200 space-y-1 font-mono text-slate-700">
+                        <strong class="text-indigo-900 font-sans block mb-1">含蘊含 ($\rightarrow$) 的等價式</strong>
+                        <p>$p \rightarrow q \equiv \neg p \vee q$</p>
+                        <p>$p \rightarrow q \equiv \neg q \rightarrow \neg p$</p>
+                        <p>$p \vee q \equiv \neg p \rightarrow q$</p>
+                        <p>$p \wedge q \equiv \neg(p \rightarrow \neg q)$</p>
+                        <p>$\neg(p \rightarrow q) \equiv p \wedge \neg q$</p>
+                        <p>$(p \rightarrow q) \wedge (p \rightarrow r) \equiv p \rightarrow (q \wedge r)$</p>
+                        <p>$(p \rightarrow r) \wedge (q \rightarrow r) \equiv (p \vee q) \rightarrow r$</p>
+                        <p>$(p \rightarrow q) \vee (p \rightarrow r) \equiv p \rightarrow (q \vee r)$</p>
+                        <p>$(p \rightarrow r) \vee (q \rightarrow r) \equiv (p \wedge q) \rightarrow r$</p>
+                    </div>
+                    <div class="p-3.5 bg-white rounded-lg border border-slate-200 space-y-1 font-mono text-slate-700">
+                        <strong class="text-indigo-900 font-sans block mb-1">含雙條件 ($\leftrightarrow$) 的等價式</strong>
+                        <p>$p \leftrightarrow q \equiv (p \rightarrow q) \wedge (q \rightarrow p)$</p>
+                        <p>$p \leftrightarrow q \equiv \neg p \leftrightarrow \neg q$</p>
+                        <p>$p \leftrightarrow q \equiv (p \wedge q) \vee (\neg p \wedge \neg q)$</p>
+                        <p>$\neg(p \leftrightarrow q) \equiv p \leftrightarrow \neg q$</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Extension of De Morgan's Law & Constructing New Equivalences -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-wand-magic-sparkles text-indigo-500 text-sm"></i> 4. Extension of De Morgan's Law & Constructing Equivalences (德摩根律推廣與推導範例，Page 26)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1.5 font-mono text-xs md:text-sm text-slate-800">
+                    <strong class="text-indigo-900 font-sans block text-sm">Extension of De Morgan's Law (德摩根律的推廣)</strong>
+                    <p>$\neg(p_1 \wedge p_2 \wedge \dots \wedge p_n) \equiv \neg p_1 \vee \neg p_2 \vee \dots \vee \neg p_n$</p>
+                    <p>$\neg(p_1 \vee p_2 \vee \dots \vee p_n) \equiv \neg p_1 \wedge \neg p_2 \wedge \dots \wedge \neg p_n$</p>
+                </div>
+
+                <!-- Example 6 -->
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1 text-xs md:text-sm text-slate-700">
+                    <strong class="text-indigo-900 block">Example 6 (page 26): Show that $\neg(p \rightarrow q)$ and $p \wedge \neg q$ are logically equivalent.</strong>
+                    <p class="font-mono">$\neg(p \rightarrow q)$ <span class="font-sans text-slate-500">$\equiv \neg(\neg p \vee q)$（by Example 3 / 蘊含等價）</span></p>
+                    <p class="font-mono pl-4">$\equiv \neg(\neg p) \wedge \neg q$ <span class="font-sans text-slate-500">（by the second De Morgan law）</span></p>
+                    <p class="font-mono pl-4">$\equiv p \wedge \neg q$ <span class="font-sans text-slate-500">（by the double negation law）</span></p>
+                </div>
+
+                <!-- Example 7 -->
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1 text-xs md:text-sm text-slate-700">
+                    <strong class="text-indigo-900 block">Example 7: Show that $\neg(p \vee (\neg p \wedge q))$ and $\neg p \wedge \neg q$ are logically equivalent.</strong>
+                    <p class="font-mono">$\neg(p \vee (\neg p \wedge q))$ <span class="font-sans text-slate-500">$\equiv \neg p \wedge \neg(\neg p \wedge q)$（by the second De Morgan law）</span></p>
+                    <p class="font-mono pl-4">$\equiv \neg p \wedge (\neg(\neg p) \vee \neg q)$ <span class="font-sans text-slate-500">（by the first De Morgan law）</span></p>
+                    <p class="font-mono pl-4">$\equiv \neg p \wedge (p \vee \neg q)$ <span class="font-sans text-slate-500">（by the double negation law）</span></p>
+                    <p class="font-mono pl-4">$\equiv (\neg p \wedge p) \vee (\neg p \wedge \neg q)$ <span class="font-sans text-slate-500">（by the distributive law）</span></p>
+                    <p class="font-mono pl-4">$\equiv \text{F} \vee (\neg p \wedge \neg q)$ <span class="font-sans text-slate-500">（because $\neg p \wedge p \equiv \text{F}$）</span></p>
+                    <p class="font-mono pl-4">$\equiv (\neg p \wedge \neg q) \vee \text{F}$ <span class="font-sans text-slate-500">（by the commutative law for disjunction）</span></p>
+                    <p class="font-mono pl-4">$\equiv \neg p \wedge \neg q$ <span class="font-sans text-slate-500">（by the identity law for $\text{F}$）</span></p>
+                </div>
+
+                <!-- Example 8 -->
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1 text-xs md:text-sm text-slate-700">
+                    <strong class="text-indigo-900 block">Example 8: Show that $(p \wedge q) \rightarrow (p \vee q)$ is a tautology.</strong>
+                    <p class="font-mono">$(p \wedge q) \rightarrow (p \vee q)$ <span class="font-sans text-slate-500">$\equiv \neg(p \wedge q) \vee (p \vee q)$（by Example 3 / 蘊含等價）</span></p>
+                    <p class="font-mono pl-4">$\equiv (\neg p \vee \neg q) \vee (p \vee q)$ <span class="font-sans text-slate-500">（by the first De Morgan law）</span></p>
+                    <p class="font-mono pl-4">$\equiv (\neg p \vee p) \vee (\neg q \vee q)$ <span class="font-sans text-slate-500">（by the associative and commutative laws for disjunction）</span></p>
+                    <p class="font-mono pl-4">$\equiv \text{T} \vee \text{T}$ <span class="font-sans text-slate-500">（by negation law / tautology）</span></p>
+                    <p class="font-mono pl-4">$\equiv \text{T}$ <span class="font-sans text-slate-500">（by domination law）</span></p>
+                </div>
+            </div>
+        </div>
     </section>
     
     <!-- CHAPTER 2 OVERVIEW -->
