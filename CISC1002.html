@@ -18,23 +18,26 @@
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <style>
-        .toggle-content {
-            display: none;
-        }
-        .toggle-content.show {
-            display: block;
-        }
 
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 5.5rem; /* 視乎頂部導覽列高度調整，例如 5rem、5.5rem、6rem */
-        }
-        
-        [id] {
-            scroll-margin-top: 5.5rem;
-        }
-        
+    <style>
+    :root {
+        --header-offset: 4.5rem; /* 初始預設值，等 JS 載入後自動更新 */
+    }
+
+    .toggle-content {
+        display: none;
+    }
+    .toggle-content.show {
+        display: block;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: var(--header-offset);
+    }
+    [id] {
+        scroll-margin-top: var(--header-offset);
+    }
     </style>
 </head>
 <body class="bg-slate-100 text-slate-800 font-sans leading-relaxed">
@@ -5006,6 +5009,32 @@
             el.classList.toggle('show');
         }
     }
+</script>
+
+<script>
+    (function () {
+        const header = document.querySelector("header");
+        if (!header) return;
+
+        const extraGap = 12; // 想留多幾多空隙可改呢度（例如 4、8、12）
+
+        const updateHeaderOffset = () => {
+            const height = Math.ceil(header.getBoundingClientRect().height);
+            document.documentElement.style.setProperty(
+                "--header-offset",
+                `${height + extraGap}px`
+            );
+        };
+
+        updateHeaderOffset();
+
+        if ("ResizeObserver" in window) {
+            const observer = new ResizeObserver(updateHeaderOffset);
+            observer.observe(header);
+        } else {
+            window.addEventListener("resize", updateHeaderOffset);
+        }
+    })();
 </script>
 
 </body>
