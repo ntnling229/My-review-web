@@ -838,6 +838,273 @@
         </div>
     </section>
 
+    <!-- ================= SECTION 1.4 ================= -->
+    <section id="sec1-4" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-8">
+        <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 1.4</span>
+                Predicates and Quantifiers (謂詞與量詞)
+            </h2>
+            <span class="text-xs text-slate-500 font-mono">Page 36 - 49</span>
+        </div>
+
+        <!-- 1. Introduction -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-lightbulb text-indigo-500 text-sm"></i> 1. Introduction (引言，Page 36)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <p class="text-slate-800">
+                    <strong>Question:</strong> The meaning of some statements cannot be expressed in propositional logic. How to extend?（部分語句的語意無法用命題邏輯表達，需引入謂詞與量詞加以擴充。）
+                </p>
+
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-1-4-intro')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-list-check mr-2 text-indigo-600"></i> Introduction Examples: University Network & "Everybody loves my baby" (點擊展開範例)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                    </button>
+                    <div id="ex-1-4-intro" class="toggle-content p-4 space-y-2 text-slate-700 border-t border-slate-200 bg-white">
+                        <p>• <strong>Example 1:</strong> "Every computer connected to the university network is functioning properly." 僅靠命題邏輯規則無法直接推論出 "MATH3 is functioning properly."（其中 MATH3 為連上大學網路的電腦之一）。</p>
+                        <p>• <strong>Example 2:</strong> "Everybody loves my baby, but my baby only loves me"（其中 my baby is me）。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Predicates -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-function text-indigo-500 text-sm"></i> 2. Predicates (謂詞，Page 38)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1.5 text-slate-700">
+                    <strong class="text-indigo-900 block">謂詞與命題函數（Propositional Function）概念</strong>
+                    <p>• 在語句 $"x \text{ is greater than } 3"$ 中，$x$ 是<strong>主詞（subject）</strong>，"is greater than 3" 是<strong>謂詞（predicate）</strong>。</p>
+                    <p>• 記作 $P(x)$，其中 $P$ 為謂詞（"is greater than 3"），$P(x)$ 稱為命題函數 $P$ 在 $x$ 處的值（value of propositional function $P$ at $x$）。</p>
+                    <p>• 一般而言，$P(x_1, x_2, \dots, x_n)$ 是命題函數 $P$ 在 $n$ 元組 $(x_1, x_2, \dots, x_n)$ 處的值，$P$ 稱為 $n$ 元謂詞。</p>
+                </div>
+
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-1-4-pred-1')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span>Predicate Value Examples: $P(4), P(2)$ & Example 3 $Q(x, y)$ (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                    </button>
+                    <div id="ex-1-4-pred-1" class="toggle-content p-4 space-y-1.5 text-slate-700 border-t border-slate-200 bg-white">
+                        <p>• $P(x)$ 為 "$x$ is greater than $3$"：$P(4)$ 為 <strong>true</strong>，$P(2)$ 為 <strong>false</strong>。</p>
+                        <p>• <strong>Example 3 (page 38):</strong> $Q(x, y)$ 為 "$x = y + 3$"；$Q(1, 2)$ 為 <strong>false</strong>，$Q(3, 0)$ 為 <strong>true</strong>。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Universal Quantifier -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-globe text-indigo-500 text-sm"></i> 3. Universal Quantifier (全稱量詞，Page 40 - 42)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1.5 text-slate-700">
+                    <strong class="text-indigo-900 block">個體域與全稱量詞定義（Definition 1, Page 40）</strong>
+                    <p>• <strong>Universe of Discourse（個體域／論域，亦稱 domain）：</strong>包含變數所有可能取值的集合。</p>
+                    <p>• <strong>全稱量詞 $\forall x\, P(x)$：</strong>表示「個體域中<strong>所有</strong> $x$ 皆使 $P(x)$ 為真」，讀作 "for all $x\, P(x)$" 或 "for every $x\, P(x)$"。</p>
+                    <p>• <strong>有限個體域等價式：</strong>若個體域為有限集合 $\{x_1, x_2, \dots, x_n\}$，則 $\forall x\, P(x)$ 等價於 $P(x_1) \wedge P(x_2) \wedge \dots \wedge P(x_n)$。</p>
+                    <p>• <strong>找反例（Counterexample）：</strong>要證明 $\forall x\, P(x)$ 為假，只需找出個體域中一個使 $P(x)$ 為假的反例即可。</p>
+                </div>
+
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-1-4-univ')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span>Universal Quantifier Examples: Example 8, 9, 11, 13 & Counterexample (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                    </button>
+                    <div id="ex-1-4-univ" class="toggle-content p-4 space-y-2 text-slate-700 border-t border-slate-200 bg-white">
+                        <p>• <strong>Example 8 (page 41):</strong> $P(x)$ 為 "$x + 1 > x$"，個體域為全體實數 $\implies \forall x\, P(x)$ 為 <strong>true</strong>。</p>
+                        <p>• <strong>Example 9 (page 41):</strong> $Q(x)$ 為 "$x < 2$"，個體域為全體實數 $\implies \forall x\, Q(x)$ 為 <strong>false</strong>（例如 $x = 2$ 或 $x = 3$ 時不成立）。</p>
+                        <p>• <strong>Example 11 (page 42):</strong> $P(x)$ 為 "$x^2 < 10$"，個體域為不高於 $4$ 的正整數 $\{1, 2, 3, 4\}$。$\forall x\, P(x) \equiv P(1) \wedge P(2) \wedge P(3) \wedge P(4)$，因 $4^2 = 16 \not< 10$，故為 <strong>false</strong>。</p>
+                        <p>• <strong>Example 13 (page 42):</strong> 考慮 $\forall x(x^2 \ge x)$。$x^2 \ge x \iff x(x - 1) \ge 0 \iff x \ge 1 \text{ 或 } x \le 0$。在整數域上為 <strong>true</strong>；在實數域上為 <strong>false</strong>（例如 $0 < x < 1$ 時 $x^2 < x$）。</p>
+                        <p>• <strong>Counterexample 範例：</strong>$P(x)$ 為 "$x^2 > 0$"，個體域為全體整數。取 $x = 0$ 時 $0^2 > 0$ 為假，因此 $\forall x\, P(x)$ 為 <strong>false</strong>。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Existential Quantifier & Summary -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-magnifying-glass text-indigo-500 text-sm"></i> 4. Existential Quantifier & Summary (存在量詞與總結，Page 42 - 43)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1.5 text-slate-700">
+                    <strong class="text-indigo-900 block">存在量詞定義（Definition 2, Page 42）與有限個體域等價式</strong>
+                    <p>• <strong>存在量詞 $\exists x\, P(x)$：</strong>表示「個體域中<strong>存在至少一個</strong> $x$ 使 $P(x)$ 為真」，讀作 "There is an $x$ such that $P(x)$"、"There is at least one $x$ such that $P(x)$" 或 "For some $x\, P(x)$"。</p>
+                    <p>• <strong>有限個體域等價式：</strong>若個體域為有限集合 $\{x_1, x_2, \dots, x_n\}$，則 $\exists x\, P(x)$ 等價於 $P(x_1) \vee P(x_2) \vee \dots \vee P(x_n)$。</p>
+                </div>
+
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-1-4-exist')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span>Existential Quantifier Examples: Example 14, 15 & 16 (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                    </button>
+                    <div id="ex-1-4-exist" class="toggle-content p-4 space-y-1.5 text-slate-700 border-t border-slate-200 bg-white">
+                        <p>• <strong>Example 14 (page 43):</strong> $P(x)$ 為 "$x > 3$"，個體域為全體實數 $\implies \exists x\, P(x)$ 為 <strong>true</strong>（例如 $x = 3.5$ 或 $x = 4$）。</p>
+                        <p>• <strong>Example 15 (page 43):</strong> $Q(x)$ 為 "$x = x + 1$"，個體域為全體實數。對所有實數皆為假，故 $\exists x\, Q(x)$ 為 <strong>false</strong>。</p>
+                        <p>• <strong>Example 16 (page 43):</strong> $P(x)$ 為 "$x^2 > 10$"，個體域為 $\{1, 2, 3, 4\}$。$\exists x\, P(x) \equiv P(1) \vee P(2) \vee P(3) \vee P(4)$，因 $P(4)$（$16 > 10$）為真，故為 <strong>true</strong>。</p>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+                    <table class="w-full text-left border-collapse text-xs md:text-sm">
+                        <thead>
+                            <tr class="bg-indigo-50 text-indigo-950 border-b border-slate-200">
+                                <th class="py-2.5 px-4 font-bold">Statement (語句)</th>
+                                <th class="py-2.5 px-4 font-bold">When True? (何時為真)</th>
+                                <th class="py-2.5 px-4 font-bold">When False? (何時為假)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 text-slate-700">
+                            <tr>
+                                <td class="py-2.5 px-4 font-mono">$\forall x\, P(x)$</td>
+                                <td class="py-2.5 px-4">$P(x)$ is true for all $x$.</td>
+                                <td class="py-2.5 px-4">There is an $x$ for which $P(x)$ is false.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2.5 px-4 font-mono">$\exists x\, P(x)$</td>
+                                <td class="py-2.5 px-4">There is an $x$ for which $P(x)$ is true.</td>
+                                <td class="py-2.5 px-4">$P(x)$ is false for every $x$.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Quantifiers with Restricted Domain & Binding Variables -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-filter text-indigo-500 text-sm"></i> 5. Restricted Domain & Binding Variables (受限個體域與變數約束，Page 44)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1.5 text-slate-700">
+                    <strong class="text-indigo-900 block">受限個體域改寫規則與約束／自由變數</strong>
+                    <p>• 在實數域下，限制條件加入全稱量詞常以<strong>蘊含（$\rightarrow$）</strong>表示；加入存在量詞常以<strong>合取（$\wedge$）</strong>表示。</p>
+                    <p>• <strong>Bound Variable（約束變數）：</strong>受量詞（$\forall$ 或 $\exists$）作用並指明作用範圍（scope）的變數；<strong>Free Variable（自由變數）：</strong>未受量詞約束的變數。</p>
+                </div>
+
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-1-4-restrict-bind')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span>Example 17 (Restricted Domain) & Example 18 (Bound / Free Variables) (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                    </button>
+                    <div id="ex-1-4-restrict-bind" class="toggle-content p-4 space-y-2 text-slate-700 border-t border-slate-200 bg-white">
+                        <p>• <strong>Example 17 (page 44, 個體域為實數)：</strong></p>
+                        <p class="pl-4">$\forall x < 0\ (x^2 > 0) \equiv \forall x\ (x < 0 \rightarrow x^2 > 0)$</p>
+                        <p class="pl-4">$\forall y \neq 0\ (y^3 \neq 0) \equiv \forall y\ (y \neq 0 \rightarrow y^3 \neq 0)$</p>
+                        <p class="pl-4">$\exists z > 0\ (z^2 = 2) \equiv \exists z\ (z > 0 \wedge z^2 = 2)$</p>
+                        <p>• <strong>Example 18 (Binding Variables)：</strong></p>
+                        <p class="pl-4">(a) $\exists x(x + y = 1)$：$x$ 為 <strong>bound variable</strong>，$y$ 為 <strong>free variable</strong>。</p>
+                        <p class="pl-4">(b) $\exists x(P(x) \vee Q(x)) \vee \forall x\, R(x)$：兩個量詞各自約束其作用域（scope）內的 $x$。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Logical Equivalence of Predicates -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-equals text-indigo-500 text-sm"></i> 6. Logical Equivalence of Predicates (謂詞邏輯等價，Page 45)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1.5 text-slate-700">
+                    <strong class="text-indigo-900 block">謂詞與量詞邏輯等價定義（Definition 3, Page 45）</strong>
+                    <p>• 含有謂詞與量詞的語句 $S$ 與 $T$ 稱為<strong>邏輯等價（logically equivalent）</strong>，記作 $S \equiv T$，當且僅當無論將何種謂詞代入及選取何種個體域，$S$ 與 $T$ 恆具有相同的真值。</p>
+                    <p>• 命題等價式可提升至謂詞層級，例如 $P(x) \wedge Q(x) \equiv Q(x) \wedge P(x)$。</p>
+                </div>
+
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-1-4-equiv-19')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span>Example 19 Proof (page 45): $\forall x(P(x) \wedge Q(x)) \equiv \forall x\, P(x) \wedge \forall x\, Q(x)$ (點擊展開證明)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof</span>
+                    </button>
+                    <div id="ex-1-4-equiv-19" class="toggle-content p-4 space-y-2 text-slate-700 border-t border-slate-200 bg-white">
+                        <p>需證明雙向蘊含：(1) 若 $\forall x(P(x) \wedge Q(x))$ 為真，則 $\forall x\, P(x) \wedge \forall x\, Q(x)$ 為真；(2) 若 $\forall x\, P(x) \wedge \forall x\, Q(x)$ 為真，則 $\forall x(P(x) \wedge Q(x))$ 為真。</p>
+                        <p>• <strong>(1) 正向推導：</strong>假設 $\forall x(P(x) \wedge Q(x))$ 為真。對個體域中任一元素 $a$，$P(a) \wedge Q(a)$ 為真，故 $P(a)$ 與 $Q(a)$ 皆為真。因對所有元素皆成立，故 $\forall x\, P(x)$ 與 $\forall x\, Q(x)$ 皆為真，即 $\forall x\, P(x) \wedge \forall x\, Q(x)$ 為真。</p>
+                        <p>• <strong>(2) 逆向推導：</strong>假設 $\forall x\, P(x) \wedge \forall x\, Q(x)$ 為真，則 $\forall x\, P(x)$ 與 $\forall x\, Q(x)$ 皆為真。對個體域中任一元素 $a$，$P(a)$ 與 $Q(a)$ 皆為真，故 $P(a) \wedge Q(a)$ 對所有 $a$ 為真，即 $\forall x(P(x) \wedge Q(x))$ 為真。</p>
+                        <p>• <strong>結論：</strong>$\forall x(P(x) \wedge Q(x)) \equiv \forall x\, P(x) \wedge \forall x\, Q(x)$。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. Negating Quantified Expressions -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-ban text-indigo-500 text-sm"></i> 7. Negating Quantified Expressions (量詞式否定，Page 41, 48)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1.5 text-slate-700">
+                    <strong class="text-indigo-900 block">量詞否定等價律（De Morgan's Laws for Quantifiers）</strong>
+                    <p>• $\neg \forall x\, P(x) \equiv \exists x\, \neg P(x)$（「全體皆非」與「存在不成立」等價）。</p>
+                    <p>• $\neg \exists x\, Q(x) \equiv \forall x\, \neg Q(x)$（「不存在」與「全體皆不成立」等價）。</p>
+                </div>
+
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-1-4-neg')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span>Negation Examples: Calculus Class, Example 21 & Example 22 Proof (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples & Proof</span>
+                    </button>
+                    <div id="ex-1-4-neg" class="toggle-content p-4 space-y-2 text-slate-700 border-t border-slate-200 bg-white">
+                        <p>• <strong>修習微積分例子：</strong>"Every student in the class has taken a course in calculus" 為 $\forall x\, P(x)$，其否定為 $\exists x\, \neg P(x)$（"There is a student in the class who has not taken a course in calculus"）；"There is a student in the class who has taken a course in calculus" 為 $\exists x\, Q(x)$，其否定為 $\forall x\, \neg Q(x)$。</p>
+                        <p>• <strong>Example 21 (page 41):</strong></p>
+                        <p class="pl-4">(1) $\neg \forall x(x^2 > x) \equiv \exists x\, \neg(x^2 > x) \equiv \exists x(x^2 \le x)$（可代入 $[0.5, 3]$ 與 $[2, 5]$ 檢驗真值）。</p>
+                        <p class="pl-4">(2) $\neg \exists x(x^2 = 2) \equiv \forall x\, \neg(x^2 = 2) \equiv \forall x(x^2 \neq 2)$（可代入 $[0, 1]$ 與 $[1, 2]$ 檢驗真值）。</p>
+                        <p>• <strong>Example 22 (page 48) 證明：</strong>證明 $\neg \forall x(P(x) \rightarrow Q(x))$ 與 $\exists x(P(x) \wedge \neg Q(x))$ 邏輯等價：</p>
+                        <p class="pl-4 font-mono">$\neg \forall x(P(x) \rightarrow Q(x)) \equiv \exists x\, \neg(P(x) \rightarrow Q(x)) \equiv \exists x(P(x) \wedge \neg Q(x))$。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. Translating from English into Logical Expression & Exercises -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-language text-indigo-500 text-sm"></i> 8. Translating English to Logical Expressions & Exercises (語句翻譯與練習，Page 48 - 49)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1.5 text-slate-700">
+                    <strong class="text-indigo-900 block">翻譯建模要點</strong>
+                    <p>• 當個體域設為全體人（all people）時，「所有 $S(x)$ 皆滿足 $C(x)$」通常用 $\forall x(S(x) \rightarrow C(x))$（避免誤用 $\forall x(S(x) \wedge C(x))$，後者會要求所有人都是該班學生且都修過微積分）。</p>
+                    <p>• 當個體域設為全體人時，「存在 $S(x)$ 滿足 $M(x)$」通常用 $\exists x(S(x) \wedge M(x))$（避免誤用 $\exists x(S(x) \rightarrow M(x))$）。</p>
+                </div>
+
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-1-4-trans')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span>Example 23 & Example 24 Translation Comparison (Way 1 vs Way 2, 點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                    </button>
+                    <div id="ex-1-4-trans" class="toggle-content p-4 space-y-2 text-slate-700 border-t border-slate-200 bg-white">
+                        <p>• <strong>Example 23 (page 48):</strong> "Every student in this class has studied calculus."</p>
+                        <p class="pl-4">Way 1（個體域為本班全體學生，設 $C(x)$ 為 "$x$ has studied calculus"）：$\forall x\, C(x)$。</p>
+                        <p class="pl-4">Way 2（個體域為 all people，設 $S(x)$ 為 "person $x$ is in this class"，$C(x)$ 為 "person $x$ has studied calculus"）：$\forall x(S(x) \rightarrow C(x))$（正確；$\forall x(S(x) \wedge C(x))$ 錯誤）。</p>
+                        <p>• <strong>Example 24 (page 49):</strong></p>
+                        <p class="pl-4">(a) "Some students in this class has visited Mexico."：Way 1（個體域為本班學生）為 $\exists x\, M(x)$；Way 2（個體域為 all people）為 $\exists x(S(x) \wedge M(x))$（正確；$\exists x(S(x) \rightarrow M(x))$ 錯誤）。</p>
+                        <p class="pl-4">(b) "Every student in this class has visited Canada or Mexico."：Way 1（個體域為本班學生）為 $\forall x(C(x) \vee M(x))$；Way 2（個體域為 all people）為 $\forall x(S(x) \rightarrow (C(x) \vee M(x)))$。</p>
+                    </div>
+                </div>
+
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1 text-slate-700">
+                    <p>• <strong>Discussion & Exercises:</strong> Exercises 1, 7, 15, 43, 45。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 第二課新加測試 -->
     <!-- ================= SECTION 2.1 ================= -->
     <section id="sec2-1" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
