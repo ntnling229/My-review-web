@@ -1297,9 +1297,10 @@
             </h3>
 
             <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
-                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1.5 text-slate-700">
-                    <strong class="text-indigo-900 block">「唯一性（Uniqueness / Exactly One）」表達技巧</strong>
-                    <p>• 要表示「對某個 $x$ 存在<strong>唯一一個</strong> $y$ 滿足性質 $B(x, y)$」，寫作：$\exists y (B(x, y) \wedge \forall z ((z \neq y) \rightarrow \neg B(x, z)))$（即存在 $y$ 滿足條件，且任何異於 $y$ 的 $z$ 皆不滿足該條件）。</p>
+                <div class="mt-3 p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-2 text-xs md:text-sm">
+                    <strong class="text-indigo-900 block">對比：存在性（Existence）vs 唯一性（Uniqueness）</strong>
+                    <p class="leading-relaxed">• <strong>存在性（Existence，至少一個）：</strong>$\exists y\, B(x, y)$ — 只要有至少一個 $y$ 滿足 $B(x, y)$ 即成立，允許多個 $y$ 同時滿足。</p>
+                    <p class="leading-relaxed">• <strong>唯一性（Uniqueness，恰有一個）：</strong>$\exists y(B(x, y) \wedge \forall z((z \neq y) \rightarrow \neg B(x, z)))$ — 既要有 $y$ 滿足 $B(x, y)$，又唔可以有第二個唔同嘅 $z$ 滿足 $B(x, z)$。</p>
                 </div>
 
                 <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
