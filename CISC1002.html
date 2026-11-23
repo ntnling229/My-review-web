@@ -119,7 +119,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
             <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
                 <span class="font-bold text-indigo-700 block text-base mb-1">§ 1.1 Propositional Logic & Applications</span>
-                <p class="text-slate-600">命題定義與真值、邏輯運算子（$\neg, \wedge, \vee, \oplus, \rightarrow, \leftrightarrow$）、逆／逆否／否命題、複合命題真值表、運算優先級與自然語言翻譯（if, only if, unless, necessary/sufficient）。</p>
+                <p class="text-slate-600">邏輯動機與推理例子、命題與真值、基本邏輯運算（$\neg, \wedge, \vee, \oplus, \rightarrow, \leftrightarrow$）、逆／逆否／否命題、複合真值表、運算優先級、自然語言與 `unless` 翻譯、系統規格與練習題。</p>
             </div>
             <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 opacity-70">
                 <span class="font-bold text-slate-500 block text-base mb-1">§ 1.2 – § 1.8 (後續章節)</span>
@@ -129,489 +129,317 @@
     </section>
 
     <!-- ================= SECTION 1.1 ================= -->
-    <section id="chap1-overview" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
-    <div class="border-b border-slate-200 pb-4 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-        <div>
-            <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full">Chapter 1</span>
-            <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-2">
-                The Foundation: Logic and Proof <span class="text-lg font-semibold text-slate-600">（邏輯與證明基礎）</span>
+    <section id="sec1-1" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-8">
+        <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 1.1</span>
+                Propositional Logic & Applications (命題邏輯與應用)
             </h2>
-        </div>
-        <p class="text-sm text-slate-500 italic">What one says and does have to make sense. Logic is the basis of reasoning.</p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-        <a href="#sec1-1-intro" class="p-4 rounded-xl bg-slate-50 hover:bg-indigo-50/70 border border-slate-200 hover:border-indigo-300 transition block">
-            <div class="font-bold text-indigo-700">1. Reasoning & Puzzles</div>
-            <div class="text-slate-600 mt-1">自相矛盾、Knights and Knaves、雞兔同籠與 Formal Logic</div>
-        </a>
-        <a href="#sec1-1-props" class="p-4 rounded-xl bg-slate-50 hover:bg-indigo-50/70 border border-slate-200 hover:border-indigo-300 transition block">
-            <div class="font-bold text-indigo-700">2. Propositions & Operators</div>
-            <div class="text-slate-600 mt-1">命題定義、六種邏輯運算子與真值表</div>
-        </a>
-        <a href="#sec1-1-trans" class="p-4 rounded-xl bg-slate-50 hover:bg-indigo-50/70 border border-slate-200 hover:border-indigo-300 transition block">
-            <div class="font-bold text-indigo-700">3. Precedence & Translation</div>
-            <div class="text-slate-600 mt-1">運算優先級、英文句型翻譯與 System Specification</div>
-        </a>
-    </div>
-</section>
-
-<!-- 1. Reasoning & Puzzles + Formal Logic -->
-<section id="sec1-1-intro" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
-    <div class="border-b border-slate-200 pb-3">
-        <h3 class="text-xl font-bold text-slate-900">1. Reasoning Motivation & Formal Logic <span class="text-base font-medium text-slate-600">（推理動機與形式邏輯）</span></h3>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 text-sm">
-        <!-- Paradox SVG -->
-        <div class="p-5 rounded-xl bg-amber-50/50 border border-amber-200/80 space-y-3">
-            <div class="font-bold text-amber-900">Contradiction & Consistency <span class="font-normal">（矛盾與一致性）</span></div>
-            <p class="text-slate-700 leading-relaxed">
-                「楚人有鬻矛與盾者,譽之曰:『吾盾之堅,物莫能陷也。』又譽其矛曰:『吾矛之利,於物無不陷也。』或曰:『以子之矛,陷子之盾,何如?』其人弗能應也。夫不可陷之盾與無不陷之矛,不可同世而立。」
-            </p>
-            <svg viewBox="0 0 420 140" class="w-full h-auto rounded-lg bg-white border border-amber-200 p-2">
-                <rect x="10" y="10" width="185" height="120" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
-                <text x="102" y="34" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">盾 Shield</text>
-                <path d="M82 48 L122 48 L118 85 L102 104 L86 85 Z" fill="#f59e0b" stroke="#78350f" stroke-width="2"/>
-                <text x="102" y="120" text-anchor="middle" font-size="10" fill="#78350f">物莫能陷（不可陷）</text>
-
-                <rect x="225" y="10" width="185" height="120" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
-                <text x="317" y="34" text-anchor="middle" font-size="12" font-weight="bold" fill="#991b1b">矛 Spear</text>
-                <line x1="275" y1="96" x2="352" y2="54" stroke="#7f1d1d" stroke-width="3"/>
-                <polygon points="362,48 345,51 353,63" fill="#dc2626"/>
-                <text x="317" y="120" text-anchor="middle" font-size="10" fill="#7f1d1d">於物無不陷（無不陷）</text>
-            </svg>
+            <span class="text-xs text-slate-500 font-mono">Page 1 - 19</span>
         </div>
 
-        <!-- Chicken and Rabbit SVG -->
-        <div class="p-5 rounded-xl bg-emerald-50/50 border border-emerald-200/80 space-y-3">
-            <div class="font-bold text-emerald-900">《孫子算經》（1500年前）：雞兔同籠</div>
-            <p class="text-slate-700 leading-relaxed">
-                「今有雉兔同籠,上有三十五頭,下有九十四足,問雉兔各幾何?」
-            </p>
-            <div class="p-3 rounded-lg bg-white border border-emerald-200 font-mono text-xs text-slate-800 space-y-1">
-                <div>(94 - 35 × 2) ÷ 2 = 12（兔子數）</div>
-                <div>總頭數(35) - 兔子數(12) = 雞數(23)</div>
-                <div>設雞數為 x、兔數為 y：x + y = 35，2x + 4y = 94 ⇒ x = 23, y = 12</div>
-            </div>
-            <svg viewBox="0 0 420 115" class="w-full h-auto rounded-lg bg-white border border-emerald-200 p-2">
-                <path d="M110 95 L110 45 Q150 12 190 45 L190 95 Z" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
-                <line x1="126" y1="32" x2="126" y2="95" stroke="#16a34a" stroke-width="1.5"/>
-                <line x1="142" y1="26" x2="142" y2="95" stroke="#16a34a" stroke-width="1.5"/>
-                <line x1="158" y1="26" x2="158" y2="95" stroke="#16a34a" stroke-width="1.5"/>
-                <line x1="174" y1="32" x2="174" y2="95" stroke="#16a34a" stroke-width="1.5"/>
-                <circle cx="133" cy="78" r="8" fill="#facc15" stroke="#ca8a04"/>
-                <polygon points="140,77 146,79 140,81" fill="#ea580c"/>
-                <ellipse cx="166" cy="80" rx="10" ry="7" fill="#f8fafc" stroke="#475569"/>
-                <ellipse cx="162" cy="68" rx="2.5" ry="7" fill="#f8fafc" stroke="#475569"/>
-                <ellipse cx="168" cy="68" rx="2.5" ry="7" fill="#f8fafc" stroke="#475569"/>
-                <text x="295" y="48" text-anchor="middle" font-size="12" font-weight="bold" fill="#166534">35 Heads / 94 Feet</text>
-                <text x="295" y="72" text-anchor="middle" font-size="11" fill="#15803d">Chickens (x) = 23 (2 legs)</text>
-                <text x="295" y="92" text-anchor="middle" font-size="11" fill="#15803d">Rabbits (y) = 12 (4 legs)</text>
-            </svg>
-        </div>
-    </div>
+        <!-- 1. Motivation & Formal Logic -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-lightbulb text-indigo-500 text-sm"></i> 1. Why Logic? & Formal Logic (邏輯動機與形式邏輯)
+            </h3>
 
-    <!-- Formal Logic -->
-    <div class="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-sm">
-        <div class="font-bold text-indigo-900">Formal Logic <span class="font-normal">（形式邏輯）</span></div>
-        <ul class="list-disc pl-5 text-slate-700 space-y-1">
-            <li>define a formal language for representing knowledge and for making logical inferences <span class="text-slate-500">（定義用於表示知識與進行邏輯推演的形式語言）</span></li>
-            <li>construct valid argument <span class="text-slate-500">（建構有效論證）</span></li>
-        </ul>
-    </div>
-
-    <!-- Collapsible Logical Puzzle -->
-    <div class="border border-slate-200 rounded-xl overflow-hidden">
-        <button type="button" onclick="toggleCollapse('puzzle-smullyan')" class="w-full px-5 py-3.5 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left font-bold text-slate-800 text-sm transition">
-            <span>[Example / Puzzle] Smullyan Logical Puzzle: Knights and Knaves <span class="font-normal text-slate-500">（點擊展開題目與解答）</span></span>
-            <span class="text-xs font-mono text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded">EXPAND</span>
-        </button>
-        <div id="puzzle-smullyan" class="hidden p-5 bg-white border-t border-slate-200 space-y-3 text-sm">
-            <p class="text-slate-700 leading-relaxed">
-                Smullyan posed many puzzles about an island that has two kinds of inhabitants, <strong>knights (騎士)</strong>, who always tell the truth, and their opposites, <strong>knaves (騙子／無賴)</strong>, who always lie. You encounter two people A and B. What are A and B if A says “B is a knight” and B says "The two of us are opposite types"?
-            </p>
-            <svg viewBox="0 0 420 95" class="w-full h-auto rounded-lg bg-slate-50 border border-slate-200 p-2">
-                <circle cx="95" cy="48" r="24" fill="#e0e7ff" stroke="#4f46e5" stroke-width="2"/>
-                <text x="95" y="52" text-anchor="middle" font-size="13" font-weight="bold" fill="#312e81">A</text>
-                <line x1="122" y1="48" x2="295" y2="48" stroke="#4f46e5" stroke-width="2" stroke-dasharray="4,3"/>
-                <text x="208" y="38" text-anchor="middle" font-size="10" fill="#3730a3">A says: "B is a knight"</text>
-                <text x="208" y="64" text-anchor="middle" font-size="10" fill="#3730a3">B says: "Opposite types"</text>
-                <circle cx="322" cy="48" r="24" fill="#fce7f3" stroke="#db2777" stroke-width="2"/>
-                <text x="322" y="52" text-anchor="middle" font-size="13" font-weight="bold" fill="#831843">B</text>
-            </svg>
-            <div class="p-3.5 rounded-lg bg-indigo-50/70 border border-indigo-200 text-slate-800 space-y-1">
-                <div class="font-bold text-indigo-900">解答（補充完整）：</div>
-                <p>若 A 是 knight（真話），則 B 是 knight；但 knight 說真話不可能說「兩人是相反類型」，矛盾。故 A 必為 <strong>knave (騙子)</strong>。</p>
-                <p>因 A 說謊，「B is a knight」為假，故 B 亦為 <strong>knave (騙子)</strong>（此時 B 說「兩人是相反類型」也是假話，符合 knave 總說謊）。因此 <strong>A 和 B 都是 knaves</strong>。</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 2. Propositions & Logical Operators -->
-<section id="sec1-1-props" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
-    <div class="border-b border-slate-200 pb-3">
-        <h3 class="text-xl font-bold text-slate-900">2. Propositions & Logical Operators <span class="text-base font-medium text-slate-600">（命題與邏輯運算子，Page 2 - 11）</span></h3>
-    </div>
-
-    <!-- Definition of Proposition -->
-    <div class="p-5 rounded-xl bg-indigo-50/50 border border-indigo-200/80 space-y-2 text-sm">
-        <div class="font-bold text-indigo-950">Definition of proposition <span class="font-normal">（命題的定義，即：表示判斷的語句稱為命題）</span></div>
-        <p class="text-slate-700">
-            A <strong>proposition (命題)</strong> is a <strong>declarative statement (陳述句)</strong> that is <strong>true (真)</strong> or <strong>false (假)</strong>, but not both.
-        </p>
-        <p class="text-slate-700">
-            The truth value of proposition is true, denoted by <strong>T</strong>. The false value of proposition is false, denoted by <strong>F</strong>.
-        </p>
-    </div>
-
-    <!-- Example 1 & 2 Collapsible -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-        <div class="border border-slate-200 rounded-xl overflow-hidden">
-            <button type="button" onclick="toggleCollapse('ex1-1-1')" class="w-full px-4 py-3 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left font-bold text-slate-800 transition">
-                <span>[Example 1] Declarative Propositions <span class="font-normal text-slate-500">（見 Page 2，點擊展開）</span></span>
-                <span class="text-xs font-mono text-indigo-600">EXPAND</span>
-            </button>
-            <div id="ex1-1-1" class="hidden p-4 bg-white border-t border-slate-200 space-y-2 text-slate-700">
-                <p>All the following declarative sentences are propositions:</p>
-                <ol class="list-decimal pl-5 space-y-1">
-                    <li>Washington, D.C. is the capital of the United States of America. <span class="text-emerald-700 font-semibold">(True)</span></li>
-                    <li>Toronto is the capital of Canada. <span class="text-rose-700 font-semibold">(False)</span></li>
-                    <li>1 + 1 = 2. <span class="text-emerald-700 font-semibold">(True)</span></li>
-                    <li>2 + 2 = 3. <span class="text-rose-700 font-semibold">(False)</span></li>
-                </ol>
-                <p class="font-medium text-indigo-900">Propositions 1 and 3 are true, whereas 2 and 4 are false.</p>
-            </div>
-        </div>
-
-        <div class="border border-slate-200 rounded-xl overflow-hidden">
-            <button type="button" onclick="toggleCollapse('ex1-1-2')" class="w-full px-4 py-3 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left font-bold text-slate-800 transition">
-                <span>[Example 2] Not Propositions <span class="font-normal text-slate-500">（非命題句例，點擊展開）</span></span>
-                <span class="text-xs font-mono text-indigo-600">EXPAND</span>
-            </button>
-            <div id="ex1-1-2" class="hidden p-4 bg-white border-t border-slate-200 space-y-2 text-slate-700">
-                <p>Consider the following sentences:</p>
-                <ol class="list-decimal pl-5 space-y-1">
-                    <li>What time is it now?</li>
-                    <li>Read it carefully!</li>
-                    <li>x + 1 = 2</li>
-                    <li>x + y = z</li>
-                </ol>
-                <p>Sentences 1 and 2 are not declarative sentences. Sentences 3 and 4 are neither true or false.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Operators Grid -->
-    <div class="space-y-5 text-sm">
-        <!-- Negation -->
-        <div class="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
-            <div class="font-bold text-indigo-900">(5) Negation of a Proposition <span class="font-normal">（否定／「非」）— Definition 1</span></div>
-            <p class="text-slate-700">
-                Let p be a proposition. The statement "It is not the case that p" is another proposition, called the <strong>negation (否定)</strong> of p. The negation of p is denoted by <strong>¬p</strong>. The proposition "¬p" is read "not p".
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
-                <table class="w-full text-center border-collapse bg-white rounded-lg overflow-hidden border border-slate-300">
-                    <thead class="bg-slate-200/80 text-slate-800">
-                        <tr><th class="py-2 px-3 border border-slate-300">p</th><th class="py-2 px-3 border border-slate-300">¬p</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td class="py-1.5 px-3 border border-slate-300">T</td><td class="py-1.5 px-3 border border-slate-300">F</td></tr>
-                        <tr><td class="py-1.5 px-3 border border-slate-300">F</td><td class="py-1.5 px-3 border border-slate-300">T</td></tr>
-                    </tbody>
-                </table>
-                <div class="border border-slate-200 rounded-lg overflow-hidden bg-white">
-                    <button type="button" onclick="toggleCollapse('ex1-1-3')" class="w-full px-3.5 py-2.5 bg-slate-100/80 hover:bg-slate-200/60 flex items-center justify-between text-left font-semibold text-slate-800 text-xs">
-                        <span>[Example 3] Negation of "Today is Friday."（點擊展開）</span>
-                        <span class="font-mono text-indigo-600">EXPAND</span>
-                    </button>
-                    <div id="ex1-1-3" class="hidden p-3.5 border-t border-slate-200 text-xs text-slate-700 space-y-1">
-                        <div><strong>Solution:</strong> "It is not the case that today is Friday," or "Today is not Friday," or "It is not Friday today."</div>
-                    </div>
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
+                <p class="text-slate-800">
+                    <strong>What one says and does have to make sense. Logic is the basis of reasoning.</strong>
+                </p>
+                <div class="space-y-2 text-slate-700">
+                    <p>• <strong>矛盾例子（矛與盾）：</strong>「吾盾之堅，物莫能陷也」與「吾矛之利，於物無不陷也」同時成立會產生邏輯矛盾（不可同世而立）。</p>
+                    <p>• <strong>Smullyan 騎士與無賴謎題：</strong>島上有永遠說真話的 <strong>knight</strong> 與永遠說謊的 <strong>knave</strong>。遇到 A 與 B，若 A 說「B 是 knight」，且 B 說「我們兩人是相反類型（opposite types）」，即可透過真值推理判定 A 與 B 的身分。</p>
+                    <p>• <strong>《孫子算經》雞兔同籠（1500 年前）：</strong>上有 35 頭、下有 94 足。算式：$(94 - 35 \times 2) \div 2 = 12$（兔子數），總頭數 $35 - 12 = 23$（雞數），亦可設未知數 $x$ 與 $y$ 列式求解。</p>
+                </div>
+                <div class="p-3.5 bg-white rounded-lg border border-indigo-200 text-slate-700">
+                    <strong class="text-indigo-900 block mb-1">Formal Logic (形式邏輯目標)</strong>
+                    <p>• Define a formal language for representing knowledge and for making logical inferences（定義形式化語言以表示知識並進行邏輯推論）。</p>
+                    <p>• Construct valid argument（建構有效的論證）。</p>
                 </div>
             </div>
         </div>
 
-        <!-- Conjunction & Disjunction -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
-            <!-- Conjunction -->
-            <div class="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
-                <div class="font-bold text-indigo-900">(6) Conjunction <span class="font-normal">（合取／「並且」）— Definition 2</span></div>
-                <p class="text-slate-700">
-                    Let p and q be propositions. The proposition “p and q”, denoted as <strong>p ∧ q</strong>, is the proposition that is true when both of them are true and is false otherwise. The proposition “p ∧ q” is called the <strong>conjunction (合取)</strong> of p and q.
+        <!-- 2. Propositions -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-circle-dot text-indigo-500 text-sm"></i> 2. Propositions (命題，Page 2)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
+                <strong class="text-indigo-900 text-base font-bold block">Definition of Proposition (命題的定義)</strong>
+                <p class="text-slate-800">
+                    A <strong>proposition (命題)</strong> is a declarative statement that is <strong>true (T)</strong> or <strong>false (F)</strong>, but not both.（即：表示判斷的陳述語句稱為命題；真值為 <strong>T</strong>，假值為 <strong>F</strong>。）
                 </p>
-                <table class="w-full text-center border-collapse bg-white border border-slate-300">
-                    <thead class="bg-slate-200/80 text-slate-800">
-                        <tr><th class="py-1.5 px-2 border border-slate-300">p</th><th class="py-1.5 px-2 border border-slate-300">q</th><th class="py-1.5 px-2 border border-slate-300">p ∧ q</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td class="py-1.5 px-2 border border-slate-300">T</td><td class="py-1.5 px-2 border border-slate-300">T</td><td class="py-1.5 px-2 border border-slate-300 font-bold text-emerald-700">T</td></tr>
-                        <tr><td class="py-1.5 px-2 border border-slate-300">T</td><td class="py-1.5 px-2 border border-slate-300">F</td><td class="py-1.5 px-2 border border-slate-300">F</td></tr>
-                        <tr><td class="py-1.5 px-2 border border-slate-300">F</td><td class="py-1.5 px-2 border border-slate-300">T</td><td class="py-1.5 px-2 border border-slate-300">F</td></tr>
-                        <tr><td class="py-1.5 px-2 border border-slate-300">F</td><td class="py-1.5 px-2 border border-slate-300">F</td><td class="py-1.5 px-2 border border-slate-300">F</td></tr>
-                    </tbody>
-                </table>
-                <div class="border border-slate-200 rounded-lg overflow-hidden bg-white">
-                    <button type="button" onclick="toggleCollapse('ex1-1-5')" class="w-full px-3.5 py-2.5 bg-slate-100/80 hover:bg-slate-200/60 flex items-center justify-between text-left font-semibold text-slate-800 text-xs">
-                        <span>[Example 5] Conjunction of p and q（見 Page 4，點擊展開）</span>
-                        <span class="font-mono text-indigo-600">EXPAND</span>
-                    </button>
-                    <div id="ex1-1-5" class="hidden p-3.5 border-t border-slate-200 text-xs text-slate-700 space-y-1">
-                        <div>p: “Today is Friday”, q: “It is raining today.”</div>
-                        <div><strong>Solution:</strong> p ∧ q is "Today is Friday and it is raining today."</div>
-                        <div class="text-indigo-900 font-medium">When is p ∧ q true? Only when both today is Friday and it is raining today (both p and q are true).</div>
-                    </div>
+
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1.5">
+                    <strong class="text-indigo-900 block">Example 1 (see page 2) — 是命題的陳述句：</strong>
+                    <p class="text-slate-700">1. Washington, D.C. is the capital of the United States of America.（<strong>T</strong>）</p>
+                    <p class="text-slate-700">2. Toronto is the capital of Canada.（<strong>F</strong>）</p>
+                    <p class="text-slate-700">3. $1 + 1 = 2$（<strong>T</strong>）</p>
+                    <p class="text-slate-700">4. $2 + 2 = 3$（<strong>F</strong>）</p>
+                </div>
+
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1.5">
+                    <strong class="text-indigo-900 block">Example 2 — 不是命題的句子：</strong>
+                    <p class="text-slate-700">1. What time is it now?（非陳述句）</p>
+                    <p class="text-slate-700">2. Read it carefully!（非陳述句／祈使句）</p>
+                    <p class="text-slate-700">3. $x + 1 = 2$（既非真亦非假，視 $x$ 取值而定）</p>
+                    <p class="text-slate-700">4. $x + y = z$（既非真亦非假，視變數取值而定）</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Logical Operators -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-code-branch text-indigo-500 text-sm"></i> 3. Logical Operators (基本邏輯運算子，Page 4 - 11)
+            </h3>
+
+            <!-- Negation -->
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
+                <strong class="text-indigo-900 text-base font-bold block">(1) Negation of a Proposition (否定／「非」，Definition 1)</strong>
+                <p class="text-slate-700">Let $p$ be a proposition. The statement "It is not the case that $p$" is another proposition, called the negation of $p$, denoted by $\neg p$（read "not $p$"）。</p>
+                <p class="text-slate-700"><strong>Example 3:</strong> $p$ 為 "Today is Friday." $\implies$ "It is not the case that today is Friday."、"Today is not Friday." 或 "It is not Friday today."。</p>
+                <div class="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+                    <table class="w-full text-center border-collapse text-xs md:text-sm">
+                        <thead>
+                            <tr class="bg-slate-100 border-b border-slate-200 font-mono">
+                                <th class="py-2 px-4">$p$</th>
+                                <th class="py-2 px-4">$\neg p$</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 font-mono">
+                            <tr><td class="py-2 px-4">T</td><td class="py-2 px-4">F</td></tr>
+                            <tr><td class="py-2 px-4">F</td><td class="py-2 px-4">T</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Conjunction -->
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
+                <strong class="text-indigo-900 text-base font-bold block">(2) Conjunction (合取／「並且」，Definition 2，Page 4)</strong>
+                <p class="text-slate-700">Let $p$ and $q$ be propositions. $p \wedge q$（"$p$ and $q$"）is true when <strong>both</strong> $p$ and $q$ are true, and false otherwise.</p>
+                <p class="text-slate-700"><strong>Example 5 (page 4):</strong> $p$: "Today is Friday", $q$: "It is raining today." $\implies p \wedge q$: "Today is Friday and it is raining today."（兩者皆為真時 $p \wedge q$ 才為真。）</p>
+                <div class="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+                    <table class="w-full text-center border-collapse text-xs md:text-sm">
+                        <thead>
+                            <tr class="bg-slate-100 border-b border-slate-200 font-mono">
+                                <th class="py-2 px-4">$p$</th>
+                                <th class="py-2 px-4">$q$</th>
+                                <th class="py-2 px-4">$p \wedge q$</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 font-mono">
+                            <tr><td class="py-2 px-4">T</td><td class="py-2 px-4">T</td><td class="py-2 px-4 font-bold text-indigo-700">T</td></tr>
+                            <tr><td class="py-2 px-4">T</td><td class="py-2 px-4">F</td><td class="py-2 px-4">F</td></tr>
+                            <tr><td class="py-2 px-4">F</td><td class="py-2 px-4">T</td><td class="py-2 px-4">F</td></tr>
+                            <tr><td class="py-2 px-4">F</td><td class="py-2 px-4">F</td><td class="py-2 px-4">F</td></tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
             <!-- Disjunction -->
-            <div class="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
-                <div class="font-bold text-indigo-900">(7) Disjunction <span class="font-normal">（析取／「或者」）— Definition 3 (Page 4)</span></div>
-                <p class="text-slate-700">
-                    Let p and q be propositions. The proposition “p or q”, denoted as <strong>p ∨ q</strong>, is the proposition that is false when p and q are both false and true otherwise. The proposition p ∨ q is called the <strong>disjunction (析取)</strong> of p and q.
-                </p>
-                <table class="w-full text-center border-collapse bg-white border border-slate-300">
-                    <thead class="bg-slate-200/80 text-slate-800">
-                        <tr><th class="py-1.5 px-2 border border-slate-300">p</th><th class="py-1.5 px-2 border border-slate-300">q</th><th class="py-1.5 px-2 border border-slate-300">p ∨ q</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td class="py-1.5 px-2 border border-slate-300">T</td><td class="py-1.5 px-2 border border-slate-300">T</td><td class="py-1.5 px-2 border border-slate-300">T</td></tr>
-                        <tr><td class="py-1.5 px-2 border border-slate-300">T</td><td class="py-1.5 px-2 border border-slate-300">F</td><td class="py-1.5 px-2 border border-slate-300">T</td></tr>
-                        <tr><td class="py-1.5 px-2 border border-slate-300">F</td><td class="py-1.5 px-2 border border-slate-300">T</td><td class="py-1.5 px-2 border border-slate-300">T</td></tr>
-                        <tr><td class="py-1.5 px-2 border border-slate-300">F</td><td class="py-1.5 px-2 border border-slate-300">F</td><td class="py-1.5 px-2 border border-slate-300 font-bold text-rose-700">F</td></tr>
-                    </tbody>
-                </table>
-                <div class="border border-slate-200 rounded-lg overflow-hidden bg-white">
-                    <button type="button" onclick="toggleCollapse('ex1-1-6')" class="w-full px-3.5 py-2.5 bg-slate-100/80 hover:bg-slate-200/60 flex items-center justify-between text-left font-semibold text-slate-800 text-xs">
-                        <span>[Example 6] Disjunction of p and q（點擊展開）</span>
-                        <span class="font-mono text-indigo-600">EXPAND</span>
-                    </button>
-                    <div id="ex1-1-6" class="hidden p-3.5 border-t border-slate-200 text-xs text-slate-700 space-y-1">
-                        <div>p: “Today is Friday”, q: “It is raining today.”</div>
-                        <div><strong>Solution:</strong> p ∨ q is "Today is Friday or it is raining today."</div>
-                        <div class="text-indigo-900 font-medium">When is p ∨ q true? Whenever today is Friday, or it is raining today, or both (at least one of p and q is true).</div>
-                    </div>
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
+                <strong class="text-indigo-900 text-base font-bold block">(3) Disjunction (析取／「或者」，Definition 3，Page 4)</strong>
+                <p class="text-slate-700">Let $p$ and $q$ be propositions. $p \vee q$（"$p$ or $q$"）is <strong>false when both $p$ and $q$ are false</strong>, and true otherwise.</p>
+                <p class="text-slate-700"><strong>Example 6:</strong> $p$: "Today is Friday", $q$: "It is raining today." $\implies p \vee q$: "Today is Friday or it is raining today."</p>
+                <div class="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+                    <table class="w-full text-center border-collapse text-xs md:text-sm">
+                        <thead>
+                            <tr class="bg-slate-100 border-b border-slate-200 font-mono">
+                                <th class="py-2 px-4">$p$</th>
+                                <th class="py-2 px-4">$q$</th>
+                                <th class="py-2 px-4">$p \vee q$</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 font-mono">
+                            <tr><td class="py-2 px-4">T</td><td class="py-2 px-4">T</td><td class="py-2 px-4 font-bold text-indigo-700">T</td></tr>
+                            <tr><td class="py-2 px-4">T</td><td class="py-2 px-4">F</td><td class="py-2 px-4 font-bold text-indigo-700">T</td></tr>
+                            <tr><td class="py-2 px-4">F</td><td class="py-2 px-4">T</td><td class="py-2 px-4 font-bold text-indigo-700">T</td></tr>
+                            <tr><td class="py-2 px-4">F</td><td class="py-2 px-4">F</td><td class="py-2 px-4">F</td></tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </div>
 
-        <!-- Exclusive OR & Implication -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <!-- Exclusive OR -->
-            <div class="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
-                <div class="font-bold text-indigo-900">(8) Exclusive OR <span class="font-normal">（異或）— Definition 4</span></div>
-                <p class="text-slate-700">
-                    Let p and q be propositions. The <strong>exclusive or (異或)</strong> of p and q, denoted by <strong>p ⊕ q</strong>, is the proposition that is true when <strong>exactly one</strong> of p and q is true and is false otherwise.
-                </p>
-                <table class="w-full text-center border-collapse bg-white border border-slate-300">
-                    <thead class="bg-slate-200/80 text-slate-800">
-                        <tr><th class="py-1.5 px-2 border border-slate-300">p</th><th class="py-1.5 px-2 border border-slate-300">q</th><th class="py-1.5 px-2 border border-slate-300">p ⊕ q</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td class="py-1.5 px-2 border border-slate-300">T</td><td class="py-1.5 px-2 border border-slate-300">T</td><td class="py-1.5 px-2 border border-slate-300">F</td></tr>
-                        <tr><td class="py-1.5 px-2 border border-slate-300">T</td><td class="py-1.5 px-2 border border-slate-300">F</td><td class="py-1.5 px-2 border border-slate-300 font-bold text-emerald-700">T</td></tr>
-                        <tr><td class="py-1.5 px-2 border border-slate-300">F</td><td class="py-1.5 px-2 border border-slate-300">T</td><td class="py-1.5 px-2 border border-slate-300 font-bold text-emerald-700">T</td></tr>
-                        <tr><td class="py-1.5 px-2 border border-slate-300">F</td><td class="py-1.5 px-2 border border-slate-300">F</td><td class="py-1.5 px-2 border border-slate-300">F</td></tr>
-                    </tbody>
-                </table>
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
+                <strong class="text-indigo-900 text-base font-bold block">(4) Exclusive Or (異或，Definition 4)</strong>
+                <p class="text-slate-700">Let $p$ and $q$ be propositions. The exclusive or of $p$ and $q$, denoted by $p \oplus q$, is true when <strong>exactly one</strong> of $p$ and $q$ is true, and false otherwise.</p>
+                <div class="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+                    <table class="w-full text-center border-collapse text-xs md:text-sm">
+                        <thead>
+                            <tr class="bg-slate-100 border-b border-slate-200 font-mono">
+                                <th class="py-2 px-4">$p$</th>
+                                <th class="py-2 px-4">$q$</th>
+                                <th class="py-2 px-4">$p \oplus q$</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 font-mono">
+                            <tr><td class="py-2 px-4">T</td><td class="py-2 px-4">T</td><td class="py-2 px-4">F</td></tr>
+                            <tr><td class="py-2 px-4">T</td><td class="py-2 px-4">F</td><td class="py-2 px-4 font-bold text-indigo-700">T</td></tr>
+                            <tr><td class="py-2 px-4">F</td><td class="py-2 px-4">T</td><td class="py-2 px-4 font-bold text-indigo-700">T</td></tr>
+                            <tr><td class="py-2 px-4">F</td><td class="py-2 px-4">F</td><td class="py-2 px-4">F</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <!-- Implication -->
-            <div class="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
-                <div class="font-bold text-indigo-900">(9) Implication <span class="font-normal">（蘊含或稱為 Conditional Statement 條件語句）— Definition 5</span></div>
-                <p class="text-slate-700">
-                    Let p and q be propositions. The implication <strong>p → q</strong> is the proposition that is false when p is true and q is false, and is true otherwise. In this implication p is called the <strong>hypothesis (假設)</strong> (or <strong>antecedent 前件</strong> or <strong>premise 前提</strong>) and q is called the <strong>conclusion (結論)</strong> (or <strong>consequence 後件</strong>).
-                </p>
-                <table class="w-full text-center border-collapse bg-white border border-slate-300">
-                    <thead class="bg-slate-200/80 text-slate-800">
-                        <tr><th class="py-1.5 px-2 border border-slate-300">p</th><th class="py-1.5 px-2 border border-slate-300">q</th><th class="py-1.5 px-2 border border-slate-300">p → q</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td class="py-1.5 px-2 border border-slate-300">T</td><td class="py-1.5 px-2 border border-slate-300">T</td><td class="py-1.5 px-2 border border-slate-300">T</td></tr>
-                        <tr><td class="py-1.5 px-2 border border-slate-300">T</td><td class="py-1.5 px-2 border border-slate-300">F</td><td class="py-1.5 px-2 border border-slate-300 font-bold text-rose-700">F</td></tr>
-                        <tr><td class="py-1.5 px-2 border border-slate-300">F</td><td class="py-1.5 px-2 border border-slate-300">T</td><td class="py-1.5 px-2 border border-slate-300">T</td></tr>
-                        <tr><td class="py-1.5 px-2 border border-slate-300">F</td><td class="py-1.5 px-2 border border-slate-300">F</td><td class="py-1.5 px-2 border border-slate-300">T</td></tr>
-                    </tbody>
-                </table>
-                <div class="border border-slate-200 rounded-lg overflow-hidden bg-white">
-                    <button type="button" onclick="toggleCollapse('ex1-1-9')" class="w-full px-3.5 py-2.5 bg-slate-100/80 hover:bg-slate-200/60 flex items-center justify-between text-left font-semibold text-slate-800 text-xs">
-                        <span>[Example & Remark (Page 6 / Page 8)] Converse, Contrapositive, Inverse & Example 9（點擊展開）</span>
-                        <span class="font-mono text-indigo-600">EXPAND</span>
-                    </button>
-                    <div id="ex1-1-9" class="hidden p-3.5 border-t border-slate-200 text-xs text-slate-700 space-y-2">
-                        <p><strong>Remark (c):</strong> p → q is false only when p is true and q is false; when p is false (vacuously true), p → q is true.</p>
-                        <p><strong>(d) Related Forms:</strong> <strong>q → p</strong> is called the <strong>converse (逆命題)</strong> of p → q; <strong>¬q → ¬p</strong> is called <strong>contrapositive (逆否命題)</strong> of p → q; <strong>¬p → ¬q</strong> is called <strong>inverse (否命題)</strong> of p → q.</p>
-                        <p><strong>(e) Example 9 (see page 8):</strong> "The home team wins whenever it is raining." rewritten as "If it is raining, then the home team wins" (p: it is raining, q: the home team wins).</p>
-                        <ul class="list-disc pl-4 space-y-0.5">
-                            <li><strong>Converse (q → p):</strong> If the home team wins, then it is raining.</li>
-                            <li><strong>Contrapositive (¬q → ¬p):</strong> If the home team does not win, then it is not raining.</li>
-                            <li><strong>Inverse (¬p → ¬q):</strong> If it is not raining, then the home team does not win.</li>
-                        </ul>
-                    </div>
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
+                <strong class="text-indigo-900 text-base font-bold block">(5) Implication / Conditional Statement (蘊含／條件語句，Definition 5，Page 6 - 8)</strong>
+                <p class="text-slate-700">Let $p$ and $q$ be propositions. The implication $p \rightarrow q$ is <strong>false when $p$ is true and $q$ is false</strong>, and <strong>true otherwise</strong>. In $p \rightarrow q$, $p$ is called the <strong>hypothesis</strong> (antecedent / premise，假設／前提) and $q$ is called the <strong>conclusion</strong> (consequence，結論).</p>
+                <p class="text-slate-700">• <strong>例：</strong>$P$: "Today is Tuesday", $Q$: "we have discrete class"；若 "Today is Monday" $\implies$ "we have no discrete class"。</p>
+                <p class="text-slate-700">• <strong>相關命題：</strong>逆命題（Converse）為 $q \rightarrow p$；逆否命題（Contrapositive）為 $\neg q \rightarrow \neg p$；否命題（Inverse）為 $\neg p \rightarrow \neg q$。</p>
+                <p class="text-slate-700">• <strong>Example 9 (see page 8):</strong> "The home team wins whenever it is raining." 可改寫為 "If it is raining, then the home team wins."。</p>
+                <div class="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+                    <table class="w-full text-center border-collapse text-xs md:text-sm">
+                        <thead>
+                            <tr class="bg-slate-100 border-b border-slate-200 font-mono">
+                                <th class="py-2 px-4">$p$</th>
+                                <th class="py-2 px-4">$q$</th>
+                                <th class="py-2 px-4">$p \rightarrow q$</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 font-mono">
+                            <tr><td class="py-2 px-4">T</td><td class="py-2 px-4">T</td><td class="py-2 px-4 font-bold text-indigo-700">T</td></tr>
+                            <tr><td class="py-2 px-4">T</td><td class="py-2 px-4">F</td><td class="py-2 px-4 font-bold text-red-600">F</td></tr>
+                            <tr><td class="py-2 px-4">F</td><td class="py-2 px-4">T</td><td class="py-2 px-4 font-bold text-indigo-700">T</td></tr>
+                            <tr><td class="py-2 px-4">F</td><td class="py-2 px-4">F</td><td class="py-2 px-4 font-bold text-indigo-700">T</td></tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </div>
 
-        <!-- Biconditional & Compound Truth Table -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <!-- Biconditional -->
-            <div class="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
-                <div class="font-bold text-indigo-900">(10) Biconditional <span class="font-normal">（「當且僅當」又稱「等價」）— Definition 6</span></div>
-                <p class="text-slate-700">
-                    Let p and q be propositions. The <strong>biconditional (雙條件)</strong> <strong>p ↔ q</strong> is the proposition that is true when p and q have the <strong>same truth values</strong>, and is false otherwise. Read as "p if and only if q". p ↔ q has the same truth table of <strong>(p → q) ∧ (q → p)</strong>.
-                </p>
-                <table class="w-full text-center border-collapse bg-white border border-slate-300">
-                    <thead class="bg-slate-200/80 text-slate-800">
-                        <tr><th class="py-1.5 px-2 border border-slate-300">p</th><th class="py-1.5 px-2 border border-slate-300">q</th><th class="py-1.5 px-2 border border-slate-300">p ↔ q</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td class="py-1.5 px-2 border border-slate-300">T</td><td class="py-1.5 px-2 border border-slate-300">T</td><td class="py-1.5 px-2 border border-slate-300 font-bold text-emerald-700">T</td></tr>
-                        <tr><td class="py-1.5 px-2 border border-slate-300">T</td><td class="py-1.5 px-2 border border-slate-300">F</td><td class="py-1.5 px-2 border border-slate-300">F</td></tr>
-                        <tr><td class="py-1.5 px-2 border border-slate-300">F</td><td class="py-1.5 px-2 border border-slate-300">T</td><td class="py-1.5 px-2 border border-slate-300">F</td></tr>
-                        <tr><td class="py-1.5 px-2 border border-slate-300">F</td><td class="py-1.5 px-2 border border-slate-300">F</td><td class="py-1.5 px-2 border border-slate-300 font-bold text-emerald-700">T</td></tr>
-                    </tbody>
-                </table>
-                <div class="border border-slate-200 rounded-lg overflow-hidden bg-white">
-                    <button type="button" onclick="toggleCollapse('ex1-1-10')" class="w-full px-3.5 py-2.5 bg-slate-100/80 hover:bg-slate-200/60 flex items-center justify-between text-left font-semibold text-slate-800 text-xs">
-                        <span>[Example 10 (see page 9)] Flight & Ticket Biconditional（點擊展開）</span>
-                        <span class="font-mono text-indigo-600">EXPAND</span>
-                    </button>
-                    <div id="ex1-1-10" class="hidden p-3.5 border-t border-slate-200 text-xs text-slate-700 space-y-1">
-                        <div>p: "You can take the flight", q: "You buy a ticket."</div>
-                        <div><strong>Solution:</strong> p ↔ q is "You can take the flight if and only if you buy a ticket."</div>
-                    </div>
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
+                <strong class="text-indigo-900 text-base font-bold block">(6) Biconditional (雙條件／「當且僅當」／等價，Definition 6，Page 9)</strong>
+                <p class="text-slate-700">Let $p$ and $q$ be propositions. The biconditional $p \leftrightarrow q$（"$p$ if and only if $q$"）is true when $p$ and $q$ have the <strong>same truth values</strong>, and false otherwise. $p \leftrightarrow q$ has the same truth table as $(p \rightarrow q) \wedge (q \rightarrow p)$.</p>
+                <p class="text-slate-700"><strong>Example 10 (see page 9):</strong> $p$: "You can take the flight", $q$: "You buy a ticket." $\implies p \leftrightarrow q$: "You can take the flight if and only if you buy a ticket."</p>
+                <div class="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+                    <table class="w-full text-center border-collapse text-xs md:text-sm">
+                        <thead>
+                            <tr class="bg-slate-100 border-b border-slate-200 font-mono">
+                                <th class="py-2 px-4">$p$</th>
+                                <th class="py-2 px-4">$q$</th>
+                                <th class="py-2 px-4">$p \leftrightarrow q$</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 font-mono">
+                            <tr><td class="py-2 px-4">T</td><td class="py-2 px-4">T</td><td class="py-2 px-4 font-bold text-indigo-700">T</td></tr>
+                            <tr><td class="py-2 px-4">T</td><td class="py-2 px-4">F</td><td class="py-2 px-4">F</td></tr>
+                            <tr><td class="py-2 px-4">F</td><td class="py-2 px-4">T</td><td class="py-2 px-4">F</td></tr>
+                            <tr><td class="py-2 px-4">F</td><td class="py-2 px-4">F</td><td class="py-2 px-4 font-bold text-indigo-700">T</td></tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
-            <!-- Example 11 Compound Truth Table -->
-            <div class="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
-                <div class="font-bold text-indigo-900">(11) Truth Tables of Compound Propositions <span class="font-normal">（複合命題真值表）</span></div>
-                <div class="border border-slate-200 rounded-lg overflow-hidden bg-white">
-                    <button type="button" onclick="toggleCollapse('ex1-1-11')" class="w-full px-3.5 py-2.5 bg-slate-100/80 hover:bg-slate-200/60 flex items-center justify-between text-left font-semibold text-slate-800 text-xs">
-                        <span>[Example 11] Construct truth table of (p ∨ ¬q) → (p ∧ q)（點擊展開）</span>
-                        <span class="font-mono text-indigo-600">EXPAND</span>
-                    </button>
-                    <div id="ex1-1-11" class="hidden p-3.5 border-t border-slate-200 text-xs text-slate-700 overflow-x-auto">
-                        <table class="w-full text-center border-collapse border border-slate-300">
-                            <thead class="bg-slate-200/80">
-                                <tr>
-                                    <th class="py-1.5 px-2 border border-slate-300">p</th>
-                                    <th class="py-1.5 px-2 border border-slate-300">q</th>
-                                    <th class="py-1.5 px-2 border border-slate-300">¬q</th>
-                                    <th class="py-1.5 px-2 border border-slate-300">p ∨ ¬q</th>
-                                    <th class="py-1.5 px-2 border border-slate-300">p ∧ q</th>
-                                    <th class="py-1.5 px-2 border border-slate-300">(p ∨ ¬q) → (p ∧ q)</th>
+            <!-- Compound Truth Table Example 11 -->
+            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                <button onclick="toggleCard('fig-1-1-truthtable')" class="w-full p-4 text-left font-bold text-slate-900 flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition">
+                    <span><i class="fa-solid fa-table-cells mr-2 text-indigo-600"></i> Example 11 Truth Table: $(p \vee \neg q) \rightarrow (p \wedge q)$ (點擊展開複合命題真值表)</span>
+                    <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full">Expand Table</span>
+                </button>
+                <div id="fig-1-1-truthtable" class="toggle-content p-6 text-xs md:text-sm border-t border-slate-200">
+                    <div class="overflow-x-auto rounded-lg border border-slate-200">
+                        <table class="w-full text-center border-collapse bg-white">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-900 border-b border-slate-200 font-mono">
+                                    <th class="py-2 px-3">$p$</th>
+                                    <th class="py-2 px-3">$q$</th>
+                                    <th class="py-2 px-3">$\neg q$</th>
+                                    <th class="py-2 px-3">$p \vee \neg q$</th>
+                                    <th class="py-2 px-3">$p \wedge q$</th>
+                                    <th class="py-2 px-3 text-indigo-800">$(p \vee \neg q) \rightarrow (p \wedge q)$</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr><td class="py-1 px-2 border border-slate-300">T</td><td class="py-1 px-2 border border-slate-300">T</td><td class="py-1 px-2 border border-slate-300">F</td><td class="py-1 px-2 border border-slate-300">T</td><td class="py-1 px-2 border border-slate-300">T</td><td class="py-1 px-2 border border-slate-300 font-bold">T</td></tr>
-                                <tr><td class="py-1 px-2 border border-slate-300">T</td><td class="py-1 px-2 border border-slate-300">F</td><td class="py-1 px-2 border border-slate-300">T</td><td class="py-1 px-2 border border-slate-300">T</td><td class="py-1 px-2 border border-slate-300">F</td><td class="py-1 px-2 border border-slate-300 font-bold">F</td></tr>
-                                <tr><td class="py-1 px-2 border border-slate-300">F</td><td class="py-1 px-2 border border-slate-300">T</td><td class="py-1 px-2 border border-slate-300">F</td><td class="py-1 px-2 border border-slate-300">F</td><td class="py-1 px-2 border border-slate-300">F</td><td class="py-1 px-2 border border-slate-300 font-bold">T</td></tr>
-                                <tr><td class="py-1 px-2 border border-slate-300">F</td><td class="py-1 px-2 border border-slate-300">F</td><td class="py-1 px-2 border border-slate-300">T</td><td class="py-1 px-2 border border-slate-300">T</td><td class="py-1 px-2 border border-slate-300">F</td><td class="py-1 px-2 border border-slate-300 font-bold">F</td></tr>
+                            <tbody class="divide-y divide-slate-200 font-mono">
+                                <tr><td class="py-2 px-3">T</td><td class="py-2 px-3">T</td><td class="py-2 px-3">F</td><td class="py-2 px-3">T</td><td class="py-2 px-3">T</td><td class="py-2 px-3 font-bold text-indigo-700">T</td></tr>
+                                <tr><td class="py-2 px-3">T</td><td class="py-2 px-3">F</td><td class="py-2 px-3">T</td><td class="py-2 px-3">T</td><td class="py-2 px-3">F</td><td class="py-2 px-3 font-bold text-red-600">F</td></tr>
+                                <tr><td class="py-2 px-3">F</td><td class="py-2 px-3">T</td><td class="py-2 px-3">F</td><td class="py-2 px-3">F</td><td class="py-2 px-3">F</td><td class="py-2 px-3 font-bold text-indigo-700">T</td></tr>
+                                <tr><td class="py-2 px-3">F</td><td class="py-2 px-3">F</td><td class="py-2 px-3">T</td><td class="py-2 px-3">T</td><td class="py-2 px-3">F</td><td class="py-2 px-3 font-bold text-red-600">F</td></tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
 
-<!-- 3. Precedence, Translating Sentences & System Specification -->
-<section id="sec1-1-trans" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
-    <div class="border-b border-slate-200 pb-3">
-        <h3 class="text-xl font-bold text-slate-900">3. Precedence, Translating Sentences & System Specification <span class="text-base font-medium text-slate-600">（運算優先級、句型翻譯與系統規格，Page 11 - 19）</span></h3>
-    </div>
+        <!-- 4. Precedence of Logical Operations -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-list-ol text-indigo-500 text-sm"></i> 4. Precedence of Logical Operations (邏輯運算優先級，Page 11)
+            </h3>
 
-    <!-- Precedence Table -->
-    <div class="space-y-2 text-sm">
-        <div class="font-bold text-indigo-900">3. Precedence of Logical Operations <span class="font-normal">（邏輯運算優先級，Page 11）</span></div>
-        <div class="overflow-x-auto">
-            <table class="w-full max-w-md text-center border-collapse bg-white border border-slate-300">
-                <thead class="bg-indigo-50 text-indigo-950">
-                    <tr>
-                        <th class="py-2 px-4 border border-slate-300">Operator</th>
-                        <th class="py-2 px-4 border border-slate-300">Precedence</th>
-                    </tr>
-                </thead>
-                <tbody class="font-mono">
-                    <tr><td class="py-1.5 px-4 border border-slate-300">¬</td><td class="py-1.5 px-4 border border-slate-300">1</td></tr>
-                    <tr><td class="py-1.5 px-4 border border-slate-300">∧</td><td class="py-1.5 px-4 border border-slate-300">2</td></tr>
-                    <tr><td class="py-1.5 px-4 border border-slate-300">∨</td><td class="py-1.5 px-4 border border-slate-300">3</td></tr>
-                    <tr><td class="py-1.5 px-4 border border-slate-300">→</td><td class="py-1.5 px-4 border border-slate-300">4</td></tr>
-                    <tr><td class="py-1.5 px-4 border border-slate-300">↔</td><td class="py-1.5 px-4 border border-slate-300">5</td></tr>
-                </tbody>
-            </table>
-        </div>
-        <p class="text-slate-700">
-            Example: (1) p ∧ q ∨ r means (p ∧ q) ∨ r rather than p ∧ (q ∨ r). (2) p ∨ q → r is the same as (p ∨ q) → r. Remark: no problem if you want to use some redundant parentheses (but not too many).
-        </p>
-    </div>
-
-    <!-- Translating English Sentences Mapping -->
-    <div class="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-3 text-sm">
-        <div class="font-bold text-indigo-900">4. Translating English Sentences <span class="font-normal">（翻譯英文句子與條件句型對照，Page 17）</span></div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 font-mono text-xs text-slate-800">
-            <div class="p-3 rounded-lg bg-white border border-slate-200">if p then q = p → q</div>
-            <div class="p-3 rounded-lg bg-white border border-slate-200">q if p = p → q</div>
-            <div class="p-3 rounded-lg bg-white border border-slate-200">p is sufficient for q = p → q</div>
-            <div class="p-3 rounded-lg bg-white border border-slate-200">q is necessary for p = p → q</div>
-            <div class="p-3 rounded-lg bg-white border border-slate-200">p only if q = p → q</div>
-            <div class="p-3 rounded-lg bg-white border border-slate-200">p if and only if q (sufficient and necessary) = p ↔ q</div>
-            <div class="p-3 rounded-lg bg-white border border-slate-200 md:col-span-2">p unless q / p except if q = ¬q → p (same as p ∨ q)</div>
-        </div>
-
-        <div class="text-slate-700 space-y-1 pt-1">
-            <div>• x = 0 and y = 0 if and only if x + y = 0 <span class="text-slate-500">（若 x, y 為實數，此雙條件為 True；若一般變數則視賦值而定）</span></div>
-            <div>• p: we have on line class, q: COVID under control ⇒ "we have on line class unless COVID under control" = "if COVID not under control we have on line class" (¬q → p).</div>
-            <div>• p: x + y = 0, q: x ≠ 0 or y ≠ 0 ⇒ "x + y = 0 unless x ≠ 0 or y ≠ 0" = "if x = 0 and y = 0 then x + y = 0" (same as p ∨ q).</div>
-        </div>
-    </div>
-
-    <!-- Collapsible Examples 1 & 2 -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-        <div class="border border-slate-200 rounded-xl overflow-hidden">
-            <button type="button" onclick="toggleCollapse('trans-ex1')" class="w-full px-4 py-3 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left font-bold text-slate-800 transition">
-                <span>[Example 1 (Page 17)] Campus Internet Access <span class="font-normal text-slate-500">（點擊展開）</span></span>
-                <span class="text-xs font-mono text-indigo-600">EXPAND</span>
-            </button>
-            <div id="trans-ex1" class="hidden p-4 bg-white border-t border-slate-200 space-y-2 text-slate-700">
-                <p>How can this English sentence be translated into a logical expression:</p>
-                <p class="italic">"You can access the internet from the campus only if (page 17) you are a computer science major or you are not a freshman."</p>
-                <p><strong>Solution:</strong></p>
-                <p class="font-mono text-xs">a: "You can access the internet from the campus."<br>b: "You are a computer science major."<br>c: "You are a freshman."</p>
-                <p>a only if (b ∨ ¬c) = <strong>a → (b ∨ ¬c)</strong>.</p>
-                <p class="text-xs text-slate-600">對比：若為 "You can access the internet from the campus if you are a computer science major or you are not a freshman."，則為 a if (b ∨ ¬c) = (b ∨ ¬c) → a。</p>
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
+                <div class="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+                    <table class="w-full text-left border-collapse text-xs md:text-sm">
+                        <thead>
+                            <tr class="bg-indigo-50 text-indigo-950 border-b border-slate-200">
+                                <th class="py-2.5 px-4 font-bold">Operator (運算子)</th>
+                                <th class="py-2.5 px-4 font-bold">Precedence (優先級順序)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 text-slate-700 font-mono">
+                            <tr><td class="py-2.5 px-4">$\neg$</td><td class="py-2.5 px-4">1（最高）</td></tr>
+                            <tr><td class="py-2.5 px-4">$\wedge$</td><td class="py-2.5 px-4">2</td></tr>
+                            <tr><td class="py-2.5 px-4">$\vee$</td><td class="py-2.5 px-4">3</td></tr>
+                            <tr><td class="py-2.5 px-4">$\rightarrow$</td><td class="py-2.5 px-4">4</td></tr>
+                            <tr><td class="py-2.5 px-4">$\leftrightarrow$</td><td class="py-2.5 px-4">5（最低）</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-slate-700">• <strong>(1)</strong> $p \wedge q \vee r$ means $(p \wedge q) \vee r$ rather than $p \wedge (q \vee r)$。</p>
+                <p class="text-slate-700">• <strong>(2)</strong> $p \vee q \rightarrow r$ is the same as $(p \vee q) \rightarrow r$。</p>
+                <p class="text-slate-700">• <strong>Remark:</strong> 加上適當的冗餘括號沒有問題，但不要加太多括號。</p>
             </div>
         </div>
 
-        <div class="border border-slate-200 rounded-xl overflow-hidden">
-            <button type="button" onclick="toggleCollapse('trans-ex2')" class="w-full px-4 py-3 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left font-bold text-slate-800 transition">
-                <span>[Example 2 (Page 17)] Roller Coaster Condition <span class="font-normal text-slate-500">（點擊展開）</span></span>
-                <span class="text-xs font-mono text-indigo-600">EXPAND</span>
-            </button>
-            <div id="trans-ex2" class="hidden p-4 bg-white border-t border-slate-200 space-y-2 text-slate-700">
-                <p>How can this English sentence be translated into logical expression? (Page 17)</p>
-                <p class="italic">"You cannot ride the roller coaster (過山車) if you are under 4 feet tall unless you are older than 16 years old."</p>
-                <p><strong>Solution:</strong></p>
-                <p class="font-mono text-xs">q: "You can ride the roller coaster."<br>r: "You are under 4 feet tall."<br>s: "You are older than 16 years old."</p>
-                <p>Translated to <strong>(r ∧ ¬s) → ¬q</strong>（亦可寫作 <strong>¬s → (r → ¬q)</strong>）。</p>
-            </div>
-        </div>
-    </div>
+        <!-- 5. Applications of Logic: Translating English Sentences & Unless -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-language text-indigo-500 text-sm"></i> 5. Applications of Logic: Translating English Sentences (邏輯應用與語句翻譯，Page 17)
+            </h3>
 
-    <!-- 5. System Specification & Exercises -->
-    <div class="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-sm">
-        <div class="font-bold text-indigo-900">5. System Specification <span class="font-normal">（系統規格，Page 17）</span> & Exercises</div>
-        <p class="text-slate-700">
-            Translating system requirements into logical expressions and checking consistency (whether there exists an assignment of truth values to variables that makes all specifications true).
-        </p>
-        <div class="pt-1 font-mono text-xs text-indigo-800">
-            Exercise 1.1: 13, 19 &nbsp;|&nbsp; Exercise 1.2: 1, 3
-        </div>
-    </div>
-        
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1.5">
+                    <strong class="text-indigo-900 block">條件與充要語句對照表</strong>
+                    <p class="text-slate-700">• <strong>if $p$ then $q$ / $q$ if $p$ / $p$ is sufficient for $q$:</strong> $p \rightarrow q$（$q$ is necessary for $p$）。</p>
+                    <p class="text-slate-700">• <strong>$p$ only if $q$:</strong> $p \rightarrow q$；例："$x = 0$ and $y = 0$ only if $x + y = 0$"。</p>
+                    <p class="text-slate-700">• <strong>$p$ if and only if $q$ (sufficient and necessary):</strong> $p \leftrightarrow q$；例："$x = 0$ and $y = 0$ if and only if $x + y = 0$"。</p>
+                </div>
+
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-2">
+                    <strong class="text-indigo-900 block">Example 1 (Page 17)</strong>
+                    <p class="text-slate-700">翻譯："You can access the internet from the campus only if you are a computer science major or you are not a freshman."</p>
+                    <p class="text-slate-700">設 $a$: "You can access the internet from the campus."，$b$: "You are a computer science major."，$c$: "You are a freshman."</p>
+                    <p class="text-slate-700">• <strong>only if 版本：</strong>$a \text{ only if } (b \vee \neg c) = a \rightarrow (b \vee \neg c)$。</p>
+                    <p class="text-slate-700">• <strong>if 版本：</strong>"You can access the internet from the campus if you are a computer science major or you are not a freshman." $\implies a \text{ if } (b \vee \neg c) = (b \vee \neg c) \rightarrow a$。</p>
+                </div>
+
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-2">
+                    <strong class="text-indigo-900 block">Example 2 & Unless 完整推導 (Page 17)</strong>
+                    <p class="text-slate-700">翻譯："You cannot ride the roller coaster if you are under 4 feet tall unless you are older than 16 years old."</p>
+                    <p class="text-slate-700">設 $q$: "You can ride the roller coaster."，$r$: "You are under 4 feet tall."，$s$: "You are older than 16 years old."</p>
+                    <p class="text-slate-700">可表示為 $(r \wedge \neg s) \rightarrow \neg q$ 或 $\neg s \rightarrow (r \rightarrow \neg q)$。</p>
+                    <div class="p-3 bg-slate-50 rounded border border-slate-200 space-y-1.5 text-slate-700">
+                        <p><strong>$p$ unless $q$ ($p$ except if $q$) 規則：</strong>$\neg q \rightarrow p$（與 $p \vee q$ 相同）。</p>
+                        <p>• <strong>例 A：</strong>$p$: "we have on line class"，$q$: "COVID under control" $\implies$ "we have on line class unless COVID under control" $\equiv$ "if COVID not under control we have on line class"。</p>
+                        <p>• <strong>例 B：</strong>$p$: "$x + y = 0$"，$q$: "$x \neq 0$ or $y \neq 0$" $\implies$ "$x + y = 0$ unless $x \neq 0$ or $y \neq 0$" $\equiv$ "if $x = 0$ and $y = 0$ then $x + y = 0$"。</p>
+                    </div>
+                </div>
+
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1 text-slate-700">
+                    <p>• <strong>5. System Specification (page 17)</strong></p>
+                    <p>• <strong>練習題：</strong>Exercise 1.1 (13, 19)、Exercise 1.2 (1, 3)。</p>
+                </div>
+            </div>
+        </div>        
     </section>
     
     <!-- CHAPTER 2 OVERVIEW -->
