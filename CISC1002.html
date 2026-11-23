@@ -1401,6 +1401,8 @@
                     <p class="leading-relaxed">• <strong>Valid Argument Form：</strong>若每當所有前提（hypotheses / premises）皆為真時，結論（conclusion）也必為真，則稱該推理形式有效。</p>
                     <p class="leading-relaxed">• 證明 $q$ 從前提 $p_1, p_2, \dots, p_n$ 邏輯推出，等價於證明蘊含式 $(p_1 \wedge p_2 \wedge \dots \wedge p_n) \rightarrow q$ 為<strong>永真公式</strong>。</p>
                     <p class="leading-relaxed">• <strong>Modus Ponens（假言推理）：</strong>前提為 $p$ 與 $p \rightarrow q$，結論為 $q$；其正確性源於 $(p \wedge (p \rightarrow q)) \rightarrow q$ 為永真公式。</p>
+                    <!-- 第 2 節內容補充（放入 2. Valid Arguments in Propositional Logic 卡片內） -->
+                    <p class="leading-relaxed">• <strong>The Correctness of Modus Ponens（假言推理的正確性）：</strong>原因在於 $(p \wedge (p \rightarrow q)) \rightarrow q$ 為永真公式（tautology）[cite: 11]。</p>
                 </div>
             </div>
         </div>
@@ -1556,26 +1558,40 @@
                     </button>
                     <div id="ex-1-6-extra" class="toggle-content p-4 space-y-4 text-slate-700 border-t border-slate-200 bg-white">
                         <div class="space-y-2 pb-2">
-                            <p class="leading-relaxed">• <strong>(1) 附加前提法：</strong>因 $(A_1 \wedge A_2 \wedge \dots \wedge A_k) \rightarrow (A \rightarrow B) \equiv (A_1 \wedge A_2 \wedge \dots \wedge A_k \wedge A) \rightarrow B$，可將 $A$ 作為附加前提引入推導 $B$。</p>
-                            <p class="pl-4 leading-relaxed"><strong>例 1：</strong>前提 $p \rightarrow q,\; (r \vee \neg s) \rightarrow \neg q$，結論 $p \rightarrow (\neg r \wedge s)$。</p>
+                            <p class="leading-relaxed">• <strong>(1) 附加前提法：</strong>因 $(A_1 \wedge A_2 \wedge \dots \wedge A_k) \rightarrow (A \rightarrow B) \equiv (A_1 \wedge A_2 \wedge \dots \wedge A_k \wedge A) \rightarrow B$，可將 $A$ 作為附加前提引入推導 $B$[cite: 27]。</p>
+                            <p class="pl-4 leading-relaxed"><strong>例 1：</strong>前提 $p \rightarrow q,\; (r \vee \neg s) \rightarrow \neg q$，結論 $p \rightarrow (\neg r \wedge s)$[cite: 28]。</p>
+                            <p class="pl-4 font-bold text-slate-800">方法 1：附加前提法</p>
                             <div class="ml-4 p-2.5 bg-slate-50 rounded-lg border border-slate-200 font-mono text-xs md:text-sm space-y-1">
-                                <p>1. $p$ <span class="font-sans text-slate-600">—— 附加前提引入</span></p>
-                                <p>2. $p \rightarrow q$ <span class="font-sans text-slate-600">—— 前提引入</span></p>
-                                <p>3. $q$ <span class="font-sans text-slate-600">—— (1)(2) 假言推理</span></p>
-                                <p>4. $(r \vee \neg s) \rightarrow \neg q$ <span class="font-sans text-slate-600">—— 前提引入</span></p>
-                                <p>5. $q \rightarrow \neg(r \vee \neg s)$ <span class="font-sans text-slate-600">—— (4) 逆否／置換</span></p>
-                                <p>6. $\neg(r \vee \neg s)$ <span class="font-sans text-slate-600">—— (3)(5) 假言推理</span></p>
-                                <p>7. $\neg r \wedge s$ <span class="font-sans text-slate-600">—— (6) De Morgan / 置換</span></p>
+                                <p>1. $p$ <span class="font-sans text-slate-600">—— 附加前提引入</span>[cite: 28]</p>
+                                <p>2. $p \rightarrow q$ <span class="font-sans text-slate-600">—— 前提引入</span>[cite: 28]</p>
+                                <p>3. $q$ <span class="font-sans text-slate-600">—— (1)(2) 假言推理</span>[cite: 28]</p>
+                                <p>4. $(r \vee \neg s) \rightarrow \neg q$ <span class="font-sans text-slate-600">—— 前提引入</span>[cite: 28]</p>
+                                <p>5. $q \rightarrow \neg(r \vee \neg s)$ <span class="font-sans text-slate-600">—— (4) 逆否／置換</span>[cite: 28]</p>
+                                <p>6. $\neg(r \vee \neg s)$ <span class="font-sans text-slate-600">—— (3)(5) 假言推理</span>[cite: 28]</p>
+                                <p>7. $\neg r \wedge s$ <span class="font-sans text-slate-600">—— (6) De Morgan / 置換</span>[cite: 28]</p>
+                            </div>
+                            <p class="pl-4 pt-2 font-bold text-slate-800">方法 2：直接法</p>
+                            <div class="ml-4 p-2.5 bg-slate-50 rounded-lg border border-slate-200 font-mono text-xs md:text-sm space-y-1">
+                                <p>1. $(r \vee \neg s) \rightarrow \neg q$ <span class="font-sans text-slate-600">—— 前提引入</span>[cite: 29]</p>
+                                <p>2. $q \rightarrow \neg(r \vee \neg s)$ <span class="font-sans text-slate-600">—— (1) 逆否／置換</span>[cite: 29]</p>
+                                <p>3. $q \rightarrow (\neg r \wedge s)$ <span class="font-sans text-slate-600">—— (2) 置換</span>[cite: 29]</p>
+                                <p>4. $p \rightarrow q$ <span class="font-sans text-slate-600">—— 前提引入</span>[cite: 29]</p>
+                                <p>5. $p \rightarrow (\neg r \wedge s)$ <span class="font-sans text-slate-600">—— (3)(4) 假言三段論</span>[cite: 29]</p>
                             </div>
                         </div>
-
+                
                         <div class="pt-4 border-t border-slate-200 space-y-2">
-                            <p class="leading-relaxed">• <strong>(2) 歸谬法：</strong>將結論否定 $\neg B$ 作為附加前提引入；若推導出矛盾（永假式），則原結論成立。</p>
-                            <p class="pl-4 leading-relaxed"><strong>例 2：</strong>前提 $p \rightarrow \neg q,\; r \rightarrow q,\; r$，結論 $p$。</p>
+                            <p class="leading-relaxed">• <strong>(2) 歸谬法：</strong>將結論否定 $\neg B$ 作為附加前提引入；若推導出矛盾（永假式），則原結論成立[cite: 30]。</p>
+                            <p class="pl-4 leading-relaxed"><strong>例 2：</strong>前提 $p \rightarrow \neg q,\; r \rightarrow q,\; r$，結論 $p$[cite: 31]。</p>
+                            <p class="pl-4 font-bold text-slate-800">方法 1：歸谬法</p>
                             <div class="ml-4 p-2.5 bg-slate-50 rounded-lg border border-slate-200 font-mono text-xs md:text-sm space-y-1">
-                                <p>1. $\neg p$ <span class="font-sans text-slate-600">—— 結論否定引入</span></p>
-                                <p>2. $p \rightarrow \neg q$ <span class="font-sans text-slate-600">—— 前提引入</span></p>
-                                <p>3. $\neg q$ <span class="font-sans text-slate-600">—— (1)(2) 假言推理（或由前提 $r$ 與 $r \rightarrow q$ 得 $q$，與 $\neg q$ 矛盾）</span></p>
+                                <p>1. $\neg p$ <span class="font-sans text-slate-600">—— 結論否定引入</span>[cite: 31]</p>
+                                <p>2. $p \rightarrow \neg q$ <span class="font-sans text-slate-600">—— 前提引入</span>[cite: 31]</p>
+                                <p>3. $\neg q$ <span class="font-sans text-slate-600">—— (1)(2) 假言推理</span>[cite: 31]</p>
+                                <p>4. $r \rightarrow q$ <span class="font-sans text-slate-600">—— 前提引入</span>[cite: 31]</p>
+                                <p>5. $\neg r$ <span class="font-sans text-slate-600">—— (3)(4) 拒取式</span>[cite: 31]</p>
+                                <p>6. $r$ <span class="font-sans text-slate-600">—— 前提引入</span>[cite: 31]</p>
+                                <p>7. $\neg r \wedge r$ <span class="font-sans text-slate-600">—— (5)(6) 合取（矛盾，故原結論 $p$ 成立；亦可改用直接證明法）</span>[cite: 31]</p>
                             </div>
                         </div>
                     </div>
@@ -1622,6 +1638,12 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+
+                <!-- 第 5 節量詞規則例子補充（放入 5. Rules of Inference for Quantified Statements 卡片內） -->
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1.5 text-slate-700">
+                    <strong class="text-indigo-900 block">量詞推理直覺例子</strong>
+                    <p class="leading-relaxed">• 由 "All women are wise" 與 Lisa 為女性，透過 UI 與假言推理可推出 "Lisa is wise"[cite: 33]。</p>
                 </div>
 
                 <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
