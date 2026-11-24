@@ -851,79 +851,306 @@
     </section>
 
     <!-- ================= SECTION 4.2 ================= -->
-    <section id="sec4-2" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
-        <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
-            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
-                <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 4.2</span>
-                Null Spaces, Column Spaces, and Linear Transformations (零空間、行空間與線性變換)
-            </h2>
-            <span class="text-xs text-slate-500 font-mono">Pages 1 - 27</span>
+    <section id="sec-4-2" class="scroll-mt-24 space-y-6 bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm text-slate-800">
+    <!-- Section Header -->
+    <div class="border-b border-slate-200 pb-4 space-y-1">
+        <div class="text-xs font-mono font-bold uppercase tracking-wider text-violet-600">Section 4.2</div>
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-900">
+            Null Spaces, Column Spaces, and Linear Transformations <span class="text-lg font-normal text-slate-600">（零空間、列空間與線性變換）</span>
+        </h2>
+        <p class="text-sm text-slate-600">
+            在線性代數應用中，$\mathbb{R}^n$ 的子空間通常來自兩種途徑：(1) 齊次線性方程組的所有解集合；(2) 指定向量所有線性組合的集合[cite: 218]。
+        </p>
+    </div>
+
+    <!-- 1. The Null Space of a Matrix -->
+    <div class="space-y-4">
+        <h3 class="font-bold text-lg text-violet-800 flex items-center gap-2">
+            <span>1. The Null Space of a Matrix（矩陣的零空間）</span>
+        </h3>
+
+        <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2 text-sm">
+            <p class="text-slate-700">
+                考慮齊次線性方程組：
+            </p>
+            <div class="font-mono bg-white p-3 rounded-lg border border-slate-200 text-slate-800 space-y-1">
+                <div>$x_1 - 3x_2 - 2x_3 = 0$</div>
+                <div>$-5x_1 + 9x_2 + x_3 = 0$</div>
+            </div>
+            <p class="text-slate-700">
+                寫成矩陣形式為 $Ax = \mathbf{0}$，其中 $A = \begin{bmatrix} 1 & -3 & -2 \\ -5 & 9 & 1 \end{bmatrix}$[cite: 219]。滿足 $Ax = \mathbf{0}$ 的全體 $x$ 稱為矩陣 $A$ 的<strong>零空間（Null Space）</strong>[cite: 219]。
+            </p>
         </div>
 
-        <div class="space-y-4 text-sm">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="p-4 bg-emerald-50/50 rounded-xl border border-emerald-200 space-y-2">
-                    <strong class="text-emerald-900 text-base block">Null Space $\text{Nul } A$ (零空間，Pages 2 - 12)</strong>
-                    <p class="text-slate-800">For an $m \times n$ matrix $A$, $\text{Nul } A = \{\mathbf{x} \in \mathbb{R}^n : A\mathbf{x} = \mathbf{0}\}$.</p>
-                    <p class="text-slate-800"><strong>THEOREM 2:</strong> $\text{Nul } A$ is a subspace of $\mathbb{R}^n$ (homogeneous equations only; nonhomogeneous solution sets do not contain $\mathbf{0}$).</p>
-                    <p class="text-slate-700 text-xs"><strong>Explicit Spanning Set (Ex. 3):</strong> Row-reduce $[A\;\mathbf{0}]$ to RREF, express basic variables in terms of free variables, and decompose into linear combinations of vectors—one per free variable (automatically linearly independent when nonzero).</p>
-                </div>
-
-                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-                    <strong class="text-emerald-900 text-base block">Column Space $\text{Col } A$ (行空間，Pages 13 - 17)</strong>
-                    <p class="text-slate-800">For $A = [\mathbf{a}_1 \;\; \dots \;\; \mathbf{a}_n]$ ($m \times n$), $\text{Col } A = \text{Span}\{\mathbf{a}_1, \dots, \mathbf{a}_n\} = \{\mathbf{b} : \mathbf{b} = A\mathbf{x} \text{ for some } \mathbf{x} \in \mathbb{R}^n\}$.</p>
-                    <p class="text-slate-800"><strong>THEOREM 3:</strong> $\text{Col } A$ is a subspace of $\mathbb{R}^m$.</p>
-                    <p class="text-slate-700 text-xs">$\text{Col } A = \mathbb{R}^m$ iff $A\mathbf{x} = \mathbf{b}$ has a solution for each $\mathbf{b} \in \mathbb{R}^m$. (Ex. 4 writes $W$ as column vectors of $A$.)</p>
-                </div>
+        <!-- Definition: Null Space -->
+        <div class="p-5 bg-violet-50/60 rounded-xl border border-violet-200 space-y-2 text-sm">
+            <strong class="text-violet-950 text-base font-bold block">Definition：Null Space（零空間）</strong>
+            <p class="text-slate-700">
+                $m \times n$ 矩陣 $A$ 的<strong>零空間</strong>，記作 $\operatorname{Nul} A$，是齊次方程 $Ax = \mathbf{0}$ 所有解的集合[cite: 220]。集合符號表示為：
+            </p>
+            <div class="font-mono bg-white p-2.5 rounded-lg border border-violet-200 text-violet-900">
+                $\operatorname{Nul} A = \{ x : x \in \mathbb{R}^n \text{ and } Ax = \mathbf{0} \}$
             </div>
+            <p class="text-slate-700">
+                以動態觀點來看，$\operatorname{Nul} A$ 是透過線性變換 $x \mapsto Ax$ 被映射到 $\mathbb{R}^m$ 零向量的所有 $\mathbb{R}^n$ 向量 $x$ 所組成的集合[cite: 220]。
+            </p>
 
-            <!-- Contrast Table -->
-            <div class="overflow-x-auto border border-slate-200 rounded-xl">
-                <table class="w-full text-left border-collapse text-xs md:text-sm">
-                    <thead>
-                        <tr class="bg-slate-800 text-white">
-                            <th class="p-3 border-b border-slate-700">Aspect</th>
-                            <th class="p-3 border-b border-slate-700">$\text{Nul } A$ ($m \times n$ matrix $A$)</th>
-                            <th class="p-3 border-b border-slate-700">$\text{Col } A$ ($m \times n$ matrix $A$)</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-200">
-                        <tr>
-                            <td class="p-3 font-bold bg-slate-50">Ambient Space</td>
-                            <td class="p-3">Subspace of $\mathbb{R}^n$</td>
-                            <td class="p-3">Subspace of $\mathbb{R}^m$</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-bold bg-slate-50">Definition & Finding Vectors</td>
-                            <td class="p-3">Implicitly defined ($A\mathbf{x} = \mathbf{0}$); requires row operations on $[A\;\mathbf{0}]$.</td>
-                            <td class="p-3">Explicitly defined (linear combinations of columns of $A$); columns of $A$ are directly displayed.</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-bold bg-slate-50">Membership Test for $\mathbf{v}$</td>
-                            <td class="p-3">Easy: check if $A\mathbf{v} = \mathbf{0}$.</td>
-                            <td class="p-3">Requires checking consistency of $A\mathbf{x} = \mathbf{v}$ (row operations).</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-bold bg-slate-50">Trivial / Full Space Equivalence</td>
-                            <td class="p-3">$\text{Nul } A = \{\mathbf{0}\}$ $\iff$ trivial solution only $\iff$ $\mathbf{x} \mapsto A\mathbf{x}$ is one-to-one.</td>
-                            <td class="p-3">$\text{Col } A = \mathbb{R}^m$ $\iff$ $A\mathbf{x} = \mathbf{b}$ consistent for all $\mathbf{b} \in \mathbb{R}^m$ $\iff$ $\mathbf{x} \mapsto A\mathbf{x}$ maps $\mathbb{R}^n$ onto $\mathbb{R}^m$.</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!-- Figure 1 SVG -->
+            <div class="pt-2">
+                <svg viewBox="0 0 620 175" class="w-full max-w-[580px] mx-auto bg-white rounded-lg border border-slate-200 p-2">
+                    <!-- Left plane R^n -->
+                    <polygon points="40,25 215,10 185,155 15,165" fill="#e0f2fe" stroke="#7dd3fc" stroke-width="1.5"/>
+                    <text x="28" y="152" font-family="ui-monospace, Consolas, monospace" font-size="14" font-weight="bold" fill="#0f172a">Rⁿ</text>
+                    <!-- Nul A line -->
+                    <line x1="65" y1="138" x2="172" y2="55" stroke="#0284c7" stroke-width="2.5"/>
+                    <text x="72" y="72" font-family="Georgia, serif" font-style="italic" font-size="14" font-weight="bold" fill="#0f172a">Nul A</text>
+
+                    <!-- Points on Nul A -->
+                    <circle cx="85" cy="122" r="4.5" fill="#0f172a"/>
+                    <circle cx="118" cy="96" r="4.5" fill="#0f172a"/>
+                    <text x="122" y="114" font-family="ui-monospace, Consolas, monospace" font-size="15" font-weight="700" fill="#0f172a">0</text>
+                    <circle cx="152" cy="70" r="4.5" fill="#0f172a"/>
+
+                    <!-- Right plane R^m -->
+                    <polygon points="415,20 585,35 565,160 395,145" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+                    <text x="542" y="148" font-family="ui-monospace, Consolas, monospace" font-size="14" font-weight="bold" fill="#0f172a">Rᵐ</text>
+                    <circle cx="485" cy="88" r="5" fill="#00a6e8"/>
+                    <text x="496" y="93" font-family="ui-monospace, Consolas, monospace" font-size="15" font-weight="700" fill="#0f172a">0</text>
+
+                    <!-- Mapping arrows -->
+                    <path d="M 85 122 Q 285 135 480 90" fill="none" stroke="#0284c7" stroke-width="1.8"/>
+                    <polygon points="480,90 470,88 472,96" fill="#0284c7"/>
+
+                    <path d="M 118 96 Q 300 95 479 88" fill="none" stroke="#0284c7" stroke-width="1.8"/>
+                    <polygon points="479,88 469,84 470,92" fill="#0284c7"/>
+
+                    <path d="M 152 70 Q 315 55 480 86" fill="none" stroke="#0284c7" stroke-width="1.8"/>
+                    <polygon points="480,86 471,80 470,88" fill="#0284c7"/>
+                </svg>
+                <div class="text-center text-xs text-slate-500 mt-1 font-mono">FIGURE 1: x ↦ Ax 將 Nul A（在 ℝⁿ 中）映至 ℝᵐ 的零向量 0[cite: 220]</div>
             </div>
+        </div>
 
-            <!-- Linear Transformations, Kernel & Range -->
+        <!-- Example 1 & Theorem 2 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
             <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-                <strong class="text-emerald-900 text-base block">Kernel and Range of a Linear Transformation (線性變換的核與值域，Pages 25 - 27)</strong>
-                <p class="text-slate-800">
-                    A <strong>linear transformation</strong> $T: V \to W$ satisfies $T(\mathbf{u}+\mathbf{v}) = T(\mathbf{u})+T(\mathbf{v})$ and $T(c\mathbf{u}) = cT(\mathbf{u})$ for all $\mathbf{u}, \mathbf{v} \in V$ and scalars $c$.
+                <strong class="text-violet-900 font-bold block">Example 1：檢驗向量是否屬於 $\operatorname{Nul} A$</strong>
+                <p class="text-slate-700">
+                    令 $A = \begin{bmatrix} 1 & -3 & -2 \\ -5 & 9 & 1 \end{bmatrix}$，$u = \begin{bmatrix} 5 \\ 3 \\ -2 \end{bmatrix}$，判斷 $u \in \operatorname{Nul} A$[cite: 219, 221]。
                 </p>
-                <p class="text-slate-800">
-                    The <strong>kernel (null space)</strong> of $T$ is $\{\mathbf{u} \in V : T(\mathbf{u}) = \mathbf{0}\}$ (a subspace of $V$); the <strong>range</strong> of $T$ is $\{T(\mathbf{x}) : \mathbf{x} \in V\}$ (a subspace of $W$). For $T(\mathbf{x}) = A\mathbf{x}$, kernel is $\text{Nul } A$ and range is $\text{Col } A$. (Ex. 8: differentiation $D(f) = f'$ from differentiable functions with continuous derivatives to $C[a,b]$ has kernel = constant functions and range = $C[a,b]$.)
+                <div class="font-mono bg-white p-2.5 rounded border border-slate-200 text-xs text-slate-800">
+                    $Au = \begin{bmatrix} 1 & -3 & -2 \\ -5 & 9 & 1 \end{bmatrix}\begin{bmatrix} 5 \\ 3 \\ -2 \end{bmatrix} = \begin{bmatrix} 5 - 9 + 4 \\ -25 + 27 - 2 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}$[cite: 221]
+                </div>
+                <p class="text-slate-700">
+                    因為 $Au = \mathbf{0}$，所以 $u \in \operatorname{Nul} A$[cite: 221]。
+                </p>
+            </div>
+
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                <strong class="text-violet-900 font-bold block">Theorem 2：零空間是 $\mathbb{R}^n$ 的子空間</strong>
+                <p class="text-slate-700">
+                    $m \times n$ 矩陣 $A$ 的零空間 $\operatorname{Nul} A$ 是 $\mathbb{R}^n$ 的子空間（等價地，$n$ 個未知數的 $m$ 元齊次線性方程組 $Ax = \mathbf{0}$ 的全體解集合是 $\mathbb{R}^n$ 的子空間）[cite: 222]。
+                </p>
+                <p class="text-xs text-slate-600 bg-white p-2.5 rounded border border-slate-200">
+                    <strong>證明要點：</strong>(1) $\mathbf{0} \in \operatorname{Nul} A$；(2) 若 $Au = \mathbf{0}, Av = \mathbf{0}$，則 $A(u+v) = Au + Av = \mathbf{0}$；(3) 對任意純量 $c$，$A(cu) = c(Au) = \mathbf{0}$[cite: 223]。
                 </p>
             </div>
         </div>
-    </section>
+
+        <!-- Example 2 & Nonhomogeneous Warning -->
+        <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2 text-sm">
+            <strong class="text-violet-900 font-bold block">Example 2：由齊次方程組判定子空間（以及非齊次提醒）</strong>
+            <p class="text-slate-700">
+                設 $H$ 為 $\mathbb{R}^4$ 中滿足 $a - 2b + 5c = d$ 與 $c - a = b$ 的向量 $(a,b,c,d)$ 集合[cite: 224]。移項改寫為齊次系統：
+            </p>
+            <div class="font-mono bg-white p-2.5 rounded border border-slate-200 text-xs text-slate-800">
+                $a - 2b + 5c - d = 0$，$-a - b + c = 0$[cite: 224]
+            </div>
+            <p class="text-slate-700">
+                由 Theorem 2 可知 $H$ 是 $\mathbb{R}^4$ 的子空間[cite: 224]。<strong>注意：</strong>定義集合的線性方程必須是<strong>齊次（homogeneous）</strong>的；若為非齊次系統，零向量不是解，解集合必定不是子空間（甚至可能為空集合）[cite: 225]。
+            </p>
+        </div>
+
+        <!-- Explicit Description of Nul A & Example 3 -->
+        <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
+            <strong class="text-violet-900 font-bold block text-base">An Explicit Description of Nul A &amp; Example 3（零空間的顯式描述與生成集）</strong>
+            <p class="text-slate-700">
+                $\operatorname{Nul} A$ 原本是以條件 $Ax = \mathbf{0}$ <strong>隱式（implicitly）</strong>定義的；解方程 $Ax = \mathbf{0}$ 並寫成自由變數的線性組合，即可得到<strong>顯式（explicitly）</strong>描述[cite: 226, 227, 228]。
+            </p>
+            <p class="text-slate-700">
+                <strong>Example 3：</strong>求 $A = \begin{bmatrix} -3 & 6 & -1 & 1 & -7 \\ 1 & -2 & 2 & 3 & -1 \\ 2 & -4 & 5 & 8 & -4 \end{bmatrix}$ 的 $\operatorname{Nul} A$ 生成集（spanning set）[cite: 227]。
+            </p>
+            <div class="font-mono bg-white p-3 rounded-lg border border-slate-200 text-xs text-slate-800 space-y-1.5">
+                <div>增廣矩陣 $[A\ \mathbf{0}]$ 列化簡（RREF）得：$\begin{bmatrix} 1 & -2 & 0 & -1 & 3 & 0 \\ 0 & 0 & 1 & 2 & -2 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 \end{bmatrix}$[cite: 227]</div>
+                <div>對應方程：$x_1 - 2x_2 - x_4 + 3x_5 = 0$，$x_3 + 2x_4 - 2x_5 = 0$[cite: 227]</div>
+                <div>通解：$x_1 = 2x_2 + x_4 - 3x_5$，$x_3 = -2x_4 + 2x_5$，其中 $x_2, x_4, x_5$ 為<strong>自由變數（free variables）</strong>[cite: 228]</div>
+                <div>分解為線性組合：$x = x_2 u + x_4 v + x_5 w$，故 $\{u, v, w\}$ 為 $\operatorname{Nul} A$ 的一組生成集[cite: 228]。</div>
+            </div>
+            <ul class="list-disc pl-5 text-slate-700 space-y-1 text-xs">
+                <li><strong>線性獨立性：</strong>此法得到的生成集必定<strong>線性獨立</strong>（因為自由變數即為對應位置的權重，令線性組合為 $\mathbf{0}$ 可直接推出各自由變數為 $0$）[cite: 229]。</li>
+                <li><strong>向量個數：</strong>當 $\operatorname{Nul} A$ 含非零向量時，此生成集的向量數目等於 $Ax = \mathbf{0}$ 中<strong>自由變數的個數</strong>[cite: 229]。</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 2. The Column Space of a Matrix -->
+    <div class="space-y-4 pt-4 border-t border-slate-200">
+        <h3 class="font-bold text-lg text-violet-800 flex items-center gap-2">
+            <span>2. The Column Space of a Matrix（矩陣的列空間）</span>
+        </h3>
+
+        <div class="p-5 bg-violet-50/60 rounded-xl border border-violet-200 space-y-2 text-sm">
+            <strong class="text-violet-950 text-base font-bold block">Definition &amp; Theorem 3：Column Space（列空間）</strong>
+            <p class="text-slate-700">
+                $m \times n$ 矩陣 $A = \begin{bmatrix} a_1 & \cdots & a_n \end{bmatrix}$ 的<strong>列空間（Column Space）</strong>，記作 $\operatorname{Col} A$，是 $A$ 各列向量的所有線性組合所成的集合[cite: 230]：
+            </p>
+            <div class="font-mono bg-white p-2.5 rounded-lg border border-violet-200 text-violet-900">
+                $\operatorname{Col} A = \operatorname{Span}\{a_1, \dots, a_n\} = \{ b : b = Ax \text{ for some } x \in \mathbb{R}^n \}$[cite: 230, 231]
+            </div>
+            <p class="text-slate-700">
+                <strong>Theorem 3：</strong>$m \times n$ 矩陣 $A$ 的列空間 $\operatorname{Col} A$ 是 $\mathbb{R}^m$ 的子空間；同時它也是線性變換 $x \mapsto Ax$ 的<strong>值域（range）</strong>[cite: 231]。
+            </p>
+            <p class="text-slate-700">
+                此外，$m \times n$ 矩陣 $A$ 的列空間為整個 $\mathbb{R}^m$，若且唯若對每個 $b \in \mathbb{R}^m$，方程 $Ax = b$ 都有解[cite: 234]。
+            </p>
+        </div>
+
+        <!-- Example 4 -->
+        <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2 text-sm">
+            <strong class="text-violet-900 font-bold block">Example 4：將集合表示為某矩陣的 $\operatorname{Col} A$</strong>
+            <p class="text-slate-700">
+                設 $W = \left\{ \begin{bmatrix} 6a - b \\ a + b \\ -7a \end{bmatrix} : a, b \in \mathbb{R} \right\}$，求矩陣 $A$ 使得 $W = \operatorname{Col} A$[cite: 232]。
+            </p>
+            <div class="font-mono bg-white p-2.5 rounded border border-slate-200 text-xs text-slate-800 space-y-1">
+                <div>$W = \left\{ a\begin{bmatrix} 6 \\ 1 \\ -7 \end{bmatrix} + b\begin{bmatrix} -1 \\ 1 \\ 0 \end{bmatrix} : a, b \in \mathbb{R} \right\} = \operatorname{Span}\left\{ \begin{bmatrix} 6 \\ 1 \\ -7 \end{bmatrix}, \begin{bmatrix} -1 \\ 1 \\ 0 \end{bmatrix} \right\}$[cite: 232]</div>
+                <div>取兩向量作為行，令 $A = \begin{bmatrix} 6 & -1 \\ 1 & 1 \\ -7 & 0 \end{bmatrix}$，即得 $W = \operatorname{Col} A$[cite: 232]。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Contrast Between Nul A and Col A -->
+    <div class="space-y-4 pt-4 border-t border-slate-200">
+        <h3 class="font-bold text-lg text-violet-800 flex items-center gap-2">
+            <span>3. The Contrast Between Nul A and Col A（零空間與列空間的對比）</span>
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                <strong class="text-violet-900 font-bold block">Example 5 &amp; Example 6（以 $A$ 為 $3 \times 4$ 矩陣為例）</strong>
+                <p class="text-slate-700 text-xs">
+                    若 $A = \begin{bmatrix} 2 & 4 & -2 & 1 \\ -2 & -5 & 7 & 3 \\ 3 & 7 & -8 & 6 \end{bmatrix}$（$3 \times 4$）[cite: 235]：
+                </p>
+                <ul class="list-disc pl-5 text-slate-700 text-xs space-y-1">
+                    <li>$\operatorname{Col} A$ 是 $\mathbb{R}^3$ 的子空間（$k = 3$）；任一列如 $\begin{bmatrix} 2 \\ -2 \\ 3 \end{bmatrix}$ 都在 $\operatorname{Col} A$ 中[cite: 235, 237]。</li>
+                    <li>$\operatorname{Nul} A$ 是 $\mathbb{R}^4$ 的子空間（$k = 4$）；列化簡 $[A\ \mathbf{0}] \sim \begin{bmatrix} 1 & 0 & 9 & 0 & 0 \\ 0 & 1 & -5 & 0 & 0 \\ 0 & 0 & 0 & 1 & 0 \end{bmatrix}$，令 $x_3 = 1$ 得非零解 $x = (-9, 5, 1, 0) \in \operatorname{Nul} A$[cite: 235, 237]。</li>
+                </ul>
+                <p class="text-xs text-slate-600">
+                    當 $A$ 非方陣時，$\operatorname{Nul} A$ 與 $\operatorname{Col} A$ 位於不同維度空間（如 $\mathbb{R}^4$ 與 $\mathbb{R}^3$）[cite: 235, 236]。
+                </p>
+            </div>
+
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                <strong class="text-violet-900 font-bold block">Example 7（向量歸屬判別）</strong>
+                <p class="text-slate-700 text-xs">
+                    承上題，$u = (3, -2, -1, 0) \in \mathbb{R}^4$，$v = (3, -1, 3) \in \mathbb{R}^3$[cite: 238]：
+                </p>
+                <ul class="list-disc pl-5 text-slate-700 text-xs space-y-1">
+                    <li>計算 $Au = \begin{bmatrix} 0 \\ -3 \\ 3 \end{bmatrix} \neq \mathbf{0}$，故 $u \notin \operatorname{Nul} A$；又 $u$ 有 4 個分量，不可能在 $\operatorname{Col} A \subseteq \mathbb{R}^3$[cite: 238, 239]。</li>
+                    <li>增廣矩陣 $[A\ v] \sim \begin{bmatrix} 2 & 4 & -2 & 1 & 3 \\ 0 & 1 & -5 & -4 & -2 \\ 0 & 0 & 0 & 17 & 1 \end{bmatrix}$ 相容（consistent），故 $v \in \operatorname{Col} A$；又 $v$ 只有 3 個分量，不可能在 $\operatorname{Nul} A \subseteq \mathbb{R}^4$[cite: 239]。</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="overflow-x-auto rounded-xl border border-slate-200 bg-white">
+            <table class="w-full text-left border-collapse text-xs md:text-sm">
+                <thead>
+                    <tr class="bg-violet-50 text-violet-950 border-b border-slate-200">
+                        <th class="py-3 px-4 font-bold w-12">#</th>
+                        <th class="py-3 px-4 font-bold">$\operatorname{Nul} A$（$m \times n$ 矩陣 $A$）[cite: 240, 241]</th>
+                        <th class="py-3 px-4 font-bold">$\operatorname{Col} A$（$m \times n$ 矩陣 $A$）[cite: 240, 241]</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200 text-slate-700">
+                    <tr>
+                        <td class="py-2.5 px-4 font-mono font-bold">1</td>
+                        <td class="py-2.5 px-4">$\mathbb{R}^n$ 的子空間[cite: 240]。</td>
+                        <td class="py-2.5 px-4">$\mathbb{R}^m$ 的子空間[cite: 240]。</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2.5 px-4 font-mono font-bold">2</td>
+                        <td class="py-2.5 px-4"><strong>隱式定義</strong>：由條件 $Ax = \mathbf{0}$ 刻畫[cite: 240]。</td>
+                        <td class="py-2.5 px-4"><strong>顯式定義</strong>：由 $A$ 的列向量線性組合建構[cite: 240]。</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2.5 px-4 font-mono font-bold">3</td>
+                        <td class="py-2.5 px-4">找向量需花時間，須對 $[A\ \mathbf{0}]$ 做列運算[cite: 240]。</td>
+                        <td class="py-2.5 px-4">容易找到向量，$A$ 的各列本身就在其中，其餘由它們組合而成[cite: 240]。</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2.5 px-4 font-mono font-bold">4</td>
+                        <td class="py-2.5 px-4">與 $A$ 的元素之間沒有明顯直接關係[cite: 240]。</td>
+                        <td class="py-2.5 px-4">與 $A$ 的元素有明顯關係（每列皆屬 $\operatorname{Col} A$）[cite: 240]。</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2.5 px-4 font-mono font-bold">5</td>
+                        <td class="py-2.5 px-4">典型向量 $v \in \operatorname{Nul} A$ 滿足 $Av = \mathbf{0}$[cite: 241]。</td>
+                        <td class="py-2.5 px-4">典型向量 $v \in \operatorname{Col} A$ 滿足方程 $Ax = v$ 相容[cite: 241]。</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2.5 px-4 font-mono font-bold">6</td>
+                        <td class="py-2.5 px-4">給定特定向量 $v$，只需算 $Av$ 即可判斷是否屬於 $\operatorname{Nul} A$[cite: 241]。</td>
+                        <td class="py-2.5 px-4">給定特定向量 $v$，可能需要對 $[A\ v]$ 做列運算才能判斷[cite: 241]。</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2.5 px-4 font-mono font-bold">7</td>
+                        <td class="py-2.5 px-4">$\operatorname{Nul} A = \{\mathbf{0}\} \iff Ax = \mathbf{0}$ 僅有<strong>平凡解（trivial solution）</strong>[cite: 241]。</td>
+                        <td class="py-2.5 px-4">$\operatorname{Col} A = \mathbb{R}^m \iff$ 對每個 $b \in \mathbb{R}^m$，$Ax = b$ 皆有解[cite: 241]。</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2.5 px-4 font-mono font-bold">8</td>
+                        <td class="py-2.5 px-4">$\operatorname{Nul} A = \{\mathbf{0}\} \iff x \mapsto Ax$ 為<strong>一對一（one-to-one）</strong>[cite: 241]。</td>
+                        <td class="py-2.5 px-4">$\operatorname{Col} A = \mathbb{R}^m \iff x \mapsto Ax$ 將 $\mathbb{R}^n$ 映至 $\mathbb{R}^m$ 上（<strong>onto</strong>）[cite: 241]。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 4. Kernel and Range of a Linear Transformation -->
+    <div class="space-y-4 pt-4 border-t border-slate-200">
+        <h3 class="font-bold text-lg text-violet-800 flex items-center gap-2">
+            <span>4. Kernel and Range of a Linear Transformation（線性變換的核與值域）</span>
+        </h3>
+
+        <div class="p-5 bg-violet-50/60 rounded-xl border border-violet-200 space-y-2 text-sm">
+            <strong class="text-violet-950 text-base font-bold block">Definition：Linear Transformation, Kernel &amp; Range</strong>
+            <p class="text-slate-700">
+                從向量空間 $V$ 到向量空間 $W$ 的<strong>線性變換（Linear Transformation）</strong> $T$ 是指對所有 $u, v \in V$ 與所有純量 $c$ 滿足以下條件的規則[cite: 242]：
+            </p>
+            <div class="font-mono bg-white p-2.5 rounded-lg border border-violet-200 text-violet-900 space-y-1">
+                <div>(i) $T(u + v) = T(u) + T(v)$[cite: 242]</div>
+                <div>(ii) $T(cu) = c\,T(u)$[cite: 242]</div>
+            </div>
+            <ul class="list-disc pl-5 text-slate-700 space-y-1">
+                <li><strong>核（Kernel，或零空間 Null Space）：</strong>所有滿足 $T(u) = \mathbf{0}$（$W$ 中的零向量）的 $u \in V$ 所成集合，是 $V$ 的子空間[cite: 243]。</li>
+                <li><strong>值域（Range）：</strong>所有形如 $T(x)$（其中 $x \in V$）的 $W$ 中向量所成集合，是 $W$ 的子空間[cite: 243]。</li>
+                <li>若 $T(x) = Ax$ 為矩陣變換，則 $T$ 的核即為 $\operatorname{Nul} A$，$T$ 的值域即為 $\operatorname{Col} A$[cite: 243]。</li>
+            </ul>
+        </div>
+
+        <!-- Example 8 -->
+        <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2 text-sm">
+            <strong class="text-violet-900 font-bold block">Example 8（微分算子作為線性變換）</strong>
+            <p class="text-slate-700">
+                設 $V$ 為區間 $[a, b]$ 上可微且導數在 $[a, b]$ 連續的實值函數向量空間，$W = C[a, b]$ 為 $[a, b]$ 上全體連續函數向量空間，微分變換 $D : V \to W$ 定義為 $D(f) = f'$[cite: 244]。
+            </p>
+            <p class="text-slate-700">
+                由微積分性質 $D(f+g) = D(f) + D(g)$ 與 $D(cf) = cD(f)$ 可知 $D$ 為線性變換；其<strong>核（Kernel）</strong>為 $[a, b]$ 上的<strong>常數函數（constant functions）</strong>集合，其<strong>值域（Range）</strong>為整個 $W = C[a, b]$[cite: 244]。
+            </p>
+        </div>
+    </div>
+</section>
 
     <!-- ================= SECTION 4.3 ================= -->
     <section id="sec4-3" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
