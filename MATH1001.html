@@ -569,18 +569,41 @@
                             <!-- FIGURE 7 SVG -->
                             <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
                                 <span class="font-bold text-indigo-900 text-xs block">FIGURE 7 (Page 19): The $x_1 x_2$-Plane as a Subspace of $\mathbb{R}^3$</span>
-                                <svg viewBox="0 0 220 180" class="w-full max-w-[200px] mx-auto bg-white rounded border border-slate-200">
-                                    <polygon points="40,120 130,145 190,105 100,80" fill="#dcfce7" fill-opacity="0.85" stroke="#16a34a" stroke-width="1.5"/>
-                                    <text x="155" y="135" font-size="13" font-weight="bold" fill="#15803d">H</text>
-                                    <line x1="115" y1="155" x2="115" y2="20" stroke="#334155" stroke-width="1.5"/>
-                                    <polygon points="115,15 112,23 118,23" fill="#334155"/>
-                                    <text x="122" y="28" font-size="12" font-weight="bold">x₃</text>
-                                    <line x1="45" y1="112.5" x2="195" y2="112.5" stroke="#334155" stroke-width="1.5"/>
-                                    <polygon points="200,112.5 192,109.5 192,115.5" fill="#334155"/>
-                                    <text x="195" y="105" font-size="12" font-weight="bold">x₂</text>
-                                    <line x1="150" y1="88" x2="65" y2="148" stroke="#334155" stroke-width="1.5"/>
-                                    <polygon points="60,151 69,149 65,144" fill="#334155"/>
-                                    <text x="50" y="160" font-size="12" font-weight="bold">x₁</text>
+                                <svg viewBox="0 0 360 265" class="w-full max-w-[330px] mx-auto bg-white rounded border border-slate-200">
+                                    <defs>
+                                        <marker id="arr-fig7-axis" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e293b"/>
+                                        </marker>
+                                    </defs>
+                            
+                                    <!-- Slanted green parallelogram plane H -->
+                                    <polygon points="62,168 192,205 316,84 186,47" fill="#a8d852" stroke="#15803d" stroke-width="1.6" stroke-linejoin="round"/>
+                                    <!-- Subtle white/light bevel edge on front-left & front-right -->
+                                    <polyline points="62,169.5 192,206.5 316,85.5" fill="none" stroke="#ecfccb" stroke-width="1.2" opacity="0.85"/>
+                            
+                                    <!-- Lower vertical segment of x3 axis (behind/below plane) -->
+                                    <line x1="189" y1="126" x2="189" y2="242" stroke="#1e293b" stroke-opacity="0.35" stroke-width="1.4"/>
+                            
+                                    <!-- Back segment of x1 axis (above/behind origin) -->
+                                    <line x1="251" y1="66" x2="189" y2="126" stroke="#1e293b" stroke-width="1.6"/>
+                            
+                                    <!-- Left segment of x2 axis (to left of origin) -->
+                                    <line x1="72" y1="88" x2="189" y2="126" stroke="#1e293b" stroke-width="1.6"/>
+                            
+                                    <!-- Upper vertical x3 axis with arrow -->
+                                    <line x1="189" y1="126" x2="189" y2="18" stroke="#1e293b" stroke-width="1.6" marker-end="url(#arr-fig7-axis)"/>
+                                    <text x="160" y="25" font-family="Georgia, 'Times New Roman', serif" font-size="18" font-style="italic" fill="#0f172a">x<tspan dy="4" font-size="12" font-style="normal">3</tspan></text>
+                            
+                                    <!-- Front-left x1 axis with arrow -->
+                                    <line x1="189" y1="126" x2="86" y2="225.5" stroke="#1e293b" stroke-width="1.6" marker-end="url(#arr-fig7-axis)"/>
+                                    <text x="64" y="244" font-family="Georgia, 'Times New Roman', serif" font-size="18" font-style="italic" fill="#0f172a">x<tspan dy="4" font-size="12" font-style="normal">1</tspan></text>
+                            
+                                    <!-- Front-right x2 axis with arrow -->
+                                    <line x1="189" y1="126" x2="324" y2="169.8" stroke="#1e293b" stroke-width="1.6" marker-end="url(#arr-fig7-axis)"/>
+                                    <text x="328" y="186" font-family="Georgia, 'Times New Roman', serif" font-size="18" font-style="italic" fill="#0f172a">x<tspan dy="4" font-size="12" font-style="normal">2</tspan></text>
+                            
+                                    <!-- Subspace label H -->
+                                    <text x="208" y="166" font-family="Georgia, 'Times New Roman', serif" font-size="18" font-style="italic" fill="#0f172a">H</text>
                                 </svg>
                             </div>
                         </div>
