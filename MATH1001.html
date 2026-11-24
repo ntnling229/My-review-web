@@ -960,23 +960,29 @@
                     </div>
                 </div>
 
-                <!-- THEOREM 2 & PROOF (Pages 5 - 6) -->
+                <!-- THEOREM 2 & Expandable PROOF (Pages 5 - 6) -->
                 <div class="p-4 bg-white rounded-lg border border-emerald-200 space-y-3 text-slate-800 leading-relaxed">
                     <strong class="text-emerald-900 text-base font-bold block">THEOREM 2 (定理 2，Page 5)</strong>
                     <p>
                         The null space of an $m \times n$ matrix $A$ is a <strong>subspace (子空間)</strong> of $\mathbb{R}^n$. Equivalently, the set of all solutions to a system $A\mathbf{x} = \mathbf{0}$ of $m$ homogeneous linear equations in $n$ unknowns is a subspace of $\mathbb{R}^n$.
                     </p>
-                    <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-2 text-slate-700">
-                        <p><strong>PROOF (Page 6):</strong> Certainly $\text{Nul } A$ is a subset of $\mathbb{R}^n$ because $A$ has $n$ columns. We must show that $\text{Nul } A$ satisfies the three properties of a subspace. Of course, $\mathbf{0}$ is in $\text{Nul } A$. Next, let $\mathbf{u}$ and $\mathbf{v}$ represent any two vectors in $\text{Nul } A$. Then</p>
-                        <p class="font-mono text-center text-slate-800">$A\mathbf{u} = \mathbf{0}$ and $A\mathbf{v} = \mathbf{0}$</p>
-                        <p>To show that $\mathbf{u} + \mathbf{v}$ is in $\text{Nul } A$, we must show that $A(\mathbf{u} + \mathbf{v}) = \mathbf{0}$. Using a property of matrix multiplication, compute</p>
-                        <p class="font-mono text-center text-slate-800">$A(\mathbf{u} + \mathbf{v}) = A\mathbf{u} + A\mathbf{v} = \mathbf{0} + \mathbf{0} = \mathbf{0}$</p>
-                        <p>Thus $\mathbf{u} + \mathbf{v}$ is in $\text{Nul } A$, and $\text{Nul } A$ is closed under vector addition. Finally, if $c$ is any scalar, then</p>
-                        <p class="font-mono text-center text-slate-800">$A(c\mathbf{u}) = c(A\mathbf{u}) = c(\mathbf{0}) = \mathbf{0}$</p>
-                        <p>which shows that $c\mathbf{u}$ is in $\text{Nul } A$. Thus $\text{Nul } A$ is a subspace of $\mathbb{R}^n$.</p>
+                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                        <button onclick="toggleCard('proof-4-2-th2')" class="w-full p-3.5 text-left font-bold text-emerald-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                            <span><i class="fa-solid fa-file-signature mr-2 text-emerald-600"></i> PROOF (Page 6): Null Space Is a Subspace of $\mathbb{R}^n$ (點擊展開)</span>
+                            <span class="text-xs bg-emerald-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof</span>
+                        </button>
+                        <div id="proof-4-2-th2" class="toggle-content p-4 space-y-2.5 text-slate-700 border-t border-slate-200 bg-white">
+                            <p><strong>PROOF (Page 6):</strong> Certainly $\text{Nul } A$ is a subset of $\mathbb{R}^n$ because $A$ has $n$ columns. We must show that $\text{Nul } A$ satisfies the three properties of a subspace. Of course, $\mathbf{0}$ is in $\text{Nul } A$. Next, let $\mathbf{u}$ and $\mathbf{v}$ represent any two vectors in $\text{Nul } A$. Then</p>
+                            <p class="font-mono text-center text-slate-800">$A\mathbf{u} = \mathbf{0}$ and $A\mathbf{v} = \mathbf{0}$</p>
+                            <p>To show that $\mathbf{u} + \mathbf{v}$ is in $\text{Nul } A$, we must show that $A(\mathbf{u} + \mathbf{v}) = \mathbf{0}$. Using a property of matrix multiplication, compute</p>
+                            <p class="font-mono text-center text-slate-800">$A(\mathbf{u} + \mathbf{v}) = A\mathbf{u} + A\mathbf{v} = \mathbf{0} + \mathbf{0} = \mathbf{0}$</p>
+                            <p>Thus $\mathbf{u} + \mathbf{v}$ is in $\text{Nul } A$, and $\text{Nul } A$ is closed under vector addition. Finally, if $c$ is any scalar, then</p>
+                            <p class="font-mono text-center text-slate-800">$A(c\mathbf{u}) = c(A\mathbf{u}) = c(\mathbf{0}) = \mathbf{0}$</p>
+                            <p>which shows that $c\mathbf{u}$ is in $\text{Nul } A$. Thus $\text{Nul } A$ is a subspace of $\mathbb{R}^n$.</p>
+                        </div>
                     </div>
                 </div>
-
+                
                 <!-- Expandable EXAMPLE 2 & Nonhomogeneous Note (Pages 7 - 8) -->
                 <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
                     <button onclick="toggleCard('ex-4-2-2')" class="w-full p-4 text-left font-bold text-emerald-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
