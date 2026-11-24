@@ -118,7 +118,7 @@
     </section>
 
     <!-- ================= SECTION 4.1 ================= -->
-    <section id="sec4-1" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+    <section id="sec4-1" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-8">
         <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
             <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
                 <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 4.1</span>
@@ -130,63 +130,623 @@
         <!-- 4.1.1 Vector Spaces -->
         <div class="space-y-4">
             <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
-                <i class="fa-solid fa-circle-dot text-indigo-500 text-sm"></i> 4.1.1 Vector Spaces & The Ten Axioms (Pages 1 - 3)
+                <i class="fa-solid fa-circle-dot text-indigo-500 text-sm"></i> 4.1.1 Vector Spaces & The Ten Axioms (向量空間與十大公理，Pages 1 - 3)
             </h3>
-            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
-                <p class="text-slate-800">
-                    <strong>DEFINITION:</strong> A <strong>vector space (向量空間)</strong> is a nonempty set $V$ of objects, called <strong>vectors</strong>, on which are defined two operations, called <strong>addition</strong> and <strong>multiplication by scalars (real numbers)</strong>, subject to the <strong>ten axioms</strong> below for all $\mathbf{u}, \mathbf{v}, \mathbf{w} \in V$ and all scalars $c, d$:
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 text-xs md:text-sm">
-                    <div class="p-3 bg-white rounded-lg border border-slate-200"><strong>1.</strong> $\mathbf{u} + \mathbf{v} \in V$ (加法封閉性)</div>
-                    <div class="p-3 bg-white rounded-lg border border-slate-200"><strong>2.</strong> $\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}$ (加法交換律)</div>
-                    <div class="p-3 bg-white rounded-lg border border-slate-200"><strong>3.</strong> $(\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w})$ (加法結合律)</div>
-                    <div class="p-3 bg-white rounded-lg border border-slate-200"><strong>4.</strong> There is a zero vector $\mathbf{0} \in V$ such that $\mathbf{u} + \mathbf{0} = \mathbf{u}$ (零向量)</div>
-                    <div class="p-3 bg-white rounded-lg border border-slate-200"><strong>5.</strong> For each $\mathbf{u} \in V$, there is $-\mathbf{u} \in V$ such that $\mathbf{u} + (-\mathbf{u}) = \mathbf{0}$ (負向量)</div>
-                    <div class="p-3 bg-white rounded-lg border border-slate-200"><strong>6.</strong> $c\mathbf{u} \in V$ (純量乘法封閉性)</div>
-                    <div class="p-3 bg-white rounded-lg border border-slate-200"><strong>7.</strong> $c(\mathbf{u} + \mathbf{v}) = c\mathbf{u} + c\mathbf{v}$ (分配律)</div>
-                    <div class="p-3 bg-white rounded-lg border border-slate-200"><strong>8.</strong> $(c + d)\mathbf{u} = c\mathbf{u} + d\mathbf{u}$ (分配律)</div>
-                    <div class="p-3 bg-white rounded-lg border border-slate-200"><strong>9.</strong> $c(d\mathbf{u}) = (cd)\mathbf{u}$ (純量結合律)</div>
-                    <div class="p-3 bg-white rounded-lg border border-slate-200"><strong>10.</strong> $1\mathbf{u} = \mathbf{u}$ (純量單位律)</div>
-                </div>
-                <div class="p-3.5 bg-indigo-50/70 rounded-lg border border-indigo-200 text-slate-800 space-y-1">
-                    <p><strong>Uniqueness & Simple Facts (Page 3):</strong> The zero vector $\mathbf{0}$ and negative $-\mathbf{u}$ are <strong>unique</strong>. For each $\mathbf{u} \in V$ and scalar $c$: (1) $0\mathbf{u} = \mathbf{0}$, (2) $c\mathbf{0} = \mathbf{0}$, (3) $-\mathbf{u} = (-1)\mathbf{u}$.</p>
-                </div>
-            </div>
 
-            <!-- Examples 1 - 5 -->
-            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
-                <button onclick="toggleCard('ex-4-1-all')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
-                    <span><i class="fa-solid fa-cubes mr-2 text-indigo-600"></i> Examples 1 - 5 (Pages 4 - 13): $\mathbb{R}^n$, 3D Arrows, Signals $S$, Polynomials $\mathbb{P}_n$, Functions on $\mathbb{D}$ (點擊展開)</span>
-                    <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples 1-5</span>
-                </button>
-                <div id="ex-4-1-all" class="toggle-content p-5 space-y-3 text-sm text-slate-700 border-t border-slate-200 bg-white">
-                    <p><strong>Example 1:</strong> $\mathbb{R}^n$ ($n \ge 1$) are premier examples of vector spaces; $\mathbb{R}^3$ builds geometric intuition.</p>
-                    <p><strong>Example 2:</strong> Set of all arrows (directed line segments) in 3D space with parallelogram rule addition and $|c|$ scaling; zero-length arrow is $\mathbf{0}$, negative is $(-1)\mathbf{v}$.</p>
-                    <p><strong>Example 3:</strong> Space $S$ of doubly infinite sequences $\{y_k\} = (\dots, y_{-2}, y_{-1}, y_0, y_1, y_2, \dots)$ (discrete-time signals), with termwise addition and scalar multiplication.</p>
-                    <p><strong>Example 4:</strong> Set $\mathbb{P}_n$ ($n \ge 0$) of polynomials $p(t) = a_0 + a_1 t + \dots + a_n t^n$ of degree at most $n$; zero polynomial is in $\mathbb{P}_n$ (degree not defined).</p>
-                    <p><strong>Example 5:</strong> Set $V$ of all real-valued functions defined on domain $\mathbb{D}$, with pointwise addition $(f+g)(t) = f(t)+g(t)$ and scaling $(cf)(t) = cf(t)$; zero vector is identically zero function.</p>
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2">
+                    <strong class="text-indigo-900 text-base font-bold block">DEFINITION (向量空間定義，Page 1)</strong>
+                    <p class="text-slate-800 leading-relaxed">
+                        A <strong>vector space (向量空間)</strong> is a <strong>nonempty set (非空集合)</strong> $V$ of objects, called <strong>vectors (向量)</strong>, on which are defined two operations, called <strong>addition (加法)</strong> and <strong>multiplication by scalars (純量乘法)</strong> (<strong>real numbers，實數</strong>), subject to the <strong>ten axioms (or rules) (十條公理／規則)</strong> listed below. The axioms must hold for all vectors $\mathbf{u}$, $\mathbf{v}$, and $\mathbf{w}$ in $V$ and for all <strong>scalars (純量)</strong> $c$ and $d$.
+                    </p>
+                </div>
+
+                <!-- Ten Axioms (Page 2) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs md:text-sm">
+                    <div class="p-3.5 bg-white rounded-lg border border-slate-200 space-y-1">
+                        <span class="font-bold text-indigo-800 block">1. Addition Closure (加法封閉性)</span>
+                        <p class="text-slate-700">The sum of $\mathbf{u}$ and $\mathbf{v}$, denoted by $\mathbf{u} + \mathbf{v}$, is in $V$.</p>
+                    </div>
+                    <div class="p-3.5 bg-white rounded-lg border border-slate-200 space-y-1">
+                        <span class="font-bold text-indigo-800 block">2. Commutative Law (加法交換律)</span>
+                        <p class="font-mono text-slate-700">$\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}$.</p>
+                    </div>
+                    <div class="p-3.5 bg-white rounded-lg border border-slate-200 space-y-1">
+                        <span class="font-bold text-indigo-800 block">3. Associative Law (加法結合律)</span>
+                        <p class="font-mono text-slate-700">$(\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w})$.</p>
+                    </div>
+                    <div class="p-3.5 bg-white rounded-lg border border-slate-200 space-y-1">
+                        <span class="font-bold text-indigo-800 block">4. Zero Vector (零向量)</span>
+                        <p class="text-slate-700">There is a <strong>zero vector (零向量)</strong> $\mathbf{0}$ in $V$ such that $\mathbf{u} + \mathbf{0} = \mathbf{u}$.</p>
+                    </div>
+                    <div class="p-3.5 bg-white rounded-lg border border-slate-200 space-y-1">
+                        <span class="font-bold text-indigo-800 block">5. Negative of $\mathbf{u}$ ($\mathbf{u}$ 的負向量)</span>
+                        <p class="text-slate-700">For each $\mathbf{u}$ in $V$, there is a vector $-\mathbf{u}$ in $V$ such that $\mathbf{u} + (-\mathbf{u}) = \mathbf{0}$.</p>
+                    </div>
+                    <div class="p-3.5 bg-white rounded-lg border border-slate-200 space-y-1">
+                        <span class="font-bold text-indigo-800 block">6. Scalar Multiple Closure (純量倍數封閉性)</span>
+                        <p class="text-slate-700">The <strong>scalar multiple (純量倍數)</strong> of $\mathbf{u}$ by $c$, denoted by $c\mathbf{u}$, is in $V$.</p>
+                    </div>
+                    <div class="p-3.5 bg-white rounded-lg border border-slate-200 space-y-1">
+                        <span class="font-bold text-indigo-800 block">7. Distributive Law (分配律)</span>
+                        <p class="font-mono text-slate-700">$c(\mathbf{u} + \mathbf{v}) = c\mathbf{u} + c\mathbf{v}$.</p>
+                    </div>
+                    <div class="p-3.5 bg-white rounded-lg border border-slate-200 space-y-1">
+                        <span class="font-bold text-indigo-800 block">8. Distributive Law (分配律)</span>
+                        <p class="font-mono text-slate-700">$(c + d)\mathbf{u} = c\mathbf{u} + d\mathbf{u}$.</p>
+                    </div>
+                    <div class="p-3.5 bg-white rounded-lg border border-slate-200 space-y-1">
+                        <span class="font-bold text-indigo-800 block">9. Scalar Associative Law (純量結合律)</span>
+                        <p class="font-mono text-slate-700">$c(d\mathbf{u}) = (cd)\mathbf{u}$.</p>
+                    </div>
+                    <div class="p-3.5 bg-white rounded-lg border border-slate-200 space-y-1">
+                        <span class="font-bold text-indigo-800 block">10. Scalar Identity (純量單位律)</span>
+                        <p class="font-mono text-slate-700">$1\mathbf{u} = \mathbf{u}$.</p>
+                    </div>
+                </div>
+
+                <!-- Page 3: Uniqueness & Simple Facts -->
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-2 text-slate-800">
+                    <p class="leading-relaxed">
+                        Using only these axioms, one can show that the <strong>zero vector (零向量)</strong> in Axiom 4 is <strong>unique (唯一的)</strong>, and the vector $-\mathbf{u}$, called the <strong>negative of $\mathbf{u}$ ($\mathbf{u}$ 的負向量)</strong>, in Axiom 5 is <strong>unique (唯一的)</strong> for each $\mathbf{u}$ in $V$. (See Exercises 25 and 26.) Proofs of the following simple facts are also outlined in the exercises:
+                    </p>
+                    <p class="text-slate-700">For each $\mathbf{u}$ in $V$ and scalar $c$,</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 font-mono text-center">
+                        <div class="p-3 bg-indigo-50/70 rounded-lg border border-indigo-200 font-bold text-indigo-900">
+                            $0\mathbf{u} = \mathbf{0}$ <span class="text-xs font-normal text-slate-500 block">(1)</span>
+                        </div>
+                        <div class="p-3 bg-indigo-50/70 rounded-lg border border-indigo-200 font-bold text-indigo-900">
+                            $c\mathbf{0} = \mathbf{0}$ <span class="text-xs font-normal text-slate-500 block">(2)</span>
+                        </div>
+                        <div class="p-3 bg-indigo-50/70 rounded-lg border border-indigo-200 font-bold text-indigo-900">
+                            $-\mathbf{u} = (-1)\mathbf{u}$ <span class="text-xs font-normal text-slate-500 block">(3)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expandable Proof for Uniqueness & Equations (1)-(3) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('proof-4-1-basic')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-file-signature mr-2 text-indigo-600"></i> Complete Proofs of Uniqueness & Equations (1), (2), (3) (補充完整公理證明，點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof</span>
+                    </button>
+                    <div id="proof-4-1-basic" class="toggle-content p-4 space-y-3 text-slate-700 border-t border-slate-200 bg-white">
+                        <div>
+                            <strong class="text-indigo-900 block">• Uniqueness of Zero Vector (零向量唯一性)：</strong>
+                            <p>Suppose $\mathbf{0}_1$ and $\mathbf{0}_2$ are both zero vectors in $V$. By Axiom 4, $\mathbf{0}_1 + \mathbf{0}_2 = \mathbf{0}_1$ and $\mathbf{0}_2 + \mathbf{0}_1 = \mathbf{0}_2$. By Axiom 2, $\mathbf{0}_1 = \mathbf{0}_1 + \mathbf{0}_2 = \mathbf{0}_2 + \mathbf{0}_1 = \mathbf{0}_2$.</p>
+                        </div>
+                        <div class="pt-2 border-t border-slate-100">
+                            <strong class="text-indigo-900 block">• Uniqueness of Negative Vector (負向量唯一性)：</strong>
+                            <p>Suppose $\mathbf{v}_1$ and $\mathbf{v}_2$ both satisfy $\mathbf{u} + \mathbf{v}_1 = \mathbf{0}$ and $\mathbf{u} + \mathbf{v}_2 = \mathbf{0}$. Then:</p>
+                            <p class="font-mono text-xs pl-4">$\mathbf{v}_1 = \mathbf{v}_1 + \mathbf{0} = \mathbf{v}_1 + (\mathbf{u} + \mathbf{v}_2) = (\mathbf{v}_1 + \mathbf{u}) + \mathbf{v}_2 = (\mathbf{u} + \mathbf{v}_1) + \mathbf{v}_2 = \mathbf{0} + \mathbf{v}_2 = \mathbf{v}_2 + \mathbf{0} = \mathbf{v}_2$.</p>
+                        </div>
+                        <div class="pt-2 border-t border-slate-100">
+                            <strong class="text-indigo-900 block">• Proof of (1) $0\mathbf{u} = \mathbf{0}$：</strong>
+                            <p class="font-mono text-xs pl-4">$0\mathbf{u} = (0 + 0)\mathbf{u} = 0\mathbf{u} + 0\mathbf{u}$ (Axiom 8). Adding $-(0\mathbf{u})$ to both sides: $0\mathbf{u} + (-(0\mathbf{u})) = (0\mathbf{u} + 0\mathbf{u}) + (-(0\mathbf{u})) \implies \mathbf{0} = 0\mathbf{u} + (0\mathbf{u} + (-(0\mathbf{u}))) = 0\mathbf{u} + \mathbf{0} = 0\mathbf{u}$.</p>
+                        </div>
+                        <div class="pt-2 border-t border-slate-100">
+                            <strong class="text-indigo-900 block">• Proof of (2) $c\mathbf{0} = \mathbf{0}$：</strong>
+                            <p class="font-mono text-xs pl-4">$c\mathbf{0} = c(\mathbf{0} + \mathbf{0}) = c\mathbf{0} + c\mathbf{0}$ (Axiom 7). Adding $-(c\mathbf{0})$ to both sides gives $\mathbf{0} = c\mathbf{0}$.</p>
+                        </div>
+                        <div class="pt-2 border-t border-slate-100">
+                            <strong class="text-indigo-900 block">• Proof of (3) $-\mathbf{u} = (-1)\mathbf{u}$：</strong>
+                            <p class="font-mono text-xs pl-4">$\mathbf{u} + (-1)\mathbf{u} = 1\mathbf{u} + (-1)\mathbf{u} = (1 + (-1))\mathbf{u} = 0\mathbf{u} = \mathbf{0}$ (Axioms 10, 8, and Eq. 1). By uniqueness of the negative of $\mathbf{u}$, $(-1)\mathbf{u} = -\mathbf{u}$.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expandable Example 1 (Page 4) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-1-1')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-cube mr-2 text-indigo-600"></i> EXAMPLE 1 (Page 4): The Spaces $\mathbb{R}^n$ ($n \ge 1$) (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example</span>
+                    </button>
+                    <div id="ex-4-1-1" class="toggle-content p-5 space-y-2 text-sm text-slate-700 border-t border-slate-200 bg-white">
+                        <p class="leading-relaxed">
+                            The spaces $\mathbb{R}^n$, where $n \ge 1$, are the <strong>premier examples (最主要的範例)</strong> of vector spaces. The <strong>geometric intuition (幾何直覺)</strong> developed for $\mathbb{R}^3$ will help you understand and visualize many concepts throughout the chapter.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Expandable Example 2 + Figures 1, 2, 3 (Pages 4 - 6) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-1-2')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-location-arrow mr-2 text-indigo-600"></i> EXAMPLE 2 & FIGURES 1, 2, 3 (Pages 4 - 6): Arrows in 3D Space (三維空間有向線段與幾何圖解，點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example & Figures</span>
+                    </button>
+                    <div id="ex-4-1-2" class="toggle-content p-5 space-y-4 text-sm text-slate-700 border-t border-slate-200 bg-white">
+                        <div class="space-y-2">
+                            <p class="leading-relaxed">
+                                Let $V$ be the set of all <strong>arrows (directed line segments，有向線段／箭頭)</strong> in three-dimensional space, with two arrows regarded as equal if they have the same length and point in the same direction. Define addition by the <strong>parallelogram rule (平行四邊形法則)</strong> (from Section 1.3), and for each $\mathbf{v}$ in $V$, define $c\mathbf{v}$ to be the arrow whose length is $|c|$ times the length of $\mathbf{v}$, pointing in the same direction as $\mathbf{v}$ if $c \ge 0$ and otherwise pointing in the opposite direction. (See Figure 1.) Show that $V$ is a vector space. This space is a common model in physical problems for various forces.
+                            </p>
+                            <p class="leading-relaxed bg-slate-50 p-3.5 rounded-lg border border-slate-200">
+                                <strong>SOLUTION:</strong> The definition of $V$ is geometric, using concepts of length and direction. No $xyz$-coordinate system is involved. An arrow of zero length is a single point and represents the <strong>zero vector (零向量)</strong>. The negative of $\mathbf{v}$ is $(-1)\mathbf{v}$. So Axioms 1, 4, 5, 6, and 10 are evident. The rest are verified by geometry. For instance, see Figures 2 and 3.
+                            </p>
+                        </div>
+
+                        <!-- SVG Figures 1, 2, 3 -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                            <!-- FIGURE 1 -->
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
+                                <span class="font-bold text-indigo-900 text-xs block">FIGURE 1: Scalar Multiples of $\mathbf{v}$</span>
+                                <svg viewBox="0 0 220 150" class="w-full max-w-[210px] mx-auto bg-white rounded border border-slate-200">
+                                    <defs>
+                                        <marker id="arr-fig1-v" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f46e5"/>
+                                        </marker>
+                                        <marker id="arr-fig1-neg" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626"/>
+                                        </marker>
+                                    </defs>
+                                    <line x1="60" y1="65" x2="115" y2="42" stroke="#4f46e5" stroke-width="2" marker-end="url(#arr-fig1-v)"/>
+                                    <text x="82" y="45" font-size="12" font-weight="bold" fill="#4f46e5">v</text>
+                                    <line x1="40" y1="100" x2="150" y2="54" stroke="#4f46e5" stroke-width="2" marker-end="url(#arr-fig1-v)"/>
+                                    <text x="95" y="92" font-size="12" font-weight="bold" fill="#4f46e5">2v</text>
+                                    <line x1="175" y1="90" x2="92.5" y2="124.5" stroke="#dc2626" stroke-width="2" marker-end="url(#arr-fig1-neg)"/>
+                                    <text x="130" y="125" font-size="12" font-weight="bold" fill="#dc2626">-1.5v</text>
+                                </svg>
+                            </div>
+
+                            <!-- FIGURE 2 -->
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
+                                <span class="font-bold text-indigo-900 text-xs block">FIGURE 2: $\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}$</span>
+                                <svg viewBox="0 0 220 150" class="w-full max-w-[210px] mx-auto bg-white rounded border border-slate-200">
+                                    <defs>
+                                        <marker id="arr-b" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e293b"/>
+                                        </marker>
+                                        <marker id="arr-ind" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f46e5"/>
+                                        </marker>
+                                    </defs>
+                                    <line x1="35" y1="115" x2="125" y2="115" stroke="#1e293b" stroke-width="1.8" marker-end="url(#arr-b)"/>
+                                    <text x="78" y="132" font-size="12" font-weight="bold">u</text>
+                                    <line x1="35" y1="115" x2="80" y2="40" stroke="#1e293b" stroke-width="1.8" marker-end="url(#arr-b)"/>
+                                    <text x="45" y="75" font-size="12" font-weight="bold">v</text>
+                                    <line x1="80" y1="40" x2="170" y2="40" stroke="#1e293b" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-b)"/>
+                                    <text x="122" y="32" font-size="12" font-weight="bold">u</text>
+                                    <line x1="125" y1="115" x2="170" y2="40" stroke="#1e293b" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-b)"/>
+                                    <text x="155" y="85" font-size="12" font-weight="bold">v</text>
+                                    <line x1="35" y1="115" x2="168" y2="41" stroke="#4f46e5" stroke-width="2.2" marker-end="url(#arr-ind)"/>
+                                    <text x="95" y="72" font-size="11" font-weight="bold" fill="#4f46e5" transform="rotate(-29 95 72)">u+v = v+u</text>
+                                </svg>
+                            </div>
+
+                            <!-- FIGURE 3 -->
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
+                                <span class="font-bold text-indigo-900 text-xs block">FIGURE 3: $(\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w})$</span>
+                                <svg viewBox="0 0 220 150" class="w-full max-w-[210px] mx-auto bg-white rounded border border-slate-200">
+                                    <line x1="25" y1="125" x2="85" y2="115" stroke="#1e293b" stroke-width="1.8" marker-end="url(#arr-b)"/>
+                                    <text x="52" y="135" font-size="11" font-weight="bold">u</text>
+                                    <line x1="85" y1="115" x2="135" y2="70" stroke="#1e293b" stroke-width="1.8" marker-end="url(#arr-b)"/>
+                                    <text x="115" y="102" font-size="11" font-weight="bold">v</text>
+                                    <line x1="135" y1="70" x2="195" y2="30" stroke="#1e293b" stroke-width="1.8" marker-end="url(#arr-b)"/>
+                                    <text x="172" y="60" font-size="11" font-weight="bold">w</text>
+                                    <line x1="25" y1="125" x2="133" y2="71" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="3,2" marker-end="url(#arr-b)"/>
+                                    <text x="65" y="92" font-size="10" font-weight="bold" fill="#0284c7">u+v</text>
+                                    <line x1="85" y1="115" x2="193" y2="31" stroke="#059669" stroke-width="1.5" stroke-dasharray="3,2" marker-end="url(#arr-b)"/>
+                                    <text x="135" y="88" font-size="10" font-weight="bold" fill="#059669">v+w</text>
+                                    <line x1="25" y1="125" x2="193" y2="31" stroke="#4f46e5" stroke-width="2.2" marker-end="url(#arr-ind)"/>
+                                    <text x="88" y="62" font-size="11" font-weight="bold" fill="#4f46e5">u+v+w</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expandable Example 3 + Figure 4 (Pages 7 - 8) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-1-3')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-wave-square mr-2 text-indigo-600"></i> EXAMPLE 3 & FIGURE 4 (Pages 7 - 8): Space $S$ of Discrete-Time Signals (離散時間信號空間，點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example & Figure</span>
+                    </button>
+                    <div id="ex-4-1-3" class="toggle-content p-5 space-y-4 text-sm text-slate-700 border-t border-slate-200 bg-white">
+                        <p class="leading-relaxed">
+                            Let $S$ be the space of all <strong>doubly infinite sequences (雙向無窮數列)</strong> of numbers (usually written in a row rather than a column):
+                        </p>
+                        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 font-mono text-center text-indigo-900 font-bold">
+                            $\{y_k\} = (\dots, y_{-2}, y_{-1}, y_0, y_1, y_2, \dots)$
+                        </div>
+                        <p class="leading-relaxed">
+                            If $\{z_k\}$ is another element of $S$, then the sum $\{y_k\} + \{z_k\}$ is the sequence $\{y_k + z_k\}$ formed by adding corresponding terms of $\{y_k\}$ and $\{z_k\}$. The scalar multiple $c\{y_k\}$ is the sequence $\{c\, y_k\}$. The vector space axioms are verified in the same way as for $\mathbb{R}^n$.
+                        </p>
+                        <p class="leading-relaxed">
+                            Elements of $S$ arise in engineering, for example, whenever a signal is measured (or <strong>sampled，取樣</strong>) at discrete times. A signal might be electrical, mechanical, optical, and so on. The major control systems for the space shuttle use <strong>discrete (or digital) signals (離散／數位信號)</strong>. For convenience, we will call $S$ the space of <strong>(discrete-time) signals (離散時間信號空間)</strong>. A signal may be visualized by a graph as in Figure 4.
+                        </p>
+
+                        <!-- SVG FIGURE 4 -->
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
+                            <span class="font-bold text-indigo-900 text-xs block">FIGURE 4 (Page 8): A Discrete-Time Signal</span>
+                            <svg viewBox="0 0 460 150" class="w-full max-w-[440px] mx-auto bg-white rounded border border-slate-200 p-2">
+                                <line x1="25" y1="95" x2="435" y2="95" stroke="#64748b" stroke-width="1.5"/>
+                                <line x1="175" y1="15" x2="175" y2="135" stroke="#64748b" stroke-width="1.5"/>
+                                <text x="170" y="146" font-size="10" fill="#475569">0</text>
+                                <text x="75" y="146" font-size="10" fill="#475569">-5</text>
+                                <text x="272" y="146" font-size="10" fill="#475569">5</text>
+                                <text x="368" y="146" font-size="10" fill="#475569">10</text>
+
+                                <line x1="55" y1="95" x2="55" y2="112" stroke="#4f46e5" stroke-width="1.5"/><circle cx="55" cy="112" r="3" fill="#4f46e5"/>
+                                <line x1="75" y1="95" x2="75" y2="122" stroke="#4f46e5" stroke-width="1.5"/><circle cx="75" cy="122" r="3" fill="#4f46e5"/>
+                                <line x1="95" y1="95" x2="95" y2="108" stroke="#4f46e5" stroke-width="1.5"/><circle cx="95" cy="108" r="3" fill="#4f46e5"/>
+                                <circle cx="115" cy="95" r="3" fill="#4f46e5"/>
+                                <line x1="135" y1="95" x2="135" y2="75" stroke="#4f46e5" stroke-width="1.5"/><circle cx="135" cy="75" r="3" fill="#4f46e5"/>
+                                <line x1="155" y1="95" x2="155" y2="52" stroke="#4f46e5" stroke-width="1.5"/><circle cx="155" cy="52" r="3" fill="#4f46e5"/>
+                                <line x1="175" y1="95" x2="175" y2="30" stroke="#4f46e5" stroke-width="1.5"/><circle cx="175" cy="30" r="3" fill="#4f46e5"/>
+                                <line x1="195" y1="95" x2="195" y2="22" stroke="#4f46e5" stroke-width="1.5"/><circle cx="195" cy="22" r="3" fill="#4f46e5"/>
+                                <line x1="215" y1="95" x2="215" y2="38" stroke="#4f46e5" stroke-width="1.5"/><circle cx="215" cy="38" r="3" fill="#4f46e5"/>
+                                <line x1="235" y1="95" x2="235" y2="62" stroke="#4f46e5" stroke-width="1.5"/><circle cx="235" cy="62" r="3" fill="#4f46e5"/>
+                                <line x1="255" y1="95" x2="255" y2="82" stroke="#4f46e5" stroke-width="1.5"/><circle cx="255" cy="82" r="3" fill="#4f46e5"/>
+                                <circle cx="275" cy="95" r="3" fill="#4f46e5"/>
+                                <line x1="295" y1="95" x2="295" y2="112" stroke="#4f46e5" stroke-width="1.5"/><circle cx="295" cy="112" r="3" fill="#4f46e5"/>
+                                <line x1="315" y1="95" x2="315" y2="120" stroke="#4f46e5" stroke-width="1.5"/><circle cx="315" cy="120" r="3" fill="#4f46e5"/>
+                                <line x1="335" y1="95" x2="335" y2="110" stroke="#4f46e5" stroke-width="1.5"/><circle cx="335" cy="110" r="3" fill="#4f46e5"/>
+                                <line x1="355" y1="95" x2="355" y2="85" stroke="#4f46e5" stroke-width="1.5"/><circle cx="355" cy="85" r="3" fill="#4f46e5"/>
+                                <line x1="375" y1="95" x2="375" y2="60" stroke="#4f46e5" stroke-width="1.5"/><circle cx="375" cy="60" r="3" fill="#4f46e5"/>
+                                <line x1="395" y1="95" x2="395" y2="42" stroke="#4f46e5" stroke-width="1.5"/><circle cx="395" cy="42" r="3" fill="#4f46e5"/>
+                                <line x1="415" y1="95" x2="415" y2="35" stroke="#4f46e5" stroke-width="1.5"/><circle cx="415" cy="35" r="3" fill="#4f46e5"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expandable Example 4 (Pages 9 - 10) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-1-4')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-superscript mr-2 text-indigo-600"></i> EXAMPLE 4 (Pages 9 - 10): The Space $\mathbb{P}_n$ of Polynomials of Degree at Most $n$ ($n \ge 0$) (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example</span>
+                    </button>
+                    <div id="ex-4-1-4" class="toggle-content p-5 space-y-3 text-sm text-slate-700 border-t border-slate-200 bg-white">
+                        <p class="leading-relaxed">
+                            For $n \ge 0$, the set $\mathbb{P}_n$ of <strong>polynomials of degree at most $n$ (次數不超過 $n$ 的多項式集合)</strong> consists of all polynomials of the form
+                        </p>
+                        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 font-mono text-center text-indigo-900 font-bold">
+                            $p(t) = a_0 + a_1 t + a_2 t^2 + \dots + a_n t^n$ <span class="text-xs font-normal text-slate-500 ml-2">(4)</span>
+                        </div>
+                        <p class="leading-relaxed">
+                            where the <strong>coefficients (係數)</strong> $a_0, \dots, a_n$ and the variable $t$ are real numbers. The <strong>degree (次數)</strong> of $p$ is the highest power of $t$ in (4) whose coefficient is not zero. If $p(t) = a_0 \ne 0$, the degree of $p$ is zero. If all the coefficients are zero, $p$ is called the <strong>zero polynomial (零多項式)</strong>. The zero polynomial is included in $\mathbb{P}_n$ even though its degree, for technical reasons, is not defined.
+                        </p>
+                        <p class="leading-relaxed">
+                            If $p$ is given by (4) and if $q(t) = b_0 + b_1 t + \dots + b_n t^n$, then the sum $p + q$ is defined by
+                        </p>
+                        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 font-mono text-xs md:text-sm space-y-1 text-slate-800">
+                            <p>$(p + q)(t) = p(t) + q(t) = (a_0 + b_0) + (a_1 + b_1)t + \dots + (a_n + b_n)t^n$</p>
+                            <p>$(cp)(t) = c\,p(t) = ca_0 + (ca_1)t + \dots + (ca_n)t^n$</p>
+                        </div>
+                        <p class="leading-relaxed">
+                            These definitions satisfy Axioms 1 and 6 because $p + q$ and $cp$ are polynomials of degree less than or equal to $n$. Axioms 2, 3, and 7–10 follow from properties of the real numbers. Clearly, the <strong>zero polynomial</strong> acts as the zero vector in Axiom 4. Finally, $(-1)p$ acts as the negative of $p$, so Axiom 5 is satisfied. Thus $\mathbb{P}_n$ is a vector space.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Expandable Example 5 + Figure 5 (Pages 11 - 13) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-1-5')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-function mr-2 text-indigo-600"></i> EXAMPLE 5 & FIGURE 5 (Pages 11 - 13): Real-Valued Functions Defined on a Set $\mathbb{D}$ (實值函數空間與幾何直覺圖，點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example & Figure</span>
+                    </button>
+                    <div id="ex-4-1-5" class="toggle-content p-5 space-y-4 text-sm text-slate-700 border-t border-slate-200 bg-white">
+                        <p class="leading-relaxed">
+                            Let $V$ be the set of all <strong>real-valued functions (實值函數)</strong> defined on a set $\mathbb{D}$. (Typically, $\mathbb{D}$ is the set of real numbers or some interval on the real line.) Functions are added in the usual way: $f + g$ is the function whose value at $t$ in the <strong>domain (定義域)</strong> $\mathbb{D}$ is $f(t) + g(t)$. Likewise, for a scalar $c$ and an $f$ in $V$, the scalar multiple $cf$ is the function whose value at $t$ is $cf(t)$. For instance, if $\mathbb{D} = \mathbb{R}$, $f(t) = 1 + \sin 2t$, and $g(t) = 2 + .5t$, then
+                        </p>
+                        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 font-mono text-center text-indigo-900 font-bold">
+                            $(f + g)(t) = 3 + \sin 2t + .5t \quad \text{and} \quad (2g)(t) = 4 + t$
+                        </div>
+                        <p class="leading-relaxed">
+                            Two functions in $V$ are equal if and only if their values are equal for every $t$ in $\mathbb{D}$. Hence the zero vector in $V$ is the function that is <strong>identically zero (恆為零的函數)</strong>, $f(t) = 0$ for all $t$, and the negative of $f$ is $(-1)f$. Axioms 1 and 6 are obviously true, and the other axioms follow from properties of the real numbers, so $V$ is a vector space.
+                        </p>
+                        <p class="leading-relaxed bg-indigo-50/50 p-3.5 rounded-lg border border-indigo-200">
+                            It is important to think of each function in the vector space $V$ of Example 5 as a <strong>single object (單一物件)</strong>, as just one "point" or vector in the vector space. The sum of two vectors $f$ and $g$ (functions in $V$, or elements of any vector space) can be visualized as in Figure 5, because this can help you carry over to a general vector space the geometric intuition you have developed while working with the vector space $\mathbb{R}^n$. See the Study Guide for help as you learn to adopt this more general point of view.
+                        </p>
+
+                        <!-- SVG FIGURE 5 -->
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
+                            <span class="font-bold text-indigo-900 text-xs block">FIGURE 5 (Page 13): The Sum of Two Vectors (Functions)</span>
+                            <svg viewBox="0 0 280 160" class="w-full max-w-[260px] mx-auto bg-white rounded border border-slate-200">
+                                <defs>
+                                    <marker id="arr-fig5" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f46e5"/>
+                                    </marker>
+                                    <marker id="arr-fig5-slate" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+                                    </marker>
+                                </defs>
+                                <circle cx="45" cy="115" r="3.5" fill="#1e293b"/>
+                                <text x="32" y="128" font-size="12" font-weight="bold">0</text>
+                                <line x1="45" y1="115" x2="122" y2="47" stroke="#334155" stroke-width="1.8" marker-end="url(#arr-fig5-slate)"/>
+                                <circle cx="125" cy="45" r="3" fill="#334155"/>
+                                <text x="115" y="36" font-size="12" font-weight="bold">f</text>
+                                <line x1="45" y1="115" x2="157" y2="124" stroke="#334155" stroke-width="1.8" marker-end="url(#arr-fig5-slate)"/>
+                                <circle cx="160" cy="125" r="3" fill="#334155"/>
+                                <text x="163" y="138" font-size="12" font-weight="bold">g</text>
+                                <line x1="125" y1="45" x2="240" y2="55" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="4,3"/>
+                                <line x1="160" y1="125" x2="240" y2="55" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="4,3"/>
+                                <line x1="45" y1="115" x2="236" y2="56" stroke="#4f46e5" stroke-width="2.2" marker-end="url(#arr-fig5)"/>
+                                <circle cx="240" cy="55" r="3.5" fill="#4f46e5"/>
+                                <text x="235" y="42" font-size="12" font-weight="bold" fill="#4f46e5">f + g</text>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- 4.1.2 Subspaces & 4.1.3 Span -->
-        <div class="space-y-4 pt-4 border-t border-slate-200">
+        <!-- 4.1.2 Subspaces -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
             <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
-                <i class="fa-solid fa-layer-group text-indigo-500 text-sm"></i> 4.1.2 Subspaces & 4.1.3 Subspace Spanned by a Set (Pages 14 - 28)
+                <i class="fa-solid fa-layer-group text-indigo-500 text-sm"></i> 4.1.2 Subspaces (子空間，Pages 14 - 20)
             </h3>
-            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
-                <p class="text-slate-800">
-                    <strong>Subspace Definition (Page 14):</strong> A subset $H$ of a vector space $V$ is a <strong>subspace</strong> of $V$ if: (a) $\mathbf{0} \in H$; (b) $\mathbf{u}, \mathbf{v} \in H \implies \mathbf{u} + \mathbf{v} \in H$; (c) $\mathbf{u} \in H$ and scalar $c \implies c\mathbf{u} \in H$. Every subspace is itself a vector space.
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <p class="text-slate-700 leading-relaxed">
+                    In many problems, a vector space consists of an appropriate subset of vectors from some larger vector space. In this case, only <strong>three of the ten vector space axioms (十條向量空間公理中的三條)</strong> need to be checked; the rest are automatically satisfied.
                 </p>
-                <p class="text-slate-800">
-                    <strong>Examples 6 - 9:</strong> $\{\mathbf{0}\}$ is the zero subspace (Ex. 6). All polynomials $\mathbb{P}$ and $\mathbb{P}_n$ are subspaces of real-valued functions on $\mathbb{R}$ (Ex. 7). $\mathbb{R}^2$ is <em>not</em> a subset/subspace of $\mathbb{R}^3$, whereas $\{(s, t, 0)^T\}$ is a subspace of $\mathbb{R}^3$ (Ex. 8). Lines/planes <em>not through the origin</em> are <em>not</em> subspaces because they lack $\mathbf{0}$ (Ex. 9).
-                </p>
-                <div class="p-4 bg-indigo-50/70 rounded-xl border border-indigo-200 space-y-2">
-                    <strong class="text-indigo-950 block">THEOREM 1 (Page 24):</strong> If $\mathbf{v}_1, \dots, \mathbf{v}_p \in V$, then $\text{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\} = \{c_1\mathbf{v}_1 + \dots + c_p\mathbf{v}_p : c_1, \dots, c_p \in \mathbb{R}\}$ is a subspace of $V$ (called the subspace spanned/generated by $\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$). A <strong>spanning (generating) set</strong> for subspace $H$ is $\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$ in $H$ such that $H = \text{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$.
+
+                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2.5">
+                    <strong class="text-indigo-900 text-base font-bold block">DEFINITION (子空間定義，Page 14)</strong>
+                    <p class="text-slate-800">
+                        A <strong>subspace (子空間)</strong> of a vector space $V$ is a subset $H$ of $V$ that has <strong>three properties (三個性質)</strong>:
+                    </p>
+                    <div class="space-y-1.5 pl-3 border-l-2 border-indigo-400 text-slate-800">
+                        <p><strong>a.</strong> The <strong>zero vector (零向量)</strong> of $V$ is in $H$.</p>
+                        <p><strong>b.</strong> $H$ is <strong>closed under vector addition (對向量加法封閉)</strong>. That is, for each $\mathbf{u}$ and $\mathbf{v}$ in $H$, the sum $\mathbf{u} + \mathbf{v}$ is in $H$.</p>
+                        <p><strong>c.</strong> $H$ is <strong>closed under multiplication by scalars (對純量乘法封閉)</strong>. That is, for each $\mathbf{u}$ in $H$ and each scalar $c$, the vector $c\mathbf{u}$ is in $H$.</p>
+                    </div>
                 </div>
-                <p class="text-slate-700 text-xs md:text-sm">
-                    <strong>Examples 10 - 12:</strong> Ex. 10 proves $\text{Span}\{\mathbf{v}_1, \mathbf{v}_2\}$ is a subspace. Ex. 11 expresses $\{(a-3b, b-a, a, b) : a, b \in \mathbb{R}\}$ as $\text{Span}\{\mathbf{v}_1, \mathbf{v}_2\}$ in $\mathbb{R}^4$ (spanning vectors act as "handles"). Ex. 12 finds $\mathbf{y} = (-4, 3, h)^T \in \text{Span}\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$ iff $h = 5$.
-                </p>
+
+                <!-- Page 15 - 16: Subspace is a Vector Space + Figure 6 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center bg-white p-4 rounded-xl border border-slate-200">
+                    <div class="md:col-span-2 space-y-2 text-slate-700 leading-relaxed">
+                        <p>
+                            Properties (a), (b), and (c) guarantee that a subspace $H$ of $V$ is itself a vector space, under the vector space operations already defined in $V$. To verify this, note that properties (a), (b), and (c) are Axioms 1, 4, and 6. Axioms 2, 3, and 7–10 are automatically true in $H$ because they apply to all elements of $V$, including those in $H$. Axiom 5 is also true in $H$, because if $\mathbf{u}$ is in $H$, then $(-1)\mathbf{u}$ is in $H$ by property (c), and we know from equation (3) earlier in this section that $(-1)\mathbf{u}$ is the vector $-\mathbf{u}$ in Axiom 5.
+                        </p>
+                        <p class="font-medium text-indigo-900">
+                            So every subspace is a vector space. Conversely, every vector space is a subspace (of itself and possibly of other larger spaces). The term <strong>subspace (子空間)</strong> is used when at least two vector spaces are in mind, with one inside the other, and the phrase <strong>subspace of $V$ ($V$ 的子空間)</strong> identifies $V$ as the larger space. (See Figure 6.)
+                        </p>
+                    </div>
+
+                    <!-- FIGURE 6 SVG -->
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
+                        <span class="font-bold text-indigo-900 text-xs block">FIGURE 6 (Page 16): A Subspace of $V$</span>
+                        <svg viewBox="0 0 220 150" class="w-full max-w-[200px] mx-auto bg-white rounded border border-slate-200">
+                            <ellipse cx="110" cy="75" rx="95" ry="60" fill="#f8fafc" stroke="#475569" stroke-width="1.8"/>
+                            <text x="175" y="38" font-size="14" font-weight="bold" fill="#334155">V</text>
+                            <ellipse cx="100" cy="80" rx="58" ry="36" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+                            <text x="130" y="65" font-size="14" font-weight="bold" fill="#4f46e5">H</text>
+                            <circle cx="95" cy="82" r="3.5" fill="#4f46e5"/>
+                            <text x="82" y="86" font-size="13" font-weight="bold" fill="#312e81">0</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Expandable Example 6 & Example 7 (Page 17) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-1-6-7')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-code-branch mr-2 text-indigo-600"></i> EXAMPLE 6 (Zero Subspace) & EXAMPLE 7 (Polynomial Spaces $\mathbb{P}$ and $\mathbb{P}_n$) (Page 17, 點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                    </button>
+                    <div id="ex-4-1-6-7" class="toggle-content p-5 space-y-3 text-sm text-slate-700 border-t border-slate-200 bg-white">
+                        <p class="leading-relaxed">
+                            <strong>EXAMPLE 6:</strong> The set consisting of only the zero vector in a vector space $V$ is a subspace of $V$, called the <strong>zero subspace (零子空間)</strong> and written as $\{\mathbf{0}\}$.
+                        </p>
+                        <p class="leading-relaxed pt-2 border-t border-slate-100">
+                            <strong>EXAMPLE 7:</strong> Let $\mathbb{P}$ be the set of <strong>all polynomials with real coefficients (所有實係數多項式集合)</strong>, with operations in $\mathbb{P}$ defined as for functions. Then $\mathbb{P}$ is a subspace of the space of all real-valued functions defined on $\mathbb{R}$. Also, for each $n \ge 0$, $\mathbb{P}_n$ is a subspace of $\mathbb{P}$, because $\mathbb{P}_n$ is a subset of $\mathbb{P}$ that contains the zero polynomial, the sum of two polynomials in $\mathbb{P}_n$ is also in $\mathbb{P}_n$, and a scalar multiple of a polynomial in $\mathbb{P}_n$ is also in $\mathbb{P}_n$.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Expandable Example 8 + Figure 7 (Pages 18 - 19) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-1-8')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-cube mr-2 text-indigo-600"></i> EXAMPLE 8 & FIGURE 7 (Pages 18 - 19): $\mathbb{R}^2$ vs. Subspace $H$ in $\mathbb{R}^3$ (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example & Figure</span>
+                    </button>
+                    <div id="ex-4-1-8" class="toggle-content p-5 space-y-4 text-sm text-slate-700 border-t border-slate-200 bg-white">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+                            <div class="md:col-span-2 space-y-2.5 leading-relaxed">
+                                <p>
+                                    <strong>EXAMPLE 8:</strong> The vector space $\mathbb{R}^2$ is <strong>not</strong> a subspace of $\mathbb{R}^3$ because $\mathbb{R}^2$ is <strong>not even a subset of $\mathbb{R}^3$</strong>. (The vectors in $\mathbb{R}^3$ all have three entries, whereas the vectors in $\mathbb{R}^2$ have only two.) The set
+                                </p>
+                                <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 font-mono text-center text-indigo-900 font-bold">
+                                    $H = \left\{ \begin{bmatrix} s \\ t \\ 0 \end{bmatrix} : s \text{ and } t \text{ are real} \right\}$
+                                </div>
+                                <p>
+                                    is a subset of $\mathbb{R}^3$ that "looks" and "acts like" $\mathbb{R}^2$, although it is logically distinct from $\mathbb{R}^2$. See Figure 7. Show that $H$ is a subspace of $\mathbb{R}^3$.
+                                </p>
+                                <p class="bg-indigo-50/60 p-3.5 rounded-lg border border-indigo-200">
+                                    <strong>SOLUTION:</strong> The zero vector is in $H$, and $H$ is closed under vector addition and scalar multiplication because these operations on vectors in $H$ always produce vectors whose third entries are zero (and so belong to $H$). Thus $H$ is a subspace of $\mathbb{R}^3$.
+                                </p>
+                            </div>
+
+                            <!-- FIGURE 7 SVG -->
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
+                                <span class="font-bold text-indigo-900 text-xs block">FIGURE 7 (Page 19): The $x_1 x_2$-Plane as a Subspace of $\mathbb{R}^3$</span>
+                                <svg viewBox="0 0 220 180" class="w-full max-w-[200px] mx-auto bg-white rounded border border-slate-200">
+                                    <polygon points="40,120 130,145 190,105 100,80" fill="#dcfce7" fill-opacity="0.85" stroke="#16a34a" stroke-width="1.5"/>
+                                    <text x="155" y="135" font-size="13" font-weight="bold" fill="#15803d">H</text>
+                                    <line x1="115" y1="155" x2="115" y2="20" stroke="#334155" stroke-width="1.5"/>
+                                    <polygon points="115,15 112,23 118,23" fill="#334155"/>
+                                    <text x="122" y="28" font-size="12" font-weight="bold">x₃</text>
+                                    <line x1="45" y1="112.5" x2="195" y2="112.5" stroke="#334155" stroke-width="1.5"/>
+                                    <polygon points="200,112.5 192,109.5 192,115.5" fill="#334155"/>
+                                    <text x="195" y="105" font-size="12" font-weight="bold">x₂</text>
+                                    <line x1="150" y1="88" x2="65" y2="148" stroke="#334155" stroke-width="1.5"/>
+                                    <polygon points="60,151 69,149 65,144" fill="#334155"/>
+                                    <text x="50" y="160" font-size="12" font-weight="bold">x₁</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expandable Example 9 + Figure 8 (Page 20) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-1-9')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-ban mr-2 text-red-600"></i> EXAMPLE 9 & FIGURE 8 (Page 20): A Plane in $\mathbb{R}^3$ or Line in $\mathbb{R}^2$ Not Through the Origin (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example & Figure</span>
+                    </button>
+                    <div id="ex-4-1-9" class="toggle-content p-5 space-y-4 text-sm text-slate-700 border-t border-slate-200 bg-white">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+                            <div class="md:col-span-2 space-y-2 leading-relaxed">
+                                <p>
+                                    <strong>EXAMPLE 9:</strong> A plane in $\mathbb{R}^3$ <strong>not through the origin (不過原點)</strong> is <strong>not</strong> a subspace of $\mathbb{R}^3$, because the plane does not contain the zero vector of $\mathbb{R}^3$. Similarly, a line in $\mathbb{R}^2$ not through the origin, such as in Figure 8, is <strong>not</strong> a subspace of $\mathbb{R}^2$.
+                                </p>
+                            </div>
+
+                            <!-- FIGURE 8 SVG -->
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
+                                <span class="font-bold text-red-700 text-xs block">FIGURE 8 (Page 20): A Line That Is Not a Vector Space</span>
+                                <svg viewBox="0 0 200 160" class="w-full max-w-[190px] mx-auto bg-white rounded border border-slate-200">
+                                    <line x1="20" y1="125" x2="185" y2="125" stroke="#334155" stroke-width="1.5"/>
+                                    <polygon points="190,125 182,122 182,128" fill="#334155"/>
+                                    <text x="180" y="140" font-size="12" font-weight="bold">x₁</text>
+                                    <line x1="55" y1="145" x2="55" y2="15" stroke="#334155" stroke-width="1.5"/>
+                                    <polygon points="55,10 52,18 58,18" fill="#334155"/>
+                                    <text x="40" y="22" font-size="12" font-weight="bold">x₂</text>
+                                    <circle cx="55" cy="125" r="2.5" fill="#334155"/>
+                                    <line x1="25" y1="95" x2="170" y2="30" stroke="#dc2626" stroke-width="2.2"/>
+                                    <text x="145" y="30" font-size="13" font-weight="bold" fill="#dc2626">H</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4.1.3 A Subspace Spanned by a Set -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-diagram-project text-indigo-500 text-sm"></i> 4.1.3 A Subspace Spanned by a Set (由集合張成的子空間，Pages 21 - 28)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-2 text-slate-800 leading-relaxed">
+                    <p>
+                        The next example illustrates one of the most common ways of describing a subspace. As in Chapter 1, the term <strong>linear combination (線性組合)</strong> refers to any sum of scalar multiples of vectors, and $\text{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$ denotes the set of all vectors that can be written as linear combinations of $\mathbf{v}_1, \dots, \mathbf{v}_p$.
+                    </p>
+                </div>
+
+                <!-- Expandable Example 10 (Pages 21 - 22) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-1-10')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-file-signature mr-2 text-indigo-600"></i> EXAMPLE 10 (Pages 21 - 22): Given $\mathbf{v}_1$ and $\mathbf{v}_2$ in $V$, Let $H = \text{Span}\{\mathbf{v}_1, \mathbf{v}_2\}$. Show That $H$ Is a Subspace of $V$ (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example</span>
+                    </button>
+                    <div id="ex-4-1-10" class="toggle-content p-5 space-y-2.5 text-sm text-slate-700 border-t border-slate-200 bg-white">
+                        <p><strong>SOLUTION:</strong> The zero vector is in $H$, since $\mathbf{0} = 0\mathbf{v}_1 + 0\mathbf{v}_2$. To show that $H$ is closed under vector addition, take two arbitrary vectors in $H$, say,</p>
+                        <p class="font-mono text-xs md:text-sm pl-4">$\mathbf{u} = s_1\mathbf{v}_1 + s_2\mathbf{v}_2$ and $\mathbf{w} = t_1\mathbf{v}_1 + t_2\mathbf{v}_2$</p>
+                        <p>By Axioms 2, 3, and 8 for the vector space $V$,</p>
+                        <p class="font-mono text-xs md:text-sm pl-4">$\mathbf{u} + \mathbf{w} = (s_1\mathbf{v}_1 + s_2\mathbf{v}_2) + (t_1\mathbf{v}_1 + t_2\mathbf{v}_2) = (s_1 + t_1)\mathbf{v}_1 + (s_2 + t_2)\mathbf{v}_2$</p>
+                        <p>So $\mathbf{u} + \mathbf{w}$ is in $H$. Furthermore, if $c$ is any scalar, then by Axioms 7 and 9,</p>
+                        <p class="font-mono text-xs md:text-sm pl-4">$c\mathbf{u} = c(s_1\mathbf{v}_1 + s_2\mathbf{v}_2) = (cs_1)\mathbf{v}_1 + (cs_2)\mathbf{v}_2$</p>
+                        <p>which shows that $c\mathbf{u}$ is in $H$ and $H$ is closed under scalar multiplication. Thus $H$ is a subspace of $V$.</p>
+                    </div>
+                </div>
+
+                <!-- Page 23: Geometric remark + Figure 9 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center bg-white p-4 rounded-xl border border-slate-200">
+                    <div class="md:col-span-2 space-y-2 text-slate-700 leading-relaxed">
+                        <p>
+                            In Section 4.5, you will see that every nonzero subspace of $\mathbb{R}^3$, other than $\mathbb{R}^3$ itself, is either $\text{Span}\{\mathbf{v}_1, \mathbf{v}_2\}$ for some <strong>linearly independent (線性獨立)</strong> $\mathbf{v}_1$ and $\mathbf{v}_2$ or $\text{Span}\{\mathbf{v}\}$ for $\mathbf{v} \ne \mathbf{0}$. In the first case, the subspace is a <strong>plane through the origin (過原點的平面)</strong>; in the second case, it is a <strong>line through the origin (過原點的直線)</strong>. (See Figure 9.) It is helpful to keep these geometric pictures in mind, even for an abstract vector space.
+                        </p>
+                    </div>
+
+                    <!-- FIGURE 9 SVG -->
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
+                        <span class="font-bold text-indigo-900 text-xs block">FIGURE 9 (Page 23): An Example of a Subspace</span>
+                        <svg viewBox="0 0 220 180" class="w-full max-w-[200px] mx-auto bg-white rounded border border-slate-200">
+                            <defs>
+                                <marker id="arr-fig9" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f46e5"/>
+                                </marker>
+                            </defs>
+                            <polygon points="45,125 140,145 180,65 85,45" fill="#e0e7ff" fill-opacity="0.75" stroke="#6366f1" stroke-width="1.5"/>
+                            <line x1="110" y1="155" x2="110" y2="18" stroke="#334155" stroke-width="1.4"/>
+                            <polygon points="110,13 107,21 113,21" fill="#334155"/>
+                            <text x="116" y="25" font-size="11" font-weight="bold">x₃</text>
+                            <line x1="35" y1="100" x2="195" y2="100" stroke="#334155" stroke-width="1.4"/>
+                            <polygon points="200,100 192,97 192,103" fill="#334155"/>
+                            <text x="192" y="92" font-size="11" font-weight="bold">x₂</text>
+                            <line x1="145" y1="75" x2="55" y2="145" stroke="#334155" stroke-width="1.4"/>
+                            <polygon points="50,149 59,146 55,141" fill="#334155"/>
+                            <text x="40" y="156" font-size="11" font-weight="bold">x₁</text>
+                            <circle cx="110" cy="100" r="3" fill="#1e293b"/>
+                            <text x="98" y="96" font-size="11" font-weight="bold">0</text>
+                            <line x1="110" y1="100" x2="96" y2="62" stroke="#4f46e5" stroke-width="2" marker-end="url(#arr-fig9)"/>
+                            <text x="82" y="65" font-size="12" font-weight="bold" fill="#4338ca">v₁</text>
+                            <line x1="110" y1="100" x2="152" y2="90" stroke="#4f46e5" stroke-width="2" marker-end="url(#arr-fig9)"/>
+                            <text x="155" y="88" font-size="12" font-weight="bold" fill="#4338ca">v₂</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- THEOREM 1 (Page 24) -->
+                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2">
+                    <strong class="text-indigo-900 text-base font-bold block">THEOREM 1 (定理 1，Page 24)</strong>
+                    <p class="text-slate-800 leading-relaxed">
+                        If $\mathbf{v}_1, \dots, \mathbf{v}_p$ are in a vector space $V$, then $\text{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$ is a <strong>subspace (子空間)</strong> of $V$.
+                    </p>
+                    <p class="text-slate-800 leading-relaxed">
+                        We call $\text{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$ the <strong>subspace spanned (or generated) by (由……張成／生成的子空間)</strong> $\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$. Given any subspace $H$ of $V$, a <strong>spanning (or generating) set (張成集／生成集)</strong> for $H$ is a set $\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$ in $H$ such that $H = \text{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$.
+                    </p>
+                </div>
+
+                <!-- Expandable Example 11 & Page 26 "handles" remark -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-1-11')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-grip mr-2 text-indigo-600"></i> EXAMPLE 11 & "Handles" Remark (Pages 24 - 26): $H = \{(a - 3b, b - a, a, b) : a \text{ and } b \text{ in } \mathbb{R}\}$ (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example</span>
+                    </button>
+                    <div id="ex-4-1-11" class="toggle-content p-5 space-y-3 text-sm text-slate-700 border-t border-slate-200 bg-white">
+                        <p class="leading-relaxed">
+                            Let $H$ be the set of all vectors of the form $(a - 3b, b - a, a, b)$, where $a$ and $b$ are arbitrary scalars. That is, let $H = \{(a - 3b, b - a, a, b) : a \text{ and } b \text{ in } \mathbb{R}\}$. Show that $H$ is a subspace of $\mathbb{R}^4$.
+                        </p>
+                        <div class="p-4 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
+                            <p><strong>SOLUTION:</strong> Write the vectors in $H$ as column vectors. Then an arbitrary vector in $H$ has the form</p>
+                            <div class="font-mono text-center text-indigo-900 py-1">
+                                $$\begin{bmatrix} a - 3b \\ b - a \\ a \\ b \end{bmatrix} = a \begin{bmatrix} 1 \\ -1 \\ 1 \\ 0 \end{bmatrix} + b \begin{bmatrix} -3 \\ 1 \\ 0 \\ 1 \end{bmatrix}$$
+                            </div>
+                            <p>
+                                This calculation shows that $H = \text{Span}\{\mathbf{v}_1, \mathbf{v}_2\}$ where $\mathbf{v}_1 = \begin{bmatrix} 1 \\ -1 \\ 1 \\ 0 \end{bmatrix}$ and $\mathbf{v}_2 = \begin{bmatrix} -3 \\ 1 \\ 0 \\ 1 \end{bmatrix}$. Thus $H$ is a subspace of $\mathbb{R}^4$ by Theorem 1.
+                            </p>
+                        </div>
+                        <p class="text-xs md:text-sm bg-indigo-50/50 p-3.5 rounded-lg border border-indigo-200 leading-relaxed">
+                            Example 11 illustrates a useful technique of expressing a subspace $H$ as the set of linear combinations of some small collection of vectors. If $H = \text{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$, we can think of the vectors $\mathbf{v}_1, \dots, \mathbf{v}_p$ in the spanning set as <strong>handles (把手)</strong> that allow us to hold on to the subspace $H$. Calculations with the infinitely many vectors in $H$ are often reduced to operations with the finite number of vectors in the spanning set.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Expandable Example 12 (Page 27) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-1-12')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-calculator mr-2 text-indigo-600"></i> EXAMPLE 12 (Page 27): Finding Value(s) of $h$ for $\mathbf{y}$ in Subspace Spanned by $\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3$ (含完整推導解答，點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example & Solution</span>
+                    </button>
+                    <div id="ex-4-1-12" class="toggle-content p-5 space-y-3 text-sm text-slate-700 border-t border-slate-200 bg-white">
+                        <p class="leading-relaxed">
+                            For what value(s) of $h$ will $\mathbf{y}$ be in the subspace of $\mathbb{R}^3$ spanned by $\mathbf{v}_1$, $\mathbf{v}_2$, $\mathbf{v}_3$, if
+                        </p>
+                        <div class="font-mono text-center text-slate-800 py-1">
+                            $$\mathbf{v}_1 = \begin{bmatrix} 1 \\ -1 \\ -2 \end{bmatrix}, \quad \mathbf{v}_2 = \begin{bmatrix} 5 \\ -4 \\ -7 \end{bmatrix}, \quad \mathbf{v}_3 = \begin{bmatrix} -3 \\ 1 \\ 0 \end{bmatrix}, \quad \text{and} \quad \mathbf{y} = \begin{bmatrix} -4 \\ 3 \\ h \end{bmatrix}$$
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-lg border border-slate-200 space-y-2.5">
+                            <p><strong>SOLUTION:</strong> This question is Practice Problem 2 in Section 1.3, written here with the term subspace rather than $\text{Span}\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$. The solution there shows that $\mathbf{y}$ is in $\text{Span}\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$ if and only if $h = 5$. That solution is worth reviewing now, along with Exercises 11–16 and 19–21 in Section 1.3.</p>
+                            <div class="pt-2 border-t border-slate-200 space-y-2">
+                                <strong class="text-indigo-900 block">完整推導步驟：</strong>
+                                <p>$\mathbf{y} \in \text{Span}\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$ if and only if $x_1\mathbf{v}_1 + x_2\mathbf{v}_2 + x_3\mathbf{v}_3 = \mathbf{y}$ is consistent. Row-reduce the augmented matrix:</p>
+                                <div class="font-mono text-xs md:text-sm overflow-x-auto bg-white p-3 rounded border border-slate-200">
+                                    $$\begin{bmatrix} 1 & 5 & -3 & -4 \\ -1 & -4 & 1 & 3 \\ -2 & -7 & 0 & h \end{bmatrix} \xrightarrow{\substack{R_2 + R_1 \to R_2 \\ R_3 + 2R_1 \to R_3}} \begin{bmatrix} 1 & 5 & -3 & -4 \\ 0 & 1 & -2 & -1 \\ 0 & 3 & -6 & h - 8 \end{bmatrix} \xrightarrow{R_3 - 3R_2 \to R_3} \begin{bmatrix} 1 & 5 & -3 & -4 \\ 0 & 1 & -2 & -1 \\ 0 & 0 & 0 & h - 5 \end{bmatrix}$$
+                                </div>
+                                <p>Consistency requires $h - 5 = 0$, so <strong>$h = 5$</strong>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page 28: Closing remark -->
+                <div class="p-4 bg-white rounded-lg border border-slate-200 text-sm text-slate-800 leading-relaxed">
+                    Although many vector spaces in this chapter will be subspaces of $\mathbb{R}^n$, it is important to keep in mind that the <strong>abstract theory (抽象理論)</strong> applies to other vector spaces as well. Vector spaces of <strong>functions (函數向量空間)</strong> arise in many applications, and they will receive more attention later.
+                </div>
             </div>
         </div>
     </section>
