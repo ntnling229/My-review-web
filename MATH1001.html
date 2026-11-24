@@ -266,112 +266,68 @@
 
                         <!-- SVG Figures 1, 2, 3 -->
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-                            <!-- FIGURE 1 (PDF Page 5) -->
+                            <!-- FIGURE 1 -->
                             <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
-                                <span class="font-bold text-indigo-900 text-xs block">FIGURE 1</span>
-                                <svg viewBox="0 0 240 175" class="w-full max-w-[230px] mx-auto bg-white rounded border border-slate-200">
+                                <span class="font-bold text-indigo-900 text-xs block">FIGURE 1: Scalar Multiples of $\mathbf{v}$</span>
+                                <svg viewBox="0 0 220 150" class="w-full max-w-[210px] mx-auto bg-white rounded border border-slate-200">
                                     <defs>
-                                        <marker id="arr-p1-black" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e293b"/>
+                                        <marker id="arr-fig1-v" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f46e5"/>
                                         </marker>
-                                        <marker id="arr-p1-blue" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#0284c7"/>
+                                        <marker id="arr-fig1-neg" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626"/>
                                         </marker>
                                     </defs>
-                                    <!-- Parallelogram: Bottom-Left A(22, 132), Top-Left B(68, 48), Bottom-Right C(166, 152), Top-Right D(212, 68) -->
-                                    <!-- Left edge u: A -> B -->
-                                    <line x1="22" y1="132" x2="64.5" y2="54.5" stroke="#1e293b" stroke-width="2" marker-end="url(#arr-p1-black)"/>
-                                    <text x="26" y="92" font-size="14" font-weight="bold" fill="#1e293b">u</text>
-                            
-                                    <!-- Right edge u: C -> D -->
-                                    <line x1="166" y1="152" x2="208.5" y2="74.5" stroke="#1e293b" stroke-width="2" marker-end="url(#arr-p1-black)"/>
-                                    <text x="196" y="116" font-size="14" font-weight="bold" fill="#1e293b">u</text>
-                            
-                                    <!-- Diagonal v: B -> C -->
-                                    <line x1="68" y1="48" x2="161.5" y2="147.2" stroke="#1e293b" stroke-width="2" marker-end="url(#arr-p1-black)"/>
-                                    <text x="122" y="98" font-size="14" font-weight="bold" fill="#1e293b">v</text>
-                            
-                                    <!-- Bottom edge u + v: A -> C -->
-                                    <line x1="22" y1="132" x2="158.8" y2="151" stroke="#0284c7" stroke-width="2.2" marker-end="url(#arr-p1-blue)"/>
-                                    <text x="74" y="164" font-size="14" font-weight="bold" fill="#0284c7">u + v</text>
-                            
-                                    <!-- Top edge v + u: B -> D -->
-                                    <line x1="68" y1="48" x2="204.8" y2="67" stroke="#0284c7" stroke-width="2.2" marker-end="url(#arr-p1-blue)"/>
-                                    <text x="122" y="45" font-size="14" font-weight="bold" fill="#0284c7">v + u</text>
+                                    <line x1="60" y1="65" x2="115" y2="42" stroke="#4f46e5" stroke-width="2" marker-end="url(#arr-fig1-v)"/>
+                                    <text x="82" y="45" font-size="12" font-weight="bold" fill="#4f46e5">v</text>
+                                    <line x1="40" y1="100" x2="150" y2="54" stroke="#4f46e5" stroke-width="2" marker-end="url(#arr-fig1-v)"/>
+                                    <text x="95" y="92" font-size="12" font-weight="bold" fill="#4f46e5">2v</text>
+                                    <line x1="175" y1="90" x2="92.5" y2="124.5" stroke="#dc2626" stroke-width="2" marker-end="url(#arr-fig1-neg)"/>
+                                    <text x="130" y="125" font-size="12" font-weight="bold" fill="#dc2626">-1.5v</text>
                                 </svg>
                             </div>
-                            
-                            <!-- FIGURE 2 (PDF Page 6 - Top Figure: u + v = v + u) -->
+
+                            <!-- FIGURE 2 -->
                             <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
-                                <span class="font-bold text-indigo-900 text-xs block">FIGURE 2 $\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}$</span>
-                                <svg viewBox="0 0 240 175" class="w-full max-w-[230px] mx-auto bg-white rounded border border-slate-200">
+                                <span class="font-bold text-indigo-900 text-xs block">FIGURE 2: $\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}$</span>
+                                <svg viewBox="0 0 220 150" class="w-full max-w-[210px] mx-auto bg-white rounded border border-slate-200">
                                     <defs>
-                                        <marker id="arr-p2-black" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                        <marker id="arr-b" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
                                             <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e293b"/>
                                         </marker>
-                                        <marker id="arr-p2-blue" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#0284c7"/>
+                                        <marker id="arr-ind" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f46e5"/>
                                         </marker>
                                     </defs>
-                                    <!-- Parallelogram: Bottom-Left A(22, 134), Top-Left B(74, 46), Bottom-Right C(168, 152), Top-Right D(220, 64) -->
-                                    <!-- Left edge u: A -> B -->
-                                    <line x1="22" y1="134" x2="70.2" y2="52.6" stroke="#1e293b" stroke-width="2" marker-end="url(#arr-p2-black)"/>
-                                    <text x="28" y="92" font-size="14" font-weight="bold" fill="#1e293b">u</text>
-                            
-                                    <!-- Right edge u: C -> D -->
-                                    <line x1="168" y1="152" x2="216.2" y2="70.6" stroke="#1e293b" stroke-width="2" marker-end="url(#arr-p2-black)"/>
-                                    <text x="200" y="114" font-size="14" font-weight="bold" fill="#1e293b">u</text>
-                            
-                                    <!-- Top edge v: B -> D -->
-                                    <line x1="74" y1="46" x2="212.8" y2="63.1" stroke="#1e293b" stroke-width="2" marker-end="url(#arr-p2-black)"/>
-                                    <text x="142" y="43" font-size="14" font-weight="bold" fill="#1e293b">v</text>
-                            
-                                    <!-- Bottom edge v: A -> C -->
-                                    <line x1="22" y1="134" x2="160.8" y2="151.1" stroke="#1e293b" stroke-width="2" marker-end="url(#arr-p2-black)"/>
-                                    <text x="86" y="164" font-size="14" font-weight="bold" fill="#1e293b">v</text>
-                            
-                                    <!-- Diagonal u + v: A -> D -->
-                                    <line x1="22" y1="134" x2="214.4" y2="66" stroke="#0284c7" stroke-width="2.2" marker-end="url(#arr-p2-blue)"/>
-                                    <text x="105" y="94" font-size="14" font-weight="bold" fill="#0284c7">u + v</text>
+                                    <line x1="35" y1="115" x2="125" y2="115" stroke="#1e293b" stroke-width="1.8" marker-end="url(#arr-b)"/>
+                                    <text x="78" y="132" font-size="12" font-weight="bold">u</text>
+                                    <line x1="35" y1="115" x2="80" y2="40" stroke="#1e293b" stroke-width="1.8" marker-end="url(#arr-b)"/>
+                                    <text x="45" y="75" font-size="12" font-weight="bold">v</text>
+                                    <line x1="80" y1="40" x2="170" y2="40" stroke="#1e293b" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-b)"/>
+                                    <text x="122" y="32" font-size="12" font-weight="bold">u</text>
+                                    <line x1="125" y1="115" x2="170" y2="40" stroke="#1e293b" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-b)"/>
+                                    <text x="155" y="85" font-size="12" font-weight="bold">v</text>
+                                    <line x1="35" y1="115" x2="168" y2="41" stroke="#4f46e5" stroke-width="2.2" marker-end="url(#arr-ind)"/>
+                                    <text x="95" y="72" font-size="11" font-weight="bold" fill="#4f46e5" transform="rotate(-29 95 72)">u+v = v+u</text>
                                 </svg>
                             </div>
-                            
-                            <!-- FIGURE 3 (PDF Page 6 - Bottom Figure: (u + v) + w = u + (v + w)) -->
+
+                            <!-- FIGURE 3 -->
                             <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
-                                <span class="font-bold text-indigo-900 text-xs block">FIGURE 3 $(\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w})$</span>
-                                <svg viewBox="0 0 240 175" class="w-full max-w-[230px] mx-auto bg-white rounded border border-slate-200">
-                                    <defs>
-                                        <marker id="arr-p3-black" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e293b"/>
-                                        </marker>
-                                        <marker id="arr-p3-blue" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#0284c7"/>
-                                        </marker>
-                                    </defs>
-                                    <!-- Points: Start P0(20, 152), P1(64, 72), P2(166, 26), End P3(216, 114) -->
-                                    <!-- u: P0 -> P1 -->
-                                    <line x1="20" y1="152" x2="60.6" y2="78.2" stroke="#1e293b" stroke-width="2" marker-end="url(#arr-p3-black)"/>
-                                    <text x="24" y="114" font-size="14" font-weight="bold" fill="#1e293b">u</text>
-                            
-                                    <!-- v: P1 -> P2 -->
-                                    <line x1="64" y1="72" x2="159.6" y2="28.9" stroke="#1e293b" stroke-width="2" marker-end="url(#arr-p3-black)"/>
-                                    <text x="112" y="36" font-size="14" font-weight="bold" fill="#1e293b">v</text>
-                            
-                                    <!-- w: P2 -> P3 -->
-                                    <line x1="166" y1="26" x2="212.5" y2="107.9" stroke="#1e293b" stroke-width="2" marker-end="url(#arr-p3-black)"/>
-                                    <text x="200" y="72" font-size="14" font-weight="bold" fill="#1e293b">w</text>
-                            
-                                    <!-- u + v: P0 -> P2 -->
-                                    <line x1="20" y1="152" x2="159.9" y2="29.7" stroke="#0284c7" stroke-width="2.2" marker-end="url(#arr-p3-blue)"/>
-                                    <text x="64" y="102" font-size="13" font-weight="bold" fill="#0284c7">u + v</text>
-                            
-                                    <!-- v + w: P1 -> P3 -->
-                                    <line x1="64" y1="72" x2="209.6" y2="111.3" stroke="#0284c7" stroke-width="2.2" marker-end="url(#arr-p3-blue)"/>
-                                    <text x="135" y="104" font-size="13" font-weight="bold" fill="#0284c7">v + w</text>
-                            
-                                    <!-- u + v + w: P0 -> P3 -->
-                                    <line x1="20" y1="152" x2="208.8" y2="115.4" stroke="#0284c7" stroke-width="2.2" marker-end="url(#arr-p3-blue)"/>
-                                    <text x="102" y="154" font-size="13" font-weight="bold" fill="#0284c7">u + v + w</text>
+                                <span class="font-bold text-indigo-900 text-xs block">FIGURE 3: $(\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w})$</span>
+                                <svg viewBox="0 0 220 150" class="w-full max-w-[210px] mx-auto bg-white rounded border border-slate-200">
+                                    <line x1="25" y1="125" x2="85" y2="115" stroke="#1e293b" stroke-width="1.8" marker-end="url(#arr-b)"/>
+                                    <text x="52" y="135" font-size="11" font-weight="bold">u</text>
+                                    <line x1="85" y1="115" x2="135" y2="70" stroke="#1e293b" stroke-width="1.8" marker-end="url(#arr-b)"/>
+                                    <text x="115" y="102" font-size="11" font-weight="bold">v</text>
+                                    <line x1="135" y1="70" x2="195" y2="30" stroke="#1e293b" stroke-width="1.8" marker-end="url(#arr-b)"/>
+                                    <text x="172" y="60" font-size="11" font-weight="bold">w</text>
+                                    <line x1="25" y1="125" x2="133" y2="71" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="3,2" marker-end="url(#arr-b)"/>
+                                    <text x="65" y="92" font-size="10" font-weight="bold" fill="#0284c7">u+v</text>
+                                    <line x1="85" y1="115" x2="193" y2="31" stroke="#059669" stroke-width="1.5" stroke-dasharray="3,2" marker-end="url(#arr-b)"/>
+                                    <text x="135" y="88" font-size="10" font-weight="bold" fill="#059669">v+w</text>
+                                    <line x1="25" y1="125" x2="193" y2="31" stroke="#4f46e5" stroke-width="2.2" marker-end="url(#arr-ind)"/>
+                                    <text x="88" y="62" font-size="11" font-weight="bold" fill="#4f46e5">u+v+w</text>
                                 </svg>
                             </div>
                         </div>
