@@ -1884,7 +1884,7 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <!-- FIGURE 1 SVG (Page 6) -->
                                 <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
-                                    <svg viewBox="0 0 220 205" class="w-full max-w-[220px] mx-auto bg-white rounded border border-slate-200">
+                                    <svg viewBox="0 0 220 205" class="w-full max-w-[270px] mx-auto bg-white rounded border border-slate-200">
                                         <g stroke="#94a3b8" stroke-width="0.8">
                                             <line x1="32" y1="10" x2="32" y2="196"/><line x1="60" y1="10" x2="60" y2="196"/>
                                             <line x1="88" y1="10" x2="88" y2="196"/><line x1="116" y1="10" x2="116" y2="196"/>
@@ -1908,7 +1908,7 @@
                                         <circle cx="116" cy="34" r="3.6" fill="#00a6e8"/>
                                         <text x="122" y="42" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="bold" fill="#0f172a">x</text>
                                     </svg>
-                                    <div class="text-left max-w-[220px] mx-auto text-xs leading-snug">
+                                    <div class="text-left max-w-[270px] mx-auto text-xs leading-snug">
                                         <span class="font-bold text-slate-900 block tracking-wide">FIGURE 1</span>
                                         <span class="text-slate-800" style="font-family: Georgia, 'Times New Roman', serif;">Standard graph paper.</span>
                                     </div>
@@ -1943,19 +1943,19 @@
                                         <span class="text-slate-800" style="font-family: Georgia, 'Times New Roman', serif;">$\mathcal{B}$-graph paper.</span>
                                     </div>
                                 </div>
+           
                             </div>
                         </div>
 
                         <!-- EXAMPLE 3 + FIGURE 3 (Pages 8 - 9) -->
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center pt-3 border-t border-slate-100">
-                            <div class="md:col-span-2 space-y-2 leading-relaxed">
-                                <p>
-                                    <strong>EXAMPLE 3 (Page 8):</strong> In <strong>crystallography (晶體學)</strong>, the description of a crystal lattice is aided by choosing a basis $\{\mathbf{u}, \mathbf{v}, \mathbf{w}\}$ for $\mathbb{R}^3$ that corresponds to three adjacent edges of one "unit cell" of the crystal. An entire lattice is constructed by stacking together many copies of one cell. There are fourteen basic types of unit cells; three are displayed in Figure 3. The coordinates of atoms within the crystal are given relative to the basis for the lattice. For instance, $\begin{bmatrix} 1/2 \\ 1/2 \\ 1 \end{bmatrix}$ identifies the top face-centered atom in the cell in Figure 3(c).
-                                </p>
-                            </div>
-                            <!-- FIGURE 3 Full 3-Panel SVG (Page 9) -->
+                        <div class="space-y-4 pt-3 border-t border-slate-100">
+                            <p class="leading-relaxed">
+                                <strong>EXAMPLE 3 (Page 8):</strong> In <strong>crystallography (晶體學)</strong>, the description of a crystal lattice is aided by choosing a basis $\{\mathbf{u}, \mathbf{v}, \mathbf{w}\}$ for $\mathbb{R}^3$ that corresponds to three adjacent edges of one "unit cell" of the crystal. An entire lattice is constructed by stacking together many copies of one cell. There are fourteen basic types of unit cells; three are displayed in Figure 3. The coordinates of atoms within the crystal are given relative to the basis for the lattice. For instance, $\begin{bmatrix} 1/2 \\ 1/2 \\ 1 \end{bmatrix}$ identifies the top face-centered atom in the cell in Figure 3(c).
+                            </p>
+
+                            <!-- FIGURE 3 Full 3-Panel SVG Below (Page 9) -->
                             <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-                                <svg viewBox="0 0 680 235" class="w-full max-w-[660px] mx-auto bg-white rounded border border-slate-200">
+                                <svg viewBox="0 0 680 235" class="w-full max-w-full mx-auto bg-white rounded border border-slate-200">
                                     <defs>
                                         <radialGradient id="atom-gold" cx="35%" cy="30%" r="65%">
                                             <stop offset="0%" stop-color="#f6d8ad"/>
@@ -1971,18 +1971,15 @@
 
                                     <!-- ================= (a) Simple monoclinic ================= -->
                                     <g transform="translate(0, 0)">
-                                        <!-- Axes: O=(96, 134), u=(-46, 22), v=(62, 16), w=(38, -70) -->
                                         <line x1="96" y1="134" x2="22" y2="169" stroke="#00a6e8" stroke-width="1.5"/>
                                         <line x1="96" y1="134" x2="202" y2="161" stroke="#00a6e8" stroke-width="1.5"/>
                                         <line x1="96" y1="134" x2="152" y2="32" stroke="#00a6e8" stroke-width="1.5"/>
 
-                                        <!-- Back & hidden edges -->
                                         <line x1="96" y1="134" x2="158" y2="150" stroke="#0f172a" stroke-width="1.6"/>
                                         <line x1="96" y1="134" x2="134" y2="64" stroke="#0f172a" stroke-width="1.6"/>
                                         <line x1="158" y1="150" x2="196" y2="80" stroke="#0f172a" stroke-width="1.6"/>
                                         <line x1="134" y1="64" x2="196" y2="80" stroke="#0f172a" stroke-width="1.6"/>
 
-                                        <!-- Front & visible edges -->
                                         <line x1="50" y1="156" x2="112" y2="172" stroke="#0f172a" stroke-width="1.7"/>
                                         <line x1="112" y1="172" x2="158" y2="150" stroke="#0f172a" stroke-width="1.7"/>
                                         <line x1="50" y1="156" x2="88" y2="86" stroke="#0f172a" stroke-width="1.7"/>
@@ -1991,7 +1988,6 @@
                                         <line x1="88" y1="86" x2="134" y2="64" stroke="#0f172a" stroke-width="1.7"/>
                                         <line x1="150" y1="102" x2="196" y2="80" stroke="#0f172a" stroke-width="1.7"/>
 
-                                        <!-- Atoms -->
                                         <circle cx="96" cy="134" r="5.5" fill="url(#atom-gold)"/>
                                         <circle cx="50" cy="156" r="5.5" fill="url(#atom-gold)"/>
                                         <circle cx="158" cy="150" r="5.5" fill="url(#atom-gold)"/>
@@ -2001,13 +1997,11 @@
                                         <circle cx="150" cy="102" r="5.2" fill="url(#atom-blue)"/>
                                         <circle cx="196" cy="80" r="5.2" fill="url(#atom-blue)"/>
 
-                                        <!-- Labels -->
                                         <text x="80" y="133" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace" font-size="13" font-weight="700" fill="#0f172a">0</text>
                                         <text x="45" y="172" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#0f172a">u</text>
                                         <text x="155" y="166" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#0f172a">v</text>
                                         <text x="116" y="61" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#0f172a">w</text>
 
-                                        <!-- Caption (a) -->
                                         <text x="115" y="198" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#0f172a">(a)</text>
                                         <text x="115" y="213" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#0f172a">Simple</text>
                                         <text x="115" y="227" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#0f172a">monoclinic</text>
@@ -2015,21 +2009,17 @@
 
                                     <!-- ================= (b) Body-centered cubic ================= -->
                                     <g transform="translate(225, 0)">
-                                        <!-- Axes: O=(105, 134), u=(-52, 24), v=(66, 17), w=(0, -72) -->
                                         <line x1="105" y1="134" x2="36" y2="166" stroke="#00a6e8" stroke-width="1.5"/>
                                         <line x1="105" y1="134" x2="210" y2="161" stroke="#00a6e8" stroke-width="1.5"/>
                                         <line x1="105" y1="134" x2="105" y2="30" stroke="#00a6e8" stroke-width="1.5"/>
 
-                                        <!-- Back edges -->
                                         <line x1="105" y1="134" x2="171" y2="151" stroke="#0f172a" stroke-width="1.6"/>
                                         <line x1="105" y1="134" x2="105" y2="62" stroke="#0f172a" stroke-width="1.6"/>
                                         <line x1="171" y1="151" x2="171" y2="79" stroke="#0f172a" stroke-width="1.6"/>
                                         <line x1="105" y1="62" x2="171" y2="79" stroke="#0f172a" stroke-width="1.6"/>
 
-                                        <!-- Body-centered atom -->
                                         <circle cx="112" cy="110" r="5.5" fill="url(#atom-blue)"/>
 
-                                        <!-- Front & visible edges -->
                                         <line x1="53" y1="158" x2="119" y2="175" stroke="#0f172a" stroke-width="1.7"/>
                                         <line x1="119" y1="175" x2="171" y2="151" stroke="#0f172a" stroke-width="1.7"/>
                                         <line x1="53" y1="158" x2="53" y2="86" stroke="#0f172a" stroke-width="1.7"/>
@@ -2038,7 +2028,6 @@
                                         <line x1="53" y1="86" x2="105" y2="62" stroke="#0f172a" stroke-width="1.7"/>
                                         <line x1="119" y1="103" x2="171" y2="79" stroke="#0f172a" stroke-width="1.7"/>
 
-                                        <!-- Corner atoms -->
                                         <circle cx="105" cy="134" r="5.5" fill="url(#atom-gold)"/>
                                         <circle cx="53" cy="158" r="5.5" fill="url(#atom-gold)"/>
                                         <circle cx="171" cy="151" r="5.5" fill="url(#atom-gold)"/>
@@ -2048,13 +2037,11 @@
                                         <circle cx="119" cy="103" r="5.2" fill="url(#atom-blue)"/>
                                         <circle cx="171" cy="79" r="5.2" fill="url(#atom-blue)"/>
 
-                                        <!-- Labels -->
                                         <text x="90" y="131" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace" font-size="13" font-weight="700" fill="#0f172a">0</text>
                                         <text x="48" y="174" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#0f172a">u</text>
                                         <text x="168" y="167" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#0f172a">v</text>
                                         <text x="112" y="61" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#0f172a">w</text>
 
-                                        <!-- Caption (b) -->
                                         <text x="115" y="198" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#0f172a">(b)</text>
                                         <text x="115" y="213" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#0f172a">Body-centered</text>
                                         <text x="115" y="227" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#0f172a">cubic</text>
@@ -2062,18 +2049,15 @@
 
                                     <!-- ================= (c) Face-centered orthorhombic ================= -->
                                     <g transform="translate(450, 0)">
-                                        <!-- Axes: O=(106, 134), u=(-46, 26), v=(66, 17), w=(0, -104) -->
                                         <line x1="106" y1="134" x2="36" y2="174" stroke="#00a6e8" stroke-width="1.5"/>
                                         <line x1="106" y1="134" x2="210" y2="161" stroke="#00a6e8" stroke-width="1.5"/>
                                         <line x1="106" y1="134" x2="106" y2="10" stroke="#00a6e8" stroke-width="1.5"/>
 
-                                        <!-- Back edges -->
                                         <line x1="106" y1="134" x2="172" y2="151" stroke="#0f172a" stroke-width="1.6"/>
                                         <line x1="106" y1="134" x2="106" y2="30" stroke="#0f172a" stroke-width="1.6"/>
                                         <line x1="172" y1="151" x2="172" y2="47" stroke="#0f172a" stroke-width="1.6"/>
                                         <line x1="106" y1="30" x2="172" y2="47" stroke="#0f172a" stroke-width="1.6"/>
 
-                                        <!-- 6 Face-centered atoms -->
                                         <circle cx="116" cy="51" r="5.2" fill="url(#atom-blue)"/>
                                         <circle cx="116" cy="155" r="5.2" fill="url(#atom-blue)"/>
                                         <circle cx="139" cy="90" r="5.2" fill="url(#atom-blue)"/>
@@ -2081,7 +2065,6 @@
                                         <circle cx="83" cy="95" r="5.2" fill="url(#atom-blue)"/>
                                         <circle cx="149" cy="112" r="5.2" fill="url(#atom-blue)"/>
 
-                                        <!-- Front & visible edges -->
                                         <line x1="60" y1="160" x2="126" y2="177" stroke="#0f172a" stroke-width="1.7"/>
                                         <line x1="126" y1="177" x2="172" y2="151" stroke="#0f172a" stroke-width="1.7"/>
                                         <line x1="60" y1="160" x2="60" y2="56" stroke="#0f172a" stroke-width="1.7"/>
@@ -2090,7 +2073,6 @@
                                         <line x1="60" y1="56" x2="106" y2="30" stroke="#0f172a" stroke-width="1.7"/>
                                         <line x1="126" y1="73" x2="172" y2="47" stroke="#0f172a" stroke-width="1.7"/>
 
-                                        <!-- Corner atoms -->
                                         <circle cx="106" cy="134" r="5.5" fill="url(#atom-gold)"/>
                                         <circle cx="60" cy="160" r="5.5" fill="url(#atom-gold)"/>
                                         <circle cx="172" cy="151" r="5.5" fill="url(#atom-gold)"/>
@@ -2100,26 +2082,23 @@
                                         <circle cx="126" cy="73" r="5.2" fill="url(#atom-blue)"/>
                                         <circle cx="172" cy="47" r="5.2" fill="url(#atom-blue)"/>
 
-                                        <!-- Labels -->
                                         <text x="90" y="131" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace" font-size="13" font-weight="700" fill="#0f172a">0</text>
                                         <text x="55" y="176" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#0f172a">u</text>
                                         <text x="169" y="167" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#0f172a">v</text>
                                         <text x="113" y="27" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#0f172a">w</text>
 
-                                        <!-- Caption (c) -->
                                         <text x="115" y="198" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#0f172a">(c)</text>
                                         <text x="115" y="213" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#0f172a">Face-centered</text>
                                         <text x="115" y="227" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#0f172a">orthorhombic</text>
                                     </g>
                                 </svg>
-                                <div class="text-left max-w-[660px] mx-auto text-xs leading-snug pt-1">
+                                <div class="text-left max-w-full mx-auto text-xs leading-snug pt-1">
                                     <span class="font-bold text-slate-900 tracking-wide">FIGURE 3</span>
                                     <span class="text-slate-800 ml-1.5" style="font-family: Georgia, 'Times New Roman', serif;">Examples of unit cells.</span>
                                 </div>
                             </div>
-                       
                         </div>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </div>
