@@ -1371,7 +1371,7 @@
     </section>
 
     <!-- ================= SECTION 4.3 ================= -->
-    <section id="sec4-3" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+    <section id="sec4-3" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-8">
         <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
             <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
                 <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 4.3</span>
@@ -1380,30 +1380,403 @@
             <span class="text-xs text-slate-500 font-mono">Pages 1 - 23</span>
         </div>
 
-        <div class="space-y-4 text-sm">
-            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2.5">
-                <p class="text-slate-800">
-                    <strong>Linear Independence & Dependence (Pages 1 - 3):</strong> $\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$ in $V$ is <strong>linearly independent</strong> if $c_1\mathbf{v}_1 + \dots + c_p\mathbf{v}_p = \mathbf{0}$ has only the trivial solution $c_1 = \dots = c_p = 0$; otherwise it is <strong>linearly dependent</strong>. Single vector $\{\mathbf{v}\}$ is independent iff $\mathbf{v} \ne \mathbf{0}$; two vectors are dependent iff one is a multiple of the other; any set containing $\mathbf{0}$ is dependent.
-                </p>
-                <p class="text-slate-800">
-                    <strong>THEOREM 4 (Page 2):</strong> An indexed set $\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$ ($p \ge 2$) with $\mathbf{v}_1 \ne \mathbf{0}$ is linearly dependent iff some $\mathbf{v}_j$ ($j > 1$) is a linear combination of $\mathbf{v}_1, \dots, \mathbf{v}_{j-1}$. (Ex. 1: $\{1, t, 4-t\}$ dependent since $4-t = 4(1) - t$; Ex. 2: $\{\sin t, \cos t\}$ independent in $C[0,1]$, while $\{\sin t \cos t, \sin 2t\}$ dependent via $\sin 2t = 2\sin t \cos t$.)
-                </p>
-            </div>
+        <!-- 4.3.1 Linear Independence in a General Vector Space -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-blue-800 flex items-center gap-2">
+                <i class="fa-solid fa-circle-dot text-blue-500 text-sm"></i> 4.3.1 Linear Independence in a General Vector Space (一般向量空間的線性獨立，Pages 1 - 3)
+            </h3>
 
-            <div class="p-4 bg-blue-50/60 rounded-xl border border-blue-200 space-y-2.5">
-                <strong class="text-blue-950 text-base block">Basis Definition & Key Theorems (基底定義與核心定理，Pages 4 - 23)</strong>
-                <p class="text-slate-800">
-                    <strong>DEFINITION (Page 4):</strong> Let $H$ be a subspace of $V$. $\mathcal{B} = \{\mathbf{b}_1, \dots, \mathbf{b}_p\}$ in $V$ is a <strong>basis</strong> for $H$ if (i) $\mathcal{B}$ is linearly independent and (ii) $H = \text{Span}\{\mathbf{b}_1, \dots, \mathbf{b}_p\}$.
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <div class="p-4 bg-white rounded-lg border border-blue-200 space-y-2.5 text-slate-800 leading-relaxed">
+                    <p>
+                        In this section we identify and study the subsets that span a vector space $V$ or a subspace $H$ as "efficiently" as possible[cite: 274]. The key idea is that of <strong>linear independence (線性獨立)</strong>, defined as in $\mathbb{R}^n$[cite: 274].
+                    </p>
+                    <p>
+                        An <strong>indexed set of vectors (索引向量集)</strong> $\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$ in $V$ is said to be <strong>linearly independent (線性獨立的)</strong> if the vector equation[cite: 274]
+                    </p>
+                    <div class="p-2.5 bg-blue-50/70 rounded-lg border border-blue-200 font-mono text-center text-blue-950 font-bold">
+                        $$c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \cdots + c_p\mathbf{v}_p = \mathbf{0} \quad \text{(1)}$$
+                    </div>
+                    <p>
+                        has only the <strong>trivial solution (平凡解)</strong>, $c_1 = 0, \dots, c_p = 0$[cite: 274]. The set $\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$ is said to be <strong>linearly dependent (線性相依的)</strong> if (1) has a <strong>nontrivial solution (非平凡解)</strong>, that is, if there are some <strong>weights (權重)</strong>, $c_1, \dots, c_p$, not all zero, such that (1) holds[cite: 274]. In such a case, (1) is called a <strong>linear dependence relation (線性相依關係)</strong> among $\mathbf{v}_1, \dots, \mathbf{v}_p$[cite: 274].
+                    </p>
+                </div>
+
+                <!-- Page 2: Basic Facts & THEOREM 4 -->
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-3 text-slate-800 leading-relaxed">
+                    <p>
+                        Just as in $\mathbb{R}^n$, a set containing a single vector $\mathbf{v}$ is linearly independent if and only if $\mathbf{v} \ne \mathbf{0}$[cite: 275]. Also, a set of two vectors is linearly dependent if and only if one of the vectors is a multiple of the other[cite: 275]. And any set containing the zero vector is linearly dependent[cite: 275].
+                    </p>
+                    <div class="p-3.5 bg-blue-50/50 rounded-lg border border-blue-200 space-y-1.5">
+                        <strong class="text-blue-950 text-base font-bold block">THEOREM 4 (定理 4，Page 2)</strong>
+                        <p>
+                            An indexed set $\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$ of two or more vectors, with $\mathbf{v}_1 \ne \mathbf{0}$, is linearly dependent if and only if some $\mathbf{v}_j$ (with $j > 1$) is a linear combination of the preceding vectors, $\mathbf{v}_1, \dots, \mathbf{v}_{j-1}$[cite: 275].
+                        </p>
+                    </div>
+                    <p class="text-xs md:text-sm text-slate-600">
+                        The main difference between linear dependence in $\mathbb{R}^n$ and in a general vector space is that when the vectors are not $n$-tuples, the homogeneous equation (1) usually cannot be written as a system of $n$ linear equations[cite: 276]. That is, the vectors cannot be made into the columns of a matrix $A$ in order to study the equation $A\mathbf{x} = \mathbf{0}$[cite: 276]. We must rely instead on the definition of linear dependence and on Theorem 4[cite: 276].
+                    </p>
+                </div>
+
+                <!-- Expandable EXAMPLES 1 & 2 (Page 3) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-3-1-2')" class="w-full p-4 text-left font-bold text-blue-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-wave-sine mr-2 text-blue-600"></i> EXAMPLES 1 & 2 (Page 3): Linear Dependence & Independence in $\mathbb{P}$ and $C[0,1]$ (點擊展開)</span>
+                        <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                    </button>
+                    <div id="ex-4-3-1-2" class="toggle-content p-5 space-y-3 text-sm text-slate-700 border-t border-slate-200 bg-white">
+                        <p class="leading-relaxed">
+                            <strong>EXAMPLE 1:</strong> Let $p_1(t) = 1$, $p_2(t) = t$, and $p_3(t) = 4 - t$[cite: 276]. Then $\{p_1, p_2, p_3\}$ is linearly dependent in $\mathbb{P}$ because $p_3 = 4p_1 - p_2$[cite: 276].
+                        </p>
+                        <p class="leading-relaxed pt-2 border-t border-slate-100">
+                            <strong>EXAMPLE 2:</strong> The set $\{\sin t, \cos t\}$ is linearly independent in $C[0,1]$, the space of all continuous functions on $0 \le t \le 1$, because $\sin t$ and $\cos t$ are not multiples of one another as vectors in $C[0,1]$[cite: 276]. That is, there is no scalar $c$ such that $\cos t = c \cdot \sin t$ for all $t$ in $[0,1]$[cite: 276]. (Look at the graphs of $\sin t$ and $\cos t$.) However, $\{\sin t \cos t, \sin 2t\}$ is linearly dependent because of the identity: $\sin 2t = 2\sin t \cos t$, for all $t$[cite: 276].
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4.3.2 Bases & Standard Bases -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-blue-800 flex items-center gap-2">
+                <i class="fa-solid fa-cubes text-blue-500 text-sm"></i> 4.3.2 Bases & Standard Bases (基底與標準基底，Pages 4 - 9)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <!-- DEFINITION: Basis (Page 4) -->
+                <div class="p-4 bg-white rounded-lg border border-blue-200 space-y-2.5 text-slate-800 leading-relaxed">
+                    <strong class="text-blue-900 text-base font-bold block">DEFINITION (基底定義，Page 4)</strong>
+                    <p>
+                        Let $H$ be a subspace of a vector space $V$[cite: 277]. An indexed set of vectors $\mathcal{B} = \{\mathbf{b}_1, \dots, \mathbf{b}_p\}$ in $V$ is a <strong>basis (基底)</strong> for $H$ if[cite: 277]
+                    </p>
+                    <div class="space-y-1.5 pl-3 border-l-2 border-blue-400">
+                        <p><strong>(i)</strong> $\mathcal{B}$ is a <strong>linearly independent set (線性獨立集)</strong>, and[cite: 277]</p>
+                        <p><strong>(ii)</strong> the subspace spanned by $\mathcal{B}$ coincides with $H$; that is, $\text{Span}\{\mathbf{b}_1, \dots, \mathbf{b}_p\} = H$[cite: 277].</p>
+                    </div>
+                    <p class="text-xs md:text-sm text-slate-700">
+                        The definition of a basis applies to the case when $H = V$, because any vector space is a subspace of itself[cite: 277]. Thus a basis of $V$ is a linearly independent set that spans $V$[cite: 277]. Observe that when $H \ne V$, condition (ii) includes the requirement that each of the vectors $\mathbf{b}_1, \dots, \mathbf{b}_p$ must belong to $H$, because $\text{Span}\{\mathbf{b}_1, \dots, \mathbf{b}_p\}$ contains $\mathbf{b}_1, \dots, \mathbf{b}_p$, as shown in Section 4.1[cite: 277].
+                    </p>
+                </div>
+
+                <!-- Expandable EXAMPLES 3, 4 & FIGURE 1 (Pages 5 - 6) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-3-3-4')" class="w-full p-4 text-left font-bold text-blue-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-vector-square mr-2 text-blue-600"></i> EXAMPLES 3 & 4 + FIGURE 1 (Pages 5 - 6): Invertible Matrix Columns & Standard Basis of $\mathbb{R}^n$ (點擊展開)</span>
+                        <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples & Figure</span>
+                    </button>
+                    <div id="ex-4-3-3-4" class="toggle-content p-5 space-y-4 text-sm text-slate-700 border-t border-slate-200 bg-white">
+                        <p class="leading-relaxed">
+                            <strong>EXAMPLE 3:</strong> Let $A$ be an <strong>invertible (可逆的)</strong> $n \times n$ matrix—say, $A = [\mathbf{a}_1 \;\; \cdots \;\; \mathbf{a}_n]$[cite: 278]. Then the columns of $A$ form a basis for $\mathbb{R}^n$ because they are linearly independent and they span $\mathbb{R}^n$, by the Invertible Matrix Theorem[cite: 278].
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center pt-2 border-t border-slate-100">
+                            <div class="md:col-span-2 space-y-2 leading-relaxed">
+                                <p>
+                                    <strong>EXAMPLE 4:</strong> Let $\mathbf{e}_1, \dots, \mathbf{e}_n$ be the columns of the $n \times n$ <strong>identity matrix (單位矩陣)</strong>, $I_n$[cite: 278]. That is,[cite: 278]
+                                </p>
+                                <div class="font-mono text-xs md:text-sm text-center text-blue-950 py-1">
+                                    $$\mathbf{e}_1 = \begin{bmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{bmatrix}, \quad \mathbf{e}_2 = \begin{bmatrix} 0 \\ 1 \\ \vdots \\ 0 \end{bmatrix}, \quad \dots, \quad \mathbf{e}_n = \begin{bmatrix} 0 \\ \vdots \\ 0 \\ 1 \end{bmatrix}$$
+                                </div>
+                                <p>
+                                    The set $\{\mathbf{e}_1, \dots, \mathbf{e}_n\}$ is called the <strong>standard basis (標準基底)</strong> for $\mathbb{R}^n$ (Figure 1)[cite: 278].
+                                </p>
+                            </div>
+
+                            <!-- FIGURE 1 SVG (Page 6) -->
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
+                                <svg viewBox="0 0 240 220" class="w-full max-w-[220px] mx-auto bg-white rounded border border-slate-200">
+                                    <defs>
+                                        <marker id="arr-fig1-ax" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e293b"/>
+                                        </marker>
+                                        <marker id="arr-fig1-e" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#00a6e8"/>
+                                        </marker>
+                                    </defs>
+                                    <!-- Origin at (105, 125) -->
+                                    <!-- x3 axis -->
+                                    <line x1="105" y1="125" x2="105" y2="18" stroke="#1e293b" stroke-width="1.4" marker-end="url(#arr-fig1-ax)"/>
+                                    <text x="90" y="22" font-family="Georgia, 'Times New Roman', serif" font-size="15" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal">3</tspan></text>
+                                    <!-- x1 axis -->
+                                    <line x1="105" y1="125" x2="22" y2="202" stroke="#1e293b" stroke-width="1.4" marker-end="url(#arr-fig1-ax)"/>
+                                    <text x="14" y="210" font-family="Georgia, 'Times New Roman', serif" font-size="15" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal">1</tspan></text>
+                                    <!-- x2 axis -->
+                                    <line x1="105" y1="125" x2="215" y2="125" stroke="#1e293b" stroke-width="1.4" marker-end="url(#arr-fig1-ax)"/>
+                                    <text x="218" y="130" font-family="Georgia, 'Times New Roman', serif" font-size="15" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal">2</tspan></text>
+
+                                    <!-- e3 vector -->
+                                    <line x1="105" y1="125" x2="105" y2="66" stroke="#00a6e8" stroke-width="2.4" marker-end="url(#arr-fig1-e)"/>
+                                    <circle cx="105" cy="64" r="3.6" fill="#00a6e8"/>
+                                    <text x="113" y="68" font-family="Georgia, 'Times New Roman', serif" font-size="15" font-weight="bold" fill="#0f172a">e<tspan dy="3" font-size="10">3</tspan></text>
+
+                                    <!-- e1 vector -->
+                                    <line x1="105" y1="125" x2="58" y2="169" stroke="#00a6e8" stroke-width="2.4" marker-end="url(#arr-fig1-e)"/>
+                                    <circle cx="56" cy="171" r="3.6" fill="#00a6e8"/>
+                                    <text x="64" y="176" font-family="Georgia, 'Times New Roman', serif" font-size="15" font-weight="bold" fill="#0f172a">e<tspan dy="3" font-size="10">1</tspan></text>
+
+                                    <!-- e2 vector -->
+                                    <line x1="105" y1="125" x2="162" y2="125" stroke="#00a6e8" stroke-width="2.4" marker-end="url(#arr-fig1-e)"/>
+                                    <circle cx="164" cy="125" r="3.6" fill="#00a6e8"/>
+                                    <text x="158" y="144" font-family="Georgia, 'Times New Roman', serif" font-size="15" font-weight="bold" fill="#0f172a">e<tspan dy="3" font-size="10">2</tspan></text>
+                                </svg>
+                                <div class="text-left max-w-[220px] mx-auto text-xs leading-snug">
+                                    <span class="font-bold text-slate-900 block tracking-wide">FIGURE 1</span>
+                                    <span class="text-slate-800" style="font-family: Georgia, 'Times New Roman', serif;">The standard basis for $\mathbb{R}^3$.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expandable EXAMPLES 5, 6 & FIGURE 2 (Pages 7 - 9) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-3-5-6')" class="w-full p-4 text-left font-bold text-blue-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-superscript mr-2 text-blue-600"></i> EXAMPLES 5 & 6 + FIGURE 2 (Pages 7 - 9): Basis in $\mathbb{R}^3$ & Standard Basis $\{1, t, t^2, \dots, t^n\}$ for $\mathbb{P}_n$ (點擊展開)</span>
+                        <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples & Figure</span>
+                    </button>
+                    <div id="ex-4-3-5-6" class="toggle-content p-5 space-y-4 text-sm text-slate-700 border-t border-slate-200 bg-white">
+                        <div class="space-y-2">
+                            <p class="leading-relaxed">
+                                <strong>EXAMPLE 5 (Page 7):</strong> Let $\mathbf{v}_1 = \begin{bmatrix} 3 \\ 0 \\ -6 \end{bmatrix}$, $\mathbf{v}_2 = \begin{bmatrix} -4 \\ 1 \\ 7 \end{bmatrix}$, and $\mathbf{v}_3 = \begin{bmatrix} -2 \\ 1 \\ 5 \end{bmatrix}$. Determine if $\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$ is a basis for $\mathbb{R}^3$[cite: 280].
+                            </p>
+                            <p class="leading-relaxed bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                <strong>SOLUTION:</strong> Since there are exactly three vectors here in $\mathbb{R}^3$, we can use any of several methods to determine if the matrix $A = [\mathbf{v}_1 \;\; \mathbf{v}_2 \;\; \mathbf{v}_3]$ is invertible[cite: 280]. For instance, two row replacements reveal that $A$ has three <strong>pivot positions (主元位置)</strong>[cite: 280]. Thus $A$ is invertible[cite: 280]. As in Example 3, the columns of $A$ form a basis for $\mathbb{R}^3$[cite: 280].
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center pt-3 border-t border-slate-100">
+                            <div class="md:col-span-2 space-y-2 leading-relaxed">
+                                <p>
+                                    <strong>EXAMPLE 6 (Pages 7 - 8):</strong> Let $S = \{1, t, t^2, \dots, t^n\}$. Verify that $S$ is a basis for $\mathbb{P}_n$. This basis is called the <strong>standard basis (標準基底)</strong> for $\mathbb{P}_n$[cite: 280].
+                                </p>
+                                <p class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                    <strong>SOLUTION:</strong> Certainly $S$ spans $\mathbb{P}_n$[cite: 281]. To show that $S$ is linearly independent, suppose that $c_0, \dots, c_n$ satisfy[cite: 281]
+                                </p>
+                                <div class="font-mono text-xs md:text-sm text-center text-blue-950 py-1">
+                                    $$c_0 \cdot 1 + c_1 t + c_2 t^2 + \cdots + c_n t^n = \mathbf{0}(t) \quad \text{(2)}$$
+                                </div>
+                                <p>
+                                    This equality means that the polynomial on the left has the same values as the <strong>zero polynomial (零多項式)</strong> on the right[cite: 281]. A fundamental theorem in algebra says that the only polynomial in $\mathbb{P}_n$ with more than $n$ zeros is the zero polynomial[cite: 281]. That is, equation (2) holds for all $t$ only if $c_0 = \cdots = c_n = 0$[cite: 281]. This proves that $S$ is linearly independent and hence is a basis for $\mathbb{P}_n$[cite: 281]. See Figure 2[cite: 281].
+                                </p>
+                            </div>
+
+                            <!-- FIGURE 2 SVG (Page 9) -->
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
+                                <svg viewBox="0 0 240 225" class="w-full max-w-[220px] mx-auto bg-white rounded border border-slate-200">
+                                    <defs>
+                                        <marker id="arr-fig2" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e293b"/>
+                                        </marker>
+                                    </defs>
+                                    <!-- t-axis at y = 165, y-axis at x = 120 -->
+                                    <line x1="15" y1="165" x2="225" y2="165" stroke="#1e293b" stroke-width="1.3" marker-end="url(#arr-fig2)"/>
+                                    <text x="224" y="170" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">t</text>
+                                    <line x1="120" y1="212" x2="120" y2="14" stroke="#1e293b" stroke-width="1.3" marker-end="url(#arr-fig2)"/>
+                                    <text x="128" y="20" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">y</text>
+
+                                    <!-- y = 1 at y = 122 -->
+                                    <line x1="25" y1="122" x2="215" y2="122" stroke="#00a6e8" stroke-width="2.2"/>
+                                    <text x="176" y="116" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#0f172a">y = <tspan font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace" font-weight="700">1</tspan></text>
+
+                                    <!-- y = t: through (120, 165) and (163, 122) -->
+                                    <line x1="55" y1="205" x2="205" y2="80" stroke="#00a6e8" stroke-width="2.2"/>
+                                    <text x="192" y="76" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#0f172a">y = t</text>
+
+                                    <!-- y = t^2: vertex at (120, 165), passes (163, 122) and (77, 122) -->
+                                    <path d="M 55 26 Q 120 304 185 26" fill="none" stroke="#00a6e8" stroke-width="2.2"/>
+                                    <text x="158" y="34" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#0f172a">y = t<tspan dy="-4" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace" font-weight="700">2</tspan></text>
+                                </svg>
+                                <div class="text-left max-w-[220px] mx-auto text-xs leading-snug">
+                                    <span class="font-bold text-slate-900 block tracking-wide">FIGURE 2</span>
+                                    <span class="text-slate-800" style="font-family: Georgia, 'Times New Roman', serif;">The standard basis for $\mathbb{P}_2$.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4.3.3 The Spanning Set Theorem -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-blue-800 flex items-center gap-2">
+                <i class="fa-solid fa-filter text-blue-500 text-sm"></i> 4.3.3 The Spanning Set Theorem (生成集定理，Pages 10 - 14)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <p class="text-slate-700 leading-relaxed">
+                    As we will see, a basis is an "efficient" spanning set that contains no unnecessary vectors[cite: 283]. In fact, a basis can be constructed from a spanning set by discarding unneeded vectors[cite: 283].
                 </p>
-                <p class="text-slate-800">
-                    <strong>Standard Bases:</strong> Columns of invertible $n \times n$ matrix form a basis for $\mathbb{R}^n$ (Ex. 3, Ex. 5); $\{\mathbf{e}_1, \dots, \mathbf{e}_n\}$ is the standard basis for $\mathbb{R}^n$ (Ex. 4); $\{1, t, t^2, \dots, t^n\}$ is the standard basis for $\mathbb{P}_n$ (Ex. 6).
+
+                <!-- Expandable EXAMPLE 7 (Pages 10 - 11) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-3-7')" class="w-full p-4 text-left font-bold text-blue-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-scissors mr-2 text-blue-600"></i> EXAMPLE 7 (Pages 10 - 11): Discarding Redundant Vector $\mathbf{v}_3 = 5\mathbf{v}_1 + 3\mathbf{v}_2$ to Form a Basis (點擊展開)</span>
+                        <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example</span>
+                    </button>
+                    <div id="ex-4-3-7" class="toggle-content p-5 space-y-2.5 text-sm text-slate-700 border-t border-slate-200 bg-white">
+                        <p class="leading-relaxed">
+                            Let $\mathbf{v}_1 = \begin{bmatrix} 0 \\ 2 \\ -1 \end{bmatrix}$, $\mathbf{v}_2 = \begin{bmatrix} 2 \\ 2 \\ 0 \end{bmatrix}$, $\mathbf{v}_3 = \begin{bmatrix} 6 \\ 16 \\ -5 \end{bmatrix}$, and $H = \text{Span}\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$. Note that $\mathbf{v}_3 = 5\mathbf{v}_1 + 3\mathbf{v}_2$, and show that $\text{Span}\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\} = \text{Span}\{\mathbf{v}_1, \mathbf{v}_2\}$. Then find a basis for the subspace $H$[cite: 283].
+                        </p>
+                        <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
+                            <p><strong>SOLUTION:</strong> Every vector in $\text{Span}\{\mathbf{v}_1, \mathbf{v}_2\}$ belongs to $H$ because[cite: 284]</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-slate-800">$c_1\mathbf{v}_1 + c_2\mathbf{v}_2 = c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + 0\mathbf{v}_3$[cite: 284]</p>
+                            <p>Now let $\mathbf{x}$ be any vector in $H$—say, $\mathbf{x} = c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + c_3\mathbf{v}_3$. Since $\mathbf{v}_3 = 5\mathbf{v}_1 + 3\mathbf{v}_2$, we may substitute[cite: 284]</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-blue-950">$\mathbf{x} = c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + c_3(5\mathbf{v}_1 + 3\mathbf{v}_2) = (c_1 + 5c_3)\mathbf{v}_1 + (c_2 + 3c_3)\mathbf{v}_2$[cite: 284]</p>
+                            <p>Thus $\mathbf{x}$ is in $\text{Span}\{\mathbf{v}_1, \mathbf{v}_2\}$, so every vector in $H$ already belongs to $\text{Span}\{\mathbf{v}_1, \mathbf{v}_2\}$. We conclude that $H$ and $\text{Span}\{\mathbf{v}_1, \mathbf{v}_2\}$ are actually the same set of vectors. It follows that $\{\mathbf{v}_1, \mathbf{v}_2\}$ is a basis of $H$ since $\{\mathbf{v}_1, \mathbf{v}_2\}$ is obviously linearly independent[cite: 284].</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- THEOREM 5 & Expandable PROOF (Pages 12 - 14) -->
+                <div class="p-4 bg-white rounded-lg border border-blue-200 space-y-3 text-slate-800 leading-relaxed">
+                    <strong class="text-blue-900 text-base font-bold block">THEOREM 5 — The Spanning Set Theorem (生成集定理，Page 12)</strong>
+                    <p>
+                        Let $S = \{\mathbf{v}_1, \dots, \mathbf{v}_p\}$ be a set in $V$, and let $H = \text{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$[cite: 285].
+                    </p>
+                    <div class="space-y-1.5 pl-3 border-l-2 border-blue-400">
+                        <p><strong>a.</strong> If one of the vectors in $S$—say, $\mathbf{v}_k$—is a linear combination of the remaining vectors in $S$, then the set formed from $S$ by removing $\mathbf{v}_k$ still spans $H$[cite: 285].</p>
+                        <p><strong>b.</strong> If $H \ne \{\mathbf{0}\}$, some subset of $S$ is a basis for $H$[cite: 285].</p>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                        <button onclick="toggleCard('proof-4-3-th5')" class="w-full p-3.5 text-left font-bold text-blue-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                            <span><i class="fa-solid fa-file-signature mr-2 text-blue-600"></i> PROOF OF THEOREM 5 (Pages 13 - 14): Parts (a) and (b) (點擊展開)</span>
+                            <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof</span>
+                        </button>
+                        <div id="proof-4-3-th5" class="toggle-content p-4 space-y-3 text-slate-700 border-t border-slate-200 bg-white">
+                            <div>
+                                <strong class="text-blue-900 block">a. (Page 13)</strong>
+                                <p>By rearranging the list of vectors in $S$, if necessary, we may suppose that $\mathbf{v}_p$ is a linear combination of $\mathbf{v}_1, \dots, \mathbf{v}_{p-1}$—say,[cite: 286]</p>
+                                <p class="font-mono text-xs md:text-sm text-center text-slate-800 py-1">$\mathbf{v}_p = a_1\mathbf{v}_1 + \cdots + a_{p-1}\mathbf{v}_{p-1}$ <span class="text-slate-500 ml-2">(3)</span>[cite: 286]</p>
+                                <p>Given any $\mathbf{x}$ in $H$, we may write[cite: 286]</p>
+                                <p class="font-mono text-xs md:text-sm text-center text-slate-800 py-1">$\mathbf{x} = c_1\mathbf{v}_1 + \cdots + c_{p-1}\mathbf{v}_{p-1} + c_p\mathbf{v}_p$ <span class="text-slate-500 ml-2">(4)</span>[cite: 286]</p>
+                                <p>for suitable scalars $c_1, \dots, c_p$. Substituting the expression for $\mathbf{v}_p$ from (3) into (4), it is easy to see that $\mathbf{x}$ is a linear combination of $\mathbf{v}_1, \dots, \mathbf{v}_{p-1}$. Thus $\{\mathbf{v}_1, \dots, \mathbf{v}_{p-1}\}$ spans $H$, because $\mathbf{x}$ was an arbitrary element of $H$[cite: 286].</p>
+                            </div>
+                            <div class="pt-2 border-t border-slate-100">
+                                <strong class="text-blue-900 block">b. (Page 14)</strong>
+                                <p>If the original spanning set $S$ is linearly independent, then it is already a basis for $H$. Otherwise, one of the vectors in $S$ depends on the others and can be deleted, by part (a). So long as there are two or more vectors in the spanning set, we can repeat this process until the spanning set is linearly independent and hence is a basis for $H$. If the spanning set is eventually reduced to one vector, that vector will be nonzero (and hence linearly independent) because $H \ne \{\mathbf{0}\}$[cite: 287].</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4.3.4 Bases for Nul A and Col A, Theorem 6 & Two Views of a Basis -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-blue-800 flex items-center gap-2">
+                <i class="fa-solid fa-table-columns text-blue-500 text-sm"></i> 4.3.4 Bases for $\text{Nul } A$ and $\text{Col } A$, Theorem 6 &amp; Two Views (Pages 15 - 23)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <p class="text-slate-700 leading-relaxed">
+                    We already know how to find vectors that span the null space of a matrix $A$. The discussion in Section 4.2 pointed out that our method always produces a linearly independent set when $\text{Nul } A$ contains nonzero vectors. So, in this case, that method produces a basis for $\text{Nul } A$[cite: 288].
                 </p>
-                <p class="text-slate-800">
-                    <strong>THEOREM 5 — Spanning Set Theorem (Page 12):</strong> For $S = \{\mathbf{v}_1, \dots, \mathbf{v}_p\}$ and $H = \text{Span } S$: (a) if $\mathbf{v}_k$ is a linear combination of remaining vectors in $S$, removing $\mathbf{v}_k$ still spans $H$; (b) if $H \ne \{\mathbf{0}\}$, some subset of $S$ is a basis for $H$.
-                </p>
-                <p class="text-slate-800">
-                    <strong>THEOREM 6 (Page 20):</strong> The <strong>pivot columns of $A$</strong> form a basis for $\text{Col } A$. (Warning: use pivot columns of the original matrix $A$, not its echelon form $B$, because row operations can alter column space.)
-                </p>
+
+                <!-- Expandable EXAMPLES 8 & 9 + Dependence Relation Note (Pages 15 - 19) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-3-8-9')" class="w-full p-4 text-left font-bold text-blue-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-columns mr-2 text-blue-600"></i> EXAMPLES 8 & 9 + Column Dependence Preservation (Pages 15 - 19): Basis for $\text{Col } B$ and $\text{Col } A$ (點擊展開)</span>
+                        <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                    </button>
+                    <div id="ex-4-3-8-9" class="toggle-content p-5 space-y-4 text-sm text-slate-700 border-t border-slate-200 bg-white">
+                        <div class="space-y-2">
+                            <p class="leading-relaxed">
+                                <strong>EXAMPLE 8 (Pages 15 - 16):</strong> Find a basis for $\text{Col } B$, where
+                            </p>
+                            <div class="font-mono text-xs md:text-sm text-center text-slate-800 py-1">
+                                $$B = [\mathbf{b}_1 \;\; \mathbf{b}_2 \;\; \cdots \;\; \mathbf{b}_5] = \begin{bmatrix} 1 & 4 & 0 & 2 & 0 \\ 0 & 0 & 1 & -1 & 0 \\ 0 & 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 & 0 \end{bmatrix}$$
+                            </div>
+                            <p class="leading-relaxed bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                <strong>SOLUTION:</strong> Each nonpivot column of $B$ is a linear combination of the pivot columns. In fact, $\mathbf{b}_2 = 4\mathbf{b}_1$ and $\mathbf{b}_4 = 2\mathbf{b}_1 - \mathbf{b}_3$. By the Spanning Set Theorem, we may discard $\mathbf{b}_2$ and $\mathbf{b}_4$, and $\{\mathbf{b}_1, \mathbf{b}_3, \mathbf{b}_5\}$ will still span $\text{Col } B$. Let $S = \{\mathbf{b}_1, \mathbf{b}_3, \mathbf{b}_5\} = \left\{ \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}, \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}, \begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \end{bmatrix} \right\}$. Since $\mathbf{b}_1 \ne \mathbf{0}$ and no vector in $S$ is a linear combination of the vectors that precede it, $S$ is linearly independent (Theorem 4). Thus $S$ is a basis for $\text{Col } B$.
+                            </p>
+                        </div>
+
+                        <div class="p-3.5 bg-blue-50/50 rounded-lg border border-blue-200 space-y-1.5 text-xs md:text-sm leading-relaxed">
+                            <strong class="text-blue-950 block">Preservation of Linear Dependence Relations Under Row Reduction (Page 17):</strong>
+                            <p>
+                                What about a matrix $A$ that is not in reduced echelon form? Recall that any linear dependence relationship among the columns of $A$ can be expressed in the form $A\mathbf{x} = \mathbf{0}$, where $\mathbf{x}$ is a column of weights. (If some columns are not involved in a particular dependence relation, then their weights are zero.) When $A$ is row reduced to a matrix $B$, the columns of $B$ are often totally different from the columns of $A$. However, the equations $A\mathbf{x} = \mathbf{0}$ and $B\mathbf{x} = \mathbf{0}$ have <strong>exact same set of solutions</strong>. If $A = [\mathbf{a}_1 \;\; \cdots \;\; \mathbf{a}_n]$ and $B = [\mathbf{b}_1 \;\; \cdots \;\; \mathbf{b}_n]$, then the vector equations
+                            </p>
+                            <p class="font-mono text-center text-blue-950 py-1">$x_1\mathbf{a}_1 + \cdots + x_n\mathbf{a}_n = \mathbf{0}$ and $x_1\mathbf{b}_1 + \cdots + x_n\mathbf{b}_n = \mathbf{0}$</p>
+                            <p>
+                                also have the same set of solutions. That is, the columns of $A$ have <strong>exact same linear dependence relationships</strong> as the columns of $B$.
+                            </p>
+                        </div>
+
+                        <div class="space-y-2 pt-3 border-t border-slate-100">
+                            <p class="leading-relaxed">
+                                <strong>EXAMPLE 9 (Pages 18 - 19):</strong> It can be shown that the matrix
+                            </p>
+                            <div class="font-mono text-xs md:text-sm text-center text-slate-800 py-1">
+                                $$A = [\mathbf{a}_1 \;\; \mathbf{a}_2 \;\; \cdots \;\; \mathbf{a}_5] = \begin{bmatrix} 1 & 4 & 0 & 2 & -1 \\ 3 & 12 & 1 & 5 & 5 \\ 2 & 8 & 1 & 3 & 2 \\ 5 & 20 & 2 & 8 & 8 \end{bmatrix}$$
+                            </div>
+                            <p class="leading-relaxed bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                <strong>SOLUTION:</strong> In Example 8 we saw that $\mathbf{b}_2 = 4\mathbf{b}_1$ and $\mathbf{b}_4 = 2\mathbf{b}_1 - \mathbf{b}_3$, so we can expect that $\mathbf{a}_2 = 4\mathbf{a}_1$ and $\mathbf{a}_4 = 2\mathbf{a}_1 - \mathbf{a}_3$. Check that this is indeed the case! Thus we may discard $\mathbf{a}_2$ and $\mathbf{a}_4$ when selecting a minimal spanning set for $\text{Col } A$. In fact, $\{\mathbf{a}_1, \mathbf{a}_3, \mathbf{a}_5\}$ must be linearly independent because any linear dependence relationship among $\mathbf{a}_1, \mathbf{a}_3, \mathbf{a}_5$ would imply a linear dependence relationship among $\mathbf{b}_1, \mathbf{b}_3, \mathbf{b}_5$. But we know that $\{\mathbf{b}_1, \mathbf{b}_3, \mathbf{b}_5\}$ is a linearly independent set. Thus $\{\mathbf{a}_1, \mathbf{a}_3, \mathbf{a}_5\}$ is a basis for $\text{Col } A$. The columns we have used for this basis are the <strong>pivot columns (主元列)</strong> of $A$.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- THEOREM 6 + Expandable PROOF + WARNING (Pages 20 - 21) -->
+                <div class="p-4 bg-white rounded-lg border border-blue-200 space-y-3 text-slate-800 leading-relaxed">
+                    <strong class="text-blue-900 text-base font-bold block">THEOREM 6 (定理 6，Page 20)</strong>
+                    <p>
+                        The <strong>pivot columns (主元列)</strong> of a matrix $A$ form a basis for $\text{Col } A$.
+                    </p>
+
+                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                        <button onclick="toggleCard('proof-4-3-th6')" class="w-full p-3.5 text-left font-bold text-blue-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                            <span><i class="fa-solid fa-file-signature mr-2 text-blue-600"></i> PROOF OF THEOREM 6 (Page 20) (點擊展開)</span>
+                            <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof</span>
+                        </button>
+                        <div id="proof-4-3-th6" class="toggle-content p-4 space-y-2 text-slate-700 border-t border-slate-200 bg-white">
+                            <p>
+                                The general proof uses the arguments discussed above. Let $B$ be the reduced echelon form of $A$. The set of pivot columns of $B$ is linearly independent, for no vector in the set is a linear combination of the vectors that precede it. Since $A$ is row equivalent to $B$, the pivot columns of $A$ are linearly independent as well, because any linear dependence relation among the columns of $A$ corresponds to a linear dependence relation among the columns of $B$. For this same reason, every nonpivot column of $A$ is a linear combination of the pivot columns of $A$. Thus the nonpivot columns of $A$ may be discarded from the spanning set for $\text{Col } A$, by the Spanning Set Theorem. This leaves the pivot columns of $A$ as a basis for $\text{Col } A$.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="p-3.5 bg-amber-50/80 rounded-lg border border-amber-300 text-xs md:text-sm text-amber-950 leading-relaxed">
+                        <strong>Warning (Page 21):</strong> The pivot columns of a matrix $A$ are evident when $A$ has been reduced only to echelon form. But, be careful to use the <strong>pivot columns of $A$ itself</strong> for the basis of $\text{Col } A$. Row operations can change the column space of a matrix. The columns of an echelon form $B$ of $A$ are often not in the column space of $A$. For instance, the columns of matrix $B$ in Example 8 all have zeros in their last entries, so they cannot span the column space of matrix $A$ in Example 9.
+                    </div>
+                </div>
+
+                <!-- Two Views of a Basis & Expandable EXAMPLE 10 (Pages 22 - 23) -->
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-3 text-slate-800 leading-relaxed">
+                    <strong class="text-blue-900 text-base font-bold block">Two Views of a Basis (基底的兩個觀點，Page 22)</strong>
+                    <p>
+                        When the Spanning Set Theorem is used, the deletion of vectors from a spanning set must stop when the set becomes linearly independent. If an additional vector is deleted, it will not be a linear combination of the remaining vectors, and hence the smaller set will no longer span $V$. Thus <strong>a basis is a spanning set that is as small as possible</strong>.
+                    </p>
+                    <p>
+                        A basis is also <strong>a linearly independent set that is as large as possible</strong>. If $S$ is a basis for $V$, and if $S$ is enlarged by one vector—say, $\mathbf{w}$—from $V$, then the new set cannot be linearly independent, because $S$ spans $V$, and $\mathbf{w}$ is therefore a linear combination of the elements in $S$.
+                    </p>
+
+                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                        <button onclick="toggleCard('ex-4-3-10')" class="w-full p-4 text-left font-bold text-blue-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                            <span><i class="fa-solid fa-arrows-left-right mr-2 text-blue-600"></i> EXAMPLE 10 (Page 23): Enlarging an Independent Set vs. Shrinking a Spanning Set in $\mathbb{R}^3$ (點擊展開)</span>
+                            <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example</span>
+                        </button>
+                        <div id="ex-4-3-10" class="toggle-content p-5 space-y-3 text-sm text-slate-700 border-t border-slate-200 bg-white">
+                            <p class="leading-relaxed">
+                                The following three sets in $\mathbb{R}^3$ show how a linearly independent set can be enlarged to a basis and how further enlargement destroys the linear independence of the set. Also, a spanning set can be shrunk to a basis, but further shrinking destroys the spanning property.
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 font-mono text-xs text-center">
+                                <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
+                                    <div>$$\left\{ \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}, \begin{bmatrix} 2 \\ 3 \\ 0 \end{bmatrix} \right\}$$</div>
+                                    <span class="font-sans text-xs font-bold text-amber-700 block">Linearly independent<br>but does not span $\mathbb{R}^3$</span>
+                                </div>
+                                <div class="p-3 bg-blue-50/70 rounded-lg border border-blue-200 space-y-2">
+                                    <div>$$\left\{ \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}, \begin{bmatrix} 2 \\ 3 \\ 0 \end{bmatrix}, \begin{bmatrix} 4 \\ 5 \\ 6 \end{bmatrix} \right\}$$</div>
+                                    <span class="font-sans text-xs font-bold text-blue-900 block">A basis<br>for $\mathbb{R}^3$</span>
+                                </div>
+                                <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
+                                    <div>$$\left\{ \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}, \begin{bmatrix} 2 \\ 3 \\ 0 \end{bmatrix}, \begin{bmatrix} 4 \\ 5 \\ 6 \end{bmatrix}, \begin{bmatrix} 7 \\ 8 \\ 9 \end{bmatrix} \right\}$$</div>
+                                    <span class="font-sans text-xs font-bold text-rose-700 block">Spans $\mathbb{R}^3$ but is<br>linearly dependent</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
