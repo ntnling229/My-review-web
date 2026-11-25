@@ -2208,7 +2208,7 @@
                     </div>
                 </div>
 
-                <!-- Summary Card: Change-of-Coordinates Matrix P_B (Pages 13 - 14) -->
+                <!--
                 <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2.5 text-slate-800 leading-relaxed">
                     <strong class="text-indigo-900 text-base font-bold block">Change-of-Coordinates Matrix $P_{\mathcal{B}}$ &amp; Core Properties (座標變換矩陣總結，Pages 13 - 14)</strong>
                     <p>
@@ -2221,6 +2221,25 @@
                         <p><strong>1. From $\mathcal{B}$-coordinates to Standard Coordinates:</strong> $P_{\mathcal{B}}$ is the <strong>change-of-coordinates matrix (座標變換矩陣)</strong> from $\mathcal{B}$ to the standard basis in $\mathbb{R}^n$; left-multiplication by $P_{\mathcal{B}}$ transforms $[\mathbf{x}]_{\mathcal{B}}$ into $\mathbf{x}$.</p>
                         <p><strong>2. Invertibility &amp; Reverse Conversion:</strong> Since the columns of $P_{\mathcal{B}}$ form a basis for $\mathbb{R}^n$, $P_{\mathcal{B}}$ is invertible (by the Invertible Matrix Theorem). Left-multiplication by $P_{\mathcal{B}}^{-1}$ converts $\mathbf{x}$ into its $\mathcal{B}$-coordinate vector: <span class="font-mono font-bold text-indigo-950">$P_{\mathcal{B}}^{-1}\mathbf{x} = [\mathbf{x}]_{\mathcal{B}}$</span>.</p>
                         <p><strong>3. One-to-One Linear Transformation:</strong> Since $P_{\mathcal{B}}^{-1}$ is an invertible matrix, the coordinate mapping $\mathbf{x} \mapsto [\mathbf{x}]_{\mathcal{B}}$ is a <strong>one-to-one linear transformation (一對一線性變換)</strong> from $\mathbb{R}^n$ onto $\mathbb{R}^n$, by the Invertible Matrix Theorem.</p>
+                    </div>
+                </div>
+                -->
+                
+                <!-- Summary Card: Change-of-Coordinates Matrix P_B (Pages 13 - 14) -->
+                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2.5 text-slate-800 leading-relaxed">
+                    <strong class="text-indigo-900 text-base font-bold block">Change-of-Coordinates Matrix $P_{\mathcal{B}}$ 重點整理 (Pages 13 - 14)</strong>
+                    <p class="text-xs md:text-sm text-slate-700">
+                        對基底 $\mathcal{B} = \{\mathbf{b}_1, \dots, \mathbf{b}_n\}$ 的 $\mathbb{R}^n$ 而言，以基向量為列組成座標變換矩陣 $P_{\mathcal{B}}$：
+                    </p>
+                    <div class="p-2.5 bg-indigo-50/70 rounded-lg border border-indigo-200 font-mono text-center text-indigo-950 font-bold text-xs md:text-sm space-y-1">
+                        <div>$$P_{\mathcal{B}} = [\mathbf{b}_1 \;\; \mathbf{b}_2 \;\; \cdots \;\; \mathbf{b}_n]$$</div>
+                        <div>$$\mathbf{x} = P_{\mathcal{B}}[\mathbf{x}]_{\mathcal{B}} \quad \text{(4)} \qquad \Longleftrightarrow \qquad [\mathbf{x}]_{\mathcal{B}} = P_{\mathcal{B}}^{-1}\mathbf{x}$$</div>
+                    </div>
+                    <div class="space-y-1.5 pl-3 border-l-2 border-indigo-400 text-xs md:text-sm">
+                        <p><strong>正算（$\mathcal{B}$ 座標 $\to$ 標準座標）：</strong> 左乘 $P_{\mathcal{B}}$ 把 $[\mathbf{x}]_{\mathcal{B}}$ 還原為 $\mathbf{x}$。</p>
+                        <p><strong>反算與可逆性：</strong> 因為 $\mathcal{B}$ 是 $\mathbb{R}^n$ 的基底，$P_{\mathcal{B}}$ 必可逆；左乘 $P_{\mathcal{B}}^{-1}$ 可由 $\mathbf{x}$ 求得 $[\mathbf{x}]_{\mathcal{B}}$。</p>
+                        <p><strong>線性變換性質：</strong> 座標映射 $\mathbf{x} \mapsto [\mathbf{x}]_{\mathcal{B}}$ 是從 $\mathbb{R}^n$ 到 $\mathbb{R}^n$ 的一對一線性變換。</p>
+                        <p class="text-indigo-900 font-medium"><strong>易錯提醒：</strong> 矩陣乘的是「座標向量」 $[\mathbf{x}]_{\mathcal{B}}$，左乘 $P_{\mathcal{B}}$ 是轉回標準向量 $\mathbf{x}$，別把方向弄反。</p>
                     </div>
                 </div>
                 
