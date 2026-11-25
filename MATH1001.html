@@ -2415,7 +2415,7 @@
 
                             <!-- FIGURE 7 SVG (Page 24) -->
                             <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
-                                <svg viewBox="0 0 345 265" class="w-full max-w-[330px] mx-auto bg-white rounded border border-slate-200">
+                                <svg viewBox="0 0 365 265" class="w-full max-w-[350px] mx-auto bg-white rounded border border-slate-200">
                                     <defs>
                                         <marker id="arr-fig7" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto">
                                             <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f172a"/>
@@ -2433,10 +2433,6 @@
                                     <!-- x2 axis to front-right -->
                                     <line x1="96" y1="174" x2="296" y2="208" stroke="#0f172a" stroke-width="1.35" marker-end="url(#arr-fig7)"/>
                                     <text x="282" y="222" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan></text>
-                            
-                                    <!-- Floor dashed projections under the plane -->
-                                    <line x1="153.3" y1="217" x2="178" y2="195" stroke="#0f172a" stroke-width="1.15" stroke-dasharray="4,3"/>
-                                    <line x1="76" y1="191" x2="178" y2="195" stroke="#0f172a" stroke-width="1.15" stroke-dasharray="4,3"/>
                             
                                     <!-- Green Plane H: span{v1, v2} -->
                                     <polygon points="96,174 268,236 326,81 154,19" fill="#9bc952" fill-opacity="0.86" stroke="#4d7c0f" stroke-width="1.2"/>
@@ -2456,13 +2452,16 @@
                                     <line x1="139.5" y1="57.75" x2="139.5" y2="130" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
                             
                                     <!-- Vertical dashed drop lines from v1 and 2*v1 down to floor -->
-                                    <line x1="153.3" y1="194.7" x2="153.3" y2="217" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
-                                    <line x1="210.7" y1="215.3" x2="210.7" y2="246" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
+                                    <line x1="153.3" y1="194.7" x2="153.3" y2="219" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
+                                    <line x1="210.7" y1="215.3" x2="210.7" y2="248" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
                             
-                                    <!-- Front floor dashed lines from x1 axis -->
-                                    <line x1="56" y1="209" x2="153.3" y2="217" stroke="#0f172a" stroke-width="1.15" stroke-dasharray="4,3"/>
-                                    <line x1="38" y1="225" x2="210.7" y2="246" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
-                                    <line x1="210.7" y1="246" x2="254" y2="201" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
+                                    <!-- Parallel dashed projection lines from x1 axis to v1 / 2*v1 floor points -->
+                                    <line x1="75" y1="192" x2="153.3" y2="219" stroke="#0f172a" stroke-width="1.15" stroke-dasharray="4,3"/>
+                                    <line x1="43" y1="220" x2="210.7" y2="248" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
+                            
+                                    <!-- Dashed lines going up-right to meet x2 grid/axis -->
+                                    <line x1="153.3" y1="219" x2="176" y2="197" stroke="#0f172a" stroke-width="1.15" stroke-dasharray="4,3"/>
+                                    <line x1="210.7" y1="248" x2="254" y2="201" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
                             
                                     <!-- Blue rays along v1 and v2 -->
                                     <line x1="96" y1="174" x2="286" y2="242.5" stroke="#00a6e8" stroke-width="2.4"/>
@@ -2487,7 +2486,7 @@
                             
                                     <!-- Point x = 2*v1 + 3*v2 -->
                                     <circle cx="254.2" cy="99.1" r="4.2" fill="#00a6e8"/>
-                                    <text x="261" y="103" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="bold" fill="#0f172a">x = <tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan>v<tspan dy="3" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan><tspan dy="-3"> + </tspan><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">3</tspan>v<tspan dy="3" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan></text>
+                                    <text x="260" y="103" font-family="Georgia, 'Times New Roman', serif" font-size="13.5" font-weight="bold" fill="#0f172a">x = <tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan>v<tspan dy="3" font-size="9.5" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan><tspan dy="-3"> + </tspan><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">3</tspan>v<tspan dy="3" font-size="9.5" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan></text>
                             
                                     <!-- Origin label 0 -->
                                     <text x="80" y="190" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#0f172a">0</text>
