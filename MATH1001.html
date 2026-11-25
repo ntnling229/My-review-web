@@ -3531,15 +3531,16 @@
                     </div>
                 </div>
 
-                <!-- THEOREM 15 + FIGURE 2 + Inverse Relation (Pages 5 - 7) -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center bg-white p-4 rounded-xl border border-indigo-200">
-                    <div class="md:col-span-2 space-y-2.5 text-slate-800 leading-relaxed">
+               <!-- THEOREM 15 + FIGURE 2 + Inverse Relation (Pages 5 - 7) -->
+                <div class="space-y-4">
+                    <!-- THEOREM 15 Box (Page 5) -->
+                    <div class="bg-white p-5 rounded-xl border border-indigo-200 space-y-3 text-slate-800 leading-relaxed">
                         <strong class="text-indigo-900 text-base font-bold block">THEOREM 15 (Page 5)</strong>
                         <p>
                             Let $\mathcal{B} = \{\mathbf{b}_1, \dots, \mathbf{b}_n\}$ and $\mathcal{C} = \{\mathbf{c}_1, \dots, \mathbf{c}_n\}$ be bases of a vector space $V$. Then there is a unique $n \times n$ matrix $P_{\mathcal{C}\leftarrow\mathcal{B}}$ such that
                         </p>
-                        <div class="p-2.5 bg-indigo-50/70 rounded-lg border border-indigo-200 font-mono text-center text-indigo-950 font-bold text-xs md:text-sm space-y-1">
-                            <div>$$[\mathbf{x}]_{\mathcal{C}} = P_{\mathcal{C}\leftarrow\mathcal{B}}[\mathbf{x}]_{\mathcal{B}} \quad \text{(4)}$$</div>
+                        <div class="p-2.5 bg-indigo-50/70 rounded-lg border border-indigo-200 font-mono text-center text-indigo-950 font-bold text-xs md:text-sm">
+                            $$[\mathbf{x}]_{\mathcal{C}} = P_{\mathcal{C}\leftarrow\mathcal{B}}[\mathbf{x}]_{\mathcal{B}} \quad \text{(4)}$$
                         </div>
                         <p>
                             The columns of $P_{\mathcal{C}\leftarrow\mathcal{B}}$ are the $\mathcal{C}$-coordinate vectors of the vectors in the basis $\mathcal{B}$. That is,
@@ -3547,67 +3548,77 @@
                         <div class="p-2.5 bg-indigo-50/70 rounded-lg border border-indigo-200 font-mono text-center text-indigo-950 font-bold text-xs md:text-sm">
                             $$P_{\mathcal{C}\leftarrow\mathcal{B}} = \big[\, [\mathbf{b}_1]_{\mathcal{C}} \;\; [\mathbf{b}_2]_{\mathcal{C}} \;\; \cdots \;\; [\mathbf{b}_n]_{\mathcal{C}} \,\big] \quad \text{(5)}$$
                         </div>
-                        <p class="text-xs md:text-sm text-slate-700">
-                            The matrix $P_{\mathcal{C}\leftarrow\mathcal{B}}$ in Theorem 15 is called the <strong>change-of-coordinates matrix (座標變換矩陣)</strong> from $\mathcal{B}$ to $\mathcal{C}$. Multiplication by $P_{\mathcal{C}\leftarrow\mathcal{B}}$ converts $\mathcal{B}$-coordinates into $\mathcal{C}$-coordinates. Figure 2 illustrates the change-of-coordinates equation (4).
-                        </p>
-                        <p class="text-xs md:text-sm text-slate-700">
-                            <strong>Inverse Relation (Page 7):</strong> The columns of $P_{\mathcal{C}\leftarrow\mathcal{B}}$ are linearly independent because they are the coordinate vectors of the linearly independent set $\mathcal{B}$. (See Exercise 25 in Section 4.4.) Since $P_{\mathcal{C}\leftarrow\mathcal{B}}$ is square, it must be invertible, by the Invertible Matrix Theorem. Left-multiplying both sides of equation (4) by $(P_{\mathcal{C}\leftarrow\mathcal{B}})^{-1}$ yields
-                        </p>
-                        <div class="p-2 bg-indigo-50/50 rounded-lg border border-indigo-100 font-mono text-center text-slate-800 text-xs md:text-sm">
-                            $$(P_{\mathcal{C}\leftarrow\mathcal{B}})^{-1}[\mathbf{x}]_{\mathcal{C}} = [\mathbf{x}]_{\mathcal{B}}$$
-                        </div>
-                        <p class="text-xs md:text-sm text-slate-700">
-                            Thus $(P_{\mathcal{C}\leftarrow\mathcal{B}})^{-1}$ is the matrix that converts $\mathcal{C}$-coordinates into $\mathcal{B}$-coordinates. That is,
-                        </p>
-                        <div class="p-2 bg-indigo-50/70 rounded-lg border border-indigo-200 font-mono text-center text-indigo-950 font-bold text-xs md:text-sm">
-                            $$(P_{\mathcal{C}\leftarrow\mathcal{B}})^{-1} = P_{\mathcal{B}\leftarrow\mathcal{C}} \quad \text{(6)}$$
-                        </div>
                     </div>
 
-                    <!-- FIGURE 2 SVG (Page 6) -->
-                    <div class="p-3 bg-indigo-50/40 rounded-xl border border-indigo-100 text-center space-y-2">
-                        <svg viewBox="0 0 320 205" class="w-full max-w-[300px] mx-auto bg-white rounded border border-indigo-100">
-                            <defs>
-                                <marker id="arr-fig2-47" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f172a"/>
-                                </marker>
-                            </defs>
-                            <!-- Top parallelogram V -->
-                            <polygon points="105,22 250,22 280,74 135,74" fill="#bceeff" stroke="#7dd3fc" stroke-width="1.2"/>
-                            <text x="252" y="42" font-family="Georgia, 'Times New Roman', serif" font-size="15" font-style="italic" fill="#0f172a">V</text>
-                            <circle cx="192" cy="48" r="3.6" fill="#0f172a"/>
-                            <text x="180" y="42" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="bold" fill="#0f172a">x</text>
+                    <!-- FIGURE 2 & Definition + Inverse Relation (Pages 6 - 7) -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center bg-white p-5 rounded-xl border border-indigo-200">
+                        <div class="md:col-span-2 space-y-4 text-slate-700 leading-relaxed">
+                            <p class="text-xs md:text-sm">
+                                The matrix $P_{\mathcal{C}\leftarrow\mathcal{B}}$ in Theorem 15 is called the <strong>change-of-coordinates matrix (座標變換矩陣)</strong> from $\mathcal{B}$ to $\mathcal{C}$. Multiplication by $P_{\mathcal{C}\leftarrow\mathcal{B}}$ converts $\mathcal{B}$-coordinates into $\mathcal{C}$-coordinates. Figure 2 illustrates the change-of-coordinates equation (4).
+                            </p>
 
-                            <!-- Bottom-left parallelogram R^n -->
-                            <polygon points="12,136 118,136 138,186 32,186" fill="#bceeff" stroke="#7dd3fc" stroke-width="1.2"/>
-                            <text x="26" y="176" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">R<tspan dy="-4" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">n</tspan></text>
-                            <circle cx="92" cy="158" r="3.6" fill="#0f172a"/>
-                            <text x="98" y="162" font-family="Georgia, 'Times New Roman', serif" font-size="13.5" font-weight="bold" fill="#0f172a">[x]<tspan dy="3" font-size="9.5" font-style="italic" fill="#0f172a">C</tspan></text>
+                            <div class="pt-4 border-t border-indigo-100 space-y-2.5">
+                                <p class="text-xs md:text-sm">
+                                    <strong>Inverse Relation (Page 7):</strong> The columns of $P_{\mathcal{C}\leftarrow\mathcal{B}}$ are linearly independent because they are the coordinate vectors of the linearly independent set $\mathcal{B}$. (See Exercise 25 in Section 4.4.) Since $P_{\mathcal{C}\leftarrow\mathcal{B}}$ is square, it must be invertible, by the Invertible Matrix Theorem. Left-multiplying both sides of equation (4) by $(P_{\mathcal{C}\leftarrow\mathcal{B}})^{-1}$ yields
+                                </p>
+                                <div class="p-2 bg-indigo-50/50 rounded-lg border border-indigo-100 font-mono text-center text-slate-800 text-xs md:text-sm">
+                                    $$(P_{\mathcal{C}\leftarrow\mathcal{B}})^{-1}[\mathbf{x}]_{\mathcal{C}} = [\mathbf{x}]_{\mathcal{B}}$$
+                                </div>
+                                <p class="text-xs md:text-sm">
+                                    Thus $(P_{\mathcal{C}\leftarrow\mathcal{B}})^{-1}$ is the matrix that converts $\mathcal{C}$-coordinates into $\mathcal{B}$-coordinates. That is,
+                                </p>
+                                <div class="p-2 bg-indigo-50/70 rounded-lg border border-indigo-200 font-mono text-center text-indigo-950 font-bold text-xs md:text-sm">
+                                    $$(P_{\mathcal{C}\leftarrow\mathcal{B}})^{-1} = P_{\mathcal{B}\leftarrow\mathcal{C}} \quad \text{(6)}$$
+                                </div>
+                            </div>
+                        </div>
 
-                            <!-- Bottom-right parallelogram R^n -->
-                            <polygon points="184,136 290,136 310,186 204,186" fill="#bceeff" stroke="#7dd3fc" stroke-width="1.2"/>
-                            <text x="284" y="176" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">R<tspan dy="-4" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">n</tspan></text>
-                            <circle cx="234" cy="158" r="3.6" fill="#0f172a"/>
-                            <text x="240" y="162" font-family="Georgia, 'Times New Roman', serif" font-size="13.5" font-weight="bold" fill="#0f172a">[x]<tspan dy="3" font-size="9.5" font-style="italic" fill="#0f172a">B</tspan></text>
+                        <!-- FIGURE 2 SVG (Page 6) -->
+                        <div class="p-3 bg-indigo-50/40 rounded-xl border border-indigo-100 text-center space-y-2">
+                            <svg viewBox="0 0 320 205" class="w-full max-w-[300px] mx-auto bg-white rounded border border-indigo-100">
+                                <defs>
+                                    <marker id="arr-fig2-47" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f172a"/>
+                                    </marker>
+                                </defs>
+                                <!-- Top parallelogram V -->
+                                <polygon points="105,22 250,22 280,74 135,74" fill="#bceeff" stroke="#7dd3fc" stroke-width="1.2"/>
+                                <text x="252" y="42" font-family="Georgia, 'Times New Roman', serif" font-size="15" font-style="italic" fill="#0f172a">V</text>
+                                <circle cx="192" cy="48" r="3.6" fill="#0f172a"/>
+                                <text x="180" y="42" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="bold" fill="#0f172a">x</text>
 
-                            <!-- Diagonal arrows from V to R^n -->
-                            <line x1="176" y1="62" x2="104" y2="132" stroke="#0f172a" stroke-width="1.5" marker-end="url(#arr-fig2-47)"/>
-                            <text x="114" y="96" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#0f172a">[ &nbsp; ]<tspan dy="3" font-size="9.5" font-style="italic" fill="#0f172a">C</tspan></text>
+                                <!-- Bottom-left parallelogram R^n -->
+                                <polygon points="12,136 118,136 138,186 32,186" fill="#bceeff" stroke="#7dd3fc" stroke-width="1.2"/>
+                                <text x="26" y="176" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">R<tspan dy="-4" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">n</tspan></text>
+                                <circle cx="92" cy="158" r="3.6" fill="#0f172a"/>
+                                <text x="98" y="162" font-family="Georgia, 'Times New Roman', serif" font-size="13.5" font-weight="bold" fill="#0f172a">[x]<tspan dy="3" font-size="9.5" font-style="italic" fill="#0f172a">C</tspan></text>
 
-                            <line x1="206" y1="62" x2="232" y2="130" stroke="#0f172a" stroke-width="1.5" marker-end="url(#arr-fig2-47)"/>
-                            <text x="228" y="96" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#0f172a">[ &nbsp; ]<tspan dy="3" font-size="9.5" font-style="italic" fill="#0f172a">B</tspan></text>
+                                <!-- Bottom-right parallelogram R^n -->
+                                <polygon points="184,136 290,136 310,186 204,186" fill="#bceeff" stroke="#7dd3fc" stroke-width="1.2"/>
+                                <text x="284" y="176" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">R<tspan dy="-4" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">n</tspan></text>
+                                <circle cx="234" cy="158" r="3.6" fill="#0f172a"/>
+                                <text x="240" y="162" font-family="Georgia, 'Times New Roman', serif" font-size="13.5" font-weight="bold" fill="#0f172a">[x]<tspan dy="3" font-size="9.5" font-style="italic" fill="#0f172a">B</tspan></text>
 
-                            <!-- Horizontal arrow from [x]_B to [x]_C -->
-                            <line x1="216" y1="158" x2="122" y2="158" stroke="#0f172a" stroke-width="1.5" marker-end="url(#arr-fig2-47)"/>
-                            <text x="170" y="138" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="11.5" fill="#0f172a">multiplication</text>
-                            <text x="170" y="151" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="11.5" fill="#0f172a">by &nbsp; P<tspan dy="3" font-size="8.5" font-style="italic" fill="#0f172a">C←B</tspan></text>
-                        </svg>
-                        <div class="text-left max-w-[235px] mx-auto text-xs leading-snug">
-                            <span class="font-bold text-indigo-950 block tracking-wide">FIGURE 2</span>
-                            <span class="text-slate-800" style="font-family: Georgia, 'Times New Roman', serif;">Two coordinate systems for $V$.</span>
+                                <!-- Diagonal arrows from V to R^n -->
+                                <line x1="176" y1="62" x2="104" y2="132" stroke="#0f172a" stroke-width="1.5" marker-end="url(#arr-fig2-47)"/>
+                                <text x="114" y="96" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#0f172a">[ &nbsp; ]<tspan dy="3" font-size="9.5" font-style="italic" fill="#0f172a">C</tspan></text>
+
+                                <line x1="206" y1="62" x2="232" y2="130" stroke="#0f172a" stroke-width="1.5" marker-end="url(#arr-fig2-47)"/>
+                                <text x="228" y="96" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#0f172a">[ &nbsp; ]<tspan dy="3" font-size="9.5" font-style="italic" fill="#0f172a">B</tspan></text>
+
+                                <!-- Horizontal arrow from [x]_B to [x]_C -->
+                                <line x1="216" y1="158" x2="122" y2="158" stroke="#0f172a" stroke-width="1.5" marker-end="url(#arr-fig2-47)"/>
+                                <text x="170" y="138" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="11.5" fill="#0f172a">multiplication</text>
+                                <text x="170" y="151" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="11.5" fill="#0f172a">by &nbsp; P<tspan dy="3" font-size="8.5" font-style="italic" fill="#0f172a">C←B</tspan></text>
+                            </svg>
+                            <div class="text-left max-w-[235px] mx-auto text-xs leading-snug">
+                                <span class="font-bold text-indigo-950 block tracking-wide">FIGURE 2</span>
+                                <span class="text-slate-800" style="font-family: Georgia, 'Times New Roman', serif;">Two coordinate systems for $V$.</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+        
             </div>
         </div>
 
