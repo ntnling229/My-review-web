@@ -1871,32 +1871,20 @@
                         </div>
 
                         <!-- Graphical Interpretation + FIGURE 1 & FIGURE 2 (Pages 5 - 7) -->
-                        <div class="space-y-3 pt-3 border-t border-slate-100">
-                            <p class="leading-relaxed text-xs md:text-sm text-slate-700">
-                                <strong>A Graphical Interpretation of Coordinates (Pages 5 - 7):</strong> A coordinate system on a set consists of a one-to-one mapping of the points in the set into $\mathbb{R}^n$. For example, ordinary graph paper provides a coordinate system for the plane when one selects perpendicular axes and a unit of measurement on each axis. Figure 1 shows the standard basis $\{\mathbf{e}_1, \mathbf{e}_2\}$, the vectors $\mathbf{b}_1 (= \mathbf{e}_1)$ and $\mathbf{b}_2$ from Example 1, and the vector $\mathbf{x} = \begin{bmatrix} 1 \\ 6 \end{bmatrix}$. The coordinates <span class="font-mono font-bold">1</span> and <span class="font-mono font-bold">6</span> give the location of $\mathbf{x}$ relative to the standard basis: <span class="font-mono font-bold">1</span> unit in the $\mathbf{e}_1$ direction and <span class="font-mono font-bold">6</span> units in the $\mathbf{e}_2$ direction. Figure 2 shows the vectors $\mathbf{b}_1$, $\mathbf{b}_2$, and $\mathbf{x}$ from Figure 1. (Geometrically, the three vectors lie on a vertical line in both figures.) However, the standard coordinate grid was erased and replaced by a grid especially adapted to the basis $\mathcal{B}$ in Example 1. The coordinate vector $[\mathbf{x}]_{\mathcal{B}} = \begin{bmatrix} -2 \\ 3 \end{bmatrix}$ gives the location of $\mathbf{x}$ on this new coordinate system: <span class="font-mono font-bold">-2</span> units in the $\mathbf{b}_1$ direction and <span class="font-mono font-bold">3</span> units in the $\mathbf{b}_2$ direction.
-                            </p>
+                        <div class="space-y-4 pt-3 border-t border-slate-100">
+                            <div class="space-y-2.5 leading-relaxed text-xs md:text-sm text-slate-700">
+                                <p>
+                                    <strong>A Graphical Interpretation of Coordinates (Pages 5 - 7):</strong> A coordinate system on a set consists of a one-to-one mapping of the points in the set into $\mathbb{R}^n$. For example, ordinary graph paper provides a coordinate system for the plane when one selects perpendicular axes and a unit of measurement on each axis. Figure 1 shows the standard basis $\{\mathbf{e}_1, \mathbf{e}_2\}$, the vectors $\mathbf{b}_1 (= \mathbf{e}_1)$ and $\mathbf{b}_2$ from Example 1, and the vector $\mathbf{x} = \begin{bmatrix} 1 \\ 6 \end{bmatrix}$. The coordinates <span class="font-mono font-bold">1</span> and <span class="font-mono font-bold">6</span> give the location of $\mathbf{x}$ relative to the standard basis: <span class="font-mono font-bold">1</span> unit in the $\mathbf{e}_1$ direction and <span class="font-mono font-bold">6</span> units in the $\mathbf{e}_2$ direction.
+                                </p>
+                                <p>
+                                    <strong>Figure 2:</strong> Figure 2 shows the vectors $\mathbf{b}_1$, $\mathbf{b}_2$, and $\mathbf{x}$ from Figure 1. (Geometrically, the three vectors lie on a vertical line in both figures.) However, the standard coordinate grid was erased and replaced by a grid especially adapted to the basis $\mathcal{B}$ in Example 1. The coordinate vector $[\mathbf{x}]_{\mathcal{B}} = \begin{bmatrix} -2 \\ 3 \end{bmatrix}$ gives the location of $\mathbf{x}$ on this new coordinate system: <span class="font-mono font-bold">-2</span> units in the $\mathbf{b}_1$ direction and <span class="font-mono font-bold">3</span> units in the $\mathbf{b}_2$ direction.
+                                </p>
+                            </div>
 
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <!-- FIGURE 1 SVG (Page 6) -->
                                 <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
-                                    <svg viewBox="0 0 220 205" class="w-full max-w-[210px] mx-auto bg-white rounded border border-slate-200">
-                                        <!-- Grid lines: step = 28, origin at (88, 152) -->
-                                        <g stroke="#94a3b8" stroke-width="0.8">
-                                            <line x1="32" y1="12" x2="32" y2="180"/><line x1="60" y1="12" x2="60" y2="180"/>
-                                            <line x1="88" y1="12" x2="88" y2="180"/><line x1="116" y1="12" x2="116" y2="180"/>
-                                            <line x1="144" y1="12" x2="144" y2="180"/><line x1="172" y1="12" x2="172" y2="180"/>
-                                            <line x1="200" y1="12" x2="200" y2="180"/>
-                                            <line x1="18" y1="12" x2="212" y2="12"/><line x1="18" y1="40" x2="212" y2="40"/>
-                                            <line x1="18" y1="68" x2="212" y2="68"/><line x1="18" y1="96" x2="212" y2="96"/>
-                                            <line x1="18" y1="124" x2="212" y2="124"/><line x1="18" y1="152" x2="212" y2="152"/>
-                                            <line x1="18" y1="180" x2="212" y2="180"/>
-                                        </g>
-                                        <!-- Axes -->
-                                        <line x1="18" y1="152" x2="212" y2="152" stroke="#0f172a" stroke-width="1.5"/>
-                                        <line x1="88" y1="12" x2="88" y2="180" stroke="#0f172a" stroke-width="1.5"/>
-                                        <!-- Points: 0=(88,152), b1=e1=(116,152), e2=(88,124), b2=(116,96), x=(116,-16 -> y=16? no: 152 - 6*28 = -16, let's fit y=0 at 176, step=24 -> y=6 is 176-144=32) -->
-                                    </svg>
-                                    <svg viewBox="0 0 220 205" class="w-full max-w-[210px] mx-auto bg-white rounded border border-slate-200 -mt-2">
+                                    <svg viewBox="0 0 220 205" class="w-full max-w-[220px] mx-auto bg-white rounded border border-slate-200">
                                         <g stroke="#94a3b8" stroke-width="0.8">
                                             <line x1="32" y1="10" x2="32" y2="196"/><line x1="60" y1="10" x2="60" y2="196"/>
                                             <line x1="88" y1="10" x2="88" y2="196"/><line x1="116" y1="10" x2="116" y2="196"/>
@@ -1909,7 +1897,6 @@
                                         </g>
                                         <line x1="18" y1="178" x2="212" y2="178" stroke="#0f172a" stroke-width="1.5"/>
                                         <line x1="88" y1="10" x2="88" y2="196" stroke="#0f172a" stroke-width="1.5"/>
-                                        <!-- 0=(88,178), e2=(88,154), b1=e1=(116,178), b2=(116,130), x=(116,34) -->
                                         <circle cx="88" cy="178" r="3.4" fill="#00a6e8"/>
                                         <text x="80" y="191" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace" font-size="13" font-weight="700" fill="#0f172a">0</text>
                                         <circle cx="88" cy="154" r="3.4" fill="#00a6e8"/>
@@ -1921,7 +1908,7 @@
                                         <circle cx="116" cy="34" r="3.6" fill="#00a6e8"/>
                                         <text x="122" y="42" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="bold" fill="#0f172a">x</text>
                                     </svg>
-                                    <div class="text-left max-w-[210px] mx-auto text-xs leading-snug">
+                                    <div class="text-left max-w-[220px] mx-auto text-xs leading-snug">
                                         <span class="font-bold text-slate-900 block tracking-wide">FIGURE 1</span>
                                         <span class="text-slate-800" style="font-family: Georgia, 'Times New Roman', serif;">Standard graph paper.</span>
                                     </div>
@@ -1929,24 +1916,19 @@
 
                                 <!-- FIGURE 2 SVG (Page 7) -->
                                 <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
-                                    <svg viewBox="0 0 220 205" class="w-full max-w-[210px] mx-auto bg-white rounded border border-slate-200">
-                                        <!-- Skewed grid: b1=(24,0), b2=(8,-24), origin=(78,176) -->
+                                    <svg viewBox="0 0 220 205" class="w-full max-w-[270px] mx-auto bg-white rounded border border-slate-200">
                                         <g stroke="#334155" stroke-width="0.9">
-                                            <!-- lines parallel to b2 -->
                                             <line x1="22" y1="196" x2="74" y2="12"/><line x1="46" y1="196" x2="98" y2="12"/>
                                             <line x1="70" y1="196" x2="122" y2="12"/><line x1="94" y1="196" x2="146" y2="12"/>
                                             <line x1="118" y1="196" x2="170" y2="12"/><line x1="142" y1="196" x2="194" y2="12"/>
                                             <line x1="166" y1="196" x2="212" y2="32"/>
-                                            <!-- lines parallel to b1 -->
                                             <line x1="14" y1="176" x2="212" y2="176"/><line x1="22" y1="152" x2="212" y2="152"/>
                                             <line x1="30" y1="128" x2="212" y2="128"/><line x1="38" y1="104" x2="212" y2="104"/>
                                             <line x1="46" y1="80" x2="212" y2="80"/><line x1="54" y1="56" x2="212" y2="56"/>
                                             <line x1="62" y1="32" x2="212" y2="32"/>
                                         </g>
-                                        <!-- Highlighted B axes in blue -->
                                         <line x1="14" y1="176" x2="212" y2="176" stroke="#00a6e8" stroke-width="1.8"/>
                                         <line x1="68" y1="196" x2="122" y2="12" stroke="#00a6e8" stroke-width="1.8"/>
-                                        <!-- 0=(78,176), b1=(102,176), b2=(86,152), x = -2*b1 + 3*b2 = (78 - 48 + 24, 176 - 72) = (54, 104) -->
                                         <circle cx="78" cy="176" r="3.4" fill="#00a6e8"/>
                                         <text x="64" y="191" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace" font-size="13" font-weight="700" fill="#0f172a">0</text>
                                         <circle cx="102" cy="176" r="3.4" fill="#00a6e8"/>
@@ -1956,7 +1938,7 @@
                                         <circle cx="54" cy="104" r="3.6" fill="#00a6e8"/>
                                         <text x="43" y="114" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="bold" fill="#0f172a">x</text>
                                     </svg>
-                                    <div class="text-left max-w-[210px] mx-auto text-xs leading-snug">
+                                    <div class="text-left max-w-[270px] mx-auto text-xs leading-snug">
                                         <span class="font-bold text-slate-900 block tracking-wide">FIGURE 2</span>
                                         <span class="text-slate-800" style="font-family: Georgia, 'Times New Roman', serif;">$\mathcal{B}$-graph paper.</span>
                                     </div>
