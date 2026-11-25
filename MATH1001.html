@@ -2522,36 +2522,466 @@
         </div>
     </section>
 
-    <!-- ================= SECTION 4.5 ================= -->
-    <section id="sec4-5" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
-        <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
-            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
-                <span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 4.5</span>
-                The Dimension of a Vector Space (向量空間的維度)
-            </h2>
-            <span class="text-xs text-slate-500 font-mono">Pages 1 - 15</span>
+    <!-- 4.5 The Dimension of a Vector Space -->
+    <section id="sec-4-5" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8 space-y-6">
+        <div class="border-b border-slate-100 pb-4 flex flex-wrap justify-between items-start gap-4">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded">Section 4.5</span>
+                <h2 class="text-2xl font-bold text-slate-900 mt-2">The Dimension of a Vector Space (向量空間的維度)</h2>
+            </div>
+            <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-medium">Pages 1 - 15</span>
         </div>
 
-        <div class="space-y-4 text-sm">
-            <div class="p-4 bg-amber-50/60 rounded-xl border border-amber-200 space-y-2.5">
-                <p class="text-slate-800">
-                    <strong>THEOREM 9 (Page 2):</strong> If $V$ has a basis of $n$ vectors, any set in $V$ with more than $n$ vectors is linearly dependent.
+        <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+            Theorem 8 in Section 4.4 implies that a vector space $V$ with a basis $\mathcal{B}$ containing $n$ vectors is isomorphic to $\mathbb{R}^n$. This section shows that this number $n$ is an intrinsic property (called the <strong>dimension</strong>) of the space $V$ that does not depend on the particular choice of basis.
+        </p>
+
+        <!-- 4.5.1 Fundamental Theorems & Definition of Dimension -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-layer-group text-indigo-500 text-sm"></i> 4.5.1 Dimension of a Vector Space &amp; Core Theorems (向量空間維度的定義與核心定理，Pages 1 - 9)
+            </h3>
+
+            <!-- THEOREM 9 -->
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
+                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2 text-slate-800 leading-relaxed">
+                    <strong class="text-indigo-900 text-base font-bold block">THEOREM 9 (Pages 2 - 3)</strong>
+                    <p>
+                        If a vector space $V$ has a basis $\mathcal{B} = \{\mathbf{b}_1, \dots, \mathbf{b}_n\}$, then any set in $V$ containing more than $n$ vectors must be <strong>linearly dependent</strong>.
+                    </p>
+                    <p class="text-xs md:text-sm text-indigo-900 bg-indigo-50/70 p-2.5 rounded border border-indigo-200">
+                        <strong>Corollary:</strong> Theorem 9 implies that if a vector space $V$ has a basis $\mathcal{B} = \{\mathbf{b}_1, \dots, \mathbf{b}_n\}$, then each linearly independent set in $V$ has <strong>no more than $n$ vectors</strong>.
+                    </p>
+                </div>
+
+                <!-- Expandable PROOF of Theorem 9 -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('proof-4-5-thm9')" class="w-full p-3.5 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-scroll mr-2 text-indigo-600"></i> PROOF OF THEOREM 9 (Pages 2 - 3) (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof</span>
+                    </button>
+                    <div id="proof-4-5-thm9" class="toggle-content p-4 space-y-2 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                        <p>
+                            Let $\{\mathbf{u}_1, \dots, \mathbf{u}_p\}$ be a set in $V$ with more than $n$ vectors ($p &gt; n$). The coordinate vectors $[\mathbf{u}_1]_{\mathcal{B}}, \dots, [\mathbf{u}_p]_{\mathcal{B}}$ form a linearly dependent set in $\mathbb{R}^n$, because there are more vectors ($p$) than entries ($n$) in each vector. So there exist scalars $c_1, \dots, c_p$, not all zero, such that
+                        </p>
+                        <p class="font-mono text-center text-slate-800 text-xs md:text-sm">
+                            $$c_1[\mathbf{u}_1]_{\mathcal{B}} + \cdots + c_p[\mathbf{u}_p]_{\mathcal{B}} = \begin{bmatrix} 0 \\ \vdots \\ 0 \end{bmatrix} \quad (\text{the zero vector in } \mathbb{R}^n)$$
+                        </p>
+                        <p>
+                            Since the coordinate mapping is a linear transformation,
+                        </p>
+                        <p class="font-mono text-center text-slate-800 text-xs md:text-sm">
+                            $$[c_1\mathbf{u}_1 + \cdots + c_p\mathbf{u}_p]_{\mathcal{B}} = \begin{bmatrix} 0 \\ \vdots \\ 0 \end{bmatrix}$$
+                        </p>
+                        <p>
+                            The zero vector on the right displays the weights needed to build the vector $c_1\mathbf{u}_1 + \cdots + c_p\mathbf{u}_p$ from the basis vectors in $\mathcal{B}$. That is,
+                        </p>
+                        <p class="font-mono text-center text-slate-800 text-xs md:text-sm">
+                            $$c_1\mathbf{u}_1 + \cdots + c_p\mathbf{u}_p = 0\cdot\mathbf{b}_1 + \cdots + 0\cdot\mathbf{b}_n = \mathbf{0}$$
+                        </p>
+                        <p>
+                            Since the $c_i$ are not all zero, $\{\mathbf{u}_1, \dots, \mathbf{u}_p\}$ is linearly dependent.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THEOREM 10 -->
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
+                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2 text-slate-800 leading-relaxed">
+                    <strong class="text-indigo-900 text-base font-bold block">THEOREM 10 (Page 4)</strong>
+                    <p>
+                        If a vector space $V$ has a basis of $n$ vectors, then <strong>every basis of $V$ must consist of exactly $n$ vectors</strong>.
+                    </p>
+                </div>
+
+                <!-- Expandable PROOF of Theorem 10 -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('proof-4-5-thm10')" class="w-full p-3.5 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-scroll mr-2 text-indigo-600"></i> PROOF OF THEOREM 10 (Page 4) (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof</span>
+                    </button>
+                    <div id="proof-4-5-thm10" class="toggle-content p-4 space-y-2 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                        <p>
+                            Let $\mathcal{B}_1$ be a basis of $n$ vectors and $\mathcal{B}_2$ be any other basis (of $V$). Since $\mathcal{B}_1$ is a basis and $\mathcal{B}_2$ is linearly independent, $\mathcal{B}_2$ has no more than $n$ vectors, by Theorem 9. Also, since $\mathcal{B}_2$ is a basis and $\mathcal{B}_1$ is linearly independent, $\mathcal{B}_2$ has at least $n$ vectors. Thus $\mathcal{B}_2$ consists of <strong>exactly $n$ vectors</strong>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DEFINITION of Dimension -->
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2 text-slate-800 leading-relaxed">
+                    <strong class="text-indigo-900 text-base font-bold block">DEFINITION: Dimension of a Vector Space ($\dim V$, Page 5)</strong>
+                    <p>
+                        If $V$ is spanned by a finite set, then $V$ is said to be <strong>finite-dimensional (有限維)</strong>, and the <strong>dimension (維度)</strong> of $V$, written as $\dim V$, is the number of vectors in a basis for $V$. The dimension of the zero vector space $\{\mathbf{0}\}$ is defined to be zero ($\dim\{\mathbf{0}\} = 0$). If $V$ is not spanned by a finite set, then $V$ is said to be <strong>infinite-dimensional (無限維)</strong>.
+                    </p>
+                </div>
+
+                <!-- Expandable EXAMPLES 1, 2, 3 (Pages 5 - 7) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-5-123')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-shapes mr-2 text-indigo-600"></i> EXAMPLES 1, 2 &amp; 3 (Pages 5 - 7): Computing $\dim V$ and $\dim H$ (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                    </button>
+                    <div id="ex-4-5-123" class="toggle-content p-5 space-y-4 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                        <!-- EXAMPLE 1 -->
+                        <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-1.5">
+                            <p>
+                                <strong>EXAMPLE 1 (Page 5):</strong> The standard basis for $\mathbb{R}^n$ contains $n$ vectors, so $\dim \mathbb{R}^n = n$. The standard polynomial basis $\{1, t, t^2\}$ shows that $\dim \mathbb{P}_2 = 3$. In general, $\dim \mathbb{P}_n = n + 1$. The space $\mathbb{P}$ of all polynomials is infinite-dimensional.
+                            </p>
+                        </div>
+
+                        <!-- EXAMPLE 2 + Plane H SVG -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center p-3.5 bg-slate-50 rounded-lg border border-slate-200">
+                            <div class="md:col-span-2 space-y-2">
+                                <p>
+                                    <strong>EXAMPLE 2 (Page 6):</strong> Let $H = \text{Span}\{\mathbf{v}_1, \mathbf{v}_2\}$, where
+                                </p>
+                                <p class="font-mono text-center text-slate-800 text-xs md:text-sm">
+                                    $$\mathbf{v}_1 = \begin{bmatrix} 3 \\ 6 \\ 2 \end{bmatrix} \quad \text{and} \quad \mathbf{v}_2 = \begin{bmatrix} -1 \\ 0 \\ 1 \end{bmatrix}$$
+                                </p>
+                                <p>
+                                    Then $H$ is the plane studied in Example 7 in Section 4.4. A basis for $H$ is $\{\mathbf{v}_1, \mathbf{v}_2\}$, since $\mathbf{v}_1$ and $\mathbf{v}_2$ are not multiples and hence are linearly independent. Thus $\dim H = 2$.
+                                </p>
+                            </div>
+
+                            <!-- Plane H Diagram (Page 6) -->
+                            <div class="p-2.5 bg-white rounded-xl border border-slate-200 text-center space-y-1.5">
+                                <svg viewBox="0 0 365 265" class="w-full max-w-[260px] mx-auto bg-white rounded">
+                                    <defs>
+                                        <marker id="arr-sec45-ex2" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f172a"/>
+                                        </marker>
+                                    </defs>
+                                    <line x1="158" y1="120" x2="26" y2="235" stroke="#0f172a" stroke-width="1.35" marker-end="url(#arr-sec45-ex2)"/>
+                                    <text x="14" y="248" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan></text>
+                                    <line x1="96" y1="174" x2="96" y2="14" stroke="#0f172a" stroke-width="1.35" marker-end="url(#arr-sec45-ex2)"/>
+                                    <text x="76" y="22" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">3</tspan></text>
+                                    <line x1="96" y1="174" x2="296" y2="208" stroke="#0f172a" stroke-width="1.35" marker-end="url(#arr-sec45-ex2)"/>
+                                    <text x="282" y="222" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan></text>
+
+                                    <polygon points="96,174 268,236 326,81 154,19" fill="#9bc952" fill-opacity="0.86" stroke="#4d7c0f" stroke-width="1.2"/>
+                                    <line x1="153.3" y1="194.7" x2="211.3" y2="39.7" stroke="#3f6212" stroke-width="0.9" stroke-opacity="0.7"/>
+                                    <line x1="210.7" y1="215.3" x2="268.7" y2="60.3" stroke="#3f6212" stroke-width="0.9" stroke-opacity="0.7"/>
+                                    <line x1="110.5" y1="135.25" x2="282.5" y2="197.25" stroke="#3f6212" stroke-width="0.9" stroke-opacity="0.7"/>
+                                    <line x1="125" y1="96.5" x2="297" y2="158.5" stroke="#3f6212" stroke-width="0.9" stroke-opacity="0.7"/>
+                                    <line x1="139.5" y1="57.75" x2="311.5" y2="119.75" stroke="#3f6212" stroke-width="0.9" stroke-opacity="0.7"/>
+
+                                    <line x1="110.5" y1="135.25" x2="110.5" y2="160" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
+                                    <line x1="125" y1="96.5" x2="125" y2="145" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
+                                    <line x1="139.5" y1="57.75" x2="139.5" y2="130" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
+
+                                    <line x1="153.3" y1="194.7" x2="153.3" y2="219" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
+                                    <line x1="210.7" y1="215.3" x2="210.7" y2="248" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
+                                    <line x1="75" y1="192" x2="153.3" y2="219" stroke="#0f172a" stroke-width="1.15" stroke-dasharray="4,3"/>
+                                    <line x1="43" y1="220" x2="210.7" y2="248" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
+                                    <line x1="153.3" y1="219" x2="187" y2="193" stroke="#0f172a" stroke-width="1.15" stroke-dasharray="4,3"/>
+                                    <line x1="210.7" y1="248" x2="254" y2="201" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
+
+                                    <line x1="96" y1="174" x2="286" y2="242.5" stroke="#00a6e8" stroke-width="2.4"/>
+                                    <line x1="96" y1="174" x2="161" y2="6" stroke="#00a6e8" stroke-width="2.4"/>
+
+                                    <circle cx="153.3" cy="194.7" r="4" fill="#00a6e8"/>
+                                    <text x="123" y="211" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="bold" fill="#0f172a">v<tspan dy="3" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan></text>
+                                    <circle cx="210.7" cy="215.3" r="4" fill="#00a6e8"/>
+                                    <text x="184" y="233" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="bold" fill="#0f172a"><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan>v<tspan dy="3" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan></text>
+
+                                    <circle cx="110.5" cy="135.25" r="4" fill="#00a6e8"/>
+                                    <text x="89" y="133" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="bold" fill="#0f172a">v<tspan dy="3" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan></text>
+                                    <circle cx="125" cy="96.5" r="4" fill="#00a6e8"/>
+                                    <text x="95" y="95" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="bold" fill="#0f172a"><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan>v<tspan dy="3" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan></text>
+                                    <circle cx="139.5" cy="57.75" r="4" fill="#00a6e8"/>
+                                    <text x="110" y="56" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="bold" fill="#0f172a"><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">3</tspan>v<tspan dy="3" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan></text>
+
+                                    <text x="80" y="190" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#0f172a">0</text>
+                                </svg>
+                                <p class="text-[11px] text-slate-600 font-medium">$H = \text{Span}\{\mathbf{v}_1, \mathbf{v}_2\}$, $\dim H = 2$</p>
+                            </div>
+                        </div>
+
+                        <!-- EXAMPLE 3 -->
+                        <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
+                            <p>
+                                <strong>EXAMPLE 3 (Page 7):</strong> Find the dimension of the subspace
+                            </p>
+                            <p class="font-mono text-center text-slate-800 text-xs md:text-sm">
+                                $$H = \left\{ \begin{bmatrix} a - 3b + 6c \\ 5a + 4d \\ b - 2c - d \\ 5d \end{bmatrix} : a, b, c, d \text{ in } \mathbb{R} \right\}$$
+                            </p>
+                            <p>
+                                <strong>SOLUTION:</strong> It is easy to see that $H$ is the set of all linear combinations of the vectors
+                            </p>
+                            <p class="font-mono text-center text-slate-800 text-xs md:text-sm">
+                                $$\mathbf{v}_1 = \begin{bmatrix} 1 \\ 5 \\ 0 \\ 0 \end{bmatrix}, \quad \mathbf{v}_2 = \begin{bmatrix} -3 \\ 0 \\ 1 \\ 0 \end{bmatrix}, \quad \mathbf{v}_3 = \begin{bmatrix} 6 \\ 0 \\ -2 \\ 0 \end{bmatrix}, \quad \mathbf{v}_4 = \begin{bmatrix} 0 \\ 4 \\ -1 \\ 5 \end{bmatrix}$$
+                            </p>
+                            <p>
+                                Clearly, $\mathbf{v}_1 \neq \mathbf{0}$, $\mathbf{v}_2$ is not a multiple of $\mathbf{v}_1$, but $\mathbf{v}_3$ is a multiple of $\mathbf{v}_2$ ($\mathbf{v}_3 = -2\mathbf{v}_2$). By the Spanning Set Theorem, we may discard $\mathbf{v}_3$ and still have a set that spans $H$. Finally, $\mathbf{v}_4$ is not a linear combination of $\mathbf{v}_1$ and $\mathbf{v}_2$. So $\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_4\}$ is linearly independent (by Theorem 4 in Section 4.3) and hence is a basis for $H$. Thus $\dim H = 3$.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expandable EXAMPLE 4 + FIGURE 1 (Pages 8 - 9) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-5-4')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-cube mr-2 text-indigo-600"></i> EXAMPLE 4 + FIGURE 1 (Pages 8 - 9): Classification of Subspaces of $\mathbb{R}^3$ by Dimension (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example</span>
+                    </button>
+                    <div id="ex-4-5-4" class="toggle-content p-5 space-y-4 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                        <p>
+                            <strong>EXAMPLE 4 (Page 8):</strong> The subspaces of $\mathbb{R}^3$ can be classified by dimension (see Figure 1):
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs md:text-sm">
+                            <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                                <strong class="text-indigo-900 block mb-1">0-dimensional subspaces:</strong>
+                                Only the zero subspace $\{\mathbf{0}\}$.
+                            </div>
+                            <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                                <strong class="text-indigo-900 block mb-1">1-dimensional subspaces:</strong>
+                                Any subspace spanned by a single nonzero vector. Such subspaces are lines through the origin.
+                            </div>
+                            <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                                <strong class="text-indigo-900 block mb-1">2-dimensional subspaces:</strong>
+                                Any subspace spanned by two linearly independent vectors. Such subspaces are planes through the origin.
+                            </div>
+                            <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                                <strong class="text-indigo-900 block mb-1">3-dimensional subspaces:</strong>
+                                Only $\mathbb{R}^3$ itself. Any three linearly independent vectors in $\mathbb{R}^3$ span all of $\mathbb{R}^3$, by the Invertible Matrix Theorem.
+                            </div>
+                        </div>
+
+                        <!-- FIGURE 1 (a), (b), (c) SVG (Page 9) -->
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <!-- (a) 0-dim & 1-dim -->
+                                <div class="p-2.5 bg-white rounded-lg border border-slate-200 text-center space-y-1">
+                                    <svg viewBox="0 0 220 205" class="w-full max-w-[205px] mx-auto">
+                                        <defs>
+                                            <marker id="arr-fig1a" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto">
+                                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f172a"/>
+                                            </marker>
+                                        </defs>
+                                        <!-- Origin at (86, 128) -->
+                                        <line x1="86" y1="128" x2="86" y2="18" stroke="#0f172a" stroke-width="1.3" marker-end="url(#arr-fig1a)"/>
+                                        <text x="68" y="24" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">3</tspan></text>
+
+                                        <line x1="86" y1="128" x2="26" y2="184" stroke="#0f172a" stroke-width="1.3" marker-end="url(#arr-fig1a)"/>
+                                        <text x="14" y="196" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan></text>
+
+                                        <line x1="86" y1="128" x2="196" y2="162" stroke="#0f172a" stroke-width="1.3" marker-end="url(#arr-fig1a)"/>
+                                        <text x="184" y="176" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan></text>
+
+                                        <!-- 1-dim blue line through origin -->
+                                        <line x1="62" y1="126.5" x2="174" y2="133.5" stroke="#00a6e8" stroke-width="2.4"/>
+                                        <!-- 0-dim blue dot at origin -->
+                                        <circle cx="86" cy="128" r="3.6" fill="#00a6e8"/>
+
+                                        <!-- Callout lines & labels -->
+                                        <line x1="87" y1="131" x2="96" y2="160" stroke="#0f172a" stroke-width="1"/>
+                                        <text x="78" y="173" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#0f172a"><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">0</tspan>-dim</text>
+
+                                        <line x1="150" y1="132" x2="165" y2="108" stroke="#0f172a" stroke-width="1"/>
+                                        <text x="155" y="102" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#0f172a"><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan>-dim</text>
+                                    </svg>
+                                    <span class="text-xs font-serif text-slate-800 block">(a)</span>
+                                </div>
+
+                                <!-- (b) 2-dim -->
+                                <div class="p-2.5 bg-white rounded-lg border border-slate-200 text-center space-y-1">
+                                    <svg viewBox="0 0 220 205" class="w-full max-w-[205px] mx-auto">
+                                        <defs>
+                                            <marker id="arr-fig1b" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto">
+                                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f172a"/>
+                                            </marker>
+                                        </defs>
+                                        <!-- Origin at (86, 128) -->
+                                        <!-- Back portion of x3 axis -->
+                                        <line x1="86" y1="128" x2="86" y2="18" stroke="#0f172a" stroke-width="1.3" marker-end="url(#arr-fig1b)"/>
+                                        <text x="68" y="24" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">3</tspan></text>
+
+                                        <!-- 2-dim green plane through origin -->
+                                        <polygon points="36,144 92,110 174,132 118,166" fill="#9bc952" fill-opacity="0.88" stroke="#4d7c0f" stroke-width="1.3"/>
+                                        <!-- Inner white border effect -->
+                                        <polygon points="41,143.5 92,112.5 169,132.5 118,163.5" fill="none" stroke="#ffffff" stroke-width="0.9"/>
+
+                                        <!-- Axis segments beneath/in front of plane -->
+                                        <line x1="86" y1="128" x2="62" y2="150" stroke="#4d7c0f" stroke-width="1.1"/>
+                                        <line x1="62" y1="150" x2="26" y2="184" stroke="#0f172a" stroke-width="1.3" marker-end="url(#arr-fig1b)"/>
+                                        <text x="14" y="196" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan></text>
+
+                                        <line x1="86" y1="128" x2="146" y2="146.5" stroke="#4d7c0f" stroke-width="1.1"/>
+                                        <line x1="146" y1="146.5" x2="196" y2="162" stroke="#0f172a" stroke-width="1.3" marker-end="url(#arr-fig1b)"/>
+                                        <text x="184" y="176" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan></text>
+
+                                        <!-- Callout line & 2-dim label -->
+                                        <line x1="154" y1="127" x2="174" y2="108" stroke="#0f172a" stroke-width="1"/>
+                                        <text x="172" y="102" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#0f172a"><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan>-dim</text>
+                                    </svg>
+                                    <span class="text-xs font-serif text-slate-800 block">(b)</span>
+                                </div>
+
+                                <!-- (c) 3-dim (containing 2-dim) -->
+                                <div class="p-2.5 bg-white rounded-lg border border-slate-200 text-center space-y-1">
+                                    <svg viewBox="0 0 220 205" class="w-full max-w-[205px] mx-auto">
+                                        <defs>
+                                            <marker id="arr-fig1c" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto">
+                                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f172a"/>
+                                            </marker>
+                                        </defs>
+                                        <!-- Origin at (86, 128) -->
+                                        <!-- Back faces of 3D cube -->
+                                        <polygon points="86,42 158,64 158,150 86,128" fill="#dbeafe" fill-opacity="0.7" stroke="#93c5fd" stroke-width="1"/>
+                                        <polygon points="86,42 36,78 36,164 86,128" fill="#e0f2fe" fill-opacity="0.7" stroke="#93c5fd" stroke-width="1"/>
+
+                                        <!-- 2-dim green plane slicing through cube -->
+                                        <polygon points="36,144 92,110 174,132 118,166" fill="#9bc952" fill-opacity="0.9" stroke="#4d7c0f" stroke-width="1.3"/>
+                                        <polygon points="41,143.5 92,112.5 169,132.5 118,163.5" fill="none" stroke="#ffffff" stroke-width="0.9"/>
+
+                                        <!-- Front translucent cube faces -->
+                                        <polygon points="36,78 108,100 108,186 36,164" fill="#bae6fd" fill-opacity="0.32" stroke="#93c5fd" stroke-width="1.1"/>
+                                        <polygon points="108,100 158,64 158,150 108,186" fill="#bae6fd" fill-opacity="0.28" stroke="#93c5fd" stroke-width="1.1"/>
+                                        <polygon points="86,42 158,64 108,100 36,78" fill="#e0f2fe" fill-opacity="0.45" stroke="#93c5fd" stroke-width="1.1"/>
+
+                                        <!-- Axes -->
+                                        <line x1="86" y1="128" x2="86" y2="18" stroke="#0f172a" stroke-width="1.3" marker-end="url(#arr-fig1c)"/>
+                                        <text x="68" y="24" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">3</tspan></text>
+
+                                        <line x1="86" y1="128" x2="26" y2="184" stroke="#0f172a" stroke-width="1.3" marker-end="url(#arr-fig1c)"/>
+                                        <text x="14" y="196" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan></text>
+
+                                        <line x1="86" y1="128" x2="196" y2="162" stroke="#0f172a" stroke-width="1.3" marker-end="url(#arr-fig1c)"/>
+                                        <text x="184" y="176" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan></text>
+
+                                        <!-- Callout lines & labels -->
+                                        <line x1="64" y1="68" x2="48" y2="54" stroke="#0f172a" stroke-width="1"/>
+                                        <text x="16" y="50" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#0f172a"><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">3</tspan>-dim</text>
+
+                                        <line x1="154" y1="127" x2="174" y2="108" stroke="#0f172a" stroke-width="1"/>
+                                        <text x="172" y="102" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#0f172a"><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan>-dim</text>
+                                    </svg>
+                                    <span class="text-xs font-serif text-slate-800 block">(c)</span>
+                                </div>
+                            </div>
+                            <div class="text-left text-xs leading-snug pt-1 border-t border-slate-200">
+                                <span class="font-bold text-slate-900 tracking-wide mr-2">FIGURE 1</span>
+                                <span class="text-slate-800" style="font-family: Georgia, 'Times New Roman', serif;">Sample subspaces of $\mathbb{R}^3$.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4.5.2 Subspaces of a Finite-Dimensional Space & The Basis Theorem -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-sitemap text-indigo-500 text-sm"></i> 4.5.2 Subspaces of a Finite-Dimensional Space &amp; The Basis Theorem (子空間維度與基底定理，Pages 10 - 12)
+            </h3>
+
+            <!-- THEOREM 11 -->
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
+                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2 text-slate-800 leading-relaxed">
+                    <strong class="text-indigo-900 text-base font-bold block">THEOREM 11 (Pages 10 - 11)</strong>
+                    <p>
+                        Let $H$ be a subspace of a finite-dimensional vector space $V$. Any linearly independent set in $H$ can be expanded, if necessary, to a basis for $H$. Also, $H$ is finite-dimensional and
+                    </p>
+                    <p class="font-mono text-center text-indigo-950 font-bold text-sm md:text-base py-1">
+                        $$\dim H \le \dim V$$
+                    </p>
+                </div>
+
+                <!-- Expandable PROOF of Theorem 11 -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('proof-4-5-thm11')" class="w-full p-3.5 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-scroll mr-2 text-indigo-600"></i> PROOF OF THEOREM 11 (Pages 10 - 11) (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof</span>
+                    </button>
+                    <div id="proof-4-5-thm11" class="toggle-content p-4 space-y-2 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                        <p>
+                            If $H = \{\mathbf{0}\}$, then certainly $\dim H = 0 \le \dim V$. Otherwise, let $S = \{\mathbf{u}_1, \dots, \mathbf{u}_k\}$ be any linearly independent set in $H$. If $S$ spans $H$, then $S$ is a basis for $H$. Otherwise, there is some $\mathbf{u}_{k+1}$ in $H$ that is not in $\text{Span } S$. But then $\{\mathbf{u}_1, \dots, \mathbf{u}_k, \mathbf{u}_{k+1}\}$ will be linearly independent, because no vector in the set can be a linear combination of vectors that precede it (by Theorem 4).
+                        </p>
+                        <p>
+                            So long as the new set does not span $H$, we can continue this process of expanding $S$ to a larger linearly independent set in $H$. But the number of vectors in a linearly independent expansion of $S$ can never exceed the dimension of $V$, by Theorem 9. So eventually the expansion of $S$ will span $H$ and hence will be a basis for $H$, and $\dim H \le \dim V$.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THEOREM 12: The Basis Theorem -->
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
+                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2 text-slate-800 leading-relaxed">
+                    <strong class="text-indigo-900 text-base font-bold block">THEOREM 12: The Basis Theorem (基底定理，Page 12)</strong>
+                    <p>
+                        Let $V$ be a $p$-dimensional vector space, $p \ge 1$. Any linearly independent set of <strong>exactly $p$ elements</strong> in $V$ is automatically a basis for $V$. Any set of <strong>exactly $p$ elements</strong> that spans $V$ is automatically a basis for $V$.
+                    </p>
+                </div>
+
+                <!-- Expandable PROOF of Theorem 12 -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('proof-4-5-thm12')" class="w-full p-3.5 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-scroll mr-2 text-indigo-600"></i> PROOF OF THEOREM 12 (Page 12) (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof</span>
+                    </button>
+                    <div id="proof-4-5-thm12" class="toggle-content p-4 space-y-2 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                        <p>
+                            By Theorem 11, a linearly independent set $S$ of $p$ elements can be extended to a basis for $V$. But that basis must contain exactly $p$ elements, since $\dim V = p$. So $S$ must already be a basis for $V$.
+                        </p>
+                        <p>
+                            Now suppose that $S$ has $p$ elements and spans $V$. Since $V$ is nonzero, the Spanning Set Theorem implies that a subset $S'$ of $S$ is a basis of $V$. Since $\dim V = p$, $S'$ must contain $p$ vectors. Hence $S = S'$.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4.5.3 The Dimensions of Nul A and Col A -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-table-columns text-indigo-500 text-sm"></i> 4.5.3 The Dimensions of $\text{Nul } A$ and $\text{Col } A$ (零空間與列空間的維度，Pages 13 - 15)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <p class="text-slate-700 leading-relaxed">
+                    Since the pivot columns of a matrix $A$ form a basis for $\text{Col } A$, we know the dimension of $\text{Col } A$ as soon as we know the pivot columns. For an $m \times n$ matrix $A$, if $A\mathbf{x} = \mathbf{0}$ has $k$ free variables, the standard method produces $k$ linearly independent vectors forming a basis for $\text{Nul } A$.
                 </p>
-                <p class="text-slate-800">
-                    <strong>THEOREM 10 (Page 4):</strong> If $V$ has a basis of $n$ vectors, <strong>every basis</strong> of $V$ has $n$ vectors.
-                </p>
-                <p class="text-slate-800">
-                    <strong>Dimension Definition (Page 5):</strong> If $V$ is spanned by a finite set, $\dim V$ is the number of vectors in a basis for $V$; $\dim \{\mathbf{0}\} = 0$. Otherwise $V$ is <strong>infinite-dimensional</strong> ($\dim \mathbb{R}^n = n$, $\dim \mathbb{P}_n = n+1$, $\mathbb{P}$ is infinite-dimensional).
-                </p>
-                <p class="text-slate-800">
-                    <strong>THEOREM 11 (Page 10):</strong> Any linearly independent set in a subspace $H$ of finite-dimensional $V$ can be expanded to a basis for $H$, and $\dim H \le \dim V$.
-                </p>
-                <p class="text-slate-800">
-                    <strong>THEOREM 12 — Basis Theorem (Page 12):</strong> For $p$-dimensional $V$ ($p \ge 1$), any linearly independent set of $p$ vectors in $V$ is a basis for $V$, and any spanning set of $p$ vectors in $V$ is a basis for $V$.
-                </p>
-                <p class="text-slate-800">
-                    <strong>Dimensions of $\text{Nul } A$ and $\text{Col } A$ (Pages 13 - 15):</strong> $\dim \text{Nul } A =$ number of free variables in $A\mathbf{x} = \mathbf{0}$; $\dim \text{Col } A =$ number of pivot columns in $A$.
-                </p>
+
+                <!-- Key Rules Card for dim Nul A and dim Col A -->
+                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2.5 text-slate-800 leading-relaxed">
+                    <strong class="text-indigo-900 text-base font-bold block">Dimensions of $\text{Nul } A$ and $\text{Col } A$ Key Takeaways (Pages 13 - 14)</strong>
+                    <div class="p-2.5 bg-indigo-50/70 rounded-lg border border-indigo-200 font-mono text-center text-indigo-950 font-bold text-xs md:text-sm space-y-1">
+                        <div>$$\dim \text{Nul } A = \text{number of free variables in } A\mathbf{x} = \mathbf{0}$$</div>
+                        <div>$$\dim \text{Col } A = \text{number of pivot columns in } A$$</div>
+                    </div>
+                    <div class="space-y-1.5 pl-3 border-l-2 border-indigo-400 text-xs md:text-sm">
+                        <p><strong>Shortcut for $\dim \text{Nul } A$:</strong> You do not need to solve for the explicit basis vectors of $\text{Nul } A$ just to find its dimension—simply row reduce $A$ to echelon form and count the free variables.</p>
+                        <p><strong>Pivot Columns Rule:</strong> $\dim \text{Col } A$ equals the number of pivot positions in $A$ (and for an $m \times n$ matrix $A$, $\dim \text{Col } A + \dim \text{Nul } A = n$).</p>
+                    </div>
+                </div>
+
+                <!-- Expandable EXAMPLE 5 (Page 15) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-5-5')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-calculator mr-2 text-indigo-600"></i> EXAMPLE 5 (Page 15): Finding $\dim \text{Nul } A$ and $\dim \text{Col } A$ via Row Reduction (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example</span>
+                    </button>
+                    <div id="ex-4-5-5" class="toggle-content p-5 space-y-3 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                        <p>
+                            <strong>EXAMPLE 5 (Page 15):</strong> Find the dimensions of the null space and the column space of
+                        </p>
+                        <p class="font-mono text-center text-slate-800 text-xs md:text-sm">
+                            $$A = \begin{bmatrix} -3 & 6 & -1 & 1 & -7 \\ 1 & -2 & 2 & 3 & -1 \\ 2 & -4 & 5 & 8 & -4 \end{bmatrix}$$
+                        </p>
+                        <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
+                            <p><strong>SOLUTION:</strong> Row reduce the augmented matrix $\begin{bmatrix} A & \mathbf{0} \end{bmatrix}$ to echelon form:</p>
+                            <p class="font-mono text-center text-slate-800 text-xs md:text-sm">
+                                $$\begin{bmatrix} 1 & -2 & 2 & 3 & -1 & 0 \\ 0 & 0 & 1 & 2 & -2 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 \end{bmatrix}$$
+                            </p>
+                            <p>
+                                There are three free variables—$x_2$, $x_4$, and $x_5$. Hence $\dim \text{Nul } A = 3$. Also, $\dim \text{Col } A = 2$ because $A$ has two pivot columns.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
