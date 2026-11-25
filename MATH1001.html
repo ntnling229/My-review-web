@@ -2409,29 +2409,21 @@
                                         </marker>
                                     </defs>
                             
-                                    <!-- x1 axis passes straight through origin 0=(96, 174) from back-right into front-left -->
-                                    <line x1="158" y1="120" x2="28" y2="233" stroke="#0f172a" stroke-width="1.35" marker-end="url(#arr-fig7)"/>
-                                    <text x="16" y="246" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan></text>
+                                    <!-- x1 axis passes through origin 0=(96, 174) -->
+                                    <line x1="158" y1="120" x2="26" y2="235" stroke="#0f172a" stroke-width="1.35" marker-end="url(#arr-fig7)"/>
+                                    <text x="14" y="248" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan></text>
                             
                                     <!-- x3 axis vertical up from origin 0=(96, 174) -->
                                     <line x1="96" y1="174" x2="96" y2="14" stroke="#0f172a" stroke-width="1.35" marker-end="url(#arr-fig7)"/>
-                                    <text x="76" y="22" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Courier New', monospace">3</tspan></text>
+                                    <text x="76" y="22" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">3</tspan></text>
                             
                                     <!-- x2 axis to front-right -->
                                     <line x1="96" y1="174" x2="296" y2="208" stroke="#0f172a" stroke-width="1.35" marker-end="url(#arr-fig7)"/>
-                                    <text x="282" y="222" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Courier New', monospace">2</tspan></text>
+                                    <text x="282" y="222" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan></text>
                             
-                                    <!-- Dashed projections on x1-x2 floor & back to x1 axis -->
-                                    <!-- v2=( -1, 0, 1 ) -> floor projection at (-1, 0, 0) along x1 axis: (116, 157) -->
-                                    <line x1="116" y1="157" x2="176" y2="148" stroke="#0f172a" stroke-width="1.15" stroke-dasharray="4,3"/>
-                                    <!-- 2*v2=( -2, 0, 2 ) -> floor projection at (-2, 0, 0) along x1 axis: (136, 140) -->
-                                    <line x1="136" y1="140" x2="196" y2="131" stroke="#0f172a" stroke-width="1.15" stroke-dasharray="4,3"/>
-                                    <!-- 3*v2=( -3, 0, 3 ) -> floor projection at (-3, 0, 0) along x1 axis: (156, 123) -->
-                                    <line x1="156" y1="123" x2="216" y2="114" stroke="#0f172a" stroke-width="1.15" stroke-dasharray="4,3"/>
-                            
-                                    <!-- v1=(3, 6, 2) -> floor projection at (3, 6, 0): (168, 178), drop dashed down to (168, 202) and back to x1 axis (56, 209) -->
-                                    <line x1="168" y1="178" x2="168" y2="202" stroke="#0f172a" stroke-width="1.15" stroke-dasharray="4,3"/>
-                                    <line x1="56" y1="209" x2="168" y2="202" stroke="#0f172a" stroke-width="1.15" stroke-dasharray="4,3"/>
+                                    <!-- Floor dashed projections under the plane -->
+                                    <line x1="153.3" y1="217" x2="176" y2="196" stroke="#0f172a" stroke-width="1.15" stroke-dasharray="4,3"/>
+                                    <line x1="76" y1="191" x2="176" y2="196" stroke="#0f172a" stroke-width="1.15" stroke-dasharray="4,3"/>
                             
                                     <!-- Green Plane H: span{v1, v2} -->
                                     <polygon points="96,174 268,236 326,81 154,19" fill="#9bc952" fill-opacity="0.86" stroke="#4d7c0f" stroke-width="1.2"/>
@@ -2445,14 +2437,18 @@
                                     <line x1="125" y1="96.5" x2="297" y2="158.5" stroke="#3f6212" stroke-width="0.9" stroke-opacity="0.7"/>
                                     <line x1="139.5" y1="57.75" x2="311.5" y2="119.75" stroke="#3f6212" stroke-width="0.9" stroke-opacity="0.7"/>
                             
-                                    <!-- Dashed vertical drop lines from v2, 2*v2, 3*v2 down to floor -->
-                                    <line x1="110.5" y1="135.25" x2="116" y2="157" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
-                                    <line x1="125" y1="96.5" x2="136" y2="140" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
-                                    <line x1="139.5" y1="57.75" x2="156" y2="123" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
+                                    <!-- Vertical dashed drop lines from v2, 2*v2, 3*v2 straight down -->
+                                    <line x1="110.5" y1="135.25" x2="110.5" y2="160" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
+                                    <line x1="125" y1="96.5" x2="125" y2="145" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
+                                    <line x1="139.5" y1="57.75" x2="139.5" y2="130" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
                             
-                                    <!-- Dashed projection from 2*v1 down to floor and x1/x2 axes -->
+                                    <!-- Vertical dashed drop lines from v1 and 2*v1 down to floor -->
+                                    <line x1="153.3" y1="194.7" x2="153.3" y2="217" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
                                     <line x1="210.7" y1="215.3" x2="210.7" y2="246" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
-                                    <line x1="42" y1="221" x2="210.7" y2="246" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
+                            
+                                    <!-- Front floor dashed parallelogram from x1 axis -->
+                                    <line x1="54" y1="211" x2="153.3" y2="217" stroke="#0f172a" stroke-width="1.15" stroke-dasharray="4,3"/>
+                                    <line x1="38" y1="225" x2="210.7" y2="246" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
                                     <line x1="210.7" y1="246" x2="254" y2="201" stroke="#0f172a" stroke-width="1.2" stroke-dasharray="4,3"/>
                             
                                     <!-- Blue rays along v1 and v2 -->
