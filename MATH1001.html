@@ -3350,7 +3350,7 @@
     </section>
 
     <!-- ================= SECTION 4.7 ================= -->
-    <section id="sec4-7" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+    <section id="sec4-7" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-8">
         <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
             <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
                 <span class="bg-cyan-100 text-cyan-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 4.7</span>
@@ -3359,22 +3359,314 @@
             <span class="text-xs text-slate-500 font-mono">Pages 1 - 14</span>
         </div>
 
-        <div class="space-y-4 text-sm">
-            <div class="p-4 bg-cyan-50/60 rounded-xl border border-cyan-200 space-y-3">
-                <p class="text-slate-800">
-                    <strong>THEOREM 15 (Page 5):</strong> Let $\mathcal{B} = \{\mathbf{b}_1, \dots, \mathbf{b}_n\}$ and $\mathcal{C} = \{\mathbf{c}_1, \dots, \mathbf{c}_n\}$ be bases of $V$. There is a unique $n \times n$ <strong>change-of-coordinates matrix</strong> from $\mathcal{B}$ to $\mathcal{C}$, denoted $P_{\mathcal{C}\leftarrow\mathcal{B}}$, such that:
+        <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+            When a basis $\mathcal{B}$ is chosen for an $n$-dimensional vector space $V$, the associated coordinate mapping onto $\mathbb{R}^n$ provides a coordinate system for $V$. Each $\mathbf{x}$ in $V$ is identified uniquely by its $\mathcal{B}$-coordinate vector $[\mathbf{x}]_{\mathcal{B}}$. In some applications, a problem is described initially using a basis $\mathcal{B}$, but the problem's solution is aided by changing $\mathcal{B}$ to a new basis $\mathcal{C}$.
+        </p>
+
+        <!-- 4.7.1 Change-of-Coordinates Matrix & Theorem 15 -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-arrows-rotate text-indigo-500 text-sm"></i> 4.7.1 Change-of-Coordinates Matrix &amp; Theorem 15 (座標變換矩陣與定理 15，Pages 1 - 7)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <p class="text-slate-700 leading-relaxed">
+                    To visualize changing from one basis to another, consider a vector $\mathbf{x}$ expressed in two different bases: in one coordinate system, $\mathbf{x} = 3\mathbf{b}_1 + \mathbf{b}_2$, while in another coordinate system, the same $\mathbf{x}$ is $\mathbf{x} = 6\mathbf{c}_1 + 4\mathbf{c}_2$. That is, $[\mathbf{x}]_{\mathcal{B}} = \begin{bmatrix} 3 \\ 1 \end{bmatrix}$ and $[\mathbf{x}]_{\mathcal{C}} = \begin{bmatrix} 6 \\ 4 \end{bmatrix}$. Our problem is to find the connection between $[\mathbf{x}]_{\mathcal{B}}$ and $[\mathbf{x}]_{\mathcal{C}}$.
                 </p>
-                <div class="p-3 bg-white rounded-lg border border-cyan-200 font-mono text-center text-cyan-950 font-bold space-y-1">
-                    <p>$[\mathbf{x}]_{\mathcal{C}} = P_{\mathcal{C}\leftarrow\mathcal{B}}[\mathbf{x}]_{\mathcal{B}}$</p>
-                    <p class="text-xs md:text-sm">$P_{\mathcal{C}\leftarrow\mathcal{B}} = \big[\, [\mathbf{b}_1]_{\mathcal{C}} \;\; [\mathbf{b}_2]_{\mathcal{C}} \;\; \cdots \;\; [\mathbf{b}_n]_{\mathcal{C}} \,\big]$</p>
+
+                <!-- Expandable EXAMPLE 1 + FIGURE 1 (Pages 2 - 4) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-7-1')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-border-all mr-2 text-indigo-600"></i> EXAMPLE 1 &amp; FIGURE 1 (Pages 2 - 4): Converting $[\mathbf{x}]_{\mathcal{B}}$ to $[\mathbf{x}]_{\mathcal{C}}$ via Linearity (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example &amp; Figure</span>
+                    </button>
+                    <div id="ex-4-7-1" class="toggle-content p-5 space-y-4 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                        <p>
+                            <strong>EXAMPLE 1 (Page 2):</strong> Consider two bases $\mathcal{B} = \{\mathbf{b}_1, \mathbf{b}_2\}$ and $\mathcal{C} = \{\mathbf{c}_1, \mathbf{c}_2\}$ for a vector space $V$, such that
+                        </p>
+                        <div class="font-mono text-center text-slate-800 text-xs md:text-sm py-1">
+                            $$\mathbf{b}_1 = 4\mathbf{c}_1 + \mathbf{c}_2 \quad \text{and} \quad \mathbf{b}_2 = -6\mathbf{c}_1 + \mathbf{c}_2 \quad \text{(1)}$$
+                        </div>
+                        <p>
+                            Suppose $\mathbf{x} = 3\mathbf{b}_1 + \mathbf{b}_2$. That is, suppose $[\mathbf{x}]_{\mathcal{B}} = \begin{bmatrix} 3 \\ 1 \end{bmatrix}$. Find $[\mathbf{x}]_{\mathcal{C}}$.
+                        </p>
+                        <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
+                            <p><strong>SOLUTION (Pages 2 - 3):</strong> Apply the coordinate mapping determined by $\mathcal{C}$ to $\mathbf{x}$ in (2). Since the coordinate mapping is a linear transformation,</p>
+                            <div class="font-mono text-center text-slate-800 text-xs md:text-sm py-1">
+                                $$[\mathbf{x}]_{\mathcal{C}} = [3\mathbf{b}_1 + \mathbf{b}_2]_{\mathcal{C}} = 3[\mathbf{b}_1]_{\mathcal{C}} + [\mathbf{b}_2]_{\mathcal{C}}$$
+                            </div>
+                            <p>We can write this vector equation as a matrix equation, using the vectors in the linear combination as the columns of a matrix:</p>
+                            <div class="font-mono text-center text-slate-800 text-xs md:text-sm py-1">
+                                $$[\mathbf{x}]_{\mathcal{C}} = \big[\, [\mathbf{b}_1]_{\mathcal{C}} \;\; [\mathbf{b}_2]_{\mathcal{C}} \,\big] \begin{bmatrix} 3 \\ 1 \end{bmatrix} \quad \text{(3)}$$
+                            </div>
+                            <p>From (1), $[\mathbf{b}_1]_{\mathcal{C}} = \begin{bmatrix} 4 \\ 1 \end{bmatrix}$ and $[\mathbf{b}_2]_{\mathcal{C}} = \begin{bmatrix} -6 \\ 1 \end{bmatrix}$. Thus (3) provides the solution:</p>
+                            <div class="font-mono text-center text-indigo-950 font-bold text-xs md:text-sm py-1">
+                                $$[\mathbf{x}]_{\mathcal{C}} = \begin{bmatrix} 4 & -6 \\ 1 & 1 \end{bmatrix} \begin{bmatrix} 3 \\ 1 \end{bmatrix} = \begin{bmatrix} 6 \\ 4 \end{bmatrix}$$
+                            </div>
+                        </div>
+
+                        <!-- FIGURE 1 (a) & (b) SVG (Page 4) -->
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <!-- (a) B-coordinate system -->
+                                <div class="p-2.5 bg-white rounded-lg border border-slate-200 text-center space-y-1">
+                                    <svg viewBox="0 0 270 215" class="w-full max-w-[260px] mx-auto">
+                                        <!-- Origin 0 at (92, 118) -->
+                                        <!-- Standard x1, x2 axes -->
+                                        <line x1="12" y1="118" x2="258" y2="118" stroke="#0f172a" stroke-width="1.3"/>
+                                        <line x1="92" y1="12" x2="92" y2="205" stroke="#0f172a" stroke-width="1.3"/>
+
+                                        <!-- Shaded parallelogram for x = 3*b1 + b2: 0=(92,118), 3*b1=(248,196), b2=(27,22), x=(183,100) -->
+                                        <polygon points="92,118 248,196 183,100 27,22" fill="#9bc952" fill-opacity="0.72" stroke="none"/>
+
+                                        <!-- Skewed grid lines parallel to b1 and b2 -->
+                                        <g stroke="#334155" stroke-width="0.85" stroke-opacity="0.75">
+                                            <!-- Lines parallel to b1 (slope +0.5) -->
+                                            <line x1="12" y1="-28" x2="258" y2="95"/>
+                                            <line x1="12" y1="12" x2="258" y2="135"/>
+                                            <line x1="12" y1="52" x2="258" y2="175"/>
+                                            <line x1="12" y1="92" x2="258" y2="215"/>
+                                            <line x1="12" y1="132" x2="158" y2="205"/>
+                                            <line x1="12" y1="172" x2="78" y2="205"/>
+                                            <!-- Lines parallel to b2 (slope -1.477) -->
+                                            <line x1="-18" y1="180" x2="88" y2="12"/>
+                                            <line x1="27" y1="205" x2="152" y2="12"/>
+                                            <line x1="92" y1="205" x2="216" y2="12"/>
+                                            <line x1="156" y1="205" x2="258" y2="44"/>
+                                            <line x1="220" y1="205" x2="258" y2="145"/>
+                                        </g>
+
+                                        <!-- Cyan rays for b1 and b2 -->
+                                        <line x1="92" y1="118" x2="258" y2="201" stroke="#00a6e8" stroke-width="2.2"/>
+                                        <line x1="92" y1="118" x2="21" y2="12" stroke="#00a6e8" stroke-width="2.2"/>
+
+                                        <!-- Points: 0, b1, 3*b1, b2, x -->
+                                        <circle cx="92" cy="118" r="3.6" fill="#00a6e8"/>
+                                        <text x="76" y="133" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#0f172a">0</text>
+
+                                        <circle cx="144" cy="144" r="3.8" fill="#00a6e8"/>
+                                        <text x="132" y="160" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="bold" fill="#0f172a">b<tspan dy="3" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan></text>
+
+                                        <circle cx="248" cy="196" r="3.8" fill="#00a6e8"/>
+                                        <text x="218" y="206" font-family="Georgia, 'Times New Roman', serif" font-size="13.5" font-weight="bold" fill="#0f172a"><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">3</tspan>b<tspan dy="3" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan></text>
+
+                                        <circle cx="27" cy="22" r="3.8" fill="#00a6e8"/>
+                                        <text x="14" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="bold" fill="#0f172a">b<tspan dy="3" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan></text>
+
+                                        <circle cx="183" cy="100" r="4" fill="#00a6e8"/>
+                                        <text x="175" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="15" font-weight="bold" fill="#0f172a">x</text>
+                                    </svg>
+                                    <span class="text-xs font-serif text-slate-800 block">(a)</span>
+                                </div>
+
+                                <!-- (b) C-coordinate system -->
+                                <div class="p-2.5 bg-white rounded-lg border border-slate-200 text-center space-y-1">
+                                    <svg viewBox="0 0 270 215" class="w-full max-w-[260px] mx-auto">
+                                        <!-- Origin 0 at (78, 118) -->
+                                        <!-- Standard x1, x2 axes -->
+                                        <line x1="12" y1="118" x2="258" y2="118" stroke="#0f172a" stroke-width="1.3"/>
+                                        <line x1="78" y1="12" x2="78" y2="205" stroke="#0f172a" stroke-width="1.3"/>
+
+                                        <!-- Shaded parallelogram for x = 6*c1 + 4*c2: 0=(78,118), 6*c1=(150,154), 4*c2=(158,78), x=(230,114) -->
+                                        <polygon points="78,118 150,154 230,114 158,78" fill="#9bc952" fill-opacity="0.72" stroke="none"/>
+
+                                        <!-- Skewed grid lines parallel to c1 (slope +0.5) and c2 (slope -1.0) -->
+                                        <g stroke="#334155" stroke-width="0.85" stroke-opacity="0.75">
+                                            <!-- Parallel to c1 (dx=12, dy=6) -->
+                                            <line x1="12" y1="25" x2="258" y2="148"/>
+                                            <line x1="12" y1="45" x2="258" y2="168"/>
+                                            <line x1="12" y1="65" x2="258" y2="188"/>
+                                            <line x1="12" y1="85" x2="250" y2="205"/>
+                                            <line x1="12" y1="105" x2="210" y2="205"/>
+                                            <line x1="12" y1="125" x2="170" y2="205"/>
+                                            <line x1="12" y1="145" x2="130" y2="205"/>
+                                            <!-- Parallel to c2 (dx=20, dy=-20) -->
+                                            <line x1="12" y1="184" x2="178" y2="12"/>
+                                            <line x1="38" y1="205" x2="225" y2="12"/>
+                                            <line x1="85" y1="205" x2="258" y2="26"/>
+                                            <line x1="132" y1="205" x2="258" y2="73"/>
+                                            <line x1="179" y1="205" x2="258" y2="120"/>
+                                        </g>
+
+                                        <!-- Cyan rays for c1 and c2 -->
+                                        <line x1="78" y1="118" x2="224" y2="191" stroke="#00a6e8" stroke-width="2.2"/>
+                                        <line x1="78" y1="118" x2="184" y2="12" stroke="#00a6e8" stroke-width="2.2"/>
+
+                                        <!-- Points: 0, c1, 6*c1, c2, 4*c2, x -->
+                                        <circle cx="78" cy="118" r="3.6" fill="#00a6e8"/>
+                                        <text x="64" y="133" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#0f172a">0</text>
+
+                                        <circle cx="90" cy="124" r="3.6" fill="#00a6e8"/>
+                                        <text x="86" y="140" font-family="Georgia, 'Times New Roman', serif" font-size="13.5" font-weight="bold" fill="#0f172a">c<tspan dy="3" font-size="9.5" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan></text>
+
+                                        <circle cx="150" cy="154" r="3.8" fill="#00a6e8"/>
+                                        <text x="132" y="170" font-family="Georgia, 'Times New Roman', serif" font-size="13.5" font-weight="bold" fill="#0f172a"><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">6</tspan>c<tspan dy="3" font-size="9.5" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan></text>
+
+                                        <circle cx="98" cy="98" r="3.6" fill="#00a6e8"/>
+                                        <text x="82" y="96" font-family="Georgia, 'Times New Roman', serif" font-size="13.5" font-weight="bold" fill="#0f172a">c<tspan dy="3" font-size="9.5" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan></text>
+
+                                        <circle cx="158" cy="78" r="3.8" fill="#00a6e8"/>
+                                        <text x="164" y="74" font-family="Georgia, 'Times New Roman', serif" font-size="13.5" font-weight="bold" fill="#0f172a"><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">4</tspan>c<tspan dy="3" font-size="9.5" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan></text>
+
+                                        <circle cx="230" cy="114" r="4" fill="#00a6e8"/>
+                                        <text x="236" y="114" font-family="Georgia, 'Times New Roman', serif" font-size="15" font-weight="bold" fill="#0f172a">x</text>
+                                    </svg>
+                                    <span class="text-xs font-serif text-slate-800 block">(b)</span>
+                                </div>
+                            </div>
+                            <div class="text-left text-xs leading-snug pt-1 border-t border-slate-200">
+                                <span class="font-bold text-slate-900 tracking-wide mr-2">FIGURE 1</span>
+                                <span class="text-slate-800" style="font-family: Georgia, 'Times New Roman', serif;">Two coordinate systems for the same vector space.</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p class="text-slate-800">
-                    <strong>Inverse & Standard Basis Relation (Pages 7 - 14):</strong> Since $P_{\mathcal{C}\leftarrow\mathcal{B}}$ is invertible, $(P_{\mathcal{C}\leftarrow\mathcal{B}})^{-1} = P_{\mathcal{B}\leftarrow\mathcal{C}}$. In $\mathbb{R}^n$, $[\mathbf{c}_1 \;\; \mathbf{c}_2 \;\; | \;\; \mathbf{b}_1 \;\; \mathbf{b}_2] \sim [I \;\; | \;\; P_{\mathcal{C}\leftarrow\mathcal{B}}]$, and $P_{\mathcal{C}\leftarrow\mathcal{B}} = P_{\mathcal{C}}^{-1} P_{\mathcal{B}}$.
-                </p>
+
+                <!-- THEOREM 15 + FIGURE 2 + Inverse Relation (Pages 5 - 7) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center bg-white p-4 rounded-xl border border-indigo-200">
+                    <div class="md:col-span-2 space-y-2.5 text-slate-800 leading-relaxed">
+                        <strong class="text-indigo-900 text-base font-bold block">THEOREM 15 (Page 5)</strong>
+                        <p>
+                            Let $\mathcal{B} = \{\mathbf{b}_1, \dots, \mathbf{b}_n\}$ and $\mathcal{C} = \{\mathbf{c}_1, \dots, \mathbf{c}_n\}$ be bases of a vector space $V$. Then there is a unique $n \times n$ matrix $P_{\mathcal{C}\leftarrow\mathcal{B}}$ such that
+                        </p>
+                        <div class="p-2.5 bg-indigo-50/70 rounded-lg border border-indigo-200 font-mono text-center text-indigo-950 font-bold text-xs md:text-sm space-y-1">
+                            <div>$$[\mathbf{x}]_{\mathcal{C}} = P_{\mathcal{C}\leftarrow\mathcal{B}}[\mathbf{x}]_{\mathcal{B}} \quad \text{(4)}$$</div>
+                            <div>$$P_{\mathcal{C}\leftarrow\mathcal{B}} = \big[\, [\mathbf{b}_1]_{\mathcal{C}} \;\; [\mathbf{b}_2]_{\mathcal{C}} \;\; \cdots \;\; [\mathbf{b}_n]_{\mathcal{C}} \,\big] \quad \text{(5)}$$</div>
+                        </div>
+                        <p class="text-xs md:text-sm text-slate-700">
+                            The matrix $P_{\mathcal{C}\leftarrow\mathcal{B}}$ in Theorem 15 is called the <strong>change-of-coordinates matrix (座標變換矩陣)</strong> from $\mathcal{B}$ to $\mathcal{C}$. Multiplication by $P_{\mathcal{C}\leftarrow\mathcal{B}}$ converts $\mathcal{B}$-coordinates into $\mathcal{C}$-coordinates.
+                        </p>
+                        <p class="text-xs md:text-sm text-slate-700">
+                            <strong>Inverse Relation (Page 7):</strong> The columns of $P_{\mathcal{C}\leftarrow\mathcal{B}}$ are linearly independent because they are the coordinate vectors of the linearly independent set $\mathcal{B}$. Since $P_{\mathcal{C}\leftarrow\mathcal{B}}$ is square, it must be invertible, by the Invertible Matrix Theorem. Left-multiplying both sides of (4) by $(P_{\mathcal{C}\leftarrow\mathcal{B}})^{-1}$ yields
+                        </p>
+                        <div class="p-2 bg-slate-50 rounded-lg border border-slate-200 font-mono text-center text-indigo-950 font-bold text-xs md:text-sm">
+                            $$(P_{\mathcal{C}\leftarrow\mathcal{B}})^{-1} = P_{\mathcal{B}\leftarrow\mathcal{C}} \quad \text{(6)}$$
+                        </div>
+                    </div>
+
+                    <!-- FIGURE 2 SVG (Page 6) -->
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
+                        <svg viewBox="0 0 320 205" class="w-full max-w-[300px] mx-auto bg-white rounded border border-slate-200">
+                            <defs>
+                                <marker id="arr-fig2-47" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f172a"/>
+                                </marker>
+                            </defs>
+                            <!-- Top parallelogram V -->
+                            <polygon points="105,22 250,22 280,74 135,74" fill="#bceeff" stroke="#7dd3fc" stroke-width="1.2"/>
+                            <text x="252" y="42" font-family="Georgia, 'Times New Roman', serif" font-size="15" font-style="italic" fill="#0f172a">V</text>
+                            <circle cx="192" cy="48" r="3.6" fill="#0f172a"/>
+                            <text x="180" y="42" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="bold" fill="#0f172a">x</text>
+
+                            <!-- Bottom-left parallelogram R^n -->
+                            <polygon points="12,136 118,136 138,186 32,186" fill="#bceeff" stroke="#7dd3fc" stroke-width="1.2"/>
+                            <text x="26" y="176" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">R<tspan dy="-4" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">n</tspan></text>
+                            <circle cx="92" cy="158" r="3.6" fill="#0f172a"/>
+                            <text x="98" y="162" font-family="Georgia, 'Times New Roman', serif" font-size="13.5" font-weight="bold" fill="#0f172a">[x]<tspan dy="3" font-size="9.5" font-style="italic" fill="#0f172a">C</tspan></text>
+
+                            <!-- Bottom-right parallelogram R^n -->
+                            <polygon points="184,136 290,136 310,186 204,186" fill="#bceeff" stroke="#7dd3fc" stroke-width="1.2"/>
+                            <text x="284" y="176" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">R<tspan dy="-4" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">n</tspan></text>
+                            <circle cx="234" cy="158" r="3.6" fill="#0f172a"/>
+                            <text x="240" y="162" font-family="Georgia, 'Times New Roman', serif" font-size="13.5" font-weight="bold" fill="#0f172a">[x]<tspan dy="3" font-size="9.5" font-style="italic" fill="#0f172a">B</tspan></text>
+
+                            <!-- Diagonal arrows from V to R^n -->
+                            <line x1="176" y1="62" x2="104" y2="132" stroke="#0f172a" stroke-width="1.5" marker-end="url(#arr-fig2-47)"/>
+                            <text x="114" y="96" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#0f172a">[ &nbsp; ]<tspan dy="3" font-size="9.5" font-style="italic" fill="#0f172a">C</tspan></text>
+
+                            <line x1="206" y1="62" x2="232" y2="130" stroke="#0f172a" stroke-width="1.5" marker-end="url(#arr-fig2-47)"/>
+                            <text x="228" y="96" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#0f172a">[ &nbsp; ]<tspan dy="3" font-size="9.5" font-style="italic" fill="#0f172a">B</tspan></text>
+
+                            <!-- Horizontal arrow from [x]_B to [x]_C -->
+                            <line x1="216" y1="158" x2="122" y2="158" stroke="#0f172a" stroke-width="1.5" marker-end="url(#arr-fig2-47)"/>
+                            <text x="170" y="138" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="11.5" fill="#0f172a">multiplication</text>
+                            <text x="170" y="151" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="11.5" fill="#0f172a">by &nbsp; P<tspan dy="3" font-size="8.5" font-style="italic" fill="#0f172a">C←B</tspan></text>
+                        </svg>
+                        <div class="text-left max-w-[235px] mx-auto text-xs leading-snug">
+                            <span class="font-bold text-slate-900 block tracking-wide">FIGURE 2</span>
+                            <span class="text-slate-800" style="font-family: Georgia, 'Times New Roman', serif;">Two coordinate systems for $V$.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4.7.2 Change of Basis in R^n -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-table-cells-large text-indigo-500 text-sm"></i> 4.7.2 Change of Basis in $\mathbb{R}^n$ ($\mathbb{R}^n$ 中的基底變換，Pages 8 - 14)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2.5 text-slate-800 leading-relaxed">
+                    <strong class="text-indigo-900 text-base font-bold block">Row-Reduction &amp; Standard Coordinate Matrix Formulas in $\mathbb{R}^n$ (Pages 8 - 14)</strong>
+                    <p class="text-xs md:text-sm text-slate-700">
+                        If $\mathcal{B} = \{\mathbf{b}_1, \dots, \mathbf{b}_n\}$ and $\mathcal{E} = \{\mathbf{e}_1, \dots, \mathbf{e}_n\}$ is the standard basis in $\mathbb{R}^n$, then $[\mathbf{b}_j]_{\mathcal{E}} = \mathbf{b}_j$, so $P_{\mathcal{E}\leftarrow\mathcal{B}}$ coincides with $P_{\mathcal{B}} = [\mathbf{b}_1 \;\; \mathbf{b}_2 \;\; \cdots \;\; \mathbf{b}_n]$ from Section 4.4. Between any two bases $\mathcal{B}$ and $\mathcal{C}$ of $\mathbb{R}^n$, we can compute $P_{\mathcal{C}\leftarrow\mathcal{B}}$ in two equivalent ways:
+                    </p>
+                    <div class="p-2.5 bg-indigo-50/70 rounded-lg border border-indigo-200 font-mono text-center text-indigo-950 font-bold text-xs md:text-sm space-y-1">
+                        <div>$$[\mathbf{c}_1 \;\; \mathbf{c}_2 \;\; \cdots \;\; \mathbf{c}_n \;\; | \;\; \mathbf{b}_1 \;\; \mathbf{b}_2 \;\; \cdots \;\; \mathbf{b}_n] \sim [I \;\; | \;\; P_{\mathcal{C}\leftarrow\mathcal{B}}]$$</div>
+                        <div>$$P_{\mathcal{C}\leftarrow\mathcal{B}} = P_{\mathcal{C}}^{-1} P_{\mathcal{B}} \quad \text{and} \quad P_{\mathcal{B}\leftarrow\mathcal{C}} = (P_{\mathcal{C}\leftarrow\mathcal{B}})^{-1}$$</div>
+                    </div>
+                </div>
+
+                <!-- Expandable EXAMPLES 2 & 3 (Pages 9 - 14) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-7-23')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-calculator mr-2 text-indigo-600"></i> EXAMPLES 2 &amp; 3 + $P_{\mathcal{C}}^{-1}P_{\mathcal{B}}$ Relation (Pages 9 - 14): Computing $P_{\mathcal{C}\leftarrow\mathcal{B}}$ and $P_{\mathcal{B}\leftarrow\mathcal{C}}$ (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                    </button>
+                    <div id="ex-4-7-23" class="toggle-content p-5 space-y-4 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                        <!-- EXAMPLE 2 -->
+                        <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
+                            <p>
+                                <strong>EXAMPLE 2 (Pages 9 - 11):</strong> Let $\mathbf{b}_1 = \begin{bmatrix} -9 \\ 1 \end{bmatrix}$, $\mathbf{b}_2 = \begin{bmatrix} -5 \\ -1 \end{bmatrix}$, $\mathbf{c}_1 = \begin{bmatrix} 1 \\ -4 \end{bmatrix}$, $\mathbf{c}_2 = \begin{bmatrix} 3 \\ -5 \end{bmatrix}$, and consider the bases for $\mathbb{R}^2$ given by $\mathcal{B} = \{\mathbf{b}_1, \mathbf{b}_2\}$ and $\mathcal{C} = \{\mathbf{c}_1, \mathbf{c}_2\}$. Find the change-of-coordinates matrix from $\mathcal{B}$ to $\mathcal{C}$.
+                            </p>
+                            <p>
+                                <strong>SOLUTION:</strong> Since $[\mathbf{c}_1 \;\; \mathbf{c}_2][\mathbf{b}_1]_{\mathcal{C}} = \mathbf{b}_1$ and $[\mathbf{c}_1 \;\; \mathbf{c}_2][\mathbf{b}_2]_{\mathcal{C}} = \mathbf{b}_2$, we augment $[\mathbf{c}_1 \;\; \mathbf{c}_2]$ with $\mathbf{b}_1$ and $\mathbf{b}_2$ and row reduce:
+                            </p>
+                            <div class="font-mono text-center text-slate-800 text-xs md:text-sm py-1">
+                                $$[\mathbf{c}_1 \;\; \mathbf{c}_2 \;\; | \;\; \mathbf{b}_1 \;\; \mathbf{b}_2] = \begin{bmatrix} 1 & 3 & | & -9 & -5 \\ -4 & -5 & | & 1 & -1 \end{bmatrix} \sim \begin{bmatrix} 1 & 0 & | & 6 & 4 \\ 0 & 1 & | & -5 & -3 \end{bmatrix}$$
+                            </div>
+                            <p>
+                                Thus $[\mathbf{b}_1]_{\mathcal{C}} = \begin{bmatrix} 6 \\ -5 \end{bmatrix}$ and $[\mathbf{b}_2]_{\mathcal{C}} = \begin{bmatrix} 4 \\ -3 \end{bmatrix}$, giving
+                            </p>
+                            <div class="font-mono text-center text-indigo-950 font-bold text-xs md:text-sm py-1">
+                                $$P_{\mathcal{C}\leftarrow\mathcal{B}} = \big[\, [\mathbf{b}_1]_{\mathcal{C}} \;\; [\mathbf{b}_2]_{\mathcal{C}} \,\big] = \begin{bmatrix} 6 & 4 \\ -5 & -3 \end{bmatrix} \quad \text{(7)}$$
+                            </div>
+                        </div>
+
+                        <!-- EXAMPLE 3 -->
+                        <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
+                            <p>
+                                <strong>EXAMPLE 3 (Pages 12 - 13):</strong> Let $\mathbf{b}_1 = \begin{bmatrix} 1 \\ -3 \end{bmatrix}$, $\mathbf{b}_2 = \begin{bmatrix} -2 \\ 4 \end{bmatrix}$, $\mathbf{c}_1 = \begin{bmatrix} -7 \\ 9 \end{bmatrix}$, $\mathbf{c}_2 = \begin{bmatrix} -5 \\ 7 \end{bmatrix}$, and consider the bases for $\mathbb{R}^2$ given by $\mathcal{B} = \{\mathbf{b}_1, \mathbf{b}_2\}$ and $\mathcal{C} = \{\mathbf{c}_1, \mathbf{c}_2\}$.
+                            </p>
+                            <p><strong>a.</strong> Find the change-of-coordinates matrix from $\mathcal{C}$ to $\mathcal{B}$.</p>
+                            <p><strong>b.</strong> Find the change-of-coordinates matrix from $\mathcal{B}$ to $\mathcal{C}$.</p>
+                            <div class="pt-1 space-y-1.5">
+                                <p><strong>SOLUTION:</strong> <strong>a.</strong> Compute $P_{\mathcal{B}\leftarrow\mathcal{C}}$ by row reducing:</p>
+                                <div class="font-mono text-center text-slate-800 text-xs md:text-sm py-1">
+                                    $$[\mathbf{b}_1 \;\; \mathbf{b}_2 \;\; | \;\; \mathbf{c}_1 \;\; \mathbf{c}_2] = \begin{bmatrix} 1 & -2 & | & -7 & -5 \\ -3 & 4 & | & 9 & 7 \end{bmatrix} \sim \begin{bmatrix} 1 & 0 & | & 5 & 3 \\ 0 & 1 & | & 6 & 4 \end{bmatrix} \implies P_{\mathcal{B}\leftarrow\mathcal{C}} = \begin{bmatrix} 5 & 3 \\ 6 & 4 \end{bmatrix}$$
+                                </div>
+                                <p><strong>b.</strong> By part (a) and property (6) (with $\mathcal{B}$ and $\mathcal{C}$ interchanged),</p>
+                                <div class="font-mono text-center text-indigo-950 font-bold text-xs md:text-sm py-1">
+                                    $$P_{\mathcal{C}\leftarrow\mathcal{B}} = (P_{\mathcal{B}\leftarrow\mathcal{C}})^{-1} = \frac{1}{2} \begin{bmatrix} 4 & -3 \\ -6 & 5 \end{bmatrix} = \begin{bmatrix} 2 & -3/2 \\ -3 & 5/2 \end{bmatrix}$$
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Page 14: P_C^{-1} P_B formula -->
+                        <div class="p-3.5 bg-indigo-50/50 rounded-lg border border-indigo-200 space-y-1.5 text-xs md:text-sm">
+                            <strong class="text-indigo-950 block">Alternative Formula via $P_{\mathcal{B}}$ and $P_{\mathcal{C}}$ (Page 14):</strong>
+                            <p>
+                                Since $P_{\mathcal{B}}[\mathbf{x}]_{\mathcal{B}} = \mathbf{x}$ and $P_{\mathcal{C}}[\mathbf{x}]_{\mathcal{C}} = \mathbf{x}$, we have $[\mathbf{x}]_{\mathcal{C}} = P_{\mathcal{C}}^{-1}\mathbf{x} = P_{\mathcal{C}}^{-1} P_{\mathcal{B}} [\mathbf{x}]_{\mathcal{B}}$. Thus in $\mathbb{R}^n$, $P_{\mathcal{C}\leftarrow\mathcal{B}} = P_{\mathcal{C}}^{-1} P_{\mathcal{B}}$ (though row reduction on $[\mathbf{c}_1 \;\; \cdots \;\; \mathbf{c}_n \;\; | \;\; \mathbf{b}_1 \;\; \cdots \;\; \mathbf{b}_n]$ is generally faster for matrices larger than $2\times 2$).
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-
+    
 </main>
 
 <script>
