@@ -2985,429 +2985,334 @@
             </div>
         </div>
     </section>
-
-    <!-- ================= SECTION 4.6 ================= -->
-    <section id="sec4-6" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
-        <div class="border-b border-indigo-100 pb-4 flex flex-wrap items-center justify-between gap-2">
+<!-- ================= SECTION 4.6 ================= -->
+    <section id="sec4-6" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-8">
+        <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
             <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
-                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-lg text-base md:text-lg font-mono">§ 4.6</span>
-                Rank <span class="text-indigo-700 font-normal text-base md:text-lg">（秩）</span>
+                <span class="bg-rose-100 text-rose-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 4.6</span>
+                Rank (秩)
             </h2>
             <span class="text-xs text-slate-500 font-mono">Pages 1 - 22</span>
         </div>
-    
-        <!-- 引言考點與數據 -->
-        <div class="p-4 md:p-5 bg-indigo-50/50 rounded-xl border border-indigo-200 space-y-3 text-sm text-slate-800 leading-relaxed">
-            <p>
-                With the aid of vector space concepts <span class="text-indigo-700 font-semibold">（向量空間概念）</span>, this section takes a look inside a matrix and reveals several interesting and useful relationships hidden in its rows <span class="text-indigo-700 font-semibold">（列）</span> and columns <span class="text-indigo-700 font-semibold">（行）</span>.
-            </p>
-            <p>
-                For instance, imagine placing <span class="font-mono font-semibold text-indigo-950">2000</span> random numbers <span class="text-indigo-700 font-semibold">（隨機數）</span> into a <span class="font-mono font-semibold text-indigo-950">$40\times50$</span> matrix <span class="font-mono font-semibold text-indigo-950">$A$</span> and then determining both the maximum number of linearly independent columns <span class="text-indigo-700 font-semibold">（線性獨立行／直行）</span> in <span class="font-mono">$A$</span> and the maximum number of linearly independent columns in <span class="font-mono">$A^{T}$</span> <span class="text-indigo-700 font-semibold">（轉置矩陣）</span> (rows <span class="text-indigo-700 font-semibold">（橫列）</span> in <span class="font-mono">$A$</span>). Remarkably, the two numbers are the same. As we'll soon see, their common value is the <strong>rank <span class="text-indigo-700">（秩）</span></strong> of the matrix. To explain why, we need to examine the subspace <span class="text-indigo-700 font-semibold">（子空間）</span> spanned by the rows of <span class="font-mono">$A$</span>.
-            </p>
-        </div>
-    
-        <!-- The Row Space -->
-        <div class="space-y-4 text-sm text-slate-800 leading-relaxed">
-            <h3 class="text-base md:text-lg font-bold text-indigo-950 flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-indigo-600"></span>
-                The Row Space <span class="text-indigo-700 font-normal text-sm">（行空間）</span>
+
+        <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+            With the aid of vector space concepts, this section takes a look inside a matrix and reveals several interesting and useful relationships hidden in its rows and columns. Remarkably, the maximum number of linearly independent columns in $A$ and the maximum number of linearly independent rows in $A$ (columns in $A^T$) are always equal—and their common value is the <strong>rank</strong> of $A$.
+        </p>
+
+        <!-- 4.6.1 The Row Space -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-rose-800 flex items-center gap-2">
+                <i class="fa-solid fa-grip-lines text-rose-500 text-sm"></i> 4.6.1 The Row Space (列空間，Pages 1 - 12)
             </h3>
-    
-            <div class="p-4 md:p-5 bg-white rounded-xl border border-indigo-100 space-y-3 shadow-2xs">
-                <p>
-                    If <span class="font-mono">$A$</span> is an <span class="font-mono font-semibold text-indigo-950">$m\times n$</span> matrix, each row of <span class="font-mono">$A$</span> has <span class="font-mono font-semibold text-indigo-950">$n$</span> entries <span class="text-indigo-700 font-semibold">（元／分量）</span> and thus can be identified with a vector in <span class="font-mono">$\mathbb{R}^{n}$</span>.
-                </p>
-                <p>
-                    The set of all linear combinations <span class="text-indigo-700 font-semibold">（線性組合）</span> of the row vectors is called the <strong>row space <span class="text-indigo-700">（行空間）</span></strong> of <span class="font-mono">$A$</span> and is denoted by <span class="font-mono font-semibold text-indigo-950">$\text{Row } A$</span>. Each row has <span class="font-mono">$n$</span> entries, so <span class="font-mono">$\text{Row } A$</span> is a subspace of <span class="font-mono">$\mathbb{R}^{n}$</span>. Since the rows of <span class="font-mono">$A$</span> are identified with the columns of <span class="font-mono">$A^{T}$</span>, we could also write <span class="font-mono font-semibold text-indigo-950">$\text{Col } A^{T}$</span> <span class="text-indigo-700 font-semibold">（$A^T$ 的列空間）</span> in place of <span class="font-mono">$\text{Row } A$</span>.
-                </p>
-            </div>
-    
-            <!-- EXAMPLE 1 (可展開，預設收合) -->
-            <details class="group bg-indigo-50/30 rounded-xl border border-indigo-200 overflow-hidden">
-                <summary class="cursor-pointer list-none px-4 py-3 bg-indigo-50/80 hover:bg-indigo-100/70 transition flex items-center justify-between font-semibold text-indigo-950 text-sm">
-                    <span class="flex items-center gap-2">
-                        <i class="fa-solid fa-chevron-right text-xs text-indigo-600 transition-transform duration-200 group-open:rotate-90"></i>
-                        <span>EXAMPLE 1 <span class="text-indigo-700 font-normal">（例題 1：寫出行空間生成集）</span></span>
-                    </span>
-                    <span class="text-xs font-mono text-indigo-600">Page 3 · 點擊展開</span>
-                </summary>
-                <div class="p-4 md:p-5 space-y-3 border-t border-indigo-100 bg-white text-slate-800">
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <div class="p-4 bg-white rounded-lg border border-rose-200 space-y-2 text-slate-800 leading-relaxed">
+                    <strong class="text-rose-900 text-base font-bold block">DEFINITION: Row Space ($\text{Row } A$, Page 2)</strong>
                     <p>
-                        Let
-                        $$A = \begin{bmatrix} -2 & -5 & 8 & 0 & -17 \\ 1 & 3 & -5 & 1 & 5 \\ 3 & 11 & -19 & 7 & 1 \\ 1 & 7 & -13 & 5 & -3 \end{bmatrix}$$
-                        and
-                        $$\mathbf{r}_1 = (-2, -5, 8, 0, -17), \quad \mathbf{r}_2 = (1, 3, -5, 1, 5), \quad \mathbf{r}_3 = (3, 11, -19, 7, 1), \quad \mathbf{r}_4 = (1, 7, -13, 5, -3).$$
-                    </p>
-                    <p>
-                        The row space of <span class="font-mono">$A$</span> is the subspace of <span class="font-mono">$\mathbb{R}^{5}$</span> spanned by <span class="font-mono">$\{\mathbf{r}_{1}, \mathbf{r}_{2}, \mathbf{r}_{3}, \mathbf{r}_{4}\}$</span>. That is, <span class="font-mono font-semibold text-indigo-950">$\text{Row } A = \text{Span}\{\mathbf{r}_{1}, \mathbf{r}_{2}, \mathbf{r}_{3}, \mathbf{r}_{4}\}$</span> <span class="text-indigo-700 font-semibold">（生成集）</span>. It is natural to write row vectors horizontally; however, they may also be written as column vectors if that is more convenient.
+                        If $A$ is an $m \times n$ matrix, each row of $A$ has $n$ entries and thus can be identified with a vector in $\mathbb{R}^n$. The set of all linear combinations of the row vectors is called the <strong>row space (列空間)</strong> of $A$ and is denoted by $\text{Row } A$. Each row has $n$ entries, so $\text{Row } A$ is a subspace of $\mathbb{R}^n$. Since the rows of $A$ are identified with the columns of $A^T$, we could also write $\text{Col } A^T$ in place of $\text{Row } A$.
                     </p>
                 </div>
-            </details>
-    
-            <!-- THEOREM 13 -->
-            <div class="p-4 md:p-5 bg-indigo-50/50 rounded-xl border border-indigo-200 space-y-3">
-                <p>
-                    If we knew some linear dependence relations <span class="text-indigo-700 font-semibold">（線性相依關係）</span> among the rows of matrix <span class="font-mono">$A$</span> in Example 1, we could use the Spanning Set Theorem <span class="text-indigo-700 font-semibold">（生成集定理）</span> to shrink the spanning set to a basis <span class="text-indigo-700 font-semibold">（基底）</span>. Unfortunately, row operations <span class="text-indigo-700 font-semibold">（列運算）</span> on <span class="font-mono">$A$</span> will not give us that information, because row operations change the row-dependence relations. But row reducing <span class="font-mono">$A$</span> is certainly worthwhile, as the next theorem shows!
-                </p>
-                <div class="p-4 bg-white rounded-xl border border-indigo-200 space-y-2">
-                    <div class="font-bold text-indigo-950">THEOREM 13 <span class="text-indigo-700 font-normal">（定理 13：列等價矩陣的行空間與階梯形基底）</span></div>
-                    <p>
-                        If two matrices <span class="font-mono">$A$</span> and <span class="font-mono">$B$</span> are <strong>row equivalent <span class="text-indigo-700">（列等價）</span></strong>, then their row spaces are the same. If <span class="font-mono">$B$</span> is in <strong>echelon form <span class="text-indigo-700">（階梯形）</span></strong>, the <strong>nonzero rows <span class="text-indigo-700">（非零列）</span></strong> of <span class="font-mono">$B$</span> form a basis for the row space of <span class="font-mono">$A$</span> as well as for that of <span class="font-mono">$B$</span>.
-                    </p>
-                </div>
-    
-                <!-- PROOF of THEOREM 13 (可展開，預設收合) -->
-                <details class="group bg-white rounded-xl border border-indigo-200 overflow-hidden">
-                    <summary class="cursor-pointer list-none px-4 py-2.5 bg-indigo-50/60 hover:bg-indigo-100/70 transition flex items-center justify-between font-semibold text-indigo-900 text-xs sm:text-sm">
-                        <span class="flex items-center gap-2">
-                            <i class="fa-solid fa-chevron-right text-xs text-indigo-600 transition-transform duration-200 group-open:rotate-90"></i>
-                            <span>PROOF — THEOREM 13 <span class="text-indigo-700 font-normal">（定理 13 證明）</span></span>
-                        </span>
-                        <span class="text-xs font-mono text-indigo-600">Page 5 · 點擊展開</span>
-                    </summary>
-                    <div class="p-4 space-y-2.5 border-t border-indigo-100 bg-white text-slate-800">
+
+                <!-- Expandable EXAMPLE 1 (Page 3) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-6-1')" class="w-full p-4 text-left font-bold text-rose-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-grip-lines mr-2 text-rose-600"></i> EXAMPLE 1 (Page 3): Identifying the Row Space of a $4 \times 5$ Matrix (點擊展開)</span>
+                        <span class="text-xs bg-rose-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example</span>
+                    </button>
+                    <div id="ex-4-6-1" class="toggle-content p-5 space-y-2.5 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
                         <p>
-                            If <span class="font-mono">$B$</span> is obtained from <span class="font-mono">$A$</span> by row operations, the rows of <span class="font-mono">$B$</span> are linear combinations of the rows of <span class="font-mono">$A$</span>. It follows that any linear combination of the rows of <span class="font-mono">$B$</span> is automatically a linear combination of the rows of <span class="font-mono">$A$</span>. Thus the row space of <span class="font-mono">$B$</span> is contained in the row space of <span class="font-mono">$A$</span>. Since row operations are reversible, the same argument shows that the row space of <span class="font-mono">$A$</span> is a subset of the row space of <span class="font-mono">$B$</span>. So the two row spaces are the same. If <span class="font-mono">$B$</span> is in echelon form, its nonzero rows are linearly independent because no nonzero row is a linear combination of the nonzero rows below it. (Apply Theorem 4 to the nonzero rows of <span class="font-mono">$B$</span> in reverse order, with the first row last.) Thus the nonzero rows of <span class="font-mono">$B$</span> form a basis of the (common) row space of <span class="font-mono">$B$</span> and <span class="font-mono">$A$</span>.
+                            Let
+                        </p>
+                        <div class="font-mono text-center text-slate-800 text-xs md:text-sm py-1">
+                            $$A = \begin{bmatrix} -2 & -5 & 8 & 0 & -17 \\ 1 & 3 & -5 & 1 & 5 \\ 3 & 11 & -19 & 7 & 1 \\ 1 & 7 & -13 & 5 & -3 \end{bmatrix}$$
+                        </div>
+                        <p>
+                            and $\mathbf{r}_1 = (-2, -5, 8, 0, -17)$, $\mathbf{r}_2 = (1, 3, -5, 1, 5)$, $\mathbf{r}_3 = (3, 11, -19, 7, 1)$, $\mathbf{r}_4 = (1, 7, -13, 5, -3)$. The row space of $A$ is the subspace of $\mathbb{R}^5$ spanned by $\{\mathbf{r}_1, \mathbf{r}_2, \mathbf{r}_3, \mathbf{r}_4\}$. That is, $\text{Row } A = \text{Span}\{\mathbf{r}_1, \mathbf{r}_2, \mathbf{r}_3, \mathbf{r}_4\}$. It is natural to write row vectors horizontally; however, they may also be written as column vectors if that is more convenient.
                         </p>
                     </div>
-                </details>
-            </div>
-    
-            <!-- EXAMPLE 2 (可展開，預設收合，含完整解答與原文筆誤／排版還原) -->
-            <details class="group bg-indigo-50/30 rounded-xl border border-indigo-200 overflow-hidden">
-                <summary class="cursor-pointer list-none px-4 py-3 bg-indigo-50/80 hover:bg-indigo-100/70 transition flex items-center justify-between font-semibold text-indigo-950 text-sm">
-                    <span class="flex items-center gap-2">
-                        <i class="fa-solid fa-chevron-right text-xs text-indigo-600 transition-transform duration-200 group-open:rotate-90"></i>
-                        <span>EXAMPLE 2 <span class="text-indigo-700 font-normal">（例題 2：求 Row A、Col A 與 Nul A 的基底）</span></span>
-                    </span>
-                    <span class="text-xs font-mono text-indigo-600">Pages 6 - 11 · 點擊展開</span>
-                </summary>
-                <div class="p-4 md:p-5 space-y-3 border-t border-indigo-100 bg-white text-slate-800">
-                    <p>
-                        The main result of this section involves the three spaces: <span class="font-mono">$\text{Row } A$</span>, <span class="font-mono">$\text{Col } A$</span>, and <span class="font-mono">$\text{Nul } A$</span> <span class="text-indigo-700 font-semibold">（零空間）</span>. The following example prepares the way for this result and shows how one sequence of row operations on <span class="font-mono">$A$</span> leads to bases for all three spaces.
-                    </p>
-                    <p>
-                        <strong>Find bases for the row space, the column space, and the null space of the matrix</strong>
-                        $$A = \begin{bmatrix} -2 & -5 & 8 & 0 & -17 \\ 1 & 3 & -5 & 1 & 5 \\ 3 & 11 & -19 & 7 & 1 \\ 1 & 7 & -13 & 5 & -3 \end{bmatrix}$$
-                    </p>
-                    <p>
-                        <strong>SOLUTION:</strong> To find bases for the row space and the column space, row reduce <span class="font-mono">$A$</span> to an echelon form:
-                        $$A \sim B = \begin{bmatrix} 1 & 3 & -5 & 1 & 5 \\ 0 & 1 & -2 & 2 & -7 \\ 0 & 0 & 0 & -4 & 20 \\ 0 & 0 & 0 & 0 & 0 \end{bmatrix}$$
-                        By Theorem 13, the first three rows of <span class="font-mono">$B$</span> form a basis for the row space of <span class="font-mono">$A$</span> (as well as for the row space of <span class="font-mono">$B$</span>). Thus
-                        $$\text{Basis for Row } A:\; (1, 3, -5, 1, 5),\; (0, 1, -2, 2, -7),\; (0, 0, 0, -4, 20)$$
-                        <span class="text-xs text-slate-500">（註：原始提取文字第 7 頁誤植第一向量為 `(1,3,5,1, 5)`，依階梯形矩陣 $B$ 第一列應為 $(1, 3, -5, 1, 5)$。）</span>
-                    </p>
-                    <p>
-                        For the column space, observe from <span class="font-mono">$B$</span> that the pivots <span class="text-indigo-700 font-semibold">（主元）</span> are in columns <span class="font-mono font-semibold text-indigo-950">$1$</span>, <span class="font-mono font-semibold text-indigo-950">$2$</span>, and <span class="font-mono font-semibold text-indigo-950">$4$</span>. Hence columns <span class="font-mono">$1$</span>, <span class="font-mono">$2$</span>, and <span class="font-mono">$4$</span> of <span class="font-mono">$A$</span> (not <span class="font-mono">$B$</span>) form a basis for <span class="font-mono">$\text{Col } A$</span>:
-                        $$\text{Basis for Col } A:\; \left\{ \begin{bmatrix} -2 \\ 1 \\ 3 \\ 1 \end{bmatrix},\; \begin{bmatrix} -5 \\ 3 \\ 11 \\ 7 \end{bmatrix},\; \begin{bmatrix} 0 \\ 1 \\ 7 \\ 5 \end{bmatrix} \right\}$$
-                    </p>
-                    <p>
-                        Notice that any echelon form of <span class="font-mono">$A$</span> provides (in its nonzero rows) a basis for <span class="font-mono">$\text{Row } A$</span> and also identifies the pivot columns <span class="text-indigo-700 font-semibold">（主元行）</span> of <span class="font-mono">$A$</span> for <span class="font-mono">$\text{Col } A$</span>. However, for <span class="font-mono">$\text{Nul } A$</span>, we need the reduced echelon form <span class="text-indigo-700 font-semibold">（簡化階梯形）</span>. Further row operations on <span class="font-mono">$B$</span> yield
-                        $$A \sim B \sim C = \begin{bmatrix} 1 & 0 & 1 & 0 & 1 \\ 0 & 1 & -2 & 0 & 3 \\ 0 & 0 & 0 & 1 & -5 \\ 0 & 0 & 0 & 0 & 0 \end{bmatrix}$$
-                    </p>
-                    <p>
-                        The equation <span class="font-mono">$A\mathbf{x} = \mathbf{0}$</span> is equivalent to <span class="font-mono">$C\mathbf{x} = \mathbf{0}$</span>, that is,
-                        $$\begin{aligned}
-                        x_1 + x_3 + x_5 &= 0 \\
-                        x_2 - 2x_3 + 3x_5 &= 0 \\
-                        x_4 - 5x_5 &= 0
-                        \end{aligned}$$
-                        <span class="text-xs text-slate-500">（註：原始提取文字第 10 頁第三式辨識為 `x_4 - \xi_{rc} = 0`，由矩陣 $C$ 第三列 $[0\; 0\; 0\; 1\; -5]$ 還原應為 $x_4 - 5x_5 = 0$。）</span>
-                    </p>
-                    <p>
-                        So <span class="font-mono">$x_1 = -x_3 - x_5$</span>, <span class="font-mono">$x_2 = 2x_3 - 3x_5$</span>, <span class="font-mono">$x_4 = 5x_5$</span>, with <span class="font-mono">$x_3$</span> and <span class="font-mono">$x_5$</span> free variables <span class="text-indigo-700 font-semibold">（自由變數）</span>. The usual calculations (discussed in Section 4.2) show that
-                        $$\text{Basis for Nul } A:\; \left\{ \begin{bmatrix} -1 \\ 2 \\ 1 \\ 0 \\ 0 \end{bmatrix},\; \begin{bmatrix} -1 \\ -3 \\ 0 \\ 5 \\ 1 \end{bmatrix} \right\}$$
-                        Observe that, unlike the basis for <span class="font-mono">$\text{Col } A$</span>, the bases for <span class="font-mono">$\text{Row } A$</span> and <span class="font-mono">$\text{Nul } A$</span> have no simple connection with the entries in <span class="font-mono">$A$</span> itself.
-                    </p>
                 </div>
-            </details>
-    
-            <!-- Warning 考點 -->
-            <div class="p-4 bg-amber-50/80 rounded-xl border border-amber-300 space-y-1.5 text-slate-800">
-                <div class="font-bold text-amber-950 flex items-center gap-1.5">
-                    <i class="fa-solid fa-triangle-exclamation text-amber-600"></i>
-                    <span>Warning <span class="text-indigo-700 font-normal">（警語：列運算改變列相依關係）</span></span>
+
+                <!-- THEOREM 13 + Expandable PROOF (Pages 4 - 5) -->
+                <div class="p-4 bg-white rounded-lg border border-rose-200 space-y-3 text-slate-800 leading-relaxed">
+                    <strong class="text-rose-900 text-base font-bold block">THEOREM 13 (Page 4)</strong>
+                    <p>
+                        If two matrices $A$ and $B$ are <strong>row equivalent (列等價)</strong>, then their row spaces are the same. If $B$ is in <strong>echelon form (階梯形)</strong>, the <strong>nonzero rows of $B$</strong> form a basis for the row space of $A$ as well as for that of $B$.
+                    </p>
+
+                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                        <button onclick="toggleCard('proof-4-6-thm13')" class="w-full p-3.5 text-left font-bold text-rose-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                            <span><i class="fa-solid fa-scroll mr-2 text-rose-600"></i> PROOF OF THEOREM 13 (Page 5) (點擊展開)</span>
+                            <span class="text-xs bg-rose-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof</span>
+                        </button>
+                        <div id="proof-4-6-thm13" class="toggle-content p-4 space-y-2 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                            <p>
+                                If $B$ is obtained from $A$ by row operations, the rows of $B$ are linear combinations of the rows of $A$. It follows that any linear combination of the rows of $B$ is automatically a linear combination of the rows of $A$. Thus the row space of $B$ is contained in the row space of $A$. Since row operations are reversible, the same argument shows that the row space of $A$ is a subset of the row space of $B$. So the two row spaces are the same. If $B$ is in echelon form, its nonzero rows are linearly independent because no nonzero row is a linear combination of the nonzero rows below it. (Apply Theorem 4 to the nonzero rows of $B$ in reverse order, with the first row last.) Thus the nonzero rows of $B$ form a basis of the (common) row space of $B$ and $A$.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <p>
-                    Although the first three rows of <span class="font-mono">$B$</span> in Example 2 are linearly independent <span class="text-indigo-700 font-semibold">（線性獨立）</span>, it is wrong to conclude that the first three rows of <span class="font-mono">$A$</span> are linearly independent. (In fact, the third row of <span class="font-mono">$A$</span> is <span class="font-mono font-semibold text-indigo-950">$2$</span> times the first row plus <span class="font-mono font-semibold text-indigo-950">$7$</span> times the second row.) Row operations may change the linear dependence relations among the rows of a matrix.
-                </p>
+
+                <!-- Expandable EXAMPLE 2 & Warning (Pages 6 - 12) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-6-2')" class="w-full p-4 text-left font-bold text-rose-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-table-cells mr-2 text-rose-600"></i> EXAMPLE 2 &amp; Row-Dependence Warning (Pages 6 - 12): Bases for $\text{Row } A$, $\text{Col } A$, and $\text{Nul } A$ (點擊展開)</span>
+                        <span class="text-xs bg-rose-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example</span>
+                    </button>
+                    <div id="ex-4-6-2" class="toggle-content p-5 space-y-3.5 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                        <p>
+                            <strong>EXAMPLE 2 (Page 6):</strong> Find bases for the row space, the column space, and the null space of the matrix
+                        </p>
+                        <div class="font-mono text-center text-slate-800 text-xs md:text-sm py-1">
+                            $$A = \begin{bmatrix} -2 & -5 & 8 & 0 & -17 \\ 1 & 3 & -5 & 1 & 5 \\ 3 & 11 & -19 & 7 & 1 \\ 1 & 7 & -13 & 5 & -3 \end{bmatrix}$$
+                        </div>
+                        <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-2.5">
+                            <p><strong>SOLUTION (Pages 7 - 11):</strong> To find bases for the row space and the column space, row reduce $A$ to an echelon form:</p>
+                            <div class="font-mono text-center text-slate-800 text-xs md:text-sm py-1">
+                                $$A \sim B = \begin{bmatrix} 1 & 3 & -5 & 1 & 5 \\ 0 & 1 & -2 & 2 & -7 \\ 0 & 0 & 0 & -4 & 20 \\ 0 & 0 & 0 & 0 & 0 \end{bmatrix}$$
+                            </div>
+                            <p>
+                                By Theorem 13, the first three rows of $B$ form a basis for the row space of $A$ (as well as for the row space of $B$). Thus:
+                            </p>
+                            <p class="font-mono text-xs md:text-sm text-rose-950 font-semibold pl-2">
+                                Basis for $\text{Row } A$: $\{(1, 3, -5, 1, 5),\; (0, 1, -2, 2, -7),\; (0, 0, 0, -4, 20)\}$
+                            </p>
+                            <p>
+                                For the column space, observe from $B$ that the pivots are in columns 1, 2, and 4. Hence columns 1, 2, and 4 of $A$ (not $B$) form a basis for $\text{Col } A$:
+                            </p>
+                            <p class="font-mono text-xs md:text-sm text-rose-950 font-semibold pl-2">
+                                Basis for $\text{Col } A$: $\left\{ \begin{bmatrix} -2 \\ 1 \\ 3 \\ 1 \end{bmatrix},\; \begin{bmatrix} -5 \\ 3 \\ 11 \\ 7 \end{bmatrix},\; \begin{bmatrix} 0 \\ 1 \\ 7 \\ 5 \end{bmatrix} \right\}$
+                            </p>
+                            <p>
+                                Notice that any echelon form of $A$ provides (in its nonzero rows) a basis for $\text{Row } A$ and also identifies the pivot columns of $A$ for $\text{Col } A$. However, for $\text{Nul } A$, we need the reduced echelon form. Further row operations on $B$ yield
+                            </p>
+                            <div class="font-mono text-center text-slate-800 text-xs md:text-sm py-1">
+                                $$A \sim B \sim C = \begin{bmatrix} 1 & 0 & 1 & 0 & 1 \\ 0 & 1 & -2 & 0 & 3 \\ 0 & 0 & 0 & 1 & -5 \\ 0 & 0 & 0 & 0 & 0 \end{bmatrix}$$
+                            </div>
+                            <p>
+                                The equation $A\mathbf{x} = \mathbf{0}$ is equivalent to $C\mathbf{x} = \mathbf{0}$, that is, $x_1 + x_3 + x_5 = 0$, $x_2 - 2x_3 + 3x_5 = 0$, $x_4 - 5x_5 = 0$. So $x_1 = -x_3 - x_5$, $x_2 = 2x_3 - 3x_5$, $x_4 = 5x_5$, with $x_3$ and $x_5$ free variables. Thus:
+                            </p>
+                            <p class="font-mono text-xs md:text-sm text-rose-950 font-semibold pl-2">
+                                Basis for $\text{Nul } A$: $\left\{ \begin{bmatrix} -1 \\ 2 \\ 1 \\ 0 \\ 0 \end{bmatrix},\; \begin{bmatrix} -1 \\ -3 \\ 0 \\ 5 \\ 1 \end{bmatrix} \right\}$
+                            </p>
+                            <p class="text-xs md:text-sm text-slate-600">
+                                Observe that, unlike the basis for $\text{Col } A$, the bases for $\text{Row } A$ and $\text{Nul } A$ have no simple connection with the entries in $A$ itself.
+                            </p>
+                        </div>
+
+                        <div class="p-3.5 bg-amber-50/80 rounded-lg border border-amber-300 text-xs md:text-sm text-amber-950">
+                            <strong>Warning (Page 12):</strong> Although the first three rows of $B$ in Example 2 are linearly independent, it is wrong to conclude that the first three rows of $A$ are linearly independent. (In fact, the third row of $A$ is <span class="font-mono font-bold">2</span> times the first row plus <span class="font-mono font-bold">7</span> times the second row.) Row operations may change the linear dependence relations among the rows of a matrix.
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    
-        <!-- The Rank Theorem -->
-        <div class="space-y-4 text-sm text-slate-800 leading-relaxed">
-            <h3 class="text-base md:text-lg font-bold text-indigo-950 flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-indigo-600"></span>
-                The Rank Theorem <span class="text-indigo-700 font-normal text-sm">（秩定理）</span>
+
+        <!-- 4.6.2 The Rank Theorem -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-rose-800 flex items-center gap-2">
+                <i class="fa-solid fa-ranking-star text-rose-500 text-sm"></i> 4.6.2 The Rank Theorem (秩定理，Pages 13 - 17)
             </h3>
-    
-            <div class="p-4 md:p-5 bg-white rounded-xl border border-indigo-200 space-y-2 shadow-2xs">
-                <div class="font-bold text-indigo-950">DEFINITION <span class="text-indigo-700 font-normal">（定義：秩 rank）</span></div>
-                <p>
-                    The <strong>rank <span class="text-indigo-700">（秩）</span></strong> of <span class="font-mono">$A$</span> is the dimension <span class="text-indigo-700 font-semibold">（維數）</span> of the column space of <span class="font-mono">$A$</span>. Since <span class="font-mono">$\text{Row } A$</span> is the same as <span class="font-mono">$\text{Col } A^{T}$</span>, the dimension of the row space of <span class="font-mono">$A$</span> is the rank of <span class="font-mono">$A^{T}$</span>. The dimension of the null space is sometimes called the <strong>nullity <span class="text-indigo-700">（零度）</span></strong> of <span class="font-mono">$A$</span>, though we will not use this term.
-                </p>
-            </div>
-    
-            <div class="p-4 md:p-5 bg-indigo-50/50 rounded-xl border border-indigo-200 space-y-3">
-                <div class="font-bold text-indigo-950">THEOREM 14 — The Rank Theorem <span class="text-indigo-700 font-normal">（定理 14：秩定理）</span></div>
-                <p>
-                    The dimensions of the column space and the row space of an <span class="font-mono font-semibold text-indigo-950">$m\times n$</span> matrix <span class="font-mono">$A$</span> are equal. This common dimension, the <strong>rank <span class="text-indigo-700">（秩）</span></strong> of <span class="font-mono">$A$</span>, also equals the number of <strong>pivot positions <span class="text-indigo-700">（主元位置）</span></strong> in <span class="font-mono">$A$</span> and satisfies the equation
-                </p>
-                <div class="p-3 bg-white rounded-lg border border-indigo-200 font-mono text-center text-indigo-950 font-bold text-sm md:text-base">
-                    $\text{rank } A + \dim \text{Nul } A = n$
-                </div>
-    
-                <!-- PROOF of THEOREM 14 (可展開，預設收合) -->
-                <details class="group bg-white rounded-xl border border-indigo-200 overflow-hidden">
-                    <summary class="cursor-pointer list-none px-4 py-2.5 bg-indigo-50/60 hover:bg-indigo-100/70 transition flex items-center justify-between font-semibold text-indigo-900 text-xs sm:text-sm">
-                        <span class="flex items-center gap-2">
-                            <i class="fa-solid fa-chevron-right text-xs text-indigo-600 transition-transform duration-200 group-open:rotate-90"></i>
-                            <span>PROOF — THEOREM 14 <span class="text-indigo-700 font-normal">（定理 14 證明）</span></span>
-                        </span>
-                        <span class="text-xs font-mono text-indigo-600">Page 14 · 點擊展開</span>
-                    </summary>
-                    <div class="p-4 space-y-2.5 border-t border-indigo-100 bg-white text-slate-800">
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <!-- DEFINITION & THEOREM 14 + Expandable PROOF (Pages 13 - 14) -->
+                <div class="p-4 bg-white rounded-lg border border-rose-200 space-y-3 text-slate-800 leading-relaxed">
+                    <strong class="text-rose-900 text-base font-bold block">DEFINITION: Rank of a Matrix ($\text{rank } A$, Page 13)</strong>
+                    <p>
+                        The <strong>rank (秩)</strong> of $A$ is the dimension of the column space of $A$. Since $\text{Row } A$ is the same as $\text{Col } A^T$, the dimension of the row space of $A$ is the rank of $A^T$. (The dimension of the null space is sometimes called the <em>nullity</em> of $A$.)
+                    </p>
+
+                    <div class="p-3.5 bg-rose-50/60 rounded-lg border border-rose-200 space-y-2">
+                        <strong class="text-rose-950 text-base font-bold block">THEOREM 14 — The Rank Theorem (秩定理，Page 13)</strong>
                         <p>
-                            By Theorem 6 in Section 4.3, <span class="font-mono">$\text{rank } A$</span> is the number of pivot columns in <span class="font-mono">$A$</span>. Equivalently, <span class="font-mono">$\text{rank } A$</span> is the number of pivot positions in an echelon form <span class="font-mono">$B$</span> of <span class="font-mono">$A$</span>. Furthermore, since <span class="font-mono">$B$</span> has a nonzero row for each pivot, and since these rows form a basis for the row space of <span class="font-mono">$A$</span>, the rank of <span class="font-mono">$A$</span> is also the dimension of the row space.
+                            The dimensions of the column space and the row space of an $m \times n$ matrix $A$ are equal. This common dimension, the <strong>rank of $A$</strong>, also equals the number of pivot positions in $A$ and satisfies the equation
                         </p>
-                        <p>
-                            From Section 4.5, the dimension of <span class="font-mono">$\text{Nul } A$</span> equals the number of free variables in the equation <span class="font-mono">$A\mathbf{x} = \mathbf{0}$</span>. Expressed another way, the dimension of <span class="font-mono">$\text{Nul } A$</span> is the number of columns of <span class="font-mono">$A$</span> that are not pivot columns <span class="text-indigo-700 font-semibold">（非主元行）</span>. (It is the number of these columns, not the columns themselves, that is related to <span class="font-mono">$\text{Nul } A$</span>.) Obviously,
-                            $$\left\{\begin{matrix} \text{number of} \\ \text{pivot columns} \end{matrix}\right\} + \left\{\begin{matrix} \text{number of} \\ \text{nonpivot columns} \end{matrix}\right\} = \left\{\begin{matrix} \text{number of} \\ \text{columns} \end{matrix}\right\}$$
-                            This proves the theorem.
+                        <p class="font-mono text-center text-rose-950 font-bold text-sm md:text-base py-1">
+                            $$\text{rank } A + \dim \text{Nul } A = n$$
                         </p>
                     </div>
-                </details>
-            </div>
-    
-            <!-- EXAMPLE 3 (可展開，預設收合) -->
-            <details class="group bg-indigo-50/30 rounded-xl border border-indigo-200 overflow-hidden">
-                <summary class="cursor-pointer list-none px-4 py-3 bg-indigo-50/80 hover:bg-indigo-100/70 transition flex items-center justify-between font-semibold text-indigo-950 text-sm">
-                    <span class="flex items-center gap-2">
-                        <i class="fa-solid fa-chevron-right text-xs text-indigo-600 transition-transform duration-200 group-open:rotate-90"></i>
-                        <span>EXAMPLE 3 <span class="text-indigo-700 font-normal">（例題 3：秩與零空間維數判斷）</span></span>
-                    </span>
-                    <span class="text-xs font-mono text-indigo-600">Page 15 · 點擊展開</span>
-                </summary>
-                <div class="p-4 md:p-5 space-y-3 border-t border-indigo-100 bg-white text-slate-800">
-                    <p>
-                        <strong>a.</strong> If <span class="font-mono">$A$</span> is a <span class="font-mono font-semibold text-indigo-950">$7\times 9$</span> matrix with a two-dimensional null space, what is the rank of <span class="font-mono">$A$</span>?
-                    </p>
-                    <p>
-                        <strong>b.</strong> Could a <span class="font-mono font-semibold text-indigo-950">$6\times 9$</span> matrix have a two-dimensional null space?
-                    </p>
-                    <p>
-                        <strong>SOLUTION:</strong>
-                        <strong>a.</strong> Since <span class="font-mono">$A$</span> has <span class="font-mono font-semibold text-indigo-950">$9$</span> columns, <span class="font-mono">$(\text{rank } A) + 2 = 9$</span>, and hence <span class="font-mono font-semibold text-indigo-950">$\text{rank } A = 7$</span>.
-                    </p>
-                    <p>
-                        <strong>b.</strong> <strong>No.</strong> If a <span class="font-mono">$6\times 9$</span> matrix, call it <span class="font-mono">$B$</span>, had a two-dimensional null space, it would have to have rank <span class="font-mono font-semibold text-indigo-950">$7$</span>, by the Rank Theorem. But the columns of <span class="font-mono">$B$</span> are vectors in <span class="font-mono">$\mathbb{R}^{6}$</span>, and so the dimension of <span class="font-mono">$\text{Col } B$</span> cannot exceed <span class="font-mono font-semibold text-indigo-950">$6$</span>; that is, <span class="font-mono font-semibold text-indigo-950">$\text{rank } B$</span> cannot exceed <span class="font-mono font-semibold text-indigo-950">$6$</span>.
-                    </p>
+
+                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                        <button onclick="toggleCard('proof-4-6-thm14')" class="w-full p-3.5 text-left font-bold text-rose-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                            <span><i class="fa-solid fa-scroll mr-2 text-rose-600"></i> PROOF OF THEOREM 14 (Page 14) (點擊展開)</span>
+                            <span class="text-xs bg-rose-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof</span>
+                        </button>
+                        <div id="proof-4-6-thm14" class="toggle-content p-4 space-y-2 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                            <p>
+                                By Theorem 6 in Section 4.3, $\text{rank } A$ is the number of pivot columns in $A$. Equivalently, $\text{rank } A$ is the number of pivot positions in an echelon form $B$ of $A$. Furthermore, since $B$ has a nonzero row for each pivot, and since these rows form a basis for the row space of $A$, the rank of $A$ is also the dimension of the row space.
+                            </p>
+                            <p>
+                                From Section 4.5, the dimension of $\text{Nul } A$ equals the number of free variables in the equation $A\mathbf{x} = \mathbf{0}$. Expressed another way, the dimension of $\text{Nul } A$ is the number of columns of $A$ that are not pivot columns. Obviously,
+                            </p>
+                            <p class="font-mono text-center text-slate-800 text-xs md:text-sm py-1">
+                                $$\{\text{number of pivot columns}\} + \{\text{number of nonpivot columns}\} = \{\text{number of columns}\}$$
+                            </p>
+                            <p>This proves the theorem.</p>
+                        </div>
+                    </div>
                 </div>
-            </details>
-    
-            <!-- EXAMPLE 4 + FIGURE 1 SVG (可展開，預設收合，FIGURE 1 保留原本顏色／不受主色修改影響) -->
-            <details class="group bg-indigo-50/30 rounded-xl border border-indigo-200 overflow-hidden">
-                <summary class="cursor-pointer list-none px-4 py-3 bg-indigo-50/80 hover:bg-indigo-100/70 transition flex items-center justify-between font-semibold text-indigo-950 text-sm">
-                    <span class="flex items-center gap-2">
-                        <i class="fa-solid fa-chevron-right text-xs text-indigo-600 transition-transform duration-200 group-open:rotate-90"></i>
-                        <span>EXAMPLE 4 &amp; FIGURE 1 <span class="text-indigo-700 font-normal">（例題 4 與圖 1：矩陣決定的子空間）</span></span>
-                    </span>
-                    <span class="text-xs font-mono text-indigo-600">Pages 16 - 17 · 點擊展開</span>
-                </summary>
-                <div class="p-4 md:p-5 space-y-3 border-t border-indigo-100 bg-white text-slate-800">
-                    <p>
-                        The next example provides a nice way to visualize the subspaces we have been studying. In Chapter 6, we will learn that <span class="font-mono">$\text{Row } A$</span> and <span class="font-mono">$\text{Nul } A$</span> have only the zero vector in common and are actually "perpendicular" <span class="text-indigo-700 font-semibold">（垂直／正交）</span> to each other. The same fact will apply to <span class="font-mono">$\text{Row } A^{T} (= \text{Col } A)$</span> and <span class="font-mono">$\text{Nul } A^{T}$</span>. So Figure 1, which accompanies Example 4, creates a good mental image for the general case.
-                    </p>
-                    <p>
-                        <strong>Let</strong>
-                        $$A = \begin{bmatrix} 3 & 0 & -1 \\ 3 & 0 & -1 \\ 4 & 0 & 5 \end{bmatrix}.$$
-                        It is readily checked that <span class="font-mono">$\text{Nul } A$</span> is the <span class="font-mono font-semibold text-indigo-950">$x_2$</span>-axis, <span class="font-mono">$\text{Row } A$</span> is the <span class="font-mono font-semibold text-indigo-950">$x_1 x_3$</span>-plane, <span class="font-mono">$\text{Col } A$</span> is the plane whose equation is <span class="font-mono font-semibold text-indigo-950">$x_1 - x_2 = 0$</span>, and <span class="font-mono">$\text{Nul } A^{T}$</span> is the set of all multiples of <span class="font-mono font-semibold text-indigo-950">$(1, -1, 0)$</span>. Figure 1 shows <span class="font-mono">$\text{Nul } A$</span> and <span class="font-mono">$\text{Row } A$</span> in the domain <span class="text-indigo-700 font-semibold">（定義域）</span> of the linear transformation <span class="font-mono font-semibold text-indigo-950">$\mathbf{x} \mapsto A\mathbf{x}$</span>; the range <span class="text-indigo-700 font-semibold">（值域）</span> of this mapping, <span class="font-mono">$\text{Col } A$</span>, is shown in a separate copy of <span class="font-mono">$\mathbb{R}^{3}$</span>, along with <span class="font-mono">$\text{Nul } A^{T}$</span>.
-                    </p>
-    
-                    <!-- FIGURE 1 SVG (保持原圖色彩與視覺風格，不受主色 indigo 影響) -->
-                    <div class="pt-2">
-                        <div class="bg-white rounded-xl border border-slate-200 p-3 overflow-x-auto">
-                            <svg viewBox="0 0 680 290" class="w-full max-w-[680px] mx-auto h-auto" role="img" aria-label="FIGURE 1 Subspaces determined by a matrix A">
-                                <defs>
-                                    <marker id="fig1-blue-arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                                        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0093dc" />
-                                    </marker>
-                                    <marker id="fig1-dark-arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-                                        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#1e242b" />
-                                    </marker>
-                                </defs>
-    
-                                <!-- 左側：Domain R^3 (Row A in x1x3-plane, Nul A on x2-axis) -->
-                                <g id="fig1-left-space">
-                                    <!-- 平面 Row A (x1x3-plane 示意平行四邊形，原圖淺藍) -->
-                                    <polygon points="105,65 215,35 175,215 65,245" fill="#b7dcf2" fill-opacity="0.72" stroke="#8ec5e6" stroke-width="1" />
-    
-                                    <!-- x2-axis 後半段 (穿過平面後方) -->
-                                    <line x1="140" y1="140" x2="255" y2="120" stroke="#1e242b" stroke-width="1.3" />
-                                    <!-- x1-axis 後半段 -->
-                                    <line x1="140" y1="140" x2="178" y2="38" stroke="#1e242b" stroke-width="1.2" />
-    
-                                    <!-- x3-axis 垂直軸 -->
-                                    <line x1="140" y1="262" x2="140" y2="20" stroke="#1e242b" stroke-width="1.5" marker-end="url(#fig1-dark-arrow)" />
-                                    <text x="140" y="14" text-anchor="middle" font-size="14" font-style="italic" fill="#1e242b">x<tspan dy="3" font-size="10">3</tspan></text>
-    
-                                    <!-- x1-axis 前半段 -->
-                                    <line x1="140" y1="140" x2="92" y2="262" stroke="#1e242b" stroke-width="1.5" marker-end="url(#fig1-dark-arrow)" />
-                                    <text x="82" y="278" text-anchor="middle" font-size="14" font-style="italic" fill="#1e242b">x<tspan dy="3" font-size="10">1</tspan></text>
-    
-                                    <!-- Nul A 線段 (x2 軸前半段，原圖亮藍粗線) -->
-                                    <line x1="42" y1="158" x2="140" y2="140" stroke="#0093dc" stroke-width="3.2" stroke-linecap="round" />
-                                    <line x1="215" y1="127" x2="256" y2="119" stroke="#0093dc" stroke-width="3.2" stroke-linecap="round" />
-                                    <line x1="140" y1="140" x2="215" y2="127" stroke="#1e242b" stroke-width="1.3" />
-                                    <text x="268" y="124" text-anchor="start" font-size="14" font-style="italic" fill="#1e242b">x<tspan dy="3" font-size="10">2</tspan></text>
-    
-                                    <!-- 直角符號 (Row A 與 Nul A 垂直示意) -->
-                                    <polyline points="140,126 153,124 153,138" fill="none" stroke="#1e242b" stroke-width="1.2" />
-    
-                                    <!-- 原點 0 -->
-                                    <text x="150" y="155" font-size="14" font-weight="bold" fill="#1e242b">0</text>
-    
-                                    <!-- 標籤 Row A 與 Nul A -->
-                                    <text x="92" y="102" text-anchor="middle" font-size="14" fill="#1e242b">Row A</text>
-                                    <text x="58" y="182" text-anchor="middle" font-size="14" fill="#1e242b">Nul A</text>
-    
-                                    <!-- 左下 R^3 標註 -->
-                                    <text x="140" y="284" text-anchor="middle" font-size="14" font-style="italic" fill="#1e242b">ℝ<tspan dy="-4" font-size="10">3</tspan></text>
-                                </g>
-    
-                                <!-- 中間映射箭頭 (原圖青藍箭頭) -->
-                                <g id="fig1-mapping-arrow">
-                                    <line x1="278" y1="140" x2="346" y2="140" stroke="#0093dc" stroke-width="3" marker-end="url(#fig1-blue-arrow)" />
-                                </g>
-    
-                                <!-- 右側：Codomain / Range R^3 (Col A plane x1 - x2 = 0, Nul A^T blue line) -->
-                                <g id="fig1-right-space">
-                                    <!-- x2 軸左半段 -->
-                                    <line x1="392" y1="140" x2="490" y2="140" stroke="#1e242b" stroke-width="1.3" />
-                                    <!-- x1 軸前半段 -->
-                                    <line x1="490" y1="140" x2="442" y2="262" stroke="#1e242b" stroke-width="1.3" />
-    
-                                    <!-- 平面 Col A (原圖淺藍) -->
-                                    <polygon points="455,65 565,35 525,215 415,245" fill="#b7dcf2" fill-opacity="0.72" stroke="#8ec5e6" stroke-width="1" />
-    
-                                    <!-- x3 軸垂直軸 -->
-                                    <line x1="490" y1="262" x2="490" y2="20" stroke="#1e242b" stroke-width="1.5" marker-end="url(#fig1-dark-arrow)" />
-                                    <text x="490" y="14" text-anchor="middle" font-size="14" font-style="italic" fill="#1e242b">x<tspan dy="3" font-size="10">3</tspan></text>
-    
-                                    <!-- x1 軸標註與線段 -->
-                                    <line x1="490" y1="140" x2="442" y2="262" stroke="#1e242b" stroke-width="1.5" marker-end="url(#fig1-dark-arrow)" />
-                                    <text x="432" y="278" text-anchor="middle" font-size="14" font-style="italic" fill="#1e242b">x<tspan dy="3" font-size="10">1</tspan></text>
-    
-                                    <!-- x2 軸右半段 -->
-                                    <line x1="490" y1="140" x2="606" y2="120" stroke="#1e242b" stroke-width="1.5" marker-end="url(#fig1-dark-arrow)" />
-                                    <text x="618" y="124" text-anchor="start" font-size="14" font-style="italic" fill="#1e242b">x<tspan dy="3" font-size="10">2</tspan></text>
-    
-                                    <!-- Nul A^T 線段 (原圖亮藍粗線) -->
-                                    <line x1="385" y1="215" x2="490" y2="140" stroke="#0093dc" stroke-width="3.2" stroke-linecap="round" />
-                                    <line x1="548" y1="98" x2="585" y2="72" stroke="#0093dc" stroke-width="3.2" stroke-linecap="round" />
-    
-                                    <!-- 直角符號 -->
-                                    <polyline points="479,132 487,126 495,137" fill="none" stroke="#1e242b" stroke-width="1.2" />
-    
-                                    <!-- 原點 0 -->
-                                    <text x="500" y="155" font-size="14" font-weight="bold" fill="#1e242b">0</text>
-    
-                                    <!-- 標籤 Nul A^T 與 Col A -->
-                                    <text x="382" y="202" text-anchor="middle" font-size="14" fill="#1e242b">Nul A<tspan dy="-4" font-size="10">T</tspan></text>
-                                    <text x="498" y="205" text-anchor="middle" font-size="14" fill="#1e242b">Col A</text>
-    
-                                    <!-- 右下 R^3 標註 -->
-                                    <text x="490" y="284" text-anchor="middle" font-size="14" font-style="italic" fill="#1e242b">ℝ<tspan dy="-4" font-size="10">3</tspan></text>
-                                </g>
-                            </svg>
-                            <div class="text-center text-xs text-slate-700 mt-2">
-                                <span class="font-bold">FIGURE 1</span> Subspaces determined by a matrix <span class="font-mono">$A$</span>. <span class="text-indigo-700">（圖 1：由矩陣 $A$ 決定的子空間）</span>
+
+                <!-- Expandable EXAMPLE 3 & EXAMPLE 4 + FIGURE 1 (Pages 15 - 17) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-6-3-4')" class="w-full p-4 text-left font-bold text-rose-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-compass-drafting mr-2 text-rose-600"></i> EXAMPLES 3 &amp; 4 + FIGURE 1 (Pages 15 - 17): Rank Bounds &amp; Four Fundamental Subspaces Visualization (點擊展開)</span>
+                        <span class="text-xs bg-rose-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples &amp; Figure</span>
+                    </button>
+                    <div id="ex-4-6-3-4" class="toggle-content p-5 space-y-5 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                        <!-- EXAMPLE 3 -->
+                        <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
+                            <p>
+                                <strong>EXAMPLE 3 (Page 15):</strong> (a) If $A$ is a $7 \times 9$ matrix with a two-dimensional null space, what is the rank of $A$? (b) Could a $6 \times 9$ matrix have a two-dimensional null space?
+                            </p>
+                            <p>
+                                <strong>SOLUTION:</strong> (a) Since $A$ has 9 columns, $(\text{rank } A) + 2 = 9$, and hence $\text{rank } A = 7$. (b) No. If a $6 \times 9$ matrix, call it $B$, had a two-dimensional null space, it would have to have rank 7, by the Rank Theorem. But the columns of $B$ are vectors in $\mathbb{R}^6$, and so the dimension of $\text{Col } B$ cannot exceed 6; that is, $\text{rank } B$ cannot exceed 6.
+                            </p>
+                        </div>
+
+                        <!-- EXAMPLE 4 + FIGURE 1 (Pages 16 - 17) -->
+                        <div class="space-y-3 pt-2 border-t border-slate-100">
+                            <p>
+                                <strong>EXAMPLE 4 (Page 17):</strong> Let $A = \begin{bmatrix} 3 & 0 & -1 \\ 3 & 0 & -1 \\ 4 & 0 & 5 \end{bmatrix}$. It is readily checked that $\text{Nul } A$ is the $x_2$-axis, $\text{Row } A$ is the $x_1 x_3$-plane, $\text{Col } A$ is the plane whose equation is $x_1 - x_2 = 0$, and $\text{Nul } A^T$ is the set of all multiples of $(1, -1, 0)$. Figure 1 shows $\text{Nul } A$ and $\text{Row } A$ in the domain of the linear transformation $\mathbf{x} \mapsto A\mathbf{x}$; the range of this mapping, $\text{Col } A$, is shown in a separate copy of $\mathbb{R}^3$, along with $\text{Nul } A^T$.
+                            </p>
+
+                            <!-- FIGURE 1 SVG (Page 16) -->
+                            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                                <svg viewBox="0 0 640 235" class="w-full max-w-[610px] mx-auto bg-white rounded border border-slate-200">
+                                    <defs>
+                                        <marker id="arr-fig1-46" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f172a"/>
+                                        </marker>
+                                        <marker id="arr-fig1-46-blue" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#00a6e8"/>
+                                        </marker>
+                                    </defs>
+
+                                    <!-- Left copy of R^3: Domain (Row A = x1x3-plane, Nul A = x2-axis) -->
+                                    <g transform="translate(15, 5)">
+                                        <!-- Green slanted plane Row A (x1x3-plane) -->
+                                        <polygon points="32,148 168,176 238,68 102,40" fill="#9bc952" fill-opacity="0.88" stroke="#4d7c0f" stroke-width="1.3"/>
+                                        <!-- Grid lines on plane -->
+                                        <line x1="77" y1="157.3" x2="147" y2="49.3" stroke="#3f6212" stroke-width="0.85" stroke-opacity="0.65"/>
+                                        <line x1="122" y1="166.6" x2="192" y2="58.6" stroke="#3f6212" stroke-width="0.85" stroke-opacity="0.65"/>
+                                        <line x1="59" y1="106.5" x2="195" y2="134.5" stroke="#3f6212" stroke-width="0.85" stroke-opacity="0.65"/>
+                                        <line x1="81" y1="73.2" x2="217" y2="101.2" stroke="#3f6212" stroke-width="0.85" stroke-opacity="0.65"/>
+
+                                        <!-- Axes from origin O=(135, 108) -->
+                                        <line x1="135" y1="108" x2="135" y2="14" stroke="#0f172a" stroke-width="1.4" marker-end="url(#arr-fig1-46)"/>
+                                        <text x="116" y="18" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">3</tspan></text>
+
+                                        <line x1="135" y1="108" x2="48" y2="194" stroke="#0f172a" stroke-width="1.4" marker-end="url(#arr-fig1-46)"/>
+                                        <text x="34" y="208" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan></text>
+
+                                        <!-- Nul A along x2-axis -->
+                                        <line x1="135" y1="108" x2="255" y2="124" stroke="#00a6e8" stroke-width="2.6" marker-end="url(#arr-fig1-46-blue)"/>
+                                        <text x="242" y="142" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan></text>
+
+                                        <text x="122" y="103" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#0f172a">0</text>
+                                        <text x="182" y="146" font-family="Georgia, 'Times New Roman', serif" font-size="13.5" font-style="italic" font-weight="bold" fill="#0f172a">Row A</text>
+                                        <text x="208" y="96" font-family="Georgia, 'Times New Roman', serif" font-size="13.5" font-style="italic" font-weight="bold" fill="#0f172a">Nul A</text>
+                                        <text x="245" y="198" font-family="Georgia, 'Times New Roman', serif" font-size="15" font-style="italic" fill="#0f172a">R<tspan dy="-4" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">3</tspan></text>
+                                    </g>
+
+                                    <!-- Mapping arrow between domain and range -->
+                                    <line x1="292" y1="112" x2="334" y2="112" stroke="#00a6e8" stroke-width="2.2" marker-end="url(#arr-fig1-46-blue)"/>
+                                    <text x="313" y="102" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" font-weight="bold" fill="#0f172a">A</text>
+
+                                    <!-- Right copy of R^3: Range (Col A plane & Nul A^T line) -->
+                                    <g transform="translate(345, 5)">
+                                        <!-- Origin O=(135, 114) -->
+                                        <line x1="135" y1="114" x2="135" y2="14" stroke="#0f172a" stroke-width="1.4" marker-end="url(#arr-fig1-46)"/>
+                                        <text x="116" y="18" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">3</tspan></text>
+
+                                        <line x1="135" y1="114" x2="54" y2="194" stroke="#0f172a" stroke-width="1.4" marker-end="url(#arr-fig1-46)"/>
+                                        <text x="40" y="208" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan></text>
+
+                                        <line x1="135" y1="114" x2="255" y2="124" stroke="#0f172a" stroke-width="1.4" marker-end="url(#arr-fig1-46)"/>
+                                        <text x="242" y="142" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan></text>
+
+                                        <!-- Blue plane Col A -->
+                                        <polygon points="88,162 182,174 182,36 88,24" fill="#9bd5f5" fill-opacity="0.82" stroke="#0284c7" stroke-width="1.3"/>
+                                        <!-- Re-draw axes intersecting plane -->
+                                        <line x1="135" y1="184" x2="135" y2="14" stroke="#0f172a" stroke-width="1.35"/>
+                                        <line x1="135" y1="114" x2="88" y2="160" stroke="#0f172a" stroke-width="1.35"/>
+
+                                        <!-- Nul A^T blue line -->
+                                        <line x1="32" y1="168" x2="225" y2="62" stroke="#00a6e8" stroke-width="2.5"/>
+                                        <text x="26" y="156" font-family="Georgia, 'Times New Roman', serif" font-size="13.5" font-style="italic" font-weight="bold" fill="#0f172a">Nul A<tspan dy="-4" font-size="9.5" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">T</tspan></text>
+
+                                        <text x="142" y="109" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#0f172a">0</text>
+                                        <text x="142" y="164" font-family="Georgia, 'Times New Roman', serif" font-size="13.5" font-style="italic" font-weight="bold" fill="#0f172a">Col A</text>
+                                        <text x="245" y="198" font-family="Georgia, 'Times New Roman', serif" font-size="15" font-style="italic" fill="#0f172a">R<tspan dy="-4" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">3</tspan></text>
+                                    </g>
+                                </svg>
+                                <div class="text-left max-w-[610px] mx-auto text-xs leading-snug pt-1">
+                                    <span class="font-bold text-slate-900 tracking-wide">FIGURE 1</span>
+                                    <span class="text-slate-800 ml-1.5" style="font-family: Georgia, 'Times New Roman', serif;">Subspaces determined by a matrix $A$.</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </details>
-        </div>
-    
-        <!-- Applications to Systems of Equations -->
-        <div class="space-y-4 text-sm text-slate-800 leading-relaxed">
-            <h3 class="text-base md:text-lg font-bold text-indigo-950 flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-indigo-600"></span>
-                Applications to Systems of Equations <span class="text-indigo-700 font-normal text-sm">（在線性方程組的應用）</span>
-            </h3>
-    
-            <div class="p-4 md:p-5 bg-white rounded-xl border border-indigo-100 space-y-2 shadow-2xs">
-                <p>
-                    The Rank Theorem is a powerful tool for processing information about systems of linear equations <span class="text-indigo-700 font-semibold">（線性方程組）</span>. The next example simulates the way a real-life problem using linear equations might be stated, without explicit mention of linear algebra terms such as matrix, subspace, and dimension.
-                </p>
             </div>
-    
-            <!-- EXAMPLE 5 (可展開，預設收合) -->
-            <details class="group bg-indigo-50/30 rounded-xl border border-indigo-200 overflow-hidden">
-                <summary class="cursor-pointer list-none px-4 py-3 bg-indigo-50/80 hover:bg-indigo-100/70 transition flex items-center justify-between font-semibold text-indigo-950 text-sm">
-                    <span class="flex items-center gap-2">
-                        <i class="fa-solid fa-chevron-right text-xs text-indigo-600 transition-transform duration-200 group-open:rotate-90"></i>
-                        <span>EXAMPLE 5 <span class="text-indigo-700 font-normal">（例題 5：由齊次解空間推論非齊次方程組是否有解）</span></span>
-                    </span>
-                    <span class="text-xs font-mono text-indigo-600">Page 19 · 點擊展開</span>
-                </summary>
-                <div class="p-4 md:p-5 space-y-3 border-t border-indigo-100 bg-white text-slate-800">
-                    <p>
-                        <strong>A scientist has found two solutions to a homogeneous system <span class="text-indigo-700 font-semibold">（齊次方程組）</span> of <span class="font-mono font-semibold text-indigo-950">$40$</span> equations in <span class="font-mono font-semibold text-indigo-950">$42$</span> variables. The two solutions are not multiples, and all other solutions can be constructed by adding together appropriate multiples of these two solutions. Can the scientist be certain that an associated nonhomogeneous system <span class="text-indigo-700 font-semibold">（非齊次方程組）</span> (with the same coefficients) has a solution?</strong>
-                    </p>
-                    <p>
-                        <strong>SOLUTION:</strong> <strong>Yes.</strong> Let <span class="font-mono">$A$</span> be the <span class="font-mono font-semibold text-indigo-950">$40\times 42$</span> coefficient matrix <span class="text-indigo-700 font-semibold">（係數矩陣）</span> of the system. The given information implies that the two solutions are linearly independent and span <span class="font-mono">$\text{Nul } A$</span>. So <span class="font-mono font-semibold text-indigo-950">$\dim \text{Nul } A = 2$</span>. By the Rank Theorem, <span class="font-mono font-semibold text-indigo-950">$\dim \text{Col } A = 42 - 2 = 40$</span>. Since <span class="font-mono">$\mathbb{R}^{40}$</span> is the only subspace of <span class="font-mono">$\mathbb{R}^{40}$</span> whose dimension is <span class="font-mono font-semibold text-indigo-950">$40$</span>, <span class="font-mono">$\text{Col } A$</span> must be all of <span class="font-mono">$\mathbb{R}^{40}$</span>. This means that every nonhomogeneous equation <span class="font-mono">$A\mathbf{x} = \mathbf{b}$</span> has a solution.
-                    </p>
-                </div>
-            </details>
         </div>
-    
-        <!-- Rank and the Invertible Matrix Theorem -->
-        <div class="space-y-4 text-sm text-slate-800 leading-relaxed">
-            <h3 class="text-base md:text-lg font-bold text-indigo-950 flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-indigo-600"></span>
-                Rank and the Invertible Matrix Theorem <span class="text-indigo-700 font-normal text-sm">（秩與可逆矩陣定理）</span>
+
+        <!-- 4.6.3 Applications to Systems of Equations & Invertible Matrix Theorem -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-rose-800 flex items-center gap-2">
+                <i class="fa-solid fa-check-to-slot text-rose-500 text-sm"></i> 4.6.3 Applications to Systems of Equations &amp; Invertible Matrix Theorem (方程組應用與可逆矩陣定理續，Pages 18 - 22)
             </h3>
-    
-            <div class="p-4 md:p-5 bg-indigo-50/50 rounded-xl border border-indigo-200 space-y-3">
-                <div class="font-bold text-indigo-950">The Invertible Matrix Theorem (continued) <span class="text-indigo-700 font-normal">（可逆矩陣定理續篇）</span></div>
-                <p>
-                    Let <span class="font-mono">$A$</span> be an <span class="font-mono font-semibold text-indigo-950">$n\times n$</span> matrix. Then the following statements are each equivalent to the statement that <span class="font-mono">$A$</span> is an <strong>invertible matrix <span class="text-indigo-700">（可逆矩陣）</span></strong>.
-                </p>
-                <div class="p-3.5 bg-white rounded-xl border border-indigo-200 space-y-1.5 font-medium text-slate-900">
-                    <p><span class="font-mono text-indigo-700 font-bold">m.</span> The columns of <span class="font-mono">$A$</span> form a basis of <span class="font-mono">$\mathbb{R}^{n}$</span>.</p>
-                    <p><span class="font-mono text-indigo-700 font-bold">n.</span> <span class="font-mono">$\text{Col } A = \mathbb{R}^{n}$</span></p>
-                    <p><span class="font-mono text-indigo-700 font-bold">o.</span> <span class="font-mono">$\dim \text{Col } A = n$</span></p>
-                    <p><span class="font-mono text-indigo-700 font-bold">p.</span> <span class="font-mono">$\text{rank } A = n$</span></p>
-                    <p><span class="font-mono text-indigo-700 font-bold">q.</span> <span class="font-mono">$\text{Nul } A = \{\mathbf{0}\}$</span></p>
-                    <p><span class="font-mono text-indigo-700 font-bold">r.</span> <span class="font-mono">$\dim \text{Nul } A = 0$</span></p>
-                </div>
-    
-                <!-- PROOF of IMT (m-r) (可展開，預設收合) -->
-                <details class="group bg-white rounded-xl border border-indigo-200 overflow-hidden">
-                    <summary class="cursor-pointer list-none px-4 py-2.5 bg-indigo-50/60 hover:bg-indigo-100/70 transition flex items-center justify-between font-semibold text-indigo-900 text-xs sm:text-sm">
-                        <span class="flex items-center gap-2">
-                            <i class="fa-solid fa-chevron-right text-xs text-indigo-600 transition-transform duration-200 group-open:rotate-90"></i>
-                            <span>PROOF — Invertible Matrix Theorem (m - r) <span class="text-indigo-700 font-normal">（可逆矩陣定理補充項證明）</span></span>
-                        </span>
-                        <span class="text-xs font-mono text-indigo-600">Page 21 · 點擊展開</span>
-                    </summary>
-                    <div class="p-4 space-y-2.5 border-t border-indigo-100 bg-white text-slate-800">
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <!-- Expandable EXAMPLE 5 (Pages 18 - 19) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-6-5')" class="w-full p-4 text-left font-bold text-rose-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-flask-vial mr-2 text-rose-600"></i> EXAMPLE 5 (Pages 18 - 19): Existence of Solutions for Nonhomogeneous Systems via Rank (點擊展開)</span>
+                        <span class="text-xs bg-rose-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example</span>
+                    </button>
+                    <div id="ex-4-6-5" class="toggle-content p-5 space-y-2.5 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
                         <p>
-                            Statement <span class="font-mono font-semibold text-indigo-950">(m)</span> is logically equivalent to statements <span class="font-mono font-semibold text-indigo-950">(e)</span> and <span class="font-mono font-semibold text-indigo-950">(h)</span> regarding linear independence and spanning. The other five statements are linked to the earlier ones of the theorem by the following chain of almost trivial implications:
-                            $$(\text{g}) \Rightarrow (\text{n}) \Rightarrow (\text{o}) \Rightarrow (\text{p}) \Rightarrow (\text{r}) \Rightarrow (\text{q}) \Rightarrow (\text{d})$$
+                            <strong>EXAMPLE 5 (Page 19):</strong> A scientist has found two solutions to a homogeneous system of 40 equations in 42 variables. The two solutions are not multiples, and all other solutions can be constructed by adding together appropriate multiples of these two solutions. Can the scientist be certain that an associated nonhomogeneous system (with the same coefficients) has a solution?
                         </p>
-                        <p>
-                            Statement <span class="font-mono font-semibold text-indigo-950">(g)</span>, which says that the equation <span class="font-mono">$A\mathbf{x} = \mathbf{b}$</span> has at least one solution for each <span class="font-mono">$\mathbf{b}$</span> in <span class="font-mono">$\mathbb{R}^{n}$</span>, implies <span class="font-mono font-semibold text-indigo-950">(n)</span>, because <span class="font-mono">$\text{Col } A$</span> is precisely the set of all <span class="font-mono">$\mathbf{b}$</span> such that the equation <span class="font-mono">$A\mathbf{x} = \mathbf{b}$</span> is consistent <span class="text-indigo-700 font-semibold">（相容的／有解的）</span>. The implications <span class="font-mono">$(\text{n}) \Rightarrow (\text{o}) \Rightarrow (\text{p})$</span> follow from the definitions of dimension and rank. If the rank of <span class="font-mono">$A$</span> is <span class="font-mono">$n$</span>, the number of columns of <span class="font-mono">$A$</span>, then <span class="font-mono">$\dim \text{Nul } A = 0$</span>, by the Rank Theorem, and so <span class="font-mono">$\text{Nul } A = \{\mathbf{0}\}$</span>. Thus <span class="font-mono">$(\text{p}) \Rightarrow (\text{r}) \Rightarrow (\text{q})$</span>. Also, <span class="font-mono font-semibold text-indigo-950">(q)</span> implies that the equation <span class="font-mono">$A\mathbf{x} = \mathbf{0}$</span> has only the trivial solution <span class="text-indigo-700 font-semibold">（零解／平凡解）</span>, which is statement <span class="font-mono font-semibold text-indigo-950">(d)</span>. Since statements <span class="font-mono font-semibold text-indigo-950">(d)</span> and <span class="font-mono font-semibold text-indigo-950">(g)</span> are already known to be equivalent to the statement that <span class="font-mono">$A$</span> is invertible, the proof is complete.
+                        <p class="p-3.5 bg-slate-50 rounded-lg border border-slate-200">
+                            <strong>SOLUTION:</strong> Yes. Let $A$ be the $40 \times 42$ coefficient matrix of the system. The given information implies that the two solutions are linearly independent and span $\text{Nul } A$. So $\dim \text{Nul } A = 2$. By the Rank Theorem, $\dim \text{Col } A = 42 - 2 = 40$. Since $\mathbb{R}^{40}$ is the only subspace of $\mathbb{R}^{40}$ whose dimension is 40, $\text{Col } A$ must be all of $\mathbb{R}^{40}$. This means that every nonhomogeneous equation $A\mathbf{x} = \mathbf{b}$ has a solution.
                         </p>
                     </div>
-                </details>
-            </div>
-    
-            <div class="p-4 md:p-5 bg-white rounded-xl border border-indigo-100 space-y-2 shadow-2xs">
-                <p>
-                    We have refrained from adding to the Invertible Matrix Theorem obvious statements about the row space of <span class="font-mono">$A$</span>, because the row space is the column space of <span class="font-mono">$A^{T}$</span>. Recall from statement <span class="font-mono font-semibold text-indigo-950">(1)</span> of the Invertible Matrix Theorem that <span class="font-mono">$A$</span> is invertible if and only if <span class="font-mono">$A^{T}$</span> is invertible. Hence every statement in the Invertible Matrix Theorem can also be stated for <span class="font-mono">$A^{T}$</span>. To do so would double the length of the theorem and produce a list of more than <span class="font-mono font-semibold text-indigo-950">$30$</span> statements!
-                </p>
+                </div>
+
+                <!-- The Invertible Matrix Theorem (Continued) + Expandable PROOF + Row Space Note (Pages 20 - 22) -->
+                <div class="p-4 bg-white rounded-lg border border-rose-200 space-y-3 text-slate-800 leading-relaxed">
+                    <strong class="text-rose-900 text-base font-bold block">The Invertible Matrix Theorem (Continued) (可逆矩陣定理續，Page 20)</strong>
+                    <p>Let $A$ be an $n \times n$ matrix. Then the following statements are each equivalent to the statement that $A$ is an invertible matrix.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 font-mono text-xs md:text-sm text-rose-950">
+                        <div class="p-2.5 bg-rose-50/70 rounded border border-rose-200"><strong>m.</strong> The columns of $A$ form a basis of $\mathbb{R}^n$.</div>
+                        <div class="p-2.5 bg-rose-50/70 rounded border border-rose-200"><strong>n.</strong> $\text{Col } A = \mathbb{R}^n$</div>
+                        <div class="p-2.5 bg-rose-50/70 rounded border border-rose-200"><strong>o.</strong> $\dim \text{Col } A = n$</div>
+                        <div class="p-2.5 bg-rose-50/70 rounded border border-rose-200"><strong>p.</strong> $\text{rank } A = n$</div>
+                        <div class="p-2.5 bg-rose-50/70 rounded border border-rose-200"><strong>q.</strong> $\text{Nul } A = \{\mathbf{0}\}$</div>
+                        <div class="p-2.5 bg-rose-50/70 rounded border border-rose-200"><strong>r.</strong> $\dim \text{Nul } A = 0$</div>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                        <button onclick="toggleCard('proof-4-6-imt')" class="w-full p-3.5 text-left font-bold text-rose-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                            <span><i class="fa-solid fa-scroll mr-2 text-rose-600"></i> PROOF OF STATEMENTS (m)–(r) (Page 21) (點擊展開)</span>
+                            <span class="text-xs bg-rose-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof</span>
+                        </button>
+                        <div id="proof-4-6-imt" class="toggle-content p-4 space-y-2 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                            <p>
+                                Statement (m) is logically equivalent to statements (e) and (h) regarding linear independence and spanning. The other five statements are linked to the earlier ones of the theorem by the following chain of almost trivial implications:
+                            </p>
+                            <p class="font-mono text-center text-rose-950 font-bold text-xs md:text-sm py-1">
+                                $$(\text{g}) \Rightarrow (\text{n}) \Rightarrow (\text{o}) \Rightarrow (\text{p}) \Rightarrow (\text{r}) \Rightarrow (\text{q}) \Rightarrow (\text{d})$$
+                            </p>
+                            <p>
+                                Statement (g), which says that the equation $A\mathbf{x} = \mathbf{b}$ has at least one solution for each $\mathbf{b}$ in $\mathbb{R}^n$, implies (n), because $\text{Col } A$ is precisely the set of all $\mathbf{b}$ such that the equation $A\mathbf{x} = \mathbf{b}$ is consistent. The implications $(\text{n}) \Rightarrow (\text{o}) \Rightarrow (\text{p})$ follow from the definitions of dimension and rank. If the rank of $A$ is $n$, the number of columns of $A$, then $\dim \text{Nul } A = 0$, by the Rank Theorem, and so $\text{Nul } A = \{\mathbf{0}\}$. Thus $(\text{p}) \Rightarrow (\text{r}) \Rightarrow (\text{q})$. Also, (q) implies that the equation $A\mathbf{x} = \mathbf{0}$ has only the trivial solution, which is statement (d). Since statements (d) and (g) are already known to be equivalent to the statement that $A$ is invertible, the proof is complete.
+                            </p>
+                        </div>
+                    </div>
+
+                    <p class="text-xs md:text-sm text-slate-600 pt-1">
+                        <strong>Note on Row Space &amp; $A^T$ (Page 22):</strong> Since $\text{Row } A = \text{Col } A^T$ and $A$ is invertible if and only if $A^T$ is invertible, every statement in the Invertible Matrix Theorem can also be stated for $A^T$.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
