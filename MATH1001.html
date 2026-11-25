@@ -3420,50 +3420,71 @@
                                 <!-- (a) B-coordinate system -->
                                 <div class="p-2.5 bg-white rounded-lg border border-indigo-100 text-center space-y-1">
                                     <svg viewBox="0 0 270 215" class="w-full max-w-[260px] mx-auto">
-                                        <!-- Origin 0 at (92, 118) -->
-                                        <!-- Standard x1, x2 axes -->
-                                        <line x1="12" y1="118" x2="258" y2="118" stroke="#0f172a" stroke-width="1.3"/>
-                                        <line x1="92" y1="12" x2="92" y2="205" stroke="#0f172a" stroke-width="1.3"/>
+                                        <defs>
+                                            <clipPath id="clip-fig1a">
+                                                <rect x="12" y="12" width="246" height="193"/>
+                                            </clipPath>
+                                        </defs>
 
-                                        <!-- Shaded parallelogram for x = 3*b1 + b2: 0=(92,118), 3*b1=(248,196), b2=(27,22), x=(183,100) -->
-                                        <polygon points="92,118 248,196 183,100 27,22" fill="#9bc952" fill-opacity="0.72" stroke="none"/>
+                                        <!-- Clipped Coordinate Grid & Parallelogram -->
+                                        <g clip-path="url(#clip-fig1a)">
+                                            <!-- Shaded parallelogram for x = 3*b1 + b2: 0=(70, 96), b1=(124, 124), 3*b1=(232, 180), b2=(34, 34), x=(196, 118) -->
+                                            <polygon points="70,96 232,180 196,118 34,34" fill="#a7cce3" fill-opacity="0.72" stroke="none"/>
 
-                                        <!-- Skewed grid lines parallel to b1 and b2 -->
-                                        <g stroke="#334155" stroke-width="0.85" stroke-opacity="0.75">
-                                            <!-- Lines parallel to b1 (slope +0.5) -->
-                                            <line x1="12" y1="-28" x2="258" y2="95"/>
-                                            <line x1="12" y1="12" x2="258" y2="135"/>
-                                            <line x1="12" y1="52" x2="258" y2="175"/>
-                                            <line x1="12" y1="92" x2="258" y2="215"/>
-                                            <line x1="12" y1="132" x2="158" y2="205"/>
-                                            <line x1="12" y1="172" x2="78" y2="205"/>
-                                            <!-- Lines parallel to b2 (slope -1.477) -->
-                                            <line x1="-18" y1="180" x2="88" y2="12"/>
-                                            <line x1="27" y1="205" x2="152" y2="12"/>
-                                            <line x1="92" y1="205" x2="216" y2="12"/>
-                                            <line x1="156" y1="205" x2="258" y2="44"/>
-                                            <line x1="220" y1="205" x2="258" y2="145"/>
+                                            <!-- Skewed grid lines strictly parallel to b1=(54, 28) and b2=(-36, -62) -->
+                                            <g stroke="#334155" stroke-width="0.85" stroke-opacity="0.75">
+                                                <!-- Lines parallel to b1: P(u, v) = (70 + 54u - 36v, 96 + 28u - 62v) for integer v -->
+                                                <!-- v = 2 -->
+                                                <line x1="-110" y1="-112" x2="268" y2="84"/>
+                                                <!-- v = 1 (passes through b2 and x) -->
+                                                <line x1="-74" y1="-50" x2="304" y2="146"/>
+                                                <!-- v = 0 (passes through 0, b1, 3*b1) -->
+                                                <line x1="-38" y1="12" x2="340" y2="208"/>
+                                                <!-- v = -1 -->
+                                                <line x1="-2" y1="74" x2="376" y2="270"/>
+                                                <!-- v = -2 -->
+                                                <line x1="34" y1="136" x2="412" y2="332"/>
+
+                                                <!-- Lines parallel to b2: P(u, v) for integer u -->
+                                                <!-- u = -1 -->
+                                                <line x1="88" y1="220" x2="-56" y2="-28"/>
+                                                <!-- u = 0 (passes through 0 and b2) -->
+                                                <line x1="142" y1="248" x2="-2" y2="0"/>
+                                                <!-- u = 1 (passes through b1) -->
+                                                <line x1="196" y1="276" x2="52" y2="28"/>
+                                                <!-- u = 2 -->
+                                                <line x1="250" y1="304" x2="106" y2="56"/>
+                                                <!-- u = 3 (passes through 3*b1 and x) -->
+                                                <line x1="304" y1="332" x2="160" y2="84"/>
+                                                <!-- u = 4 -->
+                                                <line x1="358" y1="360" x2="214" y2="112"/>
+                                            </g>
+
+                                            <!-- Cyan full-spanning basis axes for b1 and b2 -->
+                                            <line x1="-38" y1="12" x2="340" y2="208" stroke="#00a6e8" stroke-width="2"/>
+                                            <line x1="142" y1="248" x2="-2" y2="0" stroke="#00a6e8" stroke-width="2"/>
                                         </g>
 
-                                        <!-- Cyan rays for b1 and b2 -->
-                                        <line x1="92" y1="118" x2="258" y2="201" stroke="#00a6e8" stroke-width="2.2"/>
-                                        <line x1="92" y1="118" x2="21" y2="12" stroke="#00a6e8" stroke-width="2.2"/>
+                                        <!-- Outer Frame & Standard x1, x2 axes -->
+                                        <rect x="12" y="12" width="246" height="193" fill="none" stroke="#334155" stroke-width="1"/>
+                                        <line x1="12" y1="96" x2="258" y2="96" stroke="#0f172a" stroke-width="1.3"/>
+                                        <line x1="70" y1="12" x2="70" y2="205" stroke="#0f172a" stroke-width="1.3"/>
 
                                         <!-- Points: 0, b1, 3*b1, b2, x -->
-                                        <circle cx="92" cy="118" r="3.6" fill="#00a6e8"/>
-                                        <text x="76" y="133" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#0f172a">0</text>
+                                        <circle cx="70" cy="96" r="3.6" fill="#00a6e8"/>
+                                        <text x="56" y="112" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#0f172a">0</text>
 
-                                        <circle cx="144" cy="144" r="3.8" fill="#00a6e8"/>
-                                        <text x="132" y="160" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="bold" fill="#0f172a">b<tspan dy="3" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan></text>
+                                        <circle cx="124" cy="124" r="3.8" fill="#00a6e8"/>
+                                        <text x="112" y="142" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="bold" fill="#0f172a">b<tspan dy="3" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan></text>
 
-                                        <circle cx="248" cy="196" r="3.8" fill="#00a6e8"/>
-                                        <text x="218" y="206" font-family="Georgia, 'Times New Roman', serif" font-size="13.5" font-weight="bold" fill="#0f172a"><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">3</tspan>b<tspan dy="3" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan></text>
+                                        <circle cx="232" cy="180" r="3.8" fill="#00a6e8"/>
+                                        <text x="235" y="175" font-family="Georgia, 'Times New Roman', serif" font-size="13.5" font-weight="bold" fill="#0f172a"><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">3</tspan>b<tspan dy="3" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan></text>
 
-                                        <circle cx="27" cy="22" r="3.8" fill="#00a6e8"/>
-                                        <text x="14" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="bold" fill="#0f172a">b<tspan dy="3" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan></text>
+                                        <circle cx="34" cy="34" r="3.8" fill="#00a6e8"/>
+                                        <text x="18" y="48" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="bold" fill="#0f172a">b<tspan dy="3" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan></text>
 
-                                        <circle cx="183" cy="100" r="4" fill="#00a6e8"/>
-                                        <text x="175" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="15" font-weight="bold" fill="#0f172a">x</text>
+                                        <circle cx="196" cy="118" r="4" fill="#00a6e8"/>
+                                        <text x="202" y="114" font-family="Georgia, 'Times New Roman', serif" font-size="15" font-weight="bold" fill="#0f172a">x</text>
                                     </svg>
                                     <span class="text-xs font-serif text-slate-800 block">(a)</span>
                                 </div>
