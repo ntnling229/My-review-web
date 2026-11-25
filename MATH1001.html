@@ -1782,29 +1782,566 @@
     </section>
 
     <!-- ================= SECTION 4.4 ================= -->
-    <section id="sec4-4" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+    <section id="sec4-4" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-8">
         <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
             <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
-                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 4.4</span>
+                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 4.4</span>
                 Coordinate Systems (座標系統)
             </h2>
             <span class="text-xs text-slate-500 font-mono">Pages 1 - 24</span>
         </div>
 
-        <div class="space-y-4 text-sm">
-            <div class="p-4 bg-purple-50/60 rounded-xl border border-purple-200 space-y-2.5">
-                <p class="text-slate-800">
-                    <strong>THEOREM 7 — Unique Representation Theorem (Page 1):</strong> If $\mathcal{B} = \{\mathbf{b}_1, \dots, \mathbf{b}_n\}$ is a basis for $V$, then each $\mathbf{x} \in V$ can be written uniquely as $\mathbf{x} = c_1\mathbf{b}_1 + \dots + c_n\mathbf{b}_n$.
+        <!-- 4.4.1 The Unique Representation Theorem & B-Coordinates -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-crosshairs text-indigo-500 text-sm"></i> 4.4.1 The Unique Representation Theorem &amp; $\mathcal{B}$-Coordinates (唯一表示定理與 $\mathcal{B}$-座標，Pages 1 - 9)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <p class="text-slate-700 leading-relaxed">
+                    An important reason for specifying a basis $\mathcal{B}$ for a vector space $V$ is to impose a <strong>coordinate system (座標系統)</strong> on $V$. This section will show that if $\mathcal{B}$ contains $n$ vectors, then the coordinate system will make $V$ act like $\mathbb{R}^n$. If $V$ is already $\mathbb{R}^n$ itself, then $\mathcal{B}$ will determine a coordinate system that gives a new "view" of $V$.
                 </p>
-                <p class="text-slate-800">
-                    <strong>DEFINITION (Page 3):</strong> The weights $c_1, \dots, c_n$ are the <strong>$\mathcal{B}$-coordinates</strong> of $\mathbf{x}$, and $[\mathbf{x}]_{\mathcal{B}} = \begin{bmatrix} c_1 \\ \vdots \\ c_n \end{bmatrix} \in \mathbb{R}^n$ is the <strong>$\mathcal{B}$-coordinate vector</strong> of $\mathbf{x}$. The map $\mathbf{x} \mapsto [\mathbf{x}]_{\mathcal{B}}$ is the <strong>coordinate mapping</strong>.
+
+                <!-- THEOREM 7 + Expandable PROOF (Pages 1 - 2) -->
+                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-3 text-slate-800 leading-relaxed">
+                    <strong class="text-indigo-900 text-base font-bold block">THEOREM 7 — The Unique Representation Theorem (唯一表示定理，Page 1)</strong>
+                    <p>
+                        Let $\mathcal{B} = \{\mathbf{b}_1, \dots, \mathbf{b}_n\}$ be a basis for a vector space $V$. Then for each $\mathbf{x}$ in $V$, there exists a <strong>unique (唯一的)</strong> set of scalars $c_1, \dots, c_n$ such that
+                    </p>
+                    <div class="p-2.5 bg-indigo-50/70 rounded-lg border border-indigo-200 font-mono text-center text-indigo-950 font-bold">
+                        $$\mathbf{x} = c_1\mathbf{b}_1 + \cdots + c_n\mathbf{b}_n \quad \text{(1)}$$
+                    </div>
+
+                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                        <button onclick="toggleCard('proof-4-4-th7')" class="w-full p-3.5 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                            <span><i class="fa-solid fa-file-signature mr-2 text-indigo-600"></i> PROOF OF THEOREM 7 (Page 2): Uniqueness of Representation (點擊展開)</span>
+                            <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof</span>
+                        </button>
+                        <div id="proof-4-4-th7" class="toggle-content p-4 space-y-2 text-slate-700 border-t border-slate-200 bg-white">
+                            <p>
+                                Since $\mathcal{B}$ spans $V$, there exist scalars such that (1) holds. Suppose $\mathbf{x}$ also has the representation
+                            </p>
+                            <p class="font-mono text-xs md:text-sm text-center text-slate-800 py-1">$\mathbf{x} = d_1\mathbf{b}_1 + \cdots + d_n\mathbf{b}_n$</p>
+                            <p>for scalars $d_1, \dots, d_n$. Then, subtracting, we have</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-slate-800 py-1">$\mathbf{0} = \mathbf{x} - \mathbf{x} = (c_1 - d_1)\mathbf{b}_1 + \cdots + (c_n - d_n)\mathbf{b}_n$ <span class="text-slate-500 ml-2">(2)</span></p>
+                            <p>
+                                Since $\mathcal{B}$ is linearly independent, the weights in (2) must all be zero. That is, $c_j = d_j$ for $1 \le j \le n$.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DEFINITION: Coordinates, Coordinate Vector, Coordinate Mapping (Page 3) -->
+                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2.5 text-slate-800 leading-relaxed">
+                    <strong class="text-indigo-900 text-base font-bold block">DEFINITION (座標、座標向量與座標映射，Page 3)</strong>
+                    <p>
+                        Suppose $\mathcal{B} = \{\mathbf{b}_1, \dots, \mathbf{b}_n\}$ is a basis for $V$ and $\mathbf{x}$ is in $V$. The <strong>coordinates of $\mathbf{x}$ relative to the basis $\mathcal{B}$ (或 $\mathcal{B}$-座標)</strong> are the weights $c_1, \dots, c_n$ such that $\mathbf{x} = c_1\mathbf{b}_1 + \cdots + c_n\mathbf{b}_n$.
+                    </p>
+                    <p>
+                        If $c_1, \dots, c_n$ are the $\mathcal{B}$-coordinates of $\mathbf{x}$, then the vector in $\mathbb{R}^n$
+                    </p>
+                    <div class="p-2.5 bg-indigo-50/70 rounded-lg border border-indigo-200 font-mono text-center text-indigo-950 font-bold">
+                        $$[\mathbf{x}]_{\mathcal{B}} = \begin{bmatrix} c_1 \\ \vdots \\ c_n \end{bmatrix}$$
+                    </div>
+                    <p>
+                        is the <strong>coordinate vector of $\mathbf{x}$ (relative to $\mathcal{B}$) (座標向量)</strong>, or the $\mathcal{B}$-coordinate vector of $\mathbf{x}$. The mapping $\mathbf{x} \mapsto [\mathbf{x}]_{\mathcal{B}}$ is the <strong>coordinate mapping (座標映射)</strong> (determined by $\mathcal{B}$).
+                    </p>
+                </div>
+
+                <!-- Expandable EXAMPLES 1, 2, 3 + FIGURES 1, 2, 3 (Pages 4 - 9) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-4-1-3')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-grid-2 mr-2 text-indigo-600"></i> EXAMPLES 1 - 3 + FIGURES 1 - 3 (Pages 4 - 9): $\mathcal{B}$-Coordinate Vectors, Standard Grid vs. $\mathcal{B}$-Grid &amp; Crystallography Unit Cells (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples &amp; Figures</span>
+                    </button>
+                    <div id="ex-4-4-1-3" class="toggle-content p-5 space-y-5 text-sm text-slate-700 border-t border-slate-200 bg-white">
+                        <div class="space-y-2">
+                            <p class="leading-relaxed">
+                                <strong>EXAMPLE 1 (Page 4):</strong> Consider a basis $\mathcal{B} = \{\mathbf{b}_1, \mathbf{b}_2\}$ for $\mathbb{R}^2$, where $\mathbf{b}_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$ and $\mathbf{b}_2 = \begin{bmatrix} 1 \\ 2 \end{bmatrix}$. Suppose an $\mathbf{x}$ in $\mathbb{R}^2$ has the coordinate vector $[\mathbf{x}]_{\mathcal{B}} = \begin{bmatrix} -2 \\ 3 \end{bmatrix}$. Find $\mathbf{x}$.
+                            </p>
+                            <p class="leading-relaxed bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                <strong>SOLUTION:</strong> The $\mathcal{B}$-coordinates of $\mathbf{x}$ tell how to build $\mathbf{x}$ from the vectors in $\mathcal{B}$. That is, $\mathbf{x} = (-2)\mathbf{b}_1 + 3\mathbf{b}_2 = (-2)\begin{bmatrix} 1 \\ 0 \end{bmatrix} + 3\begin{bmatrix} 1 \\ 2 \end{bmatrix} = \begin{bmatrix} 1 \\ 6 \end{bmatrix}$.
+                            </p>
+                        </div>
+
+                        <div class="space-y-2 pt-3 border-t border-slate-100">
+                            <p class="leading-relaxed">
+                                <strong>EXAMPLE 2 (Page 4):</strong> The entries in the vector $\mathbf{x} = \begin{bmatrix} 1 \\ 6 \end{bmatrix}$ are the coordinates of $\mathbf{x}$ relative to the <strong>standard basis (標準基底)</strong> $\mathcal{E} = \{\mathbf{e}_1, \mathbf{e}_2\}$, since $\begin{bmatrix} 1 \\ 6 \end{bmatrix} = 1 \cdot \begin{bmatrix} 1 \\ 0 \end{bmatrix} + 6 \cdot \begin{bmatrix} 0 \\ 1 \end{bmatrix} = 1 \cdot \mathbf{e}_1 + 6 \cdot \mathbf{e}_2$. If $\mathcal{E} = \{\mathbf{e}_1, \mathbf{e}_2\}$, then $[\mathbf{x}]_{\mathcal{E}} = \mathbf{x}$.
+                            </p>
+                        </div>
+
+                        <!-- Graphical Interpretation + FIGURE 1 & FIGURE 2 (Pages 5 - 7) -->
+                        <div class="space-y-3 pt-3 border-t border-slate-100">
+                            <p class="leading-relaxed text-xs md:text-sm text-slate-700">
+                                <strong>A Graphical Interpretation of Coordinates (Pages 5 - 7):</strong> A coordinate system on a set consists of a one-to-one mapping of the points in the set into $\mathbb{R}^n$. For example, ordinary graph paper provides a coordinate system for the plane when one selects perpendicular axes and a unit of measurement on each axis. Figure 1 shows the standard basis $\{\mathbf{e}_1, \mathbf{e}_2\}$, the vectors $\mathbf{b}_1 (= \mathbf{e}_1)$ and $\mathbf{b}_2$ from Example 1, and the vector $\mathbf{x} = \begin{bmatrix} 1 \\ 6 \end{bmatrix}$. The coordinates <span class="font-mono font-bold">1</span> and <span class="font-mono font-bold">6</span> give the location of $\mathbf{x}$ relative to the standard basis: <span class="font-mono font-bold">1</span> unit in the $\mathbf{e}_1$ direction and <span class="font-mono font-bold">6</span> units in the $\mathbf{e}_2$ direction. Figure 2 shows the vectors $\mathbf{b}_1$, $\mathbf{b}_2$, and $\mathbf{x}$ from Figure 1. (Geometrically, the three vectors lie on a vertical line in both figures.) However, the standard coordinate grid was erased and replaced by a grid especially adapted to the basis $\mathcal{B}$ in Example 1. The coordinate vector $[\mathbf{x}]_{\mathcal{B}} = \begin{bmatrix} -2 \\ 3 \end{bmatrix}$ gives the location of $\mathbf{x}$ on this new coordinate system: <span class="font-mono font-bold">-2</span> units in the $\mathbf{b}_1$ direction and <span class="font-mono font-bold">3</span> units in the $\mathbf{b}_2$ direction.
+                            </p>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <!-- FIGURE 1 SVG (Page 6) -->
+                                <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
+                                    <svg viewBox="0 0 220 205" class="w-full max-w-[210px] mx-auto bg-white rounded border border-slate-200">
+                                        <!-- Grid lines: step = 28, origin at (88, 152) -->
+                                        <g stroke="#94a3b8" stroke-width="0.8">
+                                            <line x1="32" y1="12" x2="32" y2="180"/><line x1="60" y1="12" x2="60" y2="180"/>
+                                            <line x1="88" y1="12" x2="88" y2="180"/><line x1="116" y1="12" x2="116" y2="180"/>
+                                            <line x1="144" y1="12" x2="144" y2="180"/><line x1="172" y1="12" x2="172" y2="180"/>
+                                            <line x1="200" y1="12" x2="200" y2="180"/>
+                                            <line x1="18" y1="12" x2="212" y2="12"/><line x1="18" y1="40" x2="212" y2="40"/>
+                                            <line x1="18" y1="68" x2="212" y2="68"/><line x1="18" y1="96" x2="212" y2="96"/>
+                                            <line x1="18" y1="124" x2="212" y2="124"/><line x1="18" y1="152" x2="212" y2="152"/>
+                                            <line x1="18" y1="180" x2="212" y2="180"/>
+                                        </g>
+                                        <!-- Axes -->
+                                        <line x1="18" y1="152" x2="212" y2="152" stroke="#0f172a" stroke-width="1.5"/>
+                                        <line x1="88" y1="12" x2="88" y2="180" stroke="#0f172a" stroke-width="1.5"/>
+                                        <!-- Points: 0=(88,152), b1=e1=(116,152), e2=(88,124), b2=(116,96), x=(116,-16 -> y=16? no: 152 - 6*28 = -16, let's fit y=0 at 176, step=24 -> y=6 is 176-144=32) -->
+                                    </svg>
+                                    <svg viewBox="0 0 220 205" class="w-full max-w-[210px] mx-auto bg-white rounded border border-slate-200 -mt-2">
+                                        <g stroke="#94a3b8" stroke-width="0.8">
+                                            <line x1="32" y1="10" x2="32" y2="196"/><line x1="60" y1="10" x2="60" y2="196"/>
+                                            <line x1="88" y1="10" x2="88" y2="196"/><line x1="116" y1="10" x2="116" y2="196"/>
+                                            <line x1="144" y1="10" x2="144" y2="196"/><line x1="172" y1="10" x2="172" y2="196"/>
+                                            <line x1="200" y1="10" x2="200" y2="196"/>
+                                            <line x1="18" y1="10" x2="212" y2="10"/><line x1="18" y1="34" x2="212" y2="34"/>
+                                            <line x1="18" y1="58" x2="212" y2="58"/><line x1="18" y1="82" x2="212" y2="82"/>
+                                            <line x1="18" y1="106" x2="212" y2="106"/><line x1="18" y1="130" x2="212" y2="130"/>
+                                            <line x1="18" y1="154" x2="212" y2="154"/><line x1="18" y1="178" x2="212" y2="178"/>
+                                        </g>
+                                        <line x1="18" y1="178" x2="212" y2="178" stroke="#0f172a" stroke-width="1.5"/>
+                                        <line x1="88" y1="10" x2="88" y2="196" stroke="#0f172a" stroke-width="1.5"/>
+                                        <!-- 0=(88,178), e2=(88,154), b1=e1=(116,178), b2=(116,130), x=(116,34) -->
+                                        <circle cx="88" cy="178" r="3.4" fill="#00a6e8"/>
+                                        <text x="80" y="191" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace" font-size="13" font-weight="700" fill="#0f172a">0</text>
+                                        <circle cx="88" cy="154" r="3.4" fill="#00a6e8"/>
+                                        <text x="72" y="156" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#0f172a">e<tspan dy="3" font-size="9">2</tspan></text>
+                                        <circle cx="116" cy="178" r="3.4" fill="#00a6e8"/>
+                                        <text x="103" y="191" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#0f172a">b<tspan dy="3" font-size="9">1</tspan> = e<tspan dy="3" font-size="9">1</tspan></text>
+                                        <circle cx="116" cy="130" r="3.4" fill="#00a6e8"/>
+                                        <text x="122" y="133" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#0f172a">b<tspan dy="3" font-size="9">2</tspan></text>
+                                        <circle cx="116" cy="34" r="3.6" fill="#00a6e8"/>
+                                        <text x="122" y="42" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="bold" fill="#0f172a">x</text>
+                                    </svg>
+                                    <div class="text-left max-w-[210px] mx-auto text-xs leading-snug">
+                                        <span class="font-bold text-slate-900 block tracking-wide">FIGURE 1</span>
+                                        <span class="text-slate-800" style="font-family: Georgia, 'Times New Roman', serif;">Standard graph paper.</span>
+                                    </div>
+                                </div>
+
+                                <!-- FIGURE 2 SVG (Page 7) -->
+                                <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
+                                    <svg viewBox="0 0 220 205" class="w-full max-w-[210px] mx-auto bg-white rounded border border-slate-200">
+                                        <!-- Skewed grid: b1=(24,0), b2=(8,-24), origin=(78,176) -->
+                                        <g stroke="#334155" stroke-width="0.9">
+                                            <!-- lines parallel to b2 -->
+                                            <line x1="22" y1="196" x2="74" y2="12"/><line x1="46" y1="196" x2="98" y2="12"/>
+                                            <line x1="70" y1="196" x2="122" y2="12"/><line x1="94" y1="196" x2="146" y2="12"/>
+                                            <line x1="118" y1="196" x2="170" y2="12"/><line x1="142" y1="196" x2="194" y2="12"/>
+                                            <line x1="166" y1="196" x2="212" y2="32"/>
+                                            <!-- lines parallel to b1 -->
+                                            <line x1="14" y1="176" x2="212" y2="176"/><line x1="22" y1="152" x2="212" y2="152"/>
+                                            <line x1="30" y1="128" x2="212" y2="128"/><line x1="38" y1="104" x2="212" y2="104"/>
+                                            <line x1="46" y1="80" x2="212" y2="80"/><line x1="54" y1="56" x2="212" y2="56"/>
+                                            <line x1="62" y1="32" x2="212" y2="32"/>
+                                        </g>
+                                        <!-- Highlighted B axes in blue -->
+                                        <line x1="14" y1="176" x2="212" y2="176" stroke="#00a6e8" stroke-width="1.8"/>
+                                        <line x1="68" y1="196" x2="122" y2="12" stroke="#00a6e8" stroke-width="1.8"/>
+                                        <!-- 0=(78,176), b1=(102,176), b2=(86,152), x = -2*b1 + 3*b2 = (78 - 48 + 24, 176 - 72) = (54, 104) -->
+                                        <circle cx="78" cy="176" r="3.4" fill="#00a6e8"/>
+                                        <text x="64" y="191" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace" font-size="13" font-weight="700" fill="#0f172a">0</text>
+                                        <circle cx="102" cy="176" r="3.4" fill="#00a6e8"/>
+                                        <text x="95" y="191" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#0f172a">b<tspan dy="3" font-size="9">1</tspan></text>
+                                        <circle cx="86" cy="152" r="3.4" fill="#00a6e8"/>
+                                        <text x="92" y="148" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#0f172a">b<tspan dy="3" font-size="9">2</tspan></text>
+                                        <circle cx="54" cy="104" r="3.6" fill="#00a6e8"/>
+                                        <text x="43" y="114" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="bold" fill="#0f172a">x</text>
+                                    </svg>
+                                    <div class="text-left max-w-[210px] mx-auto text-xs leading-snug">
+                                        <span class="font-bold text-slate-900 block tracking-wide">FIGURE 2</span>
+                                        <span class="text-slate-800" style="font-family: Georgia, 'Times New Roman', serif;">$\mathcal{B}$-graph paper.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- EXAMPLE 3 + FIGURE 3 (Pages 8 - 9) -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center pt-3 border-t border-slate-100">
+                            <div class="md:col-span-2 space-y-2 leading-relaxed">
+                                <p>
+                                    <strong>EXAMPLE 3 (Page 8):</strong> In <strong>crystallography (晶體學)</strong>, the description of a crystal lattice is aided by choosing a basis $\{\mathbf{u}, \mathbf{v}, \mathbf{w}\}$ for $\mathbb{R}^3$ that corresponds to three adjacent edges of one "unit cell" of the crystal. An entire lattice is constructed by stacking together many copies of one cell. There are fourteen basic types of unit cells; three are displayed in Figure 3. The coordinates of atoms within the crystal are given relative to the basis for the lattice. For instance, $\begin{bmatrix} 1/2 \\ 1/2 \\ 1 \end{bmatrix}$ identifies the top face-centered atom in the cell in Figure 3(c).
+                                </p>
+                            </div>
+
+                            <!-- FIGURE 3(c) SVG (Page 9) -->
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
+                                <svg viewBox="0 0 220 205" class="w-full max-w-[205px] mx-auto bg-white rounded border border-slate-200">
+                                    <!-- Lattice axes in blue -->
+                                    <line x1="92" y1="138" x2="36" y2="184" stroke="#00a6e8" stroke-width="1.4"/>
+                                    <line x1="92" y1="138" x2="205" y2="152" stroke="#00a6e8" stroke-width="1.4"/>
+                                    <line x1="92" y1="138" x2="92" y2="12" stroke="#00a6e8" stroke-width="1.4"/>
+                                    <!-- Back edges -->
+                                    <line x1="92" y1="138" x2="154" y2="112" stroke="#0f172a" stroke-width="1.5"/>
+                                    <line x1="154" y1="112" x2="154" y2="34" stroke="#0f172a" stroke-width="1.5"/>
+                                    <line x1="92" y1="60" x2="154" y2="34" stroke="#0f172a" stroke-width="1.5"/>
+                                    <!-- Front face -->
+                                    <polygon points="52,170 116,184 116,106 52,92" fill="none" stroke="#0f172a" stroke-width="1.6"/>
+                                    <!-- Connecting edges -->
+                                    <line x1="52" y1="170" x2="92" y2="138" stroke="#0f172a" stroke-width="1.5"/>
+                                    <line x1="116" y1="184" x2="154" y2="112" stroke="#0f172a" stroke-width="1.5"/>
+                                    <line x1="116" y1="106" x2="154" y2="34" stroke="#0f172a" stroke-width="1.5"/>
+                                    <line x1="52" y1="92" x2="92" y2="60" stroke="#0f172a" stroke-width="1.5"/>
+                                    <!-- Corner & face-centered atoms -->
+                                    <circle cx="92" cy="138" r="5" fill="#c89d66"/>
+                                    <circle cx="52" cy="170" r="5" fill="#c89d66"/>
+                                    <circle cx="92" cy="60" r="5" fill="#c89d66"/>
+                                    <circle cx="116" cy="184" r="4.5" fill="#7dd3fc"/>
+                                    <circle cx="154" cy="112" r="4.5" fill="#7dd3fc"/>
+                                    <circle cx="154" cy="34" r="4.5" fill="#7dd3fc"/>
+                                    <circle cx="116" cy="106" r="4.5" fill="#7dd3fc"/>
+                                    <circle cx="52" cy="92" r="4.5" fill="#7dd3fc"/>
+                                    <!-- Face centers -->
+                                    <circle cx="104" cy="73" r="4.5" fill="#7dd3fc"/>
+                                    <circle cx="84" cy="145" r="4.5" fill="#7dd3fc"/>
+                                    <circle cx="123" cy="122" r="4.5" fill="#7dd3fc"/>
+                                    <circle cx="103" cy="161" r="4.5" fill="#7dd3fc"/>
+                                    <circle cx="72" cy="115" r="4.5" fill="#7dd3fc"/>
+                                    <circle cx="135" cy="99" r="4.5" fill="#7dd3fc"/>
+                                    <!-- Labels -->
+                                    <text x="76" y="146" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace" font-size="13" font-weight="700">0</text>
+                                    <text x="42" y="185" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold">u</text>
+                                    <text x="122" y="192" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold">v</text>
+                                    <text x="80" y="54" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold">w</text>
+                                </svg>
+                                <div class="text-left max-w-[205px] mx-auto text-xs leading-snug">
+                                    <span class="font-bold text-slate-900 block tracking-wide">FIGURE 3(c)</span>
+                                    <span class="text-slate-800" style="font-family: Georgia, 'Times New Roman', serif;">Face-centered orthorhombic unit cell.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4.4.2 Coordinates in R^n & Change-of-Coordinates Matrix -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-repeat text-indigo-500 text-sm"></i> 4.4.2 Coordinates in $\mathbb{R}^n$ &amp; Change-of-Coordinates Matrix (座標變換矩陣，Pages 10 - 14)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <p class="text-slate-700 leading-relaxed">
+                    When a basis $\mathcal{B}$ for $\mathbb{R}^n$ is fixed, the $\mathcal{B}$-coordinate vector of a specified $\mathbf{x}$ is easily found, as in the next example.
                 </p>
-                <p class="text-slate-800">
-                    <strong>Change-of-Coordinates in $\mathbb{R}^n$ (Pages 13 - 14):</strong> For $P_{\mathcal{B}} = [\mathbf{b}_1 \;\; \dots \;\; \mathbf{b}_n]$, $\mathbf{x} = P_{\mathcal{B}}[\mathbf{x}]_{\mathcal{B}}$ and $[\mathbf{x}]_{\mathcal{B}} = P_{\mathcal{B}}^{-1}\mathbf{x}$.
+
+                <!-- Expandable EXAMPLE 4 + FIGURE 4 + Change-of-Coordinates Equations (Pages 10 - 14) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-4-4')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-matrix-multiply mr-2 text-indigo-600"></i> EXAMPLE 4 + FIGURE 4 + Change-of-Coordinates Matrix $P_{\mathcal{B}}$ (Pages 10 - 14) (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example</span>
+                    </button>
+                    <div id="ex-4-4-4" class="toggle-content p-5 space-y-4 text-sm text-slate-700 border-t border-slate-200 bg-white">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+                            <div class="md:col-span-2 space-y-2.5 leading-relaxed">
+                                <p>
+                                    <strong>EXAMPLE 4 (Pages 10 - 11):</strong> Let $\mathbf{b}_1 = \begin{bmatrix} 2 \\ 1 \end{bmatrix}$, $\mathbf{b}_2 = \begin{bmatrix} -1 \\ 1 \end{bmatrix}$, $\mathbf{x} = \begin{bmatrix} 4 \\ 5 \end{bmatrix}$, and $\mathcal{B} = \{\mathbf{b}_1, \mathbf{b}_2\}$. Find the coordinate vector $[\mathbf{x}]_{\mathcal{B}}$ of $\mathbf{x}$ relative to $\mathcal{B}$.
+                                </p>
+                                <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
+                                    <p><strong>SOLUTION:</strong> The $\mathcal{B}$-coordinates $c_1, c_2$ of $\mathbf{x}$ satisfy</p>
+                                    <p class="font-mono text-xs md:text-sm text-center text-slate-800">$c_1\begin{bmatrix} 2 \\ 1 \end{bmatrix} + c_2\begin{bmatrix} -1 \\ 1 \end{bmatrix} = \begin{bmatrix} 4 \\ 5 \end{bmatrix}$ <span class="text-slate-500 ml-2">or</span> $\begin{bmatrix} 2 & -1 \\ 1 & 1 \end{bmatrix}\begin{bmatrix} c_1 \\ c_2 \end{bmatrix} = \begin{bmatrix} 4 \\ 5 \end{bmatrix}$ <span class="text-slate-500 ml-2">(3)</span></p>
+                                    <p>This equation can be solved by row operations on an augmented matrix or by using the inverse of the matrix on the left. In any case, the solution is $c_1 = 3, c_2 = 2$. Thus $\mathbf{x} = 3\mathbf{b}_1 + 2\mathbf{b}_2$, and $[\mathbf{x}]_{\mathcal{B}} = \begin{bmatrix} c_1 \\ c_2 \end{bmatrix} = \begin{bmatrix} 3 \\ 2 \end{bmatrix}$.</p>
+                                </div>
+                            </div>
+
+                            <!-- FIGURE 4 SVG (Page 12) -->
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
+                                <svg viewBox="0 0 220 205" class="w-full max-w-[205px] mx-auto bg-white rounded border border-slate-200">
+                                    <defs>
+                                        <marker id="arr-fig4" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f172a"/>
+                                        </marker>
+                                    </defs>
+                                    <!-- Standard axes: origin at (66, 166), scale = 28px/unit -->
+                                    <line x1="14" y1="166" x2="206" y2="166" stroke="#0f172a" stroke-width="1.4" marker-end="url(#arr-fig4)"/>
+                                    <line x1="66" y1="196" x2="66" y2="12" stroke="#0f172a" stroke-width="1.4" marker-end="url(#arr-fig4)"/>
+                                    <!-- Axis ticks -->
+                                    <line x1="38" y1="162" x2="38" y2="170" stroke="#0f172a" stroke-width="1.2"/>
+                                    <line x1="94" y1="162" x2="94" y2="170" stroke="#0f172a" stroke-width="1.2"/>
+                                    <line x1="122" y1="162" x2="122" y2="170" stroke="#0f172a" stroke-width="1.2"/>
+                                    <line x1="62" y1="138" x2="70" y2="138" stroke="#0f172a" stroke-width="1.2"/>
+                                    <!-- b1=(2,1)->(122,138), b2=(-1,1)->(38,138), x=(4,5)->(178,26) -->
+                                    <!-- Parallelogram grid -->
+                                    <g stroke="#0f172a" stroke-width="1">
+                                        <line x1="122" y1="138" x2="178" y2="26"/>
+                                        <line x1="178" y1="82" x2="94" y2="82"/>
+                                        <line x1="38" y1="138" x2="150" y2="138"/>
+                                        <line x1="66" y1="82" x2="178" y2="82"/>
+                                        <line x1="94" y1="26" x2="178" y2="26"/>
+                                    </g>
+                                    <line x1="66" y1="166" x2="122" y2="138" stroke="#00a6e8" stroke-width="2"/>
+                                    <line x1="66" y1="166" x2="38" y2="138" stroke="#00a6e8" stroke-width="2"/>
+                                    <circle cx="66" cy="166" r="3.5" fill="#00a6e8"/>
+                                    <circle cx="122" cy="138" r="3.5" fill="#00a6e8"/>
+                                    <text x="126" y="135" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold">b<tspan dy="3" font-size="9">1</tspan></text>
+                                    <circle cx="38" cy="138" r="3.5" fill="#00a6e8"/>
+                                    <text x="20" y="135" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold">b<tspan dy="3" font-size="9">2</tspan></text>
+                                    <circle cx="178" cy="26" r="3.8" fill="#00a6e8"/>
+                                    <text x="184" y="24" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="bold">x</text>
+                                </svg>
+                                <div class="text-left max-w-[205px] mx-auto text-xs leading-snug">
+                                    <span class="font-bold text-slate-900 block tracking-wide">FIGURE 4</span>
+                                    <span class="text-slate-800" style="font-family: Georgia, 'Times New Roman', serif;">The $\mathcal{B}$-coordinate vector of $\mathbf{x}$ is (<span class="font-mono font-bold">3</span>,<span class="font-mono font-bold">2</span>).</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-3.5 bg-indigo-50/50 rounded-lg border border-indigo-200 space-y-2 text-xs md:text-sm leading-relaxed">
+                            <strong class="text-indigo-950 block">Change-of-Coordinates Matrix $P_{\mathcal{B}}$ (座標變換矩陣，Pages 13 - 14):</strong>
+                            <p>
+                                The matrix in (3) changes the $\mathcal{B}$-coordinates of a vector $\mathbf{x}$ into the standard coordinates for $\mathbf{x}$. An analogous change of coordinates can be carried out in $\mathbb{R}^n$ for a basis $\mathcal{B} = \{\mathbf{b}_1, \dots, \mathbf{b}_n\}$. Let
+                            </p>
+                            <p class="font-mono text-center text-indigo-950 font-bold py-1">$P_{\mathcal{B}} = [\mathbf{b}_1 \;\; \mathbf{b}_2 \;\; \cdots \;\; \mathbf{b}_n]$</p>
+                            <p>
+                                Then the vector equation $\mathbf{x} = c_1\mathbf{b}_1 + c_2\mathbf{b}_2 + \cdots + c_n\mathbf{b}_n$ is equivalent to
+                            </p>
+                            <p class="font-mono text-center text-indigo-950 font-bold py-1">$\mathbf{x} = P_{\mathcal{B}}[\mathbf{x}]_{\mathcal{B}}$ <span class="text-slate-500 font-normal ml-2">(4)</span></p>
+                            <p>
+                                We call $P_{\mathcal{B}}$ the <strong>change-of-coordinates matrix (座標變換矩陣)</strong> from $\mathcal{B}$ to the standard basis in $\mathbb{R}^n$. Left-multiplication by $P_{\mathcal{B}}$ transforms the coordinate vector $[\mathbf{x}]_{\mathcal{B}}$ into $\mathbf{x}$. Since the columns of $P_{\mathcal{B}}$ form a basis for $\mathbb{R}^n$, $P_{\mathcal{B}}$ is invertible (by the Invertible Matrix Theorem). Left-multiplication by $P_{\mathcal{B}}^{-1}$ converts $\mathbf{x}$ into its $\mathcal{B}$-coordinate vector:
+                            </p>
+                            <p class="font-mono text-center text-indigo-950 font-bold py-1">$P_{\mathcal{B}}^{-1}\mathbf{x} = [\mathbf{x}]_{\mathcal{B}}$</p>
+                            <p>
+                                The correspondence $\mathbf{x} \mapsto [\mathbf{x}]_{\mathcal{B}}$, produced here by $P_{\mathcal{B}}^{-1}$, is the coordinate mapping. Since $P_{\mathcal{B}}^{-1}$ is an invertible matrix, the coordinate mapping is a one-to-one linear transformation from $\mathbb{R}^n$ onto $\mathbb{R}^n$, by the Invertible Matrix Theorem.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4.4.3 The Coordinate Mapping, Theorem 8 & Isomorphisms -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-diagram-project text-indigo-500 text-sm"></i> 4.4.3 The Coordinate Mapping, Theorem 8 &amp; Isomorphisms (座標映射、定理 8 與同構，Pages 15 - 24)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <p class="text-slate-700 leading-relaxed">
+                    Choosing a basis $\mathcal{B} = \{\mathbf{b}_1, \dots, \mathbf{b}_n\}$ for a vector space $V$ introduces a coordinate system in $V$. The coordinate mapping connects the possibly unfamiliar space $V$ to the familiar space $\mathbb{R}^n$. Points in $V$ can now be identified by their new "names."
                 </p>
-                <p class="text-slate-800">
-                    <strong>THEOREM 8 & Isomorphism (Pages 16 - 20):</strong> $\mathbf{x} \mapsto [\mathbf{x}]_{\mathcal{B}}$ is a one-to-one linear transformation from $V$ onto $\mathbb{R}^n$ (an <strong>isomorphism</strong>, preserving linear combinations: $[c_1\mathbf{u}_1 + \dots + c_p\mathbf{u}_p]_{\mathcal{B}} = c_1[\mathbf{u}_1]_{\mathcal{B}} + \dots + c_p[\mathbf{u}_p]_{\mathcal{B}}$). In Example 5, with $\mathcal{B} = \{1, t, t^2, t^3\}$, $\mathbb{P}_3$ is isomorphic to $\mathbb{R}^4$.
-                </p>
+
+                <!-- THEOREM 8 + Expandable PROOF + FIGURE 5 (Pages 15 - 17) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center bg-white p-4 rounded-xl border border-indigo-200">
+                    <div class="md:col-span-2 space-y-3 text-slate-800 leading-relaxed">
+                        <strong class="text-indigo-900 text-base font-bold block">THEOREM 8 (定理 8，Page 16)</strong>
+                        <p>
+                            Let $\mathcal{B} = \{\mathbf{b}_1, \dots, \mathbf{b}_n\}$ be a basis for a vector space $V$. Then the coordinate mapping $\mathbf{x} \mapsto [\mathbf{x}]_{\mathcal{B}}$ is a <strong>one-to-one linear transformation (一對一線性變換)</strong> from $V$ onto $\mathbb{R}^n$.
+                        </p>
+
+                        <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                            <button onclick="toggleCard('proof-4-4-th8')" class="w-full p-3 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs">
+                                <span><i class="fa-solid fa-file-signature mr-2 text-indigo-600"></i> PROOF OF THEOREM 8 (Pages 16 - 17) (點擊展開)</span>
+                                <span class="text-xs bg-indigo-600 text-white px-2 py-0.5 rounded-full shrink-0">Expand Proof</span>
+                            </button>
+                            <div id="proof-4-4-th8" class="toggle-content p-3.5 space-y-2 text-xs md:text-sm text-slate-700 border-t border-slate-200 bg-white">
+                                <p>Take two typical vectors in $V$, say,</p>
+                                <p class="font-mono text-center text-slate-800">$\mathbf{u} = c_1\mathbf{b}_1 + \cdots + c_n\mathbf{b}_n \quad \text{and} \quad \mathbf{w} = d_1\mathbf{b}_1 + \cdots + d_n\mathbf{b}_n$</p>
+                                <p>Then, using vector operations,</p>
+                                <p class="font-mono text-center text-slate-800">$\mathbf{u} + \mathbf{w} = (c_1 + d_1)\mathbf{b}_1 + \cdots + (c_n + d_n)\mathbf{b}_n$</p>
+                                <p>It follows that</p>
+                                <p class="font-mono text-center text-slate-800">$[\mathbf{u} + \mathbf{w}]_{\mathcal{B}} = \begin{bmatrix} c_1 + d_1 \\ \vdots \\ c_n + d_n \end{bmatrix} = \begin{bmatrix} c_1 \\ \vdots \\ c_n \end{bmatrix} + \begin{bmatrix} d_1 \\ \vdots \\ d_n \end{bmatrix} = [\mathbf{u}]_{\mathcal{B}} + [\mathbf{w}]_{\mathcal{B}}$</p>
+                                <p>So the coordinate mapping preserves addition. If $r$ is any scalar, then</p>
+                                <p class="font-mono text-center text-slate-800">$r\mathbf{u} = r(c_1\mathbf{b}_1 + \cdots + c_n\mathbf{b}_n) = (rc_1)\mathbf{b}_1 + \cdots + (rc_n)\mathbf{b}_n$</p>
+                                <p>So</p>
+                                <p class="font-mono text-center text-slate-800">$[r\mathbf{u}]_{\mathcal{B}} = \begin{bmatrix} rc_1 \\ \vdots \\ rc_n \end{bmatrix} = r\begin{bmatrix} c_1 \\ \vdots \\ c_n \end{bmatrix} = r[\mathbf{u}]_{\mathcal{B}}$</p>
+                                <p>Thus the coordinate mapping also preserves scalar multiplication and hence is a linear transformation.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FIGURE 5 SVG (Page 15) -->
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
+                        <svg viewBox="0 0 250 145" class="w-full max-w-[235px] mx-auto bg-white rounded border border-slate-200">
+                            <defs>
+                                <marker id="arr-fig5" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#00a6e8"/>
+                                </marker>
+                            </defs>
+                            <!-- Left space V -->
+                            <polygon points="10,16 74,8 64,126 6,134" fill="#c7efff" stroke="#7dd3fc" stroke-width="1.2"/>
+                            <text x="14" y="126" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic">V</text>
+                            <circle cx="36" cy="70" r="3.4" fill="#0f172a"/>
+                            <text x="27" y="84" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold">x</text>
+
+                            <!-- Curved arrow []_B -->
+                            <path d="M 38 66 Q 112 22 186 64" fill="none" stroke="#00a6e8" stroke-width="1.8" marker-end="url(#arr-fig5)"/>
+                            <text x="112" y="34" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" font-weight="bold">[ &nbsp; ]<tspan dy="3" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">B</tspan></text>
+
+                            <!-- Right R^n axes -->
+                            <line x1="168" y1="98" x2="132" y2="128" stroke="#0f172a" stroke-width="1.3"/>
+                            <line x1="168" y1="98" x2="242" y2="112" stroke="#0f172a" stroke-width="1.3"/>
+                            <line x1="168" y1="98" x2="168" y2="14" stroke="#0f172a" stroke-width="1.3"/>
+                            <line x1="188" y1="102" x2="188" y2="66" stroke="#0f172a" stroke-width="1.1" stroke-dasharray="3,2"/>
+                            <line x1="168" y1="98" x2="188" y2="102" stroke="#0f172a" stroke-width="1.1" stroke-dasharray="3,2"/>
+                            <circle cx="188" cy="66" r="3.4" fill="#0f172a"/>
+                            <text x="194" y="64" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold">[x]<tspan dy="3" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">B</tspan></text>
+                            <text x="218" y="132" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-style="italic">R<tspan dy="-4" font-size="10" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">n</tspan></text>
+                        </svg>
+                        <div class="text-left max-w-[235px] mx-auto text-xs leading-snug">
+                            <span class="font-bold text-slate-900 block tracking-wide">FIGURE 5</span>
+                            <span class="text-slate-800" style="font-family: Georgia, 'Times New Roman', serif;">The coordinate mapping from $V$ onto $\mathbb{R}^n$.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Linearity of Coordinate Mapping & Isomorphism (Page 18) -->
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-2.5 text-slate-800 leading-relaxed">
+                    <p>
+                        The linearity of the coordinate mapping extends to linear combinations. If $\mathbf{u}_1, \dots, \mathbf{u}_p$ are in $V$ and if $c_1, \dots, c_p$ are scalars, then
+                    </p>
+                    <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 font-mono text-center text-indigo-950 font-bold">
+                        $$[c_1\mathbf{u}_1 + \cdots + c_p\mathbf{u}_p]_{\mathcal{B}} = c_1[\mathbf{u}_1]_{\mathcal{B}} + \cdots + c_p[\mathbf{u}_p]_{\mathcal{B}} \quad \text{(5)}$$
+                    </div>
+                    <p>
+                        In words, (5) says that the $\mathcal{B}$-coordinate vector of a linear combination of $\mathbf{u}_1, \dots, \mathbf{u}_p$ is the same linear combination of their coordinate vectors.
+                    </p>
+                    <p>
+                        The coordinate mapping in Theorem 8 is an important example of an <strong>isomorphism (同構)</strong> from $V$ onto $\mathbb{R}^n$. In general, a one-to-one linear transformation from a vector space $V$ onto a vector space $W$ is called an <strong>isomorphism (同構)</strong> from $V$ onto $W$ (<em>iso</em> from the Greek for "the same," and <em>morph</em> from the Greek for "form" or "structure"). The notation and terminology for $V$ and $W$ may differ, but the two spaces are indistinguishable as vector spaces. Every vector space calculation in $V$ is accurately reproduced in $W$, and vice versa. In particular, any real vector space with a basis of $n$ vectors is indistinguishable from $\mathbb{R}^n$.
+                    </p>
+                </div>
+
+                <!-- Expandable EXAMPLES 5, 6, 7 + FIGURES 6, 7 (Pages 19 - 24) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-4-4-5-7')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-layer-group mr-2 text-indigo-600"></i> EXAMPLES 5 - 7 + FIGURES 6 - 7 (Pages 19 - 24): $\mathbb{P}_3 \cong \mathbb{R}^4$, Polynomial Independence &amp; Plane $H$ in $\mathbb{R}^3$ (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples &amp; Figures</span>
+                    </button>
+                    <div id="ex-4-4-5-7" class="toggle-content p-5 space-y-5 text-sm text-slate-700 border-t border-slate-200 bg-white">
+                        <!-- EXAMPLE 5 + FIGURE 6 (Pages 19 - 20) -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+                            <div class="md:col-span-2 space-y-2 leading-relaxed">
+                                <p>
+                                    <strong>EXAMPLE 5 (Pages 19 - 20):</strong> Let $\mathcal{B}$ be the standard basis of the space $\mathbb{P}_3$ of polynomials; that is, let $\mathcal{B} = \{1, t, t^2, t^3\}$. A typical element $p$ of $\mathbb{P}_3$ has the form $p(t) = a_0 + a_1 t + a_2 t^2 + a_3 t^3$. Since $p$ is already displayed as a linear combination of the standard basis vectors, we conclude that
+                                </p>
+                                <p class="font-mono text-center text-indigo-950 font-bold py-1">$[p]_{\mathcal{B}} = \begin{bmatrix} a_0 \\ a_1 \\ a_2 \\ a_3 \end{bmatrix}$</p>
+                                <p>
+                                    Thus the coordinate mapping $p \mapsto [p]_{\mathcal{B}}$ is an isomorphism from $\mathbb{P}_3$ onto $\mathbb{R}^4$. All vector space operations in $\mathbb{P}_3$ correspond to operations in $\mathbb{R}^4$. If we think of $\mathbb{P}_3$ and $\mathbb{R}^4$ as displays on two computer screens that are connected via the coordinate mapping, then every vector space operation in $\mathbb{P}_3$ on one screen is exactly duplicated by a corresponding vector operation in $\mathbb{R}^4$ on the other screen. The vectors on the $\mathbb{P}_3$ screen look different from those on the $\mathbb{R}^4$ screen, but they "act" as vectors in exactly the same way. See Figure 6.
+                                </p>
+                            </div>
+
+                            <!-- FIGURE 6 SVG (Page 20) -->
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
+                                <svg viewBox="0 0 245 135" class="w-full max-w-[230px] mx-auto bg-white rounded border border-slate-200">
+                                    <defs>
+                                        <marker id="arr-fig6" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#00a6e8"/>
+                                        </marker>
+                                    </defs>
+                                    <!-- Phone representing P_3 -->
+                                    <rect x="12" y="14" width="64" height="106" rx="10" fill="#334155" stroke="#0f172a" stroke-width="1.5"/>
+                                    <rect x="17" y="26" width="54" height="80" rx="2" fill="#ffffff"/>
+                                    <text x="44" y="70" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="9.5" fill="#0f172a">a<tspan dy="2" font-size="7">0</tspan><tspan dy="-2">+a</tspan><tspan dy="2" font-size="7">1</tspan><tspan dy="-2">t+a</tspan><tspan dy="2" font-size="7">2</tspan><tspan dy="-2">t</tspan><tspan dy="-3" font-size="7" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan><tspan dy="3">+a</tspan><tspan dy="2" font-size="7">3</tspan><tspan dy="-2">t</tspan><tspan dy="-3" font-size="7" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">3</tspan></text>
+                                    <text x="44" y="131" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="11" font-style="italic" font-weight="bold">P<tspan dy="2" font-size="8" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">3</tspan></text>
+
+                                    <!-- Double-headed mapping arrow -->
+                                    <line x1="82" y1="66" x2="132" y2="66" stroke="#00a6e8" stroke-width="1.8" marker-end="url(#arr-fig6)"/>
+                                    <text x="107" y="58" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="10" font-style="italic" font-weight="bold">[ &nbsp; ]<tspan dy="2" font-size="8" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">B</tspan></text>
+
+                                    <!-- Laptop representing R^4 -->
+                                    <rect x="138" y="24" width="92" height="64" rx="4" fill="#cbd5e1" stroke="#334155" stroke-width="1.4"/>
+                                    <rect x="143" y="29" width="82" height="54" fill="#ffffff"/>
+                                    <text x="184" y="42" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="9" fill="#0f172a">[ a<tspan dy="2" font-size="7">0</tspan><tspan dy="-2"> ]</tspan></text>
+                                    <text x="184" y="53" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="9" fill="#0f172a">[ a<tspan dy="2" font-size="7">1</tspan><tspan dy="-2"> ]</tspan></text>
+                                    <text x="184" y="64" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="9" fill="#0f172a">[ a<tspan dy="2" font-size="7">2</tspan><tspan dy="-2"> ]</tspan></text>
+                                    <text x="184" y="75" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="9" fill="#0f172a">[ a<tspan dy="2" font-size="7">3</tspan><tspan dy="-2"> ]</tspan></text>
+                                    <polygon points="130,88 238,88 242,95 126,95" fill="#94a3b8" stroke="#334155" stroke-width="1.2"/>
+                                    <text x="184" y="131" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="11" font-style="italic" font-weight="bold">R<tspan dy="-3" font-size="8" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">4</tspan></text>
+                                </svg>
+                                <div class="text-left max-w-[230px] mx-auto text-xs leading-snug">
+                                    <span class="font-bold text-slate-900 block tracking-wide">FIGURE 6</span>
+                                    <span class="text-slate-800" style="font-family: Georgia, 'Times New Roman', serif;">The space $\mathbb{P}_3$ is isomorphic to $\mathbb{R}^4$.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- EXAMPLE 6 (Page 21) -->
+                        <div class="space-y-2 pt-3 border-t border-slate-100">
+                            <p class="leading-relaxed">
+                                <strong>EXAMPLE 6 (Page 21):</strong> Use coordinate vectors to verify that the polynomials $1 + 2t^2$, $4 + t + 5t^2$, and $3 + 2t$ are linearly dependent in $\mathbb{P}_2$.
+                            </p>
+                            <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
+                                <p><strong>SOLUTION:</strong> The coordinate mapping from Example 5 produces the coordinate vectors $(1, 0, 2)$, $(4, 1, 5)$, and $(3, 2, 0)$, respectively. Writing these vectors as the columns of a matrix $A$, we can determine their independence by row reducing the augmented matrix for $A\mathbf{x} = \mathbf{0}$:</p>
+                                <p class="font-mono text-xs md:text-sm text-center text-slate-800 py-1">$\begin{bmatrix} 1 & 4 & 3 & 0 \\ 0 & 1 & 2 & 0 \\ 2 & 5 & 0 & 0 \end{bmatrix} \sim \begin{bmatrix} 1 & 4 & 3 & 0 \\ 0 & 1 & 2 & 0 \\ 0 & 0 & 0 & 0 \end{bmatrix}$</p>
+                                <p>The columns of $A$ are linearly dependent, so the corresponding polynomials are linearly dependent. In fact, it is easy to check that column <span class="font-mono font-bold">3</span> of $A$ is <span class="font-mono font-bold">2</span> times column <span class="font-mono font-bold">2</span> minus <span class="font-mono font-bold">5</span> times column <span class="font-mono font-bold">1</span>. The corresponding relation for the polynomials is</p>
+                                <p class="font-mono text-xs md:text-sm text-center text-indigo-950 font-bold py-1">$3 + 2t = 2(4 + t + 5t^2) - 5(1 + 2t^2)$</p>
+                            </div>
+                        </div>
+
+                        <!-- EXAMPLE 7 + FIGURE 7 (Pages 22 - 24) -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center pt-3 border-t border-slate-100">
+                            <div class="md:col-span-2 space-y-2 leading-relaxed">
+                                <p>
+                                    <strong>EXAMPLE 7 (Pages 22 - 23):</strong> Let $\mathbf{v}_1 = \begin{bmatrix} 3 \\ 6 \\ 2 \end{bmatrix}$, $\mathbf{v}_2 = \begin{bmatrix} -1 \\ 0 \\ 1 \end{bmatrix}$, $\mathbf{x} = \begin{bmatrix} 3 \\ 12 \\ 7 \end{bmatrix}$, and $\mathcal{B} = \{\mathbf{v}_1, \mathbf{v}_2\}$. Then $\mathcal{B}$ is a basis for $H = \text{Span}\{\mathbf{v}_1, \mathbf{v}_2\}$. Determine if $\mathbf{x}$ is in $H$, and if it is, find the coordinate vector of $\mathbf{x}$ relative to $\mathcal{B}$.
+                                </p>
+                                <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
+                                    <p><strong>SOLUTION:</strong> If $\mathbf{x}$ is in $H$, then the following vector equation is consistent:</p>
+                                    <p class="font-mono text-xs md:text-sm text-center text-slate-800 py-1">$c_1\begin{bmatrix} 3 \\ 6 \\ 2 \end{bmatrix} + c_2\begin{bmatrix} -1 \\ 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 3 \\ 12 \\ 7 \end{bmatrix}$</p>
+                                    <p>The scalars $c_1$ and $c_2$, if they exist, are the $\mathcal{B}$-coordinates of $\mathbf{x}$. Using row operations, we obtain</p>
+                                    <p class="font-mono text-xs md:text-sm text-center text-slate-800 py-1">$\begin{bmatrix} 3 & -1 & 3 \\ 6 & 0 & 12 \\ 2 & 1 & 7 \end{bmatrix} \sim \begin{bmatrix} 1 & 0 & 2 \\ 0 & 1 & 3 \\ 0 & 0 & 0 \end{bmatrix}$</p>
+                                    <p>Thus $c_1 = 2$, $c_2 = 3$, and $[\mathbf{x}]_{\mathcal{B}} = \begin{bmatrix} 2 \\ 3 \end{bmatrix}$. The coordinate system on $H$ determined by $\mathcal{B}$ is shown in Figure 7.</p>
+                                </div>
+                            </div>
+
+                            <!-- FIGURE 7 SVG (Page 24) -->
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
+                                <svg viewBox="0 0 235 215" class="w-full max-w-[220px] mx-auto bg-white rounded border border-slate-200">
+                                    <defs>
+                                        <marker id="arr-fig7" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f172a"/>
+                                        </marker>
+                                    </defs>
+                                    <!-- Axes: 0=(76, 148) -->
+                                    <line x1="76" y1="148" x2="76" y2="14" stroke="#0f172a" stroke-width="1.3" marker-end="url(#arr-fig7)"/>
+                                    <text x="62" y="20" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic">x<tspan dy="3" font-size="9" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">3</tspan></text>
+                                    <line x1="76" y1="148" x2="14" y2="202" stroke="#0f172a" stroke-width="1.3" marker-end="url(#arr-fig7)"/>
+                                    <text x="6" y="208" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic">x<tspan dy="3" font-size="9" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan></text>
+                                    <line x1="76" y1="148" x2="222" y2="174" stroke="#0f172a" stroke-width="1.3" marker-end="url(#arr-fig7)"/>
+                                    <text x="220" y="186" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic">x<tspan dy="3" font-size="9" font-style="normal" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan></text>
+
+                                    <!-- Plane H in R^3 -->
+                                    <polygon points="76,148 152,162 215,96 138,44" fill="#a7d79a" fill-opacity="0.72" stroke="#4d7c0f" stroke-width="1.3"/>
+                                    <!-- Grid lines on plane H -->
+                                    <line x1="114" y1="155" x2="176" y2="70" stroke="#4d7c0f" stroke-width="0.8" stroke-opacity="0.6"/>
+                                    <line x1="107" y1="96" x2="183" y2="129" stroke="#4d7c0f" stroke-width="0.8" stroke-opacity="0.6"/>
+                                    <line x1="122" y1="70" x2="199" y2="112" stroke="#4d7c0f" stroke-width="0.8" stroke-opacity="0.6"/>
+
+                                    <!-- v1 along lower-right edge, 2*v1 further along -->
+                                    <circle cx="114" cy="155" r="3.4" fill="#00a6e8"/>
+                                    <text x="112" y="170" font-family="Georgia, 'Times New Roman', serif" font-size="12" font-weight="bold">v<tspan dy="3" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan></text>
+                                    <circle cx="152" cy="162" r="3.4" fill="#00a6e8"/>
+                                    <text x="150" y="177" font-family="Georgia, 'Times New Roman', serif" font-size="12" font-weight="bold"><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan>v<tspan dy="3" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan></text>
+
+                                    <!-- v2 along upper-left edge, 2*v1, 3*v1 -->
+                                    <circle cx="92" cy="114" r="3.4" fill="#00a6e8"/>
+                                    <text x="77" y="114" font-family="Georgia, 'Times New Roman', serif" font-size="12" font-weight="bold">v<tspan dy="3" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan></text>
+                                    <circle cx="107" cy="80" r="3.4" fill="#00a6e8"/>
+                                    <text x="86" y="82" font-family="Georgia, 'Times New Roman', serif" font-size="12" font-weight="bold"><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan>v<tspan dy="3" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan></text>
+                                    <circle cx="122" cy="46" r="3.4" fill="#00a6e8"/>
+                                    <text x="98" y="48" font-family="Georgia, 'Times New Roman', serif" font-size="12" font-weight="bold"><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">3</tspan>v<tspan dy="3" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan></text>
+
+                                    <!-- x = 2*v1 + 3*v2 -->
+                                    <circle cx="164" cy="96" r="3.8" fill="#00a6e8"/>
+                                    <text x="170" y="99" font-family="Georgia, 'Times New Roman', serif" font-size="12" font-weight="bold">x = <tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan>v<tspan dy="3" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">1</tspan><tspan dy="-3"> + </tspan><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">3</tspan>v<tspan dy="3" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace">2</tspan></text>
+
+                                    <text x="64" y="144" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Courier New', monospace" font-size="13" font-weight="700">0</text>
+                                </svg>
+                                <div class="text-left max-w-[220px] mx-auto text-xs leading-snug">
+                                    <span class="font-bold text-slate-900 block tracking-wide">FIGURE 7</span>
+                                    <span class="text-slate-800" style="font-family: Georgia, 'Times New Roman', serif;">A coordinate system on a plane $H$ in $\mathbb{R}^3$.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
