@@ -2207,6 +2207,23 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Summary Card: Change-of-Coordinates Matrix P_B (Pages 13 - 14) -->
+                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2.5 text-slate-800 leading-relaxed">
+                    <strong class="text-indigo-900 text-base font-bold block">Change-of-Coordinates Matrix $P_{\mathcal{B}}$ &amp; Core Properties (座標變換矩陣總結，Pages 13 - 14)</strong>
+                    <p>
+                        The matrix in (3) changes the $\mathcal{B}$-coordinates of a vector $\mathbf{x}$ into the standard coordinates for $\mathbf{x}$. An analogous change of coordinates can be carried out in $\mathbb{R}^n$ for a basis $\mathcal{B} = \{\mathbf{b}_1, \dots, \mathbf{b}_n\}$. Let
+                    </p>
+                    <div class="p-2.5 bg-indigo-50/70 rounded-lg border border-indigo-200 font-mono text-center text-indigo-950 font-bold">
+                        $$P_{\mathcal{B}} = [\mathbf{b}_1 \;\; \mathbf{b}_2 \;\; \cdots \;\; \mathbf{b}_n] \qquad \Longrightarrow \qquad \mathbf{x} = P_{\mathcal{B}}[\mathbf{x}]_{\mathcal{B}} \quad \text{(4)}$$
+                    </div>
+                    <div class="space-y-1.5 pl-3 border-l-2 border-indigo-400 text-xs md:text-sm">
+                        <p><strong>1. From $\mathcal{B}$-coordinates to Standard Coordinates:</strong> $P_{\mathcal{B}}$ is the <strong>change-of-coordinates matrix (座標變換矩陣)</strong> from $\mathcal{B}$ to the standard basis in $\mathbb{R}^n$; left-multiplication by $P_{\mathcal{B}}$ transforms $[\mathbf{x}]_{\mathcal{B}}$ into $\mathbf{x}$.</p>
+                        <p><strong>2. Invertibility &amp; Reverse Conversion:</strong> Since the columns of $P_{\mathcal{B}}$ form a basis for $\mathbb{R}^n$, $P_{\mathcal{B}}$ is invertible (by the Invertible Matrix Theorem). Left-multiplication by $P_{\mathcal{B}}^{-1}$ converts $\mathbf{x}$ into its $\mathcal{B}$-coordinate vector: <span class="font-mono font-bold text-indigo-950">$P_{\mathcal{B}}^{-1}\mathbf{x} = [\mathbf{x}]_{\mathcal{B}}$</span>.</p>
+                        <p><strong>3. One-to-One Linear Transformation:</strong> Since $P_{\mathcal{B}}^{-1}$ is an invertible matrix, the coordinate mapping $\mathbf{x} \mapsto [\mathbf{x}]_{\mathcal{B}}$ is a <strong>one-to-one linear transformation (一對一線性變換)</strong> from $\mathbb{R}^n$ onto $\mathbb{R}^n$, by the Invertible Matrix Theorem.</p>
+                    </div>
+                </div>
+                
             </div>
         </div>
 
