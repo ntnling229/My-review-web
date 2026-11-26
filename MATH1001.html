@@ -55,6 +55,20 @@
 
         <!-- 導航選單 -->
         <nav class="flex flex-wrap items-center gap-2 text-xs font-medium">
+
+            <div class="relative group py-2">
+                <button class="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition flex items-center gap-1.5 font-medium">
+                    <span>Ch3 Sections (3.1 - 3.3)</span>
+                    <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                </button>
+                <div class="absolute right-0 sm:left-0 mt-0 w-72 bg-slate-800 border border-slate-700 rounded-lg shadow-lg hidden group-hover:block z-50 py-1 max-h-96 overflow-y-auto">
+                    <a href="#chap3-overview" class="block px-4 py-2 hover:bg-slate-700 text-slate-200">Ch3 Complete Overview</a>
+                    <a href="#sec3-1" class="block px-4 py-2 hover:bg-slate-700 text-slate-200">§3.1 Introduction to Determinants</a>
+                    <a href="#sec3-2" class="block px-4 py-2 hover:bg-slate-700 text-slate-200">§3.2 Properties of Determinants</a>
+                    <a href="#sec3-3" class="block px-4 py-2 hover:bg-slate-700 text-slate-200">§3.3 Cramer's Rule, Volume &amp; Linear Trans.</a>
+                </div>
+            </div>
+            
             <div class="relative group py-2">
                 <button class="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition flex items-center gap-1.5 font-medium">
                     <span>Ch4 Sections (4.1 - 4.7)</span>
@@ -77,6 +91,482 @@
 
 <main class="max-w-7xl mx-auto px-4 py-8 space-y-8">
 
+    <!-- ================= CHAPTER 3 OVERVIEW ================= -->
+    <section id="ch3-overview" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-indigo-600 text-white px-3 py-1 rounded-lg text-base md:text-lg">CH 3</span>
+                Chapter 3 Overview: Determinants (行列式總覽)
+            </h2>
+            <span class="text-xs text-slate-500 font-mono">§3.1 - §3.3</span>
+        </div>
+
+        <p class="text-sm text-slate-700 leading-relaxed">
+            本章從遞迴定義與餘因子展開出發，建立行列式與列運算、可逆性及矩陣乘積之間的關聯，最後延伸至線性方程組求解（克拉瑪法則與伴隨矩陣）以及幾何面積／體積與線性變換的尺度縮放。
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1.5">
+                <div class="font-bold text-indigo-800">§3.1 Introduction to Determinants</div>
+                <p class="text-slate-600 text-xs leading-relaxed">
+                    以子矩陣 $A_{ij}$ 與餘因子 $C_{ij} = (-1)^{i+j}\det A_{ij}$ 遞迴定義行列式，可沿任意列或行展開；三角矩陣之行列式即主對角線元素乘積。
+                </p>
+            </div>
+
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1.5">
+                <div class="font-bold text-indigo-800">§3.2 Properties of Determinants</div>
+                <p class="text-slate-600 text-xs leading-relaxed">
+                    列倍加不變、列互換變號、列倍乘提出常數；$\det A \ne 0 \iff A\text{ 可逆}$；滿足 $\det A^T = \det A$ 與 $\det(AB) = (\det A)(\det B)$（一般 $\det(A+B) \ne \det A + \det B$）。
+                </p>
+            </div>
+
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1.5">
+                <div class="font-bold text-indigo-800">§3.3 Cramer's Rule, Volume &amp; Linear Transformations</div>
+                <p class="text-slate-600 text-xs leading-relaxed">
+                    提供 $x_i = \frac{\det A_i(\mathbf{b})}{\det A}$ 與 $A^{-1} = \frac{1}{\det A}\operatorname{adj} A$，並以 $|\det A|$ 刻畫平行四邊形／平行六面體體積及線性變換對區域面積／體積的縮放倍率。
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ================= SECTION 3.1 ================= -->
+    <section id="sec3-1" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-8">
+        <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 3.1</span>
+                Introduction to Determinants (行列式簡介)
+            </h2>
+            <span class="text-xs text-slate-500 font-mono">Pages 1 - 16</span>
+        </div>
+
+        <!-- 3.1.1 Recursive Definition & Cofactor Expansion -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-circle-dot text-indigo-500 text-sm"></i> 3.1.1 Recursive Definition &amp; Cofactor Expansion (遞迴定義與餘因子展開，Pages 1 - 11)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <p class="text-slate-700 leading-relaxed">
+                    Recall from Section 2.2 that a $2\times 2$ matrix is invertible if and only if its determinant $\det A = a_{11}a_{22} - a_{12}a_{21}$ is nonzero. Row-reducing a general invertible $3\times 3$ matrix $A = [a_{ij}]$ yields an upper triangular matrix whose $(3,3)$-entry is $a_{11}\Delta$, where:
+                </p>
+
+                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2.5 text-slate-800 leading-relaxed">
+                    <strong class="text-indigo-900 text-base font-bold block">3×3 Determinant &amp; Submatrix Notation $A_{ij}$ (Pages 3 - 5)</strong>
+                    <div class="p-3 bg-indigo-50/70 rounded-lg border border-indigo-200 font-mono text-center text-indigo-950 font-bold text-xs md:text-sm space-y-1">
+                        <div>$$\Delta = a_{11}\det\begin{bmatrix} a_{22} &amp; a_{23} \\ a_{32} &amp; a_{33} \end{bmatrix} - a_{12}\det\begin{bmatrix} a_{21} &amp; a_{23} \\ a_{31} &amp; a_{33} \end{bmatrix} + a_{13}\det\begin{bmatrix} a_{21} &amp; a_{22} \\ a_{31} &amp; a_{32} \end{bmatrix}$$</div>
+                        <div>$$\Delta = a_{11}\det A_{11} - a_{12}\det A_{12} + a_{13}\det A_{13}$$</div>
+                    </div>
+                    <p>
+                        For any square matrix $A$, let $A_{ij}$ denote the <strong>submatrix (子矩陣)</strong> formed by deleting the $i$th row and $j$th column of $A$. For a $1\times 1$ matrix $A = [a_{11}]$, we define $\det A = a_{11}$.
+                    </p>
+                </div>
+
+                <!-- DEFINITION: Determinant & Cofactor -->
+                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-3 text-slate-800 leading-relaxed">
+                    <strong class="text-indigo-900 text-base font-bold block">DEFINITION: Determinant &amp; $(i,j)$-Cofactor (行列式與餘因子定義，Pages 7 - 9)</strong>
+                    <p>
+                        For $n \ge 2$, the <strong>determinant (行列式)</strong> of an $n\times n$ matrix $A = [a_{ij}]$ is the sum of $n$ terms of the form $\pm a_{1j}\det A_{1j}$, with plus and minus signs alternating, where the entries $a_{11}, a_{12}, \dots, a_{1n}$ are from the first row of $A$:
+                    </p>
+                    <div class="p-3 bg-indigo-50/70 rounded-lg border border-indigo-200 font-mono text-center text-indigo-950 font-bold text-xs md:text-sm">
+                        $$\det A = a_{11}\det A_{11} - a_{12}\det A_{12} + \cdots + (-1)^{1+n}a_{1n}\det A_{1n} = \sum_{j=1}^{n} (-1)^{1+j} a_{1j}\det A_{1j}$$
+                    </div>
+                    <p>
+                        Given $A = [a_{ij}]$, the <strong>$(i,j)$-cofactor (餘因子)</strong> of $A$ is the number $C_{ij}$ given by $C_{ij} = (-1)^{i+j}\det A_{ij}$. Then the <strong>cofactor expansion across the first row (沿第一列餘因子展開)</strong> is $\det A = a_{11}C_{11} + a_{12}C_{12} + \cdots + a_{1n}C_{1n}$.
+                    </p>
+                </div>
+
+                <!-- THEOREM 1 + Checkerboard Sign Pattern -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center bg-white p-4 rounded-xl border border-indigo-200">
+                    <div class="md:col-span-2 space-y-2.5 text-slate-800 leading-relaxed">
+                        <strong class="text-indigo-900 text-base font-bold block">THEOREM 1 (定理 1，Page 10)</strong>
+                        <p>
+                            The determinant of an $n\times n$ matrix $A$ can be computed by a <strong>cofactor expansion across any row or down any column (沿任意列或任意行作餘因子展開)</strong>:
+                        </p>
+                        <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 font-mono text-xs md:text-sm space-y-1 text-indigo-950 font-semibold">
+                            <p>• Across the $i$th row: $\det A = a_{i1}C_{i1} + a_{i2}C_{i2} + \cdots + a_{in}C_{in}$</p>
+                            <p>• Down the $j$th column: $\det A = a_{1j}C_{1j} + a_{2j}C_{2j} + \cdots + a_{nj}C_{nj}$</p>
+                        </div>
+                        <p class="text-xs md:text-sm text-slate-600">
+                            The plus or minus sign in $C_{ij} = (-1)^{i+j}\det A_{ij}$ depends only on the position of $a_{ij}$ in the matrix, regardless of the sign of $a_{ij}$ itself.
+                        </p>
+                    </div>
+
+                    <!-- Checkerboard Pattern Card -->
+                    <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
+                        <span class="font-bold text-indigo-900 text-xs block">Checkerboard Sign Pattern $(-1)^{i+j}$ (Page 11)</span>
+                        <div class="font-mono text-sm font-bold text-slate-800 bg-white p-3 rounded border border-slate-200 inline-block">
+                            $$\begin{bmatrix} + &amp; - &amp; + &amp; - &amp; \cdots \\ - &amp; + &amp; - &amp; + &amp; \cdots \\ + &amp; - &amp; + &amp; - &amp; \cdots \\ - &amp; + &amp; - &amp; + &amp; \cdots \\ \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \ddots \end{bmatrix}$$
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expandable EXAMPLES 1, 2 & 3 (Pages 8 - 14) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-3-1-123')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-calculator mr-2 text-indigo-600"></i> EXAMPLES 1, 2 &amp; 3 (Pages 8 - 14): Cofactor Expansion Along Zeros (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                    </button>
+                    <div id="ex-3-1-123" class="toggle-content p-5 space-y-4 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                        <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-1.5">
+                            <p><strong>EXAMPLE 1 (Page 8):</strong> Compute $\det A$ for $A = \begin{bmatrix} 1 &amp; 5 &amp; 0 \\ 2 &amp; 4 &amp; -1 \\ 0 &amp; -2 &amp; 0 \end{bmatrix}$ across Row 1:</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-indigo-950">
+                                $$\det A = 1\begin{vmatrix} 4 &amp; -1 \\ -2 &amp; 0 \end{vmatrix} - 5\begin{vmatrix} 2 &amp; -1 \\ 0 &amp; 0 \end{vmatrix} + 0\begin{vmatrix} 2 &amp; 4 \\ 0 &amp; -2 \end{vmatrix} = 1(0 - 2) - 5(0) + 0 = -2$$
+                            </p>
+                        </div>
+
+                        <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-1.5">
+                            <p><strong>EXAMPLE 2 (Page 12):</strong> Expanding the same matrix across Row 3 (which has two zeros):</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-indigo-950">
+                                $$\det A = 0\begin{vmatrix} 5 &amp; 0 \\ 4 &amp; -1 \end{vmatrix} - (-2)\begin{vmatrix} 1 &amp; 0 \\ 2 &amp; -1 \end{vmatrix} + 0\begin{vmatrix} 1 &amp; 5 \\ 2 &amp; 4 \end{vmatrix} = 0 + 2(-1) + 0 = -2$$
+                            </p>
+                        </div>
+
+                        <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-1.5">
+                            <p><strong>EXAMPLE 3 (Pages 13 - 14):</strong> Compute $\det A$ for a $5\times 5$ matrix by repeatedly expanding down the first column full of zeros:</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-indigo-950">
+                                $$\det A = \begin{vmatrix} 3 &amp; -7 &amp; 8 &amp; 9 &amp; -6 \\ 0 &amp; 2 &amp; -5 &amp; 7 &amp; 3 \\ 0 &amp; 0 &amp; 1 &amp; 5 &amp; 0 \\ 0 &amp; 0 &amp; 2 &amp; 4 &amp; -1 \\ 0 &amp; 0 &amp; 0 &amp; -2 &amp; 0 \end{vmatrix} = 3\begin{vmatrix} 2 &amp; -5 &amp; 7 &amp; 3 \\ 0 &amp; 1 &amp; 5 &amp; 0 \\ 0 &amp; 2 &amp; 4 &amp; -1 \\ 0 &amp; 0 &amp; -2 &amp; 0 \end{vmatrix} = 3 \cdot 2\begin{vmatrix} 1 &amp; 5 &amp; 0 \\ 2 &amp; 4 &amp; -1 \\ 0 &amp; -2 &amp; 0 \end{vmatrix} = 3 \cdot 2 \cdot (-2) = -12$$
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3.1.2 Triangular Matrices -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-play text-indigo-500 text-sm"></i> 3.1.2 Triangular Matrices (三角矩陣的行列式，Pages 15 - 16)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
+                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2 text-slate-800 leading-relaxed">
+                    <strong class="text-indigo-900 text-base font-bold block">THEOREM 2 (定理 2，Page 15)</strong>
+                    <p>
+                        If $A$ is a <strong>triangular matrix (三角矩陣)</strong> (upper triangular, lower triangular, or diagonal), then $\det A$ is the <strong>product of the entries on the main diagonal (主對角線元素之乘積)</strong> of $A$:
+                    </p>
+                    <p class="font-mono text-center text-indigo-950 font-bold py-1">
+                        $$\det A = a_{11}a_{22}\cdots a_{nn}$$
+                    </p>
+                    <p class="text-xs md:text-sm text-slate-600">
+                        Also, if an entire row or an entire column of $A$ consists of zeros, the cofactor expansion along that row or column is a sum of zeros, so $\det A = 0$.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION 3.2 ================= -->
+    <section id="sec3-2" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-8">
+        <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 3.2</span>
+                Properties of Determinants (行列式的性質)
+            </h2>
+            <span class="text-xs text-slate-500 font-mono">Pages 1 - 22</span>
+        </div>
+
+        <!-- 3.2.1 Row Operations & Echelon Form -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-sliders text-indigo-500 text-sm"></i> 3.2.1 Row Operations &amp; Invertibility Criterion (列運算與可逆性判別，Pages 1 - 11)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <!-- THEOREM 3 -->
+                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2.5 text-slate-800 leading-relaxed">
+                    <strong class="text-indigo-900 text-base font-bold block">THEOREM 3 — Row Operations (列運算對行列式的影響，Page 1)</strong>
+                    <p>Let $A$ be a square matrix.</p>
+                    <div class="space-y-1.5 pl-3 border-l-2 border-indigo-400">
+                        <p><strong>a. (Row Replacement 列倍加):</strong> If a multiple of one row of $A$ is added to another row to produce a matrix $B$, then $\det B = \det A$.</p>
+                        <p><strong>b. (Row Interchange 列互換):</strong> If two rows of $A$ are interchanged to produce $B$, then $\det B = -\det A$.</p>
+                        <p><strong>c. (Row Scaling 列倍乘):</strong> If one row of $A$ is multiplied by $k$ to produce $B$, then $\det B = k\det A$.</p>
+                    </div>
+                </div>
+
+                <!-- Echelon Form Formula (1) & THEOREM 4 -->
+                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-3 text-slate-800 leading-relaxed">
+                    <strong class="text-indigo-900 text-base font-bold block">Echelon Form Reduction &amp; THEOREM 4 (Pages 6 - 9)</strong>
+                    <p>
+                        Suppose a square matrix $A$ is reduced to an echelon form $U$ using only row replacements and $r$ row interchanges. Then $\det A = (-1)^r \det U$, which gives:
+                    </p>
+                    <div class="p-3 bg-indigo-50/70 rounded-lg border border-indigo-200 font-mono text-center text-indigo-950 font-bold text-xs md:text-sm">
+                        $$\det A = \begin{cases} (-1)^r \cdot (\text{product of pivots in } U) &amp; \text{when } A \text{ is invertible} \\ 0 &amp; \text{when } A \text{ is not invertible} \end{cases} \quad \text{(1)}$$
+                    </div>
+                    <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-1">
+                        <strong class="text-indigo-950 font-bold block">THEOREM 4 (Page 8):</strong>
+                        <p>A square matrix $A$ is <strong>invertible (可逆的)</strong> if and only if $\det A \ne 0$.</p>
+                    </div>
+                    <p class="text-xs md:text-sm text-slate-600">
+                        <strong>Corollary:</strong> $\det A = 0$ whenever the columns (or rows) of $A$ are <strong>linearly dependent (線性相依)</strong>—in particular, when two rows or two columns are identical or proportional, or when a row or column is zero.
+                    </p>
+                </div>
+
+                <!-- Expandable EXAMPLES 1, 2, 3 & 4 (Pages 2 - 11) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-3-2-1234')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-table-list mr-2 text-indigo-600"></i> EXAMPLES 1 - 4 (Pages 2 - 11): Combining Row Reduction &amp; Cofactor Expansion (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                    </button>
+                    <div id="ex-3-2-1234" class="toggle-content p-5 space-y-4 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                        <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-1.5">
+                            <p><strong>EXAMPLE 1 (Page 2):</strong> Reduce to echelon form; one swap of rows 2 and 3 flips the sign:</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-indigo-950">
+                                $$\det A = \begin{vmatrix} 1 &amp; -4 &amp; 2 \\ -2 &amp; 8 &amp; -9 \\ -1 &amp; 7 &amp; 0 \end{vmatrix} = \begin{vmatrix} 1 &amp; -4 &amp; 2 \\ 0 &amp; 0 &amp; -5 \\ 0 &amp; 3 &amp; 2 \end{vmatrix} = -\begin{vmatrix} 1 &amp; -4 &amp; 2 \\ 0 &amp; 3 &amp; 2 \\ 0 &amp; 0 &amp; -5 \end{vmatrix} = -(1)(3)(-5) = 15$$
+                            </p>
+                        </div>
+
+                        <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-1.5">
+                            <p><strong>EXAMPLE 2 (Pages 3 - 5):</strong> Factor out common factor $2$ from Row 1 via Theorem 3(c), then reduce:</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-indigo-950">
+                                $$\det A = \begin{vmatrix} 2 &amp; -8 &amp; 6 &amp; 8 \\ 3 &amp; -9 &amp; 5 &amp; 10 \\ -3 &amp; 0 &amp; 1 &amp; -2 \\ 1 &amp; -4 &amp; 0 &amp; 6 \end{vmatrix} = 2\begin{vmatrix} 1 &amp; -4 &amp; 3 &amp; 4 \\ 0 &amp; 3 &amp; -4 &amp; -2 \\ 0 &amp; 0 &amp; -6 &amp; 2 \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{vmatrix} = 2(1)(3)(-6)(1) = -36$$
+                            </p>
+                        </div>
+
+                        <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-1.5">
+                            <p><strong>EXAMPLE 3 (Page 10):</strong> Adding $2R_1$ to $R_3$ produces two identical rows ($[0 \;\; 5 \;\; -3 \;\; -6]$), so $\det A = 0$ immediately.</p>
+                            <p><strong>EXAMPLE 4 (Page 11):</strong> Eliminate $-2$ in $(4,1)$ using $(2,1)$ pivot, then expand down Column 1 (remembering sign $(-1)^{2+1} = -1$):</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-indigo-950">
+                                $$\det A = \begin{vmatrix} 0 &amp; 1 &amp; 2 &amp; -1 \\ 2 &amp; 5 &amp; -7 &amp; 3 \\ 0 &amp; 3 &amp; 6 &amp; 2 \\ -2 &amp; -5 &amp; 4 &amp; -2 \end{vmatrix} = \begin{vmatrix} 0 &amp; 1 &amp; 2 &amp; -1 \\ 2 &amp; 5 &amp; -7 &amp; 3 \\ 0 &amp; 3 &amp; 6 &amp; 2 \\ 0 &amp; 0 &amp; -3 &amp; 1 \end{vmatrix} = -2\begin{vmatrix} 1 &amp; 2 &amp; -1 \\ 3 &amp; 6 &amp; 2 \\ 0 &amp; -3 &amp; 1 \end{vmatrix} = -2\begin{vmatrix} 1 &amp; 2 &amp; -1 \\ 0 &amp; 0 &amp; 5 \\ 0 &amp; -3 &amp; 1 \end{vmatrix} = -30$$
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3.2.2 Transpose, Multiplicative & Linearity Properties + Proofs -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-diagram-project text-indigo-500 text-sm"></i> 3.2.2 Transpose, Product &amp; Multi-Linearity Properties (轉置、乘積與多重線性，Pages 12 - 22)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- THEOREM 5 -->
+                    <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2 text-slate-800 leading-relaxed">
+                        <strong class="text-indigo-900 text-base font-bold block">THEOREM 5 — Transpose Property (Page 13)</strong>
+                        <p class="font-mono text-center text-indigo-950 font-bold py-1 bg-indigo-50/70 rounded border border-indigo-200">
+                            $$\det A^T = \det A$$
+                        </p>
+                        <p class="text-xs md:text-sm">
+                            Consequently, every statement in Theorem 3 remains true when the word <em>row</em> is replaced by <em>column</em>.
+                        </p>
+                    </div>
+
+                    <!-- THEOREM 6 -->
+                    <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2 text-slate-800 leading-relaxed">
+                        <strong class="text-indigo-900 text-base font-bold block">THEOREM 6 — Multiplicative Property (Page 15)</strong>
+                        <p class="font-mono text-center text-indigo-950 font-bold py-1 bg-indigo-50/70 rounded border border-indigo-200">
+                            $$\det(AB) = (\det A)(\det B)$$
+                        </p>
+                        <p class="text-xs md:text-sm text-amber-900 bg-amber-50 p-2 rounded border border-amber-200">
+                            <strong>Warning (Page 16):</strong> In general, $\det(A + B) \ne \det A + \det B$.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Linearity Property (Pages 17 - 18) -->
+                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-2 text-slate-800 leading-relaxed">
+                    <strong class="text-indigo-900 text-base font-bold block">Multi-Linearity of the Determinant Function (行列式的多重線性，Pages 17 - 18)</strong>
+                    <p>
+                        If all columns of an $n\times n$ matrix $A$ except the $j$th column are held fixed, the transformation $T(\mathbf{x}) = \det[\mathbf{a}_1 \;\; \cdots \;\; \mathbf{a}_{j-1} \;\; \mathbf{x} \;\; \mathbf{a}_{j+1} \;\; \cdots \;\; \mathbf{a}_n]$ is linear:
+                    </p>
+                    <p class="font-mono text-center text-indigo-950 font-bold text-xs md:text-sm py-1">
+                        $$T(c\mathbf{x}) = c\,T(\mathbf{x}) \qquad \text{and} \qquad T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$$
+                    </p>
+                </div>
+
+                <!-- Expandable Proofs of Theorems 3, 5 & 6 (Pages 13, 19 - 22) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('proof-3-2-all')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-scroll mr-2 text-indigo-600"></i> PROOFS OF THEOREMS 3, 5 &amp; 6 via Elementary Matrices &amp; Induction (Pages 13, 19 - 22) (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proofs</span>
+                    </button>
+                    <div id="proof-3-2-all" class="toggle-content p-5 space-y-3 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                        <div>
+                            <strong class="text-indigo-900 block">• Proof of Theorem 5 (Page 13):</strong>
+                            <p>By induction on $n$: trivial for $n=1$. Assuming true for $k\times k$, for $n=k+1$ the cofactor of $a_{1j}$ in $A$ equals the cofactor of $a_{j1}$ in $A^T$. Hence the cofactor expansion of $\det A$ across Row 1 equals that of $\det A^T$ down Column 1.</p>
+                        </div>
+                        <div class="pt-2 border-t border-slate-100">
+                            <strong class="text-indigo-900 block">• Proof of Theorem 3 via Elementary Matrices $E$ (Pages 19 - 21):</strong>
+                            <p>Reformulate as $\det(EA) = (\det E)(\det A)$, where $\det E = 1$ (row replacement), $-1$ (interchange), or $r$ (scale by $r$). Expand $\det(EA)$ across an unchanged row $i$; by induction on $k\times k$ submatrices, $\det B_{ij} = \alpha \det A_{ij}$, giving $\det(EA) = \alpha \det A$. Setting $A = I_n$ yields $\det E = \alpha$.</p>
+                        </div>
+                        <div class="pt-2 border-t border-slate-100">
+                            <strong class="text-indigo-900 block">• Proof of Theorem 6 (Page 22):</strong>
+                            <p>If $A$ is singular, so is $AB$, and both $\det(AB)$ and $(\det A)(\det B)$ equal $0$. If $A$ is invertible, factor $A = E_p E_{p-1}\cdots E_1$. Repeatedly applying $\det(EB) = (\det E)(\det B)$ gives $|AB| = |E_p\cdots E_1 B| = |E_p|\cdots |E_1||B| = |A||B|$.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION 3.3 ================= -->
+    <section id="sec3-3" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-8">
+        <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 3.3</span>
+                Cramer's Rule, Volume, and Linear Transformations (克拉瑪法則、體積與線性變換)
+            </h2>
+            <span class="text-xs text-slate-500 font-mono">Pages 1 - 25</span>
+        </div>
+
+        <!-- 3.3.1 Cramer's Rule & Adjugate Formula for A^-1 -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-calculator text-indigo-500 text-sm"></i> 3.3.1 Cramer's Rule &amp; Inverse Formula via Adjugate (克拉瑪法則與伴隨矩陣求逆，Pages 1 - 10)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <!-- THEOREM 7: Cramer's Rule -->
+                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2.5 text-slate-800 leading-relaxed">
+                    <strong class="text-indigo-900 text-base font-bold block">THEOREM 7 — Cramer's Rule (克拉瑪法則，Pages 1 - 2)</strong>
+                    <p>
+                        For any $n\times n$ matrix $A$ and any $\mathbf{b} \in \mathbb{R}^n$, let $A_i(\mathbf{b}) = [\mathbf{a}_1 \;\; \cdots \;\; \mathbf{b} \;\; \cdots \;\; \mathbf{a}_n]$ be the matrix obtained from $A$ by replacing column $i$ by $\mathbf{b}$. If $A$ is invertible, the unique solution $\mathbf{x}$ of $A\mathbf{x} = \mathbf{b}$ has entries:
+                    </p>
+                    <div class="p-3 bg-indigo-50/70 rounded-lg border border-indigo-200 font-mono text-center text-indigo-950 font-bold text-sm md:text-base">
+                        $$x_i = \frac{\det A_i(\mathbf{b})}{\det A}, \qquad i = 1, 2, \dots, n \quad \text{(1)}$$
+                    </div>
+                    <p class="text-xs md:text-sm text-slate-600">
+                        <strong>Proof Sketch (Page 3):</strong> Since $A \cdot I_i(\mathbf{x}) = [\mathbf{a}_1 \;\; \cdots \;\; A\mathbf{x} \;\; \cdots \;\; \mathbf{a}_n] = A_i(\mathbf{b})$ and $\det I_i(\mathbf{x}) = x_i$, Theorem 6 gives $(\det A)x_i = \det A_i(\mathbf{b})$.
+                    </p>
+                </div>
+
+                <!-- THEOREM 8: Inverse Formula via Adjugate -->
+                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2.5 text-slate-800 leading-relaxed">
+                    <strong class="text-indigo-900 text-base font-bold block">THEOREM 8 — An Inverse Formula via Adjugate (伴隨矩陣逆矩陣公式，Pages 6 - 8)</strong>
+                    <p>
+                        The matrix of cofactors transposed (where $C_{ji}$ goes in the $(i,j)$ position) is called the <strong>adjugate (or classical adjoint) (伴隨矩陣)</strong> of $A$, denoted by $\operatorname{adj} A$. Let $A$ be an invertible $n\times n$ matrix; then:
+                    </p>
+                    <div class="p-3 bg-indigo-50/70 rounded-lg border border-indigo-200 font-mono text-center text-indigo-950 font-bold text-xs md:text-sm">
+                        $$A^{-1} = \frac{1}{\det A}\operatorname{adj} A = \frac{1}{\det A}\begin{bmatrix} C_{11} &amp; C_{21} &amp; \cdots &amp; C_{n1} \\ C_{12} &amp; C_{22} &amp; \cdots &amp; C_{n2} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ C_{1n} &amp; C_{2n} &amp; \cdots &amp; C_{nn} \end{bmatrix}$$
+                    </div>
+                </div>
+
+                <!-- Expandable EXAMPLES 1, 2 & 3 (Pages 4 - 10) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-3-3-123')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-superscript mr-2 text-indigo-600"></i> EXAMPLES 1, 2 &amp; 3 (Pages 4 - 10): Parametric Cramer's Rule &amp; $3\times 3$ Adjugate Inverse (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                    </button>
+                    <div id="ex-3-3-123" class="toggle-content p-5 space-y-4 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                        <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-1.5">
+                            <p><strong>EXAMPLE 1 (Page 4):</strong> Solve $3x_1 - 2x_2 = 6$, $-5x_1 + 4x_2 = 8$. Here $\det A = 2$, $\det A_1(\mathbf{b}) = \begin{vmatrix} 6 &amp; -2 \\ 8 &amp; 4 \end{vmatrix} = 40$, $\det A_2(\mathbf{b}) = \begin{vmatrix} 3 &amp; 6 \\ -5 &amp; 8 \end{vmatrix} = 54$, so $x_1 = 20, x_2 = 27$.</p>
+                        </div>
+
+                        <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-1.5">
+                            <p><strong>EXAMPLE 2 (Page 5):</strong> For $3sx_1 - 2x_2 = 4$, $-6x_1 + sx_2 = 1$, $\det A = 3s^2 - 12 = 3(s+2)(s-2)$. Unique solution exists when $s \ne \pm 2$:</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-indigo-950">
+                                $$x_1 = \frac{4s+2}{3(s+2)(s-2)}, \qquad x_2 = \frac{3s+24}{3(s+2)(s-2)} = \frac{s+8}{(s+2)(s-2)}$$
+                            </p>
+                        </div>
+
+                        <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-1.5">
+                            <p><strong>EXAMPLE 3 (Pages 9 - 10):</strong> For $A = \begin{bmatrix} 2 &amp; 1 &amp; 3 \\ 1 &amp; -1 &amp; 1 \\ 1 &amp; 4 &amp; -2 \end{bmatrix}$, computing all 9 cofactors and transposing gives:</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-indigo-950">
+                                $$\operatorname{adj} A = \begin{bmatrix} -2 &amp; 14 &amp; 4 \\ 3 &amp; -7 &amp; 1 \\ 5 &amp; -7 &amp; -3 \end{bmatrix}, \quad (\operatorname{adj} A)A = 14I \implies A^{-1} = \frac{1}{14}\begin{bmatrix} -2 &amp; 14 &amp; 4 \\ 3 &amp; -7 &amp; 1 \\ 5 &amp; -7 &amp; -3 \end{bmatrix}$$
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3.3.2 Area, Volume & Linear Transformations -->
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
+                <i class="fa-solid fa-cube text-indigo-500 text-sm"></i> 3.3.2 Determinants as Area or Volume &amp; Linear Transformations (面積、體積與線性變換，Pages 11 - 25)
+            </h3>
+
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <!-- THEOREM 9 & THEOREM 10 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2 text-slate-800 leading-relaxed">
+                        <strong class="text-indigo-900 text-base font-bold block">THEOREM 9 — Area &amp; Volume (Page 11)</strong>
+                        <p>
+                            • If $A$ is a $2\times 2$ matrix, the <strong>area of the parallelogram (平行四邊形面積)</strong> determined by the columns of $A$ is $|\det A|$.
+                        </p>
+                        <p>
+                            • If $A$ is a $3\times 3$ matrix, the <strong>volume of the parallelepiped (平行六面體體積)</strong> determined by the columns of $A$ is $|\det A|$.
+                        </p>
+                    </div>
+
+                    <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2 text-slate-800 leading-relaxed">
+                        <strong class="text-indigo-900 text-base font-bold block">THEOREM 10 — Linear Transformations (Page 21)</strong>
+                        <p>
+                            Let $T:\mathbb{R}^2 \to \mathbb{R}^2$ (or $\mathbb{R}^3 \to \mathbb{R}^3$) be the linear transformation determined by matrix $A$. For any region $S$ with finite area (or volume):
+                        </p>
+                        <p class="font-mono text-center text-indigo-950 font-bold text-xs md:text-sm py-1.5 bg-indigo-50/70 rounded border border-indigo-200">
+                            $$\{\text{area/volume of } T(S)\} = |\det A| \cdot \{\text{area/volume of } S\}$$
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SVG Geometric Illustrations (Figures 2, 5 & Ellipse Example 5) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Shear invariance SVG (Figure 2, Page 15) -->
+                    <div class="p-3.5 bg-white rounded-xl border border-slate-200 text-center space-y-2">
+                        <span class="font-bold text-indigo-900 text-xs block">Shear Invariance (Page 15): $\operatorname{Area}(\mathbf{a}_1, \mathbf{a}_2) = \operatorname{Area}(\mathbf{a}_1, \mathbf{a}_2 + c\mathbf{a}_1)$</span>
+                        <svg viewBox="0 0 280 140" class="w-full max-w-[260px] mx-auto bg-slate-50 rounded border border-slate-200">
+                            <polygon points="35,110 125,110 165,45 75,45" fill="#bae6fd" fill-opacity="0.75" stroke="#0284c7" stroke-width="1.5"/>
+                            <polygon points="35,110 125,110 235,45 145,45" fill="#a7f3d0" fill-opacity="0.45" stroke="#059669" stroke-width="1.5" stroke-dasharray="4,3"/>
+                            <line x1="20" y1="45" x2="260" y2="45" stroke="#64748b" stroke-width="1" stroke-dasharray="2,2"/>
+                            <circle cx="35" cy="110" r="3" fill="#0f172a"/>
+                            <text x="24" y="123" font-size="11" font-weight="bold">0</text>
+                            <text x="76" y="125" font-size="11" font-weight="bold">a₁</text>
+                            <text x="58" y="40" font-size="11" font-weight="bold" fill="#0284c7">a₂</text>
+                            <text x="132" y="38" font-size="11" font-weight="bold" fill="#059669">a₂ + ca₁</text>
+                        </svg>
+                    </div>
+
+                    <!-- Ellipse Transformation SVG (Example 5, Page 25) -->
+                    <div class="p-3.5 bg-white rounded-xl border border-slate-200 text-center space-y-2">
+                        <span class="font-bold text-indigo-900 text-xs block">Example 5 (Pages 24 - 25): Unit Disk $D \xrightarrow{T(\mathbf{u})=A\mathbf{u}} \text{Ellipse } E$</span>
+                        <svg viewBox="0 0 280 140" class="w-full max-w-[260px] mx-auto bg-slate-50 rounded border border-slate-200">
+                            <!-- Unit Disk D -->
+                            <line x1="15" y1="75" x2="95" y2="75" stroke="#334155" stroke-width="1.2"/>
+                            <line x1="55" y1="120" x2="55" y2="25" stroke="#334155" stroke-width="1.2"/>
+                            <circle cx="55" cy="75" r="28" fill="#bae6fd" fill-opacity="0.8" stroke="#0284c7" stroke-width="1.6"/>
+                            <text x="55" y="132" text-anchor="middle" font-size="11" font-weight="bold">Area(D) = π(1)²</text>
+                            <!-- Arrow T -->
+                            <line x1="102" y1="75" x2="138" y2="75" stroke="#4f46e5" stroke-width="2"/>
+                            <polygon points="142,75 135,71 135,79" fill="#4f46e5"/>
+                            <text x="120" y="67" text-anchor="middle" font-size="11" font-weight="bold" fill="#4f46e5">T</text>
+                            <!-- Ellipse E -->
+                            <line x1="150" y1="75" x2="265" y2="75" stroke="#334155" stroke-width="1.2"/>
+                            <line x1="208" y1="120" x2="208" y2="25" stroke="#334155" stroke-width="1.2"/>
+                            <ellipse cx="208" cy="75" rx="46" ry="22" fill="#c7d2fe" fill-opacity="0.85" stroke="#4f46e5" stroke-width="1.6"/>
+                            <text x="208" y="132" text-anchor="middle" font-size="11" font-weight="bold" fill="#312e81">Area(E) = |ab|π = πab</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Expandable EXAMPLES 4 & 5 (Pages 18, 24 - 25) -->
+                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                    <button onclick="toggleCard('ex-3-3-45')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-draw-polygon mr-2 text-indigo-600"></i> EXAMPLES 4 &amp; 5 (Pages 18, 24 - 25): Translating Vertices &amp; Ellipse Area $\pi ab$ (點擊展開)</span>
+                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                    </button>
+                    <div id="ex-3-3-45" class="toggle-content p-5 space-y-3 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                        <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-1.5">
+                            <p><strong>EXAMPLE 4 (Page 18):</strong> Find the area of the parallelogram with vertices $(-2, -2), (0, 3), (4, -1), (6, 4)$. Subtract $(-2, -2)$ from all vertices to shift one vertex to $(0, 0)$, giving adjacent edges $\begin{bmatrix} 2 \\ 5 \end{bmatrix}$ and $\begin{bmatrix} 6 \\ 1 \end{bmatrix}$:</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-indigo-950">
+                                $$\text{Area} = \left|\det\begin{bmatrix} 2 &amp; 6 \\ 5 &amp; 1 \end{bmatrix}\right| = |2 - 30| = |-28| = 28$$
+                            </p>
+                        </div>
+
+                        <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-1.5">
+                            <p><strong>EXAMPLE 5 (Pages 24 - 25):</strong> The ellipse $\frac{x_1^2}{a^2} + \frac{x_2^2}{b^2} \le 1$ ($a, b &gt; 0$) is the image $T(D)$ of the unit disk $u_1^2 + u_2^2 \le 1$ under $A = \begin{bmatrix} a &amp; 0 \\ 0 &amp; b \end{bmatrix}$:</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-indigo-950">
+                                $$\text{Area}(E) = |\det A| \cdot \text{Area}(D) = ab \cdot \pi(1)^2 = \pi ab$$
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- CHAPTER 4 OVERVIEW -->
     <section id="chap4-overview" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
         <div class="border-b pb-4 mb-4 flex flex-wrap items-center justify-between gap-2">
