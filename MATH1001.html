@@ -1090,33 +1090,34 @@
                                         
                                         <!-- ================= LEFT: Slanted Parallelepiped ================= -->
                                         <!-- Lower plane Span{a1, a3}:
-                                             u_plane = (+96, +22), v_plane = (+56, -34) -->
-                                        <polygon points="18,112 114,134 170,100 74,78" fill="#93d2f3" fill-opacity="0.52" stroke="#0088cc" stroke-width="1.4"/>
+                                             P_BL=(18,112), P_BR=(114,134), P_TR=(174,98), P_TL=(78,76)
+                                             Vertical gap to upper plane = 54 -->
+                                        <polygon points="18,112 114,134 174,98 78,76" fill="#93d2f3" fill-opacity="0.52" stroke="#0088cc" stroke-width="1.4"/>
                                 
                                         <!-- Slanted green parallelepiped:
-                                             Base front edge: O=(42,117.5), A1=(74,124.8)
-                                             Base back edge shift: (+36, -22) -> O_b=(78,95.5), A1_b=(110,102.8)
-                                             Slant shift to upper plane: (+48, -46) -->
-                                        <!-- Back & side faces -->
-                                        <polygon points="78,95.5 110,102.8 158,56.8 126,49.5" fill="#84cc16" fill-opacity="0.42" stroke="#4d7c0f" stroke-width="1.1"/>
-                                        <polygon points="42,117.5 78,95.5 126,49.5 90,71.5" fill="#65a30d" fill-opacity="0.5" stroke="#3f6212" stroke-width="1.1"/>
+                                             Base on lower plane: O=(42,117.5), A1=(72,124.4), A1_b=(112,100.4), O_b=(82,93.5)
+                                             Slant vector to upper plane: (+36, -54) -> strictly lies on upper plane!
+                                             Top on upper plane: Q0=(78,63.5), Qa1=(108,70.4), Qa1_b=(148,46.4), Q0_b=(118,39.5) -->
+                                        <!-- Back & left faces -->
+                                        <polygon points="82,93.5 112,100.4 148,46.4 118,39.5" fill="#84cc16" fill-opacity="0.42" stroke="#4d7c0f" stroke-width="1.1"/>
+                                        <polygon points="42,117.5 82,93.5 118,39.5 78,63.5" fill="#65a30d" fill-opacity="0.5" stroke="#3f6212" stroke-width="1.1"/>
                                         <!-- Front & right faces -->
-                                        <polygon points="42,117.5 74,124.8 122,78.8 90,71.5" fill="#65a30d" fill-opacity="0.58" stroke="#3f6212" stroke-width="1.1"/>
-                                        <polygon points="74,124.8 110,102.8 158,56.8 122,78.8" fill="#84cc16" fill-opacity="0.48" stroke="#4d7c0f" stroke-width="1.1"/>
+                                        <polygon points="42,117.5 72,124.4 108,70.4 78,63.5" fill="#65a30d" fill-opacity="0.58" stroke="#3f6212" stroke-width="1.1"/>
+                                        <polygon points="72,124.4 112,100.4 148,46.4 108,70.4" fill="#84cc16" fill-opacity="0.48" stroke="#4d7c0f" stroke-width="1.1"/>
                                         <!-- Top face -->
-                                        <polygon points="90,71.5 122,78.8 158,56.8 126,49.5" fill="#a3e635" fill-opacity="0.5" stroke="#4d7c0f" stroke-width="1.1"/>
+                                        <polygon points="78,63.5 108,70.4 148,46.4 118,39.5" fill="#a3e635" fill-opacity="0.52" stroke="#4d7c0f" stroke-width="1.1"/>
                                 
                                         <!-- Upper plane a2 + Span{a1, a3} -->
-                                        <polygon points="18,58 114,80 170,46 74,24" fill="#93d2f3" fill-opacity="0.32" stroke="#0088cc" stroke-width="1.4"/>
+                                        <polygon points="18,58 114,80 174,44 78,22" fill="#93d2f3" fill-opacity="0.32" stroke="#0088cc" stroke-width="1.4"/>
                                 
                                         <!-- Blue dots (left) -->
                                         <circle cx="42" cy="117.5" r="3" fill="#0099dd"/>
-                                        <circle cx="74" cy="124.8" r="3" fill="#0099dd"/>
-                                        <circle cx="90" cy="71.5" r="3" fill="#0099dd"/>
-                                        <circle cx="114" cy="57" r="3" fill="#0099dd"/>
+                                        <circle cx="72" cy="124.4" r="3" fill="#0099dd"/>
+                                        <circle cx="78" cy="63.5" r="3" fill="#0099dd"/>
+                                        <circle cx="118" cy="39.5" r="3" fill="#0099dd"/>
                                 
                                         <!-- Labels (left) -->
-                                        <text x="94" y="14" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#0f172a">
+                                        <text x="96" y="14" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#0f172a">
                                             <tspan font-style="italic">a</tspan><tspan dy="2" font-size="7.5">2</tspan><tspan dy="-2"> + Span{</tspan><tspan font-style="italic">a</tspan><tspan dy="2" font-size="7.5">1</tspan><tspan dy="-2">, </tspan><tspan font-style="italic">a</tspan><tspan dy="2" font-size="7.5">3</tspan><tspan dy="-2">}</tspan>
                                         </text>
                                         <text x="122" y="150" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#0f172a">
@@ -1124,34 +1125,35 @@
                                         </tspan>
                                         </text>
                                         <text x="35" y="131" font-size="10.5" font-weight="bold" fill="#0f172a">0</text>
-                                        <text x="71" y="139" font-size="10.5" font-weight="bold" fill="#0f172a"><tspan font-style="italic">a</tspan><tspan dy="2" font-size="7.5">1</tspan></text>
-                                        <text x="80" y="67" font-size="10.5" font-weight="bold" fill="#0f172a"><tspan font-style="italic">a</tspan><tspan dy="2" font-size="7.5">2</tspan></text>
-                                        <text x="111" y="51" font-size="10.5" font-weight="bold" fill="#0f172a"><tspan font-style="italic">a</tspan><tspan dy="2" font-size="7.5">3</tspan></text>
+                                        <text x="69" y="139" font-size="10.5" font-weight="bold" fill="#0f172a"><tspan font-style="italic">a</tspan><tspan dy="2" font-size="7.5">1</tspan></text>
+                                        <text x="68" y="59" font-size="10.5" font-weight="bold" fill="#0f172a"><tspan font-style="italic">a</tspan><tspan dy="2" font-size="7.5">2</tspan></text>
+                                        <text x="115" y="34" font-size="10.5" font-weight="bold" fill="#0f172a"><tspan font-style="italic">a</tspan><tspan dy="2" font-size="7.5">3</tspan></text>
                                 
                                         <!-- ================= RIGHT: Vertical / Sheared Parallelepiped ================= -->
                                         <!-- Lower plane Span{a1, a3} -->
-                                        <polygon points="204,112 300,134 356,100 260,78" fill="#93d2f3" fill-opacity="0.52" stroke="#0088cc" stroke-width="1.4"/>
+                                        <polygon points="204,112 300,134 360,100 264,78" fill="#93d2f3" fill-opacity="0.52" stroke="#0088cc" stroke-width="1.4"/>
                                 
                                         <!-- Vertical green parallelepiped:
-                                             Base: O=(228,117.5), A1=(260,124.8), A1_b=(296,102.8), O_b=(264,95.5)
-                                             Vertical shift: (0, -46) -> Top: (228,71.5), (260,78.8), (296,56.8), (264,49.5) -->
-                                        <polygon points="264,95.5 296,102.8 296,56.8 264,49.5" fill="#84cc16" fill-opacity="0.42" stroke="#4d7c0f" stroke-width="1.1"/>
-                                        <polygon points="228,117.5 260,124.8 260,78.8 228,71.5" fill="#65a30d" fill-opacity="0.58" stroke="#3f6212" stroke-width="1.1"/>
-                                        <polygon points="260,124.8 296,102.8 296,56.8 260,78.8" fill="#84cc16" fill-opacity="0.48" stroke="#4d7c0f" stroke-width="1.1"/>
-                                        <polygon points="228,71.5 260,78.8 296,56.8 264,49.5" fill="#a3e635" fill-opacity="0.5" stroke="#4d7c0f" stroke-width="1.1"/>
+                                             Base: O=(228,117.5), A1=(258,124.4), A1_b=(298,100.4), O_b=(268,93.5)
+                                             Vertical shift = (0, -54) -> Top strictly lies on upper plane!
+                                             Top: Q0=(228,63.5), Qa1=(258,70.4), Qa1_b=(298,46.4), Q0_b=(268,39.5) -->
+                                        <polygon points="268,93.5 298,100.4 298,46.4 268,39.5" fill="#84cc16" fill-opacity="0.42" stroke="#4d7c0f" stroke-width="1.1"/>
+                                        <polygon points="228,117.5 258,124.4 258,70.4 228,63.5" fill="#65a30d" fill-opacity="0.58" stroke="#3f6212" stroke-width="1.1"/>
+                                        <polygon points="258,124.4 298,100.4 298,46.4 258,70.4" fill="#84cc16" fill-opacity="0.48" stroke="#4d7c0f" stroke-width="1.1"/>
+                                        <polygon points="228,63.5 258,70.4 298,46.4 268,39.5" fill="#a3e635" fill-opacity="0.52" stroke="#4d7c0f" stroke-width="1.1"/>
                                 
                                         <!-- Upper plane a2 + Span{a1, a3} -->
-                                        <polygon points="204,58 300,80 356,46 260,24" fill="#93d2f3" fill-opacity="0.32" stroke="#0088cc" stroke-width="1.4"/>
+                                        <polygon points="204,58 300,80 360,46 264,24" fill="#93d2f3" fill-opacity="0.32" stroke="#0088cc" stroke-width="1.4"/>
                                 
                                         <!-- Blue dots (right) -->
                                         <circle cx="228" cy="117.5" r="3" fill="#0099dd"/>
-                                        <circle cx="260" cy="124.8" r="3" fill="#0099dd"/>
-                                        <circle cx="228" cy="71.5" r="3" fill="#0099dd"/>
-                                        <circle cx="254" cy="77.4" r="3" fill="#0099dd"/>
-                                        <circle cx="268" cy="56" r="3" fill="#0099dd"/>
+                                        <circle cx="258" cy="124.4" r="3" fill="#0099dd"/>
+                                        <circle cx="228" cy="63.5" r="3" fill="#0099dd"/>
+                                        <circle cx="252" cy="69" r="3" fill="#0099dd"/>
+                                        <circle cx="268" cy="39.5" r="3" fill="#0099dd"/>
                                 
                                         <!-- Labels (right) -->
-                                        <text x="280" y="14" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#0f172a">
+                                        <text x="282" y="14" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#0f172a">
                                             <tspan font-style="italic">a</tspan><tspan dy="2" font-size="7.5">2</tspan><tspan dy="-2"> + Span{</tspan><tspan font-style="italic">a</tspan><tspan dy="2" font-size="7.5">1</tspan><tspan dy="-2">, </tspan><tspan font-style="italic">a</tspan><tspan dy="2" font-size="7.5">3</tspan><tspan dy="-2">}</tspan>
                                         </text>
                                         <text x="308" y="150" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#0f172a">
@@ -1159,12 +1161,12 @@
                                         </tspan>
                                         </text>
                                         <text x="221" y="131" font-size="10.5" font-weight="bold" fill="#0f172a">0</text>
-                                        <text x="257" y="139" font-size="10.5" font-weight="bold" fill="#0f172a"><tspan font-style="italic">a</tspan><tspan dy="2" font-size="7.5">1</tspan></text>
-                                        <text x="182" y="74" font-size="10.5" font-weight="bold" fill="#0f172a">
+                                        <text x="255" y="139" font-size="10.5" font-weight="bold" fill="#0f172a"><tspan font-style="italic">a</tspan><tspan dy="2" font-size="7.5">1</tspan></text>
+                                        <text x="182" y="66" font-size="10.5" font-weight="bold" fill="#0f172a">
                                             <tspan font-style="italic">a</tspan><tspan dy="2" font-size="7.5">2</tspan><tspan dy="-2"> + </tspan><tspan font-style="italic">c</tspan><tspan font-style="italic">a</tspan><tspan dy="2" font-size="7.5">1</tspan>
                                         </text>
-                                        <text x="252" y="70" font-size="10.5" font-weight="bold" fill="#0f172a"><tspan font-style="italic">a</tspan><tspan dy="2" font-size="7.5">2</tspan></text>
-                                        <text x="265" y="50" font-size="10.5" font-weight="bold" fill="#0f172a"><tspan font-style="italic">a</tspan><tspan dy="2" font-size="7.5">3</tspan></text>
+                                        <text x="251" y="63" font-size="10.5" font-weight="bold" fill="#0f172a"><tspan font-style="italic">a</tspan><tspan dy="2" font-size="7.5">2</tspan></text>
+                                        <text x="265" y="34" font-size="10.5" font-weight="bold" fill="#0f172a"><tspan font-style="italic">a</tspan><tspan dy="2" font-size="7.5">3</tspan></text>
                                     </svg>
                                 </div>
 
