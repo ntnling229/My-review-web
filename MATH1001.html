@@ -91,41 +91,27 @@
 
 <main class="max-w-7xl mx-auto px-4 py-8 space-y-8">
 
-    <!-- ================= CHAPTER 3 OVERVIEW ================= -->
-    <section id="ch3-overview" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
-        <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
+    <!-- CHAPTER 3 OVERVIEW -->
+    <section id="chap3-overview" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
+        <div class="border-b pb-4 mb-4 flex flex-wrap items-center justify-between gap-2">
             <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
-                <span class="bg-indigo-600 text-white px-3 py-1 rounded-lg text-base md:text-lg">CH 3</span>
-                Chapter 3 Overview: Determinants (行列式總覽)
+                <i class="fa-solid fa-book-open text-indigo-600"></i> Chapter 3 Determinants Complete Overview (第三章行列式完整總覽)
             </h2>
-            <span class="text-xs text-slate-500 font-mono">§3.1 - §3.3</span>
+            <span class="text-xs text-slate-500 font-mono">Sections 3.1 - 3.3 (63 Slide Pages)</span>
         </div>
-
-        <p class="text-sm text-slate-700 leading-relaxed">
-            本章從遞迴定義與餘因子展開出發，建立行列式與列運算、可逆性及矩陣乘積之間的關聯，最後延伸至線性方程組求解（克拉瑪法則與伴隨矩陣）以及幾何面積／體積與線性變換的尺度縮放。
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1.5">
-                <div class="font-bold text-indigo-800">§3.1 Introduction to Determinants</div>
-                <p class="text-slate-600 text-xs leading-relaxed">
-                    以子矩陣 $A_{ij}$ 與餘因子 $C_{ij} = (-1)^{i+j}\det A_{ij}$ 遞迴定義行列式，可沿任意列或行展開；三角矩陣之行列式即主對角線元素乘積。
-                </p>
-            </div>
-
-            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1.5">
-                <div class="font-bold text-indigo-800">§3.2 Properties of Determinants</div>
-                <p class="text-slate-600 text-xs leading-relaxed">
-                    列倍加不變、列互換變號、列倍乘提出常數；$\det A \ne 0 \iff A\text{ 可逆}$；滿足 $\det A^T = \det A$ 與 $\det(AB) = (\det A)(\det B)$（一般 $\det(A+B) \ne \det A + \det B$）。
-                </p>
-            </div>
-
-            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1.5">
-                <div class="font-bold text-indigo-800">§3.3 Cramer's Rule, Volume &amp; Linear Transformations</div>
-                <p class="text-slate-600 text-xs leading-relaxed">
-                    提供 $x_i = \frac{\det A_i(\mathbf{b})}{\det A}$ 與 $A^{-1} = \frac{1}{\det A}\operatorname{adj} A$，並以 $|\det A|$ 刻畫平行四邊形／平行六面體體積及線性變換對區域面積／體積的縮放倍率。
-                </p>
-            </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs md:text-sm">
+            <a href="#sec3-1" class="block p-3.5 bg-slate-50 rounded-xl border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/30 transition">
+                <span class="font-bold text-indigo-700 block mb-1">§3.1 Introduction to Determinants</span>
+                <p class="text-slate-600">子矩陣 $A_{ij}$ 與餘因子 $C_{ij}$ 遞迴定義、沿任意列或行展開（Theorem 1）、三角矩陣主對角線乘積（Theorem 2）。</p>
+            </a>
+            <a href="#sec3-2" class="block p-3.5 bg-slate-50 rounded-xl border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/30 transition">
+                <span class="font-bold text-indigo-700 block mb-1">§3.2 Properties of Determinants</span>
+                <p class="text-slate-600">列運算與階梯形公式（Theorem 3）、$\det A \ne 0 \iff A\text{ 可逆}$（Theorem 4）、$\det A^T = \det A$（Theorem 5）與 $\det(AB) = \det A\det B$（Theorem 6）。</p>
+            </a>
+            <a href="#sec3-3" class="block p-3.5 bg-slate-50 rounded-xl border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/30 transition">
+                <span class="font-bold text-indigo-700 block mb-1">§3.3 Cramer's Rule, Volume &amp; Linear Trans.</span>
+                <p class="text-slate-600">克拉瑪法則（Theorem 7）、伴隨矩陣求逆（Theorem 8）、平行四邊形／六面體體積（Theorem 9）與線性變換面積／體積縮放（Theorem 10）。</p>
+            </a>
         </div>
     </section>
     
