@@ -593,6 +593,18 @@
                         <strong class="text-emerald-950 font-bold block">THEOREM 5 (定理 5，Page 13)</strong>
                         <p>If $A$ is an $n\times n$ matrix, then $\det A^T = \det A$.</p>
                     </div>
+
+                    <!-- Expandable PROOF OF THEOREM 5 (Page 13) -->
+                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                        <button onclick="toggleCard('proof-3-2-5')" class="w-full p-4 text-left font-bold text-emerald-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                            <span><i class="fa-solid fa-scroll mr-2 text-emerald-600"></i> PROOF OF THEOREM 5 (Page 13): Induction on $n$ for $\det A^T = \det A$ (點擊展開)</span>
+                            <span class="text-xs bg-emerald-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof 5</span>
+                        </button>
+                        <div id="proof-3-2-5" class="toggle-content p-5 space-y-2 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                            <p><strong>PROOF (Page 13):</strong> The theorem is obvious for $n = 1$. Suppose the theorem is true for $k\times k$ determinants and let $n = k+1$. Then the cofactor of $a_{1j}$ in $A$ equals the cofactor of $a_{j1}$ in $A^T$, because the cofactors involve $k\times k$ determinants. Hence the cofactor expansion of $\det A$ along the first row equals the cofactor expansion of $\det A^T$ down the first column. That is, $A$ and $A^T$ have equal determinants. The theorem is true for $n = 1$, and the truth of the theorem for one value of $n$ implies its truth for the next value of $n$. By the Principle of Mathematical Induction, the theorem is true for all $n \ge 1$.</p>
+                        </div>
+                    </div>
+                    
                     <p>
                         Because of Theorem 5, each statement in Theorem 3 is true when the word <em>row</em> is replaced everywhere by <em>column</em>. To verify this property, one merely applies the original Theorem 3 to $A^T$. A row operation on $A^T$ amounts to a column operation on $A$. Column operations are useful for both theoretical purposes and hand computations. However, for simplicity we'll perform only row operations in numerical calculations.
                     </p>
@@ -659,23 +671,12 @@
 
                 <!-- Proofs of Theorems 5, 3 and 6 (Pages 13, 18 - 22) -->
                 <div class="p-4 bg-white rounded-lg border border-emerald-200 space-y-3 text-slate-800 leading-relaxed">
-                    <strong class="text-emerald-900 text-base font-bold block">Proofs of Theorems 5, 3 and 6 (定理 5、3 與 6 的證明，Pages 13, 18 - 22)</strong>
+                    <strong class="text-emerald-900 text-base font-bold block">Proofs of Theorems 3 and 6 (定理 3 與 6 的證明，Pages 18 - 22)</strong>
                     <p>
                         It is convenient to prove Theorem 3 when it is stated in terms of the <strong>elementary matrices (基本矩陣)</strong> discussed in Section 2.2. We call an elementary matrix $E$ a <strong>row replacement (matrix) (列倍加基本矩陣)</strong> if $E$ is obtained from the <strong>identity (單位矩陣)</strong> $I$ by adding a multiple of one row to another row; $E$ is an <strong>interchange (列互換基本矩陣)</strong> if $E$ is obtained by interchanging two rows of $I$; and $E$ is a <strong>scale by $r$ (列倍乘基本矩陣)</strong> if $E$ is obtained by multiplying a row of $I$ by a nonzero <strong>scalar (純量)</strong> $r$. With this terminology, Theorem 3 can be reformulated as follows:
                     </p>
                     <div class="p-3 bg-emerald-50/70 rounded-lg border border-emerald-200 font-mono text-center text-emerald-950 font-bold text-xs md:text-sm overflow-x-auto">
                         $$\det EA = (\det E)(\det A), \qquad \text{where } \det E = \begin{cases} 1 &amp; \text{if } E \text{ is a row replacement} \\ -1 &amp; \text{if } E \text{ is an interchange} \\ r &amp; \text{if } E \text{ is a scale by } r \end{cases}$$
-                    </div>
-
-                    <!-- Expandable PROOF OF THEOREM 5 (Page 13) -->
-                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
-                        <button onclick="toggleCard('proof-3-2-5')" class="w-full p-4 text-left font-bold text-emerald-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
-                            <span><i class="fa-solid fa-scroll mr-2 text-emerald-600"></i> PROOF OF THEOREM 5 (Page 13): Induction on $n$ for $\det A^T = \det A$ (點擊展開)</span>
-                            <span class="text-xs bg-emerald-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof 5</span>
-                        </button>
-                        <div id="proof-3-2-5" class="toggle-content p-5 space-y-2 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
-                            <p><strong>PROOF (Page 13):</strong> The theorem is obvious for $n = 1$. Suppose the theorem is true for $k\times k$ determinants and let $n = k+1$. Then the cofactor of $a_{1j}$ in $A$ equals the cofactor of $a_{j1}$ in $A^T$, because the cofactors involve $k\times k$ determinants. Hence the cofactor expansion of $\det A$ along the first row equals the cofactor expansion of $\det A^T$ down the first column. That is, $A$ and $A^T$ have equal determinants. The theorem is true for $n = 1$, and the truth of the theorem for one value of $n$ implies its truth for the next value of $n$. By the Principle of Mathematical Induction, the theorem is true for all $n \ge 1$.</p>
-                        </div>
                     </div>
 
                     <!-- Expandable PROOF OF THEOREM 3 (Pages 20 - 21) -->
