@@ -754,7 +754,7 @@
     <section id="sec3-3" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-8">
         <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
             <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
-                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 3.3</span>
+                <span class="bg-teal-100 text-teal-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 3.3</span>
                 Cramer's Rule, Volume, and Linear Transformations (克拉瑪法則、體積與線性變換)
             </h2>
             <span class="text-xs text-slate-500 font-mono">Pages 1 - 25</span>
@@ -762,46 +762,46 @@
 
         <!-- 3.3.1 Cramer's Rule & A Formula for A^-1 -->
         <div class="space-y-4">
-            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
-                <i class="fa-solid fa-circle-dot text-indigo-500 text-sm"></i> 3.3.1 Cramer's Rule &amp; Formula for $A^{-1}$ (克拉瑪法則與反矩陣公式，Pages 1 - 10)
+            <h3 class="font-bold text-lg text-teal-800 flex items-center gap-2">
+                <i class="fa-solid fa-circle-dot text-teal-500 text-sm"></i> 3.3.1 Cramer's Rule &amp; Formula for $A^{-1}$ (克拉瑪法則與反矩陣公式，Pages 1 - 10)
             </h3>
 
             <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
                 <!-- Pages 1 - 3: Cramer's Rule, Theorem 7 & Proof -->
-                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-3 text-slate-800 leading-relaxed">
-                    <strong class="text-indigo-900 text-base font-bold block">Cramer's Rule &amp; THEOREM 7 (克拉瑪法則與定理 7，Pages 1 - 3)</strong>
+                <div class="p-4 bg-white rounded-lg border border-teal-200 space-y-3 text-slate-800 leading-relaxed">
+                    <strong class="text-teal-900 text-base font-bold block">Cramer's Rule &amp; THEOREM 7 (克拉瑪法則與定理 7，Pages 1 - 3)</strong>
                     <p>
                         Cramer's rule (克拉瑪法則) is needed in a variety of theoretical calculations. For instance, it can be used to study how the solution of $A\mathbf{x} = \mathbf{b}$ is affected by changes in the entries of $\mathbf{b}$. However, the formula is inefficient for hand calculations, except for $2\times 2$ or perhaps $3\times 3$ matrices.
                     </p>
                     <p>
                         For any $n\times n$ matrix $A$ and any $\mathbf{b}$ in $\mathbb{R}^n$, let $A_i(\mathbf{b})$ be the matrix obtained from $A$ by replacing <strong>column $i$ (第 $i$ 行)</strong> by the vector $\mathbf{b}$:
                     </p>
-                    <div class="p-3 bg-indigo-50/70 rounded-lg border border-indigo-200 font-mono text-center text-indigo-950 text-xs md:text-sm overflow-x-auto">
+                    <div class="p-3 bg-teal-50/70 rounded-lg border border-teal-200 font-mono text-center text-teal-950 text-xs md:text-sm overflow-x-auto">
                         $$A_i(\mathbf{b}) = \begin{bmatrix} \mathbf{a}_1 &amp; \cdots &amp; \mathbf{b} &amp; \cdots &amp; \mathbf{a}_n \end{bmatrix} \quad (\text{col } i)$$
                     </div>
-                    <div class="p-3.5 bg-indigo-50/50 rounded-lg border border-indigo-200 space-y-1.5">
-                        <strong class="text-indigo-950 font-bold block">THEOREM 7 — Cramer's Rule (克拉瑪法則，Page 2)</strong>
+                    <div class="p-3.5 bg-teal-50/50 rounded-lg border border-teal-200 space-y-1.5">
+                        <strong class="text-teal-950 font-bold block">THEOREM 7 — Cramer's Rule (克拉瑪法則，Page 2)</strong>
                         <p>
                             Let $A$ be an <strong>invertible (可逆的)</strong> $n\times n$ matrix. For any $\mathbf{b}$ in $\mathbb{R}^n$, the <strong>unique solution (唯一解)</strong> $\mathbf{x}$ of $A\mathbf{x} = \mathbf{b}$ has entries given by
                         </p>
-                        <div class="font-mono text-center text-indigo-950 font-bold text-xs md:text-sm py-1 overflow-x-auto">
+                        <div class="font-mono text-center text-teal-950 font-bold text-xs md:text-sm py-1 overflow-x-auto">
                             $$x_i = \frac{\det A_i(\mathbf{b})}{\det A}, \qquad i = 1, 2, \dots, n \quad (1)$$
                         </div>
                     </div>
 
                     <!-- Expandable PROOF of Theorem 7 (Page 3) -->
                     <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
-                        <button onclick="toggleCard('proof-3-3-7')" class="w-full p-3.5 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
-                            <span><i class="fa-solid fa-scroll mr-2 text-indigo-600"></i> PROOF OF THEOREM 7 (Page 3): Multiplicative Property &amp; Cofactor Expansion along Row $i$ (點擊展開)</span>
-                            <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof 7</span>
+                        <button onclick="toggleCard('proof-3-3-7')" class="w-full p-3.5 text-left font-bold text-teal-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                            <span><i class="fa-solid fa-scroll mr-2 text-teal-600"></i> PROOF OF THEOREM 7 (Page 3): Multiplicative Property &amp; Cofactor Expansion along Row $i$ (點擊展開)</span>
+                            <span class="text-xs bg-teal-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof 7</span>
                         </button>
                         <div id="proof-3-3-7" class="toggle-content p-4 space-y-2 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
                             <p><strong>PROOF (Page 3):</strong> Denote the columns of $A$ by $\mathbf{a}_1, \dots, \mathbf{a}_n$ and the columns of the $n\times n$ <strong>identity matrix (單位矩陣)</strong> $I$ by $\mathbf{e}_1, \dots, \mathbf{e}_n$. If $A\mathbf{x} = \mathbf{b}$, the definition of matrix multiplication shows that</p>
-                            <p class="font-mono text-xs md:text-sm text-center text-indigo-950 overflow-x-auto">
+                            <p class="font-mono text-xs md:text-sm text-center text-teal-950 overflow-x-auto">
                                 $$A \cdot I_i(\mathbf{x}) = A\begin{bmatrix} \mathbf{e}_1 &amp; \cdots &amp; \mathbf{x} &amp; \cdots &amp; \mathbf{e}_n \end{bmatrix} = \begin{bmatrix} A\mathbf{e}_1 &amp; \cdots &amp; A\mathbf{x} &amp; \cdots &amp; A\mathbf{e}_n \end{bmatrix} = \begin{bmatrix} \mathbf{a}_1 &amp; \cdots &amp; \mathbf{b} &amp; \cdots &amp; \mathbf{a}_n \end{bmatrix} = A_i(\mathbf{b})$$
                             </p>
                             <p>By the <strong>multiplicative property of determinants (行列式的乘法性質)</strong>,</p>
-                            <p class="font-mono text-xs md:text-sm text-center text-indigo-950 overflow-x-auto">
+                            <p class="font-mono text-xs md:text-sm text-center text-teal-950 overflow-x-auto">
                                 $$(\det A)(\det I_i(\mathbf{x})) = \det A_i(\mathbf{b})$$
                             </p>
                             <p>The second determinant on the left is simply $x_i$. (Make a <strong>cofactor expansion (餘因子展開)</strong> along the $i$th row.) Hence $(\det A)x_i = \det A_i(\mathbf{b})$. This proves (1) because $A$ is invertible and $\det A \ne 0$.</p>
@@ -811,15 +811,15 @@
 
                 <!-- Expandable EXAMPLES 1 & 2 (Pages 4 - 5) -->
                 <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
-                    <button onclick="toggleCard('ex-3-3-12')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
-                        <span><i class="fa-solid fa-calculator mr-2 text-indigo-600"></i> EXAMPLES 1 &amp; 2 (Pages 4 - 5): $2\times 2$ Linear System &amp; Parametric System in $s$ (點擊展開)</span>
-                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples 1 &amp; 2</span>
+                    <button onclick="toggleCard('ex-3-3-12')" class="w-full p-4 text-left font-bold text-teal-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-calculator mr-2 text-teal-600"></i> EXAMPLES 1 &amp; 2 (Pages 4 - 5): $2\times 2$ Linear System &amp; Parametric System in $s$ (點擊展開)</span>
+                        <span class="text-xs bg-teal-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples 1 &amp; 2</span>
                     </button>
                     <div id="ex-3-3-12" class="toggle-content p-5 space-y-4 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
                         <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-1.5">
                             <p><strong>EXAMPLE 1 (Page 4):</strong> Use Cramer's rule to solve the system $3x_1 - 2x_2 = 6$, $-5x_1 + 4x_2 = 8$.</p>
                             <p><strong>SOLUTION:</strong> View the system as $A\mathbf{x} = \mathbf{b}$ with $A = \begin{bmatrix} 3 &amp; -2 \\ -5 &amp; 4 \end{bmatrix}$, $A_1(\mathbf{b}) = \begin{bmatrix} 6 &amp; -2 \\ 8 &amp; 4 \end{bmatrix}$, $A_2(\mathbf{b}) = \begin{bmatrix} 3 &amp; 6 \\ -5 &amp; 8 \end{bmatrix}$. Since $\det A = 2$, the system has a unique solution:</p>
-                            <p class="font-mono text-xs md:text-sm text-center text-indigo-950 space-y-1 overflow-x-auto">
+                            <p class="font-mono text-xs md:text-sm text-center text-teal-950 space-y-1 overflow-x-auto">
                                 <span class="block">$$x_1 = \frac{\det A_1(\mathbf{b})}{\det A} = \frac{24 + 16}{2} = 20$$</span>
                                 <span class="block">$$x_2 = \frac{\det A_2(\mathbf{b})}{\det A} = \frac{24 + 30}{2} = 27$$</span>
                             </p>
@@ -828,7 +828,7 @@
                         <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-1.5">
                             <p><strong>EXAMPLE 2 (Page 5):</strong> Consider the system with parameter $s$: $3sx_1 - 2x_2 = 4$, $-6x_1 + sx_2 = 1$. Determine the values of $s$ for which the system has a <strong>unique solution (唯一解)</strong>, and use Cramer's rule to describe the solution.</p>
                             <p><strong>SOLUTION:</strong> Here $A = \begin{bmatrix} 3s &amp; -2 \\ -6 &amp; s \end{bmatrix}$, $A_1(\mathbf{b}) = \begin{bmatrix} 4 &amp; -2 \\ 1 &amp; s \end{bmatrix}$, $A_2(\mathbf{b}) = \begin{bmatrix} 3s &amp; 4 \\ -6 &amp; 1 \end{bmatrix}$. Since $\det A = 3s^2 - 12 = 3(s+2)(s-2)$, the system has a unique solution precisely when $s \ne \pm 2$. For such an $s$:</p>
-                            <p class="font-mono text-xs md:text-sm text-center text-indigo-950 space-y-1 overflow-x-auto">
+                            <p class="font-mono text-xs md:text-sm text-center text-teal-950 space-y-1 overflow-x-auto">
                                 <span class="block">$$x_1 = \frac{\det A_1(\mathbf{b})}{\det A} = \frac{4s + 2}{3(s+2)(s-2)}$$</span>
                                 <span class="block">$$x_2 = \frac{\det A_2(\mathbf{b})}{\det A} = \frac{3s + 24}{3(s+2)(s-2)} = \frac{s + 8}{(s+2)(s-2)}$$</span>
                             </p>
@@ -837,50 +837,50 @@
                 </div>
 
                 <!-- Pages 6 - 8: Formula for A^-1, Adjugate & THEOREM 8 -->
-                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-3 text-slate-800 leading-relaxed">
-                    <strong class="text-indigo-900 text-base font-bold block">A Formula for $A^{-1}$, Adjugate Matrix &amp; THEOREM 8 (反矩陣公式、伴隨矩陣與定理 8，Pages 6 - 8)</strong>
+                <div class="p-4 bg-white rounded-lg border border-teal-200 space-y-3 text-slate-800 leading-relaxed">
+                    <strong class="text-teal-900 text-base font-bold block">A Formula for $A^{-1}$, Adjugate Matrix &amp; THEOREM 8 (反矩陣公式、伴隨矩陣與定理 8，Pages 6 - 8)</strong>
                     <p>
                         Cramer's rule leads easily to a general formula for the <strong>inverse (反矩陣)</strong> of an $n\times n$ matrix $A$. The $j$th column of $A^{-1}$ is a vector $\mathbf{x}$ that satisfies $A\mathbf{x} = \mathbf{e}_j$, where $\mathbf{e}_j$ is the $j$th column of the identity matrix, and the $i$th entry of $\mathbf{x}$ is the $(i,j)$-entry of $A^{-1}$. By Cramer's rule,
                     </p>
-                    <div class="p-2.5 bg-indigo-50/70 rounded-lg border border-indigo-200 font-mono text-center text-indigo-950 text-xs md:text-sm overflow-x-auto">
+                    <div class="p-2.5 bg-teal-50/70 rounded-lg border border-teal-200 font-mono text-center text-teal-950 text-xs md:text-sm overflow-x-auto">
                         $$\{(i,j)\text{-entry of } A^{-1}\} = x_i = \frac{\det A_i(\mathbf{e}_j)}{\det A} \quad (2)$$
                     </div>
                     <p>
                         Recall that $A_{ji}$ denotes the <strong>submatrix (子矩陣)</strong> of $A$ formed by deleting <strong>row $j$ (第 $j$ 列)</strong> and <strong>column $i$ (第 $i$ 行)</strong>. A cofactor expansion down column $i$ of $A_i(\mathbf{e}_j)$ shows that $\det A_i(\mathbf{e}_j) = (-1)^{i+j}\det A_{ji} = C_{ji}$ (3), where $C_{ji}$ is a <strong>cofactor (餘因子)</strong> of $A$. By (2), the $(i,j)$-entry of $A^{-1}$ is the cofactor $C_{ji}$ divided by $\det A$ (note that the subscripts on $C_{ji}$ are the reverse of $(i,j)$):
                     </p>
-                    <div class="p-3 bg-indigo-50/70 rounded-lg border border-indigo-200 font-mono text-center text-indigo-950 text-xs md:text-sm overflow-x-auto">
+                    <div class="p-3 bg-teal-50/70 rounded-lg border border-teal-200 font-mono text-center text-teal-950 text-xs md:text-sm overflow-x-auto">
                         $$A^{-1} = \frac{1}{\det A}\begin{bmatrix} C_{11} &amp; C_{21} &amp; \cdots &amp; C_{n1} \\ C_{12} &amp; C_{22} &amp; \cdots &amp; C_{n2} \\ \vdots &amp; \vdots &amp; &amp; \vdots \\ C_{1n} &amp; C_{2n} &amp; \cdots &amp; C_{nn} \end{bmatrix} \quad (4)$$
                     </div>
                     <p>
                         The matrix of cofactors on the right side of (4) is called the <strong>adjugate (or classical adjoint) (伴隨矩陣／古典伴隨矩陣)</strong> of $A$, denoted by $\operatorname{adj} A$. (The term adjoint also has another meaning in advanced texts on linear transformations.)
                     </p>
-                    <div class="p-3.5 bg-indigo-50/50 rounded-lg border border-indigo-200 space-y-1">
-                        <strong class="text-indigo-950 font-bold block">THEOREM 8 — An Inverse Formula (反矩陣公式定理，Page 8)</strong>
+                    <div class="p-3.5 bg-teal-50/50 rounded-lg border border-teal-200 space-y-1">
+                        <strong class="text-teal-950 font-bold block">THEOREM 8 — An Inverse Formula (反矩陣公式定理，Page 8)</strong>
                         <p>Let $A$ be an <strong>invertible (可逆的)</strong> $n\times n$ matrix. Then $A^{-1} = \frac{1}{\det A}\operatorname{adj} A$.</p>
                     </div>
                 </div>
 
                 <!-- Expandable EXAMPLE 3 (Pages 9 - 10) -->
                 <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
-                    <button onclick="toggleCard('ex-3-3-3')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
-                        <span><i class="fa-solid fa-table-cells mr-2 text-indigo-600"></i> EXAMPLE 3 (Pages 9 - 10): Inverse of a $3\times 3$ Matrix via Cofactors &amp; Adjugate (點擊展開)</span>
-                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example 3</span>
+                    <button onclick="toggleCard('ex-3-3-3')" class="w-full p-4 text-left font-bold text-teal-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-table-cells mr-2 text-teal-600"></i> EXAMPLE 3 (Pages 9 - 10): Inverse of a $3\times 3$ Matrix via Cofactors &amp; Adjugate (點擊展開)</span>
+                        <span class="text-xs bg-teal-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example 3</span>
                     </button>
                     <div id="ex-3-3-3" class="toggle-content p-5 space-y-2.5 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
                         <p><strong>EXAMPLE 3 (Pages 9 - 10):</strong> Find the inverse of the matrix $A = \begin{bmatrix} 2 &amp; 1 &amp; 3 \\ 1 &amp; -1 &amp; 1 \\ 1 &amp; 4 &amp; -2 \end{bmatrix}$.</p>
                         <p><strong>SOLUTION:</strong> The nine <strong>cofactors (餘因子)</strong> are:</p>
-                        <p class="font-mono text-xs md:text-sm text-center text-indigo-950 space-y-1 overflow-x-auto">
+                        <p class="font-mono text-xs md:text-sm text-center text-teal-950 space-y-1 overflow-x-auto">
                             <span class="block">$$C_{11} = +\left|\begin{matrix} -1 &amp; 1 \\ 4 &amp; -2 \end{matrix}\right| = -2, \quad C_{12} = -\left|\begin{matrix} 1 &amp; 1 \\ 1 &amp; -2 \end{matrix}\right| = 3, \quad C_{13} = +\left|\begin{matrix} 1 &amp; -1 \\ 1 &amp; 4 \end{matrix}\right| = 5$$</span>
                             <span class="block">$$C_{21} = -\left|\begin{matrix} 1 &amp; 3 \\ 4 &amp; -2 \end{matrix}\right| = 14, \quad C_{22} = +\left|\begin{matrix} 2 &amp; 3 \\ 1 &amp; -2 \end{matrix}\right| = -7, \quad C_{23} = -\left|\begin{matrix} 2 &amp; 1 \\ 1 &amp; 4 \end{matrix}\right| = -7$$</span>
                             <span class="block">$$C_{31} = +\left|\begin{matrix} 1 &amp; 3 \\ -1 &amp; 1 \end{matrix}\right| = 4, \quad C_{32} = -\left|\begin{matrix} 2 &amp; 3 \\ 1 &amp; 1 \end{matrix}\right| = 1, \quad C_{33} = +\left|\begin{matrix} 2 &amp; 1 \\ 1 &amp; -1 \end{matrix}\right| = -3$$</span>
                         </p>
                         <p>The <strong>adjugate matrix (伴隨矩陣)</strong> is the <strong>transpose (轉置矩陣)</strong> of the matrix of cofactors (for instance, $C_{12}$ goes in the $(2,1)$ position):</p>
-                        <p class="font-mono text-xs md:text-sm text-center text-indigo-950 space-y-1 overflow-x-auto">
+                        <p class="font-mono text-xs md:text-sm text-center text-teal-950 space-y-1 overflow-x-auto">
                             <span class="block">$$\operatorname{adj} A = \begin{bmatrix} -2 &amp; 14 &amp; 4 \\ 3 &amp; -7 &amp; 1 \\ 5 &amp; -7 &amp; -3 \end{bmatrix}$$</span>
                             <span class="block">$$(\operatorname{adj} A)A = \begin{bmatrix} -2 &amp; 14 &amp; 4 \\ 3 &amp; -7 &amp; 1 \\ 5 &amp; -7 &amp; -3 \end{bmatrix}\begin{bmatrix} 2 &amp; 1 &amp; 3 \\ 1 &amp; -1 &amp; 1 \\ 1 &amp; 4 &amp; -2 \end{bmatrix} = \begin{bmatrix} 14 &amp; 0 &amp; 0 \\ 0 &amp; 14 &amp; 0 \\ 0 &amp; 0 &amp; 14 \end{bmatrix} = 14I$$</span>
                         </p>
                         <p>Since $(\operatorname{adj} A)A = 14I$, Theorem 8 shows that $\det A = 14$ and</p>
-                        <p class="font-mono text-xs md:text-sm text-center text-indigo-950 overflow-x-auto">
+                        <p class="font-mono text-xs md:text-sm text-center text-teal-950 overflow-x-auto">
                             $$A^{-1} = \frac{1}{14}\begin{bmatrix} -2 &amp; 14 &amp; 4 \\ 3 &amp; -7 &amp; 1 \\ 5 &amp; -7 &amp; -3 \end{bmatrix} = \begin{bmatrix} -1/7 &amp; 1 &amp; 2/7 \\ 3/14 &amp; -1/2 &amp; 1/14 \\ 5/14 &amp; -1/2 &amp; -3/14 \end{bmatrix}$$
                         </p>
                     </div>
@@ -890,27 +890,27 @@
 
         <!-- 3.3.2 Determinants as Area or Volume & EXAMPLE 4 -->
         <div class="space-y-4 pt-6 border-t border-slate-200">
-            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
-                <i class="fa-solid fa-cube text-indigo-500 text-sm"></i> 3.3.2 Determinants as Area or Volume &amp; EXAMPLE 4 (行列式表示面積或體積，Pages 11 - 19)
+            <h3 class="font-bold text-lg text-teal-800 flex items-center gap-2">
+                <i class="fa-solid fa-cube text-teal-500 text-sm"></i> 3.3.2 Determinants as Area or Volume &amp; EXAMPLE 4 (行列式表示面積或體積，Pages 11 - 19)
             </h3>
 
             <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
                 <!-- THEOREM 9 & Proofs (Pages 11 - 17) -->
-                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-3 text-slate-800 leading-relaxed">
-                    <strong class="text-indigo-900 text-base font-bold block">Determinants as Area or Volume — THEOREM 9 (定理 9，Page 11)</strong>
+                <div class="p-4 bg-white rounded-lg border border-teal-200 space-y-3 text-slate-800 leading-relaxed">
+                    <strong class="text-teal-900 text-base font-bold block">Determinants as Area or Volume — THEOREM 9 (定理 9，Page 11)</strong>
                     <p>
                         Although a general discussion of length and distance in $\mathbb{R}^n$ will not be given until Chapter 6, we assume here that the usual Euclidean concepts of length, <strong>area (面積)</strong>, and <strong>volume (體積)</strong> are already understood for $\mathbb{R}^2$ and $\mathbb{R}^3$.
                     </p>
-                    <div class="p-3.5 bg-indigo-50/50 rounded-lg border border-indigo-200 space-y-1">
-                        <strong class="text-indigo-950 font-bold block">THEOREM 9 (Page 11)</strong>
+                    <div class="p-3.5 bg-teal-50/50 rounded-lg border border-teal-200 space-y-1">
+                        <strong class="text-teal-950 font-bold block">THEOREM 9 (Page 11)</strong>
                         <p>If $A$ is a $2\times 2$ matrix, the <strong>area of the parallelogram (平行四邊形的面積)</strong> determined by the columns of $A$ is $|\det A|$. If $A$ is a $3\times 3$ matrix, the <strong>volume of the parallelepiped (平行六面體的體積)</strong> determined by the columns of $A$ is $|\det A|$.</p>
                     </div>
 
                     <!-- Expandable PROOF of Theorem 9 (Pages 12 - 17) -->
                     <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
-                        <button onclick="toggleCard('proof-3-3-9')" class="w-full p-3.5 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
-                            <span><i class="fa-solid fa-scroll mr-2 text-indigo-600"></i> PROOF OF THEOREM 9 (Pages 12 - 17): $\mathbb{R}^2$ and $\mathbb{R}^3$ Column Operations (點擊展開)</span>
-                            <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof 9</span>
+                        <button onclick="toggleCard('proof-3-3-9')" class="w-full p-3.5 text-left font-bold text-teal-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                            <span><i class="fa-solid fa-scroll mr-2 text-teal-600"></i> PROOF OF THEOREM 9 (Pages 12 - 17): $\mathbb{R}^2$ and $\mathbb{R}^3$ Column Operations (點擊展開)</span>
+                            <span class="text-xs bg-teal-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof 9</span>
                         </button>
                         <div id="proof-3-3-9" class="toggle-content p-4 space-y-2.5 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
                             <p><strong>$\mathbb{R}^2$ Case (Pages 12 - 15):</strong> The theorem is obviously true for any $2\times 2$ <strong>diagonal matrix (對角矩陣)</strong>: $\left|\det\begin{bmatrix} a &amp; 0 \\ 0 &amp; d \end{bmatrix}\right| = |ad| = \text{area of rectangle}$ (Figure 1). Any $2\times 2$ matrix $A = \begin{bmatrix} \mathbf{a}_1 &amp; \mathbf{a}_2 \end{bmatrix}$ can be transformed into a diagonal matrix using <strong>column interchanges (行互換)</strong> and <strong>column replacements (行倍加)</strong> without changing $|\det A|$ or the area. Specifically, for nonzero $\mathbf{a}_1, \mathbf{a}_2$ and scalar $c$, the parallelogram determined by $\mathbf{a}_1$ and $\mathbf{a}_2 + c\mathbf{a}_1$ lies along $\mathbf{a}_2 + L$ parallel to $L = \operatorname{Span}\{\mathbf{a}_1\}$ (Figure 2), keeping the same base and perpendicular height, hence equal area.</p>
@@ -922,55 +922,55 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1">
                         <!-- FIGURE 1 (Page 13) -->
                         <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-1.5">
-                            <span class="font-bold text-indigo-900 text-xs block">FIGURE 1 (Page 13): $\text{Area} = |ad|$</span>
+                            <span class="font-bold text-teal-900 text-xs block">FIGURE 1 (Page 13): $\text{Area} = |ad|$</span>
                             <svg viewBox="0 0 180 120" class="w-full max-w-[175px] mx-auto bg-white rounded border border-slate-200">
-                                <line x1="20" y1="95" x2="165" y2="95" stroke="#334155" stroke-width="1.2"/>
-                                <line x1="35" y1="108" x2="35" y2="12" stroke="#334155" stroke-width="1.2"/>
-                                <rect x="35" y="35" width="75" height="60" fill="#c7d2fe" fill-opacity="0.75" stroke="#4f46e5" stroke-width="1.5"/>
-                                <text x="72" y="109" text-anchor="middle" font-size="11" font-weight="bold">a</text>
-                                <text x="23" y="68" text-anchor="middle" font-size="11" font-weight="bold">d</text>
-                                <text x="162" y="109" font-size="11" font-style="italic">x</text>
-                                <text x="23" y="18" font-size="11" font-style="italic">y</text>
+                                <line x1="20" y1="95" x2="165" y2="95" stroke="#1e293b" stroke-width="1.2"/>
+                                <line x1="35" y1="108" x2="35" y2="12" stroke="#1e293b" stroke-width="1.2"/>
+                                <rect x="35" y="35" width="75" height="60" fill="#93d2f3" fill-opacity="0.75" stroke="#0088cc" stroke-width="1.5"/>
+                                <text x="72" y="109" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">a</text>
+                                <text x="23" y="68" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">d</text>
+                                <text x="162" y="109" font-size="11" font-style="italic" fill="#0f172a">x</text>
+                                <text x="23" y="18" font-size="11" font-style="italic" fill="#0f172a">y</text>
                             </svg>
                         </div>
 
                         <!-- FIGURE 2 (Page 15) -->
                         <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-1.5">
-                            <span class="font-bold text-indigo-900 text-xs block">FIGURE 2 (Page 15): Equal Area</span>
+                            <span class="font-bold text-teal-900 text-xs block">FIGURE 2 (Page 15): Equal Area</span>
                             <svg viewBox="0 0 180 120" class="w-full max-w-[175px] mx-auto bg-white rounded border border-slate-200">
-                                <polygon points="25,95 85,95 110,40 50,40" fill="#bae6fd" fill-opacity="0.8" stroke="#0284c7" stroke-width="1.4"/>
-                                <polygon points="25,95 85,95 155,40 95,40" fill="#c7d2fe" fill-opacity="0.45" stroke="#4f46e5" stroke-width="1.4" stroke-dasharray="3,2"/>
+                                <polygon points="25,95 85,95 110,40 50,40" fill="#93d2f3" fill-opacity="0.8" stroke="#0088cc" stroke-width="1.4"/>
+                                <polygon points="25,95 85,95 155,40 95,40" fill="#93d2f3" fill-opacity="0.35" stroke="#0f766e" stroke-width="1.4" stroke-dasharray="3,2"/>
                                 <line x1="12" y1="40" x2="170" y2="40" stroke="#64748b" stroke-width="1" stroke-dasharray="2,2"/>
-                                <text x="52" y="110" font-size="10" font-weight="bold">a₁</text>
-                                <text x="40" y="34" font-size="10" font-weight="bold" fill="#0284c7">a₂</text>
-                                <text x="86" y="34" font-size="10" font-weight="bold" fill="#4f46e5">a₂+ca₁</text>
+                                <text x="52" y="110" font-size="10" font-weight="bold" fill="#0f172a">a₁</text>
+                                <text x="40" y="34" font-size="10" font-weight="bold" fill="#0077b6">a₂</text>
+                                <text x="86" y="34" font-size="10" font-weight="bold" fill="#0f766e">a₂+ca₁</text>
                             </svg>
                         </div>
 
                         <!-- FIGURE 3 (Page 17) -->
                         <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-1.5">
-                            <span class="font-bold text-indigo-900 text-xs block">FIGURE 3 (Page 17): $\text{Volume} = |abc|$</span>
+                            <span class="font-bold text-teal-900 text-xs block">FIGURE 3 (Page 17): $\text{Volume} = |abc|$</span>
                             <svg viewBox="0 0 180 120" class="w-full max-w-[175px] mx-auto bg-white rounded border border-slate-200">
-                                <polygon points="55,45 115,45 115,85 55,85" fill="#c7d2fe" fill-opacity="0.7" stroke="#4f46e5" stroke-width="1.3"/>
-                                <polygon points="35,62 95,62 95,102 35,102" fill="#bae6fd" fill-opacity="0.7" stroke="#0284c7" stroke-width="1.3"/>
-                                <line x1="35" y1="62" x2="55" y2="45" stroke="#334155" stroke-width="1.1"/>
-                                <line x1="95" y1="62" x2="115" y2="45" stroke="#334155" stroke-width="1.1"/>
-                                <line x1="95" y1="102" x2="115" y2="85" stroke="#334155" stroke-width="1.1"/>
-                                <text x="65" y="114" font-size="10" font-weight="bold">a</text>
-                                <text x="112" y="102" font-size="10" font-weight="bold">b</text>
-                                <text x="23" y="84" font-size="10" font-weight="bold">c</text>
+                                <polygon points="55,45 115,45 115,85 55,85" fill="#93d2f3" fill-opacity="0.55" stroke="#0088cc" stroke-width="1.3"/>
+                                <polygon points="35,62 95,62 95,102 35,102" fill="#93d2f3" fill-opacity="0.8" stroke="#0088cc" stroke-width="1.3"/>
+                                <line x1="35" y1="62" x2="55" y2="45" stroke="#1e293b" stroke-width="1.1"/>
+                                <line x1="95" y1="62" x2="115" y2="45" stroke="#1e293b" stroke-width="1.1"/>
+                                <line x1="95" y1="102" x2="115" y2="85" stroke="#1e293b" stroke-width="1.1"/>
+                                <text x="65" y="114" font-size="10" font-weight="bold" fill="#0f172a">a</text>
+                                <text x="112" y="102" font-size="10" font-weight="bold" fill="#0f172a">b</text>
+                                <text x="23" y="84" font-size="10" font-weight="bold" fill="#0f172a">c</text>
                             </svg>
                         </div>
 
                         <!-- FIGURE 4 (Page 17) -->
                         <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-1.5">
-                            <span class="font-bold text-indigo-900 text-xs block">FIGURE 4 (Page 17): Equal Volume</span>
+                            <span class="font-bold text-teal-900 text-xs block">FIGURE 4 (Page 17): Equal Volume</span>
                             <svg viewBox="0 0 180 120" class="w-full max-w-[175px] mx-auto bg-white rounded border border-slate-200">
-                                <polygon points="28,96 78,96 102,76 52,76" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1.2"/>
-                                <polygon points="28,96 78,96 94,34 44,34" fill="#bae6fd" fill-opacity="0.75" stroke="#0284c7" stroke-width="1.3"/>
-                                <polygon points="28,96 78,96 142,34 92,34" fill="#c7d2fe" fill-opacity="0.45" stroke="#4f46e5" stroke-width="1.3" stroke-dasharray="3,2"/>
+                                <polygon points="28,96 78,96 102,76 52,76" fill="#93d2f3" fill-opacity="0.4" stroke="#0088cc" stroke-width="1.2"/>
+                                <polygon points="28,96 78,96 94,34 44,34" fill="#93d2f3" fill-opacity="0.8" stroke="#0088cc" stroke-width="1.3"/>
+                                <polygon points="28,96 78,96 142,34 92,34" fill="#93d2f3" fill-opacity="0.35" stroke="#0f766e" stroke-width="1.3" stroke-dasharray="3,2"/>
                                 <line x1="15" y1="34" x2="165" y2="34" stroke="#64748b" stroke-width="1" stroke-dasharray="2,2"/>
-                                <text x="95" y="26" font-size="9.5" font-weight="bold" fill="#312e81">a₂ + Span{a₁, a₃}</text>
+                                <text x="95" y="26" font-size="9.5" font-weight="bold" fill="#115e59">a₂ + Span{a₁, a₃}</text>
                             </svg>
                         </div>
                     </div>
@@ -978,36 +978,74 @@
 
                 <!-- Expandable EXAMPLE 4 + FIGURE 5 (Pages 18 - 19) -->
                 <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
-                    <button onclick="toggleCard('ex-3-3-4')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
-                        <span><i class="fa-solid fa-vector-square mr-2 text-indigo-600"></i> EXAMPLE 4 + FIGURE 5 (Pages 18 - 19): Parallelogram Area via Vertex Translation (點擊展開)</span>
-                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example 4</span>
+                    <button onclick="toggleCard('ex-3-3-4')" class="w-full p-4 text-left font-bold text-teal-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-vector-square mr-2 text-teal-600"></i> EXAMPLE 4 + FIGURE 5 (Pages 18 - 19): Parallelogram Area via Vertex Translation (點擊展開)</span>
+                        <span class="text-xs bg-teal-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example 4</span>
                     </button>
                     <div id="ex-3-3-4" class="toggle-content p-5 space-y-4 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
                             <div class="md:col-span-2 space-y-2">
                                 <p><strong>EXAMPLE 4 (Page 18):</strong> Calculate the <strong>area (面積)</strong> of the parallelogram determined by the points $(-2, -2)$, $(0, 3)$, $(4, -1)$, and $(6, 4)$. See Figure 5(a).</p>
                                 <p><strong>SOLUTION:</strong> First <strong>translate (平移)</strong> the parallelogram to one having the <strong>origin (原點)</strong> as a vertex by subtracting $(-2, -2)$ from each of the four vertices. The new parallelogram has the same area, and its vertices are $(0, 0)$, $(2, 5)$, $(6, 1)$, and $(8, 6)$. See Figure 5(b). This parallelogram is determined by the columns of</p>
-                                <p class="font-mono text-center text-indigo-950 font-bold text-xs md:text-sm">
+                                <p class="font-mono text-center text-teal-950 font-bold text-xs md:text-sm">
                                     $$A = \begin{bmatrix} 2 &amp; 6 \\ 5 &amp; 1 \end{bmatrix}$$
                                 </p>
                                 <p>Since $|\det A| = |-28|$, the area of the parallelogram is <strong>28</strong>.</p>
                             </div>
 
-                            <!-- FIGURE 5(a) & 5(b) SVG (Page 19) -->
+                            <!-- FIGURE 5(a) & 5(b) SVG (Page 19): Convex vertices & sky-blue fill -->
                             <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-1.5">
-                                <span class="font-bold text-indigo-900 text-xs block">FIGURE 5 (Page 19): Translation Preserves Area</span>
-                                <svg viewBox="0 0 240 135" class="w-full max-w-[230px] mx-auto bg-white rounded border border-slate-200">
-                                    <!-- (a) -->
-                                    <line x1="15" y1="95" x2="105" y2="95" stroke="#334155" stroke-width="1"/>
-                                    <line x1="35" y1="115" x2="35" y2="18" stroke="#334155" stroke-width="1"/>
-                                    <polygon points="22,102 45,42 82,88 59,28" fill="#bae6fd" fill-opacity="0.75" stroke="#0284c7" stroke-width="1.3"/>
-                                    <text x="60" y="125" text-anchor="middle" font-size="10" font-weight="bold">(a)</text>
-                                    <!-- (b) -->
-                                    <line x1="125" y1="95" x2="228" y2="95" stroke="#334155" stroke-width="1.1"/>
-                                    <line x1="140" y1="115" x2="140" y2="18" stroke="#334155" stroke-width="1.1"/>
-                                    <polygon points="140,95 162,40 198,84 220,29" fill="#c7d2fe" fill-opacity="0.8" stroke="#4f46e5" stroke-width="1.4"/>
-                                    <circle cx="140" cy="95" r="2.5" fill="#0f172a"/>
-                                    <text x="176" y="125" text-anchor="middle" font-size="10" font-weight="bold">(b)</text>
+                                <span class="font-bold text-teal-900 text-xs block">FIGURE 5 (Page 19): Translation Preserves Area</span>
+                                <svg viewBox="0 0 260 140" class="w-full max-w-[250px] mx-auto bg-white rounded border border-slate-200">
+                                    <defs>
+                                        <linearGradient id="fig5ArrowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stop-color="#f8fafc"/>
+                                            <stop offset="100%" stop-color="#fdba74"/>
+                                        </linearGradient>
+                                    </defs>
+
+                                    <!-- (a) Vertices: (-2,-2) -> (4,-1) -> (6,4) -> (0,3) in x in [-3,7], y in [-3,7] -->
+                                    <!-- x_px = 42 + x*7.5, y_px = 86 - y*7.5 -->
+                                    <line x1="12" y1="86" x2="104" y2="86" stroke="#1e293b" stroke-width="1.3"/>
+                                    <polygon points="106,86 101,83.5 101,88.5" fill="#1e293b"/>
+                                    <line x1="42" y1="115" x2="42" y2="20" stroke="#1e293b" stroke-width="1.3"/>
+                                    <polygon points="42,18 39.5,23 44.5,23" fill="#1e293b"/>
+                                    <text x="108" y="90" font-size="9" font-style="italic" fill="#1e293b">x₁</text>
+                                    <text x="39" y="14" font-size="9" font-style="italic" fill="#1e293b">x₂</text>
+                                    <!-- Ticks on (a) -->
+                                    <line x1="27" y1="83.5" x2="27" y2="88.5" stroke="#1e293b" stroke-width="1.1"/>
+                                    <line x1="57" y1="83.5" x2="57" y2="88.5" stroke="#1e293b" stroke-width="1.1"/>
+                                    <line x1="72" y1="83.5" x2="72" y2="88.5" stroke="#1e293b" stroke-width="1.1"/>
+                                    <line x1="87" y1="83.5" x2="87" y2="88.5" stroke="#1e293b" stroke-width="1.1"/>
+                                    <line x1="39.5" y1="71" x2="44.5" y2="71" stroke="#1e293b" stroke-width="1.1"/>
+                                    <line x1="39.5" y1="56" x2="44.5" y2="56" stroke="#1e293b" stroke-width="1.1"/>
+                                    <line x1="39.5" y1="101" x2="44.5" y2="101" stroke="#1e293b" stroke-width="1.1"/>
+                                    <!-- Polygon (a): (27,101), (72,93.5), (87,56), (42,63.5) -->
+                                    <polygon points="27,101 72,93.5 87,56 42,63.5" fill="#93d2f3" fill-opacity="0.85" stroke="#0088cc" stroke-width="1.3"/>
+                                    <text x="56" y="131" text-anchor="middle" font-size="10" font-weight="bold" fill="#0f172a">(a)</text>
+
+                                    <!-- Translation Arrow -->
+                                    <polygon points="113,65 130,65 130,61 138,67.5 130,74 130,70 113,70" fill="url(#fig5ArrowGrad)" stroke="#64748b" stroke-width="0.9"/>
+
+                                    <!-- (b) Vertices: (0,0) -> (6,1) -> (8,6) -> (2,5) in x in [-1,9], y in [-2,7] -->
+                                    <!-- x_px = 152 + x*9.2, y_px = 96 - y*9.2 -->
+                                    <line x1="141" y1="96" x2="246" y2="96" stroke="#1e293b" stroke-width="1.3"/>
+                                    <polygon points="248,96 243,93.5 243,98.5" fill="#1e293b"/>
+                                    <line x1="152" y1="118" x2="152" y2="20" stroke="#1e293b" stroke-width="1.3"/>
+                                    <polygon points="152,18 149.5,23 154.5,23" fill="#1e293b"/>
+                                    <text x="250" y="100" font-size="9" font-style="italic" fill="#1e293b">x₁</text>
+                                    <text x="149" y="14" font-size="9" font-style="italic" fill="#1e293b">x₂</text>
+                                    <!-- Ticks on (b) -->
+                                    <line x1="170.4" y1="93.5" x2="170.4" y2="98.5" stroke="#1e293b" stroke-width="1.1"/>
+                                    <line x1="188.8" y1="93.5" x2="188.8" y2="98.5" stroke="#1e293b" stroke-width="1.1"/>
+                                    <line x1="207.2" y1="93.5" x2="207.2" y2="98.5" stroke="#1e293b" stroke-width="1.1"/>
+                                    <line x1="225.6" y1="93.5" x2="225.6" y2="98.5" stroke="#1e293b" stroke-width="1.1"/>
+                                    <line x1="149.5" y1="77.6" x2="154.5" y2="77.6" stroke="#1e293b" stroke-width="1.1"/>
+                                    <line x1="149.5" y1="59.2" x2="154.5" y2="59.2" stroke="#1e293b" stroke-width="1.1"/>
+                                    <line x1="149.5" y1="40.8" x2="154.5" y2="40.8" stroke="#1e293b" stroke-width="1.1"/>
+                                    <!-- Polygon (b): (152,96), (207.2,86.8), (225.6,40.8), (170.4,50) -->
+                                    <polygon points="152,96 207.2,86.8 225.6,40.8 170.4,50" fill="#93d2f3" fill-opacity="0.85" stroke="#0088cc" stroke-width="1.3"/>
+                                    <text x="196" y="131" text-anchor="middle" font-size="10" font-weight="bold" fill="#0f172a">(b)</text>
                                 </svg>
                             </div>
                         </div>
@@ -1018,38 +1056,38 @@
 
         <!-- 3.3.3 Linear Transformations & EXAMPLE 5 -->
         <div class="space-y-4 pt-6 border-t border-slate-200">
-            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
-                <i class="fa-solid fa-arrows-up-down-left-right text-indigo-500 text-sm"></i> 3.3.3 Linear Transformations &amp; EXAMPLE 5 (線性變換與例題 5，Pages 20 - 25)
+            <h3 class="font-bold text-lg text-teal-800 flex items-center gap-2">
+                <i class="fa-solid fa-arrows-up-down-left-right text-teal-500 text-sm"></i> 3.3.3 Linear Transformations &amp; EXAMPLE 5 (線性變換與例題 5，Pages 20 - 25)
             </h3>
 
             <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
                 <!-- Pages 20 - 23: Linear Transformations, THEOREM 10 & Proof -->
-                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-3 text-slate-800 leading-relaxed">
-                    <strong class="text-indigo-900 text-base font-bold block">Linear Transformations &amp; THEOREM 10 (線性變換與定理 10，Pages 20 - 23)</strong>
+                <div class="p-4 bg-white rounded-lg border border-teal-200 space-y-3 text-slate-800 leading-relaxed">
+                    <strong class="text-teal-900 text-base font-bold block">Linear Transformations &amp; THEOREM 10 (線性變換與定理 10，Pages 20 - 23)</strong>
                     <p>
                         Determinants can be used to describe an important geometric property of <strong>linear transformations (線性變換)</strong> in the plane and in $\mathbb{R}^3$. If $T$ is a linear transformation and $S$ is a set in the <strong>domain (定義域)</strong> of $T$, let $T(S)$ denote the set of <strong>images (像)</strong> of points in $S$. We are interested in how the <strong>area (面積)</strong> (or <strong>volume，體積</strong>) of $T(S)$ compares with the area (or volume) of the original set $S$.
                     </p>
-                    <div class="p-3.5 bg-indigo-50/50 rounded-lg border border-indigo-200 space-y-1.5">
-                        <strong class="text-indigo-950 font-bold block">THEOREM 10 (Page 21)</strong>
+                    <div class="p-3.5 bg-teal-50/50 rounded-lg border border-teal-200 space-y-1.5">
+                        <strong class="text-teal-950 font-bold block">THEOREM 10 (Page 21)</strong>
                         <p>Let $T:\mathbb{R}^2 \to \mathbb{R}^2$ be the linear transformation determined by a $2\times 2$ matrix $A$. If $S$ is a parallelogram in $\mathbb{R}^2$, then</p>
-                        <div class="font-mono text-center text-indigo-950 font-bold text-xs md:text-sm py-0.5 overflow-x-auto">
+                        <div class="font-mono text-center text-teal-950 font-bold text-xs md:text-sm py-0.5 overflow-x-auto">
                             $$\{\text{area of } T(S)\} = |\det A| \cdot \{\text{area of } S\} \quad (5)$$
                         </div>
                         <p>If $T$ is determined by a $3\times 3$ matrix $A$, and if $S$ is a parallelepiped in $\mathbb{R}^3$, then</p>
-                        <div class="font-mono text-center text-indigo-950 font-bold text-xs md:text-sm py-0.5 overflow-x-auto">
+                        <div class="font-mono text-center text-teal-950 font-bold text-xs md:text-sm py-0.5 overflow-x-auto">
                             $$\{\text{volume of } T(S)\} = |\det A| \cdot \{\text{volume of } S\} \quad (6)$$
                         </div>
                     </div>
 
                     <!-- Expandable PROOF of Theorem 10 (Pages 22 - 23) -->
                     <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
-                        <button onclick="toggleCard('proof-3-3-10')" class="w-full p-3.5 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
-                            <span><i class="fa-solid fa-scroll mr-2 text-indigo-600"></i> PROOF OF THEOREM 10 (Pages 22 - 23): $T(S) = AB$, Translation $p + S$ &amp; $\mathbb{R}^3$ Case (點擊展開)</span>
-                            <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof 10</span>
+                        <button onclick="toggleCard('proof-3-3-10')" class="w-full p-3.5 text-left font-bold text-teal-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                            <span><i class="fa-solid fa-scroll mr-2 text-teal-600"></i> PROOF OF THEOREM 10 (Pages 22 - 23): $T(S) = AB$, Translation $p + S$ &amp; $\mathbb{R}^3$ Case (點擊展開)</span>
+                            <span class="text-xs bg-teal-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof 10</span>
                         </button>
                         <div id="proof-3-3-10" class="toggle-content p-4 space-y-2 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
                             <p><strong>PROOF (Pages 22 - 23):</strong> Consider the $2\times 2$ case with $A = \begin{bmatrix} \mathbf{a}_1 &amp; \mathbf{a}_2 \end{bmatrix}$. A parallelogram at the origin determined by $\mathbf{b}_1$ and $\mathbf{b}_2$ has the form $S = \{s_1\mathbf{b}_1 + s_2\mathbf{b}_2 : 0 \le s_1 \le 1, 0 \le s_2 \le 1\}$. Under $T$, $T(s_1\mathbf{b}_1 + s_2\mathbf{b}_2) = s_1 A\mathbf{b}_1 + s_2 A\mathbf{b}_2$, so $T(S)$ is determined by the columns of $AB$ where $B = \begin{bmatrix} \mathbf{b}_1 &amp; \mathbf{b}_2 \end{bmatrix}$. By Theorem 9 and the product theorem for determinants,</p>
-                            <p class="font-mono text-xs md:text-sm text-center text-indigo-950 overflow-x-auto">
+                            <p class="font-mono text-xs md:text-sm text-center text-teal-950 overflow-x-auto">
                                 $$\{\text{area of } T(S)\} = |\det AB| = |\det A| \cdot |\det B| = |\det A| \cdot \{\text{area of } S\}$$
                             </p>
                             <p>For an arbitrary parallelogram $\mathbf{p} + S$, $T$ maps $\mathbf{p} + S$ into $T(\mathbf{p}) + T(S)$. Since <strong>translation (平移)</strong> does not affect area, $\{\text{area of } T(\mathbf{p} + S)\} = \{\text{area of } T(\mathbf{p}) + T(S)\} = \{\text{area of } T(S)\} = |\det A|\cdot\{\text{area of } S\} = |\det A|\cdot\{\text{area of } \mathbf{p} + S\}$. The $3\times 3$ case (6) is analogous.</p>
@@ -1059,42 +1097,42 @@
 
                 <!-- Expandable EXAMPLE 5 + Figure (Pages 24 - 25) -->
                 <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
-                    <button onclick="toggleCard('ex-3-3-5')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
-                        <span><i class="fa-solid fa-circle-dot mr-2 text-indigo-600"></i> EXAMPLE 5 + FIGURE (Pages 24 - 25): Area of an Ellipse $\frac{x_1^2}{a^2} + \frac{x_2^2}{b^2} = 1$ via Unit Disk $D$ (點擊展開)</span>
-                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example 5</span>
+                    <button onclick="toggleCard('ex-3-3-5')" class="w-full p-4 text-left font-bold text-teal-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-circle-dot mr-2 text-teal-600"></i> EXAMPLE 5 + FIGURE (Pages 24 - 25): Area of an Ellipse $\frac{x_1^2}{a^2} + \frac{x_2^2}{b^2} = 1$ via Unit Disk $D$ (點擊展開)</span>
+                        <span class="text-xs bg-teal-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example 5</span>
                     </button>
                     <div id="ex-3-3-5" class="toggle-content p-5 space-y-4 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
                             <div class="md:col-span-2 space-y-2">
                                 <p><strong>EXAMPLE 5 (Page 24):</strong> Let $a$ and $b$ be positive numbers. Find the <strong>area (面積)</strong> of the region $E$ bounded by the <strong>ellipse (橢圓)</strong> whose equation is $\frac{x_1^2}{a^2} + \frac{x_2^2}{b^2} = 1$.</p>
                                 <p><strong>SOLUTION:</strong> $E$ is the image of the <strong>unit disk (單位圓盤)</strong> $D$ under the linear transformation $T$ determined by $A = \begin{bmatrix} a &amp; 0 \\ 0 &amp; b \end{bmatrix}$, because for $\mathbf{u} = \begin{bmatrix} u_1 \\ u_2 \end{bmatrix}$ and $\mathbf{x} = A\mathbf{u} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}$, we have $u_1 = \frac{x_1}{a}$ and $u_2 = \frac{x_2}{b}$, so $u_1^2 + u_2^2 \le 1 \iff (x_1/a)^2 + (x_2/b)^2 \le 1$. By the generalization of Theorem 10:</p>
-                                <p class="font-mono text-center text-indigo-950 font-bold text-xs md:text-sm overflow-x-auto">
+                                <p class="font-mono text-center text-teal-950 font-bold text-xs md:text-sm overflow-x-auto">
                                     $$\{\text{area of ellipse}\} = \{\text{area of } T(D)\} = |\det A| \cdot \{\text{area of } D\} = ab \cdot \pi(1)^2 = \pi ab$$
                                 </p>
                             </div>
 
                             <!-- Figure on Page 25: Unit Disk D -> T -> Ellipse E -->
                             <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-1.5">
-                                <span class="font-bold text-indigo-900 text-xs block">FIGURE (Page 25): $D \xrightarrow{T} E$</span>
+                                <span class="font-bold text-teal-900 text-xs block">FIGURE (Page 25): $D \xrightarrow{T} E$</span>
                                 <svg viewBox="0 0 230 120" class="w-full max-w-[220px] mx-auto bg-white rounded border border-slate-200">
                                     <!-- Unit Disk D -->
-                                    <line x1="12" y1="62" x2="78" y2="62" stroke="#334155" stroke-width="1"/>
-                                    <line x1="45" y1="98" x2="45" y2="24" stroke="#334155" stroke-width="1"/>
-                                    <circle cx="45" cy="62" r="22" fill="#bae6fd" fill-opacity="0.8" stroke="#0284c7" stroke-width="1.4"/>
-                                    <text x="64" y="38" font-size="11" font-weight="bold" fill="#0369a1">D</text>
-                                    <text x="69" y="74" font-size="10">1</text>
-                                    <text x="50" y="34" font-size="10">1</text>
+                                    <line x1="12" y1="62" x2="78" y2="62" stroke="#1e293b" stroke-width="1"/>
+                                    <line x1="45" y1="98" x2="45" y2="24" stroke="#1e293b" stroke-width="1"/>
+                                    <circle cx="45" cy="62" r="22" fill="#93d2f3" fill-opacity="0.85" stroke="#0088cc" stroke-width="1.4"/>
+                                    <text x="64" y="38" font-size="11" font-weight="bold" fill="#0077b6">D</text>
+                                    <text x="69" y="74" font-size="10" fill="#0f172a">1</text>
+                                    <text x="50" y="34" font-size="10" fill="#0f172a">1</text>
                                     <!-- Arrow T -->
-                                    <line x1="84" y1="62" x2="114" y2="62" stroke="#4f46e5" stroke-width="1.8"/>
-                                    <polygon points="118,62 111,58 111,66" fill="#4f46e5"/>
-                                    <text x="99" y="54" text-anchor="middle" font-size="11" font-weight="bold" fill="#4f46e5">T</text>
+                                    <line x1="84" y1="62" x2="114" y2="62" stroke="#0f766e" stroke-width="1.8"/>
+                                    <polygon points="118,62 111,58 111,66" fill="#0f766e"/>
+                                    <text x="99" y="54" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f766e">T</text>
                                     <!-- Ellipse E -->
-                                    <line x1="125" y1="62" x2="222" y2="62" stroke="#334155" stroke-width="1"/>
-                                    <line x1="173" y1="98" x2="173" y2="24" stroke="#334155" stroke-width="1"/>
-                                    <ellipse cx="173" cy="62" rx="38" ry="18" fill="#c7d2fe" fill-opacity="0.85" stroke="#4f46e5" stroke-width="1.4"/>
-                                    <text x="206" y="40" font-size="11" font-weight="bold" fill="#312e81">E</text>
-                                    <text x="204" y="74" font-size="10">a</text>
-                                    <text x="179" y="38" font-size="10">b</text>
+                                    <line x1="125" y1="62" x2="222" y2="62" stroke="#1e293b" stroke-width="1"/>
+                                    <line x1="173" y1="98" x2="173" y2="24" stroke="#1e293b" stroke-width="1"/>
+                                    <ellipse cx="173" cy="62" rx="38" ry="18" fill="#93d2f3" fill-opacity="0.85" stroke="#0088cc" stroke-width="1.4"/>
+                                    <text x="206" y="40" font-size="11" font-weight="bold" fill="#0077b6">E</text>
+                                    <text x="204" y="74" font-size="10" fill="#0f172a">a</text>
+                                    <text x="179" y="38" font-size="10" fill="#0f172a">b</text>
                                 </svg>
                             </div>
                         </div>
