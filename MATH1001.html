@@ -475,29 +475,37 @@
                     <!-- FIGURE 1 SVG (Page 7) -->
                     <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
                         <span class="font-bold text-emerald-900 text-xs block">FIGURE 1: Typical echelon forms of square matrices (Page 7)</span>
-                        <svg viewBox="0 0 440 160" class="w-full max-w-[430px] mx-auto bg-white rounded border border-slate-200">
-                            <!-- Left Matrix: Invertible Echelon Form (4x4) -->
-                            <path d="M 32 16 L 24 16 L 24 122 L 32 122" fill="none" stroke="#0f172a" stroke-width="2"/>
-                            <path d="M 152 16 L 160 16 L 160 122 L 152 122" fill="none" stroke="#0f172a" stroke-width="2"/>
-                            <text x="45" y="36" text-anchor="middle" font-size="14" font-weight="bold" fill="#059669">*</text>
-                            <text x="77" y="36" text-anchor="middle" font-size="14" fill="#0f172a">*</text>
-                            <text x="109" y="36" text-anchor="middle" font-size="14" fill="#0f172a">*</text>
-                            <text x="141" y="36" text-anchor="middle" font-size="14" fill="#0f172a">*</text>
+                        <svg viewBox="0 0 460 155" class="w-full max-w-[450px] mx-auto bg-white rounded border border-slate-200">
+                            <!-- Left Matrix: U with pivots (■) on all 4 diagonal entries -->
+                            <text x="16" y="74" text-anchor="middle" font-size="15" font-style="italic" font-family="serif" fill="#0f172a">U</text>
+                            <text x="32" y="74" text-anchor="middle" font-size="14" fill="#0f172a">=</text>
 
-                            <text x="45" y="62" text-anchor="middle" font-size="13" font-family="monospace" fill="#475569">0</text>
-                            <text x="77" y="62" text-anchor="middle" font-size="14" font-weight="bold" fill="#059669">*</text>
-                            <text x="109" y="62" text-anchor="middle" font-size="14" fill="#0f172a">*</text>
-                            <text x="141" y="62" text-anchor="middle" font-size="14" fill="#0f172a">*</text>
+                            <path d="M 52 14 L 46 14 L 46 116 L 52 116" fill="none" stroke="#0f172a" stroke-width="1.8"/>
+                            <path d="M 164 14 L 170 14 L 170 116 L 164 116" fill="none" stroke="#0f172a" stroke-width="1.8"/>
 
-                            <text x="45" y="88" text-anchor="middle" font-size="13" font-family="monospace" fill="#475569">0</text>
-                            <text x="77" y="88" text-anchor="middle" font-size="13" font-family="monospace" fill="#475569">0</text>
-                            <text x="109" y="88" text-anchor="middle" font-size="14" font-weight="bold" fill="#059669">*</text>
-                            <text x="141" y="88" text-anchor="middle" font-size="14" fill="#0f172a">*</text>
+                            <!-- Row 1: ■ * * * -->
+                            <rect x="57" y="21" width="9" height="9" fill="#0f172a"/>
+                            <text x="90" y="31" text-anchor="middle" font-size="14" font-family="serif" fill="#0284c7">*</text>
+                            <text x="122" y="31" text-anchor="middle" font-size="14" font-family="serif" fill="#0284c7">*</text>
+                            <text x="154" y="31" text-anchor="middle" font-size="14" font-family="serif" fill="#0284c7">*</text>
 
-                            <text x="45" y="114" text-anchor="middle" font-size="13" font-family="monospace" fill="#475569">0</text>
-                            <text x="77" y="114" text-anchor="middle" font-size="13" font-family="monospace" fill="#475569">0</text>
-                            <text x="109" y="114" text-anchor="middle" font-size="13" font-family="monospace" fill="#475569">0</text>
-                            <text x="141" y="114" text-anchor="middle" font-size="14" font-weight="bold" fill="#059669">*</text>
+                            <!-- Row 2: 0 ■ * * -->
+                            <text x="61.5" y="56" text-anchor="middle" font-size="14" font-family="serif" fill="#0f172a">0</text>
+                            <rect x="85.5" y="46" width="9" height="9" fill="#0f172a"/>
+                            <text x="122" y="56" text-anchor="middle" font-size="14" font-family="serif" fill="#0284c7">*</text>
+                            <text x="154" y="56" text-anchor="middle" font-size="14" font-family="serif" fill="#0284c7">*</text>
+
+                            <!-- Row 3: 0 0 ■ * -->
+                            <text x="61.5" y="81" text-anchor="middle" font-size="14" font-family="serif" fill="#0f172a">0</text>
+                            <text x="90" y="81" text-anchor="middle" font-size="14" font-family="serif" fill="#0f172a">0</text>
+                            <rect x="117.5" y="71" width="9" height="9" fill="#0f172a"/>
+                            <text x="154" y="81" text-anchor="middle" font-size="14" font-family="serif" fill="#0284c7">*</text>
+
+                            <!-- Row 4: 0 0 0 ■ -->
+                            <text x="61.5" y="106" text-anchor="middle" font-size="14" font-family="serif" fill="#0f172a">0</text>
+                            <text x="90" y="106" text-anchor="middle" font-size="14" font-family="serif" fill="#0f172a">0</text>
+                            <text x="122" y="106" text-anchor="middle" font-size="14" font-family="serif" fill="#0f172a">0</text>
+                            <rect x="149.5" y="96" width="9" height="9" fill="#0f172a"/>
                             <text x="92" y="144" text-anchor="middle" font-size="11" font-weight="bold" fill="#065f46">Invertible (all pivots *)</text>
 
                             <!-- Right Matrix: Non-invertible Echelon Form (4x4 with zero row) -->
