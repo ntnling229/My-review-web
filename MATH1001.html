@@ -1007,27 +1007,53 @@
                                     <!-- FIGURE 3 (Page 17) -->
                                     <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-1.5">
                                         <span class="font-bold text-teal-900 text-xs block">FIGURE 3 (Page 17): $\text{Volume} = |abc|$</span>
-                                        <svg viewBox="0 0 185 135" class="w-full max-w-[180px] mx-auto bg-white rounded border border-slate-200">
-                                            <line x1="82" y1="86" x2="36" y2="114" stroke="#1e293b" stroke-width="1.2"/>
-                                            <polygon points="33,116 39,115 36,110" fill="#1e293b"/>
-                                            <line x1="82" y1="86" x2="152" y2="96" stroke="#1e293b" stroke-width="1.2"/>
-                                            <polygon points="155,96.5 149,93 148.5,98.5" fill="#1e293b"/>
-                                            <line x1="82" y1="86" x2="82" y2="16" stroke="#1e293b" stroke-width="1.2"/>
-                                            <polygon points="82,13 79.5,19 84.5,19" fill="#1e293b"/>
-                                            <polygon points="82,42 128,49 128,103 82,96" fill="#93d2f3" fill-opacity="0.72" stroke="#0088cc" stroke-width="1.2"/>
-                                            <polygon points="82,42 46,64 46,118 82,96" fill="#93d2f3" fill-opacity="0.52" stroke="#0088cc" stroke-width="1.2"/>
-                                            <polygon points="82,42 128,49 92,71 46,64" fill="#bae6fd" fill-opacity="0.8" stroke="#0088cc" stroke-width="1.2"/>
-                                            <polygon points="46,64 92,71 92,125 46,118" fill="#93d2f3" fill-opacity="0.85" stroke="#0088cc" stroke-width="1.3"/>
-                                            <polygon points="92,71 128,49 128,103 92,125" fill="#7dd3fc" fill-opacity="0.75" stroke="#0088cc" stroke-width="1.3"/>
-                                            <circle cx="46" cy="118" r="2.6" fill="#0099dd"/>
-                                            <circle cx="128" cy="103" r="2.6" fill="#0099dd"/>
-                                            <circle cx="82" cy="42" r="2.6" fill="#0099dd"/>
-                                            <text x="24" y="122" font-size="10" font-style="italic" fill="#1e293b">x</text>
-                                            <text x="158" y="100" font-size="10" font-style="italic" fill="#1e293b">y</text>
-                                            <text x="87" y="14" font-size="10" font-style="italic" fill="#1e293b">z</text>
-                                            <text x="14" y="105" font-size="8.5" font-weight="bold" fill="#0f172a">[a,0,0]ᵀ</text>
-                                            <text x="131" y="114" font-size="8.5" font-weight="bold" fill="#0f172a">[0,b,0]ᵀ</text>
-                                            <text x="53" y="34" font-size="8.5" font-weight="bold" fill="#0f172a">[0,0,c]ᵀ</text>
+                                        <svg viewBox="0 0 210 155" class="w-full max-w-[205px] mx-auto bg-white rounded border border-slate-200">
+                                            <!-- Back axes from origin (92, 92) -->
+                                            <line x1="92" y1="92" x2="54" y2="116" stroke="#64748b" stroke-width="1.2"/>
+                                            <line x1="92" y1="92" x2="162" y2="102" stroke="#64748b" stroke-width="1.2"/>
+                                            <line x1="92" y1="92" x2="92" y2="20" stroke="#64748b" stroke-width="1.2"/>
+                                    
+                                            <!-- Back faces -->
+                                            <polygon points="92,46 138,53 138,107 92,100" fill="#bae6fd" fill-opacity="0.65" stroke="#0099dd" stroke-width="1.1"/>
+                                            <polygon points="92,46 54,70 54,124 92,100" fill="#93d2f3" fill-opacity="0.55" stroke="#0099dd" stroke-width="1.1"/>
+                                    
+                                            <!-- Front & side faces -->
+                                            <polygon points="54,70 100,77 100,131 54,124" fill="#93d2f3" fill-opacity="0.82" stroke="#0088cc" stroke-width="1.3"/>
+                                            <polygon points="100,77 138,53 138,107 100,131" fill="#7dd3fc" fill-opacity="0.72" stroke="#0088cc" stroke-width="1.3"/>
+                                            <polygon points="92,46 138,53 100,77 54,70" fill="#e0f2fe" fill-opacity="0.88" stroke="#ffffff" stroke-width="1.3"/>
+                                    
+                                            <!-- Foreground axes -->
+                                            <line x1="54" y1="124" x2="34" y2="137" stroke="#1e293b" stroke-width="1.4"/>
+                                            <polygon points="31,139 38,138 34.5,133" fill="#1e293b"/>
+                                    
+                                            <line x1="138" y1="107" x2="178" y2="113" stroke="#1e293b" stroke-width="1.4"/>
+                                            <polygon points="182,113.5 175.5,110 175,115.5" fill="#1e293b"/>
+                                    
+                                            <line x1="92" y1="46" x2="92" y2="16" stroke="#1e293b" stroke-width="1.4"/>
+                                            <polygon points="92,12 89.5,18 94.5,18" fill="#1e293b"/>
+                                    
+                                            <!-- Highlighted points -->
+                                            <circle cx="54" cy="124" r="3" fill="#0099dd"/>
+                                            <circle cx="138" cy="107" r="3" fill="#0099dd"/>
+                                            <circle cx="92" cy="46" r="3" fill="#0099dd"/>
+                                    
+                                            <!-- Axis labels -->
+                                            <text x="22" y="143" font-size="11" font-style="italic" fill="#1e293b">x</text>
+                                            <text x="185" y="117" font-size="11" font-style="italic" fill="#1e293b">y</text>
+                                            <text x="82" y="14" font-size="11" font-style="italic" fill="#1e293b">z</text>
+                                    
+                                            <!-- Vector labels -->
+                                            <text x="20" y="102" font-size="8.5" font-weight="bold" fill="#0f172a">[ a ]</text>
+                                            <text x="20" y="112" font-size="8.5" font-weight="bold" fill="#0f172a">[ 0 ]</text>
+                                            <text x="20" y="122" font-size="8.5" font-weight="bold" fill="#0f172a">[ 0 ]</text>
+                                    
+                                            <text x="150" y="124" font-size="8.5" font-weight="bold" fill="#0f172a">[ 0 ]</text>
+                                            <text x="150" y="134" font-size="8.5" font-weight="bold" fill="#0f172a">[ b ]</text>
+                                            <text x="150" y="144" font-size="8.5" font-weight="bold" fill="#0f172a">[ 0 ]</text>
+                                    
+                                            <text x="64" y="25" font-size="8.5" font-weight="bold" fill="#0f172a">[ 0 ]</text>
+                                            <text x="64" y="35" font-size="8.5" font-weight="bold" fill="#0f172a">[ 0 ]</text>
+                                            <text x="64" y="45" font-size="8.5" font-weight="bold" fill="#0f172a">[ c ]</text>
                                         </svg>
                                     </div>
 
