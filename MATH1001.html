@@ -385,74 +385,187 @@
     <section id="sec3-2" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-8">
         <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
             <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
-                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 3.2</span>
-                Properties of Determinants (行列式的性質)
+                <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 3.2</span>
+                PROPERTIES OF DETERMINANTS (行列式的性質)
             </h2>
             <span class="text-xs text-slate-500 font-mono">Pages 1 - 22</span>
         </div>
 
-        <!-- 3.2.1 Row Operations & Echelon Form -->
+        <!-- 3.2.1 Row Operations, Echelon Form & Invertibility -->
         <div class="space-y-4">
-            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
-                <i class="fa-solid fa-sliders text-indigo-500 text-sm"></i> 3.2.1 Row Operations &amp; Invertibility Criterion (列運算與可逆性判別，Pages 1 - 11)
+            <h3 class="font-bold text-lg text-emerald-800 flex items-center gap-2">
+                <i class="fa-solid fa-sliders text-emerald-500 text-sm"></i> 3.2.1 Row Operations, Echelon Form Formula (1) &amp; Invertibility (列運算、階梯形公式與可逆性，Pages 1 - 11)
             </h3>
 
             <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
-                <!-- THEOREM 3 -->
-                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2.5 text-slate-800 leading-relaxed">
-                    <strong class="text-indigo-900 text-base font-bold block">THEOREM 3 — Row Operations (列運算對行列式的影響，Page 1)</strong>
-                    <p>Let $A$ be a square matrix.</p>
-                    <div class="space-y-1.5 pl-3 border-l-2 border-indigo-400">
-                        <p><strong>a. (Row Replacement 列倍加):</strong> If a multiple of one row of $A$ is added to another row to produce a matrix $B$, then $\det B = \det A$.</p>
-                        <p><strong>b. (Row Interchange 列互換):</strong> If two rows of $A$ are interchanged to produce $B$, then $\det B = -\det A$.</p>
-                        <p><strong>c. (Row Scaling 列倍乘):</strong> If one row of $A$ is multiplied by $k$ to produce $B$, then $\det B = k\det A$.</p>
+                <!-- THEOREM 3 (Page 1) -->
+                <div class="p-4 bg-white rounded-lg border border-emerald-200 space-y-2.5 text-slate-800 leading-relaxed">
+                    <strong class="text-emerald-900 text-base font-bold block">THEOREM 3 — Row Operations (列運算，Page 1)</strong>
+                    <p>Let $A$ be a <strong>square matrix (方陣)</strong>.</p>
+                    <div class="space-y-1.5 pl-3 border-l-2 border-emerald-400">
+                        <p><strong>a.</strong> If a multiple of one row of $A$ is added to another row to produce a matrix $B$, then $\det B = \det A$.</p>
+                        <p><strong>b.</strong> If two rows of $A$ are interchanged to produce $B$, then $\det B = -\det A$.</p>
+                        <p><strong>c.</strong> If one row of $A$ is multiplied by $k$ to produce $B$, then $\det B = k\det A$.</p>
+                    </div>
+                    <p class="text-xs md:text-sm text-slate-600">Proof will be given later.</p>
+                </div>
+
+                <!-- Factoring Out Common Multiple & EXAMPLES 1 & 2 (Pages 2 - 5) -->
+                <div class="p-4 bg-white rounded-lg border border-emerald-200 space-y-3 text-slate-800 leading-relaxed">
+                    <strong class="text-emerald-900 text-base font-bold block">Factoring Out a Common Multiple &amp; EXAMPLES 1 - 2 (提出公因數與例題 1 - 2，Pages 2 - 5)</strong>
+                    <p>
+                        A common use of Theorem 3(c) in hand calculations is to factor out a common multiple of one row of a matrix. For instance,
+                        $$\left|\begin{matrix} * &amp; * &amp; * \\ 5k &amp; -2k &amp; 3k \\ * &amp; * &amp; * \end{matrix}\right| = k\left|\begin{matrix} * &amp; * &amp; * \\ 5 &amp; -2 &amp; 3 \\ * &amp; * &amp; * \end{matrix}\right|$$
+                        where the starred entries are unchanged. We use this step in the next example.
+                    </p>
+
+                    <!-- Expandable EXAMPLE 1 (Page 2) -->
+                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                        <button onclick="toggleCard('ex-3-2-1')" class="w-full p-4 text-left font-bold text-emerald-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                            <span><i class="fa-solid fa-calculator mr-2 text-emerald-600"></i> EXAMPLE 1 (Page 2): Reduce to Echelon Form &amp; Use Row Interchange (點擊展開)</span>
+                            <span class="text-xs bg-emerald-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example 1</span>
+                        </button>
+                        <div id="ex-3-2-1" class="toggle-content p-5 space-y-2 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                            <p><strong>EXAMPLE 1 (Page 2):</strong> Compute $\det A$, where $A = \begin{bmatrix} 1 &amp; -4 &amp; 2 \\ -2 &amp; 8 &amp; -9 \\ -1 &amp; 7 &amp; 0 \end{bmatrix}$.</p>
+                            <p><strong>SOLUTION:</strong> The strategy is to reduce $A$ to <strong>echelon form (階梯形)</strong> and then to use the fact that the <strong>determinant (行列式)</strong> of a <strong>triangular matrix (三角矩陣)</strong> is the product of the <strong>diagonal entries (對角線元素)</strong>. The first two row replacements in column 1 do not change the determinant:</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-emerald-950 overflow-x-auto">
+                                $$\det A = \left|\begin{matrix} 1 &amp; -4 &amp; 2 \\ -2 &amp; 8 &amp; -9 \\ -1 &amp; 7 &amp; 0 \end{matrix}\right| = \left|\begin{matrix} 1 &amp; -4 &amp; 2 \\ 0 &amp; 0 &amp; -5 \\ -1 &amp; 7 &amp; 0 \end{matrix}\right| = \left|\begin{matrix} 1 &amp; -4 &amp; 2 \\ 0 &amp; 0 &amp; -5 \\ 0 &amp; 3 &amp; 2 \end{matrix}\right|$$
+                            </p>
+                            <p>An interchange of rows 2 and 3 reverses the sign of the determinant, so</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-emerald-950 overflow-x-auto">
+                                $$\det A = -\left|\begin{matrix} 1 &amp; -4 &amp; 2 \\ 0 &amp; 3 &amp; 2 \\ 0 &amp; 0 &amp; -5 \end{matrix}\right| = -(1)(3)(-5) = 15$$
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Expandable EXAMPLE 2 (Pages 3 - 5) -->
+                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                        <button onclick="toggleCard('ex-3-2-2')" class="w-full p-4 text-left font-bold text-emerald-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                            <span><i class="fa-solid fa-calculator mr-2 text-emerald-600"></i> EXAMPLE 2 (Pages 3 - 5): Factoring Out 2 &amp; Row Reduction of $4\times 4$ Matrix (點擊展開)</span>
+                            <span class="text-xs bg-emerald-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example 2</span>
+                        </button>
+                        <div id="ex-3-2-2" class="toggle-content p-5 space-y-2 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                            <p><strong>EXAMPLE 2 (Pages 3 - 5):</strong> Compute $\det A$, where $A = \begin{bmatrix} 2 &amp; -8 &amp; 6 &amp; 8 \\ 3 &amp; -9 &amp; 5 &amp; 10 \\ -3 &amp; 0 &amp; 1 &amp; -2 \\ 1 &amp; -4 &amp; 0 &amp; 6 \end{bmatrix}$.</p>
+                            <p><strong>SOLUTION:</strong> To simplify the arithmetic, we want a $1$ in the upper-left corner. We could interchange rows 1 and 4. Instead, we factor out $2$ from the top row, and then proceed with row replacements in the first column:</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-emerald-950 overflow-x-auto">
+                                $$\det A = 2\left|\begin{matrix} 1 &amp; -4 &amp; 3 &amp; 4 \\ 3 &amp; -9 &amp; 5 &amp; 10 \\ -3 &amp; 0 &amp; 1 &amp; -2 \\ 1 &amp; -4 &amp; 0 &amp; 6 \end{matrix}\right| = 2\left|\begin{matrix} 1 &amp; -4 &amp; 3 &amp; 4 \\ 0 &amp; 3 &amp; -4 &amp; -2 \\ 0 &amp; -12 &amp; 10 &amp; 10 \\ 0 &amp; 0 &amp; -3 &amp; 2 \end{matrix}\right|$$
+                            </p>
+                            <p>Next, we could factor out another $2$ from row 3 or use the $3$ in the second column as a <strong>pivot (主元)</strong>. We choose the latter operation, adding $4$ times row 2 to row 3:</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-emerald-950 space-y-1 overflow-x-auto">
+                                <span class="block">$$\det A = 2\left|\begin{matrix} 1 &amp; -4 &amp; 3 &amp; 4 \\ 0 &amp; 3 &amp; -4 &amp; -2 \\ 0 &amp; 0 &amp; -6 &amp; 2 \\ 0 &amp; 0 &amp; -3 &amp; 2 \end{matrix}\right|$$</span>
+                                <span class="block">$$\det A = 2\left|\begin{matrix} 1 &amp; -4 &amp; 3 &amp; 4 \\ 0 &amp; 3 &amp; -4 &amp; -2 \\ 0 &amp; 0 &amp; -6 &amp; 2 \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{matrix}\right| = 2\cdot(1)(3)(-6)(1) = -36$$</span>
+                            </p>
+                            <p>Finally, adding $-1/2$ times row 3 to row 4, and computing the "triangular" determinant, we find that $\det A = -36$.</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Echelon Form Formula (1) & THEOREM 4 -->
-                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-3 text-slate-800 leading-relaxed">
-                    <strong class="text-indigo-900 text-base font-bold block">Echelon Form Reduction &amp; THEOREM 4 (Pages 6 - 9)</strong>
+                <!-- Echelon Form Reduction, FIGURE 1 SVG, Formula (1), THEOREM 4 & Linear Dependence (Pages 6 - 9) -->
+                <div class="p-4 bg-white rounded-lg border border-emerald-200 space-y-3 text-slate-800 leading-relaxed">
+                    <strong class="text-emerald-900 text-base font-bold block">Echelon Form Formula (1), FIGURE 1 &amp; THEOREM 4 (階梯形公式、圖 1 與定理 4，Pages 6 - 9)</strong>
                     <p>
-                        Suppose a square matrix $A$ is reduced to an echelon form $U$ using only row replacements and $r$ row interchanges. Then $\det A = (-1)^r \det U$, which gives:
+                        Suppose a square matrix $A$ has been reduced to an <strong>echelon form (階梯形)</strong> $U$ by row replacements and row interchanges. (This is always possible. See the row reduction algorithm in Section 1.2.) If there are $r$ interchanges, then Theorem 3 shows that
+                        $$\det A = (-1)^r \det U$$
+                        Since $U$ is in echelon form, it is triangular, and so $\det U$ is the product of the <strong>diagonal entries (對角線元素)</strong> $u_{11}, \dots, u_{nn}$. If $A$ is <strong>invertible (可逆的)</strong>, the entries $u_{ii}$ are all <strong>pivots (主元)</strong> (because $A \sim I_n$ and the $u_{ii}$ have not been scaled to $1$'s). Otherwise, at least $u_{nn}$ is zero, and the product $u_{11}\cdots u_{nn}$ is zero. See Figure 1. Thus
                     </p>
-                    <div class="p-3 bg-indigo-50/70 rounded-lg border border-indigo-200 font-mono text-center text-indigo-950 font-bold text-xs md:text-sm">
-                        $$\det A = \begin{cases} (-1)^r \cdot (\text{product of pivots in } U) &amp; \text{when } A \text{ is invertible} \\ 0 &amp; \text{when } A \text{ is not invertible} \end{cases} \quad \text{(1)}$$
+                    <div class="p-3 bg-emerald-50/70 rounded-lg border border-emerald-200 font-mono text-center text-emerald-950 font-bold text-xs md:text-sm overflow-x-auto">
+                        $$\det A = \begin{cases} (-1)^r \cdot (\text{product of pivots in } U) &amp; \text{when } A \text{ is invertible} \\ 0 &amp; \text{when } A \text{ is not invertible} \end{cases} \quad (1)$$
                     </div>
-                    <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-1">
-                        <strong class="text-indigo-950 font-bold block">THEOREM 4 (Page 8):</strong>
+
+                    <!-- FIGURE 1 SVG (Page 7) -->
+                    <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
+                        <span class="font-bold text-emerald-900 text-xs block">FIGURE 1: Typical echelon forms of square matrices (Page 7)</span>
+                        <svg viewBox="0 0 440 160" class="w-full max-w-[430px] mx-auto bg-white rounded border border-slate-200">
+                            <!-- Left Matrix: Invertible Echelon Form (4x4) -->
+                            <path d="M 32 16 L 24 16 L 24 122 L 32 122" fill="none" stroke="#0f172a" stroke-width="2"/>
+                            <path d="M 152 16 L 160 16 L 160 122 L 152 122" fill="none" stroke="#0f172a" stroke-width="2"/>
+                            <text x="45" y="36" text-anchor="middle" font-size="14" font-weight="bold" fill="#059669">*</text>
+                            <text x="77" y="36" text-anchor="middle" font-size="14" fill="#0f172a">*</text>
+                            <text x="109" y="36" text-anchor="middle" font-size="14" fill="#0f172a">*</text>
+                            <text x="141" y="36" text-anchor="middle" font-size="14" fill="#0f172a">*</text>
+
+                            <text x="45" y="62" text-anchor="middle" font-size="13" font-family="monospace" fill="#475569">0</text>
+                            <text x="77" y="62" text-anchor="middle" font-size="14" font-weight="bold" fill="#059669">*</text>
+                            <text x="109" y="62" text-anchor="middle" font-size="14" fill="#0f172a">*</text>
+                            <text x="141" y="62" text-anchor="middle" font-size="14" fill="#0f172a">*</text>
+
+                            <text x="45" y="88" text-anchor="middle" font-size="13" font-family="monospace" fill="#475569">0</text>
+                            <text x="77" y="88" text-anchor="middle" font-size="13" font-family="monospace" fill="#475569">0</text>
+                            <text x="109" y="88" text-anchor="middle" font-size="14" font-weight="bold" fill="#059669">*</text>
+                            <text x="141" y="88" text-anchor="middle" font-size="14" fill="#0f172a">*</text>
+
+                            <text x="45" y="114" text-anchor="middle" font-size="13" font-family="monospace" fill="#475569">0</text>
+                            <text x="77" y="114" text-anchor="middle" font-size="13" font-family="monospace" fill="#475569">0</text>
+                            <text x="109" y="114" text-anchor="middle" font-size="13" font-family="monospace" fill="#475569">0</text>
+                            <text x="141" y="114" text-anchor="middle" font-size="14" font-weight="bold" fill="#059669">*</text>
+                            <text x="92" y="144" text-anchor="middle" font-size="11" font-weight="bold" fill="#065f46">Invertible (all pivots *)</text>
+
+                            <!-- Right Matrix: Non-invertible Echelon Form (4x4 with zero row) -->
+                            <path d="M 272 16 L 264 16 L 264 122 L 272 122" fill="none" stroke="#0f172a" stroke-width="2"/>
+                            <path d="M 392 16 L 400 16 L 400 122 L 392 122" fill="none" stroke="#0f172a" stroke-width="2"/>
+                            <text x="285" y="36" text-anchor="middle" font-size="14" font-weight="bold" fill="#059669">*</text>
+                            <text x="317" y="36" text-anchor="middle" font-size="14" fill="#0f172a">*</text>
+                            <text x="349" y="36" text-anchor="middle" font-size="14" fill="#0f172a">*</text>
+                            <text x="381" y="36" text-anchor="middle" font-size="14" fill="#0f172a">*</text>
+
+                            <text x="285" y="62" text-anchor="middle" font-size="13" font-family="monospace" fill="#475569">0</text>
+                            <text x="317" y="62" text-anchor="middle" font-size="14" font-weight="bold" fill="#059669">*</text>
+                            <text x="349" y="62" text-anchor="middle" font-size="14" fill="#0f172a">*</text>
+                            <text x="381" y="62" text-anchor="middle" font-size="14" fill="#0f172a">*</text>
+
+                            <text x="285" y="88" text-anchor="middle" font-size="13" font-family="monospace" fill="#475569">0</text>
+                            <text x="317" y="88" text-anchor="middle" font-size="13" font-family="monospace" fill="#475569">0</text>
+                            <text x="349" y="88" text-anchor="middle" font-size="14" font-weight="bold" fill="#dc2626">0</text>
+                            <text x="381" y="88" text-anchor="middle" font-size="14" fill="#0f172a">*</text>
+
+                            <text x="285" y="114" text-anchor="middle" font-size="13" font-family="monospace" fill="#475569">0</text>
+                            <text x="317" y="114" text-anchor="middle" font-size="13" font-family="monospace" fill="#475569">0</text>
+                            <text x="349" y="114" text-anchor="middle" font-size="13" font-family="monospace" fill="#475569">0</text>
+                            <text x="381" y="114" text-anchor="middle" font-size="13" font-family="monospace" fill="#dc2626">0</text>
+                            <text x="332" y="144" text-anchor="middle" font-size="11" font-weight="bold" fill="#991b1b">Not invertible (0 on diagonal)</text>
+                        </svg>
+                    </div>
+
+                    <p>
+                        It is interesting to note that although the <strong>echelon form (階梯形)</strong> $U$ described above is not unique (because it is not completely row reduced), and the <strong>pivots (主元)</strong> are not unique, the product of the pivots is unique, except for a possible minus sign.
+                    </p>
+                    <p>
+                        Formula (1) not only gives a concrete interpretation of $\det A$ but also proves the main theorem of this section:
+                    </p>
+                    <div class="p-3.5 bg-emerald-50/60 rounded-lg border border-emerald-200 space-y-1">
+                        <strong class="text-emerald-950 font-bold block">THEOREM 4 (定理 4，Page 8)</strong>
                         <p>A square matrix $A$ is <strong>invertible (可逆的)</strong> if and only if $\det A \ne 0$.</p>
                     </div>
-                    <p class="text-xs md:text-sm text-slate-600">
-                        <strong>Corollary:</strong> $\det A = 0$ whenever the columns (or rows) of $A$ are <strong>linearly dependent (線性相依)</strong>—in particular, when two rows or two columns are identical or proportional, or when a row or column is zero.
+                    <p>
+                        Theorem 4 adds the statement "$\det A \ne 0$" to the <strong>Invertible Matrix Theorem (可逆矩陣定理)</strong>. A useful corollary is that $\det A = 0$ when the columns of $A$ are <strong>linearly dependent (線性相依)</strong>. Also, $\det A = 0$ when the rows of $A$ are <strong>linearly dependent (線性相依)</strong>. (Rows of $A$ are columns of $A^T$, and linearly dependent columns of $A^T$ make $A^T$ <strong>singular (奇異的／不可逆的)</strong>. When $A^T$ is singular, so is $A$, by the Invertible Matrix Theorem.) In practice, linear dependence is obvious when two columns or two rows are the same or a column or a row is zero.
                     </p>
                 </div>
 
-                <!-- Expandable EXAMPLES 1, 2, 3 & 4 (Pages 2 - 11) -->
+                <!-- Expandable EXAMPLES 3 & 4 (Pages 10 - 11) -->
                 <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
-                    <button onclick="toggleCard('ex-3-2-1234')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
-                        <span><i class="fa-solid fa-table-list mr-2 text-indigo-600"></i> EXAMPLES 1 - 4 (Pages 2 - 11): Combining Row Reduction &amp; Cofactor Expansion (點擊展開)</span>
-                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                    <button onclick="toggleCard('ex-3-2-34')" class="w-full p-4 text-left font-bold text-emerald-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-table-list mr-2 text-emerald-600"></i> EXAMPLES 3 &amp; 4 (Pages 10 - 11): Equal Rows &amp; Mixed Row Reduction + Cofactor Expansion (點擊展開)</span>
+                        <span class="text-xs bg-emerald-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples 3 &amp; 4</span>
                     </button>
-                    <div id="ex-3-2-1234" class="toggle-content p-5 space-y-4 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                    <div id="ex-3-2-34" class="toggle-content p-5 space-y-4 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
                         <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-1.5">
-                            <p><strong>EXAMPLE 1 (Page 2):</strong> Reduce to echelon form; one swap of rows 2 and 3 flips the sign:</p>
-                            <p class="font-mono text-xs md:text-sm text-center text-indigo-950">
-                                $$\det A = \begin{vmatrix} 1 &amp; -4 &amp; 2 \\ -2 &amp; 8 &amp; -9 \\ -1 &amp; 7 &amp; 0 \end{vmatrix} = \begin{vmatrix} 1 &amp; -4 &amp; 2 \\ 0 &amp; 0 &amp; -5 \\ 0 &amp; 3 &amp; 2 \end{vmatrix} = -\begin{vmatrix} 1 &amp; -4 &amp; 2 \\ 0 &amp; 3 &amp; 2 \\ 0 &amp; 0 &amp; -5 \end{vmatrix} = -(1)(3)(-5) = 15$$
+                            <p><strong>EXAMPLE 3 (Page 10):</strong> Compute $\det A$, where $A = \begin{bmatrix} 3 &amp; -1 &amp; 2 &amp; -5 \\ 0 &amp; 5 &amp; -3 &amp; -6 \\ -6 &amp; 7 &amp; -7 &amp; 4 \\ -5 &amp; -8 &amp; 0 &amp; 9 \end{bmatrix}$.</p>
+                            <p><strong>SOLUTION:</strong> Add $2$ times row 1 to row 3 to obtain</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-emerald-950 overflow-x-auto">
+                                $$\det A = \det\begin{bmatrix} 3 &amp; -1 &amp; 2 &amp; -5 \\ 0 &amp; 5 &amp; -3 &amp; -6 \\ 0 &amp; 5 &amp; -3 &amp; -6 \\ -5 &amp; -8 &amp; 0 &amp; 9 \end{bmatrix} = 0$$
                             </p>
+                            <p>because the second and third rows of the second matrix are equal.</p>
                         </div>
 
                         <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-1.5">
-                            <p><strong>EXAMPLE 2 (Pages 3 - 5):</strong> Factor out common factor $2$ from Row 1 via Theorem 3(c), then reduce:</p>
-                            <p class="font-mono text-xs md:text-sm text-center text-indigo-950">
-                                $$\det A = \begin{vmatrix} 2 &amp; -8 &amp; 6 &amp; 8 \\ 3 &amp; -9 &amp; 5 &amp; 10 \\ -3 &amp; 0 &amp; 1 &amp; -2 \\ 1 &amp; -4 &amp; 0 &amp; 6 \end{vmatrix} = 2\begin{vmatrix} 1 &amp; -4 &amp; 3 &amp; 4 \\ 0 &amp; 3 &amp; -4 &amp; -2 \\ 0 &amp; 0 &amp; -6 &amp; 2 \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{vmatrix} = 2(1)(3)(-6)(1) = -36$$
+                            <p><strong>EXAMPLE 4 (Page 11):</strong> Compute $\det A$, where $A = \begin{bmatrix} 0 &amp; 1 &amp; 2 &amp; -1 \\ 2 &amp; 5 &amp; -7 &amp; 3 \\ 0 &amp; 3 &amp; 6 &amp; 2 \\ -2 &amp; -5 &amp; 4 &amp; -2 \end{bmatrix}$.</p>
+                            <p><strong>SOLUTION:</strong> A good way to begin is to use the $2$ in column 1 as a <strong>pivot (主元)</strong>, eliminating the $-2$ below it. Then use a <strong>cofactor expansion (餘因子展開)</strong> to reduce the size of the <strong>determinant (行列式)</strong>, followed by another row replacement operation. Thus</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-emerald-950 overflow-x-auto">
+                                $$\det A = \left|\begin{matrix} 0 &amp; 1 &amp; 2 &amp; -1 \\ 2 &amp; 5 &amp; -7 &amp; 3 \\ 0 &amp; 3 &amp; 6 &amp; 2 \\ 0 &amp; 0 &amp; -3 &amp; 1 \end{matrix}\right| = -2\left|\begin{matrix} 1 &amp; 2 &amp; -1 \\ 3 &amp; 6 &amp; 2 \\ 0 &amp; -3 &amp; 1 \end{matrix}\right| = -2\left|\begin{matrix} 1 &amp; 2 &amp; -1 \\ 0 &amp; 0 &amp; 5 \\ 0 &amp; -3 &amp; 1 \end{matrix}\right|$$
                             </p>
-                        </div>
-
-                        <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-1.5">
-                            <p><strong>EXAMPLE 3 (Page 10):</strong> Adding $2R_1$ to $R_3$ produces two identical rows ($[0 \;\; 5 \;\; -3 \;\; -6]$), so $\det A = 0$ immediately.</p>
-                            <p><strong>EXAMPLE 4 (Page 11):</strong> Eliminate $-2$ in $(4,1)$ using $(2,1)$ pivot, then expand down Column 1 (remembering sign $(-1)^{2+1} = -1$):</p>
-                            <p class="font-mono text-xs md:text-sm text-center text-indigo-950">
-                                $$\det A = \begin{vmatrix} 0 &amp; 1 &amp; 2 &amp; -1 \\ 2 &amp; 5 &amp; -7 &amp; 3 \\ 0 &amp; 3 &amp; 6 &amp; 2 \\ -2 &amp; -5 &amp; 4 &amp; -2 \end{vmatrix} = \begin{vmatrix} 0 &amp; 1 &amp; 2 &amp; -1 \\ 2 &amp; 5 &amp; -7 &amp; 3 \\ 0 &amp; 3 &amp; 6 &amp; 2 \\ 0 &amp; 0 &amp; -3 &amp; 1 \end{vmatrix} = -2\begin{vmatrix} 1 &amp; 2 &amp; -1 \\ 3 &amp; 6 &amp; 2 \\ 0 &amp; -3 &amp; 1 \end{vmatrix} = -2\begin{vmatrix} 1 &amp; 2 &amp; -1 \\ 0 &amp; 0 &amp; 5 \\ 0 &amp; -3 &amp; 1 \end{vmatrix} = -30$$
+                            <p>An interchange of rows 2 and 3 would produce a "triangular determinant." Another approach is to make a cofactor expansion down the first column:</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-emerald-950 overflow-x-auto">
+                                $$\det A = (-2)(1)\left|\begin{matrix} 0 &amp; 5 \\ -3 &amp; 1 \end{matrix}\right| = -2\cdot(15) = -30$$
                             </p>
                         </div>
                     </div>
@@ -460,66 +573,149 @@
             </div>
         </div>
 
-        <!-- 3.2.2 Transpose, Multiplicative & Linearity Properties + Proofs -->
+        <!-- 3.2.2 Column Operations, Transpose, Multiplicative Property & Multi-Linearity -->
         <div class="space-y-4 pt-6 border-t border-slate-200">
-            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
-                <i class="fa-solid fa-diagram-project text-indigo-500 text-sm"></i> 3.2.2 Transpose, Product &amp; Multi-Linearity Properties (轉置、乘積與多重線性，Pages 12 - 22)
+            <h3 class="font-bold text-lg text-emerald-800 flex items-center gap-2">
+                <i class="fa-solid fa-diagram-project text-emerald-500 text-sm"></i> 3.2.2 Column Operations, Transpose, Multiplicative Property, Multi-Linearity &amp; Proofs (行運算、轉置、乘積性質、多重線性與證明，Pages 12 - 22)
             </h3>
 
             <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <!-- THEOREM 5 -->
-                    <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2 text-slate-800 leading-relaxed">
-                        <strong class="text-indigo-900 text-base font-bold block">THEOREM 5 — Transpose Property (Page 13)</strong>
-                        <p class="font-mono text-center text-indigo-950 font-bold py-1 bg-indigo-50/70 rounded border border-indigo-200">
-                            $$\det A^T = \det A$$
-                        </p>
-                        <p class="text-xs md:text-sm">
-                            Consequently, every statement in Theorem 3 remains true when the word <em>row</em> is replaced by <em>column</em>.
-                        </p>
-                    </div>
-
-                    <!-- THEOREM 6 -->
-                    <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2 text-slate-800 leading-relaxed">
-                        <strong class="text-indigo-900 text-base font-bold block">THEOREM 6 — Multiplicative Property (Page 15)</strong>
-                        <p class="font-mono text-center text-indigo-950 font-bold py-1 bg-indigo-50/70 rounded border border-indigo-200">
-                            $$\det(AB) = (\det A)(\det B)$$
-                        </p>
-                        <p class="text-xs md:text-sm text-amber-900 bg-amber-50 p-2 rounded border border-amber-200">
-                            <strong>Warning (Page 16):</strong> In general, $\det(A + B) \ne \det A + \det B$.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Linearity Property (Pages 17 - 18) -->
-                <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-2 text-slate-800 leading-relaxed">
-                    <strong class="text-indigo-900 text-base font-bold block">Multi-Linearity of the Determinant Function (行列式的多重線性，Pages 17 - 18)</strong>
+                <!-- Column Operations, Induction Remark & THEOREM 5 (Pages 12 - 14) -->
+                <div class="p-4 bg-white rounded-lg border border-emerald-200 space-y-2.5 text-slate-800 leading-relaxed">
+                    <strong class="text-emerald-900 text-base font-bold block">Column Operations, Mathematical Induction &amp; THEOREM 5 (行運算、數學歸納法與定理 5，Pages 12 - 14)</strong>
                     <p>
-                        If all columns of an $n\times n$ matrix $A$ except the $j$th column are held fixed, the transformation $T(\mathbf{x}) = \det[\mathbf{a}_1 \;\; \cdots \;\; \mathbf{a}_{j-1} \;\; \mathbf{x} \;\; \mathbf{a}_{j+1} \;\; \cdots \;\; \mathbf{a}_n]$ is linear:
+                        We can perform operations on the columns of a matrix in a way that is analogous to the row operations we have considered. The next theorem shows that column operations have the same effects on determinants as row operations.
                     </p>
-                    <p class="font-mono text-center text-indigo-950 font-bold text-xs md:text-sm py-1">
-                        $$T(c\mathbf{x}) = c\,T(\mathbf{x}) \qquad \text{and} \qquad T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$$
+                    <p class="text-xs md:text-sm text-slate-700 bg-slate-50 p-2.5 rounded border border-slate-200">
+                        <strong>Remark (Page 12):</strong> The <strong>Principle of Mathematical Induction (數學歸納法原理)</strong> says the following: Let $P(n)$ be a statement that is either true or false for each natural number $n$. Then $P(n)$ is true for all $n \ge 1$ provided that $P(1)$ is true, and for each natural number $k$, if $P(k)$ is true, then $P(k+1)$ is true. The Principle of Mathematical Induction is used to prove the next theorem.
+                    </p>
+                    <div class="p-3 bg-emerald-50/60 rounded-lg border border-emerald-200 space-y-1">
+                        <strong class="text-emerald-950 font-bold block">THEOREM 5 (定理 5，Page 13)</strong>
+                        <p>If $A$ is an $n\times n$ matrix, then $\det A^T = \det A$.</p>
+                    </div>
+                    <p>
+                        Because of Theorem 5, each statement in Theorem 3 is true when the word <em>row</em> is replaced everywhere by <em>column</em>. To verify this property, one merely applies the original Theorem 3 to $A^T$. A row operation on $A^T$ amounts to a column operation on $A$. Column operations are useful for both theoretical purposes and hand computations. However, for simplicity we'll perform only row operations in numerical calculations.
                     </p>
                 </div>
 
-                <!-- Expandable Proofs of Theorems 3, 5 & 6 (Pages 13, 19 - 22) -->
-                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
-                    <button onclick="toggleCard('proof-3-2-all')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
-                        <span><i class="fa-solid fa-scroll mr-2 text-indigo-600"></i> PROOFS OF THEOREMS 3, 5 &amp; 6 via Elementary Matrices &amp; Induction (Pages 13, 19 - 22) (點擊展開)</span>
-                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proofs</span>
-                    </button>
-                    <div id="proof-3-2-all" class="toggle-content p-5 space-y-3 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
-                        <div>
-                            <strong class="text-indigo-900 block">• Proof of Theorem 5 (Page 13):</strong>
-                            <p>By induction on $n$: trivial for $n=1$. Assuming true for $k\times k$, for $n=k+1$ the cofactor of $a_{1j}$ in $A$ equals the cofactor of $a_{j1}$ in $A^T$. Hence the cofactor expansion of $\det A$ across Row 1 equals that of $\det A^T$ down Column 1.</p>
+                <!-- THEOREM 6, EXAMPLE 5 & Warning (Pages 14 - 15) -->
+                <div class="p-4 bg-white rounded-lg border border-emerald-200 space-y-3 text-slate-800 leading-relaxed">
+                    <strong class="text-emerald-900 text-base font-bold block">Determinants and Matrix Products — THEOREM 6 &amp; EXAMPLE 5 (矩陣乘積的行列式，Pages 14 - 15)</strong>
+                    <div class="p-3 bg-emerald-50/60 rounded-lg border border-emerald-200 space-y-1">
+                        <strong class="text-emerald-950 font-bold block">THEOREM 6 — Multiplicative Property (乘法性質，Page 14)</strong>
+                        <p>If $A$ and $B$ are $n\times n$ matrices, then $\det AB = (\det A)(\det B)$.</p>
+                        <p class="text-xs text-slate-600">Proof will be given later.</p>
+                    </div>
+
+                    <!-- Expandable EXAMPLE 5 (Page 15) -->
+                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                        <button onclick="toggleCard('ex-3-2-5')" class="w-full p-4 text-left font-bold text-emerald-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                            <span><i class="fa-solid fa-calculator mr-2 text-emerald-600"></i> EXAMPLE 5 (Page 15): Verify $\det AB = (\det A)(\det B)$ for $2\times 2$ Matrices (點擊展開)</span>
+                            <span class="text-xs bg-emerald-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example 5</span>
+                        </button>
+                        <div id="ex-3-2-5" class="toggle-content p-5 space-y-2 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                            <p><strong>EXAMPLE 5 (Page 15):</strong> Verify Theorem 6 for $A = \begin{bmatrix} 6 &amp; 1 \\ 3 &amp; 2 \end{bmatrix}$ and $B = \begin{bmatrix} 4 &amp; 3 \\ 1 &amp; 2 \end{bmatrix}$.</p>
+                            <p><strong>SOLUTION:</strong></p>
+                            <p class="font-mono text-xs md:text-sm text-center text-emerald-950 overflow-x-auto">
+                                $$AB = \begin{bmatrix} 6 &amp; 1 \\ 3 &amp; 2 \end{bmatrix}\begin{bmatrix} 4 &amp; 3 \\ 1 &amp; 2 \end{bmatrix} = \begin{bmatrix} 25 &amp; 20 \\ 14 &amp; 13 \end{bmatrix}$$
+                            </p>
+                            <p>and</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-emerald-950 overflow-x-auto">
+                                $$\det AB = 25\cdot 13 - 20\cdot 14 = 325 - 280 = 45$$
+                            </p>
+                            <p>Since $\det A = 9$ and $\det B = 5$,</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-emerald-950 overflow-x-auto">
+                                $$(\det A)(\det B) = 9\cdot 5 = 45 = \det AB$$
+                            </p>
                         </div>
-                        <div class="pt-2 border-t border-slate-100">
-                            <strong class="text-indigo-900 block">• Proof of Theorem 3 via Elementary Matrices $E$ (Pages 19 - 21):</strong>
-                            <p>Reformulate as $\det(EA) = (\det E)(\det A)$, where $\det E = 1$ (row replacement), $-1$ (interchange), or $r$ (scale by $r$). Expand $\det(EA)$ across an unchanged row $i$; by induction on $k\times k$ submatrices, $\det B_{ij} = \alpha \det A_{ij}$, giving $\det(EA) = \alpha \det A$. Setting $A = I_n$ yields $\det E = \alpha$.</p>
+                    </div>
+
+                    <p class="text-xs md:text-sm text-amber-950 bg-amber-50 p-3 rounded-lg border border-amber-200">
+                        <strong>Warning (Page 15):</strong> A common misconception is that Theorem 6 has an analogue for sums of matrices. However, $\det(A + B)$ is not equal to $\det A + \det B$, in general.
+                    </p>
+                </div>
+
+                <!-- A Linearity Property of the Determinant Function (Pages 16 - 17) -->
+                <div class="p-4 bg-white rounded-lg border border-emerald-200 space-y-2.5 text-slate-800 leading-relaxed">
+                    <strong class="text-emerald-900 text-base font-bold block">A Linearity Property of the Determinant Function (行列式函數的線性性質，Pages 16 - 17)</strong>
+                    <p>
+                        For an $n\times n$ matrix $A$, we can consider $\det A$ as a function of the $n$ column vectors in $A$. We will show that if all columns except one are held fixed, then $\det A$ is a linear function of that one (vector) variable.
+                    </p>
+                    <p>
+                        Suppose that the $j$th column of $A$ is allowed to vary, and write
+                        $$A = \begin{bmatrix} \mathbf{a}_1 &amp; \cdots &amp; \mathbf{a}_{j-1} &amp; \mathbf{x} &amp; \mathbf{a}_{j+1} &amp; \cdots &amp; \mathbf{a}_n \end{bmatrix}$$
+                        Define a <strong>transformation (變換)</strong> $T$ from $\mathbb{R}^n$ to $\mathbb{R}$ by
+                        $$T(\mathbf{x}) = \det\begin{bmatrix} \mathbf{a}_1 &amp; \cdots &amp; \mathbf{a}_{j-1} &amp; \mathbf{x} &amp; \mathbf{a}_{j+1} &amp; \cdots &amp; \mathbf{a}_n \end{bmatrix}$$
+                        Then,
+                    </p>
+                    <div class="p-3 bg-emerald-50/70 rounded-lg border border-emerald-200 font-mono text-center text-emerald-950 font-bold text-xs md:text-sm space-y-1 overflow-x-auto">
+                        <div>$$T(c\mathbf{x}) = c\,T(\mathbf{x}) \quad \text{for all scalars } c \text{ and all } \mathbf{x} \text{ in } \mathbb{R}^n \quad (2)$$</div>
+                        <div>$$T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v}) \quad \text{for all } \mathbf{u}, \mathbf{v} \text{ in } \mathbb{R}^n \quad (3)$$</div>
+                    </div>
+                    <p class="text-xs md:text-sm text-slate-600">
+                        Property (2) is Theorem 3(c) applied to the columns of $A$. A proof of property (3) follows from a <strong>cofactor expansion (餘因子展開)</strong> of $\det A$ down the $j$th column. (See Exercise 43.) This <strong>(multi-)linearity property ((多重)線性性質)</strong> of the determinant turns out to have many useful consequences that are studied in more advanced courses.
+                    </p>
+                </div>
+
+                <!-- Proofs of Theorems 5, 3 and 6 (Pages 13, 18 - 22) -->
+                <div class="p-4 bg-white rounded-lg border border-emerald-200 space-y-3 text-slate-800 leading-relaxed">
+                    <strong class="text-emerald-900 text-base font-bold block">Proofs of Theorems 5, 3 and 6 (定理 5、3 與 6 的證明，Pages 13, 18 - 22)</strong>
+                    <p>
+                        It is convenient to prove Theorem 3 when it is stated in terms of the <strong>elementary matrices (基本矩陣)</strong> discussed in Section 2.2. We call an elementary matrix $E$ a <strong>row replacement (matrix) (列倍加基本矩陣)</strong> if $E$ is obtained from the <strong>identity (單位矩陣)</strong> $I$ by adding a multiple of one row to another row; $E$ is an <strong>interchange (列互換基本矩陣)</strong> if $E$ is obtained by interchanging two rows of $I$; and $E$ is a <strong>scale by $r$ (列倍乘基本矩陣)</strong> if $E$ is obtained by multiplying a row of $I$ by a nonzero <strong>scalar (純量)</strong> $r$. With this terminology, Theorem 3 can be reformulated as follows:
+                    </p>
+                    <div class="p-3 bg-emerald-50/70 rounded-lg border border-emerald-200 font-mono text-center text-emerald-950 font-bold text-xs md:text-sm overflow-x-auto">
+                        $$\det EA = (\det E)(\det A), \qquad \text{where } \det E = \begin{cases} 1 &amp; \text{if } E \text{ is a row replacement} \\ -1 &amp; \text{if } E \text{ is an interchange} \\ r &amp; \text{if } E \text{ is a scale by } r \end{cases}$$
+                    </div>
+
+                    <!-- Expandable PROOF OF THEOREM 5 (Page 13) -->
+                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                        <button onclick="toggleCard('proof-3-2-5')" class="w-full p-4 text-left font-bold text-emerald-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                            <span><i class="fa-solid fa-scroll mr-2 text-emerald-600"></i> PROOF OF THEOREM 5 (Page 13): Induction on $n$ for $\det A^T = \det A$ (點擊展開)</span>
+                            <span class="text-xs bg-emerald-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof 5</span>
+                        </button>
+                        <div id="proof-3-2-5" class="toggle-content p-5 space-y-2 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                            <p><strong>PROOF (Page 13):</strong> The theorem is obvious for $n = 1$. Suppose the theorem is true for $k\times k$ determinants and let $n = k+1$. Then the cofactor of $a_{1j}$ in $A$ equals the cofactor of $a_{j1}$ in $A^T$, because the cofactors involve $k\times k$ determinants. Hence the cofactor expansion of $\det A$ along the first row equals the cofactor expansion of $\det A^T$ down the first column. That is, $A$ and $A^T$ have equal determinants. The theorem is true for $n = 1$, and the truth of the theorem for one value of $n$ implies its truth for the next value of $n$. By the Principle of Mathematical Induction, the theorem is true for all $n \ge 1$.</p>
                         </div>
-                        <div class="pt-2 border-t border-slate-100">
-                            <strong class="text-indigo-900 block">• Proof of Theorem 6 (Page 22):</strong>
-                            <p>If $A$ is singular, so is $AB$, and both $\det(AB)$ and $(\det A)(\det B)$ equal $0$. If $A$ is invertible, factor $A = E_p E_{p-1}\cdots E_1$. Repeatedly applying $\det(EB) = (\det E)(\det B)$ gives $|AB| = |E_p\cdots E_1 B| = |E_p|\cdots |E_1||B| = |A||B|$.</p>
+                    </div>
+
+                    <!-- Expandable PROOF OF THEOREM 3 (Pages 20 - 21) -->
+                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                        <button onclick="toggleCard('proof-3-2-3')" class="w-full p-4 text-left font-bold text-emerald-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                            <span><i class="fa-solid fa-scroll mr-2 text-emerald-600"></i> PROOF OF THEOREM 3 (Pages 20 - 21): Induction via Elementary Matrices $E$ (點擊展開)</span>
+                            <span class="text-xs bg-emerald-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof 3</span>
+                        </button>
+                        <div id="proof-3-2-3" class="toggle-content p-5 space-y-2 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                            <p><strong>PROOF OF THEOREM 3 (Pages 20 - 21):</strong> The proof is by induction on the size of $A$. The case of a $2\times 2$ matrix was verified in Exercises 33-36 of Section 3.1. Suppose the theorem has been verified for determinants of $k\times k$ matrices with $k \ge 2$, let $n = k+1$, and let $A$ be $n\times n$. The action of $E$ on $A$ involves either two rows or only one row. So we can expand $\det EA$ across a row that is unchanged by the action of $E$, say, row $i$. Let $A_{ij}$ (respectively, $B_{ij}$) be the matrix obtained by deleting row $i$ and column $j$ from $A$ (respectively, $EA$). Then the rows of $B_{ij}$ are obtained from the rows of $A_{ij}$ by the same type of elementary row operation that $E$ performs on $A$. Since these submatrices are only $k\times k$, the induction assumption implies that</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-emerald-950 overflow-x-auto">
+                                $$\det B_{ij} = \alpha\det A_{ij}$$
+                            </p>
+                            <p>where $\alpha = 1, -1$, or $r$, depending on the nature of $E$. The cofactor expansion across row $i$ is</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-emerald-950 space-y-1 overflow-x-auto">
+                                <span class="block">$$\det EA = a_{i1}(-1)^{i+1}\det B_{i1} + \cdots + a_{in}(-1)^{i+n}\det B_{in}$$</span>
+                                <span class="block">$$= a_{i1}(-1)^{i+1}\alpha\det A_{i1} + \cdots + a_{in}(-1)^{i+n}\alpha\det A_{in}$$</span>
+                                <span class="block">$$= \alpha\det A$$</span>
+                            </p>
+                            <p>In particular, taking $A = I_n$, we see that $\det E = 1, -1$, or $r$, depending on the nature of $E$. Thus the theorem is true for $n = 2$, and the truth of the theorem for one value of $n$ implies its truth for the next value of $n$. By the principle of induction, the theorem must be true for $n \ge 2$. The theorem is trivially true for $n = 1$.</p>
+                        </div>
+                    </div>
+
+                    <!-- Expandable PROOF OF THEOREM 6 (Page 22) -->
+                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                        <button onclick="toggleCard('proof-3-2-6')" class="w-full p-4 text-left font-bold text-emerald-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                            <span><i class="fa-solid fa-scroll mr-2 text-emerald-600"></i> PROOF OF THEOREM 6 (Page 22): Singular vs. Invertible Factorization $A = E_p\cdots E_1$ (點擊展開)</span>
+                            <span class="text-xs bg-emerald-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof 6</span>
+                        </button>
+                        <div id="proof-3-2-6" class="toggle-content p-5 space-y-2 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                            <p><strong>PROOF OF THEOREM 6 (Page 22):</strong> If $A$ is not invertible, then neither is $AB$, by Exercise 27 in Section 2.3. In this case, $\det AB = (\det A)(\det B)$, because both sides are zero, by Theorem 4. If $A$ is invertible, then $A$ and the identity matrix $I_n$ are row equivalent by the Invertible Matrix Theorem. So there exist elementary matrices $E_1, \dots, E_p$ such that</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-emerald-950 overflow-x-auto">
+                                $$A = E_p E_{p-1}\cdots E_1 \cdot I_n = E_p E_{p-1}\cdots E_1$$
+                            </p>
+                            <p>For brevity, write $|A|$ for $\det A$. Then repeated application of Theorem 3, as rephrased above, shows that</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-emerald-950 space-y-1 overflow-x-auto">
+                                <span class="block">$$|AB| = |E_p\cdots E_1 B| = |E_p||E_{p-1}\cdots E_1 B| = \cdots$$</span>
+                                <span class="block">$$= |E_p|\cdots |E_1||B| = \cdots = |E_p\cdots E_1||B|$$</span>
+                                <span class="block">$$= |A||B|$$</span>
+                            </p>
                         </div>
                     </div>
                 </div>
