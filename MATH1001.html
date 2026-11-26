@@ -895,7 +895,7 @@
             </h3>
 
             <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
-                <!-- Page 11: Intro & THEOREM 9 -->
+                <!-- Page 11: Intro, THEOREM 9 & Collapsible PROOF (Pages 12 - 17) -->
                 <div class="p-4 bg-white rounded-lg border border-teal-200 space-y-3 text-slate-800 leading-relaxed">
                     <strong class="text-teal-900 text-base font-bold block">Determinants as Area or Volume &amp; THEOREM 9 (行列式表示面積或體積與定理 9，Page 11)</strong>
                     <p>
@@ -905,144 +905,148 @@
                         <strong class="text-teal-950 font-bold block">THEOREM 9 (定理 9，Page 11)</strong>
                         <p>If $A$ is a $2\times 2$ matrix, the <strong>area of the parallelogram (平行四邊形的面積)</strong> determined by the columns of $A$ is $|\det A|$. If $A$ is a $3\times 3$ matrix, the <strong>volume of the parallelepiped (平行六面體的體積)</strong> determined by the columns of $A$ is $|\det A|$.</p>
                     </div>
-                </div>
 
-                <!-- Pages 12 - 13: PROOF Part 1 & FIGURE 1 -->
-                <div class="p-4 bg-white rounded-lg border border-teal-200 space-y-3 text-slate-800 leading-relaxed">
-                    <strong class="text-teal-900 text-base font-bold block">PROOF for $\mathbb{R}^2$ — Diagonal Case &amp; FIGURE 1 (對角矩陣與圖 1，Pages 12 - 13)</strong>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
-                        <div class="md:col-span-2 space-y-2">
-                            <p>
-                                <strong>PROOF (Page 12):</strong> The theorem is obviously true for any $2\times 2$ <strong>diagonal matrix (對角矩陣)</strong>:
-                            </p>
-                            <p class="font-mono text-xs md:text-sm text-center text-teal-950 overflow-x-auto">
-                                $$\left|\det\begin{bmatrix} a &amp; 0 \\ 0 &amp; d \end{bmatrix}\right| = |ad| = \{\text{area of rectangle}\}$$
-                            </p>
-                            <p>
-                                See Figure 1. It will suffice to show that any $2\times 2$ matrix $A = \begin{bmatrix} \mathbf{a}_1 &amp; \mathbf{a}_2 \end{bmatrix}$ can be transformed into a diagonal matrix in a way that changes neither the area of the associated <strong>parallelogram (平行四邊形)</strong> nor $|\det A|$. From Section 3.2, we know that the absolute value of the determinant is unchanged when two columns are interchanged or a multiple of one column is added to another. And it is easy to see that such operations suffice to transform $A$ into a diagonal matrix. <strong>Column interchanges (行互換)</strong> do not change the parallelogram at all.
-                            </p>
-                        </div>
+                    <!-- Expandable PROOF of Theorem 9 (Pages 12 - 17) inside Theorem 9 card -->
+                    <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
+                        <button onclick="toggleCard('proof-3-3-9')" class="w-full p-3.5 text-left font-bold text-teal-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                            <span><i class="fa-solid fa-scroll mr-2 text-teal-600"></i> PROOF OF THEOREM 9 (定理 9 證明，Pages 12 - 17): $\mathbb{R}^2$ &amp; $\mathbb{R}^3$ Column Operations (點擊展開)</span>
+                            <span class="text-xs bg-teal-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Proof 9</span>
+                        </button>
+                        <div id="proof-3-3-9" class="toggle-content p-4 space-y-4 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                            <!-- Pages 12 - 13: Diagonal Case & FIGURE 1 -->
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+                                <div class="md:col-span-2 space-y-2">
+                                    <p>
+                                        <strong>PROOF for $\mathbb{R}^2$ (Page 12):</strong> The theorem is obviously true for any $2\times 2$ <strong>diagonal matrix (對角矩陣)</strong>:
+                                    </p>
+                                    <p class="font-mono text-xs md:text-sm text-center text-teal-950 overflow-x-auto">
+                                        $$\left|\det\begin{bmatrix} a &amp; 0 \\ 0 &amp; d \end{bmatrix}\right| = |ad| = \{\text{area of rectangle}\}$$
+                                    </p>
+                                    <p>
+                                        See Figure 1. It will suffice to show that any $2\times 2$ matrix $A = \begin{bmatrix} \mathbf{a}_1 &amp; \mathbf{a}_2 \end{bmatrix}$ can be transformed into a diagonal matrix in a way that changes neither the area of the associated <strong>parallelogram (平行四邊形)</strong> nor $|\det A|$. From Section 3.2, we know that the absolute value of the determinant is unchanged when two columns are interchanged or a multiple of one column is added to another. And it is easy to see that such operations suffice to transform $A$ into a diagonal matrix. <strong>Column interchanges (行互換)</strong> do not change the parallelogram at all.
+                                    </p>
+                                </div>
 
-                        <!-- FIGURE 1 (Page 13) -->
-                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-1.5">
-                            <span class="font-bold text-teal-900 text-xs block">FIGURE 1 (Page 13): $\text{Area} = |ad|$</span>
-                            <svg viewBox="0 0 185 130" class="w-full max-w-[180px] mx-auto bg-white rounded border border-slate-200">
-                                <line x1="25" y1="102" x2="165" y2="102" stroke="#1e293b" stroke-width="1.3"/>
-                                <polygon points="168,102 162,99.5 162,104.5" fill="#1e293b"/>
-                                <line x1="42" y1="115" x2="42" y2="16" stroke="#1e293b" stroke-width="1.3"/>
-                                <polygon points="42,13 39.5,19 44.5,19" fill="#1e293b"/>
-                                <rect x="42" y="38" width="76" height="64" fill="#93d2f3" fill-opacity="0.82" stroke="#0088cc" stroke-width="1.5"/>
-                                <circle cx="42" cy="38" r="3" fill="#0099dd"/>
-                                <circle cx="118" cy="102" r="3" fill="#0099dd"/>
-                                <text x="171" y="106" font-size="11" font-style="italic" fill="#1e293b">x</text>
-                                <text x="38" y="11" font-size="11" font-style="italic" fill="#1e293b">y</text>
-                                <text x="16" y="34" font-size="9.5" font-weight="bold" fill="#0f172a">[ 0 ]</text>
-                                <text x="16" y="45" font-size="9.5" font-weight="bold" fill="#0f172a">[ d ]</text>
-                                <text x="108" y="114" font-size="9.5" font-weight="bold" fill="#0f172a">[ a ]</text>
-                                <text x="108" y="125" font-size="9.5" font-weight="bold" fill="#0f172a">[ 0 ]</text>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
+                                <!-- FIGURE 1 (Page 13) -->
+                                <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-1.5">
+                                    <span class="font-bold text-teal-900 text-xs block">FIGURE 1 (Page 13): $\text{Area} = |ad|$</span>
+                                    <svg viewBox="0 0 185 130" class="w-full max-w-[180px] mx-auto bg-white rounded border border-slate-200">
+                                        <line x1="25" y1="102" x2="165" y2="102" stroke="#1e293b" stroke-width="1.3"/>
+                                        <polygon points="168,102 162,99.5 162,104.5" fill="#1e293b"/>
+                                        <line x1="42" y1="115" x2="42" y2="16" stroke="#1e293b" stroke-width="1.3"/>
+                                        <polygon points="42,13 39.5,19 44.5,19" fill="#1e293b"/>
+                                        <rect x="42" y="38" width="76" height="64" fill="#93d2f3" fill-opacity="0.82" stroke="#0088cc" stroke-width="1.5"/>
+                                        <circle cx="42" cy="38" r="3" fill="#0099dd"/>
+                                        <circle cx="118" cy="102" r="3" fill="#0099dd"/>
+                                        <text x="171" y="106" font-size="11" font-style="italic" fill="#1e293b">x</text>
+                                        <text x="38" y="11" font-size="11" font-style="italic" fill="#1e293b">y</text>
+                                        <text x="16" y="34" font-size="9.5" font-weight="bold" fill="#0f172a">[ 0 ]</text>
+                                        <text x="16" y="45" font-size="9.5" font-weight="bold" fill="#0f172a">[ d ]</text>
+                                        <text x="108" y="114" font-size="9.5" font-weight="bold" fill="#0f172a">[ a ]</text>
+                                        <text x="108" y="125" font-size="9.5" font-weight="bold" fill="#0f172a">[ 0 ]</text>
+                                    </svg>
+                                </div>
+                            </div>
 
-                <!-- Pages 14 - 15: Geometric Observation, FIGURE 2 & R^2 Completion -->
-                <div class="p-4 bg-white rounded-lg border border-teal-200 space-y-3 text-slate-800 leading-relaxed">
-                    <strong class="text-teal-900 text-base font-bold block">PROOF for $\mathbb{R}^2$ — Column Replacement, FIGURE 2 &amp; Completion (行倍加觀察與圖 2，Pages 14 - 15)</strong>
-                    <p>
-                        <strong>Page 14:</strong> So it suffices to prove the following simple geometric observation that applies to vectors in $\mathbb{R}^2$ or $\mathbb{R}^3$: Let $\mathbf{a}_1$ and $\mathbf{a}_2$ be <strong>nonzero vectors (非零向量)</strong>. Then for any <strong>scalar (純量)</strong> $c$, the area of the parallelogram determined by $\mathbf{a}_1$ and $\mathbf{a}_2$ equals the area of the parallelogram determined by $\mathbf{a}_1$ and $\mathbf{a}_2 + c\mathbf{a}_1$.
-                    </p>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center pt-1">
-                        <!-- FIGURE 2 (Page 15) -->
-                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-1.5">
-                            <span class="font-bold text-teal-900 text-xs block">FIGURE 2 (Page 15): Two Parallelograms of Equal Area</span>
-                            <svg viewBox="0 0 210 130" class="w-full max-w-[205px] mx-auto bg-white rounded border border-slate-200">
-                                <polygon points="76,96 122,96 146,38 100,38" fill="#84cc16" fill-opacity="0.45" stroke="#4d7c0f" stroke-width="1.2"/>
-                                <polygon points="76,96 122,96 122,38 76,38" fill="#65a30d" fill-opacity="0.55" stroke="#3f6212" stroke-width="1.2"/>
-                                <line x1="8" y1="96" x2="192" y2="96" stroke="#0099dd" stroke-width="1.6"/>
-                                <line x1="8" y1="38" x2="192" y2="38" stroke="#0099dd" stroke-width="1.6"/>
-                                <circle cx="24" cy="96" r="2.8" fill="#0099dd"/>
-                                <circle cx="76" cy="96" r="2.8" fill="#0099dd"/>
-                                <circle cx="122" cy="96" r="2.8" fill="#0099dd"/>
-                                <circle cx="76" cy="38" r="2.8" fill="#0099dd"/>
-                                <circle cx="128" cy="38" r="2.8" fill="#0099dd"/>
-                                <text x="14" y="109" font-size="9.5" font-weight="bold" fill="#0f172a">ca₁</text>
-                                <text x="73" y="109" font-size="9.5" font-weight="bold" fill="#0f172a">0</text>
-                                <text x="119" y="109" font-size="9.5" font-weight="bold" fill="#0f172a">a₁</text>
-                                <text x="195" y="99" font-size="9.5" font-weight="bold" fill="#0f172a">L</text>
-                                <text x="54" y="25" font-size="9.5" font-weight="bold" fill="#0f172a">a₂+ca₁</text>
-                                <text x="124" y="25" font-size="9.5" font-weight="bold" fill="#0f172a">a₂</text>
-                                <text x="163" y="33" font-size="9.5" font-weight="bold" fill="#0f172a">a₂+L</text>
-                            </svg>
-                        </div>
+                            <!-- Pages 14 - 15: Geometric Observation, FIGURE 2 & R^2 Completion -->
+                            <div class="pt-3 border-t border-slate-200 space-y-2.5">
+                                <p>
+                                    <strong>Page 14:</strong> So it suffices to prove the following simple geometric observation that applies to vectors in $\mathbb{R}^2$ or $\mathbb{R}^3$: Let $\mathbf{a}_1$ and $\mathbf{a}_2$ be <strong>nonzero vectors (非零向量)</strong>. Then for any <strong>scalar (純量)</strong> $c$, the area of the parallelogram determined by $\mathbf{a}_1$ and $\mathbf{a}_2$ equals the area of the parallelogram determined by $\mathbf{a}_1$ and $\mathbf{a}_2 + c\mathbf{a}_1$.
+                                </p>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+                                    <!-- FIGURE 2 (Page 15) -->
+                                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-1.5">
+                                        <span class="font-bold text-teal-900 text-xs block">FIGURE 2 (Page 15): Two Parallelograms of Equal Area</span>
+                                        <svg viewBox="0 0 210 130" class="w-full max-w-[205px] mx-auto bg-white rounded border border-slate-200">
+                                            <polygon points="76,96 122,96 146,38 100,38" fill="#84cc16" fill-opacity="0.45" stroke="#4d7c0f" stroke-width="1.2"/>
+                                            <polygon points="76,96 122,96 122,38 76,38" fill="#65a30d" fill-opacity="0.55" stroke="#3f6212" stroke-width="1.2"/>
+                                            <line x1="8" y1="96" x2="192" y2="96" stroke="#0099dd" stroke-width="1.6"/>
+                                            <line x1="8" y1="38" x2="192" y2="38" stroke="#0099dd" stroke-width="1.6"/>
+                                            <circle cx="24" cy="96" r="2.8" fill="#0099dd"/>
+                                            <circle cx="76" cy="96" r="2.8" fill="#0099dd"/>
+                                            <circle cx="122" cy="96" r="2.8" fill="#0099dd"/>
+                                            <circle cx="76" cy="38" r="2.8" fill="#0099dd"/>
+                                            <circle cx="128" cy="38" r="2.8" fill="#0099dd"/>
+                                            <text x="14" y="109" font-size="9.5" font-weight="bold" fill="#0f172a">ca₁</text>
+                                            <text x="73" y="109" font-size="9.5" font-weight="bold" fill="#0f172a">0</text>
+                                            <text x="119" y="109" font-size="9.5" font-weight="bold" fill="#0f172a">a₁</text>
+                                            <text x="195" y="99" font-size="9.5" font-weight="bold" fill="#0f172a">L</text>
+                                            <text x="54" y="25" font-size="9.5" font-weight="bold" fill="#0f172a">a₂+ca₁</text>
+                                            <text x="124" y="25" font-size="9.5" font-weight="bold" fill="#0f172a">a₂</text>
+                                            <text x="163" y="33" font-size="9.5" font-weight="bold" fill="#0f172a">a₂+L</text>
+                                        </svg>
+                                    </div>
 
-                        <div class="md:col-span-2 space-y-2">
-                            <p>
-                                <strong>Page 15:</strong> To prove this statement, we may assume that $\mathbf{a}_2$ is not a multiple of $\mathbf{a}_1$, for otherwise the two parallelograms would be <strong>degenerate (退化的)</strong> and have zero area. If $L$ is the line through $\mathbf{0}$ and $\mathbf{a}_1$, then $\mathbf{a}_2 + L$ is the line through $\mathbf{a}_2$ parallel to $L$, and $\mathbf{a}_2 + c\mathbf{a}_1$ is on this line. See Figure 2. The points $\mathbf{a}_2$ and $\mathbf{a}_2 + c\mathbf{a}_1$ have the same <strong>perpendicular distance (垂直距離)</strong> to $L$. Hence the two parallelograms in Figure 2 have the same area, since they share the base from $\mathbf{0}$ to $\mathbf{a}_1$. This completes the proof for $\mathbb{R}^2$.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                                    <div class="md:col-span-2 space-y-2">
+                                        <p>
+                                            <strong>Page 15:</strong> To prove this statement, we may assume that $\mathbf{a}_2$ is not a multiple of $\mathbf{a}_1$, for otherwise the two parallelograms would be <strong>degenerate (退化的)</strong> and have zero area. If $L$ is the line through $\mathbf{0}$ and $\mathbf{a}_1$, then $\mathbf{a}_2 + L$ is the line through $\mathbf{a}_2$ parallel to $L$, and $\mathbf{a}_2 + c\mathbf{a}_1$ is on this line. See Figure 2. The points $\mathbf{a}_2$ and $\mathbf{a}_2 + c\mathbf{a}_1$ have the same <strong>perpendicular distance (垂直距離)</strong> to $L$. Hence the two parallelograms in Figure 2 have the same area, since they share the base from $\mathbf{0}$ to $\mathbf{a}_1$. This completes the proof for $\mathbb{R}^2$.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
 
-                <!-- Pages 16 - 17: PROOF for R^3, FIGURE 3 & FIGURE 4 -->
-                <div class="p-4 bg-white rounded-lg border border-teal-200 space-y-3 text-slate-800 leading-relaxed">
-                    <strong class="text-teal-900 text-base font-bold block">PROOF for $\mathbb{R}^3$ — Parallelepiped Volume, FIGURE 3 &amp; FIGURE 4 (平行六面體體積與圖 3、圖 4，Pages 16 - 17)</strong>
-                    <p>
-                        <strong>Page 16:</strong> The proof for $\mathbb{R}^3$ is similar. The theorem is obviously true for a $3\times 3$ diagonal matrix. See Figure 3. And any $3\times 3$ matrix $A$ can be transformed into a diagonal matrix using <strong>column operations (行運算)</strong> that do not change $|\det A|$. (Think about doing <strong>row operations (列運算)</strong> on $A^T$.) So it suffices to show that these operations do not affect the volume of the <strong>parallelepiped (平行六面體)</strong> determined by the columns of $A$.
-                    </p>
-                    <p>
-                        A parallelepiped is shown in Figure 4 as a shaded box with two sloping sides. Its volume is the area of the base in the plane $\operatorname{Span}\{\mathbf{a}_1, \mathbf{a}_3\}$ times the <strong>altitude (高)</strong> of $\mathbf{a}_2$ above $\operatorname{Span}\{\mathbf{a}_1, \mathbf{a}_3\}$. Any vector $\mathbf{a}_2 + c\mathbf{a}_1$ has the same altitude because $\mathbf{a}_2 + c\mathbf{a}_1$ lies in the plane $\mathbf{a}_2 + \operatorname{Span}\{\mathbf{a}_1, \mathbf{a}_3\}$, which is parallel to $\operatorname{Span}\{\mathbf{a}_1, \mathbf{a}_3\}$. Hence the volume of the parallelepiped is unchanged when $\begin{bmatrix} \mathbf{a}_1 &amp; \mathbf{a}_2 &amp; \mathbf{a}_3 \end{bmatrix}$ is changed to $\begin{bmatrix} \mathbf{a}_1 &amp; \mathbf{a}_2 + c\mathbf{a}_1 &amp; \mathbf{a}_3 \end{bmatrix}$. Thus a <strong>column replacement operation (行倍加運算)</strong> does not affect the volume of the parallelepiped. Since column interchanges have no effect on the volume, the proof is complete.
-                    </p>
+                            <!-- Pages 16 - 17: PROOF for R^3, FIGURE 3 & FIGURE 4 -->
+                            <div class="pt-3 border-t border-slate-200 space-y-2.5">
+                                <p>
+                                    <strong>PROOF for $\mathbb{R}^3$ (Page 16):</strong> The proof for $\mathbb{R}^3$ is similar. The theorem is obviously true for a $3\times 3$ diagonal matrix. See Figure 3. And any $3\times 3$ matrix $A$ can be transformed into a diagonal matrix using <strong>column operations (行運算)</strong> that do not change $|\det A|$. (Think about doing <strong>row operations (列運算)</strong> on $A^T$.) So it suffices to show that these operations do not affect the volume of the <strong>parallelepiped (平行六面體)</strong> determined by the columns of $A$.
+                                </p>
+                                <p>
+                                    A parallelepiped is shown in Figure 4 as a shaded box with two sloping sides. Its volume is the area of the base in the plane $\operatorname{Span}\{\mathbf{a}_1, \mathbf{a}_3\}$ times the <strong>altitude (高)</strong> of $\mathbf{a}_2$ above $\operatorname{Span}\{\mathbf{a}_1, \mathbf{a}_3\}$. Any vector $\mathbf{a}_2 + c\mathbf{a}_1$ has the same altitude because $\mathbf{a}_2 + c\mathbf{a}_1$ lies in the plane $\mathbf{a}_2 + \operatorname{Span}\{\mathbf{a}_1, \mathbf{a}_3\}$, which is parallel to $\operatorname{Span}\{\mathbf{a}_1, \mathbf{a}_3\}$. Hence the volume of the parallelepiped is unchanged when $\begin{bmatrix} \mathbf{a}_1 &amp; \mathbf{a}_2 &amp; \mathbf{a}_3 \end{bmatrix}$ is changed to $\begin{bmatrix} \mathbf{a}_1 &amp; \mathbf{a}_2 + c\mathbf{a}_1 &amp; \mathbf{a}_3 \end{bmatrix}$. Thus a <strong>column replacement operation (行倍加運算)</strong> does not affect the volume of the parallelepiped. Since column interchanges have no effect on the volume, the proof is complete.
+                                </p>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
-                        <!-- FIGURE 3 (Page 17) -->
-                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-1.5">
-                            <span class="font-bold text-teal-900 text-xs block">FIGURE 3 (Page 17): $\text{Volume} = |abc|$</span>
-                            <svg viewBox="0 0 185 135" class="w-full max-w-[180px] mx-auto bg-white rounded border border-slate-200">
-                                <line x1="82" y1="86" x2="36" y2="114" stroke="#1e293b" stroke-width="1.2"/>
-                                <polygon points="33,116 39,115 36,110" fill="#1e293b"/>
-                                <line x1="82" y1="86" x2="152" y2="96" stroke="#1e293b" stroke-width="1.2"/>
-                                <polygon points="155,96.5 149,93 148.5,98.5" fill="#1e293b"/>
-                                <line x1="82" y1="86" x2="82" y2="16" stroke="#1e293b" stroke-width="1.2"/>
-                                <polygon points="82,13 79.5,19 84.5,19" fill="#1e293b"/>
-                                <polygon points="82,42 128,49 128,103 82,96" fill="#93d2f3" fill-opacity="0.72" stroke="#0088cc" stroke-width="1.2"/>
-                                <polygon points="82,42 46,64 46,118 82,96" fill="#93d2f3" fill-opacity="0.52" stroke="#0088cc" stroke-width="1.2"/>
-                                <polygon points="82,42 128,49 92,71 46,64" fill="#bae6fd" fill-opacity="0.8" stroke="#0088cc" stroke-width="1.2"/>
-                                <polygon points="46,64 92,71 92,125 46,118" fill="#93d2f3" fill-opacity="0.85" stroke="#0088cc" stroke-width="1.3"/>
-                                <polygon points="92,71 128,49 128,103 92,125" fill="#7dd3fc" fill-opacity="0.75" stroke="#0088cc" stroke-width="1.3"/>
-                                <circle cx="46" cy="118" r="2.6" fill="#0099dd"/>
-                                <circle cx="128" cy="103" r="2.6" fill="#0099dd"/>
-                                <circle cx="82" cy="42" r="2.6" fill="#0099dd"/>
-                                <text x="24" y="122" font-size="10" font-style="italic" fill="#1e293b">x</text>
-                                <text x="158" y="100" font-size="10" font-style="italic" fill="#1e293b">y</text>
-                                <text x="87" y="14" font-size="10" font-style="italic" fill="#1e293b">z</text>
-                                <text x="14" y="105" font-size="8.5" font-weight="bold" fill="#0f172a">[a,0,0]ᵀ</text>
-                                <text x="131" y="114" font-size="8.5" font-weight="bold" fill="#0f172a">[0,b,0]ᵀ</text>
-                                <text x="53" y="34" font-size="8.5" font-weight="bold" fill="#0f172a">[0,0,c]ᵀ</text>
-                            </svg>
-                        </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+                                    <!-- FIGURE 3 (Page 17) -->
+                                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-1.5">
+                                        <span class="font-bold text-teal-900 text-xs block">FIGURE 3 (Page 17): $\text{Volume} = |abc|$</span>
+                                        <svg viewBox="0 0 185 135" class="w-full max-w-[180px] mx-auto bg-white rounded border border-slate-200">
+                                            <line x1="82" y1="86" x2="36" y2="114" stroke="#1e293b" stroke-width="1.2"/>
+                                            <polygon points="33,116 39,115 36,110" fill="#1e293b"/>
+                                            <line x1="82" y1="86" x2="152" y2="96" stroke="#1e293b" stroke-width="1.2"/>
+                                            <polygon points="155,96.5 149,93 148.5,98.5" fill="#1e293b"/>
+                                            <line x1="82" y1="86" x2="82" y2="16" stroke="#1e293b" stroke-width="1.2"/>
+                                            <polygon points="82,13 79.5,19 84.5,19" fill="#1e293b"/>
+                                            <polygon points="82,42 128,49 128,103 82,96" fill="#93d2f3" fill-opacity="0.72" stroke="#0088cc" stroke-width="1.2"/>
+                                            <polygon points="82,42 46,64 46,118 82,96" fill="#93d2f3" fill-opacity="0.52" stroke="#0088cc" stroke-width="1.2"/>
+                                            <polygon points="82,42 128,49 92,71 46,64" fill="#bae6fd" fill-opacity="0.8" stroke="#0088cc" stroke-width="1.2"/>
+                                            <polygon points="46,64 92,71 92,125 46,118" fill="#93d2f3" fill-opacity="0.85" stroke="#0088cc" stroke-width="1.3"/>
+                                            <polygon points="92,71 128,49 128,103 92,125" fill="#7dd3fc" fill-opacity="0.75" stroke="#0088cc" stroke-width="1.3"/>
+                                            <circle cx="46" cy="118" r="2.6" fill="#0099dd"/>
+                                            <circle cx="128" cy="103" r="2.6" fill="#0099dd"/>
+                                            <circle cx="82" cy="42" r="2.6" fill="#0099dd"/>
+                                            <text x="24" y="122" font-size="10" font-style="italic" fill="#1e293b">x</text>
+                                            <text x="158" y="100" font-size="10" font-style="italic" fill="#1e293b">y</text>
+                                            <text x="87" y="14" font-size="10" font-style="italic" fill="#1e293b">z</text>
+                                            <text x="14" y="105" font-size="8.5" font-weight="bold" fill="#0f172a">[a,0,0]ᵀ</text>
+                                            <text x="131" y="114" font-size="8.5" font-weight="bold" fill="#0f172a">[0,b,0]ᵀ</text>
+                                            <text x="53" y="34" font-size="8.5" font-weight="bold" fill="#0f172a">[0,0,c]ᵀ</text>
+                                        </svg>
+                                    </div>
 
-                        <!-- FIGURE 4 (Page 17) -->
-                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-1.5">
-                            <span class="font-bold text-teal-900 text-xs block">FIGURE 4 (Page 17): Two Parallelepipeds of Equal Volume</span>
-                            <svg viewBox="0 0 210 135" class="w-full max-w-[205px] mx-auto bg-white rounded border border-slate-200">
-                                <polygon points="26,104 126,122 184,96 84,78" fill="#93d2f3" fill-opacity="0.55" stroke="#0088cc" stroke-width="1.3"/>
-                                <polygon points="26,56 126,74 184,48 84,30" fill="#93d2f3" fill-opacity="0.45" stroke="#0088cc" stroke-width="1.3"/>
-                                <polygon points="56,109 86,115 138,61 108,55" fill="#84cc16" fill-opacity="0.48" stroke="#4d7c0f" stroke-width="1.1"/>
-                                <polygon points="56,109 86,115 86,67 56,61" fill="#65a30d" fill-opacity="0.58" stroke="#3f6212" stroke-width="1.1"/>
-                                <polygon points="86,115 118,86 118,38 86,67" fill="#84cc16" fill-opacity="0.42" stroke="#4d7c0f" stroke-width="1.1"/>
-                                <circle cx="56" cy="109" r="2.5" fill="#0099dd"/>
-                                <circle cx="86" cy="115" r="2.5" fill="#0099dd"/>
-                                <circle cx="108" cy="55" r="2.5" fill="#0099dd"/>
-                                <circle cx="56" cy="61" r="2.5" fill="#0099dd"/>
-                                <circle cx="86" cy="67" r="2.5" fill="#0099dd"/>
-                                <text x="48" y="121" font-size="9" font-weight="bold" fill="#0f172a">0</text>
-                                <text x="84" y="126" font-size="9" font-weight="bold" fill="#0f172a">a₁</text>
-                                <text x="112" y="51" font-size="9" font-weight="bold" fill="#0f172a">a₃</text>
-                                <text x="16" y="61" font-size="8.5" font-weight="bold" fill="#0f172a">a₂+ca₁</text>
-                                <text x="89" y="75" font-size="9" font-weight="bold" fill="#0f172a">a₂</text>
-                                <text x="72" y="18" font-size="9" font-weight="bold" fill="#0f172a">a₂ + Span{a₁, a₃}</text>
-                                <text x="118" y="131" font-size="9" font-weight="bold" fill="#0f172a">Span{a₁, a₃}</text>
-                            </svg>
+                                    <!-- FIGURE 4 (Page 17) -->
+                                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-1.5">
+                                        <span class="font-bold text-teal-900 text-xs block">FIGURE 4 (Page 17): Two Parallelepipeds of Equal Volume</span>
+                                        <svg viewBox="0 0 210 135" class="w-full max-w-[205px] mx-auto bg-white rounded border border-slate-200">
+                                            <polygon points="26,104 126,122 184,96 84,78" fill="#93d2f3" fill-opacity="0.55" stroke="#0088cc" stroke-width="1.3"/>
+                                            <polygon points="26,56 126,74 184,48 84,30" fill="#93d2f3" fill-opacity="0.45" stroke="#0088cc" stroke-width="1.3"/>
+                                            <polygon points="56,109 86,115 138,61 108,55" fill="#84cc16" fill-opacity="0.48" stroke="#4d7c0f" stroke-width="1.1"/>
+                                            <polygon points="56,109 86,115 86,67 56,61" fill="#65a30d" fill-opacity="0.58" stroke="#3f6212" stroke-width="1.1"/>
+                                            <polygon points="86,115 118,86 118,38 86,67" fill="#84cc16" fill-opacity="0.42" stroke="#4d7c0f" stroke-width="1.1"/>
+                                            <circle cx="56" cy="109" r="2.5" fill="#0099dd"/>
+                                            <circle cx="86" cy="115" r="2.5" fill="#0099dd"/>
+                                            <circle cx="108" cy="55" r="2.5" fill="#0099dd"/>
+                                            <circle cx="56" cy="61" r="2.5" fill="#0099dd"/>
+                                            <circle cx="86" cy="67" r="2.5" fill="#0099dd"/>
+                                            <text x="48" y="121" font-size="9" font-weight="bold" fill="#0f172a">0</text>
+                                            <text x="84" y="126" font-size="9" font-weight="bold" fill="#0f172a">a₁</text>
+                                            <text x="112" y="51" font-size="9" font-weight="bold" fill="#0f172a">a₃</text>
+                                            <text x="16" y="61" font-size="8.5" font-weight="bold" fill="#0f172a">a₂+ca₁</text>
+                                            <text x="89" y="75" font-size="9" font-weight="bold" fill="#0f172a">a₂</text>
+                                            <text x="72" y="18" font-size="9" font-weight="bold" fill="#0f172a">a₂ + Span{a₁, a₃}</text>
+                                            <text x="118" y="131" font-size="9" font-weight="bold" fill="#0f172a">Span{a₁, a₃}</text>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
