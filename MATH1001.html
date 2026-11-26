@@ -119,98 +119,139 @@
     <section id="sec3-1" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-8">
         <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
             <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
-                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 3.1</span>
+                <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 3.1</span>
                 Introduction to Determinants (行列式簡介)
             </h2>
             <span class="text-xs text-slate-500 font-mono">Pages 1 - 16</span>
         </div>
 
-        <!-- 3.1.1 Recursive Definition & Cofactor Expansion -->
+        <!-- 3.1.1 From Row Reduction to Recursive Definition & Cofactor Expansion -->
         <div class="space-y-4">
-            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
-                <i class="fa-solid fa-circle-dot text-indigo-500 text-sm"></i> 3.1.1 Recursive Definition &amp; Cofactor Expansion (遞迴定義與餘因子展開，Pages 1 - 11)
+            <h3 class="font-bold text-lg text-emerald-800 flex items-center gap-2">
+                <i class="fa-solid fa-circle-dot text-emerald-500 text-sm"></i> 3.1.1 From Row Reduction to Recursive Definition &amp; Cofactor Expansion (由列化簡到遞迴定義與餘因子展開，Pages 1 - 14)
             </h3>
 
             <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
-                <p class="text-slate-700 leading-relaxed">
-                    Recall from Section 2.2 that a $2\times 2$ matrix is invertible if and only if its determinant $\det A = a_{11}a_{22} - a_{12}a_{21}$ is nonzero. Row-reducing a general invertible $3\times 3$ matrix $A = [a_{ij}]$ yields an upper triangular matrix whose $(3,3)$-entry is $a_{11}\Delta$, where:
-                </p>
-
-                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2.5 text-slate-800 leading-relaxed">
-                    <strong class="text-indigo-900 text-base font-bold block">3×3 Determinant &amp; Submatrix Notation $A_{ij}$ (Pages 3 - 5)</strong>
-                    <div class="p-3 bg-indigo-50/70 rounded-lg border border-indigo-200 font-mono text-center text-indigo-950 font-bold text-xs md:text-sm space-y-1">
-                        <div>$$\Delta = a_{11}\det\begin{bmatrix} a_{22} &amp; a_{23} \\ a_{32} &amp; a_{33} \end{bmatrix} - a_{12}\det\begin{bmatrix} a_{21} &amp; a_{23} \\ a_{31} &amp; a_{33} \end{bmatrix} + a_{13}\det\begin{bmatrix} a_{21} &amp; a_{22} \\ a_{31} &amp; a_{32} \end{bmatrix}$$</div>
-                        <div>$$\Delta = a_{11}\det A_{11} - a_{12}\det A_{12} + a_{13}\det A_{13}$$</div>
+                <!-- Pages 1 - 3: 3x3 Row Reduction Discovery -->
+                <div class="p-4 bg-white rounded-lg border border-emerald-200 space-y-2.5 text-slate-800 leading-relaxed">
+                    <strong class="text-emerald-900 text-base font-bold block">Discovering the $3\times 3$ Determinant via Row Reduction (由列化簡推導 $3\times 3$ 行列式，Pages 1 - 3)</strong>
+                    <p>
+                        Recall from Section 2.2 that a $2\times 2$ matrix is invertible if and only if its determinant is nonzero. To extend this to larger matrices, watch what happens when an invertible $3\times 3$ matrix $A = [a_{ij}]$ with $a_{11} \ne 0$ is row reduced:
+                    </p>
+                    <p>
+                        Multiply rows 2 and 3 of $A$ by $a_{11}$, then subtract $a_{21}\times \text{Row }1$ from Row 2 and $a_{31}\times \text{Row }1$ from Row 3:
+                    </p>
+                    <div class="p-3 bg-emerald-50/70 rounded-lg border border-emerald-200 font-mono text-center text-emerald-950 text-xs md:text-sm overflow-x-auto">
+                        $$\begin{bmatrix} a_{11} &amp; a_{12} &amp; a_{13} \\ a_{11}a_{21} &amp; a_{11}a_{22} &amp; a_{11}a_{23} \\ a_{11}a_{31} &amp; a_{11}a_{32} &amp; a_{11}a_{33} \end{bmatrix} \sim \begin{bmatrix} a_{11} &amp; a_{12} &amp; a_{13} \\ 0 &amp; a_{11}a_{22}-a_{12}a_{21} &amp; a_{11}a_{23}-a_{13}a_{21} \\ 0 &amp; a_{11}a_{32}-a_{12}a_{31} &amp; a_{11}a_{33}-a_{13}a_{31} \end{bmatrix} \quad (1)$$
                     </div>
                     <p>
-                        For any square matrix $A$, let $A_{ij}$ denote the <strong>submatrix (子矩陣)</strong> formed by deleting the $i$th row and $j$th column of $A$. For a $1\times 1$ matrix $A = [a_{11}]$, we define $\det A = a_{11}$.
+                        Since $A$ is invertible, either the $(2,2)$-entry or the $(3,2)$-entry on the right in (1) is nonzero. Suppose the $(2,2)$-entry is nonzero (otherwise interchange rows 2 and 3 first). Multiply Row 3 by $a_{11}a_{22}-a_{12}a_{21}$ and add $-(a_{11}a_{32}-a_{12}a_{31})$ times Row 2 to the new Row 3:
+                    </p>
+                    <div class="p-3 bg-emerald-50/70 rounded-lg border border-emerald-200 font-mono text-center text-emerald-950 font-bold text-xs md:text-sm space-y-1.5 overflow-x-auto">
+                        <div>$$A \sim \begin{bmatrix} a_{11} &amp; a_{12} &amp; a_{13} \\ 0 &amp; a_{11}a_{22}-a_{12}a_{21} &amp; a_{11}a_{23}-a_{13}a_{21} \\ 0 &amp; 0 &amp; a_{11}\Delta \end{bmatrix} \quad (2)$$</div>
+                        <div>$$\Delta = a_{11}a_{22}a_{33} + a_{12}a_{23}a_{31} + a_{13}a_{21}a_{32} - a_{11}a_{23}a_{32} - a_{12}a_{21}a_{33} - a_{13}a_{22}a_{31}$$</div>
+                    </div>
+                    <p>
+                        Because $A$ is invertible, $\Delta$ must be nonzero (and conversely, as shown in Section 3.2). We call $\Delta$ in (2) the <strong>determinant (行列式)</strong> of the $3\times 3$ matrix $A$.
                     </p>
                 </div>
 
-                <!-- DEFINITION: Determinant & Cofactor -->
-                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-3 text-slate-800 leading-relaxed">
-                    <strong class="text-indigo-900 text-base font-bold block">DEFINITION: Determinant &amp; $(i,j)$-Cofactor (行列式與餘因子定義，Pages 7 - 9)</strong>
+                <!-- Pages 4 - 7: 1x1, 2x2, Grouping 3x3 & Submatrix A_ij -->
+                <div class="p-4 bg-white rounded-lg border border-emerald-200 space-y-2.5 text-slate-800 leading-relaxed">
+                    <strong class="text-emerald-900 text-base font-bold block">Base Cases, $2\times 2$ Grouping &amp; Submatrix Notation $A_{ij}$ (基礎情況、分組與子矩陣 $A_{ij}$，Pages 4 - 7)</strong>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li><strong>$1\times 1$ matrix $A = [a_{11}]$:</strong> $\det A = a_{11}$.</li>
+                        <li><strong>$2\times 2$ matrix $A = [a_{ij}]$:</strong> $\det A = a_{11}a_{22} - a_{12}a_{21}$.</li>
+                    </ul>
                     <p>
-                        For $n \ge 2$, the <strong>determinant (行列式)</strong> of an $n\times n$ matrix $A = [a_{ij}]$ is the sum of $n$ terms of the form $\pm a_{1j}\det A_{1j}$, with plus and minus signs alternating, where the entries $a_{11}, a_{12}, \dots, a_{1n}$ are from the first row of $A$:
+                        Grouping the six terms of $\Delta$ by $a_{11}, a_{12}, a_{13}$ expresses the $3\times 3$ determinant in terms of $2\times 2$ determinants:
                     </p>
-                    <div class="p-3 bg-indigo-50/70 rounded-lg border border-indigo-200 font-mono text-center text-indigo-950 font-bold text-xs md:text-sm">
-                        $$\det A = a_{11}\det A_{11} - a_{12}\det A_{12} + \cdots + (-1)^{1+n}a_{1n}\det A_{1n} = \sum_{j=1}^{n} (-1)^{1+j} a_{1j}\det A_{1j}$$
+                    <div class="p-3 bg-emerald-50/70 rounded-lg border border-emerald-200 font-mono text-center text-emerald-950 font-bold text-xs md:text-sm space-y-1.5 overflow-x-auto">
+                        <div>$$\Delta = a_{11}\cdot\det\begin{bmatrix} a_{22} &amp; a_{23} \\ a_{32} &amp; a_{33} \end{bmatrix} - a_{12}\cdot\det\begin{bmatrix} a_{21} &amp; a_{23} \\ a_{31} &amp; a_{33} \end{bmatrix} + a_{13}\cdot\det\begin{bmatrix} a_{21} &amp; a_{22} \\ a_{31} &amp; a_{32} \end{bmatrix}$$</div>
+                        <div>$$\Delta = a_{11}\cdot\det A_{11} - a_{12}\cdot\det A_{12} + a_{13}\cdot\det A_{13} \quad (3)$$</div>
                     </div>
                     <p>
-                        Given $A = [a_{ij}]$, the <strong>$(i,j)$-cofactor (餘因子)</strong> of $A$ is the number $C_{ij}$ given by $C_{ij} = (-1)^{i+j}\det A_{ij}$. Then the <strong>cofactor expansion across the first row (沿第一列餘因子展開)</strong> is $\det A = a_{11}C_{11} + a_{12}C_{12} + \cdots + a_{1n}C_{1n}$.
+                        For any square matrix $A$, let $A_{ij}$ denote the <strong>submatrix (子矩陣)</strong> formed by deleting the $i$th row and $j$th column of $A$. For example, given
+                        $$A = \begin{bmatrix} 1 &amp; -2 &amp; 5 &amp; 0 \\ 2 &amp; 0 &amp; 4 &amp; -1 \\ 3 &amp; 1 &amp; 0 &amp; 7 \\ 0 &amp; 4 &amp; -2 &amp; 0 \end{bmatrix}$$
+                        crossing out row $3$ and column $2$ gives $A_{32} = \begin{bmatrix} 1 &amp; 5 &amp; 0 \\ 2 &amp; 4 &amp; -1 \\ 0 &amp; -2 &amp; 0 \end{bmatrix}$.
+                    </p>
+                    <p class="text-xs md:text-sm text-slate-600">
+                        <strong>Recursive Idea (Page 7):</strong> $n=3$ uses determinants of $2\times 2$ submatrices $A_{1j}$ as in (3); $n=4$ uses $3\times 3$ submatrices $A_{1j}$; in general, an $n\times n$ determinant is defined recursively via $(n-1)\times(n-1)$ submatrices.
                     </p>
                 </div>
 
-                <!-- THEOREM 1 + Checkerboard Sign Pattern -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center bg-white p-4 rounded-xl border border-indigo-200">
+                <!-- DEFINITION & Vertical Bars / Cofactor Expansion (Pages 8, 10) -->
+                <div class="p-4 bg-white rounded-lg border border-emerald-200 space-y-3 text-slate-800 leading-relaxed">
+                    <strong class="text-emerald-900 text-base font-bold block">DEFINITION &amp; $(i,j)$-Cofactor Formula (行列式定義與餘因子展開式，Pages 8, 10)</strong>
+                    <p>
+                        For $n \ge 2$, the <strong>determinant (行列式)</strong> of an $n\times n$ matrix $A = [a_{ij}]$ is the sum of $n$ terms of the form $\pm a_{1j}\det A_{1j}$, with plus and minus signs alternating, where $a_{11}, a_{12}, \dots, a_{1n}$ are from the first row of $A$:
+                    </p>
+                    <div class="p-3 bg-emerald-50/70 rounded-lg border border-emerald-200 font-mono text-center text-emerald-950 font-bold text-xs md:text-sm overflow-x-auto">
+                        $$\det A = a_{11}\det A_{11} - a_{12}\det A_{12} + \cdots + (-1)^{1+n}a_{1n}\det A_{1n} = \sum_{j=1}^{n} (-1)^{1+j} a_{1j}\cdot\det A_{1j}$$
+                    </div>
+                    <p>
+                        <strong>Vertical-Bar Notation (Page 10):</strong> A pair of vertical lines is often used in place of brackets for determinants, e.g., $\det A = 1\begin{vmatrix} 4 &amp; -1 \\ -2 &amp; 0 \end{vmatrix} - 5\begin{vmatrix} 2 &amp; -1 \\ 0 &amp; 0 \end{vmatrix} + 0\begin{vmatrix} 2 &amp; 4 \\ 0 &amp; -2 \end{vmatrix} = \cdots = -2$.
+                    </p>
+                    <p>
+                        Given $A = [a_{ij}]$, the <strong>$(i,j)$-cofactor (餘因子)</strong> of $A$ is $C_{ij} = (-1)^{i+j}\det A_{ij}$, giving the <strong>cofactor expansion across the first row (沿第一列作餘因子展開)</strong>:
+                    </p>
+                    <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 font-mono text-center text-emerald-950 font-bold text-xs md:text-sm">
+                        $$\det A = a_{11}C_{11} + a_{12}C_{12} + \cdots + a_{1n}C_{1n} \quad (4)$$
+                    </div>
+                </div>
+
+                <!-- THEOREM 1 + Checkerboard Sign Pattern (Pages 11 - 12) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center bg-white p-4 rounded-xl border border-emerald-200">
                     <div class="md:col-span-2 space-y-2.5 text-slate-800 leading-relaxed">
-                        <strong class="text-indigo-900 text-base font-bold block">THEOREM 1 (定理 1，Page 10)</strong>
+                        <strong class="text-emerald-900 text-base font-bold block">THEOREM 1 (定理 1，Page 11)</strong>
                         <p>
-                            The determinant of an $n\times n$ matrix $A$ can be computed by a <strong>cofactor expansion across any row or down any column (沿任意列或任意行作餘因子展開)</strong>:
+                            The determinant of an $n\times n$ matrix $A$ can be computed by a <strong>cofactor expansion across any row or down any column (沿任意列或任意行作餘因子展開)</strong> (proof omitted in text to avoid a lengthy digression):
                         </p>
-                        <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 font-mono text-xs md:text-sm space-y-1 text-indigo-950 font-semibold">
+                        <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 font-mono text-xs md:text-sm space-y-1 text-emerald-950 font-semibold">
                             <p>• Across the $i$th row: $\det A = a_{i1}C_{i1} + a_{i2}C_{i2} + \cdots + a_{in}C_{in}$</p>
                             <p>• Down the $j$th column: $\det A = a_{1j}C_{1j} + a_{2j}C_{2j} + \cdots + a_{nj}C_{nj}$</p>
                         </div>
                         <p class="text-xs md:text-sm text-slate-600">
-                            The plus or minus sign in $C_{ij} = (-1)^{i+j}\det A_{ij}$ depends only on the position of $a_{ij}$ in the matrix, regardless of the sign of $a_{ij}$ itself.
+                            <strong>Sign Rule (Page 12):</strong> The plus or minus sign in the $(i,j)$-cofactor depends only on the position of $a_{ij}$ in the matrix itself via $(-1)^{i+j}$, regardless of the sign of $a_{ij}$.
                         </p>
                     </div>
 
                     <!-- Checkerboard Pattern Card -->
                     <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-center space-y-2">
-                        <span class="font-bold text-indigo-900 text-xs block">Checkerboard Sign Pattern $(-1)^{i+j}$ (Page 11)</span>
+                        <span class="font-bold text-emerald-900 text-xs block">Checkerboard Sign Pattern $(-1)^{i+j}$ (Page 12)</span>
                         <div class="font-mono text-sm font-bold text-slate-800 bg-white p-3 rounded border border-slate-200 inline-block">
                             $$\begin{bmatrix} + &amp; - &amp; + &amp; - &amp; \cdots \\ - &amp; + &amp; - &amp; + &amp; \cdots \\ + &amp; - &amp; + &amp; - &amp; \cdots \\ - &amp; + &amp; - &amp; + &amp; \cdots \\ \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \ddots \end{bmatrix}$$
                         </div>
                     </div>
                 </div>
 
-                <!-- Expandable EXAMPLES 1, 2 & 3 (Pages 8 - 14) -->
+                <!-- Expandable EXAMPLES 1, 2 & 3 (Pages 9, 13 - 15) -->
                 <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
-                    <button onclick="toggleCard('ex-3-1-123')" class="w-full p-4 text-left font-bold text-indigo-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
-                        <span><i class="fa-solid fa-calculator mr-2 text-indigo-600"></i> EXAMPLES 1, 2 &amp; 3 (Pages 8 - 14): Cofactor Expansion Along Zeros (點擊展開)</span>
-                        <span class="text-xs bg-indigo-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                    <button onclick="toggleCard('ex-3-1-123')" class="w-full p-4 text-left font-bold text-emerald-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
+                        <span><i class="fa-solid fa-calculator mr-2 text-emerald-600"></i> EXAMPLES 1, 2 &amp; 3 (Pages 9, 13 - 15): Full Step-by-Step Cofactor Expansions (點擊展開)</span>
+                        <span class="text-xs bg-emerald-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
                     </button>
                     <div id="ex-3-1-123" class="toggle-content p-5 space-y-4 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
                         <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-1.5">
-                            <p><strong>EXAMPLE 1 (Page 8):</strong> Compute $\det A$ for $A = \begin{bmatrix} 1 &amp; 5 &amp; 0 \\ 2 &amp; 4 &amp; -1 \\ 0 &amp; -2 &amp; 0 \end{bmatrix}$ across Row 1:</p>
-                            <p class="font-mono text-xs md:text-sm text-center text-indigo-950">
-                                $$\det A = 1\begin{vmatrix} 4 &amp; -1 \\ -2 &amp; 0 \end{vmatrix} - 5\begin{vmatrix} 2 &amp; -1 \\ 0 &amp; 0 \end{vmatrix} + 0\begin{vmatrix} 2 &amp; 4 \\ 0 &amp; -2 \end{vmatrix} = 1(0 - 2) - 5(0) + 0 = -2$$
+                            <p><strong>EXAMPLE 1 (Page 9):</strong> Compute $\det A$ for $A = \begin{bmatrix} 1 &amp; 5 &amp; 0 \\ 2 &amp; 4 &amp; -1 \\ 0 &amp; -2 &amp; 0 \end{bmatrix}$ using $\det A = a_{11}\det A_{11} - a_{12}\det A_{12} + a_{13}\det A_{13}$:</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-emerald-950">
+                                $$\det A = 1\cdot\det\begin{bmatrix} 4 &amp; -1 \\ -2 &amp; 0 \end{bmatrix} - 5\cdot\det\begin{bmatrix} 2 &amp; -1 \\ 0 &amp; 0 \end{bmatrix} + 0\cdot\det\begin{bmatrix} 2 &amp; 4 \\ 0 &amp; -2 \end{bmatrix} = 1(0 - 2) - 5(0 - 0) + 0(-4 - 0) = -2$$
                             </p>
                         </div>
 
                         <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-1.5">
-                            <p><strong>EXAMPLE 2 (Page 12):</strong> Expanding the same matrix across Row 3 (which has two zeros):</p>
-                            <p class="font-mono text-xs md:text-sm text-center text-indigo-950">
-                                $$\det A = 0\begin{vmatrix} 5 &amp; 0 \\ 4 &amp; -1 \end{vmatrix} - (-2)\begin{vmatrix} 1 &amp; 0 \\ 2 &amp; -1 \end{vmatrix} + 0\begin{vmatrix} 1 &amp; 5 \\ 2 &amp; 4 \end{vmatrix} = 0 + 2(-1) + 0 = -2$$
+                            <p><strong>EXAMPLE 2 (Page 13):</strong> Cofactor expansion across Row 3 for the same matrix $A = \begin{bmatrix} 1 &amp; 5 &amp; 0 \\ 2 &amp; 4 &amp; -1 \\ 0 &amp; -2 &amp; 0 \end{bmatrix}$:</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-emerald-950 space-y-1">
+                                <span class="block">$$\det A = a_{31}C_{31} + a_{32}C_{32} + a_{33}C_{33} = (-1)^{3+1}a_{31}\det A_{31} + (-1)^{3+2}a_{32}\det A_{32} + (-1)^{3+3}a_{33}\det A_{33}$$</span>
+                                <span class="block">$$= 0\begin{vmatrix} 5 &amp; 0 \\ 4 &amp; -1 \end{vmatrix} - (-2)\begin{vmatrix} 1 &amp; 0 \\ 2 &amp; -1 \end{vmatrix} + 0\begin{vmatrix} 1 &amp; 5 \\ 2 &amp; 4 \end{vmatrix} = 0 + 2(-1) + 0 = -2$$</span>
                             </p>
                         </div>
 
                         <div class="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-1.5">
-                            <p><strong>EXAMPLE 3 (Pages 13 - 14):</strong> Compute $\det A$ for a $5\times 5$ matrix by repeatedly expanding down the first column full of zeros:</p>
-                            <p class="font-mono text-xs md:text-sm text-center text-indigo-950">
-                                $$\det A = \begin{vmatrix} 3 &amp; -7 &amp; 8 &amp; 9 &amp; -6 \\ 0 &amp; 2 &amp; -5 &amp; 7 &amp; 3 \\ 0 &amp; 0 &amp; 1 &amp; 5 &amp; 0 \\ 0 &amp; 0 &amp; 2 &amp; 4 &amp; -1 \\ 0 &amp; 0 &amp; 0 &amp; -2 &amp; 0 \end{vmatrix} = 3\begin{vmatrix} 2 &amp; -5 &amp; 7 &amp; 3 \\ 0 &amp; 1 &amp; 5 &amp; 0 \\ 0 &amp; 2 &amp; 4 &amp; -1 \\ 0 &amp; 0 &amp; -2 &amp; 0 \end{vmatrix} = 3 \cdot 2\begin{vmatrix} 1 &amp; 5 &amp; 0 \\ 2 &amp; 4 &amp; -1 \\ 0 &amp; -2 &amp; 0 \end{vmatrix} = 3 \cdot 2 \cdot (-2) = -12$$
+                            <p><strong>EXAMPLE 3 (Pages 14 - 15):</strong> Compute $\det A$ for $A = \begin{bmatrix} 3 &amp; -7 &amp; 8 &amp; 9 &amp; -6 \\ 0 &amp; 2 &amp; -5 &amp; 7 &amp; 3 \\ 0 &amp; 0 &amp; 1 &amp; 5 &amp; 0 \\ 0 &amp; 0 &amp; 2 &amp; 4 &amp; -1 \\ 0 &amp; 0 &amp; 0 &amp; -2 &amp; 0 \end{bmatrix}$ by expanding down Column 1 (omitting zero terms):</p>
+                            <p class="font-mono text-xs md:text-sm text-center text-emerald-950 space-y-1">
+                                <span class="block">$$\det A = 3\cdot\begin{vmatrix} 2 &amp; -5 &amp; 7 &amp; 3 \\ 0 &amp; 1 &amp; 5 &amp; 0 \\ 0 &amp; 2 &amp; 4 &amp; -1 \\ 0 &amp; 0 &amp; -2 &amp; 0 \end{vmatrix} + 0\cdot C_{21} + 0\cdot C_{31} + 0\cdot C_{41} + 0\cdot C_{51}$$</span>
+                                <span class="block">$$\text{Expand } 4\times 4 \text{ down Column 1: } \det A = 3\cdot 2\cdot\begin{vmatrix} 1 &amp; 5 &amp; 0 \\ 2 &amp; 4 &amp; -1 \\ 0 &amp; -2 &amp; 0 \end{vmatrix} = 3\cdot 2\cdot(-2) = -12$$</span>
                             </p>
                         </div>
                     </div>
@@ -218,23 +259,23 @@
             </div>
         </div>
 
-        <!-- 3.1.2 Triangular Matrices -->
+        <!-- 3.1.2 Triangular Matrices & Zero Rows/Columns -->
         <div class="space-y-4 pt-6 border-t border-slate-200">
-            <h3 class="font-bold text-lg text-indigo-800 flex items-center gap-2">
-                <i class="fa-solid fa-play text-indigo-500 text-sm"></i> 3.1.2 Triangular Matrices (三角矩陣的行列式，Pages 15 - 16)
+            <h3 class="font-bold text-lg text-emerald-800 flex items-center gap-2">
+                <i class="fa-solid fa-play text-emerald-500 text-sm"></i> 3.1.2 Triangular Matrices &amp; Zero Rows/Columns (三角矩陣與全零列／行，Pages 16)
             </h3>
 
             <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-sm">
-                <div class="p-4 bg-white rounded-lg border border-indigo-200 space-y-2 text-slate-800 leading-relaxed">
-                    <strong class="text-indigo-900 text-base font-bold block">THEOREM 2 (定理 2，Page 15)</strong>
+                <div class="p-4 bg-white rounded-lg border border-emerald-200 space-y-2 text-slate-800 leading-relaxed">
+                    <strong class="text-emerald-900 text-base font-bold block">THEOREM 2 (定理 2，Page 16)</strong>
                     <p>
-                        If $A$ is a <strong>triangular matrix (三角矩陣)</strong> (upper triangular, lower triangular, or diagonal), then $\det A$ is the <strong>product of the entries on the main diagonal (主對角線元素之乘積)</strong> of $A$:
+                        If $A$ is a <strong>triangular matrix (三角矩陣)</strong>, then $\det A$ is the <strong>product of the entries on the main diagonal (主對角線元素之乘積)</strong> of $A$:
                     </p>
-                    <p class="font-mono text-center text-indigo-950 font-bold py-1">
+                    <p class="font-mono text-center text-emerald-950 font-bold py-1">
                         $$\det A = a_{11}a_{22}\cdots a_{nn}$$
                     </p>
                     <p class="text-xs md:text-sm text-slate-600">
-                        Also, if an entire row or an entire column of $A$ consists of zeros, the cofactor expansion along that row or column is a sum of zeros, so $\det A = 0$.
+                        <strong>Zero Row / Zero Column Remark (Page 16):</strong> Looking for zeros as in Example 3 works especially well when an entire row or column consists of zeros—expanding along that row or column yields a sum of zeros, so $\det A = 0$. However, most cofactor expansions are not evaluated so quickly.
                     </p>
                 </div>
             </div>
