@@ -334,48 +334,87 @@
                 3. Matrix Multiplication, Composition of Mappings &amp; Definition of $AB$ (矩陣乘法、映射合成與乘積定義)
             </h4>
             <p class="text-sm text-slate-700 leading-relaxed">
-                When a matrix $B$ multiplies a vector $\mathbf{x}$, it transforms $\mathbf{x}$ into the vector $B\mathbf{x}$. If this vector is then multiplied in turn by a matrix $A$, the resulting vector is $A(B\mathbf{x})$. See Figure 2. Thus $A(B\mathbf{x})$ is produced from $\mathbf{x}$ by a <strong>composition of mappings（映射合成）</strong>—the <strong>linear transformations（線性變換）</strong> studied in Section 1.8. Our goal is to represent this composite mapping as multiplication by a single matrix, denoted by $AB$, so that:
+                When a matrix $B$ multiplies a vector $\mathbf{x}$, it transforms $\mathbf{x}$ into the vector $B\mathbf{x}$. If this vector is then multiplied in turn by a matrix $A$, the resulting vector is $A(B\mathbf{x})$. See Figure 2.
+            </p>
+            
+            <!-- SVG Figure 2: Multiplication by B and then A -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-2">
+                <p class="text-xs font-semibold text-slate-600">FIGURE 2 Multiplication by B and then A（先乘 B 再乘 A）</p>
+                <div class="overflow-x-auto">
+                    <svg viewBox="0 0 650 165" class="w-full max-w-2xl mx-auto text-slate-800" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Plane 1: x -->
+                        <polygon points="20,115 116,85 186,115 90,145" fill="#bae6fd" stroke="#7dd3fc" stroke-width="1.5" />
+                        <circle cx="103" cy="115" r="3.5" fill="#0f172a" />
+                        <text x="90" y="111" font-size="14" font-weight="bold" font-family="serif">x</text>
+            
+                        <!-- Plane 2: Bx -->
+                        <polygon points="228,115 324,85 394,115 298,145" fill="#bae6fd" stroke="#7dd3fc" stroke-width="1.5" />
+                        <circle cx="311" cy="115" r="3.5" fill="#0f172a" />
+                        <text x="318" y="131" font-size="14" font-family="serif"><tspan font-style="italic">B</tspan><tspan font-weight="bold">x</tspan></text>
+            
+                        <!-- Plane 3: A(Bx) -->
+                        <polygon points="436,115 532,85 602,115 506,145" fill="#bae6fd" stroke="#7dd3fc" stroke-width="1.5" />
+                        <circle cx="519" cy="115" r="3.5" fill="#0f172a" />
+                        <text x="526" y="131" font-size="14" font-family="serif"><tspan font-style="italic">A</tspan>(<tspan font-style="italic">B</tspan><tspan font-weight="bold">x</tspan>)</text>
+            
+                        <!-- Top Arrow 1: Multiplication by B -->
+                        <path d="M106,111 Q207,37 307,110" fill="none" stroke="#0284c7" stroke-width="2" />
+                        <polygon points="310,112 302,111 306,105" fill="#0284c7" />
+                        <text x="207" y="49" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">Multiplication</text>
+                        <text x="207" y="64" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">by <tspan font-style="italic" font-family="serif">B</tspan></text>
+            
+                        <!-- Top Arrow 2: Multiplication by A -->
+                        <path d="M314,111 Q415,37 515,110" fill="none" stroke="#0284c7" stroke-width="2" />
+                        <polygon points="518,112 510,111 514,105" fill="#0284c7" />
+                        <text x="415" y="49" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">Multiplication</text>
+                        <text x="415" y="64" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">by <tspan font-style="italic" font-family="serif">A</tspan></text>
+                    </svg>
+                </div>
+            </div>
+            
+            <p class="text-sm text-slate-700 leading-relaxed">
+                Thus $A(B\mathbf{x})$ is produced from $\mathbf{x}$ by a <strong>composition of mappings（映射合成）</strong>—the <strong>linear transformations（線性變換）</strong> studied in Section 1.8. Our goal is to represent this composite mapping as multiplication by a single matrix, denoted by $AB$, so that:
                 $$A(B\mathbf{x}) = (AB)\mathbf{x} \tag{1}$$
                 See Figure 3.
             </p>
-
-            <!-- SVG Figure 2 & Figure 3 -->
-            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-3">
-                <p class="text-xs font-semibold text-slate-600">FIGURE 2 Multiplication by B and then A（先乘 B 再乘 A） &amp; FIGURE 3 Multiplication by AB（乘以 AB 的合成映射）</p>
+            
+            <!-- SVG Figure 3: Multiplication by AB -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-2">
+                <p class="text-xs font-semibold text-slate-600">FIGURE 3 Multiplication by AB（乘以 AB 的合成映射）</p>
                 <div class="overflow-x-auto">
-                    <svg viewBox="0 0 650 220" class="w-full max-w-2xl mx-auto text-slate-800" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 650 215" class="w-full max-w-2xl mx-auto text-slate-800" xmlns="http://www.w3.org/2000/svg">
                         <!-- Plane 1: x -->
-                        <polygon points="20,126 116,96 186,126 90,156" fill="#bae6fd" stroke="#7dd3fc" stroke-width="1.5" />
-                        <circle cx="103" cy="126" r="3.5" fill="#0f172a" />
-                        <text x="90" y="122" font-size="14" font-weight="bold" font-family="serif">x</text>
-
+                        <polygon points="20,122 116,92 186,122 90,152" fill="#bae6fd" stroke="#7dd3fc" stroke-width="1.5" />
+                        <circle cx="103" cy="122" r="3.5" fill="#0f172a" />
+                        <text x="90" y="118" font-size="14" font-weight="bold" font-family="serif">x</text>
+            
                         <!-- Plane 2: Bx -->
-                        <polygon points="228,126 324,96 394,126 298,156" fill="#bae6fd" stroke="#7dd3fc" stroke-width="1.5" />
-                        <circle cx="311" cy="126" r="3.5" fill="#0f172a" />
-                        <text x="318" y="142" font-size="14" font-family="serif"><tspan font-style="italic">B</tspan><tspan font-weight="bold">x</tspan></text>
-
+                        <polygon points="228,122 324,92 394,122 298,152" fill="#bae6fd" stroke="#7dd3fc" stroke-width="1.5" />
+                        <circle cx="311" cy="122" r="3.5" fill="#0f172a" />
+                        <text x="318" y="138" font-size="14" font-family="serif"><tspan font-style="italic">B</tspan><tspan font-weight="bold">x</tspan></text>
+            
                         <!-- Plane 3: A(Bx) -->
-                        <polygon points="436,126 532,96 602,126 506,156" fill="#bae6fd" stroke="#7dd3fc" stroke-width="1.5" />
-                        <circle cx="519" cy="126" r="3.5" fill="#0f172a" />
-                        <text x="526" y="142" font-size="14" font-family="serif"><tspan font-style="italic">A</tspan>(<tspan font-style="italic">B</tspan><tspan font-weight="bold">x</tspan>)</text>
-
+                        <polygon points="436,122 532,92 602,122 506,152" fill="#bae6fd" stroke="#7dd3fc" stroke-width="1.5" />
+                        <circle cx="519" cy="122" r="3.5" fill="#0f172a" />
+                        <text x="526" y="138" font-size="14" font-family="serif"><tspan font-style="italic">A</tspan>(<tspan font-style="italic">B</tspan><tspan font-weight="bold">x</tspan>)</text>
+            
                         <!-- Top Arrow 1: Multiplication by B -->
-                        <path d="M106,122 Q207,48 307,121" fill="none" stroke="#0284c7" stroke-width="2" />
-                        <polygon points="310,123 302,122 306,116" fill="#0284c7" />
-                        <text x="207" y="60" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">Multiplication</text>
-                        <text x="207" y="75" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">by <tspan font-style="italic" font-family="serif">B</tspan></text>
-
+                        <path d="M106,118 Q207,44 307,117" fill="none" stroke="#0284c7" stroke-width="2" />
+                        <polygon points="310,119 302,118 306,112" fill="#0284c7" />
+                        <text x="207" y="56" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">Multiplication</text>
+                        <text x="207" y="71" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">by <tspan font-style="italic" font-family="serif">B</tspan></text>
+            
                         <!-- Top Arrow 2: Multiplication by A -->
-                        <path d="M314,122 Q415,48 515,121" fill="none" stroke="#0284c7" stroke-width="2" />
-                        <polygon points="518,123 510,122 514,116" fill="#0284c7" />
-                        <text x="415" y="60" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">Multiplication</text>
-                        <text x="415" y="75" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">by <tspan font-style="italic" font-family="serif">A</tspan></text>
-
+                        <path d="M314,118 Q415,44 515,117" fill="none" stroke="#0284c7" stroke-width="2" />
+                        <polygon points="518,119 510,118 514,112" fill="#0284c7" />
+                        <text x="415" y="56" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">Multiplication</text>
+                        <text x="415" y="71" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">by <tspan font-style="italic" font-family="serif">A</tspan></text>
+            
                         <!-- Bottom Arrow: Multiplication by AB -->
-                        <path d="M104,131 Q311,215 518,131" fill="none" stroke="#0284c7" stroke-width="2.2" />
-                        <polygon points="521,130 513,130 516,136" fill="#0284c7" />
-                        <text x="311" y="184" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">Multiplication</text>
-                        <text x="311" y="199" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">by <tspan font-style="italic" font-family="serif">AB</tspan></text>
+                        <path d="M104,127 Q311,211 518,127" fill="none" stroke="#0284c7" stroke-width="2.2" />
+                        <polygon points="521,126 513,126 516,132" fill="#0284c7" />
+                        <text x="311" y="180" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">Multiplication</text>
+                        <text x="311" y="195" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">by <tspan font-style="italic" font-family="serif">AB</tspan></text>
                     </svg>
                 </div>
             </div>
