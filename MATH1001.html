@@ -1806,34 +1806,34 @@
                             const container = document.getElementById('ex2-4-3-block');
                             if (!container) return;
 
-                            const applyBluePartitions = () => {
-                                container.querySelectorAll('mjx-container svg').forEach((svg) => {
-                                    svg.querySelectorAll('rect, line').forEach((el) => {
-                                        const tag = el.tagName.toLowerCase();
-                                        if (tag === 'line') {
-                                            el.setAttribute('stroke', '#00a8e8');
-                                            el.style.stroke = '#00a8e8';
-                                            return;
-                                        }
-                                        const w = parseFloat(el.getAttribute('width') || '0');
-                                        const h = parseFloat(el.getAttribute('height') || '0');
-                                        if ((w > 10 && h <= 5) || (h > 10 && w <= 5)) {
-                                            el.setAttribute('fill', '#00a8e8');
-                                            el.style.fill = '#00a8e8';
-                                        }
-                                    });
+                            const colorArrayRules = () => {
+                                container.querySelectorAll('mjx-container svg rect, mjx-container svg line').forEach((el) => {
+                                    const box = el.getBoundingClientRect();
+                                    if (!box.width || !box.height) return;
+
+                                    const isHorizontalRule = box.width > 12 && box.height <= 4;
+                                    const isVerticalRule = box.height > 12 && box.width <= 4;
+
+                                    if (isHorizontalRule || isVerticalRule) {
+                                        el.setAttribute('fill', '#00a8e8');
+                                        el.setAttribute('stroke', '#00a8e8');
+                                        el.style.setProperty('fill', '#00a8e8', 'important');
+                                        el.style.setProperty('stroke', '#00a8e8', 'important');
+                                    }
                                 });
                             };
 
-                            const observer = new MutationObserver(applyBluePartitions);
+                            const observer = new MutationObserver(colorArrayRules);
                             observer.observe(container, { childList: true, subtree: true });
 
                             if (window.MathJax && MathJax.startup && MathJax.startup.promise) {
-                                MathJax.startup.promise.then(applyBluePartitions);
+                                MathJax.startup.promise.then(() => {
+                                    colorArrayRules();
+                                    requestAnimationFrame(colorArrayRules);
+                                });
                             }
-                            applyBluePartitions();
-                            setTimeout(applyBluePartitions, 200);
-                            setTimeout(applyBluePartitions, 800);
+                            window.addEventListener('load', () => setTimeout(colorArrayRules, 100));
+                            setTimeout(colorArrayRules, 300);
                         })();
                     </script>
                     
