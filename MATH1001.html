@@ -461,6 +461,16 @@
                 </div>
             </div>
 
+            <p class="text-sm text-slate-700 leading-relaxed">
+                Notice that since the first column of $AB$ is $A\mathbf{b}_{1}$, this column is a <strong>linear combination（線性組合）</strong> of the columns of $A$ using the entries in $\mathbf{b}_{1}$ as <strong>weights（權重）</strong>. A similar statement is true for each column of $AB$:
+            </p>
+            <p class="text-sm font-semibold text-amber-950 bg-amber-50/60 border border-amber-200 rounded-lg px-4 py-2.5">
+                Each column of $AB$ is a linear combination of the columns of $A$ using weights from the corresponding column of $B$.
+            </p>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                Obviously, the number of columns of $A$ must match the number of rows in $B$ in order for a linear combination such as $A\mathbf{b}_{1}$ to be defined. Also, the definition of $AB$ shows that $AB$ has the same number of rows as $A$ and the same number of columns as $B$.
+            </p>
+
             <!-- Collapsible EXAMPLE 4 -->
             <div class="border border-slate-200 rounded-xl overflow-hidden">
                 <button onclick="toggleCard('ex2-1-4')" class="w-full px-4 py-3 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-sm text-amber-950 transition">
@@ -519,7 +529,7 @@
                             $$A = \begin{bmatrix} 2 & -5 & 0 \\ -1 & 3 & -4 \\ 6 & -8 & -7 \\ -3 & 0 & 9 \end{bmatrix}, \quad B = \begin{bmatrix} 4 & -6 \\ 7 & 1 \\ 3 & 2 \end{bmatrix}$$
                         </p>
                         <p><strong>SOLUTION:</strong> By the row-column rule, the entries of the second row of $AB$ come from row $2$ of $A$ (and the columns of $B$):
-                            $$\begin{bmatrix} 2 & -5 & 0 \\ -1 & 3 & -4 \\ 6 & -8 & -7 \\ -3 & 0 & 9 \end{bmatrix}\begin{bmatrix} 4 & -6 \\ 7 & 1 \\ 3 & 2 \end{bmatrix} \implies \text{Row 2: } \begin{bmatrix} (-1)(4)+(3)(7)+(-4)(3) & (-1)(-6)+(3)(1)+(-4)(2) \end{bmatrix} = \begin{bmatrix} 5 & 1 \end{bmatrix}$$
+                            $$\begin{bmatrix} 2 & -5 & 0 \\ -1 & 3 & -4 \\ 6 & -8 & -7 \\ -3 & 0 & 9 \end{bmatrix}\begin{bmatrix} 4 & -6 \\ 7 & 1 \\ 3 & 2 \end{bmatrix} \implies \text{Row 2: } \begin{bmatrix} (-1)(4)+(3)(7)+(-4)(3) & (-1)(-6)+(3)(1)+(-4)(2) \end{bmatrix} = \begin{bmatrix} -4+21-12 & 6+3-8 \end{bmatrix} = \begin{bmatrix} 5 & 1 \end{bmatrix}$$
                             Notice that since Example 6 requested only the second row of $AB$, we could have written just the second row of $A$ to the left of $B$ and computed:
                             $$\begin{bmatrix} -1 & 3 & -4 \end{bmatrix}\begin{bmatrix} 4 & -6 \\ 7 & 1 \\ 3 & 2 \end{bmatrix} = \begin{bmatrix} 5 & 1 \end{bmatrix}$$
                             This observation about rows of $AB$ is true in general and follows from the row-column rule. Let $\operatorname{row}_{i}(A)$ denote the $i$th row of a matrix $A$. Then
@@ -528,137 +538,136 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- 4. Properties of Matrix Multiplication, Warnings & Powers of a Matrix -->
-        <div class="space-y-3">
-            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-                <span class="w-2 h-5 bg-amber-500 rounded-full"></span>
-                4. Properties of Matrix Multiplication, Warnings &amp; Powers of a Matrix (乘法性質、警告與矩陣次方)
-            </h4>
-            <p class="text-sm text-slate-700 leading-relaxed">
-                Recall that $I_{m}$ represents the $m \times m$ identity matrix and $I_{m}\mathbf{x} = \mathbf{x}$ for all $\mathbf{x}$ in $\mathbb{R}^{m}$.
-            </p>
-
-            <!-- THEOREM 2 -->
-            <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-3">
-                <div class="font-bold text-amber-950 text-base">THEOREM 2（定理 2：矩陣乘法代數性質）</div>
-                <p class="text-xs sm:text-sm text-slate-700">Let $A$ be an $m \times n$ matrix, and let $B$ and $C$ have sizes for which the indicated sums and products are defined.</p>
-                <div class="grid sm:grid-cols-2 gap-2.5 text-xs sm:text-sm bg-white p-4 rounded-lg border border-amber-100">
-                    <div><strong>a.</strong> $A(BC) = (AB)C$ <span class="text-slate-500">(<strong>associative law of multiplication 乘法結合律</strong>)</span></div>
-                    <div><strong>d.</strong> $r(AB) = (rA)B = A(rB)$ <span class="text-slate-500">for any scalar $r$</span></div>
-                    <div><strong>b.</strong> $A(B + C) = AB + AC$ <span class="text-slate-500">(<strong>left distributive law 左分配律</strong>)</span></div>
-                    <div><strong>e.</strong> $I_{m}A = A = AI_{n}$ <span class="text-slate-500">(<strong>identity for matrix multiplication 乘法單位元素</strong>)</span></div>
-                    <div><strong>c.</strong> $(B + C)A = BA + CA$ <span class="text-slate-500">(<strong>right distributive law 右分配律</strong>)</span></div>
-                </div>
-
-                <!-- Collapsible PROOF of Theorem 2(a) & Order Discussion -->
-                <div class="border border-amber-200/80 rounded-lg overflow-hidden bg-white">
-                    <button onclick="toggleCard('proof-thm2a')" class="w-full px-4 py-2.5 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left text-xs sm:text-sm font-semibold text-slate-800 transition">
-                        <span>THEOREM 2(a) PROOF（證明）與左右乘法順序／可交換（commute）說明</span>
-                        <i class="fa-solid fa-chevron-down text-xs text-slate-500"></i>
-                    </button>
-                    <div id="proof-thm2a" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2">
-                        <p>
-                            <strong>PROOF:</strong> Properties (b)–(e) are considered in the exercises. Property (a) follows from the fact that matrix multiplication corresponds to composition of linear transformations (which are functions), and it is known (or easy to check) that the composition of functions is associative. Here is another proof of (a) that rests on the "column definition" of the product of two matrices. Let
-                            $$C = \begin{bmatrix} \mathbf{c}_{1} & \cdots & \mathbf{c}_{p} \end{bmatrix}$$
-                            By the definition of matrix multiplication,
-                            $$BC = \begin{bmatrix} B\mathbf{c}_{1} & \cdots & B\mathbf{c}_{p} \end{bmatrix}$$
-                            $$A(BC) = \begin{bmatrix} A(B\mathbf{c}_{1}) & \cdots & A(B\mathbf{c}_{p}) \end{bmatrix}$$
-                            Recall from equation (1) that the definition of $AB$ makes $A(B\mathbf{x}) = (AB)\mathbf{x}$ for all $\mathbf{x}$, so
-                            $$A(BC) = \begin{bmatrix} (AB)\mathbf{c}_{1} & \cdots & (AB)\mathbf{c}_{p} \end{bmatrix} = (AB)C$$
-                        </p>
-                        <p class="text-xs text-slate-600 leading-relaxed">
-                            The associative and distributive laws in Theorems 1 and 2 say essentially that pairs of parentheses in matrix expressions can be inserted and deleted in the same way as in the algebra of real numbers. In particular, we can write $ABC$ for the product, which can be computed either as $A(BC)$ or as $(AB)C$. Similarly, a product $ABCD$ of four matrices can be computed as $A(BCD)$ or $(ABC)D$ or $A(BC)D$, and so on. It does not matter how we group the matrices when computing the product, so long as the left-to-right order of the matrices is preserved.
-                        </p>
-                        <p class="text-xs text-slate-600 leading-relaxed">
-                            The left-to-right order in products is critical because $AB$ and $BA$ are usually not the same. This is not surprising, because the columns of $AB$ are linear combinations of the columns of $A$, whereas the columns of $BA$ are constructed from the columns of $B$. The position of the factors in the product $AB$ is emphasized by saying that $A$ is <strong>right-multiplied（右乘）</strong> by $B$ or that $B$ is <strong>left-multiplied（左乘）</strong> by $A$. If $AB = BA$, we say that $A$ and $B$ <strong>commute（可交換）</strong> with one another.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Collapsible EXAMPLE 7 & WARNINGS -->
-            <div class="grid md:grid-cols-2 gap-4">
-                <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
-                    <button onclick="toggleCard('ex2-1-7')" class="w-full px-4 py-3 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-sm text-amber-950 transition">
-                        <span>EXAMPLE 7（範例 7：驗證 $AB \neq BA$，說明兩矩陣不可交換）</span>
-                        <i class="fa-solid fa-chevron-down text-xs text-amber-700"></i>
-                    </button>
-                    <div id="ex2-1-7" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2">
-                        <p>Let $A = \begin{bmatrix} 5 & 1 \\ 3 & -2 \end{bmatrix}$ and $B = \begin{bmatrix} 2 & 0 \\ 4 & 3 \end{bmatrix}$. Show that these matrices do not commute. That is, verify that $AB \neq BA$.</p>
-                        <p><strong>SOLUTION:</strong>
-                            $$AB = \begin{bmatrix} 5 & 1 \\ 3 & -2 \end{bmatrix}\begin{bmatrix} 2 & 0 \\ 4 & 3 \end{bmatrix} = \begin{bmatrix} 14 & 3 \\ -2 & -6 \end{bmatrix}$$
-                            $$BA = \begin{bmatrix} 2 & 0 \\ 4 & 3 \end{bmatrix}\begin{bmatrix} 5 & 1 \\ 3 & -2 \end{bmatrix} = \begin{bmatrix} 10 & 2 \\ 29 & -2 \end{bmatrix}$$
-                        </p>
-                    </div>
-                </div>
-
-                <div class="bg-red-50/70 border border-red-200 rounded-xl p-4 space-y-2 text-xs sm:text-sm text-red-950">
-                    <div class="font-bold text-red-900 flex items-center gap-1.5 text-sm">
-                        <i class="fa-solid fa-triangle-exclamation text-red-600"></i>
-                        WARNINGS（警告：矩陣乘法三大注意事項）
-                    </div>
-                    <ol class="list-decimal pl-5 space-y-1.5">
-                        <li>In general, $AB \neq BA$.</li>
-                        <li>The <strong>cancellation laws（消去律）</strong> do not hold for matrix multiplication. That is, if $AB = AC$, then it is not true in general that $B = C$.</li>
-                        <li>If a product $AB$ is the zero matrix, you cannot conclude in general that either $A = 0$ or $B = 0$.</li>
-                    </ol>
-                </div>
-            </div>
-
-            <!-- Powers of a Matrix -->
-            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs sm:text-sm text-slate-700 space-y-1.5">
-                <div class="font-bold text-slate-900 text-sm">Powers of a Matrix（矩陣次方）</div>
-                <p class="leading-relaxed">
-                    If $A$ is an $n \times n$ matrix and if $k$ is a positive integer, then $A^{k}$ denotes the product of $k$ copies of $A$:
-                    $$A^{k} = \underbrace{A \cdots A}_{k}$$
-                    If $A$ is nonzero and if $\mathbf{x}$ is in $\mathbb{R}^{n}$, then $A^{k}\mathbf{x}$ is the result of left-multiplying $\mathbf{x}$ by $A$ repeatedly $k$ times. If $k = 0$, then $A^{0}\mathbf{x}$ should be $\mathbf{x}$ itself. Thus $A^{0}$ is interpreted as the identity matrix. Matrix powers are useful in both theory and applications (Sections 2.6, 4.9, and later in the text).
+            <!-- 4. Properties of Matrix Multiplication, Warnings & Powers of a Matrix -->
+            <div class="space-y-3">
+                <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                    <span class="w-2 h-5 bg-amber-500 rounded-full"></span>
+                    4. Properties of Matrix Multiplication, Warnings &amp; Powers of a Matrix (乘法性質、警告與矩陣次方)
+                </h4>
+                <p class="text-sm text-slate-700 leading-relaxed">
+                    Recall that $I_{m}$ represents the $m \times m$ <strong>identity matrix（單位矩陣）</strong> and $I_{m}\mathbf{x} = \mathbf{x}$ for all $\mathbf{x}$ in $\mathbb{R}^{m}$.
                 </p>
-            </div>
-        </div>
 
-        <!-- 5. The Transpose of a Matrix & THEOREM 3 -->
-        <div class="space-y-3">
-            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-                <span class="w-2 h-5 bg-amber-500 rounded-full"></span>
-                5. The Transpose of a Matrix &amp; THEOREM 3 (轉置矩陣與定理 3)
-            </h4>
-            <p class="text-sm text-slate-700 leading-relaxed">
-                Given an $m \times n$ matrix $A$, the <strong>transpose（轉置）</strong> of $A$ is the $n \times m$ matrix, denoted by $A^{T}$, whose columns are formed from the corresponding rows of $A$.
-            </p>
+                <!-- THEOREM 2 -->
+                <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-3">
+                    <div class="font-bold text-amber-950 text-base">THEOREM 2（定理 2：矩陣乘法代數性質）</div>
+                    <p class="text-xs sm:text-sm text-slate-700">Let $A$ be an $m \times n$ matrix, and let $B$ and $C$ have sizes for which the indicated sums and products are defined.</p>
+                    <div class="grid sm:grid-cols-2 gap-2.5 text-xs sm:text-sm bg-white p-4 rounded-lg border border-amber-100">
+                        <div><strong>a.</strong> $A(BC) = (AB)C$ <span class="text-slate-500">(<strong>associative law of multiplication 乘法結合律</strong>)</span></div>
+                        <div><strong>d.</strong> $r(AB) = (rA)B = A(rB)$ <span class="text-slate-500">for any scalar $r$</span></div>
+                        <div><strong>b.</strong> $A(B + C) = AB + AC$ <span class="text-slate-500">(<strong>left distributive law 左分配律</strong>)</span></div>
+                        <div><strong>e.</strong> $I_{m}A = A = AI_{n}$ <span class="text-slate-500">(<strong>identity for matrix multiplication 乘法單位元素</strong>)</span></div>
+                        <div><strong>c.</strong> $(B + C)A = BA + CA$ <span class="text-slate-500">(<strong>right distributive law 右分配律</strong>)</span></div>
+                    </div>
 
-            <!-- Collapsible EXAMPLE 8 -->
-            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
-                <button onclick="toggleCard('ex2-1-8')" class="w-full px-4 py-3 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-sm text-amber-950 transition">
-                    <span>EXAMPLE 8（範例 8：求矩陣 $A, B, C$ 的轉置 $A^{T}, B^{T}, C^{T}$）</span>
-                    <i class="fa-solid fa-chevron-down text-xs text-amber-700"></i>
-                </button>
-                <div id="ex2-1-8" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2">
-                    <p>Let
-                        $$A = \begin{bmatrix} a & b \\ c & d \end{bmatrix}, \quad B = \begin{bmatrix} -5 & 2 \\ 1 & -3 \\ 0 & 4 \end{bmatrix}, \quad C = \begin{bmatrix} 1 & 1 & 1 & 1 \\ -3 & 5 & -2 & 7 \end{bmatrix}$$
-                        Then
-                        $$A^{T} = \begin{bmatrix} a & c \\ b & d \end{bmatrix}, \quad B^{T} = \begin{bmatrix} -5 & 1 & 0 \\ 2 & -3 & 4 \end{bmatrix}, \quad C^{T} = \begin{bmatrix} 1 & -3 \\ 1 & 5 \\ 1 & -2 \\ 1 & 7 \end{bmatrix}$$
+                    <!-- Collapsible PROOF of Theorem 2(a) & Order Discussion -->
+                    <div class="border border-amber-200/80 rounded-lg overflow-hidden bg-white">
+                        <button onclick="toggleCard('proof-thm2a')" class="w-full px-4 py-2.5 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left text-xs sm:text-sm font-semibold text-slate-800 transition">
+                            <span>THEOREM 2(a) PROOF（證明）與左右乘法順序／可交換（commute）說明</span>
+                            <i class="fa-solid fa-chevron-down text-xs text-slate-500"></i>
+                        </button>
+                        <div id="proof-thm2a" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2">
+                            <p>
+                                <strong>PROOF:</strong> Properties (b)–(e) are considered in the exercises. Property (a) follows from the fact that matrix multiplication corresponds to composition of linear transformations (which are functions), and it is known (or easy to check) that the composition of functions is associative. Here is another proof of (a) that rests on the "column definition" of the product of two matrices. Let
+                                $$C = \begin{bmatrix} \mathbf{c}_{1} & \cdots & \mathbf{c}_{p} \end{bmatrix}$$
+                                By the definition of matrix multiplication,
+                                $$BC = \begin{bmatrix} B\mathbf{c}_{1} & \cdots & B\mathbf{c}_{p} \end{bmatrix}$$
+                                $$A(BC) = \begin{bmatrix} A(B\mathbf{c}_{1}) & \cdots & A(B\mathbf{c}_{p}) \end{bmatrix}$$
+                                Recall from equation (1) that the definition of $AB$ makes $A(B\mathbf{x}) = (AB)\mathbf{x}$ for all $\mathbf{x}$, so
+                                $$A(BC) = \begin{bmatrix} (AB)\mathbf{c}_{1} & \cdots & (AB)\mathbf{c}_{p} \end{bmatrix} = (AB)C$$
+                            </p>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                The associative and distributive laws in Theorems 1 and 2 say essentially that pairs of parentheses in matrix expressions can be inserted and deleted in the same way as in the algebra of real numbers. In particular, we can write $ABC$ for the product, which can be computed either as $A(BC)$ or as $(AB)C$. Similarly, a product $ABCD$ of four matrices can be computed as $A(BCD)$ or $(ABC)D$ or $A(BC)D$, and so on. It does not matter how we group the matrices when computing the product, so long as the left-to-right order of the matrices is preserved.
+                            </p>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                The left-to-right order in products is critical because $AB$ and $BA$ are usually not the same. This is not surprising, because the columns of $AB$ are linear combinations of the columns of $A$, whereas the columns of $BA$ are constructed from the columns of $B$. The position of the factors in the product $AB$ is emphasized by saying that $A$ is <strong>right-multiplied（右乘）</strong> by $B$ or that $B$ is <strong>left-multiplied（左乘）</strong> by $A$. If $AB = BA$, we say that $A$ and $B$ <strong>commute（可交換）</strong> with one another.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collapsible EXAMPLE 7 & WARNINGS -->
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                        <button onclick="toggleCard('ex2-1-7')" class="w-full px-4 py-3 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-sm text-amber-950 transition">
+                            <span>EXAMPLE 7（範例 7：驗證 $AB \neq BA$，說明兩矩陣不可交換）</span>
+                            <i class="fa-solid fa-chevron-down text-xs text-amber-700"></i>
+                        </button>
+                        <div id="ex2-1-7" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2">
+                            <p>Let $A = \begin{bmatrix} 5 & 1 \\ 3 & -2 \end{bmatrix}$ and $B = \begin{bmatrix} 2 & 0 \\ 4 & 3 \end{bmatrix}$. Show that these matrices do not commute. That is, verify that $AB \neq BA$.</p>
+                            <p><strong>SOLUTION:</strong>
+                                $$AB = \begin{bmatrix} 5 & 1 \\ 3 & -2 \end{bmatrix}\begin{bmatrix} 2 & 0 \\ 4 & 3 \end{bmatrix} = \begin{bmatrix} 14 & 3 \\ -2 & -6 \end{bmatrix}$$
+                                $$BA = \begin{bmatrix} 2 & 0 \\ 4 & 3 \end{bmatrix}\begin{bmatrix} 5 & 1 \\ 3 & -2 \end{bmatrix} = \begin{bmatrix} 10 & 2 \\ 29 & -2 \end{bmatrix}$$
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-red-50/70 border border-red-200 rounded-xl p-4 space-y-2 text-xs sm:text-sm text-red-950">
+                        <div class="font-bold text-red-900 flex items-center gap-1.5 text-sm">
+                            <i class="fa-solid fa-triangle-exclamation text-red-600"></i>
+                            WARNINGS（警告：矩陣乘法三大注意事項）
+                        </div>
+                        <ol class="list-decimal pl-5 space-y-1.5">
+                            <li>In general, $AB \neq BA$.</li>
+                            <li>The <strong>cancellation laws（消去律）</strong> do not hold for matrix multiplication. That is, if $AB = AC$, then it is not true in general that $B = C$ (See Exercise 10.).</li>
+                            <li>If a product $AB$ is the zero matrix, you cannot conclude in general that either $A = 0$ or $B = 0$ (See Exercise 12.).</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Powers of a Matrix -->
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs sm:text-sm text-slate-700 space-y-1.5">
+                    <div class="font-bold text-slate-900 text-sm">Powers of a Matrix（矩陣次方）</div>
+                    <p class="leading-relaxed">
+                        If $A$ is an $n \times n$ matrix and if $k$ is a positive integer, then $A^{k}$ denotes the product of $k$ copies of $A$:
+                        $$A^{k} = \underbrace{A \cdots A}_{k}$$
+                        If $A$ is nonzero and if $\mathbf{x}$ is in $\mathbb{R}^{n}$, then $A^{k}\mathbf{x}$ is the result of left-multiplying $\mathbf{x}$ by $A$ repeatedly $k$ times. If $k = 0$, then $A^{0}\mathbf{x}$ should be $\mathbf{x}$ itself. Thus $A^{0}$ is interpreted as the <strong>identity matrix（單位矩陣）</strong>. Matrix powers are useful in both theory and applications (Sections 2.6, 4.9, and later in the text).
                     </p>
                 </div>
             </div>
 
-            <!-- THEOREM 3 -->
-            <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-3">
-                <div class="font-bold text-amber-950 text-base">THEOREM 3（定理 3：轉置矩陣運算性質）</div>
-                <p class="text-xs sm:text-sm text-slate-700">Let $A$ and $B$ denote matrices whose sizes are appropriate for the following sums and products.</p>
-                <div class="grid sm:grid-cols-2 gap-2.5 text-xs sm:text-sm font-mono text-slate-900 bg-white p-3.5 rounded-lg border border-amber-100">
-                    <div><strong>a.</strong> $(A^{T})^{T} = A$</div>
-                    <div><strong>c.</strong> For any scalar $r$, $(rA)^{T} = rA^{T}$</div>
-                    <div><strong>b.</strong> $(A + B)^{T} = A^{T} + B^{T}$</div>
-                    <div><strong>d.</strong> $(AB)^{T} = B^{T}A^{T}$</div>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                    Proofs of (a)–(c) are straightforward and are omitted. For (d), see Exercise 33. Usually, $(AB)^{T}$ is not equal to $A^{T}B^{T}$ even when $A$ and $B$ have sizes such that the product $A^{T}B^{T}$ is defined. The generalization of Theorem 3(d) to products of more than two factors can be stated in words as follows: <strong>The transpose of a product of matrices equals the product of their transposes in the reverse order（乘積的轉置等於各因子轉置依相反順序相乘的乘積）。</strong>
+            <!-- 5. The Transpose of a Matrix & THEOREM 3 -->
+            <div class="space-y-3">
+                <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                    <span class="w-2 h-5 bg-amber-500 rounded-full"></span>
+                    5. The Transpose of a Matrix &amp; THEOREM 3 (轉置矩陣與定理 3)
+                </h4>
+                <p class="text-sm text-slate-700 leading-relaxed">
+                    Given an $m \times n$ matrix $A$, the <strong>transpose（轉置）</strong> of $A$ is the $n \times m$ matrix, denoted by $A^{T}$, whose columns are formed from the corresponding rows of $A$.
                 </p>
+
+                <!-- Collapsible EXAMPLE 8 -->
+                <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                    <button onclick="toggleCard('ex2-1-8')" class="w-full px-4 py-3 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-sm text-amber-950 transition">
+                        <span>EXAMPLE 8（範例 8：求矩陣 $A, B, C$ 的轉置 $A^{T}, B^{T}, C^{T}$）</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-amber-700"></i>
+                    </button>
+                    <div id="ex2-1-8" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2">
+                        <p>Let
+                            $$A = \begin{bmatrix} a & b \\ c & d \end{bmatrix}, \quad B = \begin{bmatrix} -5 & 2 \\ 1 & -3 \\ 0 & 4 \end{bmatrix}, \quad C = \begin{bmatrix} 1 & 1 & 1 & 1 \\ -3 & 5 & -2 & 7 \end{bmatrix}$$
+                            Then
+                            $$A^{T} = \begin{bmatrix} a & c \\ b & d \end{bmatrix}, \quad B^{T} = \begin{bmatrix} -5 & 1 & 0 \\ 2 & -3 & 4 \end{bmatrix}, \quad C^{T} = \begin{bmatrix} 1 & -3 \\ 1 & 5 \\ 1 & -2 \\ 1 & 7 \end{bmatrix}$$
+                        </p>
+                    </div>
+                </div>
+
+                <!-- THEOREM 3 -->
+                <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-3">
+                    <div class="font-bold text-amber-950 text-base">THEOREM 3（定理 3：轉置矩陣運算性質）</div>
+                    <p class="text-xs sm:text-sm text-slate-700">Let $A$ and $B$ denote matrices whose sizes are appropriate for the following sums and products.</p>
+                    <div class="grid sm:grid-cols-2 gap-2.5 text-xs sm:text-sm font-mono text-slate-900 bg-white p-3.5 rounded-lg border border-amber-100">
+                        <div><strong>a.</strong> $(A^{T})^{T} = A$</div>
+                        <div><strong>c.</strong> For any scalar $r$, $(rA)^{T} = rA^{T}$</div>
+                        <div><strong>b.</strong> $(A + B)^{T} = A^{T} + B^{T}$</div>
+                        <div><strong>d.</strong> $(AB)^{T} = B^{T}A^{T}$</div>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        Proofs of (a)–(c) are straightforward and are omitted. For (d), see Exercise 33. Usually, $(AB)^{T}$ is not equal to $A^{T}B^{T}$ even when $A$ and $B$ have sizes such that the product $A^{T}B^{T}$ is defined. The generalization of Theorem 3(d) to products of more than two factors can be stated in words as follows: <strong>The transpose of a product of matrices equals the product of their transposes in the reverse order（乘積的轉置等於各因子轉置依相反順序相乘的乘積）。</strong>
+                    </p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- ================= SECTION 2.2 ================= -->
     <section id="sec2-2" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-8">
