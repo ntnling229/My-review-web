@@ -1722,14 +1722,49 @@
                     <i class="fa-solid fa-chevron-down text-sm text-amber-700"></i>
                 </button>
                 <div id="ex2-4-1" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-3 leading-relaxed">
-                    <p>The matrix
-                        $$A = \begin{bmatrix} 3 & 0 & -1 & 5 & 9 & -2 \\ -5 & 2 & 4 & 0 & -3 & 1 \\ -8 & -6 & 3 & 1 & 7 & -4 \end{bmatrix}$$
-                        can also be written as the $2 \times 3$ <strong>partitioned (or block) matrix（分塊矩陣）</strong>
-                        $$A = \begin{bmatrix} A_{11} & A_{12} & A_{13} \\ A_{21} & A_{22} & A_{23} \end{bmatrix}$$
-                        whose entries are the <strong>blocks (or submatrices)（子矩陣／區塊）</strong>
-                        $$A_{11} = \begin{bmatrix} 3 & 0 & -1 \\ -5 & 2 & 4 \end{bmatrix}, \quad A_{12} = \begin{bmatrix} 5 & 9 \\ 0 & -3 \end{bmatrix}, \quad A_{13} = \begin{bmatrix} -2 \\ 1 \end{bmatrix}$$
-                        $$A_{21} = \begin{bmatrix} -8 & -6 & 3 \end{bmatrix}, \quad A_{22} = \begin{bmatrix} 1 & 7 \end{bmatrix}, \quad A_{23} = \begin{bmatrix} -4 \end{bmatrix}$$
-                    </p>
+                    
+
+                    <p>The matrix</p>
+                    <div class="overflow-x-auto my-3">
+                        <svg viewBox="0 0 560 118" class="w-full max-w-4xl mx-auto text-slate-800" xmlns="http://www.w3.org/2000/svg">
+                            <!-- A = -->
+                            <text x="115" y="64" text-anchor="middle" font-size="17" font-style="italic" font-family="serif">A</text>
+                            <text x="135" y="64" text-anchor="middle" font-size="17" font-family="serif">=</text>
+
+                            <!-- Left & Right Brackets -->
+                            <path d="M 156 14 L 149 14 L 149 104 L 156 104" fill="none" stroke="#1e293b" stroke-width="1.8" />
+                            <path d="M 434 14 L 441 14 L 441 104 L 434 104" fill="none" stroke="#1e293b" stroke-width="1.8" />
+
+                            <!-- Blue Block Partition Lines (Row 2 & Cols 3, 5) -->
+                            <line x1="152" y1="71" x2="438" y2="71" stroke="#00a8e8" stroke-width="1.5" />
+                            <line x1="276" y1="16" x2="276" y2="102" stroke="#00a8e8" stroke-width="1.5" />
+                            <line x1="382" y1="16" x2="382" y2="102" stroke="#00a8e8" stroke-width="1.5" />
+
+                            <!-- Row 1 -->
+                            <text x="174" y="34" text-anchor="middle" font-size="16" font-family="serif">3</text>
+                            <text x="214" y="34" text-anchor="middle" font-size="16" font-family="serif">0</text>
+                            <text x="254" y="34" text-anchor="middle" font-size="16" font-family="serif">−1</text>
+                            <text x="302" y="34" text-anchor="middle" font-size="16" font-family="serif">5</text>
+                            <text x="348" y="34" text-anchor="middle" font-size="16" font-family="serif">9</text>
+                            <text x="412" y="34" text-anchor="middle" font-size="16" font-family="serif">−2</text>
+
+                            <!-- Row 2 -->
+                            <text x="174" y="59" text-anchor="middle" font-size="16" font-family="serif">−5</text>
+                            <text x="214" y="59" text-anchor="middle" font-size="16" font-family="serif">2</text>
+                            <text x="254" y="59" text-anchor="middle" font-size="16" font-family="serif">4</text>
+                            <text x="302" y="59" text-anchor="middle" font-size="16" font-family="serif">0</text>
+                            <text x="348" y="59" text-anchor="middle" font-size="16" font-family="serif">−3</text>
+                            <text x="412" y="59" text-anchor="middle" font-size="16" font-family="serif">1</text>
+
+                            <!-- Row 3 -->
+                            <text x="174" y="92" text-anchor="middle" font-size="16" font-family="serif">−8</text>
+                            <text x="214" y="92" text-anchor="middle" font-size="16" font-family="serif">−6</text>
+                            <text x="254" y="92" text-anchor="middle" font-size="16" font-family="serif">3</text>
+                            <text x="302" y="92" text-anchor="middle" font-size="16" font-family="serif">1</text>
+                            <text x="348" y="92" text-anchor="middle" font-size="16" font-family="serif">7</text>
+                            <text x="412" y="92" text-anchor="middle" font-size="16" font-family="serif">−4</text>
+                        </svg>
+                    </div>
 
                     <!-- SVG Partitioned Matrix Visual -->
                     <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
