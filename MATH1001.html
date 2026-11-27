@@ -1861,9 +1861,6 @@
                         })();
                     </script>
 
-                    <p>The $5$ columns of $A$ are partitioned into a set of $3$ columns and then a set of $2$ columns. The $5$ rows of $B$ are partitioned in the same way—into a set of $3$ rows and then a set of $2$ rows. We say that the partitions of $A$ and $B$ are <strong>conformable for block multiplication（分塊乘法相容）</strong>. It can be shown that the ordinary product $AB$ can be written as
-                        $$AB = \begin{bmatrix} A_{11} & A_{12} \\ A_{21} & A_{22} \end{bmatrix}\begin{bmatrix} B_{1} \\ B_{2} \end{bmatrix} = \begin{bmatrix} A_{11}B_{1} + A_{12}B_{2} \\ A_{21}B_{1} + A_{22}B_{2} \end{bmatrix} = \begin{bmatrix} -5 & 4 \\ -6 & 2 \\ 2 & 1 \end{bmatrix}$$
-                    </p>
                     
                     <p>
                         It is important for each smaller product in the expression for $AB$ to be written with the submatrix from $A$ on the left, since matrix multiplication is not commutative. For instance,
