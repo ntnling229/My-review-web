@@ -440,10 +440,85 @@
                     </p>
                 </div>
 
-                <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                    Notice that since the first column of $AB$ is $A\mathbf{b}_{1}$, this column is a linear combination of the columns of $A$ using the entries in $\mathbf{b}_{1}$ as weights. A similar statement is true for each column of $AB$: <strong>Each column of $AB$ is a linear combination of the columns of $A$ using weights from the corresponding column of $B$.</strong> Obviously, the number of columns of $A$ must match the number of rows in $B$ in order for a linear combination such as $A\mathbf{b}_{1}$ to be defined. Also, the definition of $AB$ shows that $AB$ has the same number of rows as $A$ and the same number of columns as $B$.
-                </p>
+            <!-- Collapsible EXAMPLE 3 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden">
+                <button onclick="toggleCard('ex2-1-3')" class="w-full px-4 py-3 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-sm text-amber-950 transition">
+                    <span>EXAMPLE 3（範例 3：計算 $AB$，其中 $A$ 為 $2\times 2$、$B$ 為 $2\times 3$）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-amber-700"></i>
+                </button>
+                <div id="ex2-1-3" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2 bg-white">
+                    <p>Compute $AB$, where $A = \begin{bmatrix} 2 & 3 \\ 1 & -5 \end{bmatrix}$ and $B = \begin{bmatrix} 4 & 3 & 6 \\ 1 & -2 & 3 \end{bmatrix}$.</p>
+                    <p><strong>SOLUTION:</strong> Write $B = \begin{bmatrix} \mathbf{b}_{1} & \mathbf{b}_{2} & \mathbf{b}_{3} \end{bmatrix}$, and compute:
+                        $$A\mathbf{b}_{1} = \begin{bmatrix} 2 & 3 \\ 1 & -5 \end{bmatrix}\begin{bmatrix} 4 \\ 1 \end{bmatrix} = \begin{bmatrix} 11 \\ -1 \end{bmatrix}, \quad A\mathbf{b}_{2} = \begin{bmatrix} 2 & 3 \\ 1 & -5 \end{bmatrix}\begin{bmatrix} 3 \\ -2 \end{bmatrix} = \begin{bmatrix} 0 \\ 13 \end{bmatrix}, \quad A\mathbf{b}_{3} = \begin{bmatrix} 2 & 3 \\ 1 & -5 \end{bmatrix}\begin{bmatrix} 6 \\ 3 \end{bmatrix} = \begin{bmatrix} 21 \\ -9 \end{bmatrix}$$
+                    </p>
+                    <p>Then</p>
+                    <div class="overflow-x-auto">
+                        <svg viewBox="0 0 460 112" class="w-full max-w-md mx-auto text-slate-800" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Top downward arrows into columns of AB -->
+                            <path d="M120 4 L120 12 L254 12 L254 22" fill="none" stroke="#00a8e8" stroke-width="1.1" />
+                            <polygon points="254,25 251.5,20 256.5,20" fill="#00a8e8" />
+
+                            <line x1="286" y1="4" x2="286" y2="22" stroke="#00a8e8" stroke-width="1.1" />
+                            <polygon points="286,25 283.5,20 288.5,20" fill="#00a8e8" />
+
+                            <path d="M412 4 L412 12 L318 12 L318 22" fill="none" stroke="#00a8e8" stroke-width="1.1" />
+                            <polygon points="318,25 315.5,20 320.5,20" fill="#00a8e8" />
+
+                            <!-- AB = A[b1 b2 b3] = [ ... ] -->
+                            <text x="46" y="54" text-anchor="middle" font-size="12" font-style="italic" font-family="serif">AB</text>
+                            <text x="68" y="54" text-anchor="middle" font-size="12">=</text>
+                            <text x="92" y="54" text-anchor="middle" font-size="12" font-style="italic" font-family="serif">A</text>
+                            <path d="M106 42 L102 42 L102 59 L106 59" fill="none" stroke="#1e293b" stroke-width="1.2" />
+                            <path d="M180 42 L184 42 L184 59 L180 59" fill="none" stroke="#1e293b" stroke-width="1.2" />
+                            <text x="115" y="54" text-anchor="middle" font-size="12" font-weight="bold" font-family="serif">b<tspan dy="2" font-size="9" font-weight="normal">1</tspan></text>
+                            <text x="142" y="54" text-anchor="middle" font-size="12" font-weight="bold" font-family="serif">b<tspan dy="2" font-size="9" font-weight="normal">2</tspan></text>
+                            <text x="169" y="54" text-anchor="middle" font-size="12" font-weight="bold" font-family="serif">b<tspan dy="2" font-size="9" font-weight="normal">3</tspan></text>
+
+                            <text x="197" y="54" text-anchor="middle" font-size="12">=</text>
+
+                            <!-- Result matrix (2x3) -->
+                            <path d="M214 31 L209 31 L209 71 L214 71" fill="none" stroke="#1e293b" stroke-width="1.3" />
+                            <path d="M332 31 L337 31 L337 71 L332 71" fill="none" stroke="#1e293b" stroke-width="1.3" />
+
+                            <text x="254" y="46" text-anchor="middle" font-size="11.5" font-family="serif">11</text>
+                            <text x="286" y="46" text-anchor="middle" font-size="11.5" font-family="serif">0</text>
+                            <text x="318" y="46" text-anchor="middle" font-size="11.5" font-family="serif">21</text>
+
+                            <text x="254" y="65" text-anchor="middle" font-size="11.5" font-family="serif">−1</text>
+                            <text x="286" y="65" text-anchor="middle" font-size="11.5" font-family="serif">13</text>
+                            <text x="318" y="65" text-anchor="middle" font-size="11.5" font-family="serif">−9</text>
+
+                            <!-- Bottom upward cyan arrows & labels Ab1, Ab2, Ab3 -->
+                            <line x1="254" y1="88" x2="254" y2="77" stroke="#00a8e8" stroke-width="1.1" />
+                            <polygon points="254,74 251.5,79 256.5,79" fill="#00a8e8" />
+                            <text x="254" y="102" text-anchor="middle" font-size="11.5" fill="#00a8e8" font-family="serif"><tspan font-style="italic">A</tspan><tspan font-weight="bold">b</tspan><tspan dy="2" font-size="9">1</tspan></text>
+
+                            <line x1="286" y1="88" x2="286" y2="77" stroke="#00a8e8" stroke-width="1.1" />
+                            <polygon points="286,74 283.5,79 288.5,79" fill="#00a8e8" />
+                            <text x="286" y="102" text-anchor="middle" font-size="11.5" fill="#00a8e8" font-family="serif"><tspan font-style="italic">A</tspan><tspan font-weight="bold">b</tspan><tspan dy="2" font-size="9">2</tspan></text>
+
+                            <line x1="318" y1="88" x2="318" y2="77" stroke="#00a8e8" stroke-width="1.1" />
+                            <polygon points="318,74 315.5,79 320.5,79" fill="#00a8e8" />
+                            <text x="318" y="102" text-anchor="middle" font-size="11.5" fill="#00a8e8" font-family="serif"><tspan font-style="italic">A</tspan><tspan font-weight="bold">b</tspan><tspan dy="2" font-size="9">3</tspan></text>
+                        </svg>
+                    </div>
+                </div>
             </div>
+
+            <p class="text-sm text-slate-700 leading-relaxed">
+                Notice that since the first column of $AB$ is $A\mathbf{b}_{1}$, this column is a <strong>linear combination（線性組合）</strong> of the columns of $A$ using the entries in $\mathbf{b}_{1}$ as <strong>weights（權重）</strong>. A similar statement is true for each column of $AB$.
+            </p>
+            <p class="text-sm font-semibold text-amber-950 bg-amber-50/60 border border-amber-200 rounded-lg px-4 py-2.5">
+                Each column of $AB$ is a linear combination of the columns of $A$ using weights from the corresponding column of $B$.
+            </p>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                Obviously, the number of columns of $A$ must match the number of rows in $B$ in order for a linear combination such as $A\mathbf{b}_{1}$ to be defined. Also, the definition of $AB$ shows that $AB$ has the same number of rows as $A$ and the same number of columns as $B$.
+            </p>
+
+                
+            </div>
+
+            
 
             <!-- Collapsible EXAMPLE 4 -->
             <div class="border border-slate-200 rounded-xl overflow-hidden">
