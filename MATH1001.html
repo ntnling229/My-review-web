@@ -1988,298 +1988,48 @@
         </div>
     </section>
     
-    <!-- ============================================================== -->
-    <!-- SECTION 2.5: MATRIX FACTORIZATIONS                             -->
-    <!-- ============================================================== -->
-    <section id="sec2-5" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
-        <div class="border-b border-slate-200 pb-4 flex flex-wrap items-center justify-between gap-2">
-            <div class="flex items-center gap-3">
-                <span class="px-3 py-1.5 rounded-xl bg-amber-100 text-amber-900 text-xl md:text-2xl font-extrabold tracking-tight">§ 2.5</span>
-                <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight">MATRIX FACTORIZATIONS (矩陣分解)</h3>
-            </div>
-            <span class="text-xs text-slate-500 font-mono">Slides 1–17 (17 Pages)</span>
+    <!-- ================= SECTION 2.5 ================= -->
+    <section id="sec2-5" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-8">
+        <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 2.5</span>
+                MATRIX FACTORIZATIONS (矩陣分解)
+            </h2>
+            <span class="text-xs text-slate-500 font-mono">Pages 1 - 17</span>
         </div>
 
-        <!-- 1. Matrix Factorizations & Preprocessing -->
-        <div class="space-y-3">
-            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-                <i class="fa-solid fa-layer-group text-amber-600"></i> 1. Matrix Factorizations (矩陣分解) 與 Preprocessing (預處理)
-            </h4>
-            <p class="text-slate-700 text-sm md:text-base">
-                A <strong>factorization</strong> of a matrix $A$ is an equation that expresses $A$ as a product of two or more matrices. Whereas matrix multiplication involves a <strong>synthesis</strong> of data (combining the effects of two or more linear transformations into a single matrix), matrix factorization is an <strong>analysis</strong> of data. In the language of computer science, the expression of $A$ as a product amounts to a <strong>preprocessing</strong> of the data in $A$, organizing that data into two or more parts whose structures are more useful in some way, perhaps more accessible for computation.
-            </p>
-        </div>
+        <!-- 2.5.1 The LU Factorization -->
+        <div class="space-y-4">
+            <h3 class="font-bold text-lg text-blue-800 flex items-center gap-2">
+                <i class="fa-solid fa-circle-dot text-blue-500 text-sm"></i> 2.5.1 The $LU$ Factorization (矩陣分解導論與 $LU$ 分解動機，Pages 1 - 3)
+            </h3>
 
-        <!-- 2. The LU Factorization & Solving Ax = b -->
-        <div class="space-y-3">
-            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-                <i class="fa-solid fa-gears text-amber-600"></i> 2. The LU Factorization (LU 分解) 與求解 $Ax = b$
-            </h4>
-            <p class="text-slate-700 text-sm md:text-base">
-                The <strong>LU factorization</strong> is motivated by the fairly common industrial and business problem of solving a sequence of equations, all with the same coefficient matrix:
-            </p>
-            <p class="font-mono text-sm md:text-base my-2 text-center overflow-x-auto">
-                $$Ax = b_1,\; Ax = b_2,\; \dots,\; Ax = b_p \qquad (1)$$
-            </p>
-            <p class="text-slate-700 text-sm md:text-base">
-                When $A$ is invertible, one could compute $A^{-1}$ and then compute $A^{-1}b_1$, $A^{-1}b_2$, and so on. However, it is more efficient to solve the first equation in sequence (1) by row reduction and obtain an LU factorization of $A$ at the same time. Thereafter, the remaining equations in sequence (1) are solved with the LU factorization.
-            </p>
-            <p class="text-slate-700 text-sm md:text-base">
-                Assume that $A$ is an $m \times n$ matrix that can be row reduced to echelon form, without row interchanges. Then $A$ can be written in the form $A = LU$, where $L$ is an $m \times m$ <strong>lower triangular matrix</strong> with $1$'s on the diagonal and $U$ is an $m \times n$ <strong>echelon form</strong> of $A$. Such a factorization is called an <strong>LU factorization</strong> of $A$. The matrix $L$ is invertible and is called a <strong>unit lower triangular matrix</strong>.
-            </p>
-            <p class="text-slate-700 text-sm md:text-base">
-                When $A = LU$, the equation $Ax = b$ can be written as $L(Ux) = b$. Writing $y$ for $Ux$, we can find $x$ by solving the pair of equations:
-            </p>
-            <p class="font-mono text-sm md:text-base my-2 text-center overflow-x-auto">
-                $$Ly = b \qquad Ux = y \qquad (2)$$
-            </p>
-            <p class="text-slate-700 text-sm md:text-base">
-                First solve $Ly = b$ for $y$, and then solve $Ux = y$ for $x$. Each equation is easy to solve because $L$ and $U$ are triangular.
-            </p>
-
-            <!-- Figure 1 & Figure 2 -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-3">
-                <!-- Figure 1 SVG -->
-                <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col items-center">
-                    <span class="text-xs font-bold text-slate-700 mb-2">FIGURE 1 An LU factorization.</span>
-                    <svg viewBox="0 0 380 175" class="w-full max-w-md h-auto">
-                        <!-- A = -->
-                        <text x="16" y="92" font-size="14" font-weight="bold" fill="#0f172a">A =</text>
-
-                        <!-- L (4x4 unit lower triangular) -->
-                        <path d="M 52 24 L 46 24 L 46 154 L 52 154" fill="none" stroke="#0f172a" stroke-width="1.5"/>
-                        <path d="M 134 24 L 140 24 L 140 154 L 134 154" fill="none" stroke="#0f172a" stroke-width="1.5"/>
-                        <!-- row 1 -->
-                        <text x="60" y="44" font-size="12" font-weight="bold" fill="#0f172a">1</text>
-                        <text x="82" y="44" font-size="12" fill="#475569">0</text>
-                        <text x="104" y="44" font-size="12" fill="#475569">0</text>
-                        <text x="124" y="44" font-size="12" fill="#475569">0</text>
-                        <!-- row 2 -->
-                        <text x="59" y="74" font-size="12" fill="#b45309">*</text>
-                        <text x="82" y="74" font-size="12" font-weight="bold" fill="#0f172a">1</text>
-                        <text x="104" y="74" font-size="12" fill="#475569">0</text>
-                        <text x="124" y="74" font-size="12" fill="#475569">0</text>
-                        <!-- row 3 -->
-                        <text x="59" y="104" font-size="12" fill="#b45309">*</text>
-                        <text x="81" y="104" font-size="12" fill="#b45309">*</text>
-                        <text x="104" y="104" font-size="12" font-weight="bold" fill="#0f172a">1</text>
-                        <text x="124" y="104" font-size="12" fill="#475569">0</text>
-                        <!-- row 4 -->
-                        <text x="59" y="134" font-size="12" fill="#b45309">*</text>
-                        <text x="81" y="134" font-size="12" fill="#b45309">*</text>
-                        <text x="103" y="134" font-size="12" fill="#b45309">*</text>
-                        <text x="124" y="134" font-size="12" font-weight="bold" fill="#0f172a">1</text>
-                        <text x="93" y="170" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e40af">L</text>
-
-                        <!-- U (4x6 echelon form) -->
-                        <path d="M 158 24 L 152 24 L 152 154 L 158 154" fill="none" stroke="#0f172a" stroke-width="1.5"/>
-                        <path d="M 356 24 L 362 24 L 362 154 L 356 154" fill="none" stroke="#0f172a" stroke-width="1.5"/>
-                        <!-- row 1 -->
-                        <text x="166" y="44" font-size="12" font-weight="bold" fill="#92400e">*</text>
-                        <text x="198" y="44" font-size="12" fill="#334155">*</text>
-                        <text x="230" y="44" font-size="12" fill="#334155">*</text>
-                        <text x="262" y="44" font-size="12" fill="#334155">*</text>
-                        <text x="294" y="44" font-size="12" fill="#334155">*</text>
-                        <text x="326" y="44" font-size="12" fill="#334155">*</text>
-                        <!-- row 2 -->
-                        <text x="166" y="74" font-size="12" fill="#94a3b8">0</text>
-                        <text x="198" y="74" font-size="12" fill="#94a3b8">0</text>
-                        <text x="230" y="74" font-size="12" font-weight="bold" fill="#92400e">*</text>
-                        <text x="262" y="74" font-size="12" fill="#334155">*</text>
-                        <text x="294" y="74" font-size="12" fill="#334155">*</text>
-                        <text x="326" y="74" font-size="12" fill="#334155">*</text>
-                        <!-- row 3 -->
-                        <text x="166" y="104" font-size="12" fill="#94a3b8">0</text>
-                        <text x="198" y="104" font-size="12" fill="#94a3b8">0</text>
-                        <text x="230" y="104" font-size="12" fill="#94a3b8">0</text>
-                        <text x="262" y="104" font-size="12" fill="#94a3b8">0</text>
-                        <text x="294" y="104" font-size="12" font-weight="bold" fill="#92400e">*</text>
-                        <text x="326" y="104" font-size="12" fill="#334155">*</text>
-                        <!-- row 4 -->
-                        <text x="166" y="134" font-size="12" fill="#94a3b8">0</text>
-                        <text x="198" y="134" font-size="12" fill="#94a3b8">0</text>
-                        <text x="230" y="134" font-size="12" fill="#94a3b8">0</text>
-                        <text x="262" y="134" font-size="12" fill="#94a3b8">0</text>
-                        <text x="294" y="134" font-size="12" fill="#94a3b8">0</text>
-                        <text x="326" y="134" font-size="12" fill="#94a3b8">0</text>
-                        <text x="257" y="170" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">U</text>
-                    </svg>
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
+                <!-- Page 1: Intro to Matrix Factorizations -->
+                <div class="p-4 bg-white rounded-lg border border-blue-200 space-y-2.5 text-slate-800 leading-relaxed">
+                    <strong class="text-blue-900 text-base font-bold block">2.5 MATRIX FACTORIZATIONS (矩陣分解導論，Page 1)</strong>
+                    <p>
+                        A <strong>factorization (分解)</strong> of a matrix $A$ is an equation that expresses $A$ as a product of two or more matrices. Whereas <strong>matrix multiplication (矩陣乘法)</strong> involves a <strong>synthesis (綜合)</strong> of data (combining the effects of two or more <strong>linear transformations，線性變換</strong> into a single matrix), <strong>matrix factorization (矩陣分解)</strong> is an <strong>analysis (分析)</strong> of data. In the language of computer science, the expression of $A$ as a product amounts to a <strong>preprocessing (預處理)</strong> of the data in $A$, organizing that data into two or more parts whose structures are more useful in some way, perhaps more accessible for computation.
+                    </p>
                 </div>
 
-                <!-- Figure 2 SVG -->
-                <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col items-center">
-                    <span class="text-xs font-bold text-slate-700 mb-2">FIGURE 2 Factorization of the mapping $x \mapsto Ax$.</span>
-                    <svg viewBox="0 0 380 175" class="w-full max-w-md h-auto">
-                        <defs>
-                            <marker id="fig2-arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                                <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7"/>
-                            </marker>
-                        </defs>
-
-                        <!-- Left parallelogram (x) -->
-                        <polygon points="15,82 85,54 115,92 45,120" fill="#bae6fd" stroke="#38bdf8" stroke-width="1.2"/>
-                        <circle cx="65" cy="87" r="3.5" fill="#0f172a"/>
-                        <text x="53" y="88" font-size="13" font-weight="bold" fill="#0f172a">x</text>
-
-                        <!-- Middle parallelogram (y) -->
-                        <polygon points="145,124 215,96 245,134 175,162" fill="#bae6fd" stroke="#38bdf8" stroke-width="1.2"/>
-                        <circle cx="195" cy="129" r="3.5" fill="#0f172a"/>
-                        <text x="204" y="133" font-size="13" font-weight="bold" fill="#0f172a">y</text>
-
-                        <!-- Right parallelogram (b) -->
-                        <polygon points="265,64 335,36 365,74 295,102" fill="#bae6fd" stroke="#38bdf8" stroke-width="1.2"/>
-                        <circle cx="315" cy="69" r="3.5" fill="#0f172a"/>
-                        <text x="325" y="72" font-size="13" font-weight="bold" fill="#0f172a">b</text>
-
-                        <!-- Top arc: Multiplication by A -->
-                        <path d="M 68 83 Q 190 12 311 65" fill="none" stroke="#0284c7" stroke-width="1.8" marker-end="url(#fig2-arrow)"/>
-                        <text x="190" y="22" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">Multiplication</text>
-                        <text x="190" y="36" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">by A</text>
-
-                        <!-- Bottom-left arc: Multiplication by U -->
-                        <path d="M 68 91 Q 125 135 190 130" fill="none" stroke="#0284c7" stroke-width="1.8" marker-end="url(#fig2-arrow)"/>
-                        <text x="115" y="142" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">Multiplication</text>
-                        <text x="115" y="156" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">by U</text>
-
-                        <!-- Bottom-right arc: Multiplication by L -->
-                        <path d="M 199 127 Q 260 115 311 73" fill="none" stroke="#0284c7" stroke-width="1.8" marker-end="url(#fig2-arrow)"/>
-                        <text x="276" y="125" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">Multiplication</text>
-                        <text x="276" y="139" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">by L</text>
-                    </svg>
-                </div>
-            </div>
-
-            <!-- EXAMPLE 1 (Collapsible, closed by default) -->
-            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
-                <div class="flex flex-wrap items-center justify-between gap-2">
-                    <span class="font-bold text-slate-900 text-sm">EXAMPLE 1</span>
-                    <button onclick="toggleBox('ex25-1')" class="px-3 py-1 rounded-lg bg-amber-600 hover:bg-amber-700 text-white text-xs font-medium transition">
-                        顯示 / 隱藏詳解
-                    </button>
-                </div>
-                <p class="text-sm text-slate-700 mt-2">
-                    It can be verified that
-                </p>
-                <p class="font-mono text-xs md:text-sm my-2 overflow-x-auto">
-                    $$A = \begin{bmatrix} 3 & -7 & -2 & 2 \\ -3 & 5 & 1 & 0 \\ 6 & -4 & 0 & -5 \\ -9 & 5 & -5 & 12 \end{bmatrix} = \begin{bmatrix} 1 & 0 & 0 & 0 \\ -1 & 1 & 0 & 0 \\ 2 & -5 & 1 & 0 \\ -3 & 8 & 3 & 1 \end{bmatrix} \begin{bmatrix} 3 & -7 & -2 & 2 \\ 0 & -2 & -1 & 2 \\ 0 & 0 & -1 & 0 \\ 0 & 0 & 0 & -4 \end{bmatrix} = LU$$
-                </p>
-                <p class="text-sm text-slate-700">
-                    Use this LU factorization of $A$ to solve $Ax = b$, where $b = \begin{bmatrix} -9 \\ 5 \\ 7 \\ 11 \end{bmatrix}$.
-                </p>
-                <div id="ex25-1" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-sm text-slate-700 space-y-2">
+                <!-- Pages 2 - 3: The LU Factorization Motivation & Sequence (1) -->
+                <div class="p-4 bg-white rounded-lg border border-blue-200 space-y-2.5 text-slate-800 leading-relaxed">
+                    <strong class="text-blue-900 text-base font-bold block">The $LU$ Factorization (Pages 2 - 3)</strong>
                     <p>
-                        <strong>SOLUTION:</strong> The solution of $Ly = b$ needs only 6 multiplications and 6 additions, because the arithmetic takes place only in column 5. (The zeros below each pivot in $L$ are created automatically by the choice of row operations.)
+                        The $LU$ factorization, described below, is motivated by the fairly common industrial and business problem of solving a sequence of equations, all with the same <strong>coefficient matrix (係數矩陣)</strong>:
                     </p>
-                    <p class="font-mono text-xs md:text-sm overflow-x-auto">
-                        $$[L\;\; b] = \begin{bmatrix} 1 & 0 & 0 & 0 & -9 \\ -1 & 1 & 0 & 0 & 5 \\ 2 & -5 & 1 & 0 & 7 \\ -3 & 8 & 3 & 1 & 11 \end{bmatrix} \sim \begin{bmatrix} 1 & 0 & 0 & 0 & -9 \\ 0 & 1 & 0 & 0 & -4 \\ 0 & 0 & 1 & 0 & 5 \\ 0 & 0 & 0 & 1 & -3 \end{bmatrix} = [I\;\; y]$$
+                    <div class="p-3 bg-blue-50/70 rounded-lg border border-blue-200 font-mono text-center text-blue-950 font-bold text-xs md:text-sm overflow-x-auto">
+                        $$A\mathbf{x} = \mathbf{b}_1, \quad A\mathbf{x} = \mathbf{b}_2, \quad \dots, \quad A\mathbf{x} = \mathbf{b}_p \quad (1)$$
+                    </div>
+                    <p class="text-xs md:text-sm text-slate-700">
+                        See Exercise 32, for example. Also see Section 5.8, where the <strong>inverse power method (反冪法)</strong> is used to estimate <strong>eigenvalues (特徵值)</strong> of a matrix by solving equations like those in sequence (1), one at a time.
                     </p>
-                    <p>
-                        Then, for $Ux = y$, the "backward" phase of row reduction requires 4 divisions, 6 multiplications, and 6 additions. (For instance, creating the zeros in column 4 of $[U\;\; y]$ requires 1 division in row 4 and 3 multiplication-addition pairs to add multiples of row 4 to the rows above.)
-                    </p>
-                    <p class="font-mono text-xs md:text-sm overflow-x-auto">
-                        $$[U\;\; y] = \begin{bmatrix} 3 & -7 & -2 & 2 & -9 \\ 0 & -2 & -1 & 2 & -4 \\ 0 & 0 & -1 & 0 & 5 \\ 0 & 0 & 0 & -4 & -3 \end{bmatrix} \sim \begin{bmatrix} 1 & 0 & 0 & 0 & 3 \\ 0 & 1 & 0 & 0 & 4 \\ 0 & 0 & 1 & 0 & -5 \\ 0 & 0 & 0 & 1 & 3/4 \end{bmatrix}, \quad x = \begin{bmatrix} 3 \\ 4 \\ -5 \\ 3/4 \end{bmatrix}$$
-                    </p>
-                    <p>
-                        To find $x$ requires 28 arithmetic operations, or "flops" (floating point operations), excluding the cost of finding $L$ and $U$. In contrast, row reduction of $[A\;\; b]$ to $[I\;\; x]$ takes 62 operations.
+                    <p class="text-xs md:text-sm text-slate-700">
+                        When $A$ is <strong>invertible (可逆的)</strong>, one could compute $A^{-1}$ and then compute $A^{-1}\mathbf{b}_1$, $A^{-1}\mathbf{b}_2$, and so on. However, it is more efficient to solve the first equation in sequence (1) by <strong>row reduction (列化簡)</strong> and obtain an $LU$ factorization of $A$ at the same time.
                     </p>
                 </div>
             </div>
-        </div>
-
-        <!-- 3. An LU Factorization Algorithm -->
-        <div class="space-y-3">
-            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-                <i class="fa-solid fa-terminal text-amber-600"></i> 3. An LU Factorization Algorithm (LU 分解演算法)
-            </h4>
-            <p class="text-slate-700 text-sm md:text-base">
-                The computational efficiency of the LU factorization depends on knowing $L$ and $U$. The next algorithm shows that the row reduction of $A$ to an echelon form $U$ amounts to an LU factorization because it produces $L$ with essentially no extra work. After the first row reduction, $L$ and $U$ are available for solving additional equations whose coefficient matrix is $A$.
-            </p>
-            <p class="text-slate-700 text-sm md:text-base">
-                Suppose $A$ can be reduced to an echelon form $U$ using only row replacements that add a multiple of one row to another row below it. In this case, there exist unit lower triangular elementary matrices $E_1, \dots, E_p$ such that
-            </p>
-            <p class="font-mono text-sm md:text-base my-2 text-center overflow-x-auto">
-                $$E_p \cdots E_1 A = U \qquad (3)$$
-            </p>
-            <p class="text-slate-700 text-sm md:text-base">
-                Then
-            </p>
-            <p class="font-mono text-sm md:text-base my-2 text-center overflow-x-auto">
-                $$A = (E_p \cdots E_1)^{-1} U = LU$$
-            </p>
-            <p class="text-slate-700 text-sm md:text-base">
-                where
-            </p>
-            <p class="font-mono text-sm md:text-base my-2 text-center overflow-x-auto">
-                $$L = (E_p \cdots E_1)^{-1} \qquad (4)$$
-            </p>
-            <p class="text-slate-700 text-sm md:text-base">
-                It can be shown that products and inverses of unit lower triangular matrices are also unit lower triangular. Thus $L$ is unit lower triangular. Note that the row operations in equation (3), which reduce $A$ to $U$, also reduce the $L$ in equation (4) to $I$, because $(E_p \cdots E_1)L = (E_p \cdots E_1)(E_p \cdots E_1)^{-1} = I$. This observation is the key to constructing $L$.
-            </p>
-
-            <!-- Algorithm Box -->
-            <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-4 space-y-2 text-sm text-slate-800">
-                <div class="font-bold text-blue-900">ALGORITHM FOR AN LU FACTORIZATION</div>
-                <ol class="list-decimal pl-6 space-y-1">
-                    <li>Reduce $A$ to an echelon form $U$ by a sequence of row replacement operations, if possible.</li>
-                    <li>Place entries in $L$ such that the same sequence of row operations reduces $L$ to $I$.</li>
-                </ol>
-            </div>
-
-            <p class="text-slate-700 text-sm md:text-base">
-                Step 1 is not always possible, but when it is, the argument above shows that an LU factorization exists. Example 2 will show how to implement step 2. By construction, $L$ will satisfy $(E_p \cdots E_1)L = I$ using the same $E_1, \dots, E_p$ as in equation (3). Thus $L$ will be invertible, by the Invertible Matrix Theorem, with $(E_p \cdots E_1) = L^{-1}$. From (3), $L^{-1}A = U$, and $A = LU$. So step 2 will produce an acceptable $L$.
-            </p>
-
-            <!-- EXAMPLE 2 (Collapsible, closed by default) -->
-            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
-                <div class="flex flex-wrap items-center justify-between gap-2">
-                    <span class="font-bold text-slate-900 text-sm">EXAMPLE 2</span>
-                    <button onclick="toggleBox('ex25-2')" class="px-3 py-1 rounded-lg bg-amber-600 hover:bg-amber-700 text-white text-xs font-medium transition">
-                        顯示 / 隱藏詳解
-                    </button>
-                </div>
-                <p class="text-sm text-slate-700 mt-2">
-                    Find an LU factorization of
-                </p>
-                <p class="font-mono text-xs md:text-sm my-2 overflow-x-auto">
-                    $$A = \begin{bmatrix} 2 & 4 & -1 & 5 & -2 \\ -4 & -5 & 3 & -8 & 1 \\ 2 & -5 & -4 & 1 & 8 \\ -6 & 0 & 7 & -3 & 1 \end{bmatrix}$$
-                </p>
-                <div id="ex25-2" class="toggle-content mt-3 pt-3 border-t border-slate-200 text-sm text-slate-700 space-y-2">
-                    <p>
-                        <strong>SOLUTION:</strong> Since $A$ has four rows, $L$ should be $4 \times 4$. The first column of $L$ is the first column of $A$ divided by the top pivot entry:
-                    </p>
-                    <p class="font-mono text-xs md:text-sm overflow-x-auto">
-                        $$L = \begin{bmatrix} 1 & 0 & 0 & 0 \\ -2 & 1 & 0 & 0 \\ 1 & & 1 & 0 \\ -3 & & & 1 \end{bmatrix}$$
-                    </p>
-                    <p>
-                        Compare the first columns of $A$ and $L$. The row operations that create zeros in the first column of $A$ will also create zeros in the first column of $L$. To make this same correspondence of row operations on $A$ hold for the rest of $L$, watch a row reduction of $A$ to an echelon form $U$. That is, highlight the entries in each matrix that are used to determine the sequence of row operations that transform $A$ into $U$.
-                    </p>
-                    <p class="font-mono text-xs md:text-sm overflow-x-auto">
-                        $$A = \begin{bmatrix} \boxed{2} & 4 & -1 & 5 & -2 \\ \boxed{-4} & -5 & 3 & -8 & 1 \\ \boxed{2} & -5 & -4 & 1 & 8 \\ \boxed{-6} & 0 & 7 & -3 & 1 \end{bmatrix} \sim \begin{bmatrix} 2 & 4 & -1 & 5 & -2 \\ 0 & \boxed{3} & 1 & 2 & -3 \\ 0 & \boxed{-9} & -3 & -4 & 10 \\ 0 & \boxed{12} & 4 & 12 & -5 \end{bmatrix} = A_1 \qquad (5)$$
-                    </p>
-                    <p class="font-mono text-xs md:text-sm overflow-x-auto">
-                        $$\sim A_2 = \begin{bmatrix} 2 & 4 & -1 & 5 & -2 \\ 0 & 3 & 1 & 2 & -3 \\ 0 & 0 & 0 & \boxed{2} & 1 \\ 0 & 0 & 0 & \boxed{4} & 7 \end{bmatrix} \sim \begin{bmatrix} 2 & 4 & -1 & 5 & -2 \\ 0 & 3 & 1 & 2 & -3 \\ 0 & 0 & 0 & 2 & 1 \\ 0 & 0 & 0 & 0 & \boxed{5} \end{bmatrix} = U$$
-                    </p>
-                    <p>
-                        The highlighted entries determine the row reduction of $A$ to $U$. At each pivot column, divide the highlighted entries by the pivot and place the result into $L$:
-                    </p>
-                    <p class="font-mono text-xs md:text-sm overflow-x-auto">
-                        $$L = \begin{bmatrix} 1 & 0 & 0 & 0 \\ -2 & 1 & 0 & 0 \\ 1 & -3 & 1 & 0 \\ -3 & 4 & 2 & 1 \end{bmatrix}$$
-                    </p>
-                    <p>
-                        An easy calculation verifies that this $L$ and $U$ satisfy $LU = A$.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 4. Row Interchanges & Partial Pivoting -->
-        <div class="space-y-3">
-            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-                <i class="fa-solid fa-shuffle text-amber-600"></i> 4. Row Interchanges (行交換) 與 Partial Pivoting (部分主元選取)
-            </h4>
-            <p class="text-slate-700 text-sm md:text-base">
-                In practical work, row interchanges are nearly always needed, because <strong>partial pivoting</strong> is used for high accuracy. (Recall that this procedure selects, among the possible choices for a pivot, an entry in the column having the largest absolute value.) To handle row interchanges, the LU factorization above can be modified easily to produce an $L$ that is <strong>permuted lower triangular</strong>, in the sense that a rearrangement (called a <strong>permutation</strong>) of the rows of $L$ can make $L$ (unit) lower triangular. The resulting <strong>permuted LU factorization</strong> solves $Ax = b$ in the same way as before, except that the reduction of $[L\;\; b]$ to $[I\;\; y]$ follows the order of the pivots in $L$ from left to right, starting with the pivot in the first column. A reference to an "LU factorization" usually includes the possibility that $L$ might be permuted lower triangular.
-            </p>
         </div>
     </section>
 
