@@ -987,90 +987,395 @@
             </div>
         </section>
 
-    <!-- ================= SECTION 2.2 ================= -->
-    <section id="sec2-2" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-8">
+    <!-- ============================================================== -->
+    <!-- SECTION 2.2: THE INVERSE OF A MATRIX                           -->
+    <!-- ============================================================== -->
+    <section id="sec2-2" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
         <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
-            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
-                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 2.2</span>
-                THE INVERSE OF A MATRIX (反矩陣)
-            </h2>
-            <span class="text-xs text-slate-500 font-mono">Pages 1 - 27</span>
+            <div>
+                <span class="text-xs font-mono uppercase tracking-wider text-amber-700 font-semibold">Section 2.2</span>
+                <h3 class="text-xl md:text-2xl font-bold text-slate-900 mt-0.5">2.2 THE INVERSE OF A MATRIX (矩陣的逆)</h3>
+            </div>
+            <span class="text-xs text-slate-500 font-mono">Slides 1–27 (27 Pages)</span>
         </div>
 
-        <!-- 2.2.1 Invertibility, 2x2 Formula, Ax = b & Theorem 6 -->
-        <div class="space-y-4">
-            <h3 class="font-bold text-lg text-blue-800 flex items-center gap-2">
-                <i class="fa-solid fa-circle-dot text-blue-500 text-sm"></i> 2.2.1 Invertibility, $2\times 2$ Formula, $Ax = b$ &amp; Theorem 6 (可逆性、$2\times 2$ 公式、線性方程組與定理 6，Pages 1 - 13)
-            </h3>
+        <!-- 1. Invertible Matrix Definition & THEOREM 4 -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-amber-500 rounded-full"></span>
+                1. Invertible Matrix, Unique Inverse &amp; THEOREM 4 (可逆矩陣定義、唯一逆矩陣與 $2\times 2$ 逆矩陣公式)
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                An $n \times n$ matrix $A$ is said to be <strong>invertible（可逆的）</strong> if there is an $n \times n$ matrix $C$ such that
+                $$CA = I \quad \text{and} \quad AC = I$$
+                where $I = I_{n}$, the $n \times n$ <strong>identity matrix（單位矩陣）</strong>. In this case, $C$ is an <strong>inverse（逆矩陣）</strong> of $A$. In fact, $C$ is uniquely determined by $A$, because if $B$ were another inverse of $A$, then
+                $$B = BI = B(AC) = (BA)C = IC = C$$
+                This unique inverse is denoted by $A^{-1}$, so that
+                $$A^{-1}A = I \quad \text{and} \quad AA^{-1} = I$$
+                A matrix that is not invertible is sometimes called a <strong>singular matrix（奇異矩陣）</strong>, and an invertible matrix is called a <strong>nonsingular matrix（非奇異矩陣）</strong>.
+            </p>
 
-            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
-                <div class="p-4 bg-white rounded-lg border border-blue-200 space-y-2.5 text-slate-800 leading-relaxed">
-                    <strong class="text-blue-900 text-base font-bold block">Unique Inverse, THEOREM 4 ($2\times 2$), THEOREM 5 &amp; THEOREM 6 (Pages 1 - 13)</strong>
-                    <p>
-                        An $n \times n$ matrix $A$ is <strong>invertible (可逆的／nonsingular 非奇異)</strong> if there exists an $n \times n$ matrix $C$ such that $CA = I_n$ and $AC = I_n$. Such $C$ is unique and denoted $A^{-1}$. A non-invertible square matrix is called <strong>singular (奇異的)</strong>.
+            <!-- Collapsible EXAMPLE 1 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex2-2-1')" class="w-full px-4 py-3 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-sm text-amber-950 transition">
+                    <span>EXAMPLE 1（範例 1：驗證 $2\times 2$ 矩陣 $C = A^{-1}$）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-amber-700"></i>
+                </button>
+                <div id="ex2-2-1" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2">
+                    <p>If $A = \begin{bmatrix} 2 & 5 \\ -3 & -7 \end{bmatrix}$ and $C = \begin{bmatrix} -7 & -5 \\ 3 & 2 \end{bmatrix}$, then
+                        $$AC = \begin{bmatrix} 2 & 5 \\ -3 & -7 \end{bmatrix}\begin{bmatrix} -7 & -5 \\ 3 & 2 \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \quad \text{and} \quad CA = \begin{bmatrix} -7 & -5 \\ 3 & 2 \end{bmatrix}\begin{bmatrix} 2 & 5 \\ -3 & -7 \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}$$
+                        Thus $C = A^{-1}$.
                     </p>
-                    <div class="p-3 bg-blue-50/70 rounded-lg border border-blue-200 font-mono text-center text-blue-950 text-xs md:text-sm space-y-1.5 overflow-x-auto">
-                        <div><strong>THEOREM 4 (Page 3):</strong> For $A = \begin{bmatrix} a & b \\ c & d \end{bmatrix}$, $\det A = ad - bc \ne 0 \iff A$ invertible, and $A^{-1} = \frac{1}{ad - bc}\begin{bmatrix} d & -b \\ -c & a \end{bmatrix}$.</div>
-                        <div><strong>THEOREM 5 (Page 5):</strong> If $A$ is invertible ($n \times n$), then $A\mathbf{x} = \mathbf{b}$ has the unique solution $\mathbf{x} = A^{-1}\mathbf{b}$.</div>
+                </div>
+            </div>
+
+            <!-- THEOREM 4 -->
+            <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-3">
+                <div class="font-bold text-amber-950 text-base">THEOREM 4（定理 4：$2\times 2$ 可逆矩陣判別與逆矩陣公式）</div>
+                <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                    Let $A = \begin{bmatrix} a & b \\ c & d \end{bmatrix}$. If $ad - bc \neq 0$, then $A$ is invertible and
+                    $$A^{-1} = \frac{1}{ad - bc}\begin{bmatrix} d & -b \\ -c & a \end{bmatrix}$$
+                    If $ad - bc = 0$, then $A$ is not invertible.
+                </p>
+                <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                    The quantity $ad - bc$ is called the <strong>determinant（行列式）</strong> of $A$, and we write
+                    $$\det A = ad - bc$$
+                    Theorem 4 says that a $2 \times 2$ matrix $A$ is invertible if and only if $\det A \neq 0$.
+                </p>
+            </div>
+
+            <!-- Collapsible EXAMPLE 2 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex2-2-2')" class="w-full px-4 py-3 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-sm text-amber-950 transition">
+                    <span>EXAMPLE 2（範例 2：求 $A = \begin{bmatrix} 3 & 4 \\ 5 & 6 \end{bmatrix}$ 的逆矩陣）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-amber-700"></i>
+                </button>
+                <div id="ex2-2-2" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2">
+                    <p>Find the inverse of $A = \begin{bmatrix} 3 & 4 \\ 5 & 6 \end{bmatrix}$.</p>
+                    <p><strong>SOLUTION:</strong> Since $\det A = 3(6) - 4(5) = -2 \neq 0$, $A$ is invertible, and
+                        $$A^{-1} = \frac{1}{-2}\begin{bmatrix} 6 & -4 \\ -5 & 3 \end{bmatrix} = \begin{bmatrix} 6/(-2) & -4/(-2) \\ -5/(-2) & 3/(-2) \end{bmatrix} = \begin{bmatrix} -3 & 2 \\ 5/2 & -3/2 \end{bmatrix}$$
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. THEOREM 5 & Applications (Examples 3 & 4) -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-amber-500 rounded-full"></span>
+                2. Solving $A\mathbf{x} = \mathbf{b}$ via $A^{-1}$: THEOREM 5 &amp; Applications (定理 5 與應用範例)
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                Invertible matrices are indispensable in linear algebra—mainly for algebraic calculations and formula derivations, as in the next theorem. There are also occasions when an inverse matrix provides insight into a mathematical model of a real-life situation, as in Example 3, below.
+            </p>
+
+            <!-- THEOREM 5 -->
+            <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-3">
+                <div class="font-bold text-amber-950 text-base">THEOREM 5（定理 5：利用逆矩陣求解 $A\mathbf{x} = \mathbf{b}$ 的唯一解）</div>
+                <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                    If $A$ is an invertible $n \times n$ matrix, then for each $\mathbf{b}$ in $\mathbb{R}^{n}$, the equation $A\mathbf{x} = \mathbf{b}$ has the unique solution $\mathbf{x} = A^{-1}\mathbf{b}$.
+                </p>
+
+                <!-- Collapsible PROOF of Theorem 5 -->
+                <div class="border border-amber-200/80 rounded-lg overflow-hidden bg-white">
+                    <button onclick="toggleCard('proof-thm5')" class="w-full px-4 py-2.5 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left text-xs sm:text-sm font-semibold text-slate-800 transition">
+                        <span>THEOREM 5 PROOF（存在性與唯一性完整證明）</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500"></i>
+                    </button>
+                    <div id="proof-thm5" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2">
+                        <p>
+                            <strong>PROOF:</strong> Take any $\mathbf{b}$ in $\mathbb{R}^{n}$. A solution exists because if $A^{-1}\mathbf{b}$ is substituted for $\mathbf{x}$, then
+                            $$A\mathbf{x} = A(A^{-1}\mathbf{b}) = (AA^{-1})\mathbf{b} = I\mathbf{b} = \mathbf{b}$$
+                            So $A^{-1}\mathbf{b}$ is a solution. To prove that the solution is unique, show that if $\mathbf{u}$ is any solution, then $\mathbf{u}$, in fact, must be $A^{-1}\mathbf{b}$. Indeed, if $A\mathbf{u} = \mathbf{b}$, we can multiply both sides by $A^{-1}$ and obtain
+                            $$A^{-1}A\mathbf{u} = A^{-1}\mathbf{b}, \quad I\mathbf{u} = A^{-1}\mathbf{b}, \quad \text{and} \quad \mathbf{u} = A^{-1}\mathbf{b}$$
+                        </p>
                     </div>
-                    <p><strong>THEOREM 6 (Page 11):</strong></p>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-2 font-mono text-xs md:text-sm bg-slate-50 p-3 rounded-lg border border-slate-200">
-                        <div><strong>a.</strong> $(A^{-1})^{-1} = A$</div>
-                        <div><strong>b.</strong> $(AB)^{-1} = B^{-1}A^{-1}$</div>
-                        <div><strong>c.</strong> $(A^T)^{-1} = (A^{-1})^T$</div>
+                </div>
+            </div>
+
+            <!-- Collapsible EXAMPLE 3 (Elastic Beam + Figure 1 SVG) -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex2-2-3')" class="w-full px-4 py-3 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-sm text-amber-950 transition">
+                    <span>EXAMPLE 3（範例 3：水平彈性樑撓度模型——柔度矩陣 $D$ 與剛度矩陣 $D^{-1}$ 的物理意義）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-amber-700"></i>
+                </button>
+                <div id="ex2-2-3" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-3">
+                    <p>
+                        A horizontal elastic beam is supported at each end and is subjected to forces at points $1$, $2$, and $3$, as shown in Figure 1. Let $\mathbf{f}$ in $\mathbb{R}^{3}$ list the forces at these points, and let $\mathbf{y}$ in $\mathbb{R}^{3}$ list the amounts of <strong>deflection（撓度／位移量）</strong> (that is, movement) of the beam at the three points. Using Hooke's law from physics, it can be shown that
+                        $$\mathbf{y} = D\mathbf{f}$$
+                        where $D$ is a <strong>flexibility matrix（柔度矩陣）</strong>. Its inverse is called the <strong>stiffness matrix（剛度矩陣）</strong>. Describe the physical significance of the columns of $D$ and $D^{-1}$.
+                    </p>
+
+                    <!-- SVG Figure 1: Deflection of an elastic beam -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-2">
+                        <p class="text-xs font-semibold text-slate-600">FIGURE 1 Deflection of an elastic beam（彈性樑的撓度圖示）</p>
+                        <div class="overflow-x-auto">
+                            <svg viewBox="0 0 640 165" class="w-full max-w-4xl mx-auto text-slate-800" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Left and Right Supports -->
+                                <rect x="20" y="54" width="16" height="92" fill="#bae6fd" stroke="#1e293b" stroke-width="1.3" />
+                                <rect x="604" y="54" width="16" height="92" fill="#bae6fd" stroke="#1e293b" stroke-width="1.3" />
+
+                                <!-- Original Horizontal Beam (Dashed) -->
+                                <rect x="16" y="34" width="608" height="20" fill="none" stroke="#1e293b" stroke-width="1.3" stroke-dasharray="7,4" />
+
+                                <!-- Deflected Curved Beam -->
+                                <path d="M 22 36 Q 320 96 618 36 L 614 54 Q 320 116 26 54 Z" fill="#bae6fd" stroke="#1e293b" stroke-width="1.4" />
+
+                                <!-- Point #1 -->
+                                <text x="190" y="24" text-anchor="middle" font-size="13.5" font-family="sans-serif">#1</text>
+                                <line x1="190" y1="34" x2="190" y2="75" stroke="#1e293b" stroke-width="1.4" stroke-dasharray="3,2" />
+                                <path d="M 192 35 Q 198 35 198 45 L 198 51 Q 198 54 202 54 Q 198 54 198 57 L 198 64 Q 198 74 192 74" fill="none" stroke="#1e293b" stroke-width="1.1" />
+                                <text x="213" y="61" text-anchor="middle" font-size="14" font-family="serif"><tspan font-style="italic">y</tspan><tspan dy="3" font-size="10">1</tspan></text>
+                                <line x1="190" y1="76" x2="190" y2="124" stroke="#00a8e8" stroke-width="2" />
+                                <polygon points="190,129 186.5,121 193.5,121" fill="#00a8e8" />
+                                <text x="176" y="121" text-anchor="middle" font-size="14" font-family="serif"><tspan font-style="italic">f</tspan><tspan dy="3" font-size="10">1</tspan></text>
+
+                                <!-- Point #2 -->
+                                <text x="290" y="24" text-anchor="middle" font-size="13.5" font-family="sans-serif">#2</text>
+                                <line x1="290" y1="34" x2="290" y2="85" stroke="#1e293b" stroke-width="1.4" stroke-dasharray="3,2" />
+                                <path d="M 292 35 Q 298 35 298 48 L 298 56 Q 298 59 302 59 Q 298 59 298 62 L 298 72 Q 298 84 292 84" fill="none" stroke="#1e293b" stroke-width="1.1" />
+                                <text x="313" y="66" text-anchor="middle" font-size="14" font-family="serif"><tspan font-style="italic">y</tspan><tspan dy="3" font-size="10">2</tspan></text>
+                                <line x1="290" y1="86" x2="290" y2="134" stroke="#00a8e8" stroke-width="2" />
+                                <polygon points="290,139 286.5,131 293.5,131" fill="#00a8e8" />
+                                <text x="276" y="131" text-anchor="middle" font-size="14" font-family="serif"><tspan font-style="italic">f</tspan><tspan dy="3" font-size="10">2</tspan></text>
+
+                                <!-- Point #3 -->
+                                <text x="450" y="24" text-anchor="middle" font-size="13.5" font-family="sans-serif">#3</text>
+                                <line x1="450" y1="34" x2="450" y2="75" stroke="#1e293b" stroke-width="1.4" stroke-dasharray="3,2" />
+                                <path d="M 452 35 Q 458 35 458 45 L 458 51 Q 458 54 462 54 Q 458 54 458 57 L 458 64 Q 458 74 452 74" fill="none" stroke="#1e293b" stroke-width="1.1" />
+                                <text x="473" y="61" text-anchor="middle" font-size="14" font-family="serif"><tspan font-style="italic">y</tspan><tspan dy="3" font-size="10">3</tspan></text>
+                                <line x1="450" y1="76" x2="450" y2="124" stroke="#00a8e8" stroke-width="2" />
+                                <polygon points="450,129 446.5,121 453.5,121" fill="#00a8e8" />
+                                <text x="436" y="121" text-anchor="middle" font-size="14" font-family="serif"><tspan font-style="italic">f</tspan><tspan dy="3" font-size="10">3</tspan></text>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <p><strong>SOLUTION:</strong> Write $I_{3} = \begin{bmatrix} \mathbf{e}_{1} & \mathbf{e}_{2} & \mathbf{e}_{3} \end{bmatrix}$ and observe that
+                        $$D = DI_{3} = \begin{bmatrix} D\mathbf{e}_{1} & D\mathbf{e}_{2} & D\mathbf{e}_{3} \end{bmatrix}$$
+                        Interpret the vector $\mathbf{e}_{1} = (1, 0, 0)$ as a unit force applied downward at point $1$ on the beam (with zero force at the other two points). Then $D\mathbf{e}_{1}$, the first column of $D$, lists the beam deflections due to a unit force at point $1$. Similar descriptions apply to the second and third columns of $D$.
+                    </p>
+                    <p>
+                        To study the stiffness matrix $D^{-1}$, observe that the equation $\mathbf{f} = D^{-1}\mathbf{y}$ computes a force vector $\mathbf{f}$ when a deflection vector $\mathbf{y}$ is given. Write
+                        $$D^{-1} = D^{-1}I_{3} = \begin{bmatrix} D^{-1}\mathbf{e}_{1} & D^{-1}\mathbf{e}_{2} & D^{-1}\mathbf{e}_{3} \end{bmatrix}$$
+                        Now interpret $\mathbf{e}_{1}$ as a deflection vector. Then $D^{-1}\mathbf{e}_{1}$ lists the forces that create the deflection. That is, the first column of $D^{-1}$ lists the forces that must be applied at the three points to produce a unit deflection at point $1$ and zero deflections at the other points. Similarly, columns $2$ and $3$ of $D^{-1}$ list the forces required to produce unit deflections at points $2$ and $3$, respectively. In each column, one or two of the forces must be negative (point upward) to produce a unit deflection at the desired point and zero deflections at the other two points. If the flexibility is measured, for example, in inches of deflection per pound of load, then the stiffness matrix entries are given in pounds of load per inch of deflection.
+                    </p>
+                </div>
+            </div>
+
+            <p class="text-sm text-slate-700 leading-relaxed">
+                The formula in Theorem 5 is seldom used to solve an equation $A\mathbf{x} = \mathbf{b}$ numerically because row reduction of $\begin{bmatrix} A & \mathbf{b} \end{bmatrix}$ is nearly always faster. (Row reduction is usually more accurate, too, when computations involve rounding off numbers.) One possible exception is the $2 \times 2$ case. In this case, mental computations to solve $A\mathbf{x} = \mathbf{b}$ are sometimes easier using the formula for $A^{-1}$, as in the next example.
+            </p>
+
+            <!-- Collapsible EXAMPLE 4 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex2-2-4')" class="w-full px-4 py-3 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-sm text-amber-950 transition">
+                    <span>EXAMPLE 4（範例 4：利用 Example 2 的 $A^{-1}$ 解 $2\times 2$ 線性方程組）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-amber-700"></i>
+                </button>
+                <div id="ex2-2-4" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2">
+                    <p>Use the inverse of the matrix $A$ in Example 2 to solve the system
+                        $$\begin{aligned} 3x_{1} + 4x_{2} &= 3 \\ 5x_{1} + 6x_{2} &= 7 \end{aligned}$$
+                    </p>
+                    <p><strong>SOLUTION:</strong> This system is equivalent to $A\mathbf{x} = \mathbf{b}$, so
+                        $$\mathbf{x} = A^{-1}\mathbf{b} = \begin{bmatrix} -3 & 2 \\ 5/2 & -3/2 \end{bmatrix}\begin{bmatrix} 3 \\ 7 \end{bmatrix} = \begin{bmatrix} 5 \\ -3 \end{bmatrix}$$
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Properties of Invertible Matrices: THEOREM 6 -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-amber-500 rounded-full"></span>
+                3. Algebraic Properties of Matrix Inversion: THEOREM 6 (逆矩陣運算性質：定理 6)
+            </h4>
+
+            <!-- THEOREM 6 -->
+            <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-3">
+                <div class="font-bold text-amber-950 text-base">THEOREM 6（定理 6：逆矩陣、乘積逆矩陣與轉置逆矩陣性質）</div>
+                <div class="space-y-2 text-xs sm:text-sm text-slate-800 bg-white p-4 rounded-lg border border-amber-100">
+                    <div><strong>a.</strong> If $A$ is an invertible matrix, then $A^{-1}$ is invertible and
+                        $$(A^{-1})^{-1} = A$$
+                    </div>
+                    <div><strong>b.</strong> If $A$ and $B$ are $n \times n$ invertible matrices, then so is $AB$, and the inverse of $AB$ is the product of the inverses of $A$ and $B$ in the reverse order. That is,
+                        $$(AB)^{-1} = B^{-1}A^{-1}$$
+                    </div>
+                    <div><strong>c.</strong> If $A$ is an invertible matrix, then so is $A^{T}$, and the inverse of $A^{T}$ is the transpose of $A^{-1}$. That is,
+                        $$(A^{T})^{-1} = (A^{-1})^{T}$$
                     </div>
                 </div>
 
-                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
-                    <button onclick="toggleCard('ex-2-2-24')" class="w-full p-4 text-left font-bold text-blue-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
-                        <span><i class="fa-solid fa-calculator mr-2 text-blue-600"></i> EXAMPLES 2 &amp; 4 (Pages 4, 10): Inverse of $2\times 2$ Matrix &amp; Solving $Ax = b$ (點擊展開)</span>
-                        <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Examples</span>
+                <!-- Collapsible PROOF & Remark of Theorem 6 -->
+                <div class="border border-amber-200/80 rounded-lg overflow-hidden bg-white">
+                    <button onclick="toggleCard('proof-thm6')" class="w-full px-4 py-2.5 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left text-xs sm:text-sm font-semibold text-slate-800 transition">
+                        <span>THEOREM 6 PROOF（完整證明）與 Remark（逆矩陣定義驗證說明）</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500"></i>
                     </button>
-                    <div id="ex-2-2-24" class="toggle-content p-5 space-y-2.5 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                    <div id="proof-thm6" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2">
                         <p>
-                            For $A = \begin{bmatrix} 3 & 4 \\ 5 & 6 \end{bmatrix}$, $\det A = 18 - 20 = -2 \ne 0$, so $A^{-1} = \begin{bmatrix} -3 & 2 \\ 5/2 & -3/2 \end{bmatrix}$.
+                            <strong>PROOF:</strong> To verify statement (a), find a matrix $C$ such that
+                            $$A^{-1}C = I \quad \text{and} \quad CA^{-1} = I$$
+                            In fact, these equations are satisfied with $A$ in place of $C$. Hence $A^{-1}$ is invertible, and $A$ is its inverse. Next, to prove statement (b), compute:
+                            $$(AB)(B^{-1}A^{-1}) = A(BB^{-1})A^{-1} = AIA^{-1} = AA^{-1} = I$$
+                            A similar calculation shows that $(B^{-1}A^{-1})(AB) = I$. For statement (c), use Theorem 3(d), read from right to left, $(A^{-1})^{T}A^{T} = (AA^{-1})^{T} = I^{T} = I$. Similarly, $A^{T}(A^{-1})^{T} = I^{T} = I$. Hence $A^{T}$ is invertible, and its inverse is $(A^{-1})^{T}$.
                         </p>
-                        <p>
-                            For $3x_1 + 4x_2 = 3,\; 5x_1 + 6x_2 = 7$, $\mathbf{x} = A^{-1}\begin{bmatrix} 3 \\ 7 \end{bmatrix} = \begin{bmatrix} 5 \\ -3 \end{bmatrix}$.
+                        <p class="text-xs text-slate-600 leading-relaxed bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <strong>Remark:</strong> Part (b) illustrates the important role that definitions play in proofs. The theorem claims that $B^{-1}A^{-1}$ is the inverse of $AB$. The proof establishes this by showing that $B^{-1}A^{-1}$ satisfies the definition of what it means to be the inverse of $AB$. Now, the inverse of $AB$ is a matrix that when multiplied on the left (or right) by $AB$, the product is the identity matrix $I$. So the proof consists of showing that $B^{-1}A^{-1}$ has this property.
                         </p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- 2.2.2 Elementary Matrices, Theorem 7 & Inversion Algorithm -->
-        <div class="space-y-4 pt-6 border-t border-slate-200">
-            <h3 class="font-bold text-lg text-blue-800 flex items-center gap-2">
-                <i class="fa-solid fa-sliders mr-2 text-blue-500 text-sm"></i> 2.2.2 Elementary Matrices, Theorem 7 &amp; Algorithm for $A^{-1}$ (基本矩陣、定理 7 與求反演算法，Pages 14 - 27)
-            </h3>
+        <!-- 4. Elementary Matrices & THEOREM 7 -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-amber-500 rounded-full"></span>
+                4. Elementary Matrices &amp; THEOREM 7 (基本矩陣與定理 7)
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                An <strong>elementary matrix（基本矩陣）</strong> is one that is obtained by performing a single <strong>elementary row operation（基本列運算）</strong> on an identity matrix. The next example illustrates the three kinds of elementary matrices.
+            </p>
 
-            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
-                <div class="p-4 bg-white rounded-lg border border-blue-200 space-y-2.5 text-slate-800 leading-relaxed">
-                    <strong class="text-blue-900 text-base font-bold block">Elementary Matrices, THEOREM 7 &amp; Augmented Row Reduction (基本矩陣、定理 7 與增廣列化簡，Pages 14 - 27)</strong>
-                    <p>
-                        An <strong>elementary matrix (基本矩陣)</strong> $E$ is obtained by performing a single elementary row operation on an identity matrix $I$. Performing that same row operation on an $m \times n$ matrix $A$ yields $EA$, and every elementary matrix is invertible (its inverse corresponds to the reverse row operation).
+            <!-- Collapsible EXAMPLE 5 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex2-2-5')" class="w-full px-4 py-3 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-sm text-amber-950 transition">
+                    <span>EXAMPLE 5（範例 5：三種基本矩陣 $E_{1}, E_{2}, E_{3}$ 左乘矩陣 $A$ 的列運算效果）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-amber-700"></i>
+                </button>
+                <div id="ex2-2-5" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2">
+                    <p>Let
+                        $$E_{1} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ -4 & 0 & 1 \end{bmatrix}, \quad E_{2} = \begin{bmatrix} 0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{bmatrix}, \quad E_{3} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 5 \end{bmatrix}, \quad A = \begin{bmatrix} a & b & c \\ d & e & f \\ g & h & i \end{bmatrix}$$
+                        Compute $E_{1}A$, $E_{2}A$, and $E_{3}A$, and describe how these products can be obtained by elementary row operations on $A$.
                     </p>
-                    <div class="p-3 bg-blue-50/70 rounded-lg border border-blue-200 text-xs md:text-sm text-blue-950 space-y-1.5">
-                        <p><strong>THEOREM 7 (Page 20):</strong> An $n \times n$ matrix $A$ is invertible if and only if $A$ is row equivalent to $I_n$; any sequence of elementary row operations reducing $A$ to $I_n$ also transforms $I_n$ into $A^{-1}$.</p>
-                        <p class="font-mono"><strong>Algorithm (Page 23):</strong> Row reduce $[A \;\; I_n]$. If $A \sim I_n$, then $[A \;\; I_n] \sim [I_n \;\; A^{-1}]$ (equivalent to solving $A\mathbf{x} = \mathbf{e}_1, \dots, A\mathbf{x} = \mathbf{e}_n$ simultaneously). Otherwise $A$ has no inverse.</p>
-                    </div>
+                    <p><strong>SOLUTION:</strong> Verify that
+                        $$E_{1}A = \begin{bmatrix} a & b & c \\ d & e & f \\ g - 4a & h - 4b & i - 4c \end{bmatrix}, \quad E_{2}A = \begin{bmatrix} d & e & f \\ a & b & c \\ g & h & i \end{bmatrix}, \quad E_{3}A = \begin{bmatrix} a & b & c \\ d & e & f \\ 5g & 5h & 5i \end{bmatrix}$$
+                        Addition of $-4$ times row $1$ of $A$ to row $3$ produces $E_{1}A$. (This is a <strong>row replacement operation 列倍加運算</strong>.) An interchange of rows $1$ and $2$ of $A$ produces $E_{2}A$, and multiplication of row $3$ of $A$ by $5$ produces $E_{3}A$.
+                    </p>
                 </div>
+            </div>
 
-                <div class="border border-slate-200 rounded-xl bg-white overflow-hidden">
-                    <button onclick="toggleCard('ex-2-2-7')" class="w-full p-4 text-left font-bold text-blue-900 flex justify-between items-center gap-3 bg-slate-50 hover:bg-slate-100 transition text-xs md:text-sm">
-                        <span><i class="fa-solid fa-table-list mr-2 text-blue-600"></i> EXAMPLE 7 (Pages 24 - 26): Finding a $3\times 3$ Inverse via $[A \;\; I_3] \sim [I_3 \;\; A^{-1}]$ (點擊展開)</span>
-                        <span class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full shrink-0">Expand Example</span>
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-2.5 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                <p>
+                    Left-multiplication (that is, multiplication on the left) by $E_{1}$ in Example 5 has the same effect on any $3 \times n$ matrix. It adds $-4$ times row $1$ to row $3$. In particular, since $E_{1} \cdot I = E_{1}$, we see that $E_{1}$ itself is produced by this same row operation on the identity. Thus Example 5 illustrates the following general fact about elementary matrices (See Exercises 27 and 28.):
+                </p>
+                <p class="font-semibold text-amber-950 bg-amber-50/70 border border-amber-200 rounded-lg px-4 py-2.5">
+                    If an elementary row operation is performed on an $m \times n$ matrix $A$, the resulting matrix can be written as $EA$, where the $m \times m$ matrix $E$ is created by performing the same row operation on $I_{m}$.
+                </p>
+                <p>
+                    Since row operations are reversible, as shown in Section 1.1, elementary matrices are invertible, for if $E$ is produced by a row operation on $I$, then there is another row operation of the same type that changes $E$ back into $I$. Hence there is an elementary matrix $F$ such that $FE = I$. Since $E$ and $F$ correspond to reverse operations, $EF = I$, too.
+                </p>
+                <p class="font-semibold text-amber-950 bg-amber-50/70 border border-amber-200 rounded-lg px-4 py-2.5">
+                    Each elementary matrix $E$ is invertible. The inverse of $E$ is the elementary matrix of the same type that transforms $E$ back into $I$.
+                </p>
+            </div>
+
+            <!-- Collapsible EXAMPLE 6 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex2-2-6')" class="w-full px-4 py-3 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-sm text-amber-950 transition">
+                    <span>EXAMPLE 6（範例 6：求基本矩陣 $E_{1}$ 的逆矩陣 $E_{1}^{-1}$）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-amber-700"></i>
+                </button>
+                <div id="ex2-2-6" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2">
+                    <p>Find the inverse of $E_{1} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ -4 & 0 & 1 \end{bmatrix}$.</p>
+                    <p><strong>SOLUTION:</strong> To transform $E_{1}$ into $I$, add $+4$ times row $1$ to row $3$. The elementary matrix that does this is
+                        $$E_{1}^{-1} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ +4 & 0 & 1 \end{bmatrix}$$
+                    </p>
+                </div>
+            </div>
+
+            <!-- THEOREM 7 -->
+            <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-3">
+                <div class="font-bold text-amber-950 text-base">THEOREM 7（定理 7：可逆矩陣與單位矩陣列等價定理）</div>
+                <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                    An $n \times n$ matrix $A$ is invertible if and only if $A$ is <strong>row equivalent（列等價）</strong> to $I_{n}$, and in this case, any sequence of elementary row operations that reduces $A$ to $I_{n}$ also transforms $I_{n}$ into $A^{-1}$.
+                </p>
+
+                <!-- Collapsible PROOF & Remark of Theorem 7 -->
+                <div class="border border-amber-200/80 rounded-lg overflow-hidden bg-white">
+                    <button onclick="toggleCard('proof-thm7')" class="w-full px-4 py-2.5 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left text-xs sm:text-sm font-semibold text-slate-800 transition">
+                        <span>THEOREM 7 PROOF（雙向完整證明）與 Remark（逆命題 conversely 說明）</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500"></i>
                     </button>
-                    <div id="ex-2-2-7" class="toggle-content p-5 space-y-2 text-sm text-slate-700 border-t border-slate-200 bg-white leading-relaxed">
+                    <div id="proof-thm7" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2">
+                        <p class="text-xs text-slate-600 leading-relaxed bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <strong>Remark:</strong> The comment on the proof of Theorem 11 in Chapter 1 noted that "$P$ if and only if $Q$" is equivalent to two statements: (1) "If $P$ then $Q$" and (2) "If $Q$ then $P$." The second statement is called the <strong>converse（逆命題）</strong> of the first and explains the use of the word <em>conversely</em> in the second paragraph of this proof.
+                        </p>
                         <p>
-                            For $A = \begin{bmatrix} 0 & 1 & 2 \\ 1 & 0 & 3 \\ 4 & -3 & 8 \end{bmatrix}$, row reducing $[A \;\; I_3]$ to $[I_3 \;\; A^{-1}]$ gives:
+                            <strong>PROOF:</strong> Suppose that $A$ is invertible. Then, since the equation $A\mathbf{x} = \mathbf{b}$ has a solution for each $\mathbf{b}$ (Theorem 5), $A$ has a pivot position in every row (Theorem 4 in Section 1.4). Because $A$ is square, the $n$ pivot positions must be on the diagonal, which implies that the reduced echelon form of $A$ is $I_{n}$. That is, $A \sim I_{n}$.
                         </p>
-                        <p class="font-mono text-xs md:text-sm text-center text-blue-950 overflow-x-auto">
-                            $$A^{-1} = \begin{bmatrix} -9/2 & 7 & -3/2 \\ -2 & 4 & -1 \\ 3/2 & -2 & 1/2 \end{bmatrix}$$
+                        <p>
+                            Now suppose, conversely, that $A \sim I_{n}$. Then, since each step of the row reduction of $A$ corresponds to left-multiplication by an elementary matrix, there exist elementary matrices $E_{1}, \dots, E_{p}$ such that
+                            $$A \sim E_{1}A \sim E_{2}(E_{1}A) \sim \cdots \sim E_{p}(E_{p-1} \cdots E_{1}A) = I_{n}$$
+                            That is,
+                            $$E_{p} \cdots E_{1}A = I_{n} \tag{1}$$
+                            Since the product $E_{p} \cdots E_{1}$ of invertible matrices is invertible, (1) leads to
+                            $$(E_{p} \cdots E_{1})^{-1}(E_{p} \cdots E_{1})A = (E_{p} \cdots E_{1})^{-1}I_{n}$$
+                            $$A = (E_{p} \cdots E_{1})^{-1}$$
+                            Thus $A$ is invertible, as it is the inverse of an invertible matrix (Theorem 6). Also,
+                            $$A^{-1} = [(E_{p} \cdots E_{1})^{-1}]^{-1} = E_{p} \cdots E_{1}$$
+                            Then $A^{-1} = E_{p} \cdots E_{1} \cdot I_{n}$, which says that $A^{-1}$ results from applying $E_{1}, \dots, E_{p}$ successively to $I_{n}$. This is the same sequence in (1) that reduced $A$ to $I_{n}$.
                         </p>
-                        <p>One can verify $AA^{-1} = I_3$.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- 5. An Algorithm for Finding A^{-1} & Another View of Matrix Inversion -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-amber-500 rounded-full"></span>
+                5. Algorithm for Finding $A^{-1}$ &amp; Another View of Matrix Inversion (求逆矩陣演算法與另一視角)
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                If we place $A$ and $I$ side by side to form an <strong>augmented matrix（增廣矩陣）</strong> $\begin{bmatrix} A & I \end{bmatrix}$, then row operations on this matrix produce identical operations on $A$ and on $I$. By Theorem 7, either there are row operations that transform $A$ to $I_{n}$ and $I_{n}$ to $A^{-1}$ or else $A$ is not invertible.
+            </p>
+
+            <!-- ALGORITHM BOX -->
+            <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-2">
+                <div class="font-bold text-amber-950 text-base">ALGORITHM FOR FINDING $A^{-1}$（求 $A^{-1}$ 的演算法）</div>
+                <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                    Row reduce the augmented matrix $\begin{bmatrix} A & I \end{bmatrix}$. If $A$ is row equivalent to $I$, then $\begin{bmatrix} A & I \end{bmatrix}$ is row equivalent to $\begin{bmatrix} I & A^{-1} \end{bmatrix}$. Otherwise, $A$ does not have an inverse.
+                </p>
+            </div>
+
+            <!-- Collapsible EXAMPLE 7 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex2-2-7')" class="w-full px-4 py-3 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-sm text-amber-950 transition">
+                    <span>EXAMPLE 7（範例 7：利用列簡化 $\begin{bmatrix} A & I \end{bmatrix}$ 求 $3\times 3$ 矩陣 $A$ 的逆矩陣與驗算）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-amber-700"></i>
+                </button>
+                <div id="ex2-2-7" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2">
+                    <p>Find the inverse of the matrix $A = \begin{bmatrix} 0 & 1 & 2 \\ 1 & 0 & 3 \\ 4 & -3 & 8 \end{bmatrix}$, if it exists.</p>
+                    <p><strong>SOLUTION:</strong>
+                        $$\begin{aligned}
+                        \begin{bmatrix} A & I \end{bmatrix} = \begin{bmatrix} 0 & 1 & 2 & 1 & 0 & 0 \\ 1 & 0 & 3 & 0 & 1 & 0 \\ 4 & -3 & 8 & 0 & 0 & 1 \end{bmatrix}
+                        &\sim \begin{bmatrix} 1 & 0 & 3 & 0 & 1 & 0 \\ 0 & 1 & 2 & 1 & 0 & 0 \\ 4 & -3 & 8 & 0 & 0 & 1 \end{bmatrix} \\
+                        &\sim \begin{bmatrix} 1 & 0 & 3 & 0 & 1 & 0 \\ 0 & 1 & 2 & 1 & 0 & 0 \\ 0 & -3 & -4 & 0 & -4 & 1 \end{bmatrix}
+                        \sim \begin{bmatrix} 1 & 0 & 3 & 0 & 1 & 0 \\ 0 & 1 & 2 & 1 & 0 & 0 \\ 0 & 0 & 2 & 3 & -4 & 1 \end{bmatrix} \\
+                        &\sim \begin{bmatrix} 1 & 0 & 3 & 0 & 1 & 0 \\ 0 & 1 & 2 & 1 & 0 & 0 \\ 0 & 0 & 1 & 3/2 & -2 & 1/2 \end{bmatrix}
+                        \sim \begin{bmatrix} 1 & 0 & 0 & -9/2 & 7 & -3/2 \\ 0 & 1 & 0 & -2 & 4 & -1 \\ 0 & 0 & 1 & 3/2 & -2 & 1/2 \end{bmatrix}
+                        \end{aligned}$$
+                    </p>
+                    <p>Theorem 7 shows, since $A \sim I$, that $A$ is invertible, and
+                        $$A^{-1} = \begin{bmatrix} -9/2 & 7 & -3/2 \\ -2 & 4 & -1 \\ 3/2 & -2 & 1/2 \end{bmatrix}$$
+                    </p>
+                    <p>It is a good idea to check the final answer:
+                        $$AA^{-1} = \begin{bmatrix} 0 & 1 & 2 \\ 1 & 0 & 3 \\ 4 & -3 & 8 \end{bmatrix}\begin{bmatrix} -9/2 & 7 & -3/2 \\ -2 & 4 & -1 \\ 3/2 & -2 & 1/2 \end{bmatrix} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$$
+                        It is not necessary to check that $A^{-1}A = I$ since $A$ is invertible.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Another View of Matrix Inversion -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-2.5 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                <div class="font-bold text-slate-900 text-sm sm:text-base">Another View of Matrix Inversion（矩陣求逆的另一視角）</div>
+                <p>
+                    Denote the columns of $I_{n}$ by $\mathbf{e}_{1}, \dots, \mathbf{e}_{n}$. Then row reduction of $\begin{bmatrix} A & I \end{bmatrix}$ to $\begin{bmatrix} I & A^{-1} \end{bmatrix}$ can be viewed as the simultaneous solution of the $n$ systems
+                    $$A\mathbf{x} = \mathbf{e}_{1}, \quad A\mathbf{x} = \mathbf{e}_{2}, \quad \dots, \quad A\mathbf{x} = \mathbf{e}_{n} \tag{2}$$
+                    where the "augmented columns" of these systems have all been placed next to $A$ to form $\begin{bmatrix} A & \mathbf{e}_{1} & \mathbf{e}_{2} & \cdots & \mathbf{e}_{n} \end{bmatrix} = \begin{bmatrix} A & I \end{bmatrix}$. The equation $AA^{-1} = I$ and the definition of matrix multiplication show that the columns of $A^{-1}$ are precisely the solutions of the systems in (2). This observation is useful because some applied problems may require finding only one or two columns of $A^{-1}$. In this case, only the corresponding systems in (2) need to be solved.
+                </p>
             </div>
         </div>
     </section>
