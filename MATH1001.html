@@ -1693,44 +1693,233 @@
         </div>
     </section>
 
-    <!-- ================= SECTION 2.4 ================= -->
-    <section id="sec2-4" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-8">
-        <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
-            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
-                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 2.4</span>
-                PARTITIONED MATRICES (分塊矩陣)
-            </h2>
-            <span class="text-xs text-slate-500 font-mono">Pages 1 - 15</span>
+    <!-- ============================================================== -->
+    <!-- SECTION 2.4: PARTITIONED MATRICES                              -->
+    <!-- ============================================================== -->
+    <section id="sec2-4" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-7">
+        <div class="border-b border-slate-200 pb-4 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1.5 rounded-xl bg-amber-100 text-amber-900 text-xl md:text-2xl font-extrabold tracking-tight">§ 2.4</span>
+                <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight">PARTITIONED MATRICES (分塊矩陣)</h3>
+            </div>
+            <span class="text-sm text-slate-500 font-mono">Slides 1–15 (15 Pages)</span>
         </div>
 
+        <!-- 1. Partitioned Matrices, Addition, Scalar Multiplication & Block Multiplication -->
         <div class="space-y-4">
-            <h3 class="font-bold text-lg text-blue-800 flex items-center gap-2">
-                <i class="fa-solid fa-border-all text-blue-500 text-sm"></i> 2.4.1 Block Operations, Column-Row Expansion &amp; Block Inverses (分塊運算、行列展開與分塊反矩陣，Pages 1 - 15)
-            </h3>
+            <h4 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-6 bg-amber-500 rounded-full"></span>
+                1. Partitioned Matrices &amp; Block Matrix Operations (分塊矩陣與分塊運算)
+            </h4>
+            <p class="text-base md:text-lg text-slate-700 leading-relaxed">
+                A key feature of our work with matrices has been the ability to regard a matrix $A$ as a list of column vectors rather than just a rectangular array of numbers. This point of view has been so useful that we wish to consider other partitions of $A$, indicated by horizontal and vertical dividing rules, as in Example 1 below. <strong>Partitioned matrices（分塊矩陣）</strong> appear in most modern applications of linear algebra because the notation highlights essential structures in matrix analysis, as in the chapter introductory example on aircraft design. This section provides an opportunity to review matrix algebra and use the Invertible Matrix Theorem.
+            </p>
 
-            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
-                <div class="p-4 bg-white rounded-lg border border-blue-200 space-y-2.5 text-slate-800 leading-relaxed">
-                    <strong class="text-blue-900 text-base font-bold block">Block Addition, Block Multiplication &amp; THEOREM 10 (分塊加減乘與定理 10，Pages 1 - 11)</strong>
-                    <p>
-                        Matrices divided by horizontal and vertical lines into submatrices (blocks) can be added or scaled block by block when partitioned identically, and multiplied block by block when the column partition of $A$ matches the row partition of $B$ (preserving left-to-right order).
+            <!-- Collapsible EXAMPLE 1 (with dashed partition lines SVG) -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex2-4-1')" class="w-full px-4 py-3.5 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-base text-amber-950 transition">
+                    <span>EXAMPLE 1（範例 1：將 $3\times 6$ 矩陣 $A$ 分塊為 $2\times 3$ 區塊矩陣）</span>
+                    <i class="fa-solid fa-chevron-down text-sm text-amber-700"></i>
+                </button>
+                <div id="ex2-4-1" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-3 leading-relaxed">
+                    <p>The matrix
+                        $$A = \begin{bmatrix} 3 & 0 & -1 & 5 & 9 & -2 \\ -5 & 2 & 4 & 0 & -3 & 1 \\ -8 & -6 & 3 & 1 & 7 & -4 \end{bmatrix}$$
+                        can also be written as the $2 \times 3$ <strong>partitioned (or block) matrix（分塊矩陣）</strong>
+                        $$A = \begin{bmatrix} A_{11} & A_{12} & A_{13} \\ A_{21} & A_{22} & A_{23} \end{bmatrix}$$
+                        whose entries are the <strong>blocks (or submatrices)（子矩陣／區塊）</strong>
+                        $$A_{11} = \begin{bmatrix} 3 & 0 & -1 \\ -5 & 2 & 4 \end{bmatrix}, \quad A_{12} = \begin{bmatrix} 5 & 9 \\ 0 & -3 \end{bmatrix}, \quad A_{13} = \begin{bmatrix} -2 \\ 1 \end{bmatrix}$$
+                        $$A_{21} = \begin{bmatrix} -8 & -6 & 3 \end{bmatrix}, \quad A_{22} = \begin{bmatrix} 1 & 7 \end{bmatrix}, \quad A_{23} = \begin{bmatrix} -4 \end{bmatrix}$$
                     </p>
-                    <div class="p-3 bg-blue-50/70 rounded-lg border border-blue-200 font-mono text-center text-blue-950 text-xs md:text-sm overflow-x-auto">
-                        <strong>THEOREM 10 (Page 10):</strong> If $A$ is $m \times n$ and $B$ is $n \times p$, then $AB = \operatorname{col}_1(A)\operatorname{row}_1(B) + \cdots + \operatorname{col}_n(A)\operatorname{row}_n(B)$ (1).
+
+                    <!-- SVG Partitioned Matrix Visual -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+                        <div class="overflow-x-auto">
+                            <svg viewBox="0 0 460 112" class="w-full max-w-xl mx-auto text-slate-800" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Left & Right Matrix Brackets -->
+                                <path d="M 38 14 L 30 14 L 30 98 L 38 98" fill="none" stroke="#1e293b" stroke-width="1.8" />
+                                <path d="M 422 14 L 430 14 L 430 98 L 422 98" fill="none" stroke="#1e293b" stroke-width="1.8" />
+
+                                <!-- Horizontal dashed line between row 2 and row 3 -->
+                                <line x1="34" y1="68" x2="426" y2="68" stroke="#00a8e8" stroke-width="1.4" stroke-dasharray="5,3" />
+
+                                <!-- Vertical dashed lines: after col 3 (x=218) and after col 5 (x=358) -->
+                                <line x1="218" y1="16" x2="218" y2="96" stroke="#00a8e8" stroke-width="1.4" stroke-dasharray="5,3" />
+                                <line x1="358" y1="16" x2="358" y2="96" stroke="#00a8e8" stroke-width="1.4" stroke-dasharray="5,3" />
+
+                                <!-- Row 1 -->
+                                <text x="65" y="34" text-anchor="middle" font-size="15" font-family="serif">3</text>
+                                <text x="120" y="34" text-anchor="middle" font-size="15" font-family="serif">0</text>
+                                <text x="180" y="34" text-anchor="middle" font-size="15" font-family="serif">−1</text>
+                                <text x="255" y="34" text-anchor="middle" font-size="15" font-family="serif">5</text>
+                                <text x="320" y="34" text-anchor="middle" font-size="15" font-family="serif">9</text>
+                                <text x="392" y="34" text-anchor="middle" font-size="15" font-family="serif">−2</text>
+
+                                <!-- Row 2 -->
+                                <text x="65" y="56" text-anchor="middle" font-size="15" font-family="serif">−5</text>
+                                <text x="120" y="56" text-anchor="middle" font-size="15" font-family="serif">2</text>
+                                <text x="180" y="56" text-anchor="middle" font-size="15" font-family="serif">4</text>
+                                <text x="255" y="56" text-anchor="middle" font-size="15" font-family="serif">0</text>
+                                <text x="320" y="56" text-anchor="middle" font-size="15" font-family="serif">−3</text>
+                                <text x="392" y="56" text-anchor="middle" font-size="15" font-family="serif">1</text>
+
+                                <!-- Row 3 -->
+                                <text x="65" y="88" text-anchor="middle" font-size="15" font-family="serif">−8</text>
+                                <text x="120" y="88" text-anchor="middle" font-size="15" font-family="serif">−6</text>
+                                <text x="180" y="88" text-anchor="middle" font-size="15" font-family="serif">3</text>
+                                <text x="255" y="88" text-anchor="middle" font-size="15" font-family="serif">1</text>
+                                <text x="320" y="88" text-anchor="middle" font-size="15" font-family="serif">7</text>
+                                <text x="392" y="88" text-anchor="middle" font-size="15" font-family="serif">−4</text>
+                            </svg>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="p-4 bg-white rounded-lg border border-blue-200 space-y-2.5 text-slate-800 leading-relaxed">
-                    <strong class="text-blue-900 text-base font-bold block">Inverses of Partitioned Matrices (分塊矩陣的反矩陣，Pages 12 - 15)</strong>
-                    <p>
-                        For an invertible <strong>block upper triangular (分塊上三角)</strong> matrix $A = \begin{bmatrix} A_{11} & A_{12} \\ 0 & A_{22} \end{bmatrix}$ with square diagonal blocks $A_{11}, A_{22}$ (Example 5):
+            <!-- Addition, Scalar Multiplication & Multiplication of Partitioned Matrices -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 sm:p-5 space-y-3 text-sm sm:text-base text-slate-700 leading-relaxed">
+                <div class="font-bold text-slate-900 text-base sm:text-lg">Addition and Scalar Multiplication（分塊矩陣的加法與純量乘法）</div>
+                <p>
+                    If matrices $A$ and $B$ are the same size and are partitioned in <strong>exactly the same way（完全相同的分塊方式）</strong>, then it is natural to make the same partition of the ordinary matrix sum $A + B$. In this case, each block of $A + B$ is the (matrix) sum of the corresponding blocks of $A$ and $B$. Multiplication of a partitioned matrix by a scalar is also computed block by block.
+                </p>
+
+                <div class="font-bold text-slate-900 text-base sm:text-lg pt-1">Multiplication of Partitioned Matrices（分塊矩陣乘法）</div>
+                <p>
+                    Partitioned matrices can be multiplied by the usual row-column rule as if the block entries were scalars, provided that for a product $AB$, <strong>the column partition of $A$ matches the row partition of $B$（$A$ 的行分塊與 $B$ 的列分塊相容／一致）</strong>.
+                </p>
+            </div>
+
+            <!-- Collapsible EXAMPLE 3 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex2-4-3')" class="w-full px-4 py-3.5 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-base text-amber-950 transition">
+                    <span>EXAMPLE 3（範例 3：相容分塊矩陣乘法與左乘次序提醒）</span>
+                    <i class="fa-solid fa-chevron-down text-sm text-amber-700"></i>
+                </button>
+                <div id="ex2-4-3" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-3 leading-relaxed">
+                    <p>Let
+                        $$A = \begin{bmatrix} 2 & -3 & 1 & 0 & -4 \\ 1 & 5 & -2 & 3 & -1 \\ 0 & -4 & -2 & 7 & -1 \end{bmatrix} = \begin{bmatrix} A_{11} & A_{12} \\ A_{21} & A_{22} \end{bmatrix}, \quad B = \begin{bmatrix} 6 & 4 \\ -2 & 1 \\ -3 & 7 \\ -1 & 3 \\ 5 & 2 \end{bmatrix} = \begin{bmatrix} B_{1} \\ B_{2} \end{bmatrix}$$
+                        The $5$ columns of $A$ are partitioned into a set of $3$ columns and then a set of $2$ columns. The $5$ rows of $B$ are partitioned in the same way—into a set of $3$ rows and then a set of $2$ rows. We say that the partitions of $A$ and $B$ are <strong>conformable for block multiplication（分塊乘法相容）</strong>. It can be shown that the ordinary product $AB$ can be written as
+                        $$AB = \begin{bmatrix} A_{11} & A_{12} \\ A_{21} & A_{22} \end{bmatrix}\begin{bmatrix} B_{1} \\ B_{2} \end{bmatrix} = \begin{bmatrix} A_{11}B_{1} + A_{12}B_{2} \\ A_{21}B_{1} + A_{22}B_{2} \end{bmatrix} = \begin{bmatrix} -5 & 4 \\ -6 & 2 \\ 2 & 1 \end{bmatrix}$$
                     </p>
-                    <div class="p-3 bg-blue-50/70 rounded-lg border border-blue-200 font-mono text-center text-blue-950 text-xs md:text-sm overflow-x-auto">
-                        $$A^{-1} = \begin{bmatrix} A_{11}^{-1} & -A_{11}^{-1}A_{12}A_{22}^{-1} \\ 0 & A_{22}^{-1} \end{bmatrix}$$
-                    </div>
-                    <p class="text-xs md:text-sm text-slate-700">
-                        A <strong>block diagonal (分塊對角)</strong> matrix is invertible if and only if each diagonal block is invertible.
+                    <p>
+                        It is important for each smaller product in the expression for $AB$ to be written with the submatrix from $A$ on the left, since matrix multiplication is not commutative. For instance,
+                        $$A_{11}B_{1} = \begin{bmatrix} 2 & -3 & 1 \\ 1 & 5 & -2 \end{bmatrix}\begin{bmatrix} 6 & 4 \\ -2 & 1 \\ -3 & 7 \end{bmatrix} = \begin{bmatrix} 15 & 12 \\ 2 & -5 \end{bmatrix}$$
+                        $$A_{12}B_{2} = \begin{bmatrix} 0 & -4 \\ 3 & -1 \end{bmatrix}\begin{bmatrix} -1 & 3 \\ 5 & 2 \end{bmatrix} = \begin{bmatrix} -20 & -8 \\ -8 & 7 \end{bmatrix}$$
+                        Hence the top block in $AB$ is
+                        $$A_{11}B_{1} + A_{12}B_{2} = \begin{bmatrix} 15 & 12 \\ 2 & -5 \end{bmatrix} + \begin{bmatrix} -20 & -8 \\ -8 & 7 \end{bmatrix} = \begin{bmatrix} -5 & 4 \\ -6 & 2 \end{bmatrix}$$
                     </p>
                 </div>
+            </div>
+        </div>
+
+        <!-- 2. Column-Row Expansion of AB: THEOREM 10 -->
+        <div class="space-y-4">
+            <h4 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-6 bg-amber-500 rounded-full"></span>
+                2. Column-Row Expansion of $AB$: THEOREM 10 (矩陣乘積的行列展開式：定理 10)
+            </h4>
+            <p class="text-base md:text-lg text-slate-700 leading-relaxed">
+                The row-column rule for multiplication of block matrices provides the most general way to regard the product of two matrices. Each of the following views of a product has already been described using simple partitions of matrices: (1) the definition of $A\mathbf{x}$ using the columns of $A$, (2) the column definition of $AB$, (3) the row-column rule for computing $AB$, and (4) the rows of $AB$ as products of the rows of $A$ and the matrix $B$. A fifth view of $AB$, again using partitions, follows in Theorem 10 below.
+            </p>
+            <p class="text-base md:text-lg text-slate-700 leading-relaxed">
+                The calculations in the next example prepare the way for Theorem 10. Here $\operatorname{col}_{k}(A)$ is the $k$th column of $A$, and $\operatorname{row}_{k}(B)$ is the $k$th row of $B$.
+            </p>
+
+            <!-- Collapsible EXAMPLE 4 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex2-4-4')" class="w-full px-4 py-3.5 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-base text-amber-950 transition">
+                    <span>EXAMPLE 4（範例 4：以三個外積之和驗證 $AB = \sum_{k=1}^{3} \operatorname{col}_{k}(A)\operatorname{row}_{k}(B)$）</span>
+                    <i class="fa-solid fa-chevron-down text-sm text-amber-700"></i>
+                </button>
+                <div id="ex2-4-4" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-2 leading-relaxed">
+                    <p>Let
+                        $$A = \begin{bmatrix} -3 & 1 & 2 \\ 1 & -4 & 5 \end{bmatrix} \quad \text{and} \quad B = \begin{bmatrix} a & b \\ c & d \\ e & f \end{bmatrix}$$
+                        Verify that
+                        $$AB = \operatorname{col}_{1}(A)\operatorname{row}_{1}(B) + \operatorname{col}_{2}(A)\operatorname{row}_{2}(B) + \operatorname{col}_{3}(A)\operatorname{row}_{3}(B)$$
+                    </p>
+                    <p><strong>SOLUTION:</strong> Each term above is an <strong>outer product（外積）</strong>. (See Exercises 27 and 28 in Section 2.1.) By the row-column rule for computing a matrix product,
+                        $$\operatorname{col}_{1}(A)\operatorname{row}_{1}(B) = \begin{bmatrix} -3 \\ 1 \end{bmatrix}\begin{bmatrix} a & b \end{bmatrix} = \begin{bmatrix} -3a & -3b \\ a & b \end{bmatrix}$$
+                        $$\operatorname{col}_{2}(A)\operatorname{row}_{2}(B) = \begin{bmatrix} 1 \\ -4 \end{bmatrix}\begin{bmatrix} c & d \end{bmatrix} = \begin{bmatrix} c & d \\ -4c & -4d \end{bmatrix}$$
+                        $$\operatorname{col}_{3}(A)\operatorname{row}_{3}(B) = \begin{bmatrix} 2 \\ 5 \end{bmatrix}\begin{bmatrix} e & f \end{bmatrix} = \begin{bmatrix} 2e & 2f \\ 5e & 5f \end{bmatrix}$$
+                    </p>
+                    <p>Thus
+                        $$\sum_{k=1}^{3} \operatorname{col}_{k}(A)\operatorname{row}_{k}(B) = \begin{bmatrix} -3a + c + 2e & -3b + d + 2f \\ a - 4c + 5e & b - 4d + 5f \end{bmatrix}$$
+                        This matrix is obviously $AB$. Notice that the $(1, 1)$-entry in $AB$ is the sum of the $(1, 1)$-entries in the three outer products, the $(1, 2)$-entry in $AB$ is the sum of the $(1, 2)$-entries in the three outer products, and so on.
+                    </p>
+                </div>
+            </div>
+
+            <!-- THEOREM 10 -->
+            <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-3">
+                <div class="font-bold text-amber-950 text-lg">THEOREM 10 — Column-Row Expansion of $AB$（定理 10：$AB$ 的行列展開式）</div>
+                <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+                    If $A$ is $m \times n$ and $B$ is $n \times p$, then
+                    $$AB = \begin{bmatrix} \operatorname{col}_{1}(A) & \operatorname{col}_{2}(A) & \cdots & \operatorname{col}_{n}(A) \end{bmatrix}\begin{bmatrix} \operatorname{row}_{1}(B) \\ \operatorname{row}_{2}(B) \\ \vdots \\ \operatorname{row}_{n}(B) \end{bmatrix} = \operatorname{col}_{1}(A)\operatorname{row}_{1}(B) + \cdots + \operatorname{col}_{n}(A)\operatorname{row}_{n}(B) \tag{1}$$
+                </p>
+
+                <!-- Collapsible PROOF of Theorem 10 -->
+                <div class="border border-amber-200/80 rounded-lg overflow-hidden bg-white">
+                    <button onclick="toggleCard('proof-thm10')" class="w-full px-4 py-3 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left text-sm sm:text-base font-semibold text-slate-800 transition">
+                        <span>THEOREM 10 PROOF（逐元 $(i, j)$ 完整證明）</span>
+                        <i class="fa-solid fa-chevron-down text-sm text-slate-500"></i>
+                    </button>
+                    <div id="proof-thm10" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-2 leading-relaxed">
+                        <p>
+                            <strong>PROOF:</strong> For each row index $i$ and column index $j$, the $(i, j)$-entry in $\operatorname{col}_{k}(A)\operatorname{row}_{k}(B)$ is the product of $a_{ik}$ from $\operatorname{col}_{k}(A)$ and $b_{kj}$ from $\operatorname{row}_{k}(B)$. Hence the $(i, j)$-entry in the sum shown in equation (1) is
+                            $$\underbrace{a_{i1}b_{1j}}_{k=1} + \underbrace{a_{i2}b_{2j}}_{k=2} + \cdots + \underbrace{a_{in}b_{nj}}_{k=n}$$
+                            This sum is also the $(i, j)$-entry in $AB$, by the row-column rule.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Inverses of Partitioned Matrices & Block Diagonal Matrices -->
+        <div class="space-y-4">
+            <h4 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-6 bg-amber-500 rounded-full"></span>
+                3. Inverses of Partitioned Matrices &amp; Block Diagonal Matrices (分塊矩陣的逆與分塊對角矩陣)
+            </h4>
+            <p class="text-base md:text-lg text-slate-700 leading-relaxed">
+                The next example illustrates calculations involving inverses and partitioned matrices.
+            </p>
+
+            <!-- Collapsible EXAMPLE 5 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex2-4-5')" class="w-full px-4 py-3.5 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-base text-amber-950 transition">
+                    <span>EXAMPLE 5（範例 5：求可逆分塊上三角矩陣 $A = \begin{bmatrix} A_{11} & A_{12} \\ 0 & A_{22} \end{bmatrix}$ 的逆矩陣公式）</span>
+                    <i class="fa-solid fa-chevron-down text-sm text-amber-700"></i>
+                </button>
+                <div id="ex2-4-5" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-2.5 leading-relaxed">
+                    <p>A matrix of the form
+                        $$A = \begin{bmatrix} A_{11} & A_{12} \\ 0 & A_{22} \end{bmatrix}$$
+                        is said to be <strong>block upper triangular（分塊上三角矩陣）</strong>. Assume that $A_{11}$ is $p \times p$, $A_{22}$ is $q \times q$, and $A$ is invertible. Find a formula for $A^{-1}$.
+                    </p>
+                    <p><strong>SOLUTION:</strong> Denote $A^{-1}$ by $B$ and partition $B$ so that
+                        $$\begin{bmatrix} A_{11} & A_{12} \\ 0 & A_{22} \end{bmatrix}\begin{bmatrix} B_{11} & B_{12} \\ B_{21} & B_{22} \end{bmatrix} = \begin{bmatrix} I_{p} & 0 \\ 0 & I_{q} \end{bmatrix} \tag{2}$$
+                        This matrix equation provides four equations that will lead to the unknown blocks $B_{11}, \dots, B_{22}$. Compute the product on the left side of equation (2), and equate each entry with the corresponding block in the identity matrix on the right. That is, set
+                        $$\begin{aligned}
+                        A_{11}B_{11} + A_{12}B_{21} &= I_{p} \tag{3} \\
+                        A_{11}B_{12} + A_{12}B_{22} &= 0 \tag{4} \\
+                        A_{22}B_{21} &= 0 \tag{5} \\
+                        A_{22}B_{22} &= I_{q} \tag{6}
+                        \end{aligned}$$
+                    </p>
+                    <p>
+                        By itself, equation (6) does not show that $A_{22}$ is invertible. However, since $A_{22}$ is square, the Invertible Matrix Theorem and (6) together show that $A_{22}$ is invertible and $B_{22} = A_{22}^{-1}$. Next, left-multiply both sides of (5) by $A_{22}^{-1}$ and obtain
+                        $$B_{21} = A_{22}^{-1}0 = 0$$
+                        so that (3) simplifies to
+                        $$A_{11}B_{11} + 0 = I_{p}$$
+                        Since $A_{11}$ is square, this shows that $A_{11}$ is invertible and $B_{11} = A_{11}^{-1}$. Finally, use these results with (4) to find that
+                        $$A_{11}B_{12} = -A_{12}B_{22} = -A_{12}A_{22}^{-1} \quad \text{and} \quad B_{12} = -A_{11}^{-1}A_{12}A_{22}^{-1}$$
+                        Thus
+                        $$A^{-1} = \begin{bmatrix} A_{11} & A_{12} \\ 0 & A_{22} \end{bmatrix}^{-1} = \begin{bmatrix} A_{11}^{-1} & -A_{11}^{-1}A_{12}A_{22}^{-1} \\ 0 & A_{22}^{-1} \end{bmatrix}$$
+                    </p>
+                </div>
+            </div>
+
+            <!-- Block Diagonal Matrix Note -->
+            <div class="bg-amber-50/30 border border-amber-200/80 rounded-xl px-4 py-3.5 text-sm sm:text-base text-slate-700 leading-relaxed">
+                A <strong>block diagonal matrix（分塊對角矩陣）</strong> is a partitioned matrix with zero blocks off the main diagonal (of blocks). Such a matrix is invertible if and only if each block on the diagonal is invertible. See Exercises 13 and 14.
             </div>
         </div>
     </section>
