@@ -1805,22 +1805,45 @@
                         (function () {
                             const container = document.getElementById('ex2-4-3-block');
                             if (!container) return;
-                            const colorLines = () => {
-                                container.querySelectorAll('mjx-container svg rect, mjx-container svg line').forEach((el) => {
-                                    const w = parseFloat(el.getAttribute('width') || '0');
-                                    const h = parseFloat(el.getAttribute('height') || '0');
+                            const colorBlueLines = () => {
+                                container.querySelectorAll('mjx-container svg rect, mjx-container svg line, mjx-container svg path').forEach((el) => {
                                     const tag = el.tagName.toLowerCase();
-                                    const isThinLine = (tag === 'rect' && ((w > 8 && h <= 3) || (h > 8 && w <= 3))) || tag === 'line';
-                                    if (isThinLine) {
-                                        if (tag === 'rect') el.setAttribute('fill', '#00a8e8');
-                                        if (tag === 'line') el.setAttribute('stroke', '#00a8e8');
+                                    if (tag === 'line') {
+                                        el.setAttribute('stroke', '#00a8e8');
+                                        el.style.stroke = '#00a8e8';
+                                        return;
+                                    }
+                                    if (tag === 'rect') {
+                                        const w = parseFloat(el.getAttribute('width') || '0');
+                                        const h = parseFloat(el.getAttribute('height') || '0');
+                                        if ((w > 6 && h <= 4) || (h > 6 && w <= 4)) {
+                                            el.setAttribute('fill', '#00a8e8');
+                                            el.style.fill = '#00a8e8';
+                                        }
+                                        return;
+                                    }
+                                    if (tag === 'path') {
+                                        const d = el.getAttribute('d') || '';
+                                        const box = el.getBBox ? el.getBBox() : { width: 0, height: 0 };
+                                        const isHoriz = (box.width > 12 && box.height <= 4) || (/^M\s*[\d.-]+[\s,]+[\d.-]+\s*H\s*[\d.-]+/i.test(d));
+                                        const isVert = (box.height > 12 && box.width <= 4) || (/^M\s*[\d.-]+[\s,]+[\d.-]+\s*V\s*[\d.-]+/i.test(d));
+                                        if (isHoriz || isVert) {
+                                            el.setAttribute('stroke', '#00a8e8');
+                                            el.setAttribute('fill', '#00a8e8');
+                                            el.style.stroke = '#00a8e8';
+                                        }
                                     }
                                 });
                             };
+                            const runWithRetry = () => {
+                                colorBlueLines();
+                                setTimeout(colorBlueLines, 150);
+                                setTimeout(colorBlueLines, 500);
+                            };
                             if (window.MathJax && MathJax.startup && MathJax.startup.promise) {
-                                MathJax.startup.promise.then(() => setTimeout(colorLines, 50));
+                                MathJax.startup.promise.then(runWithRetry);
                             } else {
-                                window.addEventListener('load', () => setTimeout(colorLines, 200));
+                                window.addEventListener('load', runWithRetry);
                             }
                         })();
                     </script>
