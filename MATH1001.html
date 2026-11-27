@@ -445,32 +445,6 @@
                 </p>
             </div>
 
-            <!-- Collapsible EXAMPLE 3 -->
-            <div class="border border-slate-200 rounded-xl overflow-hidden">
-                <button onclick="toggleCard('ex2-1-3')" class="w-full px-4 py-3 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-sm text-amber-950 transition">
-                    <span>EXAMPLE 3（範例 3：計算 $AB$，其中 $A$ 為 $2\times 2$、$B$ 為 $2\times 3$）</span>
-                    <i class="fa-solid fa-chevron-down text-xs text-amber-700"></i>
-                </button>
-                <div id="ex2-1-3" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2 bg-white">
-                    <p>Compute $AB$, where $A = \begin{bmatrix} 2 & 3 \\ 1 & -5 \end{bmatrix}$ and $B = \begin{bmatrix} 4 & 3 & 6 \\ 1 & -2 & 3 \end{bmatrix}$.</p>
-                    <p><strong>SOLUTION:</strong> Write $B = \begin{bmatrix} \mathbf{b}_{1} & \mathbf{b}_{2} & \mathbf{b}_{3} \end{bmatrix}$, and compute:
-                        $$A\mathbf{b}_{1} = \begin{bmatrix} 2 & 3 \\ 1 & -5 \end{bmatrix}\begin{bmatrix} 4 \\ 1 \end{bmatrix} = \begin{bmatrix} 11 \\ -1 \end{bmatrix}, \quad A\mathbf{b}_{2} = \begin{bmatrix} 2 & 3 \\ 1 & -5 \end{bmatrix}\begin{bmatrix} 3 \\ -2 \end{bmatrix} = \begin{bmatrix} 0 \\ 13 \end{bmatrix}, \quad A\mathbf{b}_{3} = \begin{bmatrix} 2 & 3 \\ 1 & -5 \end{bmatrix}\begin{bmatrix} 6 \\ 3 \end{bmatrix} = \begin{bmatrix} 21 \\ -9 \end{bmatrix}$$
-                        Then
-                        $$AB = A\begin{bmatrix} \mathbf{b}_{1} & \mathbf{b}_{2} & \mathbf{b}_{3} \end{bmatrix} = \begin{bmatrix} 11 & 0 & 21 \\ -1 & 13 & -9 \end{bmatrix}$$
-                    </p>
-                </div>
-            </div>
-
-            <p class="text-sm text-slate-700 leading-relaxed">
-                Notice that since the first column of $AB$ is $A\mathbf{b}_{1}$, this column is a <strong>linear combination（線性組合）</strong> of the columns of $A$ using the entries in $\mathbf{b}_{1}$ as <strong>weights（權重）</strong>. A similar statement is true for each column of $AB$:
-            </p>
-            <p class="text-sm font-semibold text-amber-950 bg-amber-50/60 border border-amber-200 rounded-lg px-4 py-2.5">
-                Each column of $AB$ is a linear combination of the columns of $A$ using weights from the corresponding column of $B$.
-            </p>
-            <p class="text-sm text-slate-700 leading-relaxed">
-                Obviously, the number of columns of $A$ must match the number of rows in $B$ in order for a linear combination such as $A\mathbf{b}_{1}$ to be defined. Also, the definition of $AB$ shows that $AB$ has the same number of rows as $A$ and the same number of columns as $B$.
-            </p>
-
             <!-- Collapsible EXAMPLE 4 -->
             <div class="border border-slate-200 rounded-xl overflow-hidden">
                 <button onclick="toggleCard('ex2-1-4')" class="w-full px-4 py-3 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-sm text-amber-950 transition">
@@ -479,10 +453,84 @@
                 </button>
                 <div id="ex2-1-4" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2 bg-white">
                     <p>If $A$ is a $3 \times 5$ matrix and $B$ is a $5 \times 2$ matrix, what are the sizes of $AB$ and $BA$, if they are defined?</p>
-                    <p><strong>SOLUTION:</strong> Since $A$ has $5$ columns and $B$ has $5$ rows, the product $AB$ is defined and is a $3 \times 2$ matrix:
-                        $$\underbrace{\text{Size of } A}_{3 \times \mathbf{5}} \quad \underbrace{\text{Size of } B}_{\mathbf{5} \times 2} \implies \underbrace{\text{Size of } AB}_{3 \times 2}$$
-                        The product $BA$ is not defined because the $2$ columns of $B$ do not match the $3$ rows of $A$.
-                    </p>
+                    <p><strong>SOLUTION:</strong> Since $A$ has $5$ columns and $B$ has $5$ rows, the product $AB$ is defined and is a $3 \times 2$ matrix:</p>
+                    <div class="overflow-x-auto py-1">
+                        <svg viewBox="0 0 430 165" class="w-full max-w-md mx-auto text-slate-800" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Matrix A label & brackets (3x5) -->
+                            <text x="98" y="15" text-anchor="middle" font-size="11" font-style="italic" font-family="serif">A</text>
+                            <path d="M26 24 L20 24 L20 82 L26 82" fill="none" stroke="#1e293b" stroke-width="1.5" />
+                            <path d="M170 24 L176 24 L176 82 L170 82" fill="none" stroke="#1e293b" stroke-width="1.5" />
+                            <!-- A stars -->
+                            <text x="42" y="38" text-anchor="middle" font-size="12">*</text>
+                            <text x="70" y="38" text-anchor="middle" font-size="12">*</text>
+                            <text x="98" y="38" text-anchor="middle" font-size="12">*</text>
+                            <text x="126" y="38" text-anchor="middle" font-size="12">*</text>
+                            <text x="154" y="38" text-anchor="middle" font-size="12">*</text>
+
+                            <text x="42" y="57" text-anchor="middle" font-size="12">*</text>
+                            <text x="70" y="57" text-anchor="middle" font-size="12">*</text>
+                            <text x="98" y="57" text-anchor="middle" font-size="12">*</text>
+                            <text x="126" y="57" text-anchor="middle" font-size="12">*</text>
+                            <text x="154" y="57" text-anchor="middle" font-size="12">*</text>
+
+                            <text x="42" y="76" text-anchor="middle" font-size="12">*</text>
+                            <text x="70" y="76" text-anchor="middle" font-size="12">*</text>
+                            <text x="98" y="76" text-anchor="middle" font-size="12">*</text>
+                            <text x="126" y="76" text-anchor="middle" font-size="12">*</text>
+                            <text x="154" y="76" text-anchor="middle" font-size="12">*</text>
+
+                            <!-- Matrix B label & brackets (5x2) -->
+                            <text x="234" y="15" text-anchor="middle" font-size="11" font-style="italic" font-family="serif">B</text>
+                            <path d="M206 20 L200 20 L200 100 L206 100" fill="none" stroke="#1e293b" stroke-width="1.5" />
+                            <path d="M262 20 L268 20 L268 100 L262 100" fill="none" stroke="#1e293b" stroke-width="1.5" />
+                            <!-- B stars -->
+                            <text x="220" y="32" text-anchor="middle" font-size="12">*</text>
+                            <text x="248" y="32" text-anchor="middle" font-size="12">*</text>
+                            <text x="220" y="48" text-anchor="middle" font-size="12">*</text>
+                            <text x="248" y="48" text-anchor="middle" font-size="12">*</text>
+                            <text x="220" y="64" text-anchor="middle" font-size="12">*</text>
+                            <text x="248" y="64" text-anchor="middle" font-size="12">*</text>
+                            <text x="220" y="80" text-anchor="middle" font-size="12">*</text>
+                            <text x="248" y="80" text-anchor="middle" font-size="12">*</text>
+                            <text x="220" y="96" text-anchor="middle" font-size="12">*</text>
+                            <text x="248" y="96" text-anchor="middle" font-size="12">*</text>
+
+                            <!-- Equals -->
+                            <text x="285" y="62" text-anchor="middle" font-size="13">=</text>
+
+                            <!-- Matrix AB label & brackets (3x2) -->
+                            <text x="342" y="15" text-anchor="middle" font-size="11" font-style="italic" font-family="serif">AB</text>
+                            <path d="M314 24 L308 24 L308 82 L314 82" fill="none" stroke="#1e293b" stroke-width="1.5" />
+                            <path d="M370 24 L376 24 L376 82 L370 82" fill="none" stroke="#1e293b" stroke-width="1.5" />
+                            <!-- AB stars -->
+                            <text x="328" y="38" text-anchor="middle" font-size="12">*</text>
+                            <text x="356" y="38" text-anchor="middle" font-size="12">*</text>
+                            <text x="328" y="57" text-anchor="middle" font-size="12">*</text>
+                            <text x="356" y="57" text-anchor="middle" font-size="12">*</text>
+                            <text x="328" y="76" text-anchor="middle" font-size="12">*</text>
+                            <text x="356" y="76" text-anchor="middle" font-size="12">*</text>
+
+                            <!-- Sizes text in cyan -->
+                            <text x="80" y="114" text-anchor="middle" font-size="11" fill="#00a8e8" font-family="sans-serif">3 ×</text>
+                            <text x="116" y="114" text-anchor="middle" font-size="11" fill="#00a8e8" font-family="sans-serif">5</text>
+                            <text x="220" y="114" text-anchor="middle" font-size="11" fill="#00a8e8" font-family="sans-serif">5</text>
+                            <text x="252" y="114" text-anchor="middle" font-size="11" fill="#00a8e8" font-family="sans-serif">× 2</text>
+                            <text x="342" y="114" text-anchor="middle" font-size="11" fill="#00a8e8" font-family="sans-serif">3 × 2</text>
+
+                            <!-- Match bracket & label -->
+                            <path d="M116 118 L116 134 L220 134 L220 122" fill="none" stroke="#00a8e8" stroke-width="1.2" />
+                            <polygon points="116,118 113.5,123 118.5,123" fill="#00a8e8" />
+                            <polygon points="220,118 217.5,123 222.5,123" fill="#00a8e8" />
+                            <text x="168" y="130" text-anchor="middle" font-size="10.5" fill="#00a8e8" font-family="sans-serif">Match</text>
+
+                            <!-- Size of AB bracket & label -->
+                            <path d="M80 118 L80 156 L252 156 L252 122" fill="none" stroke="#00a8e8" stroke-width="1.2" />
+                            <polygon points="80,118 77.5,123 82.5,123" fill="#00a8e8" />
+                            <polygon points="252,118 249.5,123 254.5,123" fill="#00a8e8" />
+                            <text x="166" y="152" text-anchor="middle" font-size="10.5" fill="#00a8e8" font-family="sans-serif">Size of <tspan font-style="italic" font-family="serif">AB</tspan></text>
+                        </svg>
+                    </div>
+                    <p>The product $BA$ is not defined because the $2$ columns of $B$ do not match the $3$ rows of $A$.</p>
                 </div>
             </div>
 
@@ -508,13 +556,132 @@
                         <span>EXAMPLE 5（範例 5：利用列行規則求 $AB$ 的 $(1, 3)$ 與 $(2, 2)$ 元素）</span>
                         <i class="fa-solid fa-chevron-down text-xs text-amber-700"></i>
                     </button>
-                    <div id="ex2-1-5" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2">
+                    <div id="ex2-1-5" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-3">
                         <p>Use the row-column rule to compute two of the entries in $AB$ for the matrices in Example 3. An inspection of the numbers involved will make it clear how the two methods for calculating $AB$ produce the same matrix.</p>
-                        <p><strong>SOLUTION:</strong> To find the entry in row $1$ and column $3$ of $AB$, consider row $1$ of $A$ and column $3$ of $B$. Multiply corresponding entries and add the results, as shown below:
-                            $$AB = \begin{bmatrix} 2 & 3 \\ 1 & -5 \end{bmatrix}\begin{bmatrix} 4 & 3 & 6 \\ 1 & -2 & 3 \end{bmatrix} = \begin{bmatrix} \Box & \Box & 2(6)+3(3) \\ \Box & \Box & \Box \end{bmatrix} = \begin{bmatrix} \Box & \Box & 21 \\ \Box & \Box & \Box \end{bmatrix}$$
-                            For the entry in row $2$ and column $2$ of $AB$, use row $2$ of $A$ and column $2$ of $B$:
-                            $$\begin{bmatrix} 2 & 3 \\ 1 & -5 \end{bmatrix}\begin{bmatrix} 4 & 3 & 6 \\ 1 & -2 & 3 \end{bmatrix} = \begin{bmatrix} \Box & \Box & 21 \\ \Box & 1(3)+(-5)(-2) & \Box \end{bmatrix} = \begin{bmatrix} \Box & \Box & 21 \\ \Box & 13 & \Box \end{bmatrix}$$
-                        </p>
+                        <p><strong>SOLUTION:</strong> To find the entry in row $1$ and column $3$ of $AB$, consider row $1$ of $A$ and column $3$ of $B$. Multiply corresponding entries and add the results, as shown below:</p>
+
+                        <!-- Step 1 SVG: (1, 3) entry -->
+                        <div class="overflow-x-auto">
+                            <svg viewBox="0 0 640 72" class="w-full max-w-lg mx-auto text-slate-800" xmlns="http://www.w3.org/2000/svg">
+                                <text x="20" y="45" text-anchor="middle" font-size="12" font-style="italic" font-family="serif">AB</text>
+                                <text x="41" y="45" text-anchor="middle" font-size="12">=</text>
+
+                                <!-- Row 1 arrow & highlight on A -->
+                                <line x1="51" y1="30" x2="62" y2="30" stroke="#00a8e8" stroke-width="1.2" />
+                                <polygon points="65,30 61,28 61,32" fill="#00a8e8" />
+                                <rect x="73" y="21" width="38" height="14" fill="#cceeff" />
+
+                                <!-- Matrix A -->
+                                <path d="M72 19 L68 19 L68 57 L72 57" fill="none" stroke="#1e293b" stroke-width="1.3" />
+                                <path d="M112 19 L116 19 L116 57 L112 57" fill="none" stroke="#1e293b" stroke-width="1.3" />
+                                <text x="81" y="32" text-anchor="middle" font-size="11" font-family="serif">2</text>
+                                <text x="103" y="32" text-anchor="middle" font-size="11" font-family="serif">3</text>
+                                <text x="81" y="51" text-anchor="middle" font-size="11" font-family="serif">1</text>
+                                <text x="103" y="51" text-anchor="middle" font-size="11" font-family="serif">−5</text>
+
+                                <!-- Col 3 arrow & highlight on B -->
+                                <line x1="176" y1="1" x2="176" y2="12" stroke="#00a8e8" stroke-width="1.2" />
+                                <polygon points="176,15 174,11 178,11" fill="#00a8e8" />
+                                <rect x="170" y="19" width="12" height="38" fill="#cceeff" />
+
+                                <!-- Matrix B -->
+                                <path d="M123 19 L119 19 L119 57 L123 57" fill="none" stroke="#1e293b" stroke-width="1.3" />
+                                <path d="M183 19 L187 19 L187 57 L183 57" fill="none" stroke="#1e293b" stroke-width="1.3" />
+                                <text x="132" y="32" text-anchor="middle" font-size="11" font-family="serif">4</text>
+                                <text x="154" y="32" text-anchor="middle" font-size="11" font-family="serif">3</text>
+                                <text x="176" y="32" text-anchor="middle" font-size="11" font-family="serif">6</text>
+                                <text x="132" y="51" text-anchor="middle" font-size="11" font-family="serif">1</text>
+                                <text x="154" y="51" text-anchor="middle" font-size="11" font-family="serif">−2</text>
+                                <text x="176" y="51" text-anchor="middle" font-size="11" font-family="serif">3</text>
+
+                                <text x="198" y="42" text-anchor="middle" font-size="12">=</text>
+
+                                <!-- Result 1 highlight on 2(6)+3(3) -->
+                                <rect x="266" y="21" width="60" height="14" fill="#cceeff" />
+                                <path d="M213 19 L209 19 L209 57 L213 57" fill="none" stroke="#1e293b" stroke-width="1.3" />
+                                <path d="M329 19 L333 19 L333 57 L329 57" fill="none" stroke="#1e293b" stroke-width="1.3" />
+                                <text x="223" y="32" text-anchor="middle" font-size="11">□</text>
+                                <text x="247" y="32" text-anchor="middle" font-size="11">□</text>
+                                <text x="296" y="32" text-anchor="middle" font-size="10.5" font-family="serif">2(6) + 3(3)</text>
+                                <text x="223" y="51" text-anchor="middle" font-size="11">□</text>
+                                <text x="247" y="51" text-anchor="middle" font-size="11">□</text>
+                                <text x="296" y="51" text-anchor="middle" font-size="11">□</text>
+
+                                <text x="344" y="42" text-anchor="middle" font-size="12">=</text>
+
+                                <!-- Result 2 highlight on 21 -->
+                                <rect x="405" y="21" width="16" height="14" fill="#cceeff" />
+                                <path d="M359 19 L355 19 L355 57 L359 57" fill="none" stroke="#1e293b" stroke-width="1.3" />
+                                <path d="M424 19 L428 19 L428 57 L424 57" fill="none" stroke="#1e293b" stroke-width="1.3" />
+                                <text x="369" y="32" text-anchor="middle" font-size="11">□</text>
+                                <text x="391" y="32" text-anchor="middle" font-size="11">□</text>
+                                <text x="413" y="32" text-anchor="middle" font-size="11" font-family="serif">21</text>
+                                <text x="369" y="51" text-anchor="middle" font-size="11">□</text>
+                                <text x="391" y="51" text-anchor="middle" font-size="11">□</text>
+                                <text x="413" y="51" text-anchor="middle" font-size="11">□</text>
+                            </svg>
+                        </div>
+
+                        <p>For the entry in row $2$ and column $2$ of $AB$, use row $2$ of $A$ and column $2$ of $B$:</p>
+
+                        <!-- Step 2 SVG: (2, 2) entry -->
+                        <div class="overflow-x-auto">
+                            <svg viewBox="0 0 640 72" class="w-full max-w-lg mx-auto text-slate-800" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Row 2 arrow & highlight on A -->
+                                <line x1="51" y1="49" x2="62" y2="49" stroke="#00a8e8" stroke-width="1.2" />
+                                <polygon points="65,49 61,47 61,51" fill="#00a8e8" />
+                                <rect x="73" y="40" width="38" height="14" fill="#cceeff" />
+
+                                <!-- Matrix A -->
+                                <path d="M72 19 L68 19 L68 57 L72 57" fill="none" stroke="#1e293b" stroke-width="1.3" />
+                                <path d="M112 19 L116 19 L116 57 L112 57" fill="none" stroke="#1e293b" stroke-width="1.3" />
+                                <text x="81" y="32" text-anchor="middle" font-size="11" font-family="serif">2</text>
+                                <text x="103" y="32" text-anchor="middle" font-size="11" font-family="serif">3</text>
+                                <text x="81" y="51" text-anchor="middle" font-size="11" font-family="serif">1</text>
+                                <text x="103" y="51" text-anchor="middle" font-size="11" font-family="serif">−5</text>
+
+                                <!-- Col 2 arrow & highlight on B -->
+                                <line x1="154" y1="1" x2="154" y2="12" stroke="#00a8e8" stroke-width="1.2" />
+                                <polygon points="154,15 152,11 156,11" fill="#00a8e8" />
+                                <rect x="145" y="19" width="18" height="38" fill="#cceeff" />
+
+                                <!-- Matrix B -->
+                                <path d="M123 19 L119 19 L119 57 L123 57" fill="none" stroke="#1e293b" stroke-width="1.3" />
+                                <path d="M183 19 L187 19 L187 57 L183 57" fill="none" stroke="#1e293b" stroke-width="1.3" />
+                                <text x="132" y="32" text-anchor="middle" font-size="11" font-family="serif">4</text>
+                                <text x="154" y="32" text-anchor="middle" font-size="11" font-family="serif">3</text>
+                                <text x="176" y="32" text-anchor="middle" font-size="11" font-family="serif">6</text>
+                                <text x="132" y="51" text-anchor="middle" font-size="11" font-family="serif">1</text>
+                                <text x="154" y="51" text-anchor="middle" font-size="11" font-family="serif">−2</text>
+                                <text x="176" y="51" text-anchor="middle" font-size="11" font-family="serif">3</text>
+
+                                <text x="198" y="42" text-anchor="middle" font-size="12">=</text>
+
+                                <!-- Result 1 highlight on 1(3)+-5(-2) -->
+                                <rect x="235" y="40" width="76" height="14" fill="#cceeff" />
+                                <path d="M213 19 L209 19 L209 57 L213 57" fill="none" stroke="#1e293b" stroke-width="1.3" />
+                                <path d="M316 19 L320 19 L320 57 L316 57" fill="none" stroke="#1e293b" stroke-width="1.3" />
+                                <text x="223" y="32" text-anchor="middle" font-size="11">□</text>
+                                <text x="273" y="32" text-anchor="middle" font-size="11">□</text>
+                                <text x="307" y="32" text-anchor="middle" font-size="11" font-family="serif">21</text>
+                                <text x="223" y="51" text-anchor="middle" font-size="11">□</text>
+                                <text x="273" y="51" text-anchor="middle" font-size="10.5" font-family="serif">1(3) + −5(−2)</text>
+                                <text x="307" y="51" text-anchor="middle" font-size="11">□</text>
+
+                                <text x="331" y="42" text-anchor="middle" font-size="12">=</text>
+
+                                <!-- Result 2 highlight on 13 -->
+                                <rect x="374" y="40" width="16" height="14" fill="#cceeff" />
+                                <path d="M346 19 L342 19 L342 57 L346 57" fill="none" stroke="#1e293b" stroke-width="1.3" />
+                                <path d="M411 19 L415 19 L415 57 L411 57" fill="none" stroke="#1e293b" stroke-width="1.3" />
+                                <text x="356" y="32" text-anchor="middle" font-size="11">□</text>
+                                <text x="382" y="32" text-anchor="middle" font-size="11">□</text>
+                                <text x="401" y="32" text-anchor="middle" font-size="11" font-family="serif">21</text>
+                                <text x="356" y="51" text-anchor="middle" font-size="11">□</text>
+                                <text x="382" y="51" text-anchor="middle" font-size="11" font-family="serif">13</text>
+                                <text x="401" y="51" text-anchor="middle" font-size="11">□</text>
+                            </svg>
+                        </div>
                     </div>
                 </div>
 
@@ -524,13 +691,92 @@
                         <span>EXAMPLE 6（範例 6：求 $AB$ 第二列元素與 $\operatorname{row}_{i}(AB) = \operatorname{row}_{i}(A) \cdot B$ 公式）</span>
                         <i class="fa-solid fa-chevron-down text-xs text-amber-700"></i>
                     </button>
-                    <div id="ex2-1-6" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2">
+                    <div id="ex2-1-6" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-3">
                         <p>Find the entries in the second row of $AB$, where
                             $$A = \begin{bmatrix} 2 & -5 & 0 \\ -1 & 3 & -4 \\ 6 & -8 & -7 \\ -3 & 0 & 9 \end{bmatrix}, \quad B = \begin{bmatrix} 4 & -6 \\ 7 & 1 \\ 3 & 2 \end{bmatrix}$$
                         </p>
-                        <p><strong>SOLUTION:</strong> By the row-column rule, the entries of the second row of $AB$ come from row $2$ of $A$ (and the columns of $B$):
-                            $$\begin{bmatrix} 2 & -5 & 0 \\ -1 & 3 & -4 \\ 6 & -8 & -7 \\ -3 & 0 & 9 \end{bmatrix}\begin{bmatrix} 4 & -6 \\ 7 & 1 \\ 3 & 2 \end{bmatrix} \implies \text{Row 2: } \begin{bmatrix} (-1)(4)+(3)(7)+(-4)(3) & (-1)(-6)+(3)(1)+(-4)(2) \end{bmatrix} = \begin{bmatrix} -4+21-12 & 6+3-8 \end{bmatrix} = \begin{bmatrix} 5 & 1 \end{bmatrix}$$
-                            Notice that since Example 6 requested only the second row of $AB$, we could have written just the second row of $A$ to the left of $B$ and computed:
+                        <p><strong>SOLUTION:</strong> By the row-column rule, the entries of the second row of $AB$ come from row $2$ of $A$ (and the columns of $B$):</p>
+
+                        <!-- Example 6 SVG -->
+                        <div class="overflow-x-auto">
+                            <svg viewBox="0 0 430 192" class="w-full max-w-md mx-auto text-slate-800" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Row 2 arrow & highlight on A -->
+                                <line x1="94" y1="36" x2="105" y2="36" stroke="#00a8e8" stroke-width="1.2" />
+                                <polygon points="108,36 104,34 104,38" fill="#00a8e8" />
+                                <rect x="115" y="28" width="66" height="13" fill="#cceeff" />
+
+                                <!-- Matrix A (4x3) -->
+                                <path d="M114 14 L110 14 L110 74 L114 74" fill="none" stroke="#1e293b" stroke-width="1.3" />
+                                <path d="M182 14 L186 14 L186 74 L182 74" fill="none" stroke="#1e293b" stroke-width="1.3" />
+                                <text x="125" y="24" text-anchor="middle" font-size="10.5" font-family="serif">2</text>
+                                <text x="148" y="24" text-anchor="middle" font-size="10.5" font-family="serif">−5</text>
+                                <text x="172" y="24" text-anchor="middle" font-size="10.5" font-family="serif">0</text>
+
+                                <text x="125" y="38" text-anchor="middle" font-size="10.5" font-family="serif">−1</text>
+                                <text x="148" y="38" text-anchor="middle" font-size="10.5" font-family="serif">3</text>
+                                <text x="172" y="38" text-anchor="middle" font-size="10.5" font-family="serif">−4</text>
+
+                                <text x="125" y="52" text-anchor="middle" font-size="10.5" font-family="serif">6</text>
+                                <text x="148" y="52" text-anchor="middle" font-size="10.5" font-family="serif">−8</text>
+                                <text x="172" y="52" text-anchor="middle" font-size="10.5" font-family="serif">−7</text>
+
+                                <text x="125" y="66" text-anchor="middle" font-size="10.5" font-family="serif">−3</text>
+                                <text x="148" y="66" text-anchor="middle" font-size="10.5" font-family="serif">0</text>
+                                <text x="172" y="66" text-anchor="middle" font-size="10.5" font-family="serif">9</text>
+
+                                <!-- Col 1 & Col 2 arrows & highlights on B (3x2) -->
+                                <line x1="201" y1="2" x2="201" y2="12" stroke="#00a8e8" stroke-width="1.2" />
+                                <polygon points="201,15 199,11 203,11" fill="#00a8e8" />
+                                <rect x="195" y="18" width="12" height="42" fill="#cceeff" />
+
+                                <line x1="227" y1="2" x2="227" y2="12" stroke="#00a8e8" stroke-width="1.2" />
+                                <polygon points="227,15 225,11 229,11" fill="#00a8e8" />
+                                <rect x="219" y="18" width="16" height="42" fill="#cceeff" />
+
+                                <path d="M192 18 L188 18 L188 60 L192 60" fill="none" stroke="#1e293b" stroke-width="1.3" />
+                                <path d="M237 18 L241 18 L241 60 L237 60" fill="none" stroke="#1e293b" stroke-width="1.3" />
+                                <text x="201" y="28" text-anchor="middle" font-size="10.5" font-family="serif">4</text>
+                                <text x="227" y="28" text-anchor="middle" font-size="10.5" font-family="serif">−6</text>
+                                <text x="201" y="42" text-anchor="middle" font-size="10.5" font-family="serif">7</text>
+                                <text x="227" y="42" text-anchor="middle" font-size="10.5" font-family="serif">1</text>
+                                <text x="201" y="56" text-anchor="middle" font-size="10.5" font-family="serif">3</text>
+                                <text x="227" y="56" text-anchor="middle" font-size="10.5" font-family="serif">2</text>
+
+                                <!-- Row 2 of expressions -->
+                                <text x="86" y="135" text-anchor="middle" font-size="12">=</text>
+                                <rect x="105" y="114" width="66" height="13" fill="#cceeff" />
+                                <rect x="184" y="114" width="44" height="13" fill="#cceeff" />
+                                <path d="M103 102 L99 102 L99 162 L103 162" fill="none" stroke="#1e293b" stroke-width="1.3" />
+                                <path d="M230 102 L234 102 L234 162 L230 162" fill="none" stroke="#1e293b" stroke-width="1.3" />
+
+                                <text x="138" y="112" text-anchor="middle" font-size="10.5">□</text>
+                                <text x="206" y="112" text-anchor="middle" font-size="10.5">□</text>
+                                <text x="138" y="124" text-anchor="middle" font-size="9.5" font-family="serif">−4 + 21 − 12</text>
+                                <text x="206" y="124" text-anchor="middle" font-size="9.5" font-family="serif">6 + 3 − 8</text>
+                                <text x="138" y="140" text-anchor="middle" font-size="10.5">□</text>
+                                <text x="206" y="140" text-anchor="middle" font-size="10.5">□</text>
+                                <text x="138" y="154" text-anchor="middle" font-size="10.5">□</text>
+                                <text x="206" y="154" text-anchor="middle" font-size="10.5">□</text>
+
+                                <!-- Final values matrix -->
+                                <text x="245" y="135" text-anchor="middle" font-size="12">=</text>
+                                <rect x="266" y="114" width="12" height="13" fill="#cceeff" />
+                                <rect x="291" y="114" width="12" height="13" fill="#cceeff" />
+                                <path d="M259 102 L255 102 L255 162 L259 162" fill="none" stroke="#1e293b" stroke-width="1.3" />
+                                <path d="M311 102 L315 102 L315 162 L311 162" fill="none" stroke="#1e293b" stroke-width="1.3" />
+
+                                <text x="272" y="112" text-anchor="middle" font-size="10.5">□</text>
+                                <text x="297" y="112" text-anchor="middle" font-size="10.5">□</text>
+                                <text x="272" y="124" text-anchor="middle" font-size="10.5" font-family="serif">5</text>
+                                <text x="297" y="124" text-anchor="middle" font-size="10.5" font-family="serif">1</text>
+                                <text x="272" y="140" text-anchor="middle" font-size="10.5">□</text>
+                                <text x="297" y="140" text-anchor="middle" font-size="10.5">□</text>
+                                <text x="272" y="154" text-anchor="middle" font-size="10.5">□</text>
+                                <text x="297" y="154" text-anchor="middle" font-size="10.5">□</text>
+                            </svg>
+                        </div>
+
+                        <p>Notice that since Example 6 requested only the second row of $AB$, we could have written just the second row of $A$ to the left of $B$ and computed:
                             $$\begin{bmatrix} -1 & 3 & -4 \end{bmatrix}\begin{bmatrix} 4 & -6 \\ 7 & 1 \\ 3 & 2 \end{bmatrix} = \begin{bmatrix} 5 & 1 \end{bmatrix}$$
                             This observation about rows of $AB$ is true in general and follows from the row-column rule. Let $\operatorname{row}_{i}(A)$ denote the $i$th row of a matrix $A$. Then
                             $$\operatorname{row}_{i}(AB) = \operatorname{row}_{i}(A) \cdot B \tag{2}$$
