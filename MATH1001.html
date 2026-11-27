@@ -1805,46 +1805,35 @@
                         (function () {
                             const container = document.getElementById('ex2-4-3-block');
                             if (!container) return;
-                            const colorBlueLines = () => {
-                                container.querySelectorAll('mjx-container svg rect, mjx-container svg line, mjx-container svg path').forEach((el) => {
-                                    const tag = el.tagName.toLowerCase();
-                                    if (tag === 'line') {
-                                        el.setAttribute('stroke', '#00a8e8');
-                                        el.style.stroke = '#00a8e8';
-                                        return;
-                                    }
-                                    if (tag === 'rect') {
+
+                            const applyBluePartitions = () => {
+                                container.querySelectorAll('mjx-container svg').forEach((svg) => {
+                                    svg.querySelectorAll('rect, line').forEach((el) => {
+                                        const tag = el.tagName.toLowerCase();
+                                        if (tag === 'line') {
+                                            el.setAttribute('stroke', '#00a8e8');
+                                            el.style.stroke = '#00a8e8';
+                                            return;
+                                        }
                                         const w = parseFloat(el.getAttribute('width') || '0');
                                         const h = parseFloat(el.getAttribute('height') || '0');
-                                        if ((w > 6 && h <= 4) || (h > 6 && w <= 4)) {
+                                        if ((w > 10 && h <= 5) || (h > 10 && w <= 5)) {
                                             el.setAttribute('fill', '#00a8e8');
                                             el.style.fill = '#00a8e8';
                                         }
-                                        return;
-                                    }
-                                    if (tag === 'path') {
-                                        const d = el.getAttribute('d') || '';
-                                        const box = el.getBBox ? el.getBBox() : { width: 0, height: 0 };
-                                        const isHoriz = (box.width > 12 && box.height <= 4) || (/^M\s*[\d.-]+[\s,]+[\d.-]+\s*H\s*[\d.-]+/i.test(d));
-                                        const isVert = (box.height > 12 && box.width <= 4) || (/^M\s*[\d.-]+[\s,]+[\d.-]+\s*V\s*[\d.-]+/i.test(d));
-                                        if (isHoriz || isVert) {
-                                            el.setAttribute('stroke', '#00a8e8');
-                                            el.setAttribute('fill', '#00a8e8');
-                                            el.style.stroke = '#00a8e8';
-                                        }
-                                    }
+                                    });
                                 });
                             };
-                            const runWithRetry = () => {
-                                colorBlueLines();
-                                setTimeout(colorBlueLines, 150);
-                                setTimeout(colorBlueLines, 500);
-                            };
+
+                            const observer = new MutationObserver(applyBluePartitions);
+                            observer.observe(container, { childList: true, subtree: true });
+
                             if (window.MathJax && MathJax.startup && MathJax.startup.promise) {
-                                MathJax.startup.promise.then(runWithRetry);
-                            } else {
-                                window.addEventListener('load', runWithRetry);
+                                MathJax.startup.promise.then(applyBluePartitions);
                             }
+                            applyBluePartitions();
+                            setTimeout(applyBluePartitions, 200);
+                            setTimeout(applyBluePartitions, 800);
                         })();
                     </script>
                     
