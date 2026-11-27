@@ -1992,118 +1992,155 @@
     <!-- SECTION 2.5: MATRIX FACTORIZATIONS                             -->
     <!-- ============================================================== -->
     <section id="sec2-5" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-7">
-        <div class="border-b border-slate-200 pb-4 flex flex-wrap items-center justify-between gap-3">
-            <div class="flex items-center gap-3">
-                <span class="px-3 py-1.5 rounded-xl bg-amber-100 text-amber-900 text-xl md:text-2xl font-extrabold tracking-tight">§ 2.5</span>
-                <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight">MATRIX FACTORIZATIONS (矩陣分解)</h3>
-            </div>
-            <span class="text-sm text-slate-500 font-mono">Slides 1–17 (17 Pages)</span>
+      <div class="border-b border-slate-200 pb-4 flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <span class="px-3 py-1.5 rounded-xl bg-amber-100 text-amber-900 text-xl md:text-2xl font-extrabold tracking-tight">§ 2.5</span>
+          <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight">MATRIX FACTORIZATIONS (矩陣分解)</h3>
+        </div>
+        <span class="text-sm text-slate-500 font-mono">Slides 1–17 (17 Pages)</span>
+      </div>
+
+      <!-- 1. Overview & The LU Factorization -->
+      <div class="space-y-4">
+        <h4 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <span class="w-2 h-6 bg-amber-500 rounded-full"></span>
+          1. Overview of Matrix Factorization &amp; The $LU$ Factorization (矩陣分解概念與 $LU$ 分解動機)
+        </h4>
+        <p class="text-base md:text-lg text-slate-700 leading-relaxed">
+          A <strong>factorization（分解）</strong> of a matrix $A$ is an equation that expresses $A$ as a product of two or more matrices. Whereas matrix multiplication involves a <strong>synthesis of data（數據的綜合／合成）</strong>—combining the effects of two or more linear transformations into a single matrix—matrix factorization is an <strong>analysis of data（數據的分析／拆解）</strong>. In the language of computer science, the expression of $A$ as a product amounts to a <strong>preprocessing（預處理）</strong> of the data in $A$, organizing that data into two or more parts whose structures are more useful in some way, perhaps more accessible for computation.
+        </p>
+        <p class="text-base md:text-lg text-slate-700 leading-relaxed">
+          The <strong>$LU$ factorization（$LU$ 分解）</strong> is motivated by the fairly common industrial and business problem of solving a sequence of equations, all with the same coefficient matrix:
+          $$A\mathbf{x} = \mathbf{b}_1, \quad A\mathbf{x} = \mathbf{b}_2, \quad \dots, \quad A\mathbf{b}_p \text{ (in notation: } A\mathbf{x} = \mathbf{b}_p\text{)} \tag{1}$$
+          See Exercise 32, for example. Also see Section 5.8, where the <strong>inverse power method（反冪法）</strong> is used to estimate eigenvalues of a matrix by solving equations like those in sequence (1), one at a time.
+        </p>
+        <p class="text-base md:text-lg text-slate-700 leading-relaxed">
+          When $A$ is invertible, one could compute $A^{-1}$ and then compute $A^{-1}\mathbf{b}_1$, $A^{-1}\mathbf{b}_2$, and so on. However, it is more efficient to solve the first equation in sequence (1) by row reduction and obtain an $LU$ factorization of $A$ at the same time. Thereafter, the remaining equations in sequence (1) are solved with the $LU$ factorization.
+        </p>
+
+        <!-- Definition & Two-Stage Solution Box -->
+        <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-3">
+          <div class="font-bold text-amber-950 text-lg">THE $LU$ FACTORIZATION &amp; SOLVING $A\mathbf{x} = \mathbf{b}$ ($LU$ 分解定義與兩階段求解)</div>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            At first, assume that $A$ is an $m \times n$ matrix that can be row reduced to echelon form, without row interchanges. (Later, we will treat the general case.) Then $A$ can be written in the form
+            $$A = LU$$
+            where $L$ is an $m \times m$ <strong>lower triangular matrix（下三角矩陣）</strong> with $1$'s on the diagonal and $U$ is an $m \times n$ <strong>echelon form（階梯形矩陣）</strong> of $A$. For instance, see Figure 1. Such a factorization is called an <strong>$LU$ factorization</strong> of $A$. The matrix $L$ is invertible and is called a <strong>unit lower triangular matrix（單位下三角矩陣）</strong>.
+          </p>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            Before studying how to construct $L$ and $U$, we should look at why they are so useful. When $A = LU$, the equation $A\mathbf{x} = \mathbf{b}$ can be written as $L(U\mathbf{x}) = \mathbf{b}$. Writing $\mathbf{y}$ for $U\mathbf{x}$, we can find $\mathbf{x}$ by solving the pair of equations:
+            $$L\mathbf{y} = \mathbf{b} \tag{2a}$$
+            $$U\mathbf{x} = \mathbf{y} \tag{2b}$$
+            First solve $L\mathbf{y} = \mathbf{b}$ for $\mathbf{y}$, and then solve $U\mathbf{x} = \mathbf{y}$ for $\mathbf{x}$. See Figure 2 (factorization of the mapping $\mathbf{x} \mapsto A\mathbf{x} = \mathbf{b}$ via $\mathbf{x} \xrightarrow{U} \mathbf{y} \xrightarrow{L} \mathbf{b}$). Each equation is easy to solve because $L$ and $U$ are triangular.
+          </p>
         </div>
 
-        <!-- 1. The LU Factorization & Solving Ax = b -->
-        <div class="space-y-4">
-            <h4 class="text-xl font-bold text-slate-900 flex items-center gap-2">
-                <span class="w-2 h-6 bg-amber-500 rounded-full"></span>
-                1. The $LU$ Factorization &amp; Solving $A\mathbf{x} = \mathbf{b}$ ($LU$ 分解與兩階段求解線性方程組)
-            </h4>
-            <p class="text-base md:text-lg text-slate-700 leading-relaxed">
-                A <strong>factorization（分解）</strong> of a matrix $A$ is an equation that writes $A$ as a product of two or more matrices. Whereas matrix multiplication takes two or more matrices and produces a single matrix, matrix factorization is the reverse process that starts with a single matrix and writes it as a product of matrices.
+        <!-- Collapsible EXAMPLE 1 -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+          <button onclick="toggleCard('ex2-5-1')" class="w-full px-4 py-3.5 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-base text-amber-950 transition">
+            <span>EXAMPLE 1（範例 1：利用給定 $LU$ 分解求解 $A\mathbf{x} = \mathbf{b}$ 與浮點運算次數比較）</span>
+            <i class="fa-solid fa-chevron-down text-sm text-amber-700"></i>
+          </button>
+          <div id="ex2-5-1" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong>PROBLEM:</strong> It can be verified that
+              $$A = \begin{bmatrix} 3 & -7 & -2 & 2 \\ -3 & 5 & 1 & 0 \\ 6 & -4 & 0 & -5 \\ -9 & 5 & 12 \end{bmatrix} \quad (\text{or } 4\times 4 \text{ with } LU \text{ below}), \qquad L = \begin{bmatrix} 1 & 0 & 0 & 0 \\ -1 & 1 & 0 & 0 \\ 2 & -5 & 1 & 0 \\ -3 & 8 & 3 & 1 \end{bmatrix}, \qquad U = \begin{bmatrix} 3 & -7 & -2 & 2 \\ 0 & -2 & -1 & 2 \\ 0 & 0 & -1 & 1 \\ 0 & 0 & 0 & -1 \end{bmatrix}, \qquad A = LU$$
+              Use this $LU$ factorization of $A$ to solve $A\mathbf{x} = \mathbf{b}$, where $\mathbf{b} = \begin{bmatrix} -9 \\ 5 \\ 7 \\ 11 \end{bmatrix}$.
             </p>
-            <p class="text-base md:text-lg text-slate-700 leading-relaxed">
-                In scientific computing and numerical methods (including repeated linear solves arising in implicit schemes for <strong>ordinary differential equations, ODEs（常微分方程數值解）</strong> where the coefficient matrix stays fixed across time steps), solving $A\mathbf{x} = \mathbf{b}$ repeatedly for many right-hand sides $\mathbf{b}_1, \mathbf{b}_2, \dots, \mathbf{b}_p$ is much faster when $A$ is factored once rather than row-reducing each augmented matrix $\begin{bmatrix} A & \mathbf{b}_k \end{bmatrix}$ from scratch.
+            <p>
+              <strong>SOLUTION — Step 1 ($L\mathbf{y} = \mathbf{b}$):</strong> The solution of $L\mathbf{y} = \mathbf{b}$ needs only $6$ multiplications and $6$ additions, because the arithmetic takes place only in column $5$. (The zeros below each pivot in $L$ are created automatically by the choice of row operations.)
+              $$\begin{bmatrix} L & \mathbf{b} \end{bmatrix} = \begin{bmatrix} 1 & 0 & 0 & 0 & -9 \\ -1 & 1 & 0 & 0 & 5 \\ 2 & -5 & 1 & 0 & 7 \\ -3 & 8 & 3 & 1 & 11 \end{bmatrix} \sim \begin{bmatrix} 1 & 0 & 0 & 0 & -9 \\ 0 & 1 & 0 & 0 & -4 \\ 0 & 0 & 1 & 0 & 5 \\ 0 & 0 & 0 & 1 & 1 \end{bmatrix} = \begin{bmatrix} I & \mathbf{y} \end{bmatrix}$$
+              So $\mathbf{y} = \begin{bmatrix} -9 \\ -4 \\ 5 \\ 1 \end{bmatrix}$.
             </p>
+            <p>
+              <strong>SOLUTION — Step 2 ($U\mathbf{x} = \mathbf{y}$):</strong> Then, for $U\mathbf{x} = \mathbf{y}$, the "backward" phase of row reduction requires $4$ divisions, $6$ multiplications, and $6$ additions. (For instance, creating the zeros in column $4$ of $\begin{bmatrix} U & \mathbf{y} \end{bmatrix}$ requires $1$ division in row $4$ and $3$ multiplication-addition pairs to add multiples of row $4$ to the rows above.)
+              $$\begin{bmatrix} U & \mathbf{y} \end{bmatrix} = \begin{bmatrix} 3 & -7 & -2 & 2 & -9 \\ 0 & -2 & -1 & 2 & -4 \\ 0 & 0 & -1 & 1 & 5 \\ 0 & 0 & 0 & -1 & 1 \end{bmatrix} \sim \begin{bmatrix} 1 & 0 & 0 & 0 & 3 \\ 0 & 1 & 0 & 0 & 4 \\ 0 & 0 & 1 & 0 & -6 \\ 0 & 0 & 0 & 1 & -1 \end{bmatrix}, \qquad \mathbf{x} = \begin{bmatrix} 3 \\ 4 \\ -6 \\ -1 \end{bmatrix}$$
+            </p>
+            <p>
+              <strong>FLOPS COMPARISON:</strong> To find $\mathbf{x}$ requires $28$ arithmetic operations, or <strong>"flops"（浮點運算次數，floating point operations）</strong>, excluding the cost of finding $L$ and $U$. In contrast, row reduction of $\begin{bmatrix} A & \mathbf{b} \end{bmatrix}$ to $\begin{bmatrix} I & \mathbf{x} \end{bmatrix}$ takes $62$ operations.
+            </p>
+          </div>
+        </div>
+      </div>
 
-            <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-3">
-                <div class="font-bold text-amber-950 text-lg">THE $LU$ FACTORIZATION（$LU$ 分解定義）</div>
-                <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
-                    Suppose an $m \times n$ matrix $A$ can be written in the form
-                    $$A = LU$$
-                    where $L$ is an $m \times m$ <strong>unit lower triangular matrix（單位下三角矩陣／主對角線全為 $1$ 的下三角矩陣）</strong> and $U$ is an $m \times n$ <strong>echelon form（階梯形矩陣）</strong> of $A$. Then $A = LU$ is called an <strong>$LU$ factorization（$LU$ 分解）</strong> of $A$.
-                </p>
-                <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
-                    When $A = LU$, the equation $A\mathbf{x} = \mathbf{b}$ can be written as $L(U\mathbf{x}) = \mathbf{b}$. Writing $\mathbf{y} = U\mathbf{x}$, we can solve $A\mathbf{x} = \mathbf{b}$ in two simple triangular steps:
-                    $$\begin{aligned}
-                    \text{Step 1: Solve } L\mathbf{y} &= \mathbf{b} \quad \text{for } \mathbf{y} \quad (\text{forward substitution 前向替換}) \\
-                    \text{Step 2: Solve } U\mathbf{x} &= \mathbf{y} \quad \text{for } \mathbf{x} \quad (\text{backward substitution 後向替換})
-                    \end{aligned}$$
-                </p>
-            </div>
+      <!-- 2. An LU Factorization Algorithm & Partial Pivoting -->
+      <div class="space-y-4">
+        <h4 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <span class="w-2 h-6 bg-amber-500 rounded-full"></span>
+          2. An $LU$ Factorization Algorithm &amp; Row Interchanges ($LU$ 分解演算法與列互換／局部主元法)
+        </h4>
+        <p class="text-base md:text-lg text-slate-700 leading-relaxed">
+          The computational efficiency of the $LU$ factorization depends on knowing $L$ and $U$. The next algorithm shows that the row reduction of $A$ to an echelon form $U$ amounts to an $LU$ factorization because it produces $L$ with essentially no extra work. After the first row reduction, $L$ and $U$ are available for solving additional equations whose coefficient matrix is $A$.
+        </p>
 
-            <!-- Collapsible EXAMPLE 1 -->
-            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
-                <button onclick="toggleCard('ex2-5-1')" class="w-full px-4 py-3.5 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-base text-amber-950 transition">
-                    <span>EXAMPLE 1（範例 1：利用給定 $A = LU$ 分解兩步驟求解 $A\mathbf{x} = \mathbf{b}$）</span>
-                    <i class="fa-solid fa-chevron-down text-sm text-amber-700"></i>
-                </button>
-                <div id="ex2-5-1" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-2.5 leading-relaxed">
-                    <p>
-                        Suppose $A = LU$, where
-                        $$L = \begin{bmatrix} 1 & 0 & 0 \\ -2 & 1 & 0 \\ 3 & -1 & 1 \end{bmatrix}, \quad U = \begin{bmatrix} 2 & -4 & 1 \\ 0 & 3 & -2 \\ 0 & 0 & 4 \end{bmatrix}$$
-                        Use the $LU$ factorization to solve $A\mathbf{x} = \mathbf{b}$, where $\mathbf{b} = \begin{bmatrix} 4 \\ -5 \\ 10 \end{bmatrix}$.
-                    </p>
-                    <p><strong>SOLUTION:</strong> First solve $L\mathbf{y} = \mathbf{b}$ for $\mathbf{y} = \begin{bmatrix} y_1 \\ y_2 \\ y_3 \end{bmatrix}$:
-                        $$\begin{bmatrix} 1 & 0 & 0 \\ -2 & 1 & 0 \\ 3 & -1 & 1 \end{bmatrix}\begin{bmatrix} y_1 \\ y_2 \\ y_3 \end{bmatrix} = \begin{bmatrix} 4 \\ -5 \\ 10 \end{bmatrix} \implies \begin{cases} y_1 = 4 \\ -2y_1 + y_2 = -5 \implies y_2 = -5 + 2(4) = 3 \\ 3y_1 - y_2 + y_3 = 10 \implies y_3 = 10 - 12 + 3 = 1 \end{cases}$$
-                        So $\mathbf{y} = \begin{bmatrix} 4 \\ 3 \\ 1 \end{bmatrix}$. Next, solve $U\mathbf{x} = \mathbf{y}$ for $\mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}$:
-                        $$\begin{bmatrix} 2 & -4 & 1 \\ 0 & 3 & -2 \\ 0 & 0 & 4 \end{bmatrix}\begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} 4 \\ 3 \\ 1 \end{bmatrix} \implies \begin{cases} 4x_3 = 1 \implies x_3 = \frac{1}{4} \\ 3x_2 - 2\left(\frac{1}{4}\right) = 3 \implies x_2 = \frac{7}{6} \\ 2x_1 - 4\left(\frac{7}{6}\right) + \frac{1}{4} = 4 \implies x_1 = \frac{149}{24} \end{cases}$$
-                    </p>
-                </div>
-            </div>
+        <!-- Derivation & Algorithm Box -->
+        <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-3">
+          <div class="font-bold text-amber-950 text-lg">DERIVATION &amp; ALGORITHM FOR AN $LU$ FACTORIZATION ($LU$ 分解推導與演算法)</div>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            Suppose $A$ can be reduced to an echelon form $U$ using only row replacements that add a multiple of one row to another row below it. In this case, there exist unit lower triangular elementary matrices $E_1, \dots, E_p$ such that
+            $$E_p \cdots E_1 A = U \tag{3}$$
+            Then
+            $$A = (E_p \cdots E_1)^{-1} U = LU \tag{4}$$
+            where
+            $$L = (E_p \cdots E_1)^{-1}$$
+          </p>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            It can be shown that products and inverses of unit lower triangular matrices are also unit lower triangular. (For instance, see Exercise 19.) Thus $L$ is unit lower triangular. Note that the row operations in equation (3), which reduce $A$ to $U$, also reduce the $L$ in equation (4) to $I$, because
+            $$(E_p \cdots E_1) L = (E_p \cdots E_1)(E_p \cdots E_1)^{-1} = I$$
+            This observation is the key to constructing $L$.
+          </p>
+          <div class="pt-1 space-y-1.5">
+            <div class="font-semibold text-amber-950">ALGORITHM FOR AN $LU$ FACTORIZATION：</div>
+            <ol class="list-decimal pl-5 space-y-1 text-sm sm:text-base text-slate-800">
+              <li>Reduce $A$ to an echelon form $U$ by a sequence of row replacement operations, if possible.</li>
+              <li>Place entries in $L$ such that the same sequence of row operations reduces $L$ to $I$.</li>
+            </ol>
+          </div>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            Step 1 is not always possible, but when it is, the argument above shows that an $LU$ factorization exists. Example 2 will show how to implement step 2. By construction, $L$ will satisfy
+            $$(E_p \cdots E_1) L = I$$
+            using the same $E_1, \dots, E_p$ as in equation (3). Thus $L$ will be invertible, by the <strong>Invertible Matrix Theorem（可逆矩陣定理）</strong>, with $(E_p \cdots E_1) = L^{-1}$. From (3), $L^{-1}A = U$, and $A = LU$. So step 2 will produce an acceptable $L$.
+          </p>
         </div>
 
-        <!-- 2. Algorithm for an LU Factorization -->
-        <div class="space-y-4">
-            <h4 class="text-xl font-bold text-slate-900 flex items-center gap-2">
-                <span class="w-2 h-6 bg-amber-500 rounded-full"></span>
-                2. Algorithm for an $LU$ Factorization (求 $LU$ 分解的演算法與原理解析)
-            </h4>
-            <p class="text-base md:text-lg text-slate-700 leading-relaxed">
-                Why does the $LU$ algorithm work? Suppose $A$ can be reduced to an echelon form $U$ using <strong>only row replacement operations（僅使用列倍加運算，不作列互換）</strong>. Each row replacement corresponds to left-multiplication by an elementary matrix $E_k$:
-                $$E_p \cdots E_2 E_1 A = U$$
-                Multiplying on the left by $(E_p \cdots E_2 E_1)^{-1}$ gives
-                $$A = \left(E_p \cdots E_2 E_1\right)^{-1} U = E_1^{-1} E_2^{-1} \cdots E_p^{-1} U$$
-                Each $E_k^{-1}$ is a unit lower triangular elementary matrix (adding a multiple of an upper row to a lower row), and the product of unit lower triangular matrices is again unit lower triangular. Thus $L = E_1^{-1} E_2^{-1} \cdots E_p^{-1}$.
+        <!-- Collapsible EXAMPLE 2 -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+          <button onclick="toggleCard('ex2-5-2')" class="w-full px-4 py-3.5 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-base text-amber-950 transition">
+            <span>EXAMPLE 2（範例 2：逐步化簡 $A$ 成階梯形 $U$ 並建構下三角矩陣 $L$）</span>
+            <i class="fa-solid fa-chevron-down text-sm text-amber-700"></i>
+          </button>
+          <div id="ex2-5-2" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong>PROBLEM:</strong> Find an $LU$ factorization of
+              $$A = \begin{bmatrix} 2 & 4 & -1 & 5 & -2 \\ -4 & -5 & 3 & -8 & 1 \\ 2 & -5 & -4 & 1 & 8 \\ -6 & 0 & 7 & -3 & 1 \end{bmatrix}$$
             </p>
-
-            <!-- ALGORITHM BOX -->
-            <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-2.5">
-                <div class="font-bold text-amber-950 text-lg">ALGORITHM FOR AN $LU$ FACTORIZATION（建構 $LU$ 分解演算法）</div>
-                <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
-                    Assume that $A$ can be reduced to an echelon form $U$ by row replacements only (without row interchanges).
-                </p>
-                <ol class="list-decimal pl-5 space-y-1.5 text-sm sm:text-base text-slate-800">
-                    <li>Reduce $A$ to an echelon form $U$ by a sequence of row replacement operations.</li>
-                    <li>Place entries in $L$ such that the same sequence of row operations reduces $L$ to $I$ (equivalently, place $1$'s on the main diagonal of $L$, $0$'s above the diagonal, and in each pivot column $j$, place below the diagonal the <strong>negatives of the multipliers</strong> used in step 1—i.e., if row $i$ was replaced by $\text{row}_i - m_{ij}\,\text{row}_j$, then $l_{ij} = m_{ij}$).</li>
-                </ol>
-            </div>
-
-            <!-- Collapsible EXAMPLE 2 -->
-            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
-                <button onclick="toggleCard('ex2-5-2')" class="w-full px-4 py-3.5 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-base text-amber-950 transition">
-                    <span>EXAMPLE 2（範例 2：求 $4\times 3$ 矩陣 $A$ 的 $LU$ 分解並驗證 $LU = A$）</span>
-                    <i class="fa-solid fa-chevron-down text-sm text-amber-700"></i>
-                </button>
-                <div id="ex2-5-2" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-2.5 leading-relaxed">
-                    <p>
-                        Find an $LU$ factorization of
-                        $$A = \begin{bmatrix} 2 & -4 & -2 \\ -3 & 9 & 6 \\ 1 & 1 & 2 \\ 0 & -3 & 1 \end{bmatrix}$$
-                    </p>
-                    <p><strong>SOLUTION:</strong> Reduce $A$ to echelon form $U$ using row replacements only:
-                        $$\begin{bmatrix} 2 & -4 & -2 \\ -3 & 9 & 6 \\ 1 & 1 & 2 \\ 0 & -3 & 1 \end{bmatrix}
-                        \xrightarrow{\substack{R_2 + \frac{3}{2}R_1 \\ R_3 - \frac{1}{2}R_1}}
-                        \begin{bmatrix} 2 & -4 & -2 \\ 0 & 3 & 3 \\ 0 & 3 & 3 \\ 0 & -3 & 1 \end{bmatrix}
-                        \xrightarrow{\substack{R_3 - R_2 \\ R_4 + R_2}}
-                        \begin{bmatrix} 2 & -4 & -2 \\ 0 & 3 & 3 \\ 0 & 0 & 0 \\ 0 & 0 & 4 \end{bmatrix}
-                        \xrightarrow{R_3 \leftrightarrow R_4 \text{ (or leave as echelon form)}}
-                        U = \begin{bmatrix} 2 & -4 & -2 \\ 0 & 3 & 3 \\ 0 & 0 & 4 \\ 0 & 0 & 0 \end{bmatrix}$$
-                    </p>
-                    <p>
-                        Recording the multipliers in column $1$ ($m_{21} = -\frac{3}{2}$, $m_{31} = \frac{1}{2}$, $m_{41} = 0$), column $2$ ($m_{32} = 1$, $m_{42} = -1$), and column $3$ ($m_{43} = 0$, after moving zero row down) gives:
-                        $$L = \begin{bmatrix} 1 & 0 & 0 & 0 \\ -\frac{3}{2} & 1 & 0 & 0 \\ \frac{1}{2} & 1 & 1 & 0 \\ 0 & -1 & 0 & 1 \end{bmatrix}$$
-                        Checking the product confirms $LU = A$. (In practice, if row interchanges are needed to avoid zero pivots, numerical software uses partial pivoting $PA = LU$ where $P$ is a permutation matrix.)
-                    </p>
-                </div>
-            </div>
+            <p>
+              <strong>SOLUTION — First Column of $L$:</strong> Since $A$ has four rows, $L$ should be $4 \times 4$. The first column of $L$ is the first column of $A$ divided by the top pivot entry ($2$):
+              $$L = \begin{bmatrix} 1 & 0 & 0 & 0 \\ -2 & 1 & 0 & 0 \\ 1 & & 1 & 0 \\ -3 & & & 1 \end{bmatrix}$$
+            </p>
+            <p>
+              <strong>SOLUTION — Row Reduction Highlighting Pivots &amp; Multipliers:</strong> Compare the first columns of $A$ and $L$. The row operations that create zeros in the first column of $A$ will also create zeros in the first column of $L$. To make this same correspondence of row operations on $A$ hold for the rest of $L$, watch a row reduction of $A$ to an echelon form $U$. That is, highlight the entries in each matrix that are used to determine the sequence of row operations that transform $A$ into $U$:
+              $$A = \begin{bmatrix} \boxed{2} & 4 & -1 & 5 & -2 \\ \boxed{-4} & -5 & 3 & -8 & 1 \\ \boxed{2} & -5 & -4 & 1 & 8 \\ \boxed{-6} & 0 & 7 & -3 & 1 \end{bmatrix} \sim \begin{bmatrix} 2 & 4 & -1 & 5 & -2 \\ 0 & \boxed{3} & 1 & 2 & -3 \\ 0 & \boxed{-9} & -3 & -4 & 10 \\ 0 & \boxed{12} & 4 & 12 & -5 \end{bmatrix} = A_1 \tag{5}$$
+              $$\sim A_2 = \begin{bmatrix} 2 & 4 & -1 & 5 & -2 \\ 0 & 3 & 1 & 2 & -3 \\ 0 & 0 & 0 & \boxed{2} & 1 \\ 0 & 0 & 0 & \boxed{4} & 7 \end{bmatrix} \sim \begin{bmatrix} 2 & 4 & -1 & 5 & -2 \\ 0 & 3 & 1 & 2 & -3 \\ 0 & 0 & 0 & 2 & 1 \\ 0 & 0 & 0 & 0 & \boxed{5} \end{bmatrix} = U$$
+            </p>
+            <p>
+              <strong>SOLUTION — Constructing $L$:</strong> At each pivot column, divide the highlighted entries by the pivot and place the result into $L$ (column $1$ divided by $2$: $1, -2, 1, -3$; column $2$ divided by $3$: $1, -3, 4$; column $3$/$4$ pivot $2$: $1, 2$):
+              $$L = \begin{bmatrix} 1 & 0 & 0 & 0 \\ -2 & 1 & 0 & 0 \\ 1 & -3 & 1 & 0 \\ -3 & 4 & 2 & 1 \end{bmatrix}$$
+              An easy calculation verifies that this $L$ and $U$ satisfy $LU = A$.
+            </p>
+          </div>
         </div>
+
+        <!-- Row Interchanges & Partial Pivoting Note -->
+        <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-2.5">
+          <div class="font-bold text-amber-950 text-lg">PRACTICAL WORK, ROW INTERCHANGES &amp; PARTIAL PIVOTING (實務運算、列互換與局部主元法)</div>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            In practical work, <strong>row interchanges（列互換）</strong> are nearly always needed, because <strong>partial pivoting（局部主元法）</strong> is used for high accuracy. (Recall that this procedure selects, among the possible choices for a pivot, an entry in the column having the largest absolute value.)
+          </p>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            To handle row interchanges, the $LU$ factorization above can be modified easily to produce an $L$ that is <strong>permuted lower triangular（置換下三角矩陣）</strong>, in the sense that a rearrangement (called a <strong>permutation，置換</strong>) of the rows of $L$ can make $L$ (unit) lower triangular. The resulting <strong>permuted $LU$ factorization（置換 $LU$ 分解）</strong> solves $A\mathbf{x} = \mathbf{b}$ in the same way as before, except that the reduction of $\begin{bmatrix} L & \mathbf{b} \end{bmatrix}$ to $\begin{bmatrix} I & \mathbf{y} \end{bmatrix}$ follows the order of the pivots in $L$ from left to right, starting with the pivot in the first column. A reference to an "$LU$ factorization" usually includes the possibility that $L$ might be permuted lower triangular. For details, see the Study Guide.
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- ================= SECTION 2.8 ================= -->
