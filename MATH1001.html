@@ -1766,47 +1766,15 @@
                         </svg>
                     </div>
 
-                    <!-- SVG Partitioned Matrix Visual -->
-                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
-                        <div class="overflow-x-auto">
-                            <svg viewBox="0 0 460 112" class="w-full max-w-xl mx-auto text-slate-800" xmlns="http://www.w3.org/2000/svg">
-                                <!-- Left & Right Matrix Brackets -->
-                                <path d="M 38 14 L 30 14 L 30 98 L 38 98" fill="none" stroke="#1e293b" stroke-width="1.8" />
-                                <path d="M 422 14 L 430 14 L 430 98 L 422 98" fill="none" stroke="#1e293b" stroke-width="1.8" />
-
-                                <!-- Horizontal dashed line between row 2 and row 3 -->
-                                <line x1="34" y1="68" x2="426" y2="68" stroke="#00a8e8" stroke-width="1.4" stroke-dasharray="5,3" />
-
-                                <!-- Vertical dashed lines: after col 3 (x=218) and after col 5 (x=358) -->
-                                <line x1="218" y1="16" x2="218" y2="96" stroke="#00a8e8" stroke-width="1.4" stroke-dasharray="5,3" />
-                                <line x1="358" y1="16" x2="358" y2="96" stroke="#00a8e8" stroke-width="1.4" stroke-dasharray="5,3" />
-
-                                <!-- Row 1 -->
-                                <text x="65" y="34" text-anchor="middle" font-size="15" font-family="serif">3</text>
-                                <text x="120" y="34" text-anchor="middle" font-size="15" font-family="serif">0</text>
-                                <text x="180" y="34" text-anchor="middle" font-size="15" font-family="serif">−1</text>
-                                <text x="255" y="34" text-anchor="middle" font-size="15" font-family="serif">5</text>
-                                <text x="320" y="34" text-anchor="middle" font-size="15" font-family="serif">9</text>
-                                <text x="392" y="34" text-anchor="middle" font-size="15" font-family="serif">−2</text>
-
-                                <!-- Row 2 -->
-                                <text x="65" y="56" text-anchor="middle" font-size="15" font-family="serif">−5</text>
-                                <text x="120" y="56" text-anchor="middle" font-size="15" font-family="serif">2</text>
-                                <text x="180" y="56" text-anchor="middle" font-size="15" font-family="serif">4</text>
-                                <text x="255" y="56" text-anchor="middle" font-size="15" font-family="serif">0</text>
-                                <text x="320" y="56" text-anchor="middle" font-size="15" font-family="serif">−3</text>
-                                <text x="392" y="56" text-anchor="middle" font-size="15" font-family="serif">1</text>
-
-                                <!-- Row 3 -->
-                                <text x="65" y="88" text-anchor="middle" font-size="15" font-family="serif">−8</text>
-                                <text x="120" y="88" text-anchor="middle" font-size="15" font-family="serif">−6</text>
-                                <text x="180" y="88" text-anchor="middle" font-size="15" font-family="serif">3</text>
-                                <text x="255" y="88" text-anchor="middle" font-size="15" font-family="serif">1</text>
-                                <text x="320" y="88" text-anchor="middle" font-size="15" font-family="serif">7</text>
-                                <text x="392" y="88" text-anchor="middle" font-size="15" font-family="serif">−4</text>
-                            </svg>
-                        </div>
-                    </div>
+                    <p>The matrix
+                        $$A = \begin{bmatrix} 3 & 0 & -1 & 5 & 9 & -2 \\ -5 & 2 & 4 & 0 & -3 & 1 \\ -8 & -6 & 3 & 1 & 7 & -4 \end{bmatrix}$$
+                        can also be written as the $2 \times 3$ <strong>partitioned (or block) matrix（分塊矩陣）</strong>
+                        $$A = \begin{bmatrix} A_{11} & A_{12} & A_{13} \\ A_{21} & A_{22} & A_{23} \end{bmatrix}$$
+                        whose entries are the <strong>blocks (or submatrices)（子矩陣／區塊）</strong>
+                        $$A_{11} = \begin{bmatrix} 3 & 0 & -1 \\ -5 & 2 & 4 \end{bmatrix}, \quad A_{12} = \begin{bmatrix} 5 & 9 \\ 0 & -3 \end{bmatrix}, \quad A_{13} = \begin{bmatrix} -2 \\ 1 \end{bmatrix}$$
+                        $$A_{21} = \begin{bmatrix} -8 & -6 & 3 \end{bmatrix}, \quad A_{22} = \begin{bmatrix} 1 & 7 \end{bmatrix}, \quad A_{23} = \begin{bmatrix} -4 \end{bmatrix}$$
+                    </p>
+                    
                 </div>
             </div>
 
