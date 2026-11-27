@@ -1380,51 +1380,220 @@
         </div>
     </section>
 
-    <!-- ================= SECTION 2.3 ================= -->
-    <section id="sec2-3" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-8">
-        <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
-            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
-                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 2.3</span>
-                CHARACTERIZATIONS OF INVERTIBLE MATRICES (可逆矩陣的刻畫)
-            </h2>
-            <span class="text-xs text-slate-500 font-mono">Pages 1 - 13</span>
+    <!-- ============================================================== -->
+    <!-- SECTION 2.3: CHARACTERIZATIONS OF INVERTIBLE MATRICES           -->
+    <!-- ============================================================== -->
+    <section id="sec2-3" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-7">
+        <div class="border-b border-slate-200 pb-4 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1.5 rounded-xl bg-amber-100 text-amber-900 text-xl md:text-2xl font-extrabold tracking-tight">§ 2.3</span>
+                <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight">CHARACTERIZATIONS OF INVERTIBLE MATRICES (可逆矩陣的特徵描述)</h3>
+            </div>
+            <span class="text-sm text-slate-500 font-mono">Slides 1–13 (13 Pages)</span>
         </div>
 
+        <!-- 1. THEOREM 8: The Invertible Matrix Theorem -->
         <div class="space-y-4">
-            <h3 class="font-bold text-lg text-blue-800 flex items-center gap-2">
-                <i class="fa-solid fa-circle-nodes text-blue-500 text-sm"></i> 2.3.1 The Invertible Matrix Theorem (a–l) &amp; Invertible Linear Transformations (可逆矩陣定理與可逆線性變換，Pages 1 - 13)
-            </h3>
+            <h4 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-6 bg-amber-500 rounded-full"></span>
+                1. THEOREM 8: The Invertible Matrix Theorem (可逆矩陣定理)
+            </h4>
 
-            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
-                <div class="p-4 bg-white rounded-lg border border-blue-200 space-y-3 text-slate-800 leading-relaxed">
-                    <strong class="text-blue-900 text-base font-bold block">THEOREM 8 — The Invertible Matrix Theorem (for an $n \times n$ matrix $A$, Page 1)</strong>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs md:text-sm bg-slate-50 p-3.5 rounded-lg border border-slate-200">
-                        <p><strong>a.</strong> $A$ is invertible.</p>
-                        <p><strong>b.</strong> $A$ is row equivalent to $I_n$.</p>
-                        <p><strong>c.</strong> $A$ has $n$ pivot positions.</p>
-                        <p><strong>d.</strong> $A\mathbf{x} = \mathbf{0}$ has only the trivial solution.</p>
-                        <p><strong>e.</strong> The columns of $A$ are linearly independent.</p>
-                        <p><strong>f.</strong> $\mathbf{x} \mapsto A\mathbf{x}$ is one-to-one (一對一).</p>
-                        <p><strong>g.</strong> $A\mathbf{x} = \mathbf{b}$ has at least one solution for each $\mathbf{b} \in \mathbb{R}^n$.</p>
-                        <p><strong>h.</strong> The columns of $A$ span $\mathbb{R}^n$.</p>
-                        <p><strong>i.</strong> $\mathbf{x} \mapsto A\mathbf{x}$ maps $\mathbb{R}^n$ onto $\mathbb{R}^n$ (映成).</p>
-                        <p><strong>j.</strong> There is an $n \times n$ matrix $C$ with $CA = I_n$.</p>
-                        <p><strong>k.</strong> There is an $n \times n$ matrix $D$ with $AD = I_n$.</p>
-                        <p><strong>l.</strong> $A^T$ is invertible.</p>
+            <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-3">
+                <div class="font-bold text-amber-950 text-lg">THEOREM 8 — The Invertible Matrix Theorem（定理 8：可逆矩陣定理）</div>
+                <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+                    Let $A$ be a square $n \times n$ matrix. Then the following statements are <strong>equivalent（等價的）</strong>. That is, for a given $A$, the statements are either all true or all false.
+                </p>
+                <div class="grid md:grid-cols-2 gap-3 text-sm sm:text-base text-slate-800 bg-white p-4 rounded-lg border border-amber-100 leading-relaxed">
+                    <div class="space-y-2">
+                        <div><strong>a.</strong> $A$ is an invertible matrix.</div>
+                        <div><strong>b.</strong> $A$ is row equivalent to the $n \times n$ identity matrix.</div>
+                        <div><strong>c.</strong> $A$ has $n$ pivot positions.</div>
+                        <div><strong>d.</strong> The equation $A\mathbf{x} = \mathbf{0}$ has only the trivial solution.</div>
+                        <div><strong>e.</strong> The columns of $A$ form a linearly independent set.</div>
+                        <div><strong>f.</strong> The linear transformation $\mathbf{x} \mapsto A\mathbf{x}$ is one-to-one.</div>
                     </div>
-                    <p class="text-xs md:text-sm text-amber-950 bg-amber-50 p-3 rounded-lg border border-amber-200">
-                        <strong>Note (Page 8):</strong> Theorem 8 applies <strong>only to square matrices</strong>. Also, if $A$ and $B$ are square and $AB = I$, then both $A$ and $B$ are invertible with $B = A^{-1}$.
-                    </p>
+                    <div class="space-y-2">
+                        <div><strong>g.</strong> The equation $A\mathbf{x} = \mathbf{b}$ has at least one solution for each $\mathbf{b}$ in $\mathbb{R}^{n}$.</div>
+                        <div><strong>h.</strong> The columns of $A$ span $\mathbb{R}^{n}$.</div>
+                        <div><strong>i.</strong> The linear transformation $\mathbf{x} \mapsto A\mathbf{x}$ maps $\mathbb{R}^{n}$ onto $\mathbb{R}^{n}$.</div>
+                        <div><strong>j.</strong> There is an $n \times n$ matrix $C$ such that $CA = I$.</div>
+                        <div><strong>k.</strong> There is an $n \times n$ matrix $D$ such that $AD = I$.</div>
+                        <div><strong>l.</strong> $A^{T}$ is an invertible matrix.</div>
+                    </div>
                 </div>
 
-                <div class="p-4 bg-white rounded-lg border border-blue-200 space-y-2.5 text-slate-800 leading-relaxed">
-                    <strong class="text-blue-900 text-base font-bold block">Invertible Linear Transformations &amp; THEOREM 9 (可逆線性變換與定理 9，Pages 9 - 13)</strong>
-                    <p>
-                        A linear transformation $T : \mathbb{R}^n \to \mathbb{R}^n$ is <strong>invertible (可逆的)</strong> if there exists $S : \mathbb{R}^n \to \mathbb{R}^n$ such that $S(T(\mathbf{x})) = \mathbf{x}$ and $T(S(\mathbf{x})) = \mathbf{x}$ for all $\mathbf{x} \in \mathbb{R}^n$.
+                <!-- Collapsible PROOF of Theorem 8 -->
+                <div class="border border-amber-200/80 rounded-lg overflow-hidden bg-white">
+                    <button onclick="toggleCard('proof-thm8')" class="w-full px-4 py-3 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left text-sm sm:text-base font-semibold text-slate-800 transition">
+                        <span>THEOREM 8 PROOF（蘊涵環路與完整證明結構）</span>
+                        <i class="fa-solid fa-chevron-down text-sm text-slate-500"></i>
+                    </button>
+                    <div id="proof-thm8" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-3 leading-relaxed">
+                        <p>
+                            First, we need some notation. If the truth of statement (a) always implies that statement (j) is true, we say that (a) implies (j) and write $(a) \Rightarrow (j)$. The proof will establish the "circle" of implications shown in Figure 1. If any one of these five statements is true, then so are the others. Finally, the proof will link the remaining statements of the theorem to the statements in this circle.
+                        </p>
+
+                        <!-- SVG Figure 1: Circle of Implications -->
+                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-2">
+                            <p class="text-sm font-semibold text-slate-600">FIGURE 1 Circle of Implications（等價蘊涵環路與連結圖示）</p>
+                            <div class="overflow-x-auto">
+                                <svg viewBox="0 0 680 185" class="w-full max-w-4xl mx-auto text-slate-800" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Main Circle: (a) -> (j) -> (d) -> (c) -> (b) -> (a) -->
+                                    <circle cx="175" cy="92" r="58" fill="none" stroke="#00a8e8" stroke-width="1.6" stroke-dasharray="5,3" />
+                                    <text x="175" y="26" text-anchor="middle" font-size="14" font-family="serif">(a)</text>
+                                    <text x="234" y="64" text-anchor="middle" font-size="14" font-family="serif">(j)</text>
+                                    <text x="216" y="156" text-anchor="middle" font-size="14" font-family="serif">(d)</text>
+                                    <text x="134" y="156" text-anchor="middle" font-size="14" font-family="serif">(c)</text>
+                                    <text x="116" y="64" text-anchor="middle" font-size="14" font-family="serif">(b)</text>
+                                    <text x="175" y="96" text-anchor="middle" font-size="13" fill="#0369a1" font-family="sans-serif">(a)⇒(j)⇒(d)⇒(c)⇒(b)⇒(a)</text>
+
+                                    <!-- Equivalence links -->
+                                    <text x="415" y="45" text-anchor="middle" font-size="14" font-family="serif">(a) ⇔ (k) ⇔ (g) ⇔ (h) ⇔ (i)</text>
+                                    <text x="415" y="95" text-anchor="middle" font-size="14" font-family="serif">(d) ⇔ (e) ⇔ (f)</text>
+                                    <text x="415" y="145" text-anchor="middle" font-size="14" font-family="serif">(a) ⇔ (l)</text>
+
+                                    <!-- Connectors from circle -->
+                                    <line x1="233" y1="92" x2="310" y2="45" stroke="#64748b" stroke-width="1.3" />
+                                    <line x1="230" y1="145" x2="352" y2="95" stroke="#64748b" stroke-width="1.3" />
+                                    <line x1="210" y1="36" x2="368" y2="145" stroke="#64748b" stroke-width="1.3" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <p>
+                            <strong>PROOF:</strong> If statement (a) is true, then $A^{-1}$ works for $C$ in (j), so $(a) \Rightarrow (j)$. Next, $(j) \Rightarrow (d)$ by Exercise 23 in Section 2.1. (Turn back and read the exercise.) Also, $(d) \Rightarrow (c)$ by Exercise 23 in Section 2.2. If $A$ is square and has $n$ pivot positions, then the pivots must lie on the main diagonal, in which case the reduced echelon form of $A$ is $I_{n}$. Thus $(c) \Rightarrow (b)$. Also, $(b) \Rightarrow (a)$ by Theorem 7 in Section 2.2. This completes the circle in Figure 1.
+                        </p>
+                        <p>
+                            Next, $(a) \Rightarrow (k)$ because $A^{-1}$ works for $D$. Also, $(k) \Rightarrow (g)$ by Exercise 24 in Section 2.1, and $(g) \Rightarrow (a)$ by Exercise 24 in Section 2.2. So (k) and (g) are linked to the circle. Further, (g), (h), and (i) are equivalent for any matrix, by Theorem 4 in Section 1.4 and Theorem 12(a) in Section 1.9. Thus, (h) and (i) are linked through (g) to the circle.
+                        </p>
+                        <p>
+                            Since (d) is linked to the circle, so are (e) and (f), because (d), (e), and (f) are all equivalent for any matrix $A$. (See Section 1.7 and Theorem 12(b) in Section 1.9.) Finally, $(a) \Rightarrow (l)$ by Theorem 6(c) in Section 2.2, and $(l) \Rightarrow (a)$ by the same theorem with $A$ and $A^{T}$ interchanged. This completes the proof.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Corollaries & Notes after Proof -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 sm:p-5 space-y-3 text-sm sm:text-base text-slate-700 leading-relaxed">
+                <p>
+                    Because of Theorem 5 in Section 2.2, statement (g) in Theorem 8 could also be written as "The equation $A\mathbf{x} = \mathbf{b}$ has a <strong>unique solution（唯一解）</strong> for each $\mathbf{b}$ in $\mathbb{R}^{n}$." This statement certainly implies (b) and hence implies that $A$ is invertible.
+                </p>
+                <p class="font-semibold text-amber-950 bg-amber-50/70 border border-amber-200 rounded-lg px-4 py-3">
+                    Let $A$ and $B$ be square matrices. If $AB = I$, then $A$ and $B$ are both invertible, with $B = A^{-1}$ and $A = B^{-1}$.
+                </p>
+                <p>
+                    The Invertible Matrix Theorem divides the set of all $n \times n$ matrices into two disjoint classes: the invertible (nonsingular) matrices, and the noninvertible (singular) matrices. Each statement in the theorem describes a property of every $n \times n$ invertible matrix. The negation of a statement in the theorem describes a property of every $n \times n$ singular matrix. For instance, an $n \times n$ singular matrix is not row equivalent to $I_{n}$, does not have $n$ pivot positions, and has linearly dependent columns. Negations of other statements are considered in the exercises.
+                </p>
+            </div>
+
+            <!-- Collapsible EXAMPLE 1 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex2-3-1')" class="w-full px-4 py-3.5 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-base text-amber-950 transition">
+                    <span>EXAMPLE 1（範例 1：利用可逆矩陣定理判別 $3\times 3$ 矩陣 $A$ 是否可逆）</span>
+                    <i class="fa-solid fa-chevron-down text-sm text-amber-700"></i>
+                </button>
+                <div id="ex2-3-1" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-2 leading-relaxed">
+                    <p>Use the Invertible Matrix Theorem to decide if $A$ is invertible:
+                        $$A = \begin{bmatrix} 1 & 0 & -2 \\ 3 & 1 & -2 \\ -5 & -1 & 9 \end{bmatrix}$$
                     </p>
-                    <p>
-                        <strong>THEOREM 9 (Page 11):</strong> Let $A$ be the standard matrix of $T : \mathbb{R}^n \to \mathbb{R}^n$. Then $T$ is invertible if and only if $A$ is invertible, and $S(\mathbf{x}) = A^{-1}\mathbf{x}$ is the unique inverse $T^{-1}$.
+                    <p><strong>SOLUTION:</strong>
+                        $$\begin{bmatrix} 1 & 0 & -2 \\ 3 & 1 & -2 \\ -5 & -1 & 9 \end{bmatrix} \sim \begin{bmatrix} 1 & 0 & -2 \\ 0 & 1 & 4 \\ 0 & -1 & -1 \end{bmatrix} \sim \begin{bmatrix} 1 & 0 & -2 \\ 0 & 1 & 4 \\ 0 & 0 & 3 \end{bmatrix}$$
+                        So $A$ has three pivot positions and hence is invertible, by the Invertible Matrix Theorem, statement (c).
                     </p>
+                </div>
+            </div>
+
+            <div class="bg-amber-50/30 border border-amber-200/80 rounded-xl px-4 py-3 text-sm sm:text-base text-slate-700 leading-relaxed">
+                The power of the Invertible Matrix Theorem lies in the connections it provides among so many important concepts, such as linear independence of columns of a matrix $A$ and the existence of solutions to equations of the form $A\mathbf{x} = \mathbf{b}$. It should be emphasized, however, that <strong>the Invertible Matrix Theorem applies only to square matrices（僅適用於方陣）</strong>. For example, if the columns of a $4 \times 3$ matrix are linearly independent, we cannot use the Invertible Matrix Theorem to conclude anything about the existence or nonexistence of solutions to equations of the form $A\mathbf{x} = \mathbf{b}$.
+            </div>
+        </div>
+
+        <!-- 2. Invertible Linear Transformations & THEOREM 9 -->
+        <div class="space-y-4">
+            <h4 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-6 bg-amber-500 rounded-full"></span>
+                2. Invertible Linear Transformations &amp; THEOREM 9 (可逆線性變換與定理 9)
+            </h4>
+            <p class="text-base md:text-lg text-slate-700 leading-relaxed">
+                Recall from Section 2.1 that matrix multiplication corresponds to composition of linear transformations. When a matrix $A$ is invertible, the equation $A^{-1}A\mathbf{x} = \mathbf{x}$ can be viewed as a statement about linear transformations. See Figure 2.
+            </p>
+
+            <!-- SVG Figure 2: Multiplication by A and A^{-1} -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-2">
+                <p class="text-sm font-semibold text-slate-600">FIGURE 2 $A^{-1}$ transforms $A\mathbf{x}$ back to $\mathbf{x}$（逆矩陣將 $A\mathbf{x}$ 變換回 $\mathbf{x}$）</p>
+                <div class="overflow-x-auto">
+                    <svg viewBox="0 0 640 155" class="w-full max-w-4xl mx-auto text-slate-800" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Left Domain Plane -->
+                        <polygon points="35,115 110,35 235,35 160,115" fill="#bae6fd" stroke="#7dd3fc" stroke-width="1.2" />
+                        <circle cx="135" cy="75" r="3.5" fill="#1e293b" />
+                        <text x="118" y="79" text-anchor="middle" font-size="14.5" font-weight="bold" font-family="serif">x</text>
+
+                        <!-- Right Codomain Plane -->
+                        <polygon points="405,115 480,35 605,35 530,115" fill="#bae6fd" stroke="#7dd3fc" stroke-width="1.2" />
+                        <circle cx="505" cy="75" r="3.5" fill="#1e293b" />
+                        <text x="534" y="79" text-anchor="middle" font-size="14.5" font-family="serif"><tspan font-weight="bold">A</tspan><tspan font-weight="bold">x</tspan></text>
+
+                        <!-- Top Arc: Multiplication by A -->
+                        <path d="M 142 66 Q 320 2 498 66" fill="none" stroke="#00a8e8" stroke-width="1.8" />
+                        <polygon points="502,68 493,67 497,60" fill="#00a8e8" />
+                        <text x="320" y="18" text-anchor="middle" font-size="13.5" font-family="sans-serif">Multiplication</text>
+                        <text x="320" y="34" text-anchor="middle" font-size="13.5" font-family="sans-serif">by <tspan font-style="italic" font-family="serif">A</tspan></text>
+
+                        <!-- Bottom Arc: Multiplication by A^{-1} -->
+                        <path d="M 498 84 Q 320 148 142 84" fill="none" stroke="#00a8e8" stroke-width="1.8" />
+                        <polygon points="138,82 147,83 143,90" fill="#00a8e8" />
+                        <text x="320" y="128" text-anchor="middle" font-size="13.5" font-family="sans-serif">Multiplication</text>
+                        <text x="320" y="144" text-anchor="middle" font-size="13.5" font-family="sans-serif">by <tspan font-style="italic" font-family="serif">A</tspan><tspan dy="-4" font-size="10.5" font-family="serif">−1</tspan></text>
+                    </svg>
+                </div>
+            </div>
+
+            <p class="text-base md:text-lg text-slate-700 leading-relaxed">
+                A linear transformation $T : \mathbb{R}^{n} \to \mathbb{R}^{n}$ is said to be <strong>invertible（可逆的）</strong> if there exists a function $S : \mathbb{R}^{n} \to \mathbb{R}^{n}$ such that
+                $$S(T(\mathbf{x})) = \mathbf{x} \quad \text{for all } \mathbf{x} \text{ in } \mathbb{R}^{n} \tag{1}$$
+                $$T(S(\mathbf{x})) = \mathbf{x} \quad \text{for all } \mathbf{x} \text{ in } \mathbb{R}^{n} \tag{2}$$
+                The next theorem shows that if such an $S$ exists, it is unique and must be a linear transformation. We call $S$ the <strong>inverse（逆變換）</strong> of $T$ and write it as $T^{-1}$.
+            </p>
+
+            <!-- THEOREM 9 -->
+            <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-3">
+                <div class="font-bold text-amber-950 text-lg">THEOREM 9（定理 9：線性變換可逆與標準矩陣可逆等價定理）</div>
+                <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+                    Let $T : \mathbb{R}^{n} \to \mathbb{R}^{n}$ be a linear transformation and let $A$ be the <strong>standard matrix（標準矩陣）</strong> for $T$. Then $T$ is invertible if and only if $A$ is an invertible matrix. In that case, the linear transformation $S$ given by $S(\mathbf{x}) = A^{-1}\mathbf{x}$ is the unique function satisfying equations (1) and (2).
+                </p>
+
+                <!-- Collapsible PROOF & Remark of Theorem 9 -->
+                <div class="border border-amber-200/80 rounded-lg overflow-hidden bg-white">
+                    <button onclick="toggleCard('proof-thm9')" class="w-full px-4 py-3 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left text-sm sm:text-base font-semibold text-slate-800 transition">
+                        <span>THEOREM 9 PROOF（雙向完整證明）與 Remark</span>
+                        <i class="fa-solid fa-chevron-down text-sm text-slate-500"></i>
+                    </button>
+                    <div id="proof-thm9" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-2.5 leading-relaxed">
+                        <p class="text-sm text-slate-600 leading-relaxed bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <strong>Remark:</strong> See the comment on the proof of Theorem 7.
+                        </p>
+                        <p>
+                            <strong>PROOF:</strong> Suppose that $T$ is invertible. Then (2) shows that $T$ is onto $\mathbb{R}^{n}$, for if $\mathbf{b}$ is in $\mathbb{R}^{n}$ and $\mathbf{x} = S(\mathbf{b})$, then $T(\mathbf{x}) = T(S(\mathbf{b})) = \mathbf{b}$, so each $\mathbf{b}$ is in the range of $T$. Thus $A$ is invertible, by the Invertible Matrix Theorem, statement (i).
+                        </p>
+                        <p>
+                            Conversely, suppose that $A$ is invertible, and let $S(\mathbf{x}) = A^{-1}\mathbf{x}$. Then, $S$ is a linear transformation, and $S$ obviously satisfies (1) and (2). For instance,
+                            $$S(T(\mathbf{x})) = S(A\mathbf{x}) = A^{-1}(A\mathbf{x}) = \mathbf{x}$$
+                            Thus $T$ is invertible. The proof that $S$ is unique is outlined in Exercise 39.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collapsible EXAMPLE 2 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex2-3-2')" class="w-full px-4 py-3.5 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-base text-amber-950 transition">
+                    <span>EXAMPLE 2（範例 2：從 $\mathbb{R}^{n}$ 到 $\mathbb{R}^{n}$ 的一對一線性變換 $T$ 的性質推論）</span>
+                    <i class="fa-solid fa-chevron-down text-sm text-amber-700"></i>
+                </button>
+                <div id="ex2-3-2" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-2 leading-relaxed">
+                    <p>What can you say about a one-to-one linear transformation $T$ from $\mathbb{R}^{n}$ into $\mathbb{R}^{n}$?</p>
+                    <p><strong>SOLUTION:</strong> The columns of the standard matrix $A$ of $T$ are linearly independent (by Theorem 12 in Section 1.9). So $A$ is invertible, by the Invertible Matrix Theorem, and $T$ maps $\mathbb{R}^{n}$ onto $\mathbb{R}^{n}$. Also, $T$ is invertible, by Theorem 9.</p>
                 </div>
             </div>
         </div>
