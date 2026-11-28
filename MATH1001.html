@@ -2237,16 +2237,95 @@
               <strong>SOLUTION — First Column of $L$:</strong> Since $A$ has four rows, $L$ should be $4 \times 4$. The first column of $L$ is the first column of $A$ divided by the top pivot entry ($2$):
               $$L = \begin{bmatrix} 1 & 0 & 0 & 0 \\ -2 & 1 & 0 & 0 \\ 1 & & 1 & 0 \\ -3 & & & 1 \end{bmatrix}$$
             </p>
-            <p>
-              <strong>SOLUTION — Row Reduction Highlighting Pivots &amp; Multipliers:</strong> Compare the first columns of $A$ and $L$. The row operations that create zeros in the first column of $A$ will also create zeros in the first column of $L$. To make this same correspondence of row operations on $A$ hold for the rest of $L$, watch a row reduction of $A$ to an echelon form $U$. That is, highlight the entries in each matrix that are used to determine the sequence of row operations that transform $A$ into $U$:
-              $$A = \begin{bmatrix} \boxed{2} & 4 & -1 & 5 & -2 \\ \boxed{-4} & -5 & 3 & -8 & 1 \\ \boxed{2} & -5 & -4 & 1 & 8 \\ \boxed{-6} & 0 & 7 & -3 & 1 \end{bmatrix} \sim \begin{bmatrix} 2 & 4 & -1 & 5 & -2 \\ 0 & \boxed{3} & 1 & 2 & -3 \\ 0 & \boxed{-9} & -3 & -4 & 10 \\ 0 & \boxed{12} & 4 & 12 & -5 \end{bmatrix} = A_1 \tag{5}$$
-              $$\sim A_2 = \begin{bmatrix} 2 & 4 & -1 & 5 & -2 \\ 0 & 3 & 1 & 2 & -3 \\ 0 & 0 & 0 & \boxed{2} & 1 \\ 0 & 0 & 0 & \boxed{4} & 7 \end{bmatrix} \sim \begin{bmatrix} 2 & 4 & -1 & 5 & -2 \\ 0 & 3 & 1 & 2 & -3 \\ 0 & 0 & 0 & 2 & 1 \\ 0 & 0 & 0 & 0 & \boxed{5} \end{bmatrix} = U$$
+            
+
+              <p>
+              <strong>SOLUTION — Row Reduction Highlighting Pivots &amp; Multipliers:</strong> Compare the first columns of $A$ and $L$. The row operations that create zeros in the first column of $A$ will also create zeros in the first column of $L$. To make this same correspondence of row operations on $A$ hold for the rest of $L$, watch a row reduction of $A$ to an echelon form $U$. That is, highlight the entries in each matrix that are used to determine the sequence of row operations that transform $A$ into $U$. [See the highlighted entries in equation (5).]
+              $$A = \begin{bmatrix} \colorbox{#bae6fd}{$2$} & 4 & -1 & 5 & -2 \\ \colorbox{#bae6fd}{$-4$} & -5 & 3 & -8 & 1 \\ \colorbox{#bae6fd}{$2$} & -5 & -4 & 1 & 8 \\ \colorbox{#bae6fd}{$-6$} & 0 & 7 & -3 & 1 \end{bmatrix} \sim \begin{bmatrix} 2 & 4 & -1 & 5 & -2 \\ 0 & \colorbox{#bae6fd}{$3$} & 1 & 2 & -3 \\ 0 & \colorbox{#bae6fd}{$-9$} & -3 & -4 & 10 \\ 0 & \colorbox{#bae6fd}{$12$} & 4 & 12 & -5 \end{bmatrix} = A_1 \tag{5}$$
+              $$\sim A_2 = \begin{bmatrix} 2 & 4 & -1 & 5 & -2 \\ 0 & 3 & 1 & 2 & -3 \\ 0 & 0 & 0 & \colorbox{#bae6fd}{$2$} & 1 \\ 0 & 0 & 0 & \colorbox{#bae6fd}{$4$} & 7 \end{bmatrix} \sim \begin{bmatrix} 2 & 4 & -1 & 5 & -2 \\ 0 & 3 & 1 & 2 & -3 \\ 0 & 0 & 0 & 2 & 1 \\ 0 & 0 & 0 & 0 & \colorbox{#bae6fd}{$5$} \end{bmatrix} = U$$
             </p>
-            <p>
-              <strong>SOLUTION — Constructing $L$:</strong> At each pivot column, divide the highlighted entries by the pivot and place the result into $L$ (column $1$ divided by $2$: $1, -2, 1, -3$; column $2$ divided by $3$: $1, -3, 4$; column $3$/$4$ pivot $2$: $1, 2$):
-              $$L = \begin{bmatrix} 1 & 0 & 0 & 0 \\ -2 & 1 & 0 & 0 \\ 1 & -3 & 1 & 0 \\ -3 & 4 & 2 & 1 \end{bmatrix}$$
-              An easy calculation verifies that this $L$ and $U$ satisfy $LU = A$.
-            </p>
+
+            <div class="space-y-3 pt-1">
+              <p>
+                <strong>SOLUTION — Constructing $L$:</strong> The highlighted entries determine the row reduction of $A$ to $U$. At each pivot column, divide the highlighted entries by the pivot and place the result into $L$:
+              </p>
+
+              <!-- Visual Column Division -> L Construction -->
+              <div class="bg-slate-50/80 border border-slate-200 rounded-xl p-4 overflow-x-auto">
+                <div class="min-w-[540px] flex flex-col items-center space-y-2">
+                  <!-- Top Row: Highlighted Columns -->
+                  <div class="flex items-end gap-3">
+                    $$
+                    \begin{bmatrix}
+                    \colorbox{#bae6fd}{$2$} \\
+                    -4 \\
+                    2 \\
+                    -6
+                    \end{bmatrix}
+                    \quad
+                    \begin{bmatrix}
+                    \colorbox{#bae6fd}{$3$} \\
+                    -9 \\
+                    12
+                    \end{bmatrix}
+                    \quad
+                    \begin{bmatrix}
+                    \colorbox{#bae6fd}{$2$} \\
+                    4
+                    \end{bmatrix}
+                    \quad
+                    \begin{bmatrix}
+                    \colorbox{#bae6fd}{$5$}
+                    \end{bmatrix}
+                    $$
+                  </div>
+
+                  <!-- Middle Row: Divisors & Down Arrows -->
+                  <div class="flex items-center justify-center gap-9 text-sky-700 font-semibold text-sm sm:text-base">
+                    <div class="flex flex-col items-center leading-tight">
+                      <span>$\div 2$</span>
+                      <span>$\downarrow$</span>
+                    </div>
+                    <div class="flex flex-col items-center leading-tight">
+                      <span>$\div 3$</span>
+                      <span>$\downarrow$</span>
+                    </div>
+                    <div class="flex flex-col items-center leading-tight">
+                      <span>$\div 2$</span>
+                      <span>$\downarrow$</span>
+                    </div>
+                    <div class="flex flex-col items-center leading-tight">
+                      <span>$\div 5$</span>
+                      <span>$\downarrow$</span>
+                    </div>
+                  </div>
+
+                  <!-- Bottom Row: Partial L & Complete L -->
+                  <div class="flex flex-wrap items-center justify-center gap-4 pt-1">
+                    $$
+                    \begin{bmatrix}
+                    1 & & & \\
+                    -2 & 1 & & \\
+                    1 & -3 & 1 & \\
+                    -3 & 4 & 2 & 1
+                    \end{bmatrix}, \quad \text{and} \quad
+                    L = \begin{bmatrix}
+                    1 & 0 & 0 & 0 \\
+                    -2 & 1 & 0 & 0 \\
+                    1 & -3 & 1 & 0 \\
+                    -3 & 4 & 2 & 1
+                    \end{bmatrix}
+                    $$
+                  </div>
+                </div>
+              </div>
+
+              <p>
+                An easy calculation verifies that this $L$ and $U$ satisfy $LU = A$.
+              </p>
+            </div>
+
+              
           </div>
         </div>
 
