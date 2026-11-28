@@ -680,31 +680,99 @@
                     <!-- SVG: Three planes with no common point -->
                     <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 space-y-2">
                         <p class="text-xs font-semibold text-slate-600">Geometric view in $\mathbb{R}^{3}$（不相容系統：三平面兩兩相交但無共同交點）</p>
-                        <div class="overflow-x-auto">
-                            <svg viewBox="0 0 340 220" class="w-full max-w-md mx-auto text-slate-800" xmlns="http://www.w3.org/2000/svg">
+                        <div class="container mx-auto overflow-x-auto" style="max-width: 340px;">
+                            <svg viewBox="0 0 380 310" class="w-full h-auto block mx-auto text-slate-900" xmlns="http://www.w3.org/2000/svg">
                                 <defs>
+                                    <!-- 綠色陡峭平面裁剪 -->
+                                    <clipPath id="inconsGreenClip">
+                                        <polygon points="152,292 246,48 268,58 174,302" />
+                                    </clipPath>
+                                    <!-- 粉紅色斜平面裁剪 -->
+                                    <clipPath id="inconsPinkClip">
+                                        <polygon points="74,274 334,74 346,84 86,284" />
+                                    </clipPath>
+                                    <!-- 淺藍色下方平面裁剪 -->
+                                    <clipPath id="inconsBlueClip">
+                                        <polygon points="46,274 198,224 338,214 186,266" />
+                                    </clipPath>
+                    
                                     <marker id="ax3d2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                                         <path d="M 0 1 L 10 5 L 0 9 z" fill="#1e293b" />
                                     </marker>
                                 </defs>
-                                <line x1="155" y1="118" x2="155" y2="16" stroke="#1e293b" stroke-width="1.4" marker-end="url(#ax3d2)" />
-                                <line x1="155" y1="118" x2="295" y2="148" stroke="#1e293b" stroke-width="1.4" marker-end="url(#ax3d2)" />
-                                <line x1="155" y1="118" x2="55" y2="195" stroke="#1e293b" stroke-width="1.4" marker-end="url(#ax3d2)" />
-                                <text x="163" y="22" font-size="13" font-style="italic" font-family="serif">x<tspan dy="3" font-size="9.5">3</tspan></text>
-                                <text x="298" y="155" font-size="13" font-style="italic" font-family="serif">x<tspan dy="3" font-size="9.5">2</tspan></text>
-                                <text x="38" y="203" font-size="13" font-style="italic" font-family="serif">x<tspan dy="3" font-size="9.5">1</tspan></text>
-
-                                <!-- Three planes forming a triangular prism intersection (no common point) -->
-                                <polygon points="65,58 190,34 240,98 115,122" fill="#bae6fd" fill-opacity="0.58" stroke="#0284c7" stroke-width="1.2" />
-                                <polygon points="105,86 245,62 288,136 148,160" fill="#99f6e4" fill-opacity="0.58" stroke="#0d9488" stroke-width="1.2" />
-                                <polygon points="75,78 182,102 152,188 45,164" fill="#fde68a" fill-opacity="0.52" stroke="#d97706" stroke-width="1.2" />
-
-                                <!-- Three distinct intersection lines -->
-                                <line x1="125" y1="74" x2="212" y2="104" stroke="#0f172a" stroke-width="1.6" />
-                                <line x1="115" y1="122" x2="152" y2="165" stroke="#0f172a" stroke-width="1.6" />
-                                <line x1="145" y1="88" x2="122" y2="148" stroke="#0f172a" stroke-width="1.6" />
+                    
+                                <!-- 後方坐標軸（穿過平面下方） -->
+                                <line x1="196" y1="158" x2="196" y2="304" stroke="#1e293b" stroke-width="1.3" />
+                                <line x1="196" y1="158" x2="112" y2="128" stroke="#1e293b" stroke-width="1.3" />
+                                <line x1="196" y1="158" x2="278" y2="128" stroke="#1e293b" stroke-width="1.3" />
+                    
+                                <!-- 1. 淺藍色下方平面 -->
+                                <g clip-path="url(#inconsBlueClip)">
+                                    <polygon points="46,274 198,224 338,214 186,266" fill="#8ecae6" fill-opacity="0.72" />
+                                    <g stroke="#4a90b8" stroke-width="0.6" stroke-opacity="0.65">
+                                        <line x1="84" y1="261" x2="224" y2="251" />
+                                        <line x1="122" y1="249" x2="262" y2="239" />
+                                        <line x1="160" y1="236" x2="300" y2="226" />
+                                        <line x1="92" y1="259" x2="232" y2="209" />
+                                        <line x1="138" y1="263" x2="278" y2="213" />
+                                    </g>
+                                </g>
+                                <polygon points="46,274 198,224 338,214 186,266" fill="none" stroke="#3b7ea1" stroke-width="1.2" />
+                    
+                                <!-- 2. 綠色陡峭平面 -->
+                                <g clip-path="url(#inconsGreenClip)">
+                                    <polygon points="152,292 246,48 268,58 174,302" fill="#b4d97c" fill-opacity="0.78" />
+                                    <g stroke="#7ea843" stroke-width="0.6" stroke-opacity="0.65">
+                                        <line x1="160" y1="295" x2="254" y2="51" />
+                                        <line x1="167" y1="298" x2="261" y2="54" />
+                                        <line x1="158" y1="245" x2="262" y2="195" />
+                                        <line x1="176" y1="195" x2="280" y2="145" />
+                                        <line x1="194" y1="145" x2="298" y2="95" />
+                                    </g>
+                                </g>
+                                <polygon points="152,292 246,48 268,58 174,302" fill="none" stroke="#6d9435" stroke-width="1.2" />
+                    
+                                <!-- 3. 粉紅色斜平面 -->
+                                <g clip-path="url(#inconsPinkClip)">
+                                    <polygon points="74,274 334,74 346,84 86,284" fill="#f7b2b7" fill-opacity="0.74" />
+                                    <g stroke="#e07a84" stroke-width="0.6" stroke-opacity="0.65">
+                                        <line x1="78" y1="278" x2="338" y2="78" />
+                                        <line x1="82" y1="281" x2="342" y2="81" />
+                                        <line x1="125" y1="235" x2="136" y2="245" />
+                                        <line x1="185" y1="188" x2="196" y2="198" />
+                                        <line x1="245" y1="142" x2="256" y2="152" />
+                                        <line x1="295" y1="104" x2="306" y2="114" />
+                                    </g>
+                                </g>
+                                <polygon points="74,274 334,74 346,84 86,284" fill="none" stroke="#c85a64" stroke-width="1.2" />
+                    
+                                <!-- 三條交線（紅線，分別位於三對平面兩兩相交處，無共同交點） -->
+                                <!-- 粉紅與綠色交線（上方） -->
+                                <line x1="202" y1="175" x2="215" y2="192" stroke="#c92a2a" stroke-width="1.6" />
+                                <!-- 粉紅與藍色交線（左下） -->
+                                <line x1="94" y1="258" x2="108" y2="265" stroke="#c92a2a" stroke-width="1.6" />
+                                <!-- 綠色與藍色交線（中下） -->
+                                <line x1="163" y1="248" x2="180" y2="256" stroke="#c92a2a" stroke-width="1.6" />
+                    
+                                <!-- 前方坐標軸 -->
+                                <line x1="196" y1="158" x2="196" y2="48" stroke="#1e293b" stroke-width="1.4" marker-end="url(#ax3d2)" />
+                                <line x1="196" y1="158" x2="88" y2="212" stroke="#1e293b" stroke-width="1.4" marker-end="url(#ax3d2)" />
+                                <line x1="196" y1="158" x2="306" y2="194" stroke="#1e293b" stroke-width="1.4" marker-end="url(#ax3d2)" />
+                    
+                                <!-- 坐標軸標籤 -->
+                                <text x="196" y="40" text-anchor="middle" font-size="15" font-style="italic" font-family="serif" fill="#0f172a">
+                                    x<tspan dy="3" font-size="11" font-style="normal">3</tspan>
+                                </text>
+                                <text x="82" y="226" text-anchor="end" font-size="15" font-style="italic" font-family="serif" fill="#0f172a">
+                                    x<tspan dy="3" font-size="11" font-style="normal">1</tspan>
+                                </text>
+                                <text x="314" y="204" text-anchor="start" font-size="15" font-style="italic" font-family="serif" fill="#0f172a">
+                                    x<tspan dy="3" font-size="11" font-style="normal">2</tspan>
+                                </text>
                             </svg>
                         </div>
+                    </div>
+                    
                         <p class="text-xs text-slate-600">The system is inconsistent because there is no point that lies on all three planes.</p>
                     </div>
                 </div>
