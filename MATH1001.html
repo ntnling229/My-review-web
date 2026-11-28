@@ -2421,50 +2421,474 @@
       </div>
     </section>
 
-    <!-- ================= SECTION 2.8 ================= -->
-    <section id="sec2-8" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-8">
-        <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
-            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
-                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 2.8</span>
-                SUBSPACES OF $\mathbb{R}^n$ ($\mathbb{R}^n$ 的子空間)
-            </h2>
-            <span class="text-xs text-slate-500 font-mono">Pages 1 - 23</span>
+    <!-- ============================================================== -->
+    <!-- SECTION 2.8: SUBSPACES OF R^n                                  -->
+    <!-- ============================================================== -->
+    <section id="sec2-8" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-7">
+      <div class="border-b border-slate-200 pb-4 flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <span class="px-3 py-1.5 rounded-xl bg-amber-100 text-amber-900 text-xl md:text-2xl font-extrabold tracking-tight">§ 2.8</span>
+          <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight">SUBSPACES OF $\mathbb{R}^n$ ($\mathbb{R}^n$ 的子空間)</h3>
+        </div>
+        <span class="text-sm text-slate-500 font-mono">Slides 1–23 (23 Pages)</span>
+      </div>
+
+      <!-- 1. Definition & Basic Properties of Subspaces -->
+      <div class="space-y-4">
+        <h4 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <span class="w-2 h-6 bg-amber-500 rounded-full"></span>
+          1. Definition of a Subspace &amp; Span Examples (子空間定義與生成空間範例)
+        </h4>
+
+        <!-- Definition Box -->
+        <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-3">
+          <div class="font-bold text-amber-950 text-lg">DEFINITION — SUBSPACE OF $\mathbb{R}^n$ ($\mathbb{R}^n$ 的子空間定義)</div>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            A <strong>subspace（子空間）</strong> of $\mathbb{R}^n$ is any set $H$ in $\mathbb{R}^n$ that has three properties:
+          </p>
+          <ol class="list-[lower-alpha] pl-6 space-y-1.5 text-sm sm:text-base text-slate-800 leading-relaxed">
+            <li>The <strong>zero vector（零向量）</strong> $\mathbf{0}$ is in $H$.</li>
+            <li>For each $\mathbf{u}$ and $\mathbf{v}$ in $H$, the sum $\mathbf{u} + \mathbf{v}$ is in $H$.</li>
+            <li>For each $\mathbf{u}$ in $H$ and each scalar $c$, the vector $c\mathbf{u}$ is in $H$.</li>
+          </ol>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed pt-1">
+            In words, a subspace is <strong>closed under addition and scalar multiplication（對向量加法與純量乘法封閉）</strong>. As you will see in the next few examples, most sets of vectors discussed in Chapter 1 are subspaces. For instance, a plane through the origin is the standard way to visualize the subspace in Example 1 (see Figure 1).
+          </p>
+
+          <!-- FIGURE 1 SVG: Span{v1, v2} as a plane through the origin -->
+          <div class="bg-white border border-amber-200/80 rounded-xl p-3.5 flex flex-col items-center justify-center">
+            <svg viewBox="0 0 320 235" class="w-full max-w-[320px] h-auto" aria-label="Figure 1: Span{v1, v2} as a plane through the origin">
+              <defs>
+                <marker id="axisArrow28" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1 L 10 5 L 0 9 z" fill="#1e293b" />
+                </marker>
+              </defs>
+
+              <!-- Plane H through origin -->
+              <polygon points="35,105 215,24 285,125 105,206" fill="#bae6fd" fill-opacity="0.72" stroke="#0284c7" stroke-width="1.2" />
+              <!-- Subtle grid lines on plane -->
+              <line x1="65" y1="92" x2="135" y2="192" stroke="#7dd3fc" stroke-width="0.9" />
+              <line x1="95" y1="78" x2="165" y2="178" stroke="#7dd3fc" stroke-width="0.9" />
+              <line x1="125" y1="65" x2="195" y2="165" stroke="#7dd3fc" stroke-width="0.9" />
+              <line x1="155" y1="51" x2="225" y2="151" stroke="#7dd3fc" stroke-width="0.9" />
+              <line x1="185" y1="38" x2="255" y2="138" stroke="#7dd3fc" stroke-width="0.9" />
+
+              <line x1="52" y1="130" x2="230" y2="49" stroke="#7dd3fc" stroke-width="0.9" />
+              <line x1="70" y1="155" x2="248" y2="74" stroke="#7dd3fc" stroke-width="0.9" />
+              <line x1="88" y1="180" x2="266" y2="99" stroke="#7dd3fc" stroke-width="0.9" />
+
+              <!-- Coordinate axes -->
+              <line x1="145" y1="132" x2="145" y2="16" stroke="#1e293b" stroke-width="1.6" marker-end="url(#axisArrow28)" />
+              <line x1="145" y1="132" x2="295" y2="162" stroke="#1e293b" stroke-width="1.6" marker-end="url(#axisArrow28)" />
+              <line x1="145" y1="132" x2="55" y2="215" stroke="#1e293b" stroke-width="1.6" marker-end="url(#axisArrow28)" />
+
+              <!-- Origin & v1, v2 -->
+              <circle cx="145" cy="132" r="3.5" fill="#0f172a" />
+              <text x="134" y="147" font-size="13" font-weight="700" fill="#0f172a">0</text>
+
+              <circle cx="115" cy="112" r="4" fill="#0284c7" />
+              <text x="98" y="108" font-size="13.5" font-weight="700" font-style="italic" fill="#0f172a">v<tspan dy="3" font-size="10" font-style="normal">1</tspan></text>
+
+              <circle cx="195" cy="108" r="4" fill="#0284c7" />
+              <text x="204" y="104" font-size="13.5" font-weight="700" font-style="italic" fill="#0f172a">v<tspan dy="3" font-size="10" font-style="normal">2</tspan></text>
+
+              <!-- Axis labels -->
+              <text x="153" y="22" font-size="13.5" font-weight="700" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal">3</tspan></text>
+              <text x="298" y="168" font-size="13.5" font-weight="700" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal">2</tspan></text>
+              <text x="40" y="222" font-size="13.5" font-weight="700" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal">1</tspan></text>
+            </svg>
+            <div class="text-xs text-slate-600 mt-1 font-medium">FIGURE 1 $\operatorname{Span}\{\mathbf{v}_1, \mathbf{v}_2\}$ as a plane through the origin.</div>
+          </div>
         </div>
 
-        <div class="space-y-4">
-            <h3 class="font-bold text-lg text-blue-800 flex items-center gap-2">
-                <i class="fa-solid fa-layer-group text-blue-500 text-sm"></i> 2.8.1 Subspace Definition, $\operatorname{Col} A$, $\operatorname{Nul} A$ &amp; Bases (子空間定義、行空間、零空間與基底，Pages 1 - 23)
-            </h3>
+        <!-- Collapsible EXAMPLE 1 -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+          <button onclick="toggleCard('ex2-8-1')" class="w-full px-4 py-3.5 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-base text-amber-950 transition">
+            <span>EXAMPLE 1（範例 1：驗證 $\operatorname{Span}\{\mathbf{v}_1, \mathbf{v}_2\}$ 為 $\mathbb{R}^n$ 的子空間，與穿過原點直線之情形）</span>
+            <i class="fa-solid fa-chevron-down text-sm text-amber-700"></i>
+          </button>
+          <div id="ex2-8-1" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong>PROBLEM:</strong> If $\mathbf{v}_1$ and $\mathbf{v}_2$ are in $\mathbb{R}^n$ and $H = \operatorname{Span}\{\mathbf{v}_1, \mathbf{v}_2\}$, then $H$ is a subspace of $\mathbb{R}^n$.
+            </p>
+            <p>
+              <strong>SOLUTION:</strong> To verify this statement, note that the zero vector is in $H$ (because $\mathbf{0} = 0\mathbf{v}_1 + 0\mathbf{v}_2$ is a linear combination of $\mathbf{v}_1$ and $\mathbf{v}_2$). Now take two arbitrary vectors in $H$, say,
+              $$\mathbf{u} = s_1\mathbf{v}_1 + s_2\mathbf{v}_2 \quad \text{and} \quad \mathbf{v} = t_1\mathbf{v}_1 + t_2\mathbf{v}_2$$
+              Then
+              $$\mathbf{u} + \mathbf{v} = (s_1 + t_1)\mathbf{v}_1 + (s_2 + t_2)\mathbf{v}_2$$
+              which shows that $\mathbf{u} + \mathbf{v}$ is a linear combination of $\mathbf{v}_1$ and $\mathbf{v}_2$ and hence is in $H$. Also, for any scalar $c$, the vector $c\mathbf{u}$ is in $H$, because
+              $$c\mathbf{u} = c(s_1\mathbf{v}_1 + s_2\mathbf{v}_2) = (cs_1)\mathbf{v}_1 + (cs_2)\mathbf{v}_2$$
+            </p>
+            <p>
+              <strong>SPECIAL CASE — LINE THROUGH THE ORIGIN:</strong> If $\mathbf{v}_1$ is not zero ($\mathbf{v}_1 \neq \mathbf{0}$) and if $\mathbf{v}_2$ is a multiple of $\mathbf{v}_1$ ($\mathbf{v}_2 = k\mathbf{v}_1$), then $\mathbf{v}_1$ and $\mathbf{v}_2$ simply span a <strong>line through the origin（穿過原點的直線）</strong>. So a line through the origin is another example of a subspace.
+            </p>
+            <div class="bg-slate-50/80 border border-slate-200 rounded-xl p-3 flex flex-col items-center justify-center">
+              <svg viewBox="0 0 260 190" class="w-full max-w-[260px] h-auto" aria-label="Line through the origin spanned by v1 and v2">
+                <defs>
+                  <marker id="lineArrow28" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155" />
+                  </marker>
+                </defs>
+                <!-- x1, x2 axes -->
+                <line x1="15" y1="120" x2="242" y2="120" stroke="#334155" stroke-width="1.4" marker-end="url(#lineArrow28)" />
+                <line x1="115" y1="178" x2="115" y2="14" stroke="#334155" stroke-width="1.4" marker-end="url(#lineArrow28)" />
+                <text x="245" y="125" font-size="13" font-weight="700" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="9.5" font-style="normal">1</tspan></text>
+                <text x="122" y="18" font-size="13" font-weight="700" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="9.5" font-style="normal">2</tspan></text>
 
-            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
-                <div class="p-4 bg-white rounded-lg border border-blue-200 space-y-2.5 text-slate-800 leading-relaxed">
-                    <strong class="text-blue-900 text-base font-bold block">Subspaces, Column Space $\operatorname{Col} A$ &amp; Null Space $\operatorname{Nul} A$ (Pages 1 - 12)</strong>
-                    <p>
-                        A subset $H$ of $\mathbb{R}^n$ is a <strong>subspace (子空間)</strong> of $\mathbb{R}^n$ if: (a) $\mathbf{0} \in H$; (b) $\mathbf{u}, \mathbf{v} \in H \implies \mathbf{u} + \mathbf{v} \in H$; (c) $\mathbf{u} \in H$ and scalar $c \implies c\mathbf{u} \in H$. $\operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$, $\mathbb{R}^n$, and $\{\mathbf{0}\}$ are all subspaces.
-                    </p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
-                        <div class="p-3 bg-blue-50/60 rounded-lg border border-blue-200">
-                            <strong class="text-blue-950 block mb-1">Column Space $\operatorname{Col} A$ (Page 7)</strong>
-                            <p class="text-xs md:text-sm">For $m \times n$ matrix $A = [\mathbf{a}_1 \;\; \cdots \;\; \mathbf{a}_n]$, $\operatorname{Col} A = \operatorname{Span}\{\mathbf{a}_1, \dots, \mathbf{a}_n\}$ is a subspace of $\mathbb{R}^m$ (explicitly defined via linear combinations).</p>
-                        </div>
-                        <div class="p-3 bg-blue-50/60 rounded-lg border border-blue-200">
-                            <strong class="text-blue-950 block mb-1">Null Space $\operatorname{Nul} A$ (Page 10, THEOREM 12)</strong>
-                            <p class="text-xs md:text-sm">$\operatorname{Nul} A = \{\mathbf{x} \in \mathbb{R}^n : A\mathbf{x} = \mathbf{0}\}$ is a subspace of $\mathbb{R}^n$ (implicitly defined by $A\mathbf{x} = \mathbf{0}$; parametric vector form gives an explicit spanning/basis set).</p>
-                        </div>
-                    </div>
-                </div>
+                <!-- Line Span{v1, v2} -->
+                <line x1="20" y1="165" x2="232" y2="55" stroke="#0284c7" stroke-width="2.2" />
+                <circle cx="145" cy="100" r="3.8" fill="#0284c7" />
+                <text x="138" y="92" font-size="13" font-weight="700" font-style="italic" fill="#0f172a">v<tspan dy="3" font-size="9.5" font-style="normal">1</tspan></text>
 
-                <div class="p-4 bg-white rounded-lg border border-blue-200 space-y-2.5 text-slate-800 leading-relaxed">
-                    <strong class="text-blue-900 text-base font-bold block">Basis for a Subspace &amp; THEOREM 13 (基底定義與定理 13，Pages 13 - 23)</strong>
-                    <p>
-                        A <strong>basis (基底)</strong> for a subspace $H$ of $\mathbb{R}^n$ is a linearly independent set in $H$ that spans $H$. The columns of an invertible $n \times n$ matrix (such as the standard basis $\{\mathbf{e}_1, \dots, \mathbf{e}_n\}$) form a basis for $\mathbb{R}^n$.
-                    </p>
-                    <p>
-                        <strong>THEOREM 13 (Page 23):</strong> The <strong>pivot columns of $A$ itself (矩陣 $A$ 本身的主元列)</strong> form a basis for $\operatorname{Col} A$ (do not use columns of an echelon form $B$ for $\operatorname{Col} A$).
-                    </p>
-                </div>
+                <circle cx="182" cy="81" r="3.8" fill="#0284c7" />
+                <text x="176" y="73" font-size="13" font-weight="700" font-style="italic" fill="#0f172a">v<tspan dy="3" font-size="9.5" font-style="normal">2</tspan></text>
+
+                <text x="32" y="176" font-size="12.5" font-weight="700" fill="#0369a1" transform="rotate(-27.5 32 176)">Span{v<tspan dy="3" font-size="9">1</tspan><tspan dy="-3">, v</tspan><tspan dy="3" font-size="9">2</tspan><tspan dy="-3">}</tspan></text>
+              </svg>
+              <div class="text-xs text-slate-600 mt-1">$\mathbf{v}_1 \neq \mathbf{0}$, $\mathbf{v}_2 = k\mathbf{v}_1$: $\operatorname{Span}\{\mathbf{v}_1, \mathbf{v}_2\}$ is a line through the origin.</div>
             </div>
+          </div>
         </div>
+
+        <!-- Collapsible EXAMPLE 2 -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+          <button onclick="toggleCard('ex2-8-2')" class="w-full px-4 py-3.5 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-base text-amber-950 transition">
+            <span>EXAMPLE 2（範例 2：不通過原點的直線 $L$ 不是子空間，且對加法與純量乘法皆不封閉）</span>
+            <i class="fa-solid fa-chevron-down text-sm text-amber-700"></i>
+          </button>
+          <div id="ex2-8-2" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong>PROBLEM &amp; SOLUTION:</strong> A line $L$ not through the origin is <strong>not a subspace</strong>, because it does not contain the origin, as required. Also, Figure 2 shows that $L$ is not closed under addition or scalar multiplication.
+            </p>
+
+            <!-- FIGURE 2 SVG: u+v not on L, 2w not on L -->
+            <div class="bg-slate-50/80 border border-slate-200 rounded-xl p-3.5 space-y-3">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Left: Addition failure -->
+                <div class="bg-white border border-slate-200/80 rounded-lg p-2.5 flex flex-col items-center">
+                  <svg viewBox="0 0 230 140" class="w-full max-w-[230px] h-auto" aria-label="u + v not on L">
+                    <!-- Axes -->
+                    <line x1="15" y1="115" x2="218" y2="115" stroke="#475569" stroke-width="1.2" />
+                    <line x1="45" y1="132" x2="45" y2="10" stroke="#475569" stroke-width="1.2" />
+
+                    <!-- Parallelogram for u + v -->
+                    <polygon points="45,115 85,55 170,40 130,100" fill="#bae6fd" fill-opacity="0.65" />
+
+                    <!-- Line L -->
+                    <line x1="18" y1="22" x2="205" y2="128" stroke="#0284c7" stroke-width="2" />
+                    <text x="196" y="136" font-size="12.5" font-weight="700" font-style="italic" fill="#0369a1">L</text>
+
+                    <!-- Points u, v, u+v -->
+                    <circle cx="85" cy="55" r="3.6" fill="#0284c7" />
+                    <text x="74" y="49" font-size="13" font-weight="700" fill="#0f172a">u</text>
+
+                    <circle cx="130" cy="100" r="3.6" fill="#0284c7" />
+                    <text x="138" y="99" font-size="13" font-weight="700" fill="#0f172a">v</text>
+
+                    <circle cx="170" cy="40" r="3.8" fill="#0f172a" />
+                    <text x="155" y="28" font-size="13" font-weight="700" fill="#0f172a">u + v</text>
+                  </svg>
+                  <div class="text-xs text-slate-600 font-medium">$\mathbf{u} + \mathbf{v}$ is not on $L$</div>
+                </div>
+
+                <!-- Right: Scalar multiplication failure -->
+                <div class="bg-white border border-slate-200/80 rounded-lg p-2.5 flex flex-col items-center">
+                  <svg viewBox="0 0 230 140" class="w-full max-w-[230px] h-auto" aria-label="2w not on L">
+                    <!-- Axes -->
+                    <line x1="15" y1="115" x2="218" y2="115" stroke="#475569" stroke-width="1.2" />
+                    <line x1="45" y1="132" x2="45" y2="10" stroke="#475569" stroke-width="1.2" />
+
+                    <!-- Ray from origin through w to 2w -->
+                    <line x1="45" y1="115" x2="165" y2="41" stroke="#334155" stroke-width="1.3" stroke-dasharray="4 3" />
+
+                    <!-- Line L -->
+                    <line x1="18" y1="22" x2="205" y2="128" stroke="#0284c7" stroke-width="2" />
+                    <text x="196" y="136" font-size="12.5" font-weight="700" font-style="italic" fill="#0369a1">L</text>
+
+                    <!-- Points w and 2w -->
+                    <circle cx="105" cy="78" r="3.8" fill="#0284c7" />
+                    <text x="95" y="70" font-size="13" font-weight="700" fill="#0f172a">w</text>
+
+                    <circle cx="165" cy="41" r="3.8" fill="#0f172a" />
+                    <text x="171" y="38" font-size="13" font-weight="700" fill="#0f172a">2w</text>
+                  </svg>
+                  <div class="text-xs text-slate-600 font-medium">$2\mathbf{w}$ is not on $L$</div>
+                </div>
+              </div>
+              <div class="text-xs text-slate-600 text-center font-medium">FIGURE 2</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Collapsible EXAMPLE 3 -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+          <button onclick="toggleCard('ex2-8-3')" class="w-full px-4 py-3.5 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-base text-amber-950 transition">
+            <span>EXAMPLE 3（範例 3：任意有限向量集合的生成空間 $\operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$、$\mathbb{R}^n$ 與零子空間）</span>
+            <i class="fa-solid fa-chevron-down text-sm text-amber-700"></i>
+          </button>
+          <div id="ex2-8-3" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong>PROBLEM &amp; SOLUTION:</strong> For $\mathbf{v}_1, \dots, \mathbf{v}_p$ in $\mathbb{R}^n$, the set of all linear combinations of $\mathbf{v}_1, \dots, \mathbf{v}_p$ is a subspace of $\mathbb{R}^n$. The verification of this statement is similar to the argument given in Example 1. We shall now refer to $\operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$ as the <strong>subspace spanned (or generated) by $\mathbf{v}_1, \dots, \mathbf{v}_p$（由 $\mathbf{v}_1, \dots, \mathbf{v}_p$ 生成的子空間）</strong>.
+            </p>
+            <p>
+              Note that $\mathbb{R}^n$ is a subspace of itself because it has the three properties required for a subspace. Another special subspace is the set consisting of only the zero vector in $\mathbb{R}^n$. This set, called the <strong>zero subspace（零子空間）</strong> $\{\mathbf{0}\}$, also satisfies the conditions for a subspace.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Column Space and Null Space of a Matrix -->
+      <div class="space-y-4">
+        <h4 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <span class="w-2 h-6 bg-amber-500 rounded-full"></span>
+          2. Column Space and Null Space of a Matrix (矩陣的縱行空間與零空間)
+        </h4>
+        <p class="text-base md:text-lg text-slate-700 leading-relaxed">
+          Subspaces of $\mathbb{R}^n$ usually occur in applications and theory in one of two ways. In both cases, the subspace can be related to a matrix.
+        </p>
+
+        <!-- Column Space Definition Box -->
+        <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-3">
+          <div class="font-bold text-amber-950 text-lg">DEFINITION — COLUMN SPACE OF A MATRIX (矩陣的縱行空間／行空間 $\operatorname{Col} A$)</div>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            The <strong>column space（縱行空間／行空間）</strong> of a matrix $A$ is the set $\operatorname{Col} A$ of all linear combinations of the columns of $A$.
+          </p>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            If $A = \begin{bmatrix} \mathbf{a}_1 & \cdots & \mathbf{a}_n \end{bmatrix}$, with the columns in $\mathbb{R}^m$, then $\operatorname{Col} A$ is the same as $\operatorname{Span}\{\mathbf{a}_1, \dots, \mathbf{a}_n\}$. Example 4 shows that the column space of an $m \times n$ matrix is a subspace of $\mathbb{R}^m$. Note that $\operatorname{Col} A$ equals $\mathbb{R}^m$ only when the columns of $A$ span $\mathbb{R}^m$. Otherwise, $\operatorname{Col} A$ is only part of $\mathbb{R}^m$.
+          </p>
+        </div>
+
+        <!-- Collapsible EXAMPLE 4 -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+          <button onclick="toggleCard('ex2-8-4')" class="w-full px-4 py-3.5 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-base text-amber-950 transition">
+            <span>EXAMPLE 4（範例 4：判斷向量 $\mathbf{b}$ 是否屬於矩陣 $A$ 的縱行空間 $\operatorname{Col} A$）</span>
+            <i class="fa-solid fa-chevron-down text-sm text-amber-700"></i>
+          </button>
+          <div id="ex2-8-4" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong>PROBLEM:</strong> Let
+              $$A = \begin{bmatrix} 1 & -3 & -4 \\ -4 & 6 & -2 \\ -3 & 7 & 6 \end{bmatrix} \quad \text{and} \quad \mathbf{b} = \begin{bmatrix} 3 \\ 3 \\ -4 \end{bmatrix}$$
+              Determine whether $\mathbf{b}$ is in the column space of $A$.
+            </p>
+            <p>
+              <strong>SOLUTION:</strong> The vector $\mathbf{b}$ is a linear combination of the columns of $A$ if and only if $\mathbf{b}$ can be written as $A\mathbf{x}$ for some $\mathbf{x}$, that is, if and only if the equation $A\mathbf{x} = \mathbf{b}$ has a solution. Row reducing the augmented matrix $\begin{bmatrix} A & \mathbf{b} \end{bmatrix}$,
+              $$\begin{bmatrix} 1 & -3 & -4 & 3 \\ -4 & 6 & -2 & 3 \\ -3 & 7 & 6 & -4 \end{bmatrix} \sim \begin{bmatrix} 1 & -3 & -4 & 3 \\ 0 & -6 & -18 & 15 \\ 0 & -2 & -6 & 5 \end{bmatrix} \sim \begin{bmatrix} 1 & -3 & -4 & 3 \\ 0 & -6 & -18 & 15 \\ 0 & 0 & 0 & 0 \end{bmatrix}$$
+              we conclude that $A\mathbf{x} = \mathbf{b}$ is consistent and $\mathbf{b}$ is in $\operatorname{Col} A$.
+            </p>
+            <p>
+              <strong>GEOMETRIC &amp; ALGEBRAIC INSIGHT:</strong> The solution of Example 4 shows that when a system of linear equations is written in the form $A\mathbf{x} = \mathbf{b}$, the column space of $A$ is the set of all $\mathbf{b}$ for which the system has a solution.
+            </p>
+            <div class="bg-slate-50/80 border border-slate-200 rounded-xl p-3 flex flex-col items-center justify-center">
+              <svg viewBox="0 0 280 205" class="w-full max-w-[280px] h-auto" aria-label="Col A in R3 with vector b">
+                <defs>
+                  <marker id="colArrow28" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#1e293b" />
+                  </marker>
+                </defs>
+                <!-- Plane Col A -->
+                <polygon points="45,105 185,55 245,145 105,192" fill="#bae6fd" fill-opacity="0.72" stroke="#0284c7" stroke-width="1.2" />
+                <text x="192" y="158" font-size="13" font-weight="700" fill="#0369a1" transform="rotate(-19 192 158)">Col A</text>
+
+                <!-- Axes -->
+                <line x1="125" y1="120" x2="125" y2="14" stroke="#1e293b" stroke-width="1.5" marker-end="url(#colArrow28)" />
+                <line x1="125" y1="120" x2="262" y2="146" stroke="#1e293b" stroke-width="1.5" marker-end="url(#colArrow28)" />
+                <line x1="125" y1="120" x2="35" y2="195" stroke="#1e293b" stroke-width="1.5" marker-end="url(#colArrow28)" />
+
+                <circle cx="125" cy="120" r="3.5" fill="#0f172a" />
+                <text x="114" y="135" font-size="13" font-weight="700" fill="#0f172a">0</text>
+
+                <circle cx="112" cy="156" r="4" fill="#0284c7" />
+                <text x="98" y="153" font-size="13.5" font-weight="700" fill="#0f172a">b</text>
+
+                <text x="133" y="20" font-size="13" font-weight="700" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="9.5" font-style="normal">3</tspan></text>
+                <text x="265" y="152" font-size="13" font-weight="700" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="9.5" font-style="normal">2</tspan></text>
+                <text x="22" y="202" font-size="13" font-weight="700" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="9.5" font-style="normal">1</tspan></text>
+              </svg>
+              <div class="text-xs text-slate-600 mt-1">A vector $\mathbf{b}$ is in $\operatorname{Col} A$ when $A\mathbf{x} = \mathbf{b}$ is consistent.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Null Space Definition & Theorem 12 Box -->
+        <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-3">
+          <div class="font-bold text-amber-950 text-lg">DEFINITION &amp; THEOREM 12 — NULL SPACE OF A MATRIX (矩陣的零空間 $\operatorname{Nul} A$ 與定理 12)</div>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            The <strong>null space（零空間）</strong> of a matrix $A$ is the set $\operatorname{Nul} A$ of all solutions of the homogeneous equation $A\mathbf{x} = \mathbf{0}$. When $A$ has $n$ columns, the solutions of $A\mathbf{x} = \mathbf{0}$ belong to $\mathbb{R}^n$, and the null space of $A$ is a subset of $\mathbb{R}^n$. In fact, $\operatorname{Nul} A$ has the properties of a subspace of $\mathbb{R}^n$.
+          </p>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            <strong>THEOREM 12:</strong> The null space of an $m \times n$ matrix $A$ is a subspace of $\mathbb{R}^n$. Equivalently, the set of all solutions of a system $A\mathbf{x} = \mathbf{0}$ of $m$ homogeneous linear equations in $n$ unknowns is a subspace of $\mathbb{R}^n$.
+          </p>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            <strong>PROOF:</strong> The zero vector is in $\operatorname{Nul} A$ (because $A\mathbf{0} = \mathbf{0}$). To show that $\operatorname{Nul} A$ satisfies the other two properties required for a subspace, take any $\mathbf{u}$ and $\mathbf{v}$ in $\operatorname{Nul} A$. That is, suppose $A\mathbf{u} = \mathbf{0}$ and $A\mathbf{v} = \mathbf{0}$. Then, by a property of matrix multiplication,
+            $$A(\mathbf{u} + \mathbf{v}) = A\mathbf{u} + A\mathbf{v} = \mathbf{0} + \mathbf{0} = \mathbf{0}$$
+            Thus $\mathbf{u} + \mathbf{v}$ satisfies $A\mathbf{x} = \mathbf{0}$, and so $\mathbf{u} + \mathbf{v}$ is in $\operatorname{Nul} A$. Also, for any scalar $c$,
+            $$A(c\mathbf{u}) = c(A\mathbf{u}) = c(\mathbf{0}) = \mathbf{0}$$
+            which shows that $c\mathbf{u}$ is in $\operatorname{Nul} A$.
+          </p>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            <strong>IMPLICIT VS. EXPLICIT DESCRIPTION:</strong> To test whether a given vector $\mathbf{v}$ is in $\operatorname{Nul} A$, just compute $A\mathbf{v}$ to see whether $A\mathbf{v}$ is the zero vector. Because $\operatorname{Nul} A$ is described by a condition that must be checked for each vector, we say that the null space is <strong>defined implicitly（隱式定義）</strong>. In contrast, the column space is <strong>defined explicitly（顯式定義）</strong>, because vectors in $\operatorname{Col} A$ can be constructed (by linear combinations) from the columns of $A$. To create an explicit description of $\operatorname{Nul} A$, solve the equation $A\mathbf{x} = \mathbf{0}$ and write the solution in <strong>parametric vector form（參數向量形式）</strong>. (See Example 6 below.)
+          </p>
+        </div>
+      </div>
+
+      <!-- 3. Basis for a Subspace -->
+      <div class="space-y-4">
+        <h4 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <span class="w-2 h-6 bg-amber-500 rounded-full"></span>
+          3. Basis for a Subspace, Null Space Basis &amp; Column Space Basis (子空間的基底、零空間與縱行空間基底)
+        </h4>
+
+        <!-- Basis Definition Box -->
+        <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-2.5">
+          <div class="font-bold text-amber-950 text-lg">DEFINITION — BASIS FOR A SUBSPACE (子空間的基底)</div>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            Because a subspace typically contains an infinite number of vectors, some problems involving a subspace are handled best by working with a small finite set of vectors that span the subspace. The smaller the set, the better. It can be shown that the smallest possible spanning set must be linearly independent.
+          </p>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            A <strong>basis（基底）</strong> for a subspace $H$ of $\mathbb{R}^n$ is a <strong>linearly independent（線性獨立）</strong> set in $H$ that spans $H$.
+          </p>
+        </div>
+
+        <!-- Collapsible EXAMPLE 5 -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+          <button onclick="toggleCard('ex2-8-5')" class="w-full px-4 py-3.5 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-base text-amber-950 transition">
+            <span>EXAMPLE 5（範例 5：可逆矩陣的行與標準基底 $\{\mathbf{e}_1, \dots, \mathbf{e}_n\}$）</span>
+            <i class="fa-solid fa-chevron-down text-sm text-amber-700"></i>
+          </button>
+          <div id="ex2-8-5" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong>PROBLEM &amp; SOLUTION:</strong> The columns of an invertible $n \times n$ matrix form a basis for all of $\mathbb{R}^n$ because they are linearly independent and span $\mathbb{R}^n$, by the <strong>Invertible Matrix Theorem（可逆矩陣定理）</strong>. One such matrix is the $n \times n$ identity matrix $I_n$. Its columns are denoted by $\mathbf{e}_1, \dots, \mathbf{e}_n$:
+              $$\mathbf{e}_1 = \begin{bmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{bmatrix}, \quad \mathbf{e}_2 = \begin{bmatrix} 0 \\ 1 \\ \vdots \\ 0 \end{bmatrix}, \quad \dots, \quad \mathbf{e}_n = \begin{bmatrix} 0 \\ \vdots \\ 0 \\ 1 \end{bmatrix}$$
+              The set $\{\mathbf{e}_1, \dots, \mathbf{e}_n\}$ is called the <strong>standard basis（標準基底）</strong> for $\mathbb{R}^n$. See Figure 3.
+            </p>
+
+            <!-- FIGURE 3 SVG: Standard basis for R^3 -->
+            <div class="bg-slate-50/80 border border-slate-200 rounded-xl p-3 flex flex-col items-center justify-center">
+              <svg viewBox="0 0 260 205" class="w-full max-w-[260px] h-auto" aria-label="Figure 3: The standard basis for R3">
+                <defs>
+                  <marker id="stdAxisArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#1e293b" />
+                  </marker>
+                  <marker id="stdBasisArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
+                  </marker>
+                </defs>
+
+                <!-- Axes -->
+                <line x1="125" y1="122" x2="125" y2="14" stroke="#1e293b" stroke-width="1.4" marker-end="url(#stdAxisArrow)" />
+                <line x1="125" y1="122" x2="245" y2="122" stroke="#1e293b" stroke-width="1.4" marker-end="url(#stdAxisArrow)" />
+                <line x1="125" y1="122" x2="42" y2="192" stroke="#1e293b" stroke-width="1.4" marker-end="url(#stdAxisArrow)" />
+
+                <!-- Basis vectors e1, e2, e3 -->
+                <line x1="125" y1="122" x2="125" y2="56" stroke="#0284c7" stroke-width="2.4" marker-end="url(#stdBasisArrow)" />
+                <line x1="125" y1="122" x2="192" y2="122" stroke="#0284c7" stroke-width="2.4" marker-end="url(#stdBasisArrow)" />
+                <line x1="125" y1="122" x2="80" y2="160" stroke="#0284c7" stroke-width="2.4" marker-end="url(#stdBasisArrow)" />
+
+                <circle cx="125" cy="56" r="3.6" fill="#0284c7" />
+                <circle cx="192" cy="122" r="3.6" fill="#0284c7" />
+                <circle cx="80" cy="160" r="3.6" fill="#0284c7" />
+
+                <text x="134" y="60" font-size="13.5" font-weight="700" fill="#0f172a">e<tspan dy="3" font-size="10">3</tspan></text>
+                <text x="192" y="139" font-size="13.5" font-weight="700" fill="#0f172a">e<tspan dy="3" font-size="10">2</tspan></text>
+                <text x="62" y="156" font-size="13.5" font-weight="700" fill="#0f172a">e<tspan dy="3" font-size="10">1</tspan></text>
+
+                <text x="133" y="20" font-size="13" font-weight="700" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="9.5" font-style="normal">3</tspan></text>
+                <text x="248" y="127" font-size="13" font-weight="700" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="9.5" font-style="normal">2</tspan></text>
+                <text x="26" y="199" font-size="13" font-weight="700" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="9.5" font-style="normal">1</tspan></text>
+              </svg>
+              <div class="text-xs text-slate-600 mt-1 font-medium">FIGURE 3 The standard basis for $\mathbb{R}^3$.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Collapsible EXAMPLE 6 -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+          <button onclick="toggleCard('ex2-8-6')" class="w-full px-4 py-3.5 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-base text-amber-950 transition">
+            <span>EXAMPLE 6（範例 6：以參數向量形式求零空間 $\operatorname{Nul} A$ 的一組基底）</span>
+            <i class="fa-solid fa-chevron-down text-sm text-amber-700"></i>
+          </button>
+          <div id="ex2-8-6" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong>PROBLEM:</strong> Find a basis for the null space of the matrix
+              $$A = \begin{bmatrix} -3 & 6 & -1 & 1 & -7 \\ 1 & -2 & 2 & 3 & -1 \\ 2 & -4 & 5 & 8 & -4 \end{bmatrix}$$
+            </p>
+            <p>
+              <strong>SOLUTION — Step 1 (Row Reduction &amp; Equations):</strong> First, write the solution of $A\mathbf{x} = \mathbf{0}$ in parametric vector form:
+              $$\begin{bmatrix} A & \mathbf{0} \end{bmatrix} \sim \begin{bmatrix} 1 & -2 & 0 & -1 & 3 & 0 \\ 0 & 0 & 1 & 2 & -2 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 \end{bmatrix}$$
+              This gives the system:
+              $$\begin{aligned}
+              x_1 - 2x_2 \phantom{{} + x_3} - x_4 + 3x_5 &amp;= 0 \\
+              x_3 + 2x_4 - 2x_5 &amp;= 0 \\
+              0 &amp;= 0
+              \end{aligned}$$
+            </p>
+            <p>
+              <strong>SOLUTION — Step 2 (Parametric Vector Form):</strong> The general solution is $x_1 = 2x_2 + x_4 - 3x_5$, $x_3 = -2x_4 + 2x_5$, with $x_2$, $x_4$, and $x_5$ free.
+              $$\begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \end{bmatrix} = \begin{bmatrix} 2x_2 + x_4 - 3x_5 \\ x_2 \\ -2x_4 + 2x_5 \\ x_4 \\ x_5 \end{bmatrix} = x_2\underbrace{\begin{bmatrix} 2 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}}_{\mathbf{u}} + x_4\underbrace{\begin{bmatrix} 1 \\ 0 \\ -2 \\ 1 \\ 0 \end{bmatrix}}_{\mathbf{v}} + x_5\underbrace{\begin{bmatrix} -3 \\ 0 \\ 2 \\ 0 \\ 1 \end{bmatrix}}_{\mathbf{w}} = x_2\mathbf{u} + x_4\mathbf{v} + x_5\mathbf{w} \tag{1}$$
+            </p>
+            <p>
+              <strong>SOLUTION — Step 3 (Span &amp; Linear Independence):</strong> Equation (1) shows that $\operatorname{Nul} A$ coincides with the set of all linear combinations of $\mathbf{u}$, $\mathbf{v}$, and $\mathbf{w}$. That is, $\{\mathbf{u}, \mathbf{v}, \mathbf{w}\}$ generates $\operatorname{Nul} A$. In fact, this construction of $\mathbf{u}$, $\mathbf{v}$, and $\mathbf{w}$ automatically makes them linearly independent, because equation (1) shows that $\mathbf{0} = x_2\mathbf{u} + x_4\mathbf{v} + x_5\mathbf{w}$ only if the weights $x_2$, $x_4$, and $x_5$ are all zero. (Examine entries $2$, $4$, and $5$ in the vector $x_2\mathbf{u} + x_4\mathbf{v} + x_5\mathbf{w}$.) So $\{\mathbf{u}, \mathbf{v}, \mathbf{w}\}$ is a basis for $\operatorname{Nul} A$.
+            </p>
+          </div>
+        </div>
+
+        <!-- Collapsible EXAMPLE 7 -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+          <button onclick="toggleCard('ex2-8-7')" class="w-full px-4 py-3.5 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-base text-amber-950 transition">
+            <span>EXAMPLE 7（範例 7：求已化為簡化階梯形矩陣 $B$ 的縱行空間 $\operatorname{Col} B$ 基底）</span>
+            <i class="fa-solid fa-chevron-down text-sm text-amber-700"></i>
+          </button>
+          <div id="ex2-8-7" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong>PROBLEM:</strong> Find a basis for the column space of the matrix
+              $$B = \begin{bmatrix} 1 & 0 & -3 & 5 & 0 \\ 0 & 1 & 2 & -1 & 0 \\ 0 & 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 & 0 \end{bmatrix}$$
+            </p>
+            <p>
+              <strong>SOLUTION:</strong> Denote the columns of $B$ by $\mathbf{b}_1, \dots, \mathbf{b}_5$ and note that $\mathbf{b}_3 = -3\mathbf{b}_1 + 2\mathbf{b}_2$ and $\mathbf{b}_4 = 5\mathbf{b}_1 - \mathbf{b}_2$. The fact that $\mathbf{b}_3$ and $\mathbf{b}_4$ are combinations of the pivot columns means that any combination of $\mathbf{b}_1, \dots, \mathbf{b}_5$ is actually just a combination of $\mathbf{b}_1$, $\mathbf{b}_2$, and $\mathbf{b}_5$. Indeed, if $\mathbf{v}$ is any vector in $\operatorname{Col} B$, say,
+              $$\mathbf{v} = c_1\mathbf{b}_1 + c_2\mathbf{b}_2 + c_3\mathbf{b}_3 + c_4\mathbf{b}_4 + c_5\mathbf{b}_5$$
+              then, substituting for $\mathbf{b}_3$ and $\mathbf{b}_4$, we can write $\mathbf{v}$ in the form
+              $$\mathbf{v} = c_1\mathbf{b}_1 + c_2\mathbf{b}_2 + c_3(-3\mathbf{b}_1 + 2\mathbf{b}_2) + c_4(5\mathbf{b}_1 - \mathbf{b}_2) + c_5\mathbf{b}_5$$
+              which is a linear combination of $\mathbf{b}_1$, $\mathbf{b}_2$, and $\mathbf{b}_5$. So $\{\mathbf{b}_1, \mathbf{b}_2, \mathbf{b}_5\}$ spans $\operatorname{Col} B$. Also, $\mathbf{b}_1$, $\mathbf{b}_2$, and $\mathbf{b}_5$ are linearly independent, because they are columns from an identity matrix. So the pivot columns of $B$ form a basis for $\operatorname{Col} B$.
+            </p>
+          </div>
+        </div>
+
+        <!-- Linear Dependence Preservation Note -->
+        <p class="text-base md:text-lg text-slate-700 leading-relaxed">
+          The matrix $B$ in Example 7 is in reduced echelon form. To handle a general matrix $A$, recall that linear dependence relations among the columns of $A$ can be expressed in the form $A\mathbf{x} = \mathbf{0}$ for some $\mathbf{x}$. (If some columns are not involved in a particular dependence relation, then the corresponding entries in $\mathbf{x}$ are zero.) When $A$ is row reduced to echelon form $B$, the columns are drastically changed, but the equations $A\mathbf{x} = \mathbf{0}$ and $B\mathbf{x} = \mathbf{0}$ have the same set of solutions. That is, the columns of $A$ have exactly the same linear dependence relationships as the columns of $B$.
+        </p>
+
+        <!-- Collapsible EXAMPLE 8 -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+          <button onclick="toggleCard('ex2-8-8')" class="w-full px-4 py-3.5 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-base text-amber-950 transition">
+            <span>EXAMPLE 8（範例 8：利用列等價階梯形矩陣 $B$ 的主元行位置求一般矩陣 $A$ 的 $\operatorname{Col} A$ 基底）</span>
+            <i class="fa-solid fa-chevron-down text-sm text-amber-700"></i>
+          </button>
+          <div id="ex2-8-8" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong>PROBLEM:</strong> It can be verified that the matrix
+              $$A = \begin{bmatrix} \mathbf{a}_1 & \mathbf{a}_2 & \cdots & \mathbf{a}_5 \end{bmatrix} = \begin{bmatrix} 1 & 3 & 3 & 2 & -9 \\ -2 & -2 & 2 & -8 & 2 \\ 2 & 3 & 0 & 7 & 1 \\ 3 & 4 & -1 & 11 & -8 \end{bmatrix}$$
+              is row equivalent to the matrix $B$ in Example 7. Find a basis for $\operatorname{Col} A$.
+            </p>
+            <p>
+              <strong>SOLUTION:</strong> From Example 7, the pivot columns of $A$ are columns $1$, $2$, and $5$. Also, $\mathbf{b}_3 = -3\mathbf{b}_1 + 2\mathbf{b}_2$ and $\mathbf{b}_4 = 5\mathbf{b}_1 - \mathbf{b}_2$. Since row operations do not affect linear dependence relations among the columns of the matrix, we should have
+              $$\mathbf{a}_3 = -3\mathbf{a}_1 + 2\mathbf{a}_2 \quad \text{and} \quad \mathbf{a}_4 = 5\mathbf{a}_1 - \mathbf{a}_2$$
+              Check that this is true! By the argument in Example 7, $\mathbf{a}_3$ and $\mathbf{a}_4$ are not needed to generate the column space of $A$. Also, $\{\mathbf{a}_1, \mathbf{a}_2, \mathbf{a}_5\}$ must be linearly independent, because any dependence relation among $\mathbf{a}_1$, $\mathbf{a}_2$, and $\mathbf{a}_5$ would imply the same dependence relation among $\mathbf{b}_1$, $\mathbf{b}_2$, and $\mathbf{b}_5$. Since $\{\mathbf{b}_1, \mathbf{b}_2, \mathbf{b}_5\}$ is linearly independent, $\{\mathbf{a}_1, \mathbf{a}_2, \mathbf{a}_5\}$ is also linearly independent and hence is a basis for $\operatorname{Col} A$.
+            </p>
+          </div>
+        </div>
+
+        <!-- Theorem 13 & Warning Box -->
+        <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-3">
+          <div class="font-bold text-amber-950 text-lg">THEOREM 13 &amp; WARNING (定理 13：矩陣 $A$ 的主元行構成 $\operatorname{Col} A$ 的基底)</div>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            <strong>THEOREM 13:</strong> The <strong>pivot columns（主元行）</strong> of a matrix $A$ form a basis for the column space of $A$.
+          </p>
+          <div class="bg-amber-100/70 border-l-4 border-amber-600 rounded-r-lg p-3.5 text-sm sm:text-base text-slate-800 leading-relaxed">
+            <strong class="text-amber-950">WARNING（注意事項）：</strong> Be careful to use pivot columns of <strong>$A$ itself</strong> for the basis of $\operatorname{Col} A$. The columns of an echelon form $B$ are often not in the column space of $A$. (For instance, in Examples 7 and 8, the columns of $B$ all have zeros in their last entries and cannot generate the columns of $A$.)
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ================= SECTION 2.9 ================= -->
