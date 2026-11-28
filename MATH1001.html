@@ -1007,42 +1007,140 @@
                 <span class="px-3 py-1.5 rounded-xl bg-teal-100 text-teal-900 text-xl md:text-2xl font-extrabold tracking-tight">§ 1.3</span>
                 <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight">VECTOR EQUATIONS (向量方程)</h3>
             </div>
-            <span class="text-xs text-slate-500 font-mono">Slides 1–32 (Ch-1-3_2.pdf)</span>
+            <span class="text-xs text-slate-500 font-mono">Slides 1–32 (Ch-1-3_3.pdf)</span>
         </div>
 
-        <!-- 1. Vectors in R^2, R^3, R^n & Algebraic Properties -->
+        <!-- 1. Vectors in R^2 -->
         <div class="space-y-3">
             <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
                 <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
-                1. Vectors in $\mathbb{R}^2$, $\mathbb{R}^3$, $\mathbb{R}^n$ &amp; Algebraic Properties ($\mathbb{R}^2$、$\mathbb{R}^3$、$\mathbb{R}^n$ 向量與代數性質)
+                1. Vectors in $\mathbb{R}^2$ ($\mathbb{R}^2$ 中的向量)
             </h4>
             <p class="text-sm text-slate-700 leading-relaxed">
-                Important properties of linear systems can be described with the concept and notation of <strong>vectors（向量）</strong>. Until Chapter 4, a vector means an ordered list of numbers. A matrix with only one column is called a <strong>column vector（行向量／列向量）</strong>, or simply a vector.
+                Important properties of linear systems can be described with the concept and notation of <strong>vectors（向量）</strong>. This section connects equations involving vectors to ordinary systems of equations. The term vector appears in a variety of mathematical and physical contexts, which we will discuss in Chapter 4, "Vector Spaces." Until then, vector will mean an <strong>ordered list of numbers（有序數列）</strong>. This simple idea enables us to get to interesting and important applications as quickly as possible.
+            </p>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                A matrix with only one column is called a <strong>column vector（行向量／列向量）</strong>, or simply a vector. Examples of vectors with two entries are
+                $$\mathbf{u} = \begin{bmatrix} 3 \\ -1 \end{bmatrix}, \quad \mathbf{v} = \begin{bmatrix} .2 \\ .3 \end{bmatrix}, \quad \mathbf{w} = \begin{bmatrix} w_1 \\ w_2 \end{bmatrix}$$
+                where $w_1$ and $w_2$ are any real numbers. The set of all vectors with two entries is denoted by <strong>$\mathbb{R}^2$</strong> (read "r-two"). The $\mathbb{R}$ stands for the <strong>real numbers（實數）</strong> that appear as entries in the vectors, and the exponent $2$ indicates that each vector contains two entries.
+            </p>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                Two vectors in $\mathbb{R}^2$ are <strong>equal（相等）</strong> if and only if their corresponding entries are equal. Thus $\begin{bmatrix} 4 \\ 7 \end{bmatrix}$ and $\begin{bmatrix} 7 \\ 4 \end{bmatrix}$ are not equal, because vectors in $\mathbb{R}^2$ are <strong>ordered pairs（有序數對）</strong> of real numbers.
+            </p>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                Given two vectors $\mathbf{u}$ and $\mathbf{v}$ in $\mathbb{R}^2$, their <strong>sum（和）</strong> is the vector $\mathbf{u} + \mathbf{v}$ obtained by adding corresponding entries of $\mathbf{u}$ and $\mathbf{v}$. For example,
+                $$\begin{bmatrix} 1 \\ -2 \end{bmatrix} + \begin{bmatrix} 2 \\ 5 \end{bmatrix} = \begin{bmatrix} 1+2 \\ -2+5 \end{bmatrix} = \begin{bmatrix} 3 \\ 3 \end{bmatrix}$$
+                Given a vector $\mathbf{u}$ and a real number $c$, the <strong>scalar multiple（純量倍數）</strong> of $\mathbf{u}$ by $c$ is the vector $c\mathbf{u}$ obtained by multiplying each entry in $\mathbf{u}$ by $c$. For instance, if $\mathbf{u} = \begin{bmatrix} 3 \\ -1 \end{bmatrix}$ and $c = 5$, then
+                $$c\mathbf{u} = 5\begin{bmatrix} 3 \\ -1 \end{bmatrix} = \begin{bmatrix} 15 \\ -5 \end{bmatrix}$$
+                The number $c$ in $c\mathbf{u}$ is called a <strong>scalar（純量）</strong>; it is written in lightface type to distinguish it from the boldface vector $\mathbf{u}$.
             </p>
 
-            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-3 text-sm text-slate-800 leading-relaxed">
-                <div class="font-bold text-teal-950 text-base">VECTORS IN $\mathbb{R}^2$, $\mathbb{R}^3$, AND $\mathbb{R}^n$（$\mathbb{R}^2$、$\mathbb{R}^3$ 與 $\mathbb{R}^n$ 中的向量）</div>
-                <ul class="list-disc pl-6 space-y-1.5">
-                    <li><strong>$\mathbb{R}^2$（二維實數向量空間）:</strong> The set of all vectors with two entries, such as $\mathbf{u} = \begin{bmatrix} 3 \\ -1 \end{bmatrix}$, $\mathbf{v} = \begin{bmatrix} .2 \\ .3 \end{bmatrix}$, $\mathbf{w} = \begin{bmatrix} w_1 \\ w_2 \end{bmatrix}$. Two vectors in $\mathbb{R}^2$ are equal if and only if their corresponding entries are equal (ordered pairs).</li>
-                    <li><strong>Notation note（記號區分）:</strong> A column vector $\begin{bmatrix} 3 \\ -1 \end{bmatrix}$ may be written as $(3, -1)$ to save space, which differs from the $1 \times 2$ row matrix $\begin{bmatrix} 3 & -1 \end{bmatrix}$ because of different shapes.</li>
-                    <li><strong>$\mathbb{R}^3$（三維實數向量空間）:</strong> $3 \times 1$ column matrices with three entries, represented geometrically by points in 3D coordinate space, such as $\mathbf{a} = \begin{bmatrix} 2 \\ 3 \\ 4 \end{bmatrix}$.</li>
-                    <li><strong>$\mathbb{R}^n$（$n$ 維實數向量空間）:</strong> For a positive integer $n$, $\mathbb{R}^n$ denotes all ordered $n$-tuples of real numbers written as $n \times 1$ column matrices:
-                        $$\mathbf{u} = \begin{bmatrix} u_1 \\ u_2 \\ \vdots \\ u_n \end{bmatrix}$$
-                        The <strong>zero vector（零向量）</strong> $\mathbf{0}$ has all entries equal to zero.</li>
-                </ul>
+            <!-- Collapsible EXAMPLE 1 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-3-1')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 1（範例 1：純量乘法與向量加法的組合計算）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-3-1" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2 bg-white leading-relaxed">
+                    <p>The operations of <strong>scalar multiplication（純量乘法）</strong> and <strong>vector addition（向量加法）</strong> can be combined, as in the following example.</p>
+                    <p><strong>EXAMPLE 1</strong> Given $\mathbf{u} = \begin{bmatrix} 1 \\ -2 \end{bmatrix}$ and $\mathbf{v} = \begin{bmatrix} 2 \\ -5 \end{bmatrix}$, find $4\mathbf{u}$, $(-3)\mathbf{v}$ and $4\mathbf{u} + (-3)\mathbf{v}$.</p>
+                    <p><strong>SOLUTION:</strong></p>
+                    <p>$$4\mathbf{u} = \begin{bmatrix} 4 \\ -8 \end{bmatrix}, \quad (-3)\mathbf{v} = \begin{bmatrix} -6 \\ 15 \end{bmatrix}, \quad 4\mathbf{u} + (-3)\mathbf{v} = \begin{bmatrix} 4 \\ -8 \end{bmatrix} + \begin{bmatrix} -6 \\ 15 \end{bmatrix} = \begin{bmatrix} -2 \\ 7 \end{bmatrix}$$</p>
+                </div>
             </div>
 
-            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-3 text-sm text-slate-800 leading-relaxed">
-                <div class="font-bold text-teal-950 text-base">VECTOR ADDITION, SCALAR MULTIPLICATION &amp; ALGEBRAIC PROPERTIES（向量加法、純量乘法與代數性質）</div>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                Sometimes, for convenience (and also to save space), this text may write a column vector such as $\begin{bmatrix} 3 \\ -1 \end{bmatrix}$ in the form $(3, -1)$. In this case, the parentheses and the comma distinguish the vector $(3, -1)$ from the $1 \times 2$ <strong>row matrix（列矩陣／橫矩陣）</strong> $\begin{bmatrix} 3 & -1 \end{bmatrix}$, written with brackets and no comma. Thus
+                $$\begin{bmatrix} 3 \\ -1 \end{bmatrix} \neq \begin{bmatrix} 3 & -1 \end{bmatrix}$$
+                because the matrices have different <strong>shapes（形狀／維度）</strong>, even though they have the same entries.
+            </p>
+        </div>
+
+        <!-- 2. Geometric Descriptions of R^2 -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                2. Geometric Descriptions of $\mathbb{R}^2$ ($\mathbb{R}^2$ 的幾何描述)
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                Consider a <strong>rectangular coordinate system（直角坐標系）</strong> in the plane. Because each point in the plane is determined by an ordered pair of numbers, we can identify a geometric point $(a, b)$ with the column vector $\begin{bmatrix} a \\ b \end{bmatrix}$. So we may regard $\mathbb{R}^2$ as the set of all points in the plane. See Figure 1.
+            </p>
+            <img src="png/MATH1001_img/ch1-3-fig1-vectors-as-points.png" alt="FIGURE 1 Vectors as points" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+
+            <p class="text-sm text-slate-700 leading-relaxed">
+                The geometric visualization of a vector such as $\begin{bmatrix} 3 \\ -1 \end{bmatrix}$ is often aided by including an <strong>arrow (directed line segment)（箭頭／有向線段）</strong> from the <strong>origin（原點）</strong> $(0, 0)$ to the point $(3, -1)$, as in Figure 2. In this case, the individual points along the arrow itself have no special significance.
+            </p>
+            <img src="png/MATH1001_img/ch1-3-fig2-vectors-with-arrows.png" alt="FIGURE 2 Vectors with arrows" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2 text-sm text-slate-800 leading-relaxed">
+                <div class="font-bold text-teal-950 text-base">PARALLELOGRAM RULE FOR ADDITION（加法平行四邊形法則）</div>
                 <p>
-                    Given vectors $\mathbf{u}, \mathbf{v} \in \mathbb{R}^n$ and a real number (<strong>scalar 純量</strong>) $c$, <strong>vector addition（向量加法）</strong> adds corresponding entries ($\mathbf{u} + \mathbf{v}$), and <strong>scalar multiplication（純量乘法）</strong> multiplies each entry of $\mathbf{u}$ by $c$ ($c\mathbf{u}$). Vector subtraction is written $\mathbf{u} - \mathbf{v} = \mathbf{u} + (-1)\mathbf{v}$.
+                    The sum of two vectors has a useful geometric representation. The following rule can be verified by <strong>analytic geometry（解析幾何）</strong>.
                 </p>
-                <p class="font-semibold text-teal-950">Algebraic Properties of $\mathbb{R}^n$（$\mathbb{R}^n$ 的八條代數性質）— For all $\mathbf{u}, \mathbf{v}, \mathbf{w} \in \mathbb{R}^n$ and scalars $c, d$:</p>
+                <p>
+                    If $\mathbf{u}$ and $\mathbf{v}$ in $\mathbb{R}^2$ are represented as points in the plane, then $\mathbf{u} + \mathbf{v}$ corresponds to the fourth vertex of the <strong>parallelogram（平行四邊形）</strong> whose other vertices are $\mathbf{u}$, $\mathbf{0}$, and $\mathbf{v}$. See Figure 3.
+                </p>
+            </div>
+            <img src="png/MATH1001_img/ch1-3-fig3-parallelogram-rule.png" alt="FIGURE 3 The parallelogram rule" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+
+            <!-- Collapsible EXAMPLE 2 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-3-2')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 2（範例 2：平面向量加法與平行四邊形第四頂點）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-3-2" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 2</strong> The vectors $\mathbf{u} = \begin{bmatrix} 2 \\ 2 \end{bmatrix}$ and $\mathbf{v} = \begin{bmatrix} -6 \\ 1 \end{bmatrix}$ are displayed in Figure 4.</p>
+                    <p><strong>SOLUTION (完成推導):</strong> By adding corresponding entries,
+                        $$\mathbf{u} + \mathbf{v} = \begin{bmatrix} 2 \\ 2 \end{bmatrix} + \begin{bmatrix} -6 \\ 1 \end{bmatrix} = \begin{bmatrix} 2 + (-6) \\ 2 + 1 \end{bmatrix} = \begin{bmatrix} -4 \\ 3 \end{bmatrix}$$
+                        In Figure 4, $(-4, 3)$ is the fourth vertex of the parallelogram determined by $(0, 0)$, $(2, 2)$, and $(-6, 1)$.
+                    </p>
+                    <img src="png/MATH1001_img/ch1-3-fig4-example2.png" alt="FIGURE 4 Example 2 parallelogram" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+                </div>
+            </div>
+
+            <!-- Collapsible EXAMPLE 3 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-3-3')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 3（範例 3：向量 $\mathbf{u}$ 的純量倍數與過原點直線）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-3-3" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 3</strong> Let $\mathbf{u} = \begin{bmatrix} 3 \\ -1 \end{bmatrix}$. Display the vectors $\mathbf{u}$, $2\mathbf{u}$, and $-\frac{2}{3}\mathbf{u}$ on a graph.</p>
+                    <p><strong>SOLUTION:</strong> See Figure 5, where $\mathbf{u}$, $2\mathbf{u} = \begin{bmatrix} 6 \\ -2 \end{bmatrix}$, and $-\frac{2}{3}\mathbf{u} = \begin{bmatrix} -2 \\ 2/3 \end{bmatrix}$ are displayed. The arrow for $2\mathbf{u}$ is twice as long as the arrow for $\mathbf{u}$, and the arrows point in the same direction. The arrow for $-\frac{2}{3}\mathbf{u}$ is two-thirds the length of the arrow for $\mathbf{u}$, and the arrows point in opposite directions. In general, the length of the arrow for $c\mathbf{u}$ is $|c|$ times the length of the arrow for $\mathbf{u}$. [Recall that the length of the line segment from $(0, 0)$ to $(a, b)$ is $\sqrt{a^2 + b^2}$. We shall discuss this further in Chapter 6.]</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center justify-items-center my-2">
+                        <img src="png/MATH1001_img/ch1-3-fig5a-typical-multiples.png" alt="FIGURE 5 Typical multiples of u" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+                        <img src="png/MATH1001_img/ch1-3-fig5b-set-of-multiples.png" alt="FIGURE 5 The set of all multiples of u" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Vectors in R^3, Vectors in R^n & Algebraic Properties -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                3. Vectors in $\mathbb{R}^3$, Vectors in $\mathbb{R}^n$ &amp; Algebraic Properties ($\mathbb{R}^3$、$\mathbb{R}^n$ 向量與代數性質)
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                <strong>Vectors in $\mathbb{R}^3$（$\mathbb{R}^3$ 中的向量）</strong> — Vectors in $\mathbb{R}^3$ are $3 \times 1$ column matrices with three entries. They are represented geometrically by points in a <strong>three-dimensional coordinate space（三維坐標空間）</strong>, with arrows from the origin sometimes included for visual clarity. The vectors $\mathbf{a} = \begin{bmatrix} 2 \\ 3 \\ 4 \end{bmatrix}$ and $2\mathbf{a}$ are displayed in Figure 6.
+            </p>
+            <img src="png/MATH1001_img/ch1-3-fig6-scalar-multiples-r3.png" alt="FIGURE 6 Scalar multiples in R3" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+
+            <p class="text-sm text-slate-700 leading-relaxed">
+                <strong>Vectors in $\mathbb{R}^n$（$\mathbb{R}^n$ 中的向量）</strong> — If $n$ is a positive integer, <strong>$\mathbb{R}^n$</strong> (read "r-n") denotes the collection of all lists (or <strong>ordered $n$-tuples 有序 $n$ 元組</strong>) of $n$ real numbers, usually written as $n \times 1$ column matrices, such as
+                $$\mathbf{u} = \begin{bmatrix} u_1 \\ u_2 \\ \vdots \\ u_n \end{bmatrix}$$
+                The vector whose entries are all zero is called the <strong>zero vector（零向量）</strong> and is denoted by $\mathbf{0}$. (The number of entries in $\mathbf{0}$ will be clear from the context.)
+            </p>
+
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2.5 text-sm text-slate-800 leading-relaxed">
+                <div class="font-bold text-teal-950 text-base">ALGEBRAIC PROPERTIES OF $\mathbb{R}^n$（$\mathbb{R}^n$ 的代數性質）</div>
+                <p>For all $\mathbf{u}, \mathbf{v}, \mathbf{w}$ in $\mathbb{R}^n$ and all scalars $c$ and $d$:</p>
                 <ol class="list-decimal pl-6 space-y-1">
                     <li>$\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}$</li>
                     <li>$(\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w})$</li>
                     <li>$\mathbf{u} + \mathbf{0} = \mathbf{0} + \mathbf{u} = \mathbf{u}$</li>
-                    <li>$\mathbf{u} + (-\mathbf{u}) = -\mathbf{u} + \mathbf{u} = \mathbf{0}$, where $-\mathbf{u} = (-1)\mathbf{u}$</li>
+                    <li>$\mathbf{u} + (-\mathbf{u}) = -\mathbf{u} + \mathbf{u} = \mathbf{0}$, where $-\mathbf{u}$ denotes $(-1)\mathbf{u}$</li>
                     <li>$c(\mathbf{u} + \mathbf{v}) = c\mathbf{u} + c\mathbf{v}$</li>
                     <li>$(c + d)\mathbf{u} = c\mathbf{u} + d\mathbf{u}$</li>
                     <li>$c(d\mathbf{u}) = (cd)\mathbf{u}$</li>
@@ -1050,138 +1148,134 @@
                 </ol>
             </div>
 
-            <!-- Collapsible EXAMPLE 1 -->
-            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
-                <button onclick="toggleCard('ex1-3-1')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
-                    <span>EXAMPLE 1（範例 1：計算 $4\mathbf{u}$、$(-3)\mathbf{v}$ 與 $4\mathbf{u} + (-3)\mathbf{v}$）</span>
-                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
-                </button>
-                <div id="ex1-3-1" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2 bg-white leading-relaxed">
-                    <p><strong>EXAMPLE 1</strong> Given $\mathbf{u} = \begin{bmatrix} 1 \\ -2 \end{bmatrix}$ and $\mathbf{v} = \begin{bmatrix} 2 \\ -5 \end{bmatrix}$, find $4\mathbf{u}$, $(-3)\mathbf{v}$, and $4\mathbf{u} + (-3)\mathbf{v}$.</p>
-                    <p><strong>SOLUTION:</strong></p>
-                    <p>$$4\mathbf{u} = \begin{bmatrix} 4 \\ -8 \end{bmatrix}, \quad (-3)\mathbf{v} = \begin{bmatrix} -6 \\ 15 \end{bmatrix}, \quad 4\mathbf{u} + (-3)\mathbf{v} = \begin{bmatrix} 4 \\ -8 \end{bmatrix} + \begin{bmatrix} -6 \\ 15 \end{bmatrix} = \begin{bmatrix} -2 \\ 7 \end{bmatrix}$$</p>
-                </div>
-            </div>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                For simplicity of notation, a vector such as $\mathbf{u} + (-1)\mathbf{v}$ is often written as $\mathbf{u} - \mathbf{v}$. Figure 7 shows $\mathbf{u} - \mathbf{v}$ as the sum of $\mathbf{u}$ and $-\mathbf{v}$.
+            </p>
+            <img src="png/MATH1001_img/ch1-3-fig7-vector-subtraction.png" alt="FIGURE 7 Vector subtraction" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
         </div>
 
-        <!-- 2. Geometric Descriptions & Parallelogram Rule -->
+        <!-- 4. Linear Combinations & Vector Equations -->
         <div class="space-y-3">
             <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
                 <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
-                2. Geometric Descriptions &amp; Parallelogram Rule (幾何描述與平行四邊形法則)
+                4. Linear Combinations &amp; Vector Equations (線性組合與向量方程)
             </h4>
             <p class="text-sm text-slate-700 leading-relaxed">
-                In $\mathbb{R}^2$, a point $(a, b)$ corresponds to the column vector $\begin{bmatrix} a \\ b \end{bmatrix}$ (either as a point or as an arrow from the origin $(0, 0)$ to $(a, b)$). In general, the length of the arrow for $c\mathbf{u}$ is $|c|$ times the length of the arrow for $\mathbf{u}$ (where the length from $(0,0)$ to $(a,b)$ is $\sqrt{a^2+b^2}$).
+                <strong>Linear Combinations（線性組合）</strong> — Given vectors $\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_p$ in $\mathbb{R}^n$ and given scalars $c_1, c_2, \dots, c_p$, the vector $\mathbf{y}$ defined by
+                $$\mathbf{y} = c_1\mathbf{v}_1 + \cdots + c_p\mathbf{v}_p$$
+                is called a <strong>linear combination（線性組合）</strong> of $\mathbf{v}_1, \dots, \mathbf{v}_p$ with <strong>weights（權重）</strong> $c_1, \dots, c_p$. Property (ii) above permits us to omit parentheses when forming such a linear combination. The weights in a linear combination can be any real numbers, including zero. For example, some linear combinations of vectors $\mathbf{v}_1$ and $\mathbf{v}_2$ are
+                $$\sqrt{3}\mathbf{v}_1 + \mathbf{v}_2, \quad \frac{1}{2}\mathbf{v}_1 \left( = \frac{1}{2}\mathbf{v}_1 + 0\mathbf{v}_2 \right), \quad \text{and} \quad \mathbf{0} \left( = 0\mathbf{v}_1 + 0\mathbf{v}_2 \right)$$
             </p>
-
-            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2 text-sm text-slate-800 leading-relaxed">
-                <div class="font-bold text-teal-950 text-base">PARALLELOGRAM RULE FOR ADDITION（向量加法平行四邊形法則）</div>
-                <p>
-                    If $\mathbf{u}$ and $\mathbf{v}$ in $\mathbb{R}^2$ are represented as points in the plane, then $\mathbf{u} + \mathbf{v}$ corresponds to the fourth vertex of the parallelogram whose other vertices are $\mathbf{u}$, $\mathbf{0}$, and $\mathbf{v}$.
-                </p>
-            </div>
-
-            <!-- Collapsible EXAMPLE 2 & EXAMPLE 3 -->
-            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
-                <button onclick="toggleCard('ex1-3-2')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
-                    <span>EXAMPLE 2 &amp; EXAMPLE 3（範例 2–3：平行四邊形加法與純量倍數方向／長度）</span>
-                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
-                </button>
-                <div id="ex1-3-2" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
-                    <p><strong>EXAMPLE 2</strong> For $\mathbf{u} = \begin{bmatrix} 2 \\ 2 \end{bmatrix}$ and $\mathbf{v} = \begin{bmatrix} -6 \\ 1 \end{bmatrix}$, their sum is $\mathbf{u} + \mathbf{v} = \begin{bmatrix} -4 \\ 3 \end{bmatrix}$, forming the fourth vertex of the parallelogram with $\mathbf{0}$, $\mathbf{u}$, and $\mathbf{v}$.</p>
-                    <p><strong>EXAMPLE 3</strong> Let $\mathbf{u} = \begin{bmatrix} 3 \\ -1 \end{bmatrix}$. Then $2\mathbf{u} = \begin{bmatrix} 6 \\ -2 \end{bmatrix}$ (twice as long, same direction) and $-\frac{2}{3}\mathbf{u} = \begin{bmatrix} -2 \\ 2/3 \end{bmatrix}$ (two-thirds the length, opposite direction). All scalar multiples $c\mathbf{u}$ lie on the line through $\mathbf{0}$ and $\mathbf{u}$.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 3. Linear Combinations & Vector Equations -->
-        <div class="space-y-3">
-            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
-                3. Linear Combinations &amp; Vector Equations (線性組合與向量方程)
-            </h4>
-
-            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2.5 text-sm text-slate-800 leading-relaxed">
-                <div class="font-bold text-teal-950 text-base">LINEAR COMBINATION（線性組合）</div>
-                <p>
-                    Given vectors $\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_p$ in $\mathbb{R}^n$ and scalars $c_1, c_2, \dots, c_p$, the vector $\mathbf{y}$ defined by
-                    $$\mathbf{y} = c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \cdots + c_p\mathbf{v}_p$$
-                    is called a <strong>linear combination（線性組合）</strong> of $\mathbf{v}_1, \dots, \mathbf{v}_p$ with <strong>weights（權重）</strong> $c_1, \dots, c_p$. Weights can be any real numbers, including zero.
-                </p>
-            </div>
-
-            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2.5 text-sm text-slate-800 leading-relaxed">
-                <div class="font-bold text-teal-950 text-base">EQUIVALENCE OF VECTOR EQUATION &amp; AUGMENTED MATRIX SYSTEM（向量方程與增廣矩陣方程組的等價性）</div>
-                <p>
-                    A vector equation
-                    $$x_1\mathbf{a}_1 + x_2\mathbf{a}_2 + \cdots + x_n\mathbf{a}_n = \mathbf{b}$$
-                    has the same solution set as the linear system whose augmented matrix is
-                    $$\begin{bmatrix} \mathbf{a}_1 & \mathbf{a}_2 & \cdots & \mathbf{a}_n & \mathbf{b} \end{bmatrix}$$
-                    In particular, $\mathbf{b}$ can be generated by a linear combination of $\mathbf{a}_1, \dots, \mathbf{a}_n$ if and only if this linear system has a solution.
-                </p>
-            </div>
 
             <!-- Collapsible EXAMPLE 4 -->
             <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
                 <button onclick="toggleCard('ex1-3-4')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
-                    <span>EXAMPLE 4（範例 4：以網格線與平行四邊形估計向量 $\mathbf{u}$ 與 $\mathbf{w}$ 的線性組合）</span>
+                    <span>EXAMPLE 4（範例 4：估計 $\mathbf{v}_1, \mathbf{v}_2$ 生成 $\mathbf{u}$ 與 $\mathbf{w}$ 的線性組合）</span>
                     <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
                 </button>
-                <div id="ex1-3-4" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2 bg-white leading-relaxed">
-                    <p><strong>EXAMPLE 4</strong> For $\mathbf{v}_1 = \begin{bmatrix} -1 \\ 1 \end{bmatrix}$ and $\mathbf{v}_2 = \begin{bmatrix} 2 \\ 1 \end{bmatrix}$ on the grid of integer multiples, $\mathbf{u}$ lies at the vertex of $3\mathbf{v}_1$ and $-2\mathbf{v}_2$, so $\mathbf{u} = 3\mathbf{v}_1 - 2\mathbf{v}_2$. The vector $\mathbf{w}$ is near the parallelogram formed by $\frac{5}{2}\mathbf{v}_1$ and $-\frac{1}{2}\mathbf{v}_2$, giving the estimate $\mathbf{w} = \frac{5}{2}\mathbf{v}_1 - \frac{1}{2}\mathbf{v}_2$.</p>
+                <div id="ex1-3-4" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 4</strong> Figure 8 identifies selected linear combinations of $\mathbf{v}_1 = \begin{bmatrix} -1 \\ 1 \end{bmatrix}$ and $\mathbf{v}_2 = \begin{bmatrix} 2 \\ 1 \end{bmatrix}$. (Note that sets of parallel grid lines are drawn through integer multiples of $\mathbf{v}_1$ and $\mathbf{v}_2$.) Estimate the linear combinations of $\mathbf{v}_1$ and $\mathbf{v}_2$ that generate the vectors $\mathbf{u}$ and $\mathbf{w}$.</p>
+                    <img src="png/MATH1001_img/ch1-3-fig8-linear-combinations.png" alt="FIGURE 8 Linear combinations of v1 and v2" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+                    <p><strong>SOLUTION:</strong> The parallelogram rule shows that $\mathbf{u}$ is the sum of $3\mathbf{v}_1$ and $-2\mathbf{v}_2$; that is,
+                        $$\mathbf{u} = 3\mathbf{v}_1 - 2\mathbf{v}_2$$
+                        This expression for $\mathbf{u}$ can be interpreted as instructions for traveling from the origin to $\mathbf{u}$ along two straight paths. First, travel $3$ units in the $\mathbf{v}_1$ direction to $3\mathbf{v}_1$, and then travel $-2$ units in the $\mathbf{v}_2$ direction (parallel to the line through $\mathbf{v}_2$ and $\mathbf{0}$). Next, although the vector $\mathbf{w}$ is not on a grid line, $\mathbf{w}$ appears to be about halfway between two pairs of grid lines, at the vertex of a parallelogram determined by $(5/2)\mathbf{v}_1$ and $(-1/2)\mathbf{v}_2$. (See Figure 9.) Thus a reasonable estimate for $\mathbf{w}$ is
+                        $$\mathbf{w} = \frac{5}{2}\mathbf{v}_1 - \frac{1}{2}\mathbf{v}_2$$
+                    </p>
+                    <img src="png/MATH1001_img/ch1-3-fig9-estimate-w.png" alt="FIGURE 9 Estimate for w" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
                 </div>
             </div>
 
             <!-- Collapsible EXAMPLE 5 -->
             <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
                 <button onclick="toggleCard('ex1-3-5')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
-                    <span>EXAMPLE 5（範例 5：判斷 $\mathbf{b}$ 是否為 $\mathbf{a}_1, \mathbf{a}_2$ 的線性組合並求權重 $x_1=3, x_2=2$）</span>
+                    <span>EXAMPLE 5（範例 5：判斷 $\mathbf{b}$ 能否寫成 $\mathbf{a}_1, \mathbf{a}_2$ 的線性組合並求解）</span>
                     <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
                 </button>
                 <div id="ex1-3-5" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
-                    <p><strong>EXAMPLE 5</strong> Let $\mathbf{a}_1 = \begin{bmatrix} 1 \\ -2 \\ -5 \end{bmatrix}$, $\mathbf{a}_2 = \begin{bmatrix} 2 \\ 5 \\ 6 \end{bmatrix}$, and $\mathbf{b} = \begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix}$. Determine whether $x_1\mathbf{a}_1 + x_2\mathbf{a}_2 = \mathbf{b}$ has a solution.</p>
-                    <p><strong>SOLUTION:</strong> Rewriting as a linear system gives $x_1 + 2x_2 = 7$, $-2x_1 + 5x_2 = 4$, $-5x_1 + 6x_2 = -3$. Row reducing the augmented matrix $\begin{bmatrix} \mathbf{a}_1 & \mathbf{a}_2 & \mathbf{b} \end{bmatrix}$:</p>
-                    <p>$$\begin{bmatrix} 1 & 2 & 7 \\ -2 & 5 & 4 \\ -5 & 6 & -3 \end{bmatrix} \sim \begin{bmatrix} 1 & 2 & 7 \\ 0 & 9 & 18 \\ 0 & 16 & 32 \end{bmatrix} \sim \begin{bmatrix} 1 & 2 & 7 \\ 0 & 1 & 2 \\ 0 & 16 & 32 \end{bmatrix} \sim \begin{bmatrix} 1 & 0 & 3 \\ 0 & 1 & 2 \\ 0 & 0 & 0 \end{bmatrix}$$</p>
-                    <p>Thus $x_1 = 3$ and $x_2 = 2$, so $\mathbf{b} = 3\mathbf{a}_1 + 2\mathbf{a}_2$.</p>
+                    <p><strong>EXAMPLE 5</strong> Let $\mathbf{a}_1 = \begin{bmatrix} 1 \\ -2 \\ -5 \end{bmatrix}$, $\mathbf{a}_2 = \begin{bmatrix} 2 \\ 5 \\ 6 \end{bmatrix}$, and $\mathbf{b} = \begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix}$. Determine whether $\mathbf{b}$ can be generated (or written) as a linear combination of $\mathbf{a}_1$ and $\mathbf{a}_2$. That is, determine whether weights $x_1$ and $x_2$ exist such that
+                        $$x_1\mathbf{a}_1 + x_2\mathbf{a}_2 = \mathbf{b}$$
+                        If this vector equation has a solution, find it.
+                    </p>
+                    <p><strong>SOLUTION:</strong> Use the definitions of scalar multiplication and vector addition to rewrite the vector equation
+                        $$x_1\begin{bmatrix} 1 \\ -2 \\ -5 \end{bmatrix} + x_2\begin{bmatrix} 2 \\ 5 \\ 6 \end{bmatrix} = \begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix}$$
+                        which is the same as
+                        $$\begin{bmatrix} x_1 \\ -2x_1 \\ -5x_1 \end{bmatrix} + \begin{bmatrix} 2x_2 \\ 5x_2 \\ 6x_2 \end{bmatrix} = \begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix}$$
+                        and
+                        $$\begin{bmatrix} x_1 + 2x_2 \\ -2x_1 + 5x_2 \\ -5x_1 + 6x_2 \end{bmatrix} = \begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix}$$
+                        The vectors on the left and right sides are equal if and only if their corresponding entries are both equal. That is, $x_1$ and $x_2$ make the vector equation true if and only if $x_1$ and $x_2$ satisfy the system
+                        $$\begin{cases} x_1 + 2x_2 = 7 \\ -2x_1 + 5x_2 = 4 \\ -5x_1 + 6x_2 = -3 \end{cases}$$
+                        To solve this system, row reduce the <strong>augmented matrix（增廣矩陣）</strong> of the system as follows:
+                        $$\begin{bmatrix} 1 & 2 & 7 \\ -2 & 5 & 4 \\ -5 & 6 & -3 \end{bmatrix} \sim \begin{bmatrix} 1 & 2 & 7 \\ 0 & 9 & 18 \\ 0 & 16 & 32 \end{bmatrix} \sim \begin{bmatrix} 1 & 2 & 7 \\ 0 & 1 & 2 \\ 0 & 16 & 32 \end{bmatrix} \sim \begin{bmatrix} 1 & 0 & 3 \\ 0 & 1 & 2 \\ 0 & 0 & 0 \end{bmatrix}$$
+                        The solution of the system is $x_1 = 3$ and $x_2 = 2$. Hence $\mathbf{b}$ is a linear combination of $\mathbf{a}_1$ and $\mathbf{a}_2$, with weights $x_1 = 3$ and $x_2 = 2$. That is,
+                        $$3\begin{bmatrix} 1 \\ -2 \\ -5 \end{bmatrix} + 2\begin{bmatrix} 2 \\ 5 \\ 6 \end{bmatrix} = \begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix}$$
+                    </p>
                 </div>
             </div>
+
+            <p class="text-sm text-slate-700 leading-relaxed">
+                Observe in Example 5 that the original vectors $\mathbf{a}_1$, $\mathbf{a}_2$, and $\mathbf{b}$ are the columns of the augmented matrix that we row reduced:
+                $$\begin{bmatrix} 1 & 2 & 7 \\ -2 & 5 & 4 \\ -5 & 6 & -3 \end{bmatrix}$$
+                For brevity, write this matrix in a way that identifies its columns—namely,
+                $$\begin{bmatrix} \mathbf{a}_1 & \mathbf{a}_2 & \mathbf{b} \end{bmatrix}$$
+                It is clear how to write this augmented matrix immediately from the vector equation, without going through the intermediate steps of Example 5. Take the vectors in the order in which they appear in the equation and put them into the columns of a matrix.
+            </p>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                A <strong>vector equation（向量方程）</strong>
+                $$x_1\mathbf{a}_1 + x_2\mathbf{a}_2 + \cdots + x_n\mathbf{a}_n = \mathbf{b}$$
+                has the same <strong>solution set（解集合）</strong> as the linear system whose augmented matrix is
+                $$\begin{bmatrix} \mathbf{a}_1 & \mathbf{a}_2 & \cdots & \mathbf{a}_n & \mathbf{b} \end{bmatrix}$$
+                In particular, $\mathbf{b}$ can be generated by a linear combination of $\mathbf{a}_1, \dots, \mathbf{a}_n$ if and only if there exists a solution to the linear system corresponding to this augmented matrix.
+            </p>
         </div>
 
-        <!-- 4. Span{v_1, ..., v_p} & Geometric Interpretation -->
+        <!-- 5. Span{v_1, ..., v_p} & Geometric Description -->
         <div class="space-y-3">
             <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
                 <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
-                4. Spanning Set $\operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$ &amp; Geometric Description (生成集合與幾何意義)
+                5. $\operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$ &amp; Geometric Description (生成集與幾何描述)
             </h4>
 
             <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2.5 text-sm text-slate-800 leading-relaxed">
                 <div class="font-bold text-teal-950 text-base">DEFINITION OF $\operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$（生成集合的定義）</div>
                 <p>
-                    If $\mathbf{v}_1, \dots, \mathbf{v}_p$ are in $\mathbb{R}^n$, then the set of all linear combinations of $\mathbf{v}_1, \dots, \mathbf{v}_p$ is denoted by $\operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$ and is called the subset of $\mathbb{R}^n$ <strong>spanned（生成）</strong> (or generated) by $\mathbf{v}_1, \dots, \mathbf{v}_p$:
-                    $$\operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\} = \left\{ c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \cdots + c_p\mathbf{v}_p : c_1, c_2, \dots, c_p \in \mathbb{R} \right\}$$
-                    Asking whether $\mathbf{b} \in \operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$ is equivalent to asking whether $x_1\mathbf{v}_1 + \cdots + x_p\mathbf{v}_p = \mathbf{b}$ has a solution (or whether $\begin{bmatrix} \mathbf{v}_1 & \cdots & \mathbf{v}_p & \mathbf{b} \end{bmatrix}$ corresponds to a consistent system). Note that $\mathbf{0}$ is always in $\operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$.
+                    If $\mathbf{v}_1, \dots, \mathbf{v}_p$ are in $\mathbb{R}^n$, then the set of all linear combinations of $\mathbf{v}_1, \dots, \mathbf{v}_p$ is denoted by <strong>$\operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$</strong> and is called the subset of $\mathbb{R}^n$ <strong>spanned（生成）</strong> (or generated) by $\mathbf{v}_1, \dots, \mathbf{v}_p$. That is, $\operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$ is the collection of all vectors that can be written in the form
+                    $$c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \cdots + c_p\mathbf{v}_p$$
+                    with $c_1, \dots, c_p$ scalars.
                 </p>
             </div>
 
+            <p class="text-sm text-slate-700 leading-relaxed">
+                Asking whether a vector $\mathbf{b}$ is in $\operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$ amounts to asking whether the vector equation
+                $$x_1\mathbf{v}_1 + x_2\mathbf{v}_2 + \cdots + x_p\mathbf{v}_p = \mathbf{b}$$
+                has a solution, or, equivalently, asking whether the linear system with augmented matrix $\begin{bmatrix} \mathbf{v}_1 & \cdots & \mathbf{v}_p & \mathbf{b} \end{bmatrix}$ has a solution. Note that $\operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$ contains every scalar multiple of $\mathbf{v}_1$ (for example), since $c\mathbf{v}_1 = c\mathbf{v}_1 + 0\mathbf{v}_2 + \cdots + 0\mathbf{v}_p$. In particular, the <strong>zero vector（零向量）</strong> $\mathbf{0}$ must be in $\operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$.
+            </p>
+
             <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2 text-sm text-slate-800 leading-relaxed">
-                <div class="font-bold text-teal-950 text-base">GEOMETRIC DESCRIPTION OF $\operatorname{Span}\{\mathbf{v}\}$ AND $\operatorname{Span}\{\mathbf{u}, \mathbf{v}\}$（生成直線與生成平面的幾何描述）</div>
-                <ul class="list-disc pl-6 space-y-1.5">
-                    <li><strong>$\operatorname{Span}\{\mathbf{v}\}$ in $\mathbb{R}^3$（通過原點的直線）:</strong> For a nonzero vector $\mathbf{v} \in \mathbb{R}^3$, $\operatorname{Span}\{\mathbf{v}\}$ is the set of all scalar multiples of $\mathbf{v}$, which is the line in $\mathbb{R}^3$ passing through $\mathbf{v}$ and $\mathbf{0}$.</li>
-                    <li><strong>$\operatorname{Span}\{\mathbf{u}, \mathbf{v}\}$ in $\mathbb{R}^3$（通過原點的平面）:</strong> For nonzero vectors $\mathbf{u}, \mathbf{v} \in \mathbb{R}^3$ where $\mathbf{v}$ is not a scalar multiple of $\mathbf{u}$, $\operatorname{Span}\{\mathbf{u}, \mathbf{v}\}$ is the plane in $\mathbb{R}^3$ containing $\mathbf{u}$, $\mathbf{v}$, and $\mathbf{0}$ (including the lines through $\mathbf{0}$ along $\mathbf{u}$ and $\mathbf{v}$).</li>
-                </ul>
+                <div class="font-bold text-teal-950 text-base">A GEOMETRIC DESCRIPTION OF $\operatorname{Span}\{\mathbf{v}\}$ AND $\operatorname{Span}\{\mathbf{u}, \mathbf{v}\}$（$\operatorname{Span}\{\mathbf{v}\}$ 與 $\operatorname{Span}\{\mathbf{u}, \mathbf{v}\}$ 的幾何描述）</div>
+                <p>
+                    Let $\mathbf{v}$ be a nonzero vector in $\mathbb{R}^3$. Then $\operatorname{Span}\{\mathbf{v}\}$ is the set of all scalar multiples of $\mathbf{v}$, which is the set of points on the <strong>line（直線）</strong> in $\mathbb{R}^3$ through $\mathbf{v}$ and $\mathbf{0}$. See Figure 10.
+                </p>
+                <p>
+                    If $\mathbf{u}$ and $\mathbf{v}$ are nonzero vectors in $\mathbb{R}^3$, with $\mathbf{v}$ not a multiple of $\mathbf{u}$, then $\operatorname{Span}\{\mathbf{u}, \mathbf{v}\}$ is the <strong>plane（平面）</strong> in $\mathbb{R}^3$ that contains $\mathbf{u}$, $\mathbf{v}$, and $\mathbf{0}$. In particular, $\operatorname{Span}\{\mathbf{u}, \mathbf{v}\}$ contains the line in $\mathbb{R}^3$ through $\mathbf{u}$ and $\mathbf{0}$ and the line through $\mathbf{v}$ and $\mathbf{0}$. See Figure 11.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center justify-items-center my-2">
+                <img src="png/MATH1001_img/ch1-3-fig10-span-v-line.png" alt="FIGURE 10 Span{v} as a line through the origin" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+                <img src="png/MATH1001_img/ch1-3-fig11-span-uv-plane.png" alt="FIGURE 11 Span{u, v} as a plane through the origin" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
             </div>
 
             <!-- Collapsible EXAMPLE 6 -->
             <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
                 <button onclick="toggleCard('ex1-3-6')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
-                    <span>EXAMPLE 6（範例 6：判斷向量 $\mathbf{b}$ 是否落在 $\mathbb{R}^3$ 的平面 $\operatorname{Span}\{\mathbf{a}_1, \mathbf{a}_2\}$ 內）</span>
+                    <span>EXAMPLE 6（範例 6：判斷 $\mathbb{R}^3$ 中向量 $\mathbf{b}$ 是否在平面 $\operatorname{Span}\{\mathbf{a}_1, \mathbf{a}_2\}$ 內）</span>
                     <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
                 </button>
                 <div id="ex1-3-6" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
-                    <p><strong>EXAMPLE 6</strong> Let $\mathbf{a}_1 = \begin{bmatrix} 1 \\ -2 \\ 3 \end{bmatrix}$, $\mathbf{a}_2 = \begin{bmatrix} 5 \\ -13 \\ -3 \end{bmatrix}$, and $\mathbf{b} = \begin{bmatrix} -3 \\ 8 \\ 1 \end{bmatrix}$. Is $\mathbf{b}$ in the plane $\operatorname{Span}\{\mathbf{a}_1, \mathbf{a}_2\}$ in $\mathbb{R}^3$?</p>
-                    <p><strong>SOLUTION:</strong> Row reduce $\begin{bmatrix} \mathbf{a}_1 & \mathbf{a}_2 & \mathbf{b} \end{bmatrix}$ to test if $x_1\mathbf{a}_1 + x_2\mathbf{a}_2 = \mathbf{b}$ has a solution:</p>
-                    <p>$$\begin{bmatrix} 1 & 5 & -3 \\ -2 & -13 & 8 \\ 3 & -3 & 1 \end{bmatrix} \sim \begin{bmatrix} 1 & 5 & -3 \\ 0 & -3 & 2 \\ 0 & -18 & 10 \end{bmatrix} \sim \begin{bmatrix} 1 & 5 & -3 \\ 0 & -3 & 2 \\ 0 & 0 & -2 \end{bmatrix}$$</p>
-                    <p>The third row represents $0 = -2$, so the system is inconsistent and has no solution. Therefore, $\mathbf{b} \notin \operatorname{Span}\{\mathbf{a}_1, \mathbf{a}_2\}$.</p>
+                    <p><strong>EXAMPLE 6</strong> Let $\mathbf{a}_1 = \begin{bmatrix} 1 \\ -2 \\ 3 \end{bmatrix}$, $\mathbf{a}_2 = \begin{bmatrix} 5 \\ -13 \\ -3 \end{bmatrix}$, and $\mathbf{b} = \begin{bmatrix} -3 \\ 8 \\ 1 \end{bmatrix}$. Then $\operatorname{Span}\{\mathbf{a}_1, \mathbf{a}_2\}$ is a plane through the origin in $\mathbb{R}^3$. Is $\mathbf{b}$ in that plane?</p>
+                    <p><strong>SOLUTION:</strong> Does the equation $x_1\mathbf{a}_1 + x_2\mathbf{a}_2 = \mathbf{b}$ have a solution? To answer this, row reduce the augmented matrix $\begin{bmatrix} \mathbf{a}_1 & \mathbf{a}_2 & \mathbf{b} \end{bmatrix}$:
+                        $$\begin{bmatrix} 1 & 5 & -3 \\ -2 & -13 & 8 \\ 3 & -3 & 1 \end{bmatrix} \sim \begin{bmatrix} 1 & 5 & -3 \\ 0 & -3 & 2 \\ 0 & -18 & 10 \end{bmatrix} \sim \begin{bmatrix} 1 & 5 & -3 \\ 0 & -3 & 2 \\ 0 & 0 & -2 \end{bmatrix}$$
+                        The third equation is $0 = -2$, which shows that the system has no solution. The vector equation $x_1\mathbf{a}_1 + x_2\mathbf{a}_2 = \mathbf{b}$ has no solution, and so $\mathbf{b}$ is not in $\operatorname{Span}\{\mathbf{a}_1, \mathbf{a}_2\}$.
+                    </p>
                 </div>
             </div>
         </div>
