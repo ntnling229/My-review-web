@@ -792,8 +792,8 @@
                     
                     <p><strong>SOLUTION:</strong> Use the same basic strategy as in Section 1.1. Create zeros below the <strong>pivot（主元）</strong>, $1$, by adding multiples of the first row to the rows below, and obtain matrix (1) below. The <strong>pivot position（主元位置）</strong> in the second row must be as far left as possible—namely, in the second column. Choose the $2$ in this position as the next pivot.</p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center justify-items-center my-2">
-                        <img src="png/MATH1001/螢幕截圖 2026-11-28 下午8.11.28.png" alt="3D planes diagram" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
-                        <img src="png/MATH1001/螢幕截圖 2026-11-28 下午8.11.32.png" alt="3D planes diagram" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+                        <img src="png/MATH1001/螢幕截圖 2026-11-28 下午8.11.28.png" alt="3D planes diagram" class="mx-auto h-auto block rounded-lg" style="width: 270px; max-width: 100%;" />
+                        <img src="png/MATH1001/螢幕截圖 2026-11-28 下午8.11.32.png" alt="3D planes diagram" class="mx-auto h-auto block rounded-lg" style="width: 270px; max-width: 100%;" />
                     </div>
                     
                     <p>Add $-5/2$ times row 2 to row 3, and add $3/2$ times row 2 to row 4:</p>
@@ -804,7 +804,7 @@
 
                     
                     <p>The matrix is in echelon form and thus reveals that <strong>columns $1$, $2$, and $4$</strong> of $A$ are <strong>pivot columns（主元行／主元欄）</strong>. A <strong>pivot（主元）</strong>, as illustrated in Example 2, is a nonzero number in a <strong>pivot position（主元位置）</strong> that is used as needed to create zeros via row operations. The pivots in Example 2 were $1$, $2$, and $-5$. Notice that these numbers are not the same as the actual elements of $A$ in the highlighted pivot positions shown in (3).</p>
-                    <img src="png/MATH1001/螢幕截圖 2026-11-28 下午8.18.42.png" alt="3D planes diagram" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+                    <img src="png/MATH1001/螢幕截圖 2026-11-28 下午8.18.42.png" alt="3D planes diagram" class="mx-auto h-auto block rounded-lg" style="width: 450px; max-width: 100%;" />
                     <p>A <strong>pivot（主元）</strong>, as illustrated in Example 2, is a nonzero number in a <strong>pivot position（主元位置）</strong> that is used as needed to create zeros via row operations. The pivots in Example 2 were $1$, $2$, and $-5$. Notice that these numbers are not the same as the actual elements of $A$ in the highlighted pivot positions shown in (3).</p>
                     
                 </div>
@@ -830,27 +830,63 @@
                     <li><strong>STEP 5:</strong> Beginning with the rightmost pivot and working upward and to the left, create zeros above each pivot. If a pivot is not $1$, make it $1$ by a scaling operation.</li>
                 </ol>
             </div>
-
+            
             <!-- Collapsible EXAMPLE 3 -->
             <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
                 <button onclick="toggleCard('ex1-2-3')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
                     <span>EXAMPLE 3（範例 3：逐步執行 Step 1–5 將 $3\times 6$ 矩陣化為階梯形與簡化階梯形）</span>
                     <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
                 </button>
-                <div id="ex1-2-3" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2 bg-white leading-relaxed">
-                    <p><strong>EXAMPLE 3</strong> Apply elementary row operations to transform $\begin{bmatrix} 0 & 3 & -6 & 6 & 4 & -5 \\ 3 & -7 & 8 & -5 & 8 & 9 \\ 3 & -9 & 12 & -9 & 6 & 15 \end{bmatrix}$ first into echelon form and then into reduced echelon form.</p>
-                    <p><strong>SOLUTION:</strong><br/>
-                        <strong>Step 1 &amp; 2:</strong> Leftmost nonzero column is column 1. Interchange rows 1 and 3: $\begin{bmatrix} 3 & -9 & 12 & -9 & 6 & 15 \\ 3 & -7 & 8 & -5 & 8 & 9 \\ 0 & 3 & -6 & 6 & 4 & -5 \end{bmatrix}$.<br/>
-                        <strong>Step 3:</strong> Add $-1$ times row 1 to row 2: $\begin{bmatrix} 3 & -9 & 12 & -9 & 6 & 15 \\ 0 & 2 & -4 & 4 & 2 & -6 \\ 0 & 3 & -6 & 6 & 4 & -5 \end{bmatrix}$.<br/>
-                        <strong>Step 4:</strong> Cover row 1; column 2 is next pivot column with pivot $2$. Add $-3/2$ times row 2 to row 3 to get $\begin{bmatrix} 3 & -9 & 12 & -9 & 6 & 15 \\ 0 & 2 & -4 & 4 & 2 & -6 \\ 0 & 0 & 0 & 0 & 1 & 4 \end{bmatrix}$. Covering row 2 leaves a single nonzero row with pivot $1$ in column 5. This is an echelon form.<br/>
-                        <strong>Step 5 (Backward phase):</strong> Rightmost pivot is $1$ in row 3, column 5. Compute $\text{Row } 1 + (-6)\,\text{Row } 3$ and $\text{Row } 2 + (-2)\,\text{Row } 3$: $\begin{bmatrix} 3 & -9 & 12 & -9 & 0 & -9 \\ 0 & 2 & -4 & 4 & 0 & -14 \\ 0 & 0 & 0 & 0 & 1 & 4 \end{bmatrix}$.<br/>
-                        Scale row 2 by $\frac{1}{2}$: $\begin{bmatrix} 3 & -9 & 12 & -9 & 0 & -9 \\ 0 & 1 & -2 & 2 & 0 & -7 \\ 0 & 0 & 0 & 0 & 1 & 4 \end{bmatrix}$.<br/>
-                        Compute $\text{Row } 1 + (9)\,\text{Row } 2$: $\begin{bmatrix} 3 & 0 & -6 & 9 & 0 & -72 \\ 0 & 1 & -2 & 2 & 0 & -7 \\ 0 & 0 & 0 & 0 & 1 & 4 \end{bmatrix}$.<br/>
-                        Finally, scale row 1 by $\frac{1}{3}$ to obtain the reduced echelon form:
-                        $$\begin{bmatrix} 1 & 0 & -2 & 3 & 0 & -24 \\ 0 & 1 & -2 & 2 & 0 & -7 \\ 0 & 0 & 0 & 0 & 1 & 4 \end{bmatrix}$$
-                    </p>
+                <div id="ex1-2-3" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-3 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 3</strong> Apply elementary row operations to transform the following matrix first into <strong>echelon form（階梯形）</strong> and then into <strong>reduced echelon form（簡化階梯形）</strong>:</p>
+                    <p>$$\begin{bmatrix} 0 & 3 & -6 & 6 & 4 & -5 \\ 3 & -7 & 8 & -5 & 8 & 9 \\ 3 & -9 & 12 & -9 & 6 & 15 \end{bmatrix}$$</p>
+
+                    <p><strong>SOLUTION:</strong></p>
+
+                    <p><strong>STEP 1</strong> Begin with the leftmost nonzero column. This is a <strong>pivot column（主元行／主元欄）</strong>. The <strong>pivot position（主元位置）</strong> is at the top.</p>
+                    <p>$$\begin{bmatrix} 0 & 3 & -6 & 6 & 4 & -5 \\ 3 & -7 & 8 & -5 & 8 & 9 \\ 3 & -9 & 12 & -9 & 6 & 15 \end{bmatrix}$$</p>
+                    <img src="png/MATH1001/ex3-s1.png" alt="3D planes diagram" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+
+                    <p><strong>STEP 2</strong> Select a nonzero entry in the pivot column as a <strong>pivot（主元）</strong>. If necessary, interchange rows to move this entry into the pivot position.</p>
+                    <p>Interchange rows 1 and 3. (We could have interchanged rows 1 and 2 instead.)</p>
+                    <p>$$\begin{bmatrix} 3 & -9 & 12 & -9 & 6 & 15 \\ 3 & -7 & 8 & -5 & 8 & 9 \\ 0 & 3 & -6 & 6 & 4 & -5 \end{bmatrix}$$</p>
+                    <img src="png/MATH1001/ex3-s2.png" alt="3D planes diagram" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+
+                    <p><strong>STEP 3</strong> Use row replacement operations to create zeros in all positions below the pivot.</p>
+                    <p>As a preliminary step, we could divide the top row by the pivot, $3$. But with two $3$'s in column 1, it is just as easy to add $-1$ times row 1 to row 2.</p>
+                    <p>$$\begin{bmatrix} 3 & -9 & 12 & -9 & 6 & 15 \\ 0 & 2 & -4 & 4 & 2 & -6 \\ 0 & 3 & -6 & 6 & 4 & -5 \end{bmatrix}$$</p>
+                    <img src="png/MATH1001/ex3-s3.png" alt="3D planes diagram" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+
+                    <p><strong>STEP 4</strong> Cover (or ignore) the row containing the pivot position and cover all rows, if any, above it. Apply steps 1–3 to the submatrix that remains. Repeat the process until there are no more nonzero rows to modify.</p>
+                    <p>With row 1 covered, step 1 shows that column 2 is the next pivot column; for step 2, select as a pivot the "top" entry in that column.</p>
+                    <img src="png/MATH1001/ex3-s4a.png" alt="3D planes diagram" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+                    <p>For step 3, we could insert an optional step of dividing the "top" row of the submatrix by the pivot, $2$. Instead, we add $-3/2$ times the “top” row to the row below. This produces</p>
+                    <p>$$\begin{bmatrix} 3 & -9 & 12 & -9 & 6 & 15 \\ 0 & 2 & -4 & 4 & 2 & -6 \\ 0 & 0 & 0 & 0 & 1 & 4 \end{bmatrix}$$</p>
+                    <p>When we cover the row containing the second pivot position for step 4, we are left with a new submatrix having only one row:</p>
+                    <img src="png/MATH1001/ex3-s4b.png" alt="3D planes diagram" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+                    <p>Steps 1–3 require no work for this submatrix, and we have reached an echelon form of the full matrix. If we want the reduced echelon form, we perform one more step.</p>
+
+                    <p><strong>STEP 5</strong> Beginning with the rightmost pivot and working upward and to the left, create zeros above each pivot. If a pivot is not 1, make it 1 by a scaling operation.</p>
+                    <p>The rightmost pivot is in row 3. Create zeros above it, adding suitable multiples of row 3 to rows 2 and 1.</p>
+                    <p>$$\begin{bmatrix} 3 & -9 & 12 & -9 & 0 & -9 \\ 0 & 2 & -4 & 4 & 0 & -14 \\ 0 & 0 & 0 & 0 & 1 & 4 \end{bmatrix}$$</p>
+                    <p>Row 1 + (-6) row 3<br/>Row 2 + (-2) row 3</p>
+
+                    <p>The next pivot is in row 2. Scale this row, dividing by the pivot.</p>
+                    <p>$$\begin{bmatrix} 3 & -9 & 12 & -9 & 0 & -9 \\ 0 & 1 & -2 & 2 & 0 & -7 \\ 0 & 0 & 0 & 0 & 1 & 4 \end{bmatrix}$$</p>
+                    <p>Row scaled by $\frac{1}{2}$</p>
+
+                    <p>Create a zero in column 2 by adding $9$ times row 2 to row 1.</p>
+                    <p>$$\begin{bmatrix} 3 & 0 & -6 & 9 & 0 & -72 \\ 0 & 1 & -2 & 2 & 0 & -7 \\ 0 & 0 & 0 & 0 & 1 & 4 \end{bmatrix}$$</p>
+                    <p>Row 1 + (9) row 2</p>
+
+                    <p>Finally, scale row 1, dividing by the pivot, $3$.</p>
+                    <p>$$\begin{bmatrix} 1 & 0 & -2 & 3 & 0 & -24 \\ 0 & 1 & -2 & 2 & 0 & -7 \\ 0 & 0 & 0 & 0 & 1 & 4 \end{bmatrix}$$</p>
+                    <p>Row scaled by $\frac{1}{3}$</p>
+
+                    <p>This is the <strong>reduced echelon form（簡化階梯形）</strong> of the original matrix.</p>
                 </div>
             </div>
+            
         </div>
 
         <!-- 4. Solutions of Linear Systems, Basic & Free Variables, Parametric Descriptions, Back-Substitution & THEOREM 2 -->
