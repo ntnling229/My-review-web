@@ -2571,22 +2571,22 @@
                     <line x1="15" y1="115" x2="218" y2="115" stroke="#475569" stroke-width="1.2" />
                     <line x1="45" y1="132" x2="45" y2="10" stroke="#475569" stroke-width="1.2" />
 
-                    <!-- Parallelogram for u + v -->
-                    <polygon points="45,115 85,55 170,40 130,100" fill="#bae6fd" fill-opacity="0.65" />
+                    <!-- Parallelogram from origin (45,115), u (85,63), u+v (188,43), v (148,95) -->
+                    <polygon points="45,115 85,63 188,43 148,95" fill="#bae6fd" fill-opacity="0.72" />
 
                     <!-- Line L -->
-                    <line x1="18" y1="22" x2="205" y2="128" stroke="#0284c7" stroke-width="2" />
-                    <text x="196" y="136" font-size="12.5" font-weight="700" font-style="italic" fill="#0369a1">L</text>
+                    <line x1="18" y1="28" x2="205" y2="125" stroke="#0284c7" stroke-width="2" />
+                    <text x="196" y="135" font-size="12.5" font-weight="700" font-style="italic" fill="#0369a1">L</text>
 
-                    <!-- Points u, v, u+v -->
-                    <circle cx="85" cy="55" r="3.6" fill="#0284c7" />
-                    <text x="74" y="49" font-size="13" font-weight="700" fill="#0f172a">u</text>
+                    <!-- Points u, v on L and u+v off L -->
+                    <circle cx="85" cy="63" r="3.6" fill="#0284c7" />
+                    <text x="74" y="56" font-size="13" font-weight="700" fill="#0f172a">u</text>
 
-                    <circle cx="130" cy="100" r="3.6" fill="#0284c7" />
-                    <text x="138" y="99" font-size="13" font-weight="700" fill="#0f172a">v</text>
+                    <circle cx="148" cy="95" r="3.6" fill="#0284c7" />
+                    <text x="155" y="92" font-size="13" font-weight="700" fill="#0f172a">v</text>
 
-                    <circle cx="170" cy="40" r="3.8" fill="#0f172a" />
-                    <text x="155" y="28" font-size="13" font-weight="700" fill="#0f172a">u + v</text>
+                    <circle cx="188" cy="43" r="3.8" fill="#0f172a" />
+                    <text x="172" y="33" font-size="13" font-weight="700" fill="#0f172a">u + v</text>
                   </svg>
                   <div class="text-xs text-slate-600 font-medium">$\mathbf{u} + \mathbf{v}$ is not on $L$</div>
                 </div>
@@ -2598,19 +2598,19 @@
                     <line x1="15" y1="115" x2="218" y2="115" stroke="#475569" stroke-width="1.2" />
                     <line x1="45" y1="132" x2="45" y2="10" stroke="#475569" stroke-width="1.2" />
 
-                    <!-- Ray from origin through w to 2w -->
-                    <line x1="45" y1="115" x2="165" y2="41" stroke="#334155" stroke-width="1.3" stroke-dasharray="4 3" />
+                    <!-- Dashed ray from origin (45,115) through w (115,78) to 2w (185,41) -->
+                    <line x1="45" y1="115" x2="185" y2="41" stroke="#334155" stroke-width="1.3" stroke-dasharray="4 3" />
 
                     <!-- Line L -->
-                    <line x1="18" y1="22" x2="205" y2="128" stroke="#0284c7" stroke-width="2" />
-                    <text x="196" y="136" font-size="12.5" font-weight="700" font-style="italic" fill="#0369a1">L</text>
+                    <line x1="18" y1="28" x2="205" y2="125" stroke="#0284c7" stroke-width="2" />
+                    <text x="196" y="135" font-size="12.5" font-weight="700" font-style="italic" fill="#0369a1">L</text>
 
-                    <!-- Points w and 2w -->
-                    <circle cx="105" cy="78" r="3.8" fill="#0284c7" />
-                    <text x="95" y="70" font-size="13" font-weight="700" fill="#0f172a">w</text>
+                    <!-- Points w on L and 2w off L -->
+                    <circle cx="115" cy="78" r="3.8" fill="#0284c7" />
+                    <text x="105" y="70" font-size="13" font-weight="700" fill="#0f172a">w</text>
 
-                    <circle cx="165" cy="41" r="3.8" fill="#0f172a" />
-                    <text x="171" y="38" font-size="13" font-weight="700" fill="#0f172a">2w</text>
+                    <circle cx="185" cy="41" r="3.8" fill="#0f172a" />
+                    <text x="191" y="39" font-size="13" font-weight="700" fill="#0f172a">2w</text>
                   </svg>
                   <div class="text-xs text-slate-600 font-medium">$2\mathbf{w}$ is not on $L$</div>
                 </div>
