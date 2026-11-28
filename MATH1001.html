@@ -2730,13 +2730,24 @@
           <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
             <strong>THEOREM 12:</strong> The null space of an $m \times n$ matrix $A$ is a subspace of $\mathbb{R}^n$. Equivalently, the set of all solutions of a system $A\mathbf{x} = \mathbf{0}$ of $m$ homogeneous linear equations in $n$ unknowns is a subspace of $\mathbb{R}^n$.
           </p>
-          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
-            <strong>PROOF:</strong> The zero vector is in $\operatorname{Nul} A$ (because $A\mathbf{0} = \mathbf{0}$). To show that $\operatorname{Nul} A$ satisfies the other two properties required for a subspace, take any $\mathbf{u}$ and $\mathbf{v}$ in $\operatorname{Nul} A$. That is, suppose $A\mathbf{u} = \mathbf{0}$ and $A\mathbf{v} = \mathbf{0}$. Then, by a property of matrix multiplication,
-            $$A(\mathbf{u} + \mathbf{v}) = A\mathbf{u} + A\mathbf{v} = \mathbf{0} + \mathbf{0} = \mathbf{0}$$
-            Thus $\mathbf{u} + \mathbf{v}$ satisfies $A\mathbf{x} = \mathbf{0}$, and so $\mathbf{u} + \mathbf{v}$ is in $\operatorname{Nul} A$. Also, for any scalar $c$,
-            $$A(c\mathbf{u}) = c(A\mathbf{u}) = c(\mathbf{0}) = \mathbf{0}$$
-            which shows that $c\mathbf{u}$ is in $\operatorname{Nul} A$.
-          </p>
+
+          <!-- Collapsible PROOF for Theorem 12 -->
+          <div class="border border-amber-200/90 rounded-xl overflow-hidden bg-white">
+            <button onclick="toggleCard('proof2-8-12')" class="w-full px-4 py-2.5 bg-amber-100/60 hover:bg-amber-100 flex items-center justify-between text-left font-semibold text-sm sm:text-base text-amber-950 transition">
+              <span>PROOF — 定理 12 證明（驗證 $\operatorname{Nul} A$ 滿足子空間三項條件）</span>
+              <i class="fa-solid fa-chevron-down text-xs sm:text-sm text-amber-700"></i>
+            </button>
+            <div id="proof2-8-12" class="toggle-content p-4 text-sm sm:text-base text-slate-700 space-y-2.5 leading-relaxed">
+              <p>
+                The zero vector is in $\operatorname{Nul} A$ (because $A\mathbf{0} = \mathbf{0}$). To show that $\operatorname{Nul} A$ satisfies the other two properties required for a subspace, take any $\mathbf{u}$ and $\mathbf{v}$ in $\operatorname{Nul} A$. That is, suppose $A\mathbf{u} = \mathbf{0}$ and $A\mathbf{v} = \mathbf{0}$. Then, by a property of matrix multiplication,
+                $$A(\mathbf{u} + \mathbf{v}) = A\mathbf{u} + A\mathbf{v} = \mathbf{0} + \mathbf{0} = \mathbf{0}$$
+                Thus $\mathbf{u} + \mathbf{v}$ satisfies $A\mathbf{x} = \mathbf{0}$, and so $\mathbf{u} + \mathbf{v}$ is in $\operatorname{Nul} A$. Also, for any scalar $c$,
+                $$A(c\mathbf{u}) = c(A\mathbf{u}) = c(\mathbf{0}) = \mathbf{0}$$
+                which shows that $c\mathbf{u}$ is in $\operatorname{Nul} A$.
+              </p>
+            </div>
+          </div>
+
           <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
             <strong>IMPLICIT VS. EXPLICIT DESCRIPTION:</strong> To test whether a given vector $\mathbf{v}$ is in $\operatorname{Nul} A$, just compute $A\mathbf{v}$ to see whether $A\mathbf{v}$ is the zero vector. Because $\operatorname{Nul} A$ is described by a condition that must be checked for each vector, we say that the null space is <strong>defined implicitly（隱式定義）</strong>. In contrast, the column space is <strong>defined explicitly（顯式定義）</strong>, because vectors in $\operatorname{Col} A$ can be constructed (by linear combinations) from the columns of $A$. To create an explicit description of $\operatorname{Nul} A$, solve the equation $A\mathbf{x} = \mathbf{0}$ and write the solution in <strong>parametric vector form（參數向量形式）</strong>. (See Example 6 below.)
           </p>
