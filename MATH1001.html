@@ -2241,9 +2241,38 @@
 
               <p>
               <strong>SOLUTION — Row Reduction Highlighting Pivots &amp; Multipliers:</strong> Compare the first columns of $A$ and $L$. The row operations that create zeros in the first column of $A$ will also create zeros in the first column of $L$. To make this same correspondence of row operations on $A$ hold for the rest of $L$, watch a row reduction of $A$ to an echelon form $U$. That is, highlight the entries in each matrix that are used to determine the sequence of row operations that transform $A$ into $U$. [See the highlighted entries in equation (5).]
-              $$A = \begin{bmatrix} \colorbox{#bae6fd}{$2$} & 4 & -1 & 5 & -2 \\ \colorbox{#bae6fd}{$-4$} & -5 & 3 & -8 & 1 \\ \colorbox{#bae6fd}{$2$} & -5 & -4 & 1 & 8 \\ \colorbox{#bae6fd}{$-6$} & 0 & 7 & -3 & 1 \end{bmatrix} \sim \begin{bmatrix} 2 & 4 & -1 & 5 & -2 \\ 0 & \colorbox{#bae6fd}{$3$} & 1 & 2 & -3 \\ 0 & \colorbox{#bae6fd}{$-9$} & -3 & -4 & 10 \\ 0 & \colorbox{#bae6fd}{$12$} & 4 & 12 & -5 \end{bmatrix} = A_1 \tag{5}$$
-              $$\sim A_2 = \begin{bmatrix} 2 & 4 & -1 & 5 & -2 \\ 0 & 3 & 1 & 2 & -3 \\ 0 & 0 & 0 & \colorbox{#bae6fd}{$2$} & 1 \\ 0 & 0 & 0 & \colorbox{#bae6fd}{$4$} & 7 \end{bmatrix} \sim \begin{bmatrix} 2 & 4 & -1 & 5 & -2 \\ 0 & 3 & 1 & 2 & -3 \\ 0 & 0 & 0 & 2 & 1 \\ 0 & 0 & 0 & 0 & \colorbox{#bae6fd}{$5$} \end{bmatrix} = U$$
+              $$
+              A = \left[\begin{array}{ccccc}
+              \colorbox{#7dd3fc}{\makebox[1.4em][r]{$2$}} & 4 & -1 & 5 & -2 \\[-2pt]
+              \colorbox{#e0f2fe}{\makebox[1.4em][r]{$-4$}} & -5 & 3 & -8 & 1 \\[-2pt]
+              \colorbox{#e0f2fe}{\makebox[1.4em][r]{$2$}} & -5 & -4 & 1 & 8 \\[-2pt]
+              \colorbox{#e0f2fe}{\makebox[1.4em][r]{$-6$}} & 0 & 7 & -3 & 1
+              \end{array}\right]
+              \sim
+              \left[\begin{array}{ccccc}
+              2 & 4 & -1 & 5 & -2 \\[-2pt]
+              0 & \colorbox{#7dd3fc}{\makebox[1.4em][r]{$3$}} & 1 & 2 & -3 \\[-2pt]
+              0 & \colorbox{#e0f2fe}{\makebox[1.4em][r]{$-9$}} & -3 & -4 & 10 \\[-2pt]
+              0 & \colorbox{#e0f2fe}{\makebox[1.4em][r]{$12$}} & 4 & 12 & -5
+              \end{array}\right] = A_1 \tag{5}
+              $$
+              $$
+              \sim A_2 = \left[\begin{array}{ccccc}
+              2 & 4 & -1 & 5 & -2 \\[-2pt]
+              0 & 3 & 1 & 2 & -3 \\[-2pt]
+              0 & 0 & 0 & \colorbox{#7dd3fc}{\makebox[1.1em][r]{$2$}} & 1 \\[-2pt]
+              0 & 0 & 0 & \colorbox{#e0f2fe}{\makebox[1.1em][r]{$4$}} & 7
+              \end{array}\right]
+              \sim
+              \left[\begin{array}{ccccc}
+              2 & 4 & -1 & 5 & -2 \\[-2pt]
+              0 & 3 & 1 & 2 & -3 \\[-2pt]
+              0 & 0 & 0 & 2 & 1 \\[-2pt]
+              0 & 0 & 0 & 0 & \colorbox{#7dd3fc}{\makebox[1.1em][r]{$5$}}
+              \end{array}\right] = U
+              $$
             </p>
+              
 
             <div class="space-y-3 pt-1">
               <div class="space-y-3 pt-1">
