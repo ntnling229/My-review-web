@@ -354,17 +354,31 @@
                 </div>
             </div>
 
-            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-4 space-y-2 text-sm text-slate-700 leading-relaxed">
-                <p>
-                    Figures 1 and 2 illustrate the following general fact about linear systems, to be verified in Section 1.2.
-                    A system of linear equations has:
-                    <strong>1. no solution（無解）</strong>, or
-                    <strong>2. exactly one solution（恰有一個解）</strong>, or
-                    <strong>3. infinitely many solutions（無限多組解）</strong>.
-                </p>
-                <p>
-                    A system of linear equations is said to be <strong>consistent（相容的）</strong> if it has either one solution or infinitely many solutions; a system is <strong>inconsistent（不相容的）</strong> if it has no solution.
-                </p>
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-3.5 text-sm text-slate-700 leading-relaxed">
+            <p>
+                Figures 1 and 2 illustrate the following general fact about linear systems, to be verified in Section 1.2:
+            </p>
+            <div class="bg-white/90 border border-teal-200/80 rounded-xl p-4 space-y-2">
+                <div class="font-bold text-teal-950">A system of linear equations has（線性方程組只有以下三種解的情況）：</div>
+                <ol class="list-decimal pl-6 space-y-1.5 text-slate-800">
+                    <li><strong class="text-rose-700">no solution（無解）</strong>, or</li>
+                    <li><strong class="text-teal-800">exactly one solution（恰有一個解）</strong>, or</li>
+                    <li><strong class="text-sky-800">infinitely many solutions（無限多組解）</strong>.</li>
+                </ol>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-0.5">
+                <div class="bg-white/90 border border-teal-200/80 rounded-xl p-3.5">
+                    <div class="font-bold text-teal-900 mb-1">Consistent（相容的）</div>
+                    <p class="text-xs sm:text-sm text-slate-700">
+                        A system of linear equations is said to be <strong>consistent（相容的）</strong> if it has either one solution or infinitely many solutions.
+                    </p>
+                </div>
+                <div class="bg-white/90 border border-rose-200/80 rounded-xl p-3.5">
+                    <div class="font-bold text-rose-800 mb-1">Inconsistent（不相容的）</div>
+                    <p class="text-xs sm:text-sm text-slate-700">
+                        A system is <strong>inconsistent（不相容的）</strong> if it has no solution.
+                    </p>
+                </div>
             </div>
         </div>
 
