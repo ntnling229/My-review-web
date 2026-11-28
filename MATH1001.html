@@ -2917,50 +2917,283 @@
       </div>
     </section>
 
-    <!-- ================= SECTION 2.9 ================= -->
-    <section id="sec2-9" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-8">
-        <div class="border-b pb-4 flex flex-wrap items-center justify-between gap-2">
-            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
-                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-lg text-base md:text-lg">§ 2.9</span>
-                DIMENSION AND RANK (維度與秩)
-            </h2>
-            <span class="text-xs text-slate-500 font-mono">Pages 1 - 15</span>
+    <!-- ============================================================== -->
+    <!-- SECTION 2.9: DIMENSION AND RANK                                -->
+    <!-- ============================================================== -->
+    <section id="sec2-9" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-7">
+      <div class="border-b border-slate-200 pb-4 flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <span class="px-3 py-1.5 rounded-xl bg-amber-100 text-amber-900 text-xl md:text-2xl font-extrabold tracking-tight">§ 2.9</span>
+          <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight">DIMENSION AND RANK (維數與秩)</h3>
+        </div>
+        <span class="text-sm text-slate-500 font-mono">Slides 1–15 (15 Pages)</span>
+      </div>
+
+      <!-- 1. Coordinate Systems -->
+      <div class="space-y-4">
+        <h4 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <span class="w-2 h-6 bg-amber-500 rounded-full"></span>
+          1. Coordinate Systems &amp; $\mathcal{B}$-Coordinate Vectors (坐標系統與 $\mathcal{B}$-坐標向量)
+        </h4>
+
+        <p class="text-base md:text-lg text-slate-700 leading-relaxed">
+          The main reason for selecting a <strong>basis（基底）</strong> for a subspace $H$, instead of merely a spanning set, is that each vector in $H$ can be written in <strong>only one way（唯一方式）</strong> as a linear combination of the basis vectors. To see why, suppose $\mathcal{B} = \{\mathbf{b}_1, \dots, \mathbf{b}_p\}$ is a basis for $H$, and suppose a vector $\mathbf{x}$ in $H$ can be generated in two ways, say,
+          $$\mathbf{x} = c_1\mathbf{b}_1 + \cdots + c_p\mathbf{b}_p \quad \text{and} \quad \mathbf{x} = d_1\mathbf{b}_1 + \cdots + d_p\mathbf{b}_p \tag{1}$$
+          Then, subtracting gives
+          $$\mathbf{0} = \mathbf{x} - \mathbf{x} = (c_1 - d_1)\mathbf{b}_1 + \cdots + (c_p - d_p)\mathbf{b}_p \tag{2}$$
+          Since $\mathcal{B}$ is linearly independent, the weights in (2) must all be zero. That is, $c_j = d_j$ for $1 \le j \le p$, which shows that the two representations in (1) are actually the same.
+        </p>
+
+        <!-- Definition Box: Coordinate Vector -->
+        <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-3">
+          <div class="font-bold text-amber-950 text-lg">DEFINITION — COORDINATE VECTOR RELATIVE TO BASIS $\mathcal{B}$ (相對基底 $\mathcal{B}$ 的坐標向量)</div>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            Suppose the set $\mathcal{B} = \{\mathbf{b}_1, \dots, \mathbf{b}_p\}$ is a basis for a subspace $H$. For each $\mathbf{x}$ in $H$, the <strong>coordinates of $\mathbf{x}$ relative to the basis $\mathcal{B}$（ $\mathbf{x}$ 相對於基底 $\mathcal{B}$ 的坐標）</strong> are the weights $c_1, \dots, c_p$ such that
+            $$\mathbf{x} = c_1\mathbf{b}_1 + \cdots + c_p\mathbf{b}_p$$
+            and the vector in $\mathbb{R}^p$
+            $$[\mathbf{x}]_{\mathcal{B}} = \begin{bmatrix} c_1 \\ \vdots \\ c_p \end{bmatrix}$$
+            is called the <strong>coordinate vector of $\mathbf{x}$ (relative to $\mathcal{B}$)</strong> or the <strong>$\mathcal{B}$-coordinate vector of $\mathbf{x}$</strong>.
+          </p>
         </div>
 
-        <div class="space-y-4">
-            <h3 class="font-bold text-lg text-blue-800 flex items-center gap-2">
-                <i class="fa-solid fa-ruler-combined text-blue-500 text-sm"></i> 2.9.1 Coordinate Systems, Dimension, Rank Theorem &amp; Invertible Matrix Theorem (m–r) (座標系統、維度、秩定理與可逆矩陣定理續，Pages 1 - 15)
-            </h3>
+        <!-- Collapsible EXAMPLE 1 -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+          <button onclick="toggleCard('ex2-9-1')" class="w-full px-4 py-3.5 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-base text-amber-950 transition">
+            <span>EXAMPLE 1（範例 1：求向量 $\mathbf{x}$ 相對於基底 $\mathcal{B} = \{\mathbf{v}_1, \mathbf{v}_2\}$ 的坐標向量 $[\mathbf{x}]_{\mathcal{B}}$ 與平面坐標網格）</span>
+            <i class="fa-solid fa-chevron-down text-sm text-amber-700"></i>
+          </button>
+          <div id="ex2-9-1" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong>PROBLEM:</strong> Let
+              $$\mathbf{v}_1 = \begin{bmatrix} 3 \\ 6 \\ 2 \end{bmatrix}, \quad \mathbf{v}_2 = \begin{bmatrix} -1 \\ 0 \\ 1 \end{bmatrix}, \quad \mathbf{x} = \begin{bmatrix} 3 \\ 12 \\ 7 \end{bmatrix}, \quad \text{and} \quad \mathcal{B} = \{\mathbf{v}_1, \mathbf{v}_2\}$$
+              Then $\mathcal{B}$ is a basis for $H = \operatorname{Span}\{\mathbf{v}_1, \mathbf{v}_2\}$ because $\mathbf{v}_1$ and $\mathbf{v}_2$ are linearly independent. Determine if $\mathbf{x}$ is in $H$, and if it is, find the coordinate vector of $\mathbf{x}$ relative to $\mathcal{B}$.
+            </p>
+            <p>
+              <strong>SOLUTION:</strong> If $\mathbf{x}$ is in $H$, then the following vector equation is consistent:
+              $$c_1\begin{bmatrix} 3 \\ 6 \\ 2 \end{bmatrix} + c_2\begin{bmatrix} -1 \\ 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 3 \\ 12 \\ 7 \end{bmatrix}$$
+              The scalars $c_1$ and $c_2$, if they exist, are the $\mathcal{B}$-coordinates of $\mathbf{x}$. Row operations show that
+              $$\begin{bmatrix} 3 & -1 & 3 \\ 6 & 0 & 12 \\ 2 & 1 & 7 \end{bmatrix} \sim \begin{bmatrix} 1 & 0 & 2 \\ 0 & 1 & 3 \\ 0 & 0 & 0 \end{bmatrix}$$
+              Thus $c_1 = 2$, $c_2 = 3$, and
+              $$[\mathbf{x}]_{\mathcal{B}} = \begin{bmatrix} 2 \\ 3 \end{bmatrix}$$
+              The basis $\mathcal{B}$ determines a <strong>"coordinate system"（坐標系統）</strong> on $H$, which can be visualized by the grid shown in Figure 1.
+            </p>
 
-            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-4 text-sm">
-                <div class="p-4 bg-white rounded-lg border border-blue-200 space-y-2.5 text-slate-800 leading-relaxed">
-                    <strong class="text-blue-900 text-base font-bold block">Coordinate Vectors, Dimension $\dim H$ &amp; Rank $\operatorname{rank} A$ (Pages 1 - 12)</strong>
-                    <p>
-                        If $\mathcal{B} = \{\mathbf{b}_1, \dots, \mathbf{b}_p\}$ is a basis for $H$, each $\mathbf{x} \in H$ has a unique representation $\mathbf{x} = c_1\mathbf{b}_1 + \cdots + c_p\mathbf{b}_p$, giving the <strong>$\mathcal{B}$-coordinate vector (座標向量)</strong> $[\mathbf{x}]_{\mathcal{B}} = \begin{bmatrix} c_1 \\ \vdots \\ c_p \end{bmatrix} \in \mathbb{R}^p$ (an isomorphism $\mathbf{x} \mapsto [\mathbf{x}]_{\mathcal{B}}$).
-                    </p>
-                    <p>
-                        Every basis of a nonzero subspace $H$ has the same number of vectors, called $\dim H$ (with $\dim \{\mathbf{0}\} = 0$, and $\dim \mathbb{R}^n = n$). The <strong>rank (秩)</strong> of $A$, $\operatorname{rank} A = \dim \operatorname{Col} A$, equals the number of pivot columns of $A$, while $\dim \operatorname{Nul} A$ equals the number of free variables in $A\mathbf{x} = \mathbf{0}$.
-                    </p>
-                    <div class="p-3 bg-blue-50/70 rounded-lg border border-blue-200 font-mono text-center text-blue-950 text-xs md:text-sm space-y-1 overflow-x-auto">
-                        <div><strong>THEOREM 14 — The Rank Theorem (秩定理，Page 12):</strong> If $A$ has $n$ columns, then $\operatorname{rank} A + \dim \operatorname{Nul} A = n$.</div>
-                        <div><strong>THEOREM 15 — The Basis Theorem (基底定理，Page 12):</strong> For a $p$-dimensional subspace $H$ of $\mathbb{R}^n$, any linearly independent set of $p$ elements in $H$ is a basis for $H$, and any set of $p$ elements spanning $H$ is a basis for $H$.</div>
-                    </div>
-                </div>
+            <!-- FIGURE 1 SVG: A coordinate system on a plane H in R^3 -->
+            <div class="bg-white border border-amber-200/80 rounded-xl p-3.5 flex flex-col items-center justify-center">
+              <svg viewBox="0 0 330 245" class="w-full max-w-[330px] h-auto" aria-label="Figure 1: A coordinate system on a plane H in R3">
+                <defs>
+                  <marker id="axisArrow29" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#1e293b" />
+                  </marker>
+                </defs>
 
-                <div class="p-4 bg-white rounded-lg border border-blue-200 space-y-2.5 text-slate-800 leading-relaxed">
-                    <strong class="text-blue-900 text-base font-bold block">THEOREM — The Invertible Matrix Theorem (continued, m–r, Page 14)</strong>
-                    <p>For an $n \times n$ matrix $A$, each of the following is also equivalent to $A$ being invertible:</p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 font-mono text-xs md:text-sm bg-slate-50 p-3 rounded-lg border border-slate-200">
-                        <div><strong>m.</strong> Columns of $A$ form a basis of $\mathbb{R}^n$.</div>
-                        <div><strong>n.</strong> $\operatorname{Col} A = \mathbb{R}^n$</div>
-                        <div><strong>o.</strong> $\dim \operatorname{Col} A = n$</div>
-                        <div><strong>p.</strong> $\operatorname{rank} A = n$</div>
-                        <div><strong>q.</strong> $\operatorname{Nul} A = \{\mathbf{0}\}$</div>
-                        <div><strong>r.</strong> $\dim \operatorname{Nul} A = 0$</div>
-                    </div>
-                </div>
+                <!-- Plane grid along v1 direction (u = 0..4) and v2 direction (v = 0..3) -->
+                <!-- Origin O = (118, 152) -->
+                <!-- Step along v1: (+32, -10) -->
+                <!-- Step along v2: (+14, -34) -->
+                <polygon points="118,152 246,112 288,10 160,50" fill="#bef264" fill-opacity="0.48" stroke="#16a34a" stroke-width="1.2" />
+
+                <!-- Grid lines parallel to v2 direction (u = 1, 2, 3) -->
+                <line x1="150" y1="142" x2="192" y2="40" stroke="#65a30d" stroke-width="0.9" />
+                <line x1="182" y1="132" x2="224" y2="30" stroke="#65a30d" stroke-width="0.9" />
+                <line x1="214" y1="122" x2="256" y2="20" stroke="#65a30d" stroke-width="0.9" />
+
+                <!-- Grid lines parallel to v1 direction (v = 1, 2) -->
+                <line x1="132" y1="118" x2="260" y2="78" stroke="#65a30d" stroke-width="0.9" />
+                <line x1="146" y1="84" x2="274" y2="44" stroke="#65a30d" stroke-width="0.9" />
+
+                <!-- Highlighted basis rays in sky blue -->
+                <line x1="118" y1="152" x2="256" y2="109" stroke="#0284c7" stroke-width="2.2" />
+                <line x1="118" y1="152" x2="164" y2="40" stroke="#0284c7" stroke-width="2.2" />
+
+                <!-- Dashed projection lines onto x1-x2 plane -->
+                <line x1="150" y1="142" x2="128" y2="192" stroke="#334155" stroke-width="1.1" stroke-dasharray="4 3" />
+                <line x1="182" y1="132" x2="160" y2="182" stroke="#334155" stroke-width="1.1" stroke-dasharray="4 3" />
+                <line x1="128" y1="192" x2="76" y2="180" stroke="#334155" stroke-width="1.1" stroke-dasharray="4 3" />
+                <line x1="160" y1="182" x2="48" y2="206" stroke="#334155" stroke-width="1.1" stroke-dasharray="4 3" />
+
+                <!-- Coordinate axes -->
+                <line x1="118" y1="152" x2="118" y2="18" stroke="#1e293b" stroke-width="1.5" marker-end="url(#axisArrow29)" />
+                <line x1="118" y1="152" x2="296" y2="188" stroke="#1e293b" stroke-width="1.5" marker-end="url(#axisArrow29)" />
+                <line x1="118" y1="152" x2="36" y2="216" stroke="#1e293b" stroke-width="1.5" marker-end="url(#axisArrow29)" />
+
+                <!-- Origin 0 -->
+                <circle cx="118" cy="152" r="3.5" fill="#0f172a" />
+                <text x="106" y="167" font-size="13.5" font-weight="700" fill="#0f172a">0</text>
+
+                <!-- Points along v1: v1=(150,142), 2v1=(182,132) -->
+                <circle cx="150" cy="142" r="3.8" fill="#0284c7" />
+                <text x="150" y="160" font-size="13" font-weight="700" fill="#0f172a">v<tspan dy="3" font-size="9.5">1</tspan></text>
+
+                <circle cx="182" cy="132" r="3.8" fill="#0284c7" />
+                <text x="180" y="150" font-size="13" font-weight="700" fill="#0f172a">2v<tspan dy="3" font-size="9.5">1</tspan></text>
+
+                <!-- Points along v2: v2=(132,118), 2v2=(146,84), 3v2=(160,50) -->
+                <circle cx="132" cy="118" r="3.8" fill="#0284c7" />
+                <text x="108" y="119" font-size="13" font-weight="700" fill="#0f172a">v<tspan dy="3" font-size="9.5">2</tspan></text>
+
+                <circle cx="146" cy="84" r="3.8" fill="#0284c7" />
+                <text x="115" y="85" font-size="13" font-weight="700" fill="#0f172a">2v<tspan dy="3" font-size="9.5">2</tspan></text>
+
+                <circle cx="160" cy="50" r="3.8" fill="#0284c7" />
+                <text x="129" y="51" font-size="13" font-weight="700" fill="#0f172a">3v<tspan dy="3" font-size="9.5">2</tspan></text>
+
+                <!-- Point x = 2v1 + 3v2 at u=2, v=3 -> (182 + 42, 132 - 102) = (224, 30) -->
+                <circle cx="224" cy="30" r="4" fill="#0284c7" />
+                <text x="232" y="34" font-size="13" font-weight="700" fill="#0f172a">x = 2v<tspan dy="3" font-size="9.5">1</tspan><tspan dy="-3"> + 3v</tspan><tspan dy="3" font-size="9.5">2</tspan></text>
+
+                <!-- Axis labels -->
+                <text x="126" y="24" font-size="13.5" font-weight="700" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal">3</tspan></text>
+                <text x="299" y="194" font-size="13.5" font-weight="700" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal">2</tspan></text>
+                <text x="20" y="224" font-size="13.5" font-weight="700" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="normal">1</tspan></text>
+              </svg>
+              <div class="text-xs text-slate-600 mt-1 font-medium">FIGURE 1 A coordinate system on a plane $H$ in $\mathbb{R}^3$.</div>
             </div>
+          </div>
         </div>
+
+        <p class="text-base md:text-lg text-slate-700 leading-relaxed">
+          Notice that although points in $H$ are also in $\mathbb{R}^3$, they are completely determined by their coordinate vectors, which belong to $\mathbb{R}^2$. The grid on the plane in Figure 1 makes $H$ "look" like $\mathbb{R}^2$. The correspondence $\mathbf{x} \mapsto [\mathbf{x}]_{\mathcal{B}}$ is a one-to-one correspondence between $H$ and $\mathbb{R}^2$ that preserves linear combinations. We call such a correspondence an <strong>isomorphism（同構）</strong>, and we say that $H$ is <strong>isomorphic to $\mathbb{R}^2$（與 $\mathbb{R}^2$ 同構）</strong>.
+        </p>
+        <p class="text-base md:text-lg text-slate-700 leading-relaxed">
+          In general, if $\mathcal{B} = \{\mathbf{b}_1, \dots, \mathbf{b}_p\}$ is a basis for $H$, then the mapping $\mathbf{x} \mapsto [\mathbf{x}]_{\mathcal{B}}$ is a one-to-one correspondence that makes $H$ look and act the same as $\mathbb{R}^p$ (even though the vectors in $H$ themselves may have more than $p$ entries).
+        </p>
+      </div>
+
+      <!-- 2. The Dimension of a Subspace -->
+      <div class="space-y-4">
+        <h4 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <span class="w-2 h-6 bg-amber-500 rounded-full"></span>
+          2. The Dimension of a Subspace (子空間的維數 $\dim H$)
+        </h4>
+
+        <p class="text-base md:text-lg text-slate-700 leading-relaxed">
+          It can be shown that if a subspace $H$ has a basis of $p$ vectors, then every basis of $H$ must consist of <strong>exactly $p$ vectors</strong>. Thus the following definition makes sense.
+        </p>
+
+        <!-- Definition Box: Dimension -->
+        <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-2.5">
+          <div class="font-bold text-amber-950 text-lg">DEFINITION — DIMENSION OF A SUBSPACE (子空間的維數)</div>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            The <strong>dimension（維數）</strong> of a nonzero subspace $H$, denoted by $\dim H$, is the number of vectors in any basis for $H$. The dimension of the <strong>zero subspace（零子空間）</strong> $\{\mathbf{0}\}$ is defined to be <strong>zero</strong> ($\dim \{\mathbf{0}\} = 0$).
+          </p>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            The space $\mathbb{R}^n$ has dimension $n$ ($\dim \mathbb{R}^n = n$). Every basis for $\mathbb{R}^n$ consists of $n$ vectors. A plane through $\mathbf{0}$ in $\mathbb{R}^3$ is <strong>two-dimensional</strong>, and a line through $\mathbf{0}$ is <strong>one-dimensional</strong>.
+          </p>
+        </div>
+
+        <!-- Collapsible EXAMPLE 2 -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+          <button onclick="toggleCard('ex2-9-2')" class="w-full px-4 py-3.5 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-base text-amber-950 transition">
+            <span>EXAMPLE 2（範例 2：利用自由變數個數求零空間 $\operatorname{Nul} A$ 的維數 $\dim \operatorname{Nul} A$）</span>
+            <i class="fa-solid fa-chevron-down text-sm text-amber-700"></i>
+          </button>
+          <div id="ex2-9-2" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong>PROBLEM &amp; SOLUTION:</strong> Recall that the null space of the matrix $A$ in Example 6 in Section 2.8 had a basis of $3$ vectors. So the dimension of $\operatorname{Nul} A$ in this case is $3$. Observe how each basis vector corresponds to a <strong>free variable（自由變數）</strong> in the equation $A\mathbf{x} = \mathbf{0}$. Our construction always produces a basis in this way. So, to find the dimension of $\operatorname{Nul} A$, simply identify and count the number of free variables in $A\mathbf{x} = \mathbf{0}$.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Rank, Rank Theorem & Basis Theorem -->
+      <div class="space-y-4">
+        <h4 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <span class="w-2 h-6 bg-amber-500 rounded-full"></span>
+          3. Rank, Rank Theorem &amp; Basis Theorem (秩、秩定理與基底定理)
+        </h4>
+
+        <!-- Definition Box: Rank -->
+        <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-2.5">
+          <div class="font-bold text-amber-950 text-lg">DEFINITION — RANK OF A MATRIX (矩陣的秩 $\operatorname{rank} A$)</div>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            The <strong>rank（秩）</strong> of a matrix $A$, denoted by $\operatorname{rank} A$, is the dimension of the column space of $A$ ($\operatorname{rank} A = \dim \operatorname{Col} A$).
+          </p>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            Since the pivot columns of $A$ form a basis for $\operatorname{Col} A$, the rank of $A$ is just the <strong>number of pivot columns（主元行數目）</strong> in $A$.
+          </p>
+        </div>
+
+        <!-- Collapsible EXAMPLE 3 -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+          <button onclick="toggleCard('ex2-9-3')" class="w-full px-4 py-3.5 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-base text-amber-950 transition">
+            <span>EXAMPLE 3（範例 3：化為階梯形求矩陣 $A$ 的秩 $\operatorname{rank} A$）</span>
+            <i class="fa-solid fa-chevron-down text-sm text-amber-700"></i>
+          </button>
+          <div id="ex2-9-3" class="toggle-content p-4 sm:p-5 text-sm sm:text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong>PROBLEM:</strong> Determine the rank of the matrix
+              $$A = \begin{bmatrix} 2 & 5 & -3 & -4 & 8 \\ 4 & 7 & -4 & -3 & 9 \\ 6 & 9 & -5 & 2 & 4 \\ 0 & -9 & 6 & 5 & -6 \end{bmatrix}$$
+            </p>
+            <p>
+              <strong>SOLUTION:</strong> Reduce $A$ to echelon form:
+              $$A \sim \begin{bmatrix} 2 & 5 & -3 & -4 & 8 \\ 0 & -3 & 2 & 5 & -7 \\ 0 & -6 & 4 & 14 & -20 \\ 0 & -9 & 6 & 5 & -6 \end{bmatrix} \sim \cdots \sim \begin{bmatrix} 2 & 5 & -3 & -4 & 8 \\ 0 & -3 & 2 & 5 & -7 \\ 0 & 0 & 0 & 4 & -6 \\ 0 & 0 & 0 & 0 & 0 \end{bmatrix}$$
+              The matrix $A$ has $3$ pivot columns (columns $1$, $2$, and $4$), so $\operatorname{rank} A = 3$.
+            </p>
+          </div>
+        </div>
+
+        <p class="text-base md:text-lg text-slate-700 leading-relaxed">
+          The row reduction in Example 3 reveals that there are two free variables in $A\mathbf{x} = \mathbf{0}$, because two of the five columns of $A$ are not pivot columns. (The nonpivot columns correspond to the free variables in $A\mathbf{x} = \mathbf{0}$.) Since the number of pivot columns plus the number of nonpivot columns is exactly the number of columns, the dimensions of $\operatorname{Col} A$ and $\operatorname{Nul} A$ have the following useful connection.
+        </p>
+
+        <!-- Theorem 14 & Theorem 15 Box -->
+        <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-3">
+          <div class="font-bold text-amber-950 text-lg">THEOREM 14 &amp; THEOREM 15 — RANK THEOREM &amp; BASIS THEOREM (秩定理與基底定理)</div>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            <strong>THEOREM 14 — THE RANK THEOREM（秩定理）：</strong> If a matrix $A$ has $n$ columns, then
+            $$\operatorname{rank} A + \dim \operatorname{Nul} A = n$$
+          </p>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            <strong>THEOREM 15 — THE BASIS THEOREM（基底定理）：</strong> Let $H$ be a $p$-dimensional subspace of $\mathbb{R}^n$. Any linearly independent set of <strong>exactly $p$ elements</strong> in $H$ is automatically a basis for $H$. Also, any set of <strong>$p$ elements</strong> of $H$ that <strong>spans $H$</strong> is automatically a basis for $H$.
+          </p>
+        </div>
+      </div>
+
+      <!-- 4. Rank and the Invertible Matrix Theorem -->
+      <div class="space-y-4">
+        <h4 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <span class="w-2 h-6 bg-amber-500 rounded-full"></span>
+          4. Rank and the Invertible Matrix Theorem (秩與可逆矩陣定理續篇)
+        </h4>
+
+        <p class="text-base md:text-lg text-slate-700 leading-relaxed">
+          The various vector space concepts associated with a matrix provide several more statements for the <strong>Invertible Matrix Theorem（可逆矩陣定理）</strong>. They are presented below to follow the statements in the original theorem in Section 2.3.
+        </p>
+
+        <!-- Invertible Matrix Theorem (continued) Box -->
+        <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-3">
+          <div class="font-bold text-amber-950 text-lg">THEOREM — THE INVERTIBLE MATRIX THEOREM (CONTINUED) (可逆矩陣定理續篇)</div>
+          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+            Let $A$ be an $n \times n$ matrix. Then the following statements are each equivalent to the statement that $A$ is an invertible matrix:
+          </p>
+          <ol start="13" class="list-[lower-alpha] pl-6 space-y-1 text-sm sm:text-base text-slate-800 leading-relaxed">
+            <li>The columns of $A$ form a basis of $\mathbb{R}^n$.</li>
+            <li>$\operatorname{Col} A = \mathbb{R}^n$.</li>
+            <li>$\dim \operatorname{Col} A = n$.</li>
+            <li>$\operatorname{rank} A = n$.</li>
+            <li>$\operatorname{Nul} A = \{\mathbf{0}\}$.</li>
+            <li>$\dim \operatorname{Nul} A = 0$.</li>
+          </ol>
+
+          <!-- Collapsible PROOF for Invertible Matrix Theorem (continued) -->
+          <div class="border border-amber-200/90 rounded-xl overflow-hidden bg-white">
+            <button onclick="toggleCard('proof2-9-imt')" class="w-full px-4 py-2.5 bg-amber-100/60 hover:bg-amber-100 flex items-center justify-between text-left font-semibold text-sm sm:text-base text-amber-950 transition">
+              <span>PROOF — 可逆矩陣定理續篇等價鏈證明（(g) ⇒ (n) ⇒ (o) ⇒ (p) ⇒ (r) ⇒ (q) ⇒ (d) 與 (m)）</span>
+              <i class="fa-solid fa-chevron-down text-xs sm:text-sm text-amber-700"></i>
+            </button>
+            <div id="proof2-9-imt" class="toggle-content p-4 text-sm sm:text-base text-slate-700 space-y-2.5 leading-relaxed">
+              <p>
+                Statement (m) is logically equivalent to statements (e) and (h) regarding linear independence and spanning. The other five statements are linked to the earlier ones of the theorem by the following chain of implications:
+                $$(\text{g}) \Rightarrow (\text{n}) \Rightarrow (\text{o}) \Rightarrow (\text{p}) \Rightarrow (\text{r}) \Rightarrow (\text{q}) \Rightarrow (\text{d})$$
+              </p>
+              <p>
+                Statement (g), which says that the equation $A\mathbf{x} = \mathbf{b}$ has at least one solution for each $\mathbf{b}$ in $\mathbb{R}^n$, implies statement (n), because $\operatorname{Col} A$ is precisely the set of all $\mathbf{b}$ such that the equation $A\mathbf{x} = \mathbf{b}$ is consistent. The implications $(\text{n}) \Rightarrow (\text{o}) \Rightarrow (\text{p})$ follow from the definitions of dimension and rank. If the rank of $A$ is $n$, the number of columns of $A$, then $\dim \operatorname{Nul} A = 0$, by the Rank Theorem, and so $\operatorname{Nul} A = \{\mathbf{0}\}$. Thus $(\text{p}) \Rightarrow (\text{r}) \Rightarrow (\text{q})$. Also, statement (q) implies that the equation $A\mathbf{x} = \mathbf{0}$ has only the trivial solution, which is statement (d). Since statements (d) and (g) are already known to be equivalent to the statement that $A$ is invertible, the proof is complete.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- CHAPTER 3 OVERVIEW -->
