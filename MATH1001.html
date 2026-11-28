@@ -2715,14 +2715,23 @@
           </div>
         </div>
 
-        <!-- Null Space Definition & Theorem 12 Box -->
-        <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-3">
-          <div class="font-bold text-amber-950 text-lg">DEFINITION &amp; THEOREM 12 — NULL SPACE OF A MATRIX (矩陣的零空間 $\operatorname{Nul} A$ 與定理 12)</div>
+        <!-- Definition Box: Null Space (strictly matching book's DEFINITION box) -->
+        <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-2">
+          <div class="font-bold text-amber-950 text-lg">DEFINITION — NULL SPACE OF A MATRIX (矩陣的零空間 $\operatorname{Nul} A$)</div>
           <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
-            The <strong>null space（零空間）</strong> of a matrix $A$ is the set $\operatorname{Nul} A$ of all solutions of the homogeneous equation $A\mathbf{x} = \mathbf{0}$. When $A$ has $n$ columns, the solutions of $A\mathbf{x} = \mathbf{0}$ belong to $\mathbb{R}^n$, and the null space of $A$ is a subset of $\mathbb{R}^n$. In fact, $\operatorname{Nul} A$ has the properties of a subspace of $\mathbb{R}^n$.
+            The <strong>null space（零空間）</strong> of a matrix $A$ is the set $\operatorname{Nul} A$ of all solutions of the homogeneous equation $A\mathbf{x} = \mathbf{0}$.
           </p>
+        </div>
+
+        <p class="text-base md:text-lg text-slate-700 leading-relaxed">
+          When $A$ has $n$ columns, the solutions of $A\mathbf{x} = \mathbf{0}$ belong to $\mathbb{R}^n$, and the null space of $A$ is a subset of $\mathbb{R}^n$. In fact, $\operatorname{Nul} A$ has the properties of a subspace of $\mathbb{R}^n$.
+        </p>
+
+        <!-- Theorem 12 & Collapsible Proof -->
+        <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-3">
+          <div class="font-bold text-amber-950 text-lg">THEOREM 12 (定理 12：矩陣零空間的子空間性質)</div>
           <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
-            <strong>THEOREM 12:</strong> The null space of an $m \times n$ matrix $A$ is a subspace of $\mathbb{R}^n$. Equivalently, the set of all solutions of a system $A\mathbf{x} = \mathbf{0}$ of $m$ homogeneous linear equations in $n$ unknowns is a subspace of $\mathbb{R}^n$.
+            The null space of an $m \times n$ matrix $A$ is a subspace of $\mathbb{R}^n$. Equivalently, the set of all solutions of a system $A\mathbf{x} = \mathbf{0}$ of $m$ homogeneous linear equations in $n$ unknowns is a subspace of $\mathbb{R}^n$.
           </p>
 
           <!-- Collapsible PROOF for Theorem 12 -->
@@ -2741,12 +2750,11 @@
               </p>
             </div>
           </div>
-
-          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
-            <strong>IMPLICIT VS. EXPLICIT DESCRIPTION:</strong> To test whether a given vector $\mathbf{v}$ is in $\operatorname{Nul} A$, just compute $A\mathbf{v}$ to see whether $A\mathbf{v}$ is the zero vector. Because $\operatorname{Nul} A$ is described by a condition that must be checked for each vector, we say that the null space is <strong>defined implicitly（隱式定義）</strong>. In contrast, the column space is <strong>defined explicitly（顯式定義）</strong>, because vectors in $\operatorname{Col} A$ can be constructed (by linear combinations) from the columns of $A$. To create an explicit description of $\operatorname{Nul} A$, solve the equation $A\mathbf{x} = \mathbf{0}$ and write the solution in <strong>parametric vector form（參數向量形式）</strong>. (See Example 6 below.)
-          </p>
         </div>
-      </div>
+
+        <p class="text-base md:text-lg text-slate-700 leading-relaxed">
+          <strong>IMPLICIT VS. EXPLICIT DESCRIPTION:</strong> To test whether a given vector $\mathbf{v}$ is in $\operatorname{Nul} A$, just compute $A\mathbf{v}$ to see whether $A\mathbf{v}$ is the zero vector. Because $\operatorname{Nul} A$ is described by a condition that must be checked for each vector, we say that the null space is <strong>defined implicitly（隱式定義）</strong>. In contrast, the column space is <strong>defined explicitly（顯式定義）</strong>, because vectors in $\operatorname{Col} A$ can be constructed (by linear combinations) from the columns of $A$. To create an explicit description of $\operatorname{Nul} A$, solve the equation $A\mathbf{x} = \mathbf{0}$ and write the solution in <strong>parametric vector form（參數向量形式）</strong>. (See Example 6 below.)
+        </p>
 
       <!-- 3. Basis for a Subspace -->
       <div class="space-y-4">
