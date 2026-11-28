@@ -2198,13 +2198,23 @@
             $$(E_p \cdots E_1) L = (E_p \cdots E_1)(E_p \cdots E_1)^{-1} = I$$
             This observation is the key to constructing $L$.
           </p>
-          <div class="pt-1 space-y-1.5">
-            <div class="font-semibold text-amber-950">ALGORITHM FOR AN $LU$ FACTORIZATION：</div>
-            <ol class="list-decimal pl-5 space-y-1 text-sm sm:text-base text-slate-800">
-              <li>Reduce $A$ to an echelon form $U$ by a sequence of row replacement operations, if possible.</li>
-              <li>Place entries in $L$ such that the same sequence of row operations reduces $L$ to $I$.</li>
+            
+          <!-- Highlighted Algorithm Box -->
+          <div class="my-4 bg-amber-50 border-2 border-amber-400 border-l-8 border-l-amber-600 rounded-xl p-4 sm:p-5 shadow-xs space-y-2.5">
+            <div class="font-extrabold text-amber-900 text-sm sm:text-base tracking-wide uppercase flex items-center gap-2">
+              <i class="fa-solid fa-gear text-amber-600"></i>
+              <span>ALGORITHM FOR AN $LU$ FACTORIZATION</span>
+            </div>
+            <ol class="list-decimal pl-6 space-y-2 text-base sm:text-lg font-medium text-slate-900 leading-relaxed">
+              <li>
+                Reduce $A$ to an echelon form $U$ by a sequence of <strong class="text-amber-950 font-bold">row replacement operations</strong>, if possible.
+              </li>
+              <li>
+                Place entries in $L$ such that the <strong class="text-amber-950 font-bold">same sequence of row operations</strong> reduces $L$ to <strong class="text-amber-950 font-bold">$I$</strong>.
+              </li>
             </ol>
           </div>
+            
           <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
             Step 1 is not always possible, but when it is, the argument above shows that an $LU$ factorization exists. Example 2 will show how to implement step 2. By construction, $L$ will satisfy
             $$(E_p \cdots E_1) L = I$$
