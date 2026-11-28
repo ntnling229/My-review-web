@@ -58,12 +58,12 @@
 
             <!-- Chapter 1 Dropdown -->
             <div class="relative group py-2">
-                <button class="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-indigo-300 border border-indigo-500/30 transition flex items-center gap-1.5 font-medium">
+                <button class="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition flex items-center gap-1.5 font-medium">
                     <span>Ch1 Sections (1.1 - 1.9)</span>
                     <i class="fa-solid fa-chevron-down text-[10px]"></i>
                 </button>
                 <div class="absolute right-0 sm:left-0 mt-0 w-72 bg-slate-800 border border-indigo-500/30 rounded-lg shadow-lg hidden group-hover:block z-50 py-1 max-h-96 overflow-y-auto">
-                    <a href="#chap1-overview" class="block px-4 py-2 hover:bg-indigo-500/20 text-indigo-300 font-medium">Ch1 Complete Overview</a>
+                    <a href="#chap1-overview" class="block px-4 py-2 hover:bg-indigo-500/20 text-slate-200 font-medium">Ch1 Complete Overview</a>
                     <a href="#sec1-1" class="block px-4 py-2 hover:bg-slate-700 text-slate-200">§1.1 Four Ways to Represent a Function</a>
                     <a href="#sec1-2" class="block px-4 py-2 hover:bg-slate-700 text-slate-200">§1.2 Essential Functions</a>
                     <a href="#sec1-3" class="block px-4 py-2 hover:bg-slate-700 text-slate-200">§1.3 New Functions from Old Functions</a>
@@ -127,6 +127,2052 @@
 </header>
 
 <main class="max-w-7xl mx-auto px-4 py-8 space-y-8">
+
+    <!-- ============================================================== -->
+    <!-- CHAPTER 1: LINEAR EQUATIONS IN LINEAR ALGEBRA (1.1 - 1.9)      -->
+    <!-- ============================================================== -->
+
+    <!-- CHAPTER 1 OVERVIEW -->
+    <section id="chap1-overview" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
+        <div class="border-b border-slate-200 pb-4 mb-4 flex flex-wrap items-center justify-between gap-2">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <i class="fa-solid fa-layer-group text-teal-600"></i> Chapter 1 Linear Equations in Linear Algebra Complete Overview (第一章線性代數中的線性方程組完整總覽)
+            </h2>
+            <span class="text-xs text-slate-500 font-mono">Sections 1.1, 1.2, 1.3, 1.4, 1.5, 1.7, 1.8, 1.9</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs md:text-sm">
+            <a href="#sec1-1" class="block p-3.5 bg-slate-50 rounded-xl border border-slate-200 hover:border-teal-300 hover:bg-teal-50/40 transition">
+                <span class="font-bold text-teal-700 block mb-1">§1.1 Systems of Linear Equations</span>
+                <p class="text-slate-600">線性方程、解集與等價方程組、三種解的情況、相容與不相容、係數矩陣與增廣矩陣、三種基本列運算與存在性／唯一性。</p>
+            </a>
+            <a href="#sec1-2" class="block p-3.5 bg-slate-50 rounded-xl border border-slate-200 hover:border-teal-300 hover:bg-teal-50/40 transition">
+                <span class="font-bold text-teal-700 block mb-1">§1.2 Row Reduction and Echelon Forms</span>
+                <p class="text-slate-600">階梯形與簡化階梯形、Theorem 1 唯一性、主元位置與主元行、列化簡演算法（前向與後向階段）、基本變數與自由變數、參數描述、反代入與 Theorem 2。</p>
+            </a>
+            <a href="#sec1-3" class="block p-3.5 bg-slate-50 rounded-xl border border-slate-200 hover:border-teal-300 hover:bg-teal-50/40 transition">
+                <span class="font-bold text-teal-700 block mb-1">§1.3 Vector Equations</span>
+                <p class="text-slate-600">$\mathbb{R}^2, \mathbb{R}^3, \mathbb{R}^n$ 向量、向量加法與純量乘法、平行四邊形法則、$\mathbb{R}^n$ 代數性質 (i)–(viii)、線性組合與 $\operatorname{Span}\{v_1,\dots,v_p\}$。</p>
+            </a>
+            <a href="#sec1-4" class="block p-3.5 bg-slate-50 rounded-xl border border-slate-200 hover:border-teal-300 hover:bg-teal-50/40 transition">
+                <span class="font-bold text-teal-700 block mb-1">§1.4 The Matrix Equation $Ax=b$</span>
+                <p class="text-slate-600">矩陣向量乘積 $Ax$、Theorem 3 三種等價觀點、解的存在性與生成 $\mathbb{R}^m$、Theorem 4 等價命題、列向量規則、單位矩陣 $I_n$ 與 Theorem 5。</p>
+            </a>
+            <a href="#sec1-5" class="block p-3.5 bg-slate-50 rounded-xl border border-slate-200 hover:border-teal-300 hover:bg-teal-50/40 transition">
+                <span class="font-bold text-teal-700 block mb-1">§1.5 Solution Sets of Linear Systems</span>
+                <p class="text-slate-600">齊次線性方程組 $Ax=0$、平凡解與非平凡解、參數向量形式、非齊次系統 $Ax=b$ 的平移幾何解釋與 Theorem 6。</p>
+            </a>
+            <a href="#sec1-7" class="block p-3.5 bg-slate-50 rounded-xl border border-slate-200 hover:border-teal-300 hover:bg-teal-50/40 transition">
+                <span class="font-bold text-teal-700 block mb-1">§1.7 Linear Independence</span>
+                <p class="text-slate-600">線性獨立與線性相依定義、線性相依關係、矩陣行的線性獨立性、一或兩個向量集合、Theorem 7、Theorem 8（$p&gt;n$）與 Theorem 9（含零向量）。</p>
+            </a>
+            <a href="#sec1-8" class="block p-3.5 bg-slate-50 rounded-xl border border-slate-200 hover:border-teal-300 hover:bg-teal-50/40 transition">
+                <span class="font-bold text-teal-700 block mb-1">§1.8 Introduction to Linear Transformations</span>
+                <p class="text-slate-600">變換／函數／映射 $T:\mathbb{R}^n\to\mathbb{R}^m$、定義域、餘域、像與值域、矩陣變換 $x\mapsto Ax$、線性變換定義與性質 (3),(4),(5)。</p>
+            </a>
+            <a href="#sec1-9" class="block p-3.5 bg-slate-50 rounded-xl border border-slate-200 hover:border-teal-300 hover:bg-teal-50/40 transition">
+                <span class="font-bold text-teal-700 block mb-1">§1.9 The Matrix of a Linear Transformation</span>
+                <p class="text-slate-600">Theorem 10 與標準矩陣 $A=[T(e_1)\;\cdots\;T(e_n)]$、幾何線性變換（Tables 1–4）、映成 onto $\mathbb{R}^m$ 與一對一 one-to-one、Theorem 11 與 Theorem 12。</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SECTION 1.1: SYSTEMS OF LINEAR EQUATIONS                       -->
+    <!-- ============================================================== -->
+    <section id="sec1-1" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b border-slate-200 pb-4 flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1.5 rounded-xl bg-teal-100 text-teal-900 text-xl md:text-2xl font-extrabold tracking-tight">§ 1.1</span>
+                <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight">SYSTEMS OF LINEAR EQUATIONS (線性方程組)</h3>
+            </div>
+            <span class="text-xs text-slate-500 font-mono">Slides 1–40 (Ch-1-1.pdf)</span>
+        </div>
+
+        <!-- Course Info Collapsible -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+            <button onclick="toggleCard('info-1-1')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                <span>COURSE INFORMATION（課程資訊：Linear Algebra I, Instructor &amp; TAs）</span>
+                <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+            </button>
+            <div id="info-1-1" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-1.5 bg-white">
+                <p><strong>Course:</strong> Linear Algebra I — Chapter 1 Linear Equations in Linear Algebra</p>
+                <p><strong>Instructor:</strong> Professor Haiwei Sun | Office: E11-3080 | Tel. No.: 8822-4455 | Email: HSun/UMAC</p>
+                <p><strong>TAs:</strong> Mr. Zhantong XIE (yc57479@um.edu.mo), Mr. Guangze CHEN (yc37429@um.edu.mo) | Office: E11-3083</p>
+            </div>
+        </div>
+
+        <!-- 1. Linear Equations, Linear Systems, Solution Set & Equivalent Systems -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                1. Linear Equations, Linear Systems, Solution Set &amp; Equivalent Systems (線性方程、線性方程組、解集與等價方程組)
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                A <strong>linear equation（線性方程）</strong> in the <strong>variables（變數）</strong> $x_{1},\dots,x_{n}$ is an equation that can be written in the form
+                $$a_{1}x_{1}+a_{2}x_{2}+\cdots+a_{n}x_{n}=b \tag{1}$$
+                where $b$ and the <strong>coefficients（係數）</strong> $a_{1},\dots,a_{n}$ are real or complex numbers, usually known in advance. The subscript $n$ may be any positive integer. In textbook examples and exercises, $n$ is normally between $2$ and $5$. In real-life problems, $n$ might be $50$ or $5000$, or even larger.
+            </p>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                The equations
+                $$4x_{1}-5x_{2}+2=x_{1} \quad \text{and} \quad x_{2}=2(\sqrt{6}-x_{1})+x_{3}$$
+                are both linear because they can be rearranged algebraically as in equation (1):
+                $$3x_{1}-5x_{2}=-2 \quad \text{and} \quad 2x_{1}+x_{2}-x_{3}=2\sqrt{6}$$
+                The equations
+                $$4x_{1}-5x_{2}=x_{1}x_{2} \quad \text{and} \quad x_{2}=2\sqrt{x_{1}}-6$$
+                are not linear because of the presence of $x_{1}x_{2}$ in the first equation and $\sqrt{x_{1}}$ in the second.
+            </p>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                A <strong>system of linear equations（線性方程組）</strong> (or a <strong>linear system（線性系統）</strong>) is a collection of one or more linear equations involving the same variables—say, $x_{1},\dots,x_{n}$. An example is
+                $$\begin{aligned}
+                2x_{1}-x_{2}+1.5x_{3} &= 8 \\
+                x_{1}\phantom{{}-x_{2}}-4x_{3} &= -7
+                \end{aligned} \tag{2}$$
+                A <strong>solution（解）</strong> of the system is a list $(s_{1},s_{2},\dots,s_{n})$ of numbers that makes each equation a true statement when the values $s_{1},\dots,s_{n}$ are substituted for $x_{1},\dots,x_{n}$, respectively. For instance, $(5, 6.5, 3)$ is a solution of system (2) because, when these values are substituted in (2) for $x_{1}$, $x_{2}$, $x_{3}$, respectively, the equations simplify to $8=8$ and $-7=-7$.
+            </p>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                The set of all possible solutions is called the <strong>solution set（解集）</strong> of the linear system. Two linear systems are called <strong>equivalent（等價的）</strong> if they have the same solution set. That is, each solution of the first system is a solution of the second system, and each solution of the second system is a solution of the first.
+            </p>
+        </div>
+
+        <!-- 2. Geometric Interpretation & Number of Solutions (Figures 1 & 2) -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                2. Geometric Interpretation, Number of Solutions, Consistent &amp; Inconsistent Systems (幾何意義、解的數目、相容與不相容系統)
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                Finding the solution set of a system of two linear equations in two variables is easy because it amounts to finding the intersection of two lines. A typical problem is
+                $$\begin{aligned}
+                x_{1}-2x_{2} &= -1 \\
+                -x_{1}+3x_{2} &= 3
+                \end{aligned}$$
+                The graphs of these equations are lines, which we denote by $l_{1}$ and $l_{2}$. A pair of numbers $(x_{1},x_{2})$ satisfies both equations in the system if and only if the point $(x_{1},x_{2})$ lies on both $l_{1}$ and $l_{2}$. In the system above, the solution is the single point $(3, 2)$, as you can easily verify. See Figure 1.
+            </p>
+
+            <!-- SVG Figure 1: Exactly one solution -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-2">
+                <p class="text-xs font-semibold text-slate-600">FIGURE 1 Exactly one solution（恰有一個解：兩直線交於一點 $(3, 2)$）</p>
+                <div class="overflow-x-auto">
+                    <svg viewBox="0 0 360 220" class="w-full max-w-md mx-auto text-slate-800" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <marker id="ax11" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                <path d="M 0 1 L 10 5 L 0 9 z" fill="#1e293b" />
+                            </marker>
+                        </defs>
+                        <!-- Axes: origin at (75, 175) -->
+                        <line x1="25" y1="175" x2="335" y2="175" stroke="#1e293b" stroke-width="1.5" marker-end="url(#ax11)" />
+                        <line x1="75" y1="205" x2="75" y2="15" stroke="#1e293b" stroke-width="1.5" marker-end="url(#ax11)" />
+                        <text x="338" y="180" font-size="14" font-style="italic" font-family="serif">x<tspan dy="3" font-size="10">1</tspan></text>
+                        <text x="82" y="20" font-size="14" font-style="italic" font-family="serif">x<tspan dy="3" font-size="10">2</tspan></text>
+
+                        <!-- Line l1: x2 = 0.5*(x1 + 1) -> at x1=-1: x2=0 (75, 175); at x1=3: x2=2 (225, 115); at x1=7: x2=4 (375->315, 55) -->
+                        <!-- Using scale: 1 unit in x1 = 50px, 1 unit in x2 = 30px; origin (75, 175) -->
+                        <!-- l1 passes through (-1, 0) = (25, 175) and (3, 2) = (225, 115) and (5, 3) = (325, 85) -->
+                        <line x1="25" y1="175" x2="325" y2="85" stroke="#0d9488" stroke-width="2" />
+                        <text x="308" y="78" font-size="13.5" font-style="italic" font-family="serif" fill="#0f766e">l<tspan dy="3" font-size="10">1</tspan></text>
+
+                        <!-- l2: x2 = (x1 + 3)/3 -> at x1=0: x2=1 (75, 145); at x1=3: x2=2 (225, 115); at x1=6: x2=3 (375) -> use x1=4.5: x2=2.5 (300, 100) -->
+                        <line x1="75" y1="145" x2="305" y2="99" stroke="#0284c7" stroke-width="2" />
+                        <text x="290" y="91" font-size="13.5" font-style="italic" font-family="serif" fill="#0369a1">l<tspan dy="3" font-size="10">2</tspan></text>
+
+                        <!-- Dashed lines to (3, 2) = (225, 115) -->
+                        <line x1="225" y1="115" x2="225" y2="175" stroke="#64748b" stroke-width="1.2" stroke-dasharray="4,3" />
+                        <line x1="75" y1="115" x2="225" y2="115" stroke="#64748b" stroke-width="1.2" stroke-dasharray="4,3" />
+                        <line x1="70" y1="115" x2="80" y2="115" stroke="#1e293b" stroke-width="1.4" />
+                        <text x="56" y="119" text-anchor="middle" font-size="13.5" font-family="serif">2</text>
+                        <text x="225" y="191" text-anchor="middle" font-size="13.5" font-family="serif">3</text>
+
+                        <!-- Intersection point (3, 2) -->
+                        <circle cx="225" cy="115" r="4.2" fill="#0f172a" />
+                        <text x="235" y="128" font-size="13" font-family="serif">(3, 2)</text>
+                    </svg>
+                </div>
+            </div>
+
+            <p class="text-sm text-slate-700 leading-relaxed">
+                Of course, two lines need not intersect in a single point—they could be parallel, or they could coincide and hence "intersect at every point on the line." Figure 2 shows the graphs that correspond to the following systems:
+                (a) $x_{1}-2x_{2}=-1$, $-x_{1}+2x_{2}=3$;
+                (b) $x_{1}-2x_{2}=-1$, $-x_{1}+2x_{2}=1$.
+            </p>
+
+            <!-- SVG Figure 2: (a) No solution. (b) Infinitely many solutions. -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-2">
+                <p class="text-xs font-semibold text-slate-600">FIGURE 2 (a) No solution（無解：平行線）. (b) Infinitely many solutions（無限多組解：重合直線）.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- (a) Parallel lines -->
+                    <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                        <svg viewBox="0 0 270 195" class="w-full max-w-[270px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="ax11a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#1e293b" />
+                                </marker>
+                            </defs>
+                            <line x1="20" y1="160" x2="250" y2="160" stroke="#1e293b" stroke-width="1.4" marker-end="url(#ax11a)" />
+                            <line x1="55" y1="185" x2="55" y2="14" stroke="#1e293b" stroke-width="1.4" marker-end="url(#ax11a)" />
+                            <text x="253" y="165" font-size="13" font-style="italic" font-family="serif">x<tspan dy="3" font-size="9.5">1</tspan></text>
+                            <text x="62" y="18" font-size="13" font-style="italic" font-family="serif">x<tspan dy="3" font-size="9.5">2</tspan></text>
+
+                            <!-- Parallel line l1: passes (-1, 0) -> (20, 160) to (4, 2.5) -> (230, 85) -->
+                            <line x1="20" y1="160" x2="230" y2="85" stroke="#0d9488" stroke-width="2" />
+                            <text x="218" y="77" font-size="13" font-style="italic" font-family="serif" fill="#0f766e">l<tspan dy="3" font-size="9.5">1</tspan></text>
+
+                            <!-- Parallel line l2: -x1 + 2x2 = 3 -> x2 = 0.5*(x1 + 3); passes (-3, 0) -> not on x1, passes (-1, 1) -> (20, 130) to (3, 3) -> (205, 70) -->
+                            <line x1="20" y1="130" x2="215" y2="67" stroke="#0284c7" stroke-width="2" />
+                            <text x="205" y="59" font-size="13" font-style="italic" font-family="serif" fill="#0369a1">l<tspan dy="3" font-size="9.5">2</tspan></text>
+
+                            <line x1="50" y1="100" x2="60" y2="100" stroke="#1e293b" stroke-width="1.3" />
+                            <text x="38" y="104" text-anchor="middle" font-size="12.5" font-family="serif">2</text>
+                            <text x="180" y="174" text-anchor="middle" font-size="12.5" font-family="serif">3</text>
+                        </svg>
+                        <div class="text-xs text-slate-600 font-medium">(a) No solution</div>
+                    </div>
+
+                    <!-- (b) Coincident lines -->
+                    <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                        <svg viewBox="0 0 270 195" class="w-full max-w-[270px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="ax11b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#1e293b" />
+                                </marker>
+                            </defs>
+                            <line x1="20" y1="160" x2="250" y2="160" stroke="#1e293b" stroke-width="1.4" marker-end="url(#ax11b)" />
+                            <line x1="55" y1="185" x2="55" y2="14" stroke="#1e293b" stroke-width="1.4" marker-end="url(#ax11b)" />
+                            <text x="253" y="165" font-size="13" font-style="italic" font-family="serif">x<tspan dy="3" font-size="9.5">1</tspan></text>
+                            <text x="62" y="18" font-size="13" font-style="italic" font-family="serif">x<tspan dy="3" font-size="9.5">2</tspan></text>
+
+                            <!-- Coincident lines l1 and l2 -->
+                            <line x1="20" y1="160" x2="230" y2="85" stroke="#0d9488" stroke-width="3.2" />
+                            <line x1="20" y1="160" x2="230" y2="85" stroke="#0284c7" stroke-width="1.4" stroke-dasharray="6,4" />
+                            <text x="215" y="75" font-size="13" font-style="italic" font-family="serif" fill="#0f766e">l<tspan dy="3" font-size="9.5">1</tspan>, <tspan font-style="italic" fill="#0369a1">l</tspan><tspan dy="3" font-size="9.5" fill="#0369a1">2</tspan></text>
+
+                            <line x1="50" y1="100" x2="60" y2="100" stroke="#1e293b" stroke-width="1.3" />
+                            <text x="38" y="104" text-anchor="middle" font-size="12.5" font-family="serif">2</text>
+                            <text x="180" y="174" text-anchor="middle" font-size="12.5" font-family="serif">3</text>
+                        </svg>
+                        <div class="text-xs text-slate-600 font-medium">(b) Infinitely many solutions</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-4 space-y-2 text-sm text-slate-700 leading-relaxed">
+                <p>
+                    Figures 1 and 2 illustrate the following general fact about linear systems, to be verified in Section 1.2.
+                    A system of linear equations has:
+                    <strong>1. no solution（無解）</strong>, or
+                    <strong>2. exactly one solution（恰有一個解）</strong>, or
+                    <strong>3. infinitely many solutions（無限多組解）</strong>.
+                </p>
+                <p>
+                    A system of linear equations is said to be <strong>consistent（相容的）</strong> if it has either one solution or infinitely many solutions; a system is <strong>inconsistent（不相容的）</strong> if it has no solution.
+                </p>
+            </div>
+        </div>
+
+        <!-- 3. Matrix Notation, Coefficient Matrix, Augmented Matrix & Size -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                3. Matrix Notation, Coefficient Matrix, Augmented Matrix &amp; Matrix Size (矩陣記號、係數矩陣、增廣矩陣與矩陣大小)
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                The essential information of a linear system can be recorded compactly in a rectangular array called a <strong>matrix（矩陣）</strong>. Given the system
+                $$\begin{aligned}
+                x_{1}-2x_{2}+x_{3} &= 0 \\
+                2x_{2}-8x_{3} &= 8 \\
+                5x_{1}\phantom{{}-2x_{2}}-5x_{3} &= 10
+                \end{aligned} \tag{3}$$
+                with the coefficients of each variable aligned in columns, the matrix
+                $$\begin{bmatrix} 1 & -2 & 1 \\ 0 & 2 & -8 \\ 5 & 0 & -5 \end{bmatrix}$$
+                is called the <strong>coefficient matrix（係數矩陣）</strong> (or <strong>matrix of coefficients</strong>) of the system (3), and
+                $$\begin{bmatrix} 1 & -2 & 1 & 0 \\ 0 & 2 & -8 & 8 \\ 5 & 0 & -5 & 10 \end{bmatrix} \tag{4}$$
+                is called the <strong>augmented matrix（增廣矩陣）</strong> of the system. (The second row here contains a zero because the second equation could be written as $0\cdot x_{1}+2x_{2}-8x_{3}=8$.) An augmented matrix of a system consists of the coefficient matrix with an added column containing the constants from the right sides of the equations.
+            </p>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                The <strong>size（大小）</strong> of a matrix tells how many rows and columns it has. The augmented matrix (4) above has $3$ rows and $4$ columns and is called a $3\times 4$ (read "3 by 4") matrix. If $m$ and $n$ are positive integers, an $m\times n$ matrix is a rectangular array of numbers with $m$ rows and $n$ columns. (The number of rows always comes first.) Matrix notation will simplify the calculations in the examples that follow.
+            </p>
+
+            <!-- Collapsible EXAMPLE 1 (with 3D planes SVG) -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-1-1')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 1（範例 1：逐步消去法與增廣矩陣求解系統 (3)，唯一解 $(1, 0, -1)$ 與三平面交點圖示）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-1-1" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 1</strong> Solve system (3).</p>
+                    <p><strong>SOLUTION:</strong> The elimination procedure is shown here with and without matrix notation, and the results are placed side by side for comparison:</p>
+                    <p>Keep $x_{1}$ in the first equation and eliminate it from the other equations. To do so, add $-5$ times equation 1 to equation 3:
+                        $$-5x_{1}+10x_{2}-5x_{3}=0 \quad (-5\cdot [\text{equation } 1]), \quad 5x_{1}-5x_{3}=10 \quad ([\text{equation } 3]) \implies 10x_{2}-10x_{3}=10$$
+                        The result of this calculation is written in place of the original third equation:
+                        $$\begin{aligned}
+                        x_{1}-2x_{2}+x_{3} &= 0 \\
+                        2x_{2}-8x_{3} &= 8 \\
+                        10x_{2}-10x_{3} &= 10
+                        \end{aligned}, \qquad \begin{bmatrix} 1 & -2 & 1 & 0 \\ 0 & 2 & -8 & 8 \\ 0 & 10 & -10 & 10 \end{bmatrix}$$
+                    </p>
+                    <p>Now, multiply equation 2 by $\frac{1}{2}$ in order to obtain $1$ as the coefficient for $x_{2}$:
+                        $$\begin{aligned}
+                        x_{1}-2x_{2}+x_{3} &= 0 \\
+                        x_{2}-4x_{3} &= 4 \\
+                        10x_{2}-10x_{3} &= 10
+                        \end{aligned}, \qquad \begin{bmatrix} 1 & -2 & 1 & 0 \\ 0 & 1 & -4 & 4 \\ 0 & 10 & -10 & 10 \end{bmatrix}$$
+                    </p>
+                    <p>Use the $x_{2}$ in equation 2 to eliminate the $10x_{2}$ in equation 3 ($-10\cdot [\text{equation } 2] + [\text{equation } 3]$):
+                        $$-10x_{2}+40x_{3}=-40, \quad 10x_{2}-10x_{3}=10 \implies 30x_{3}=-30$$
+                        Written in place of the previous third equation (row):
+                        $$\begin{aligned}
+                        x_{1}-2x_{2}+x_{3} &= 0 \\
+                        x_{2}-4x_{3} &= 4 \\
+                        30x_{3} &= -30
+                        \end{aligned}, \qquad \begin{bmatrix} 1 & -2 & 1 & 0 \\ 0 & 1 & -4 & 4 \\ 0 & 0 & 30 & -30 \end{bmatrix}$$
+                    </p>
+                    <p>Now, multiply equation 3 by $\frac{1}{30}$ in order to obtain $1$ as the coefficient for $x_{3}$. The new system has a <strong>triangular form（三角形式）</strong>:
+                        $$\begin{aligned}
+                        x_{1}-2x_{2}+x_{3} &= 0 \\
+                        x_{2}-4x_{3} &= 4 \\
+                        x_{3} &= -1
+                        \end{aligned}, \qquad \begin{bmatrix} 1 & -2 & 1 & 0 \\ 0 & 1 & -4 & 4 \\ 0 & 0 & 1 & -1 \end{bmatrix}$$
+                    </p>
+                    <p>Combine the operations to eliminate $x_{3}$ in equations 1 and 2 (add $-1\cdot[\text{equation } 3]$ to equation 1 and $+4\cdot[\text{equation } 3]$ to equation 2):
+                        $$\begin{aligned}
+                        x_{1}-2x_{2} &= 1 \\
+                        x_{2} &= 0 \\
+                        x_{3} &= -1
+                        \end{aligned}, \qquad \begin{bmatrix} 1 & -2 & 0 & 1 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & -1 \end{bmatrix}$$
+                    </p>
+                    <p>Now, having cleaned out the column above the $x_{3}$ in equation 3, move back to the $x_{2}$ in equation 2 and use it to eliminate the $-2x_{2}$ above it. Add $2$ times equation 2 to equation 1 and obtain the system:
+                        $$\begin{aligned}
+                        x_{1} &= 1 \\
+                        x_{2} &= 0 \\
+                        x_{3} &= -1
+                        \end{aligned}, \qquad \begin{bmatrix} 1 & 0 & 0 & 1 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & -1 \end{bmatrix}$$
+                    </p>
+                    <p>The work is essentially done. It shows that the only solution of the original system is $(1,0,-1)$. Checking in the original system:
+                        $$1(1)-2(0)+1(-1)=1-0-1=0, \quad 2(0)-8(-1)=0+8=8, \quad 5(1)-5(-1)=5+5=10$$
+                        The results agree with the right side of the original system, so $(1,0,-1)$ is a solution of the system.
+                    </p>
+
+                    <!-- SVG: Three planes intersecting at (1, 0, -1) -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 space-y-2">
+                        <p class="text-xs font-semibold text-slate-600">Geometric view in $\mathbb{R}^{3}$（三維空間中三個平面交於唯一一點 $(1, 0, -1)$）</p>
+                        <div class="overflow-x-auto">
+                            <svg viewBox="0 0 340 220" class="w-full max-w-md mx-auto text-slate-800" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <marker id="ax3d1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1 L 10 5 L 0 9 z" fill="#1e293b" />
+                                    </marker>
+                                </defs>
+                                <!-- Origin at (155, 118) -->
+                                <line x1="155" y1="118" x2="155" y2="16" stroke="#1e293b" stroke-width="1.4" marker-end="url(#ax3d1)" />
+                                <line x1="155" y1="118" x2="295" y2="148" stroke="#1e293b" stroke-width="1.4" marker-end="url(#ax3d1)" />
+                                <line x1="155" y1="118" x2="55" y2="195" stroke="#1e293b" stroke-width="1.4" marker-end="url(#ax3d1)" />
+                                <text x="163" y="22" font-size="13" font-style="italic" font-family="serif">x<tspan dy="3" font-size="9.5">3</tspan></text>
+                                <text x="298" y="155" font-size="13" font-style="italic" font-family="serif">x<tspan dy="3" font-size="9.5">2</tspan></text>
+                                <text x="38" y="203" font-size="13" font-style="italic" font-family="serif">x<tspan dy="3" font-size="9.5">1</tspan></text>
+
+                                <!-- Three intersecting planes -->
+                                <polygon points="65,62 195,38 255,112 125,136" fill="#bae6fd" fill-opacity="0.55" stroke="#0284c7" stroke-width="1.2" />
+                                <polygon points="95,95 235,72 285,152 145,175" fill="#99f6e4" fill-opacity="0.55" stroke="#0d9488" stroke-width="1.2" />
+                                <polygon points="80,55 185,82 165,182 60,155" fill="#fde68a" fill-opacity="0.48" stroke="#d97706" stroke-width="1.2" />
+
+                                <!-- Intersection point (1, 0, -1) -->
+                                <circle cx="168" cy="116" r="4.2" fill="#0f172a" />
+                                <text x="176" y="108" font-size="12.5" font-weight="bold" font-family="serif">(1, 0, −1)</text>
+                            </svg>
+                        </div>
+                        <p class="text-xs text-slate-600">Each of the original equations determines a plane in three-dimensional space. The point $(1,0,-1)$ lies in all three planes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Elementary Row Operations, Row Equivalence & Existence/Uniqueness -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                4. Elementary Row Operations, Row Equivalence &amp; Existence/Uniqueness (三種基本列運算、列等價與存在性／唯一性問題)
+            </h4>
+
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2.5">
+                <div class="font-bold text-teal-950 text-base">ELEMENTARY ROW OPERATIONS（基本列運算）</div>
+                <ol class="list-decimal pl-5 space-y-1.5 text-sm text-slate-800">
+                    <li><strong>(Replacement 列倍加)</strong> Replace one row by the sum of itself and a multiple of another row.</li>
+                    <li><strong>(Interchange 列互換)</strong> Interchange two rows.</li>
+                    <li><strong>(Scaling 列倍乘)</strong> Multiply all entries in a row by a nonzero constant.</li>
+                </ol>
+            </div>
+
+            <p class="text-sm text-slate-700 leading-relaxed">
+                Row operations can be applied to any matrix, not merely to one that arises as the augmented matrix of a linear system. Two matrices are called <strong>row equivalent（列等價的）</strong> if there is a sequence of elementary row operations that transforms one matrix into the other.
+                It is important to note that row operations are <strong>reversible（可逆的）</strong>. If two rows are interchanged, they can be returned to their original positions by another interchange. If a row is scaled by a nonzero constant $c$, then multiplying the new row by $1/c$ produces the original row. Finally, consider a replacement operation involving two rows—say, rows $1$ and $2$—and suppose that $c$ times row $1$ is added to row $2$ to produce a new row $2$. To "reverse" this operation, add $-c$ times row $1$ to (new) row $2$ and obtain the original row $2$.
+            </p>
+
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2">
+                <div class="font-bold text-teal-950 text-base">TWO FUNDAMENTAL QUESTIONS ABOUT A LINEAR SYSTEM（線性方程組的兩個基本問題）</div>
+                <ol class="list-decimal pl-5 space-y-1 text-sm text-slate-800">
+                    <li>Is the system <strong>consistent（相容的）</strong>; that is, does at least one solution exist?</li>
+                    <li>If a solution exists, is it the only one; that is, is the solution <strong>unique（唯一的）</strong>?</li>
+                </ol>
+            </div>
+
+            <!-- Collapsible EXAMPLE 2 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-1-2')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 2（範例 2：判定系統 (3) 的相容性與唯一性）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-1-2" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 2</strong> Determine if the following system is consistent: $x_{1}-2x_{2}+x_{3}=0$, $2x_{2}-8x_{3}=8$, $5x_{1}-5x_{3}=10$.</p>
+                    <p><strong>SOLUTION:</strong> This is the system from Example 1. Suppose that we have performed the row operations necessary to obtain the triangular form
+                        $$\begin{aligned}
+                        x_{1}-2x_{2}+x_{3} &= 0 \\
+                        x_{2}-4x_{3} &= 4 \\
+                        x_{3} &= -1
+                        \end{aligned}, \qquad \begin{bmatrix} 1 & -2 & 1 & 0 \\ 0 & 1 & -4 & 4 \\ 0 & 0 & 1 & -1 \end{bmatrix}$$
+                        At this point, we know $x_{3}$. Were we to substitute the value of $x_{3}$ into equation 2, we could compute $x_{2}$ and hence could determine $x_{1}$ from equation 1. So a solution exists; the system is consistent. (In fact, $x_{2}$ is uniquely determined by equation 2 since $x_{3}$ has only one possible value, and $x_{1}$ is therefore uniquely determined by equation 1. So the solution is unique.)
+                    </p>
+                </div>
+            </div>
+
+            <!-- Collapsible EXAMPLE 3 (with inconsistent 3 planes SVG) -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-1-3')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 3（範例 3：判定不相容系統 (5)，出現矛盾方程 $0=15$ 與三平面無共同交點圖示）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-1-3" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 3</strong> Determine if the following system is consistent:
+                        $$\begin{aligned}
+                        x_{2}-4x_{3} &= 8 \\
+                        2x_{1}-3x_{2}+2x_{3} &= 1 \\
+                        4x_{1}-8x_{2}+12x_{3} &= 1
+                        \end{aligned} \tag{5}$$
+                    </p>
+                    <p><strong>SOLUTION:</strong> The augmented matrix is $\begin{bmatrix} 0 & 1 & -4 & 8 \\ 2 & -3 & 2 & 1 \\ 4 & -8 & 12 & 1 \end{bmatrix}$.
+                        Interchange rows 1 and 2: $\begin{bmatrix} 2 & -3 & 2 & 1 \\ 0 & 1 & -4 & 8 \\ 4 & -8 & 12 & 1 \end{bmatrix}$.
+                        Add $-2$ times row 1 to row 3: $\begin{bmatrix} 2 & -3 & 2 & 1 \\ 0 & 1 & -4 & 8 \\ 0 & -2 & 8 & -1 \end{bmatrix}$ (6).
+                        Add $2$ times row 2 to row 3: $\begin{bmatrix} 2 & -3 & 2 & 1 \\ 0 & 1 & -4 & 8 \\ 0 & 0 & 0 & 15 \end{bmatrix}$ (7).
+                    </p>
+                    <p>The augmented matrix is now in triangular form. Going back to equation notation:
+                        $$\begin{aligned}
+                        2x_{1}-3x_{2}+2x_{3} &= 1 \\
+                        x_{2}-4x_{3} &= 8 \\
+                        0 &= 15
+                        \end{aligned} \tag{8}$$
+                        The equation $0=15$ is a short form of $0x_{1}+0x_{2}+0x_{3}=15$. This system in triangular form obviously has a built-in contradiction. There are no values of $x_{1}$, $x_{2}$, $x_{3}$ that satisfy (8) because the equation $0=15$ is never true. Since (8) and (5) have the same solution set, the original system is inconsistent (i.e., has no solution).
+                    </p>
+
+                    <!-- SVG: Three planes with no common point -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 space-y-2">
+                        <p class="text-xs font-semibold text-slate-600">Geometric view in $\mathbb{R}^{3}$（不相容系統：三平面兩兩相交但無共同交點）</p>
+                        <div class="overflow-x-auto">
+                            <svg viewBox="0 0 340 220" class="w-full max-w-md mx-auto text-slate-800" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <marker id="ax3d2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1 L 10 5 L 0 9 z" fill="#1e293b" />
+                                    </marker>
+                                </defs>
+                                <line x1="155" y1="118" x2="155" y2="16" stroke="#1e293b" stroke-width="1.4" marker-end="url(#ax3d2)" />
+                                <line x1="155" y1="118" x2="295" y2="148" stroke="#1e293b" stroke-width="1.4" marker-end="url(#ax3d2)" />
+                                <line x1="155" y1="118" x2="55" y2="195" stroke="#1e293b" stroke-width="1.4" marker-end="url(#ax3d2)" />
+                                <text x="163" y="22" font-size="13" font-style="italic" font-family="serif">x<tspan dy="3" font-size="9.5">3</tspan></text>
+                                <text x="298" y="155" font-size="13" font-style="italic" font-family="serif">x<tspan dy="3" font-size="9.5">2</tspan></text>
+                                <text x="38" y="203" font-size="13" font-style="italic" font-family="serif">x<tspan dy="3" font-size="9.5">1</tspan></text>
+
+                                <!-- Three planes forming a triangular prism intersection (no common point) -->
+                                <polygon points="65,58 190,34 240,98 115,122" fill="#bae6fd" fill-opacity="0.58" stroke="#0284c7" stroke-width="1.2" />
+                                <polygon points="105,86 245,62 288,136 148,160" fill="#99f6e4" fill-opacity="0.58" stroke="#0d9488" stroke-width="1.2" />
+                                <polygon points="75,78 182,102 152,188 45,164" fill="#fde68a" fill-opacity="0.52" stroke="#d97706" stroke-width="1.2" />
+
+                                <!-- Three distinct intersection lines -->
+                                <line x1="125" y1="74" x2="212" y2="104" stroke="#0f172a" stroke-width="1.6" />
+                                <line x1="115" y1="122" x2="152" y2="165" stroke="#0f172a" stroke-width="1.6" />
+                                <line x1="145" y1="88" x2="122" y2="148" stroke="#0f172a" stroke-width="1.6" />
+                            </svg>
+                        </div>
+                        <p class="text-xs text-slate-600">The system is inconsistent because there is no point that lies on all three planes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SECTION 1.2: ROW REDUCTION AND ECHELON FORMS                   -->
+    <!-- ============================================================== -->
+    <section id="sec1-2" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b border-slate-200 pb-4 flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1.5 rounded-xl bg-teal-100 text-teal-900 text-xl md:text-2xl font-extrabold tracking-tight">§ 1.2</span>
+                <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight">ROW REDUCTION AND ECHELON FORMS (列化簡與階梯形)</h3>
+            </div>
+            <span class="text-xs text-slate-500 font-mono">Slides 41–75 (Ch-1-2.pdf)</span>
+        </div>
+
+        <!-- 1. Echelon Form, Reduced Echelon Form & THEOREM 1 -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                1. Echelon Form, Reduced Echelon Form &amp; THEOREM 1 Uniqueness (階梯形、簡化階梯形與定理 1 唯一性)
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                The algorithm applies to any matrix, whether or not the matrix is viewed as an augmented matrix for a linear system. So the first part of this section concerns an arbitrary rectangular matrix and begins by introducing two important classes of matrices that include the "triangular" matrices of Section 1.1. In the definitions that follow, a <strong>nonzero row or column（非零列或非零行）</strong> in a matrix means a row or column that contains at least one nonzero entry; a <strong>leading entry（前導元素）</strong> of a row refers to the leftmost nonzero entry (in a nonzero row).
+            </p>
+
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-3 text-sm text-slate-800 leading-relaxed">
+                <div class="font-bold text-teal-950 text-base">ECHELON FORM &amp; REDUCED ECHELON FORM（階梯形與簡化階梯形）</div>
+                <p>A rectangular matrix is in <strong>echelon form（階梯形）</strong> (or <strong>row echelon form 行階梯形</strong>) if it has the following three properties:</p>
+                <ol class="list-decimal pl-5 space-y-1">
+                    <li>All nonzero rows are above any rows of all zeros.</li>
+                    <li>Each leading entry of a row is in a column to the right of the leading entry of the row above it.</li>
+                    <li>All entries in a column below a leading entry are zeros.</li>
+                </ol>
+                <p>If a matrix in echelon form satisfies the following additional conditions, then it is in <strong>reduced echelon form（簡化階梯形）</strong> (or <strong>reduced row echelon form 簡化行階梯形</strong>):</p>
+                <ol start="4" class="list-decimal pl-5 space-y-1">
+                    <li>The leading entry in each nonzero row is $1$.</li>
+                    <li>Each leading $1$ is the only nonzero entry in its column.</li>
+                </ol>
+                <p class="text-xs sm:text-sm text-slate-700">
+                    An <strong>echelon matrix（階梯矩陣）</strong> (respectively, <strong>reduced echelon matrix（簡化階梯矩陣）</strong>) is one that is in echelon form (respectively, reduced echelon form). Property 2 says that the leading entries form an <strong>echelon ("steplike") pattern（階梯狀圖案）</strong> that moves down and to the right through the matrix. Property 3 is a simple consequence of property 2, but we include it for emphasis.
+                    The "triangular" matrices of Section 1.1, such as $\begin{bmatrix} 2 & -3 & 2 & 1 \\ 0 & 1 & -4 & 8 \\ 0 & 0 & 0 & 5/2 \end{bmatrix}$ and $\begin{bmatrix} 1 & 0 & 0 & 29 \\ 0 & 1 & 0 & 16 \\ 0 & 0 & 1 & 3 \end{bmatrix}$, are in echelon form. In fact, the second matrix is in reduced echelon form.
+                </p>
+            </div>
+
+            <!-- Collapsible EXAMPLE 1 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-2-1')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 1（範例 1：階梯形與簡化階梯形的星號樣式範例）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-2-1" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 1</strong> The following matrices are in echelon form. The leading entries may have any nonzero value; the starred entries ($*$) may have any value (including zero).</p>
+                    <p>$$\begin{bmatrix} 0 & * & * & * \\ 0 & 0 & 0 & * \\ 0 & 0 & 0 & 0 \end{bmatrix}, \qquad \begin{bmatrix} * & * & * & * & * \\ 0 & 0 & * & * & * \\ 0 & 0 & 0 & 0 & * \\ 0 & 0 & 0 & 0 & 0 \end{bmatrix}$$
+                        (Note: In the PDF slides, these are shown as steplike patterns of $0$'s and $*$'s.)
+                    </p>
+                    <p>The following matrices are in reduced echelon form because the leading entries are $1$'s, and there are $0$'s below and above each leading $1$:</p>
+                    <p>$$\begin{bmatrix} 0 & 1 & * & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 \end{bmatrix}, \qquad \begin{bmatrix} 1 & 0 & * & 0 & * \\ 0 & 1 & * & 0 & * \\ 0 & 0 & 0 & 1 & * \\ 0 & 0 & 0 & 0 & 0 \end{bmatrix}$$
+                    </p>
+                </div>
+            </div>
+
+            <!-- THEOREM 1 -->
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2">
+                <div class="font-bold text-teal-950 text-base">THEOREM 1 — Uniqueness of the Reduced Echelon Form（定理 1：簡化階梯形的唯一性）</div>
+                <p class="text-sm text-slate-800 leading-relaxed">
+                    Each matrix is row equivalent to one and only one reduced echelon matrix.
+                    If a matrix $A$ is row equivalent to an echelon matrix $U$, we call $U$ an <strong>echelon form（階梯形）</strong> (or <strong>row echelon form</strong>) of $A$; if $U$ is in reduced echelon form, we call $U$ the <strong>reduced echelon form（簡化階梯形）</strong> of $A$. (Proved in Appendix A at the end of the text.)
+                </p>
+            </div>
+        </div>
+
+        <!-- 2. Pivot Positions, Pivot Columns & Pivots -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                2. Pivot Positions, Pivot Columns &amp; Pivots (主元位置、主元行與主元)
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                When row operations on a matrix produce an echelon form, further row operations to obtain the reduced echelon form do not change the positions of the leading entries. Since the reduced echelon form is unique, the leading entries are always in the same positions in any echelon form obtained from a given matrix. These leading entries correspond to leading $1$'s in the reduced echelon form.
+            </p>
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-4 space-y-1.5 text-sm text-slate-800">
+                <div class="font-bold text-teal-950">DEFINITION（定義：主元位置與主元行）</div>
+                <p>A <strong>pivot position（主元位置）</strong> in a matrix $A$ is a location in $A$ that corresponds to a leading $1$ in the reduced echelon form of $A$. A <strong>pivot column（主元行）</strong> is a column of $A$ that contains a pivot position.</p>
+                <p class="text-xs sm:text-sm text-slate-700">A <strong>pivot（主元）</strong>, as illustrated in Example 2, is a nonzero number in a pivot position that is used as needed to create zeros via row operations.</p>
+            </div>
+
+            <!-- Collapsible EXAMPLE 2 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-2-2')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 2（範例 2：將 $4\times 5$ 矩陣 $A$ 化為階梯形並找出主元行 1, 2, 4 與主元 1, 2, -5）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-2-2" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 2</strong> Row reduce the matrix $A$ below to echelon form, and locate the pivot columns of $A$.</p>
+                    <p>$$A = \begin{bmatrix} 0 & -3 & -6 & 4 & 9 \\ -1 & -2 & -1 & 3 & 1 \\ -2 & -3 & 0 & 3 & -1 \\ 1 & 4 & 5 & -9 & -7 \end{bmatrix}$$</p>
+                    <p><strong>SOLUTION:</strong> Interchange rows 1 and 4 to put $1$ in the top-left pivot position, then create zeros below it:
+                        $$\begin{bmatrix} 1 & 4 & 5 & -9 & -7 \\ -1 & -2 & -1 & 3 & 1 \\ -2 & -3 & 0 & 3 & -1 \\ 0 & -3 & -6 & 4 & 9 \end{bmatrix} \sim \begin{bmatrix} 1 & 4 & 5 & -9 & -7 \\ 0 & 2 & 4 & -6 & -6 \\ 0 & 5 & 10 & -15 & -15 \\ 0 & -3 & -6 & 4 & 9 \end{bmatrix} \quad (1)$$
+                        Choose $2$ in row 2, column 2 as the next pivot. Add $-5/2$ times row 2 to row 3, and add $3/2$ times row 2 to row 4:
+                        $$\begin{bmatrix} 1 & 4 & 5 & -9 & -7 \\ 0 & 2 & 4 & -6 & -6 \\ 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & -5 & 0 \end{bmatrix} \quad (2)$$
+                        There is no way to create a leading entry in column 3 without destroying the echelon arrangement already produced. Interchange rows 3 and 4 to produce a leading entry in column 4:
+                        $$\begin{bmatrix} 1 & 4 & 5 & -9 & -7 \\ 0 & 2 & 4 & -6 & -6 \\ 0 & 0 & 0 & -5 & 0 \\ 0 & 0 & 0 & 0 & 0 \end{bmatrix} \quad (3)$$
+                        The matrix is in echelon form and thus reveals that columns $1$, $2$, and $4$ of $A$ are pivot columns. The pivots in Example 2 were $1$, $2$, and $-5$. Notice that these numbers are not the same as the actual elements of $A$ in the highlighted pivot positions shown in (3).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. The Row Reduction Algorithm (Forward & Backward Phase) -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                3. The Row Reduction Algorithm: Forward Phase &amp; Backward Phase (列化簡演算法：前向階段與後向階段)
+            </h4>
+
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2.5 text-sm text-slate-800 leading-relaxed">
+                <div class="font-bold text-teal-950 text-base">THE ROW REDUCTION ALGORITHM（列化簡演算法）</div>
+                <p>The algorithm consists of four steps (the <strong>forward phase 前向階段</strong>) that produce a matrix in echelon form, and a fifth step (the <strong>backward phase 後向階段</strong>) that produces the unique reduced echelon form:</p>
+                <ol class="list-decimal pl-5 space-y-1.5">
+                    <li><strong>STEP 1:</strong> Begin with the leftmost nonzero column. This is a pivot column. The pivot position is at the top.</li>
+                    <li><strong>STEP 2:</strong> Select a nonzero entry in the pivot column as a pivot. If necessary, interchange rows to move this entry into the pivot position.</li>
+                    <li><strong>STEP 3:</strong> Use row replacement operations to create zeros in all positions below the pivot.</li>
+                    <li><strong>STEP 4:</strong> Cover (or ignore) the row containing the pivot position and cover all rows, if any, above it. Apply steps 1–3 to the submatrix that remains. Repeat the process until there are no more nonzero rows to modify.</li>
+                    <li><strong>STEP 5:</strong> Beginning with the rightmost pivot and working upward and to the left, create zeros above each pivot. If a pivot is not $1$, make it $1$ by a scaling operation.</li>
+                </ol>
+            </div>
+
+            <!-- Collapsible EXAMPLE 3 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-2-3')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 3（範例 3：逐步執行 Step 1–5 將 $3\times 6$ 矩陣化為階梯形與簡化階梯形）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-2-3" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 3</strong> Apply elementary row operations to transform $\begin{bmatrix} 0 & 3 & -6 & 6 & 4 & -5 \\ 3 & -7 & 8 & -5 & 8 & 9 \\ 3 & -9 & 12 & -9 & 6 & 15 \end{bmatrix}$ first into echelon form and then into reduced echelon form.</p>
+                    <p><strong>SOLUTION:</strong><br/>
+                        <strong>Step 1 &amp; 2:</strong> Leftmost nonzero column is column 1. Interchange rows 1 and 3: $\begin{bmatrix} 3 & -9 & 12 & -9 & 6 & 15 \\ 3 & -7 & 8 & -5 & 8 & 9 \\ 0 & 3 & -6 & 6 & 4 & -5 \end{bmatrix}$.<br/>
+                        <strong>Step 3:</strong> Add $-1$ times row 1 to row 2: $\begin{bmatrix} 3 & -9 & 12 & -9 & 6 & 15 \\ 0 & 2 & -4 & 4 & 2 & -6 \\ 0 & 3 & -6 & 6 & 4 & -5 \end{bmatrix}$.<br/>
+                        <strong>Step 4:</strong> Cover row 1; column 2 is next pivot column with pivot $2$. Add $-3/2$ times row 2 to row 3 to get $\begin{bmatrix} 3 & -9 & 12 & -9 & 6 & 15 \\ 0 & 2 & -4 & 4 & 2 & -6 \\ 0 & 0 & 0 & 0 & 1 & 4 \end{bmatrix}$. Covering row 2 leaves a single nonzero row with pivot $1$ in column 5. This is an echelon form.<br/>
+                        <strong>Step 5 (Backward phase):</strong> Rightmost pivot is $1$ in row 3, column 5. Compute $\text{Row } 1 + (-6)\,\text{Row } 3$ and $\text{Row } 2 + (-2)\,\text{Row } 3$: $\begin{bmatrix} 3 & -9 & 12 & -9 & 0 & -9 \\ 0 & 2 & -4 & 4 & 0 & -14 \\ 0 & 0 & 0 & 0 & 1 & 4 \end{bmatrix}$.<br/>
+                        Scale row 2 by $\frac{1}{2}$: $\begin{bmatrix} 3 & -9 & 12 & -9 & 0 & -9 \\ 0 & 1 & -2 & 2 & 0 & -7 \\ 0 & 0 & 0 & 0 & 1 & 4 \end{bmatrix}$.<br/>
+                        Compute $\text{Row } 1 + (9)\,\text{Row } 2$: $\begin{bmatrix} 3 & 0 & -6 & 9 & 0 & -72 \\ 0 & 1 & -2 & 2 & 0 & -7 \\ 0 & 0 & 0 & 0 & 1 & 4 \end{bmatrix}$.<br/>
+                        Finally, scale row 1 by $\frac{1}{3}$ to obtain the reduced echelon form:
+                        $$\begin{bmatrix} 1 & 0 & -2 & 3 & 0 & -24 \\ 0 & 1 & -2 & 2 & 0 & -7 \\ 0 & 0 & 0 & 0 & 1 & 4 \end{bmatrix}$$
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Solutions of Linear Systems, Basic & Free Variables, Parametric Descriptions, Back-Substitution & THEOREM 2 -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                4. Basic &amp; Free Variables, Parametric Descriptions, Back-Substitution &amp; THEOREM 2 (基本變數與自由變數、參數描述、反代入與定理 2)
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                Suppose the augmented matrix of a linear system has been changed into the equivalent reduced echelon form
+                $$\begin{bmatrix} 1 & 0 & -5 & 1 \\ 0 & 1 & 1 & 4 \\ 0 & 0 & 0 & 0 \end{bmatrix}$$
+                There are three variables because the augmented matrix has four columns. The associated system of equations is $x_{1}-5x_{3}=1$, $x_{2}+x_{3}=4$, $0=0$ (4).
+                The variables $x_{1}$ and $x_{2}$ corresponding to pivot columns in the matrix are called <strong>basic variables（基本變數）</strong>. The other variable, $x_{3}$, is called a <strong>free variable（自由變數）</strong>.
+                Whenever a system is consistent, as in (4), the solution set can be described explicitly by solving the reduced system of equations for the basic variables in terms of the free variables:
+                $$x_{1}=1+5x_{3}, \quad x_{2}=4-x_{3}, \quad x_{3}\text{ is free} \tag{5}$$
+                The statement "$x_{3}$ is free" means that you are free to choose any value for $x_{3}$. Once that is done, the formulas in (5) determine the values for $x_{1}$ and $x_{2}$. For instance, when $x_{3}=0$, the solution is $(1,4,0)$; when $x_{3}=1$, the solution is $(6,3,1)$.
+            </p>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                The descriptions in (5) and (7) are <strong>parametric descriptions（參數描述）</strong> of solution sets in which the free variables act as <strong>parameters（參數）</strong>. Solving a system amounts to finding a parametric description of the solution set or determining that the solution set is empty. By convention, we always use the free variables as the parameters for describing a solution set. Whenever a system is inconsistent, the solution set is empty, even when the system has free variables, and has no parametric representation.
+            </p>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                In <strong>back-substitution（反代入法）</strong>, when an augmented matrix is in echelon form (not necessarily reduced echelon form), one solves the bottom nonzero equation for its leading variable in terms of remaining variables and substitutes upward into preceding equations. Although a nonreduced echelon form is a poor tool for solving a system by hand, it is ideal for answering existence and uniqueness questions.
+            </p>
+
+            <!-- Collapsible EXAMPLE 4 & EXAMPLE 5 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-2-4')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 4 &amp; EXAMPLE 5（範例 4 通解與自由變數 $x_2, x_4$；範例 5 存在性與唯一性判定）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-2-4" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 4:</strong> Given augmented matrix reduced to $\begin{bmatrix} 1 & 6 & 2 & -5 & -2 & -4 \\ 0 & 0 & 2 & -8 & -1 & 3 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix}$:
+                        $$\sim \begin{bmatrix} 1 & 6 & 2 & -5 & 0 & 10 \\ 0 & 0 & 2 & -8 & 0 & 10 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix} \sim \begin{bmatrix} 1 & 6 & 2 & -5 & 0 & 10 \\ 0 & 0 & 1 & -4 & 0 & 5 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix} \sim \begin{bmatrix} 1 & 6 & 0 & 3 & 0 & 0 \\ 0 & 0 & 1 & -4 & 0 & 5 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix}$$
+                        Associated system (6): $x_{1}+6x_{2}+3x_{4}=0$, $x_{3}-4x_{4}=5$, $x_{5}=7$.
+                        Pivot columns are $1, 3, 5$, so basic variables are $x_{1}, x_{3}, x_{5}$, and free variables are $x_{2}, x_{4}$. General solution (7):
+                        $$x_{1}=-6x_{2}-3x_{4}, \quad x_{2}\text{ is free}, \quad x_{3}=5+4x_{4}, \quad x_{4}\text{ is free}, \quad x_{5}=7$$
+                    </p>
+                    <p><strong>EXAMPLE 5:</strong> For the system $3x_{2}-6x_{3}+6x_{4}+4x_{5}=-5$, $3x_{1}-7x_{2}+8x_{3}-5x_{4}+8x_{5}=9$, $3x_{1}-9x_{2}+12x_{3}-9x_{4}+6x_{5}=15$, the augmented matrix row reduces (as in Example 3) to echelon form $\begin{bmatrix} 3 & -9 & 12 & -9 & 6 & 15 \\ 0 & 2 & -4 & 4 & 2 & -6 \\ 0 & 0 & 0 & 0 & 1 & 4 \end{bmatrix}$ (8). Basic variables are $x_{1}, x_{2}, x_{5}$; free variables are $x_{3}, x_{4}$. Since there is no equation like $0=1$, the system is consistent, and because there are free variables, it has infinitely many solutions.
+                    </p>
+                </div>
+            </div>
+
+            <!-- THEOREM 2 & Summary Box -->
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2.5 text-sm text-slate-800 leading-relaxed">
+                <div class="font-bold text-teal-950 text-base">THEOREM 2 — Existence and Uniqueness Theorem（定理 2：存在性與唯一性定理）</div>
+                <p>
+                    A linear system is consistent if and only if the rightmost column of the augmented matrix is not a pivot column—that is, if and only if an echelon form of the augmented matrix has no row of the form
+                    $$\begin{bmatrix} 0 & \cdots & 0 & b \end{bmatrix} \quad \text{with } b \text{ nonzero}$$
+                    If a linear system is consistent, then the solution set contains either (i) a <strong>unique solution（唯一解）</strong>, when there are no free variables, or (ii) <strong>infinitely many solutions（無限多組解）</strong>, when there is at least one free variable.
+                </p>
+                <div class="bg-white border border-teal-200/80 rounded-lg p-3.5 text-xs sm:text-sm space-y-1">
+                    <div class="font-bold text-teal-950">USING ROW REDUCTION TO SOLVE A LINEAR SYSTEM（利用列化簡解線性方程組五步驟）</div>
+                    <p>1. Write the augmented matrix of the system. &nbsp; 2. Use the row reduction algorithm to obtain an equivalent augmented matrix in echelon form; decide consistency (stop if no solution). &nbsp; 3. Continue row reduction to obtain the reduced echelon form. &nbsp; 4. Write the corresponding system of equations. &nbsp; 5. Rewrite each nonzero equation so its one basic variable is expressed in terms of any free variables.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SECTION 1.3: VECTOR EQUATIONS                                  -->
+    <!-- ============================================================== -->
+    <section id="sec1-3" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b border-slate-200 pb-4 flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1.5 rounded-xl bg-teal-100 text-teal-900 text-xl md:text-2xl font-extrabold tracking-tight">§ 1.3</span>
+                <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight">VECTOR EQUATIONS (向量方程)</h3>
+            </div>
+            <span class="text-xs text-slate-500 font-mono">Slides 76–107 (Ch-1-3.pdf)</span>
+        </div>
+
+        <!-- 1. Vectors in R^2, R^3, R^n & Algebraic Properties -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                1. Vectors in $\mathbb{R}^{2}$, $\mathbb{R}^{3}$, $\mathbb{R}^{n}$ &amp; Algebraic Properties (向量空間 $\mathbb{R}^n$、向量運算與代數性質)
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                Until Chapter 4 ("Vector Spaces"), <strong>vector（向量）</strong> will mean an ordered list of numbers. A matrix with only one column is called a <strong>column vector（行向量）</strong>, or simply a <strong>vector</strong>. The set of all vectors with two entries is denoted by $\mathbb{R}^{2}$ (read "r-two"), where $\mathbb{R}$ stands for the real numbers and the exponent $2$ indicates two entries. Two vectors in $\mathbb{R}^{2}$ are equal if and only if their corresponding entries are equal.
+            </p>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                Given two vectors $u$ and $v$ in $\mathbb{R}^{2}$, their <strong>sum（和）</strong> $u+v$ is obtained by adding corresponding entries of $u$ and $v$. Given a vector $u$ and a real number $c$, the <strong>scalar multiple（純量倍數）</strong> of $u$ by $c$ is the vector $cu$ obtained by multiplying each entry in $u$ by $c$. The number $c$ in $cu$ is called a <strong>scalar（純量）</strong>. Also, a column vector such as $\begin{bmatrix} 3 \\ -1 \end{bmatrix}$ may sometimes be written as $(3, -1)$, which is distinct from the $1\times 2$ row matrix $\begin{bmatrix} 3 & -1 \end{bmatrix}$.
+            </p>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                If $n$ is a positive integer, $\mathbb{R}^{n}$ (read "r-n") denotes the collection of all lists (or <strong>ordered $n$-tuples 有序 $n$ 元組</strong>) of $n$ real numbers, usually written as $n\times 1$ column matrices. The vector whose entries are all zero is called the <strong>zero vector（零向量）</strong> and is denoted by $0$. For simplicity of notation, $u+(-1)v$ is often written as $u-v$.
+            </p>
+
+            <!-- Collapsible EXAMPLE 1, EXAMPLE 2, EXAMPLE 3 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-3-1')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 1, EXAMPLE 2 &amp; EXAMPLE 3（向量線性組合計算、平行四邊形和與純量倍數向量）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-3-1" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 1:</strong> For $u=\begin{bmatrix} 1 \\ -2 \end{bmatrix}$ and $v=\begin{bmatrix} 2 \\ -5 \end{bmatrix}$, $4u=\begin{bmatrix} 4 \\ -8 \end{bmatrix}$, $(-3)v=\begin{bmatrix} -6 \\ 15 \end{bmatrix}$, and $4u+(-3)v=\begin{bmatrix} -2 \\ 7 \end{bmatrix}$.</p>
+                    <p><strong>EXAMPLE 2:</strong> For $u=\begin{bmatrix} 2 \\ 2 \end{bmatrix}$ and $v=\begin{bmatrix} -6 \\ 1 \end{bmatrix}$, $u+v=\begin{bmatrix} -4 \\ 3 \end{bmatrix}$.</p>
+                    <p><strong>EXAMPLE 3:</strong> For $u=\begin{bmatrix} 3 \\ -1 \end{bmatrix}$, $2u=\begin{bmatrix} 6 \\ -2 \end{bmatrix}$ (twice as long, same direction) and $-\frac{2}{3}u=\begin{bmatrix} -2 \\ 2/3 \end{bmatrix}$ (two-thirds the length, opposite direction). In general, the length of the arrow for $cu$ is $|c|$ times the length of the arrow for $u$ (where length of $(a,b)$ is $\sqrt{a^2+b^2}$).</p>
+                </div>
+            </div>
+
+            <!-- Algebraic Properties of R^n -->
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2.5">
+                <div class="font-bold text-teal-950 text-base">ALGEBRAIC PROPERTIES OF $\mathbb{R}^{n}$（$\mathbb{R}^n$ 的代數性質）</div>
+                <p class="text-xs sm:text-sm text-slate-700">For all $u, v, w$ in $\mathbb{R}^{n}$ and all scalars $c$ and $d$:</p>
+                <div class="grid sm:grid-cols-2 gap-2 text-xs sm:text-sm font-mono text-slate-900 bg-white p-3.5 rounded-lg border border-teal-100">
+                    <div>(i) $u + v = v + u$</div>
+                    <div>(v) $c(u + v) = cu + cv$</div>
+                    <div>(ii) $(u + v) + w = u + (v + w)$</div>
+                    <div>(vi) $(c + d)u = cu + du$</div>
+                    <div>(iii) $u + 0 = 0 + u = u$</div>
+                    <div>(vii) $c(du) = (cd)u$</div>
+                    <div>(iv) $u + (-u) = -u + u = 0$, where $-u$ denotes $(-1)u$</div>
+                    <div>(viii) $1u = u$</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Geometric SVGs: Parallelogram Rule, Scalar Multiples & Vector Subtraction -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                2. Geometric Descriptions: Parallelogram Rule, Scalar Multiples &amp; Vector Subtraction (平行四邊形法則、純量倍數與向量減法圖示)
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                <strong>Parallelogram Rule for Addition（加法平行四邊形法則）:</strong> If $u$ and $v$ in $\mathbb{R}^{2}$ are represented as points in the plane, then $u+v$ corresponds to the fourth vertex of the parallelogram whose other vertices are $u$, $0$, and $v$.
+            </p>
+
+            <!-- SVG Figures 1–7 in R^2 & R^3 -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <!-- Parallelogram Rule (Figure 3 / 4) -->
+                    <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                        <svg viewBox="0 0 220 165" class="w-full max-w-[220px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="vArr1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
+                                </marker>
+                                <marker id="ax13a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155" />
+                                </marker>
+                            </defs>
+                            <!-- Origin at (95, 125) -->
+                            <line x1="15" y1="125" x2="205" y2="125" stroke="#334155" stroke-width="1.2" marker-end="url(#ax13a)" />
+                            <line x1="95" y1="155" x2="95" y2="12" stroke="#334155" stroke-width="1.2" marker-end="url(#ax13a)" />
+                            <!-- Parallelogram 0=(95,125), u=(145,75), u+v=(75,45), v=(25,95) -->
+                            <polygon points="95,125 145,75 75,45 25,95" fill="#bae6fd" fill-opacity="0.55" stroke="#0284c7" stroke-width="1.2" stroke-dasharray="3,2" />
+                            <line x1="95" y1="125" x2="145" y2="75" stroke="#0284c7" stroke-width="1.8" marker-end="url(#vArr1)" />
+                            <line x1="95" y1="125" x2="25" y2="95" stroke="#0284c7" stroke-width="1.8" marker-end="url(#vArr1)" />
+                            <line x1="95" y1="125" x2="75" y2="45" stroke="#0d9488" stroke-width="2" marker-end="url(#vArr1)" />
+                            <text x="100" y="138" font-size="12" font-family="serif">0</text>
+                            <text x="150" y="72" font-size="12.5" font-weight="bold" font-family="serif">u</text>
+                            <text x="14" y="92" font-size="12.5" font-weight="bold" font-family="serif">v</text>
+                            <text x="52" y="38" font-size="12.5" font-weight="bold" font-family="serif">u + v</text>
+                        </svg>
+                        <div class="text-xs text-slate-600 font-medium">FIGURE 3 Parallelogram rule</div>
+                    </div>
+
+                    <!-- Scalar multiples & set of all multiples (Figure 5) -->
+                    <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                        <svg viewBox="0 0 220 165" class="w-full max-w-[220px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="vArr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
+                                </marker>
+                                <marker id="ax13b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155" />
+                                </marker>
+                            </defs>
+                            <!-- Origin at (95, 85) -->
+                            <line x1="15" y1="85" x2="205" y2="85" stroke="#334155" stroke-width="1.2" marker-end="url(#ax13b)" />
+                            <line x1="95" y1="155" x2="95" y2="12" stroke="#334155" stroke-width="1.2" marker-end="url(#ax13b)" />
+                            <!-- Line of all multiples through origin -->
+                            <line x1="20" y1="135" x2="195" y2="18" stroke="#0d9488" stroke-width="1.4" stroke-dasharray="4,2" />
+                            <!-- u=(125,65), 2u=(155,45), -2/3 u=(75,98) -->
+                            <line x1="95" y1="85" x2="125" y2="65" stroke="#0284c7" stroke-width="1.8" marker-end="url(#vArr2)" />
+                            <line x1="95" y1="85" x2="155" y2="45" stroke="#0284c7" stroke-width="1.8" marker-end="url(#vArr2)" />
+                            <line x1="95" y1="85" x2="75" y2="98" stroke="#d97706" stroke-width="1.8" marker-end="url(#vArr2)" />
+                            <text x="128" y="75" font-size="12" font-weight="bold" font-family="serif">u</text>
+                            <text x="160" y="42" font-size="12" font-weight="bold" font-family="serif">2u</text>
+                            <text x="34" y="108" font-size="12" font-weight="bold" font-family="serif">−(2/3)u</text>
+                        </svg>
+                        <div class="text-xs text-slate-600 font-medium">FIGURE 5 Scalar multiples &amp; line</div>
+                    </div>
+
+                    <!-- Vector subtraction u - v (Figure 7) -->
+                    <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                        <svg viewBox="0 0 220 165" class="w-full max-w-[220px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="vArr3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
+                                </marker>
+                                <marker id="ax13c" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155" />
+                                </marker>
+                            </defs>
+                            <!-- Origin at (95, 115) -->
+                            <line x1="15" y1="115" x2="205" y2="115" stroke="#334155" stroke-width="1.2" marker-end="url(#ax13c)" />
+                            <line x1="95" y1="155" x2="95" y2="12" stroke="#334155" stroke-width="1.2" marker-end="url(#ax13c)" />
+                            <!-- u=(155, 60), v=(125, 130), -v=(65, 100), u-v=(125, 30) -->
+                            <polygon points="95,115 155,60 125,30 65,100" fill="#bae6fd" fill-opacity="0.5" stroke="#0284c7" stroke-width="1.1" stroke-dasharray="3,2" />
+                            <line x1="95" y1="115" x2="155" y2="60" stroke="#0284c7" stroke-width="1.8" marker-end="url(#vArr3)" />
+                            <line x1="95" y1="115" x2="125" y2="130" stroke="#64748b" stroke-width="1.6" marker-end="url(#vArr3)" />
+                            <line x1="95" y1="115" x2="65" y2="100" stroke="#d97706" stroke-width="1.6" marker-end="url(#vArr3)" />
+                            <line x1="95" y1="115" x2="125" y2="30" stroke="#0d9488" stroke-width="2" marker-end="url(#vArr3)" />
+                            <text x="160" y="58" font-size="12" font-weight="bold" font-family="serif">u</text>
+                            <text x="130" y="142" font-size="12" font-weight="bold" font-family="serif">v</text>
+                            <text x="44" y="96" font-size="12" font-weight="bold" font-family="serif">−v</text>
+                            <text x="130" y="26" font-size="12" font-weight="bold" font-family="serif">u − v</text>
+                        </svg>
+                        <div class="text-xs text-slate-600 font-medium">FIGURE 7 Vector subtraction</div>
+                    </div>
+                </div>
+
+                <!-- R^3 scalar multiple Figure 6 -->
+                <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                    <svg viewBox="0 0 240 155" class="w-full max-w-[240px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <marker id="vArr3d" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
+                            </marker>
+                            <marker id="ax13d" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155" />
+                            </marker>
+                        </defs>
+                        <!-- Origin at (115, 95) -->
+                        <line x1="115" y1="95" x2="115" y2="14" stroke="#334155" stroke-width="1.3" marker-end="url(#ax13d)" />
+                        <line x1="115" y1="95" x2="225" y2="112" stroke="#334155" stroke-width="1.3" marker-end="url(#ax13d)" />
+                        <line x1="115" y1="95" x2="35" y2="145" stroke="#334155" stroke-width="1.3" marker-end="url(#ax13d)" />
+                        <line x1="115" y1="95" x2="145" y2="62" stroke="#0284c7" stroke-width="1.8" marker-end="url(#vArr3d)" />
+                        <line x1="115" y1="95" x2="175" y2="29" stroke="#0d9488" stroke-width="2" marker-end="url(#vArr3d)" />
+                        <text x="150" y="60" font-size="12.5" font-weight="bold" font-family="serif">a</text>
+                        <text x="180" y="26" font-size="12.5" font-weight="bold" font-family="serif">2a</text>
+                        <text x="122" y="18" font-size="12" font-style="italic" font-family="serif">x<tspan dy="3" font-size="9">3</tspan></text>
+                        <text x="227" y="118" font-size="12" font-style="italic" font-family="serif">x<tspan dy="3" font-size="9">2</tspan></text>
+                        <text x="20" y="152" font-size="12" font-style="italic" font-family="serif">x<tspan dy="3" font-size="9">1</tspan></text>
+                    </svg>
+                    <div class="text-xs text-slate-600 font-medium">FIGURE 6 Scalar multiples in $\mathbb{R}^3$</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Linear Combinations & Span{v_1, ..., v_p} -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                3. Linear Combinations &amp; $\operatorname{Span}\{v_{1},\dots,v_{p}\}$ (線性組合與生成集 $\operatorname{Span}\{v_{1},\dots,v_{p}\}$)
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                Given vectors $v_{1},v_{2},\dots,v_{p}$ in $\mathbb{R}^{n}$ and given scalars $c_{1},c_{2},\dots,c_{p}$, the vector $y$ defined by
+                $$y = c_{1}v_{1} + \cdots + c_{p}v_{p}$$
+                is called a <strong>linear combination（線性組合）</strong> of $v_{1},\dots,v_{p}$ with <strong>weights（權重）</strong> $c_{1},\dots,c_{p}$. Property (ii) permits us to omit parentheses when forming such a linear combination. The weights in a linear combination can be any real numbers, including zero.
+            </p>
+
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2 text-sm text-slate-800 leading-relaxed">
+                <div class="font-bold text-teal-950 text-base">DEFINITION — $\operatorname{Span}\{v_{1},\dots,v_{p}\}$（定義：生成空間／張成集合）</div>
+                <p>
+                    If $v_{1},\dots,v_{p}$ are in $\mathbb{R}^{n}$, then the set of all linear combinations of $v_{1},\dots,v_{p}$ is denoted by $\operatorname{Span}\{v_{1},\dots,v_{p}\}$ and is called the subset of $\mathbb{R}^{n}$ <strong>spanned (or generated) by $v_{1},\dots,v_{p}$（由 $v_{1},\dots,v_{p}$ 生成／張成）</strong>. That is, $\operatorname{Span}\{v_{1},\dots,v_{p}\}$ is the collection of all vectors that can be written in the form
+                    $$c_{1}v_{1} + c_{2}v_{2} + \cdots + c_{p}v_{p}$$
+                    with $c_{1},\dots,c_{p}$ scalars.
+                </p>
+                <p class="text-xs sm:text-sm text-slate-700">
+                    A vector equation $x_{1}a_{1}+x_{2}a_{2}+\cdots+x_{n}a_{n}=b$ has the same solution set as the linear system whose augmented matrix is $\begin{bmatrix} a_{1} & a_{2} & \cdots & a_{n} & b \end{bmatrix}$ (5). Asking whether a vector $b$ is in $\operatorname{Span}\{v_{1},\dots,v_{p}\}$ amounts to asking whether $x_{1}v_{1}+\cdots+x_{p}v_{p}=b$ has a solution. Note that $\operatorname{Span}\{v_{1},\dots,v_{p}\}$ contains every scalar multiple of $v_{1}$ (e.g., $cv_{1}=cv_{1}+0v_{2}+\cdots+0v_{p}$), and in particular the zero vector must be in $\operatorname{Span}\{v_{1},\dots,v_{p}\}$.
+                </p>
+                <p class="text-xs sm:text-sm text-slate-700">
+                    <strong>Geometric Description of $\operatorname{Span}\{v\}$ and $\operatorname{Span}\{u, v\}$:</strong> Let $v$ be a nonzero vector in $\mathbb{R}^{3}$. Then $\operatorname{Span}\{v\}$ is the set of all scalar multiples of $v$, which is the set of points on the line in $\mathbb{R}^{3}$ through $v$ and $0$ (Figure 10). If $u$ and $v$ are nonzero vectors in $\mathbb{R}^{3}$, with $v$ not a multiple of $u$, then $\operatorname{Span}\{u,v\}$ is the plane in $\mathbb{R}^{3}$ that contains $u$, $v$, and $0$ (Figure 11).
+                </p>
+            </div>
+
+            <!-- SVG Figures 10 & 11: Span{v} line & Span{u, v} plane -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-2">
+                <p class="text-xs font-semibold text-slate-600">FIGURE 10 &amp; FIGURE 11（$\operatorname{Span}\{v\}$ 為過原點直線；$\operatorname{Span}\{u,v\}$ 為過原點平面）</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                        <svg viewBox="0 0 240 165" class="w-full max-w-[240px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="ax10" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155" />
+                                </marker>
+                            </defs>
+                            <line x1="115" y1="95" x2="115" y2="14" stroke="#334155" stroke-width="1.2" marker-end="url(#ax10)" />
+                            <line x1="115" y1="95" x2="225" y2="112" stroke="#334155" stroke-width="1.2" marker-end="url(#ax10)" />
+                            <line x1="115" y1="95" x2="35" y2="145" stroke="#334155" stroke-width="1.2" marker-end="url(#ax10)" />
+                            <line x1="45" y1="145" x2="195" y2="30" stroke="#0d9488" stroke-width="2" />
+                            <circle cx="155" cy="61" r="3.6" fill="#0284c7" />
+                            <text x="163" y="63" font-size="12.5" font-weight="bold" font-family="serif">v</text>
+                            <text x="155" y="34" font-size="12" font-weight="bold" font-family="serif" fill="#0f766e">Span{v}</text>
+                        </svg>
+                        <div class="text-xs text-slate-600 font-medium">FIGURE 10 Span{v} as a line through the origin</div>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                        <svg viewBox="0 0 240 165" class="w-full max-w-[240px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="ax11p" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155" />
+                                </marker>
+                            </defs>
+                            <polygon points="45,88 155,32 205,98 95,154" fill="#bae6fd" fill-opacity="0.65" stroke="#0284c7" stroke-width="1.2" />
+                            <line x1="115" y1="95" x2="115" y2="14" stroke="#334155" stroke-width="1.2" marker-end="url(#ax11p)" />
+                            <line x1="115" y1="95" x2="225" y2="112" stroke="#334155" stroke-width="1.2" marker-end="url(#ax11p)" />
+                            <line x1="115" y1="95" x2="35" y2="145" stroke="#334155" stroke-width="1.2" marker-end="url(#ax11p)" />
+                            <circle cx="145" cy="70" r="3.4" fill="#0284c7" />
+                            <circle cx="165" cy="95" r="3.4" fill="#0284c7" />
+                            <circle cx="195" cy="82" r="3.4" fill="#0d9488" />
+                            <text x="148" y="65" font-size="12" font-weight="bold" font-family="serif">u</text>
+                            <text x="168" y="106" font-size="12" font-weight="bold" font-family="serif">v</text>
+                            <text x="198" y="76" font-size="11.5" font-weight="bold" font-family="serif">u+v</text>
+                            <text x="58" y="76" font-size="12" font-weight="bold" font-family="serif" fill="#0369a1">Span{u, v}</text>
+                        </svg>
+                        <div class="text-xs text-slate-600 font-medium">FIGURE 11 Span{u, v} as a plane through the origin</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collapsible EXAMPLE 4, EXAMPLE 5 & EXAMPLE 6 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-3-4')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 4, EXAMPLE 5 &amp; EXAMPLE 6（範例 4 網格線性組合估算；範例 5 向量方程組解 $x_1=3, x_2=2$；範例 6 平面判定）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-3-4" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 4:</strong> For $v_{1}=\begin{bmatrix} -1 \\ 1 \end{bmatrix}$ and $v_{2}=\begin{bmatrix} 2 \\ 1 \end{bmatrix}$ on the parallel grid of multiples, the parallelogram rule gives $u = 3v_{1} - 2v_{2}$, and a reasonable estimate for $w$ is $w = \frac{5}{2}v_{1} - \frac{1}{2}v_{2}$.</p>
+                    <p><strong>EXAMPLE 5:</strong> Let $a_{1}=\begin{bmatrix} 1 \\ -2 \\ -5 \end{bmatrix}$, $a_{2}=\begin{bmatrix} 2 \\ 5 \\ 6 \end{bmatrix}$, and $b=\begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix}$. Vector equation $x_{1}a_{1}+x_{2}a_{2}=b$ (1) corresponds to linear system $x_{1}+2x_{2}=7$, $-2x_{1}+5x_{2}=4$, $-5x_{1}+6x_{2}=-3$ (3). Row reducing augmented matrix $\begin{bmatrix} 1 & 2 & 7 \\ -2 & 5 & 4 \\ -5 & 6 & -3 \end{bmatrix}$:
+                        $$\sim \begin{bmatrix} 1 & 2 & 7 \\ 0 & 9 & 18 \\ 0 & 16 & 32 \end{bmatrix} \sim \begin{bmatrix} 1 & 2 & 7 \\ 0 & 1 & 2 \\ 0 & 16 & 32 \end{bmatrix} \sim \begin{bmatrix} 1 & 0 & 3 \\ 0 & 1 & 2 \\ 0 & 0 & 0 \end{bmatrix}$$
+                        Thus $x_{1}=3$ and $x_{2}=2$, so $3\begin{bmatrix} 1 \\ -2 \\ -5 \end{bmatrix} + 2\begin{bmatrix} 2 \\ 5 \\ 6 \end{bmatrix} = \begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix}$.
+                    </p>
+                    <p><strong>EXAMPLE 6:</strong> Let $a_{1}=\begin{bmatrix} 1 \\ -2 \\ 3 \end{bmatrix}$, $a_{2}=\begin{bmatrix} 5 \\ -13 \\ -3 \end{bmatrix}$, and $b=\begin{bmatrix} -3 \\ 8 \\ 1 \end{bmatrix}$. Row reduce $\begin{bmatrix} a_{1} & a_{2} & b \end{bmatrix} = \begin{bmatrix} 1 & 5 & -3 \\ -2 & -13 & 8 \\ 3 & -3 & 1 \end{bmatrix}$:
+                        $$\sim \begin{bmatrix} 1 & 5 & -3 \\ 0 & -3 & 2 \\ 0 & -18 & 10 \end{bmatrix} \sim \begin{bmatrix} 1 & 5 & -3 \\ 0 & -3 & 2 \\ 0 & 0 & -2 \end{bmatrix}$$
+                        The third equation $0=-2$ shows no solution, so $b$ is not in $\operatorname{Span}\{a_{1},a_{2}\}$.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SECTION 1.4: THE MATRIX EQUATION Ax = b                         -->
+    <!-- ============================================================== -->
+    <section id="sec1-4" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b border-slate-200 pb-4 flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1.5 rounded-xl bg-teal-100 text-teal-900 text-xl md:text-2xl font-extrabold tracking-tight">§ 1.4</span>
+                <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight">THE MATRIX EQUATION $Ax = b$ (矩陣方程 $Ax = b$)</h3>
+            </div>
+            <span class="text-xs text-slate-500 font-mono">Slides 186–207 (Ch-1-4.pdf)</span>
+        </div>
+
+        <!-- 1. Definition of Ax, THEOREM 3 & Existence of Solutions / THEOREM 4 -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                1. Definition of $Ax$, THEOREM 3 &amp; Existence / THEOREM 4 (矩陣向量乘積定義、定理 3 三種等價觀點與定理 4)
+            </h4>
+
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2 text-sm text-slate-800 leading-relaxed">
+                <div class="font-bold text-teal-950 text-base">DEFINITION — PRODUCT $Ax$（定義：矩陣 $A$ 與向量 $x$ 的乘積）</div>
+                <p>
+                    If $A$ is an $m\times n$ matrix, with columns $a_{1},\dots,a_{n}$, and if $x$ is in $\mathbb{R}^{n}$, then the product of $A$ and $x$, denoted by $Ax$, is the linear combination of the columns of $A$ using the corresponding entries in $x$ as weights; that is,
+                    $$Ax = \begin{bmatrix} a_{1} & a_{2} & \cdots & a_{n} \end{bmatrix}\begin{bmatrix} x_{1} \\ \vdots \\ x_{n} \end{bmatrix} = x_{1}a_{1} + x_{2}a_{2} + \cdots + x_{n}a_{n}$$
+                    Note that $Ax$ is defined only if the number of columns of $A$ equals the number of entries in $x$.
+                </p>
+            </div>
+
+            <!-- THEOREM 3 -->
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2 text-sm text-slate-800 leading-relaxed">
+                <div class="font-bold text-teal-950 text-base">THEOREM 3（定理 3：矩陣方程、向量方程與線性方程組的等價性）</div>
+                <p>
+                    If $A$ is an $m\times n$ matrix, with columns $a_{1},\dots,a_{n}$, and if $b$ is in $\mathbb{R}^{m}$, the <strong>matrix equation（矩陣方程）</strong> $Ax = b$ (4) has the same solution set as the <strong>vector equation（向量方程）</strong> $x_{1}a_{1}+x_{2}a_{2}+\cdots+x_{n}a_{n}=b$ (5), which, in turn, has the same solution set as the <strong>system of linear equations（線性方程組）</strong> whose augmented matrix is $\begin{bmatrix} a_{1} & a_{2} & \cdots & a_{n} & b \end{bmatrix}$ (6).
+                </p>
+            </div>
+
+            <p class="text-sm text-slate-700 leading-relaxed">
+                The equation $Ax=b$ has a solution if and only if $b$ is a linear combination of the columns of $A$. In general, a set of vectors $\{v_{1},\dots,v_{p}\}$ in $\mathbb{R}^{m}$ <strong>spans (or generates) $\mathbb{R}^{m}$（生成 $\mathbb{R}^m$）</strong> if every vector in $\mathbb{R}^{m}$ is a linear combination of $v_{1},\dots,v_{p}$—that is, if $\operatorname{Span}\{v_{1},\dots,v_{p}\} = \mathbb{R}^{m}$.
+            </p>
+
+            <!-- THEOREM 4 -->
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2.5 text-sm text-slate-800 leading-relaxed">
+                <div class="font-bold text-teal-950 text-base">THEOREM 4（定理 4：解的存在性與生成 $\mathbb{R}^m$ 的邏輯等價命題）</div>
+                <p>Let $A$ be an $m\times n$ matrix. Then the following statements are logically equivalent. That is, for a particular $A$, either they are all true statements or they are all false.</p>
+                <ol class="list-[lower-alpha] pl-5 space-y-1">
+                    <li>For each $b$ in $\mathbb{R}^{m}$, the equation $Ax=b$ has a solution.</li>
+                    <li>Each $b$ in $\mathbb{R}^{m}$ is a linear combination of the columns of $A$.</li>
+                    <li>The columns of $A$ span $\mathbb{R}^{m}$.</li>
+                    <li>$A$ has a pivot position in every row.</li>
+                </ol>
+                <p class="text-xs sm:text-sm text-amber-900 bg-amber-50 border border-amber-200 rounded-lg p-3">
+                    <strong>Warning:</strong> Theorem 4 is about a <strong>coefficient matrix（係數矩陣）</strong>, not an augmented matrix. If an augmented matrix $\begin{bmatrix} A & b \end{bmatrix}$ has a pivot position in every row, then the equation $Ax=b$ may or may not be consistent.
+                </p>
+            </div>
+
+            <!-- SVG Figure 1: Columns of A span a plane through 0 -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-2">
+                <p class="text-xs font-semibold text-slate-600">FIGURE 1 The columns of $A = \begin{bmatrix} a_{1} & a_{2} & a_{3} \end{bmatrix}$ span a plane through $0$（範例 3 對應之生成平面）</p>
+                <div class="overflow-x-auto">
+                    <svg viewBox="0 0 250 175" class="w-full max-w-[250px] mx-auto text-slate-800" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <marker id="ax14" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155" />
+                            </marker>
+                        </defs>
+                        <polygon points="48,92 162,34 212,102 98,160" fill="#bae6fd" fill-opacity="0.65" stroke="#0284c7" stroke-width="1.2" />
+                        <line x1="120" y1="100" x2="120" y2="14" stroke="#334155" stroke-width="1.2" marker-end="url(#ax14)" />
+                        <line x1="120" y1="100" x2="235" y2="118" stroke="#334155" stroke-width="1.2" marker-end="url(#ax14)" />
+                        <line x1="120" y1="100" x2="35" y2="152" stroke="#334155" stroke-width="1.2" marker-end="url(#ax14)" />
+                        <text x="127" y="18" font-size="12" font-style="italic" font-family="serif">x<tspan dy="3" font-size="9">3</tspan></text>
+                        <text x="237" y="124" font-size="12" font-style="italic" font-family="serif">x<tspan dy="3" font-size="9">2</tspan></text>
+                        <text x="20" y="159" font-size="12" font-style="italic" font-family="serif">x<tspan dy="3" font-size="9">1</tspan></text>
+                        <text x="64" y="84" font-size="12" font-weight="bold" font-family="serif" fill="#0369a1">Span{a<tspan dy="3" font-size="9">1</tspan><tspan dy="-3">,a</tspan><tspan dy="3" font-size="9">2</tspan><tspan dy="-3">,a</tspan><tspan dy="3" font-size="9">3</tspan><tspan dy="-3">}</tspan></text>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Collapsible EXAMPLE 1, EXAMPLE 2 & EXAMPLE 3 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-4-1')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 1, EXAMPLE 2 &amp; EXAMPLE 3（計算 $Ax$、改寫線性組合為 $Ax$、判定對所有 $b$ 是否相容 $b_1 - \frac{1}{2}b_2 + b_3 = 0$）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-4-1" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 1:</strong> (a) $\begin{bmatrix} 1 & 2 & -1 \\ 0 & -5 & 3 \end{bmatrix}\begin{bmatrix} 4 \\ 3 \\ 7 \end{bmatrix} = 4\begin{bmatrix} 1 \\ 0 \end{bmatrix} + 3\begin{bmatrix} 2 \\ -5 \end{bmatrix} + 7\begin{bmatrix} -1 \\ 3 \end{bmatrix} = \begin{bmatrix} 3 \\ 6 \end{bmatrix}$. (b) $\begin{bmatrix} 2 & -3 \\ 8 & 0 \\ -5 & 2 \end{bmatrix}\begin{bmatrix} 4 \\ 7 \end{bmatrix} = \begin{bmatrix} -13 \\ 32 \\ -6 \end{bmatrix}$.</p>
+                    <p><strong>EXAMPLE 2:</strong> $3v_{1}-5v_{2}+7v_{3} = \begin{bmatrix} v_{1} & v_{2} & v_{3} \end{bmatrix}\begin{bmatrix} 3 \\ -5 \\ 7 \end{bmatrix} = Ax$.</p>
+                    <p><strong>EXAMPLE 3:</strong> For $A=\begin{bmatrix} 1 & 3 & 4 \\ -4 & 2 & -6 \\ -3 & -2 & -7 \end{bmatrix}$ and $b=\begin{bmatrix} b_{1} \\ b_{2} \\ b_{3} \end{bmatrix}$, row reducing $\begin{bmatrix} A & b \end{bmatrix}$ gives:
+                        $$\begin{bmatrix} 1 & 3 & 4 & b_{1} \\ -4 & 2 & -6 & b_{2} \\ -3 & -2 & -7 & b_{3} \end{bmatrix} \sim \begin{bmatrix} 1 & 3 & 4 & b_{1} \\ 0 & 14 & 10 & b_{2}+4b_{1} \\ 0 & 7 & 5 & b_{3}+3b_{1} \end{bmatrix} \sim \begin{bmatrix} 1 & 3 & 4 & b_{1} \\ 0 & 14 & 10 & b_{2}+4b_{1} \\ 0 & 0 & 0 & b_{3}+3b_{1}-\frac{1}{2}(b_{2}+4b_{1}) \end{bmatrix}$$
+                        The third entry in column 4 simplifies to $b_{1}-\frac{1}{2}b_{2}+b_{3}$. Thus $Ax=b$ is not consistent for every $b$; consistency holds when $b_{1}-\frac{1}{2}b_{2}+b_{3}=0$ (a plane through the origin in $\mathbb{R}^{3}$).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Row-Vector Rule, Identity Matrix & THEOREM 5 -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                2. Row-Vector Rule, Identity Matrix $I_{n}$ &amp; THEOREM 5 (列向量規則、單位矩陣與定理 5)
+            </h4>
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2 text-sm text-slate-800 leading-relaxed">
+                <div class="font-bold text-teal-950 text-base">ROW-VECTOR RULE FOR COMPUTING $Ax$（計算 $Ax$ 的列向量規則）</div>
+                <p>If the product $Ax$ is defined, then the $i$th entry in $Ax$ is the sum of the products of corresponding entries from row $i$ of $A$ and from the vector $x$.</p>
+                <p class="text-xs sm:text-sm text-slate-700">
+                    The matrix with $1$'s on the diagonal and $0$'s elsewhere is called an <strong>identity matrix（單位矩陣）</strong> and is denoted by $I$ (or $I_{n}$ for $n\times n$), satisfying $I_{n}x = x$ for every $x$ in $\mathbb{R}^{n}$.
+                </p>
+            </div>
+
+            <!-- Collapsible EXAMPLE 4 & EXAMPLE 5 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-4-4')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 4 &amp; EXAMPLE 5（列向量規則展開與單位矩陣 $I_{3}\begin{bmatrix} r \\ s \\ t \end{bmatrix} = \begin{bmatrix} r \\ s \\ t \end{bmatrix}$）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-4-4" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 4:</strong> $\begin{bmatrix} 2 & 3 & 4 \\ -1 & 5 & -3 \\ 6 & -2 & 8 \end{bmatrix}\begin{bmatrix} x_{1} \\ x_{2} \\ x_{3} \end{bmatrix} = \begin{bmatrix} 2x_{1}+3x_{2}+4x_{3} \\ -x_{1}+5x_{2}-3x_{3} \\ 6x_{1}-2x_{2}+8x_{3} \end{bmatrix}$.</p>
+                    <p><strong>EXAMPLE 5:</strong> (a) $\begin{bmatrix} 1 & 2 & -1 \\ 0 & -5 & 3 \end{bmatrix}\begin{bmatrix} 4 \\ 3 \\ 7 \end{bmatrix} = \begin{bmatrix} 1\cdot 4+2\cdot 3+(-1)\cdot 7 \\ 0\cdot 4+(-5)\cdot 3+3\cdot 7 \end{bmatrix} = \begin{bmatrix} 3 \\ 6 \end{bmatrix}$; (b) $\begin{bmatrix} 2 & -3 \\ 8 & 0 \\ -5 & 2 \end{bmatrix}\begin{bmatrix} 4 \\ 7 \end{bmatrix} = \begin{bmatrix} -13 \\ 32 \\ -6 \end{bmatrix}$; (c) $\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}\begin{bmatrix} r \\ s \\ t \end{bmatrix} = \begin{bmatrix} r \\ s \\ t \end{bmatrix}$.</p>
+                </div>
+            </div>
+
+            <!-- THEOREM 5 -->
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-3">
+                <div class="font-bold text-teal-950 text-base">THEOREM 5（定理 5：矩陣向量乘積的線性性質）</div>
+                <p class="text-xs sm:text-sm text-slate-700">If $A$ is an $m\times n$ matrix, $u$ and $v$ are vectors in $\mathbb{R}^{n}$, and $c$ is a scalar, then:
+                    <strong>a.</strong> $A(u+v) = Au + Av$, &nbsp; <strong>b.</strong> $A(cu) = c(Au)$.
+                </p>
+
+                <!-- Collapsible PROOF of Theorem 5 -->
+                <div class="border border-teal-200/80 rounded-lg overflow-hidden bg-white">
+                    <button onclick="toggleCard('proof1-4-5')" class="w-full px-4 py-2.5 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left text-xs sm:text-sm font-semibold text-slate-800 transition">
+                        <span>THEOREM 5 PROOF（證明：以 $n=3$ 展示線性組合展開與代數性質）</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500"></i>
+                    </button>
+                    <div id="proof1-4-5" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2 leading-relaxed">
+                        <p><strong>PROOF:</strong> For simplicity, take $n=3$, $A=\begin{bmatrix} a_{1} & a_{2} & a_{3} \end{bmatrix}$, and $u,v$ in $\mathbb{R}^{3}$. For (a):
+                            $$A(u+v) = \begin{bmatrix} a_{1} & a_{2} & a_{3} \end{bmatrix}\begin{bmatrix} u_{1}+v_{1} \\ u_{2}+v_{2} \\ u_{3}+v_{3} \end{bmatrix} = (u_{1}+v_{1})a_{1}+(u_{2}+v_{2})a_{2}+(u_{3}+v_{3})a_{3} = (u_{1}a_{1}+u_{2}a_{2}+u_{3}a_{3})+(v_{1}a_{1}+v_{2}a_{2}+v_{3}a_{3}) = Au+Av$$
+                            For (b):
+                            $$A(cu) = \begin{bmatrix} a_{1} & a_{2} & a_{3} \end{bmatrix}\begin{bmatrix} cu_{1} \\ cu_{2} \\ cu_{3} \end{bmatrix} = (cu_{1})a_{1}+(cu_{2})a_{2}+(cu_{3})a_{3} = c(u_{1}a_{1})+c(u_{2}a_{2})+c(u_{3}a_{3}) = c(u_{1}a_{1}+u_{2}a_{2}+u_{3}a_{3}) = c(Au)$$
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SECTION 1.5: SOLUTION SETS OF LINEAR SYSTEMS                   -->
+    <!-- ============================================================== -->
+    <section id="sec1-5" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b border-slate-200 pb-4 flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1.5 rounded-xl bg-teal-100 text-teal-900 text-xl md:text-2xl font-extrabold tracking-tight">§ 1.5</span>
+                <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight">SOLUTION SETS OF LINEAR SYSTEMS (線性方程組的解集)</h3>
+            </div>
+            <span class="text-xs text-slate-500 font-mono">Slides 108–128 (Ch-1-5.pdf)</span>
+        </div>
+
+        <!-- 1. Homogeneous Linear Systems & Parametric Vector Form -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                1. Homogeneous Linear Systems &amp; Parametric Vector Form (齊次線性方程組與參數向量形式)
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                A system of linear equations is said to be <strong>homogeneous（齊次的）</strong> if it can be written in the form $Ax=0$, where $A$ is an $m\times n$ matrix and $0$ is the zero vector in $\mathbb{R}^{m}$. Such a system $Ax=0$ always has at least one solution, namely, $x=0$ (the zero vector in $\mathbb{R}^{n}$). This zero solution is usually called the <strong>trivial solution（平凡解）</strong>. A <strong>nontrivial solution（非平凡解）</strong> is a nonzero vector $x$ that satisfies $Ax=0$. By the Existence and Uniqueness Theorem in Section 1.2:
+            </p>
+            <p class="text-sm font-semibold text-teal-950 bg-teal-50/70 border border-teal-200 rounded-lg px-4 py-2.5">
+                The homogeneous equation $Ax=0$ has a nontrivial solution if and only if the equation has at least one free variable.
+            </p>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                The solution set of a homogeneous equation $Ax=0$ can always be expressed explicitly as $\operatorname{Span}\{v_{1},\dots,v_{p}\}$ for suitable vectors $v_{1},\dots,v_{p}$. If the only solution is the zero vector, then the solution set is $\operatorname{Span}\{0\}$. When a solution set is described explicitly with vectors, we say that the solution is in <strong>parametric vector form（參數向量形式）</strong> (such as $x = tv$, $t\in\mathbb{R}$ for a line, or $x = su + tv$, $s,t\in\mathbb{R}$ for a plane).
+            </p>
+
+            <!-- SVG Figures 1 & 2: Line Span{v} and Plane Span{u, v} through origin -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-2">
+                <p class="text-xs font-semibold text-slate-600">FIGURE 1 &amp; FIGURE 2（齊次解集幾何圖示：單一自由變數為過原點直線；兩個自由變數為過原點平面）</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                        <svg viewBox="0 0 240 165" class="w-full max-w-[240px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="ax15a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155" />
+                                </marker>
+                            </defs>
+                            <line x1="115" y1="95" x2="115" y2="14" stroke="#334155" stroke-width="1.2" marker-end="url(#ax15a)" />
+                            <line x1="115" y1="95" x2="225" y2="112" stroke="#334155" stroke-width="1.2" marker-end="url(#ax15a)" />
+                            <line x1="115" y1="95" x2="35" y2="145" stroke="#334155" stroke-width="1.2" marker-end="url(#ax15a)" />
+                            <line x1="42" y1="146" x2="198" y2="28" stroke="#0d9488" stroke-width="2" />
+                            <circle cx="156" cy="60" r="3.5" fill="#0284c7" />
+                            <text x="163" y="62" font-size="12.5" font-weight="bold" font-family="serif">v</text>
+                            <text x="150" y="32" font-size="12" font-weight="bold" font-family="serif" fill="#0f766e">Span{v}</text>
+                        </svg>
+                        <div class="text-xs text-slate-600 font-medium">FIGURE 1 Homogeneous line solution set</div>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                        <svg viewBox="0 0 240 165" class="w-full max-w-[240px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="ax15b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155" />
+                                </marker>
+                            </defs>
+                            <polygon points="45,88 155,32 205,98 95,154" fill="#bae6fd" fill-opacity="0.65" stroke="#0284c7" stroke-width="1.2" />
+                            <line x1="115" y1="95" x2="115" y2="14" stroke="#334155" stroke-width="1.2" marker-end="url(#ax15b)" />
+                            <line x1="115" y1="95" x2="225" y2="112" stroke="#334155" stroke-width="1.2" marker-end="url(#ax15b)" />
+                            <line x1="115" y1="95" x2="35" y2="145" stroke="#334155" stroke-width="1.2" marker-end="url(#ax15b)" />
+                            <circle cx="145" cy="72" r="3.4" fill="#0284c7" />
+                            <circle cx="164" cy="96" r="3.4" fill="#0284c7" />
+                            <text x="148" y="66" font-size="12" font-weight="bold" font-family="serif">u</text>
+                            <text x="168" y="108" font-size="12" font-weight="bold" font-family="serif">v</text>
+                        </svg>
+                        <div class="text-xs text-slate-600 font-medium">FIGURE 2 Homogeneous plane solution set</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collapsible EXAMPLE 1 & EXAMPLE 2 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-5-1')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 1 &amp; EXAMPLE 2（範例 1 齊次解集 $x = x_{3}\begin{bmatrix} 4/3 \\ 0 \\ 1 \end{bmatrix}$；範例 2 單一方程解集 $x = x_{2}\begin{bmatrix} .3 \\ 1 \\ 0 \end{bmatrix} + x_{3}\begin{bmatrix} .2 \\ 0 \\ 1 \end{bmatrix}$）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-5-1" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 1:</strong> For $3x_{1}+5x_{2}-4x_{3}=0$, $-3x_{1}-2x_{2}+4x_{3}=0$, $6x_{1}+x_{2}-8x_{3}=0$, row reducing $\begin{bmatrix} A & 0 \end{bmatrix}$:
+                        $$\begin{bmatrix} 3 & 5 & -4 & 0 \\ -3 & -2 & 4 & 0 \\ 6 & 1 & -8 & 0 \end{bmatrix} \sim \begin{bmatrix} 3 & 5 & -4 & 0 \\ 0 & 3 & 0 & 0 \\ 0 & -9 & 0 & 0 \end{bmatrix} \sim \begin{bmatrix} 3 & 5 & -4 & 0 \\ 0 & 3 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{bmatrix} \sim \begin{bmatrix} 1 & 0 & -\frac{4}{3} & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{bmatrix}$$
+                        Thus $x_{1}=\frac{4}{3}x_{3}$, $x_{2}=0$, with $x_{3}$ free. General solution: $x = x_{3}v$, where $v = \begin{bmatrix} 4/3 \\ 0 \\ 1 \end{bmatrix}$ (a line through $0$ in $\mathbb{R}^{3}$).
+                    </p>
+                    <p><strong>EXAMPLE 2:</strong> For $10x_{1}-3x_{2}-2x_{3}=0$ (1), $x_{1}=.3x_{2}+.2x_{3}$ with $x_{2}, x_{3}$ free. General solution (2):
+                        $$x = x_{2}\begin{bmatrix} .3 \\ 1 \\ 0 \end{bmatrix} + x_{3}\begin{bmatrix} .2 \\ 0 \\ 1 \end{bmatrix} = x_{2}u + x_{3}v \quad (\text{with } x_{2}, x_{3}\text{ free})$$
+                        Solution set is $\operatorname{Span}\{u, v\}$, a plane through the origin.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Solutions of Nonhomogeneous Systems & THEOREM 6 -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                2. Solutions of Nonhomogeneous Systems, Translation &amp; THEOREM 6 (非齊次方程組的解集、平移幾何意義與定理 6)
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                When a nonhomogeneous linear system has many solutions, the general solution can be written in parametric vector form as one vector plus an arbitrary linear combination of vectors that satisfy the corresponding homogeneous system.
+                Geometrically, given $v$ and $p$ in $\mathbb{R}^{2}$ or $\mathbb{R}^{3}$, adding $p$ to $v$ <strong>translates（平移）</strong> $v$ by $p$ to $v+p$, and translating each point on a line $L$ through $0$ and $v$ by $p$ produces a parallel line through $p$ described by $x = p + tv$ ($t\in\mathbb{R}$) (3). Here $p$ is a <strong>particular solution（特解）</strong> of $Ax=b$.
+            </p>
+
+            <!-- SVG Figures 3, 4, 5, 6 -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-2">
+                <p class="text-xs font-semibold text-slate-600">FIGURE 3–6（向量平移 $v+p$、平移直線 $L+p$ 與非齊次／齊次解集的平行關係）</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                        <svg viewBox="0 0 230 155" class="w-full max-w-[230px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="trArr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
+                                </marker>
+                            </defs>
+                            <polygon points="35,115 105,65 195,45 125,95" fill="#bae6fd" fill-opacity="0.55" stroke="#0284c7" stroke-width="1.2" stroke-dasharray="3,2" />
+                            <line x1="35" y1="115" x2="105" y2="65" stroke="#0284c7" stroke-width="1.8" marker-end="url(#trArr)" />
+                            <line x1="35" y1="115" x2="125" y2="95" stroke="#64748b" stroke-width="1.6" marker-end="url(#trArr)" />
+                            <circle cx="195" cy="45" r="3.6" fill="#0d9488" />
+                            <text x="110" y="62" font-size="12" font-weight="bold" font-family="serif">v</text>
+                            <text x="130" y="106" font-size="12" font-weight="bold" font-family="serif">p</text>
+                            <text x="172" y="38" font-size="12" font-weight="bold" font-family="serif">v + p</text>
+                        </svg>
+                        <div class="text-xs text-slate-600 font-medium">FIGURE 3 &amp; 4 Translation by p</div>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                        <svg viewBox="0 0 230 155" class="w-full max-w-[230px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="ax15p" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155" />
+                                </marker>
+                            </defs>
+                            <!-- Ax = 0 line through origin (85, 115) -->
+                            <line x1="35" y1="135" x2="155" y2="87" stroke="#0284c7" stroke-width="1.8" />
+                            <!-- Ax = b parallel line translated by p -->
+                            <line x1="75" y1="92" x2="195" y2="44" stroke="#0d9488" stroke-width="2" />
+                            <circle cx="115" cy="76" r="3.6" fill="#0f172a" />
+                            <line x1="85" y1="115" x2="115" y2="76" stroke="#64748b" stroke-width="1.4" stroke-dasharray="3,2" />
+                            <text x="122" y="74" font-size="12" font-weight="bold" font-family="serif">p</text>
+                            <text x="155" y="42" font-size="12" font-weight="bold" font-family="serif" fill="#0f766e">Ax = b</text>
+                            <text x="148" y="102" font-size="12" font-weight="bold" font-family="serif" fill="#0369a1">Ax = 0</text>
+                        </svg>
+                        <div class="text-xs text-slate-600 font-medium">FIGURE 5 &amp; 6 Parallel solution sets</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THEOREM 6 -->
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2 text-sm text-slate-800 leading-relaxed">
+                <div class="font-bold text-teal-950 text-base">THEOREM 6（定理 6：相容非齊次方程組 $Ax=b$ 解集與齊次解集的平移關係）</div>
+                <p>
+                    Suppose the equation $Ax=b$ is consistent for some given $b$, and let $p$ be a solution. Then the solution set of $Ax=b$ is the set of all vectors of the form
+                    $$w = p + v_{h}$$
+                    where $v_{h}$ is any solution of the homogeneous equation $Ax=0$.
+                </p>
+                <p class="text-xs sm:text-sm text-amber-900 bg-amber-50 border border-amber-200 rounded-lg p-3">
+                    <strong>Warning:</strong> Theorem 6 and Figure 6 apply only to an equation $Ax=b$ that has at least one nonzero solution $p$. When $Ax=b$ has no solution, the solution set is empty.
+                </p>
+                <div class="bg-white border border-teal-200/80 rounded-lg p-3.5 text-xs sm:text-sm space-y-1">
+                    <div class="font-bold text-teal-950">WRITING A SOLUTION SET (OF A CONSISTENT SYSTEM) IN PARAMETRIC VECTOR FORM（四步驟）</div>
+                    <p>1. Row reduce the augmented matrix to reduced echelon form. &nbsp; 2. Express each basic variable in terms of any free variables appearing in an equation. &nbsp; 3. Write a typical solution $x$ as a vector whose entries depend on the free variables, if any. &nbsp; 4. Decompose $x$ into a linear combination of vectors (with numeric entries) using the free variables as parameters.</p>
+                </div>
+            </div>
+
+            <!-- Collapsible EXAMPLE 3 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-5-3')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 3（範例 3：求非齊次方程組 $Ax=b$ 參數向量形式 $x = p + x_{3}v$）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-5-3" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 3:</strong> For $A=\begin{bmatrix} 3 & 5 & -4 \\ -3 & -2 & 4 \\ 6 & 1 & -8 \end{bmatrix}$ and $b=\begin{bmatrix} 7 \\ -1 \\ -4 \end{bmatrix}$, row reducing $\begin{bmatrix} A & b \end{bmatrix}$ gives:
+                        $$\begin{bmatrix} 3 & 5 & -4 & 7 \\ -3 & -2 & 4 & -1 \\ 6 & 1 & -8 & -4 \end{bmatrix} \sim \begin{bmatrix} 1 & 0 & -\frac{4}{3} & -1 \\ 0 & 1 & 0 & 2 \\ 0 & 0 & 0 & 0 \end{bmatrix}$$
+                        Thus $x_{1}=-1+\frac{4}{3}x_{3}$, $x_{2}=2$, and $x_{3}$ is free. As a vector:
+                        $$x = \begin{bmatrix} x_{1} \\ x_{2} \\ x_{3} \end{bmatrix} = \begin{bmatrix} -1+\frac{4}{3}x_{3} \\ 2 \\ x_{3} \end{bmatrix} = \begin{bmatrix} -1 \\ 2 \\ 0 \end{bmatrix} + x_{3}\begin{bmatrix} \frac{4}{3} \\ 0 \\ 1 \end{bmatrix} = p + x_{3}v$$
+                        In general parameter $t\in\mathbb{R}$, $x = p + tv$ (3).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SECTION 1.7: LINEAR INDEPENDENCE                               -->
+    <!-- ============================================================== -->
+    <section id="sec1-7" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b border-slate-200 pb-4 flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1.5 rounded-xl bg-teal-100 text-teal-900 text-xl md:text-2xl font-extrabold tracking-tight">§ 1.7</span>
+                <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight">LINEAR INDEPENDENCE (線性獨立)</h3>
+            </div>
+            <span class="text-xs text-slate-500 font-mono">Slides 129–153 (Ch-1-7.pdf)</span>
+        </div>
+
+        <!-- 1. Definitions, Linear Dependence Relation & Matrix Columns -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                1. Linear Independence &amp; Linear Dependence Definitions, Dependence Relation &amp; Matrix Columns (線性獨立與線性相依定義、相依關係與矩陣行)
+            </h4>
+
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2 text-sm text-slate-800 leading-relaxed">
+                <div class="font-bold text-teal-950 text-base">DEFINITION（定義：線性獨立與線性相依）</div>
+                <p>
+                    An indexed set of vectors $\{v_{1},\dots,v_{p}\}$ in $\mathbb{R}^{n}$ is said to be <strong>linearly independent（線性獨立的）</strong> if the vector equation
+                    $$x_{1}v_{1} + x_{2}v_{2} + \cdots + x_{p}v_{p} = 0$$
+                    has only the trivial solution. The set $\{v_{1},\dots,v_{p}\}$ is said to be <strong>linearly dependent（線性相依的）</strong> if there exist weights $c_{1},\dots,c_{p}$, not all zero, such that
+                    $$c_{1}v_{1} + c_{2}v_{2} + \cdots + c_{p}v_{p} = 0 \tag{2}$$
+                </p>
+                <p class="text-xs sm:text-sm text-slate-700">
+                    Equation (2) is called a <strong>linear dependence relation（線性相依關係）</strong> among $v_{1},\dots,v_{p}$ when the weights are not all zero. An indexed set is linearly dependent if and only if it is not linearly independent.
+                </p>
+            </div>
+
+            <p class="text-sm font-semibold text-teal-950 bg-teal-50/70 border border-teal-200 rounded-lg px-4 py-2.5">
+                The columns of a matrix $A$ are linearly independent if and only if the equation $Ax=0$ has only the trivial solution. (3)
+            </p>
+
+            <!-- Collapsible EXAMPLE 1 & EXAMPLE 2 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-7-1')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 1 &amp; EXAMPLE 2（範例 1 線性相依與相依關係 $10v_1-5v_2+5v_3=0$；範例 2 矩陣行線性獨立判定）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-7-1" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 1:</strong> For $v_{1}=\begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}$, $v_{2}=\begin{bmatrix} 4 \\ 5 \\ 6 \end{bmatrix}$, $v_{3}=\begin{bmatrix} 2 \\ 1 \\ 0 \end{bmatrix}$, row reducing $\begin{bmatrix} 1 & 4 & 2 & 0 \\ 2 & 5 & 1 & 0 \\ 3 & 6 & 0 & 0 \end{bmatrix} \sim \begin{bmatrix} 1 & 4 & 2 & 0 \\ 0 & -3 & -3 & 0 \\ 0 & 0 & 0 & 0 \end{bmatrix}$ shows $x_{3}$ is free, so $\{v_{1},v_{2},v_{3}\}$ is linearly dependent. Continuing to reduced echelon form $\begin{bmatrix} 1 & 0 & -2 & 0 \\ 0 & 1 & 1 & 0 \\ 0 & 0 & 0 & 0 \end{bmatrix}$ gives $x_{1}=2x_{3}$, $x_{2}=-x_{3}$; choosing $x_{3}=5$ gives $x_{1}=10, x_{2}=-5$, yielding dependence relation $10v_{1}-5v_{2}+5v_{3}=0$.</p>
+                    <p><strong>EXAMPLE 2:</strong> For $A=\begin{bmatrix} 0 & 1 & 4 \\ 1 & 2 & -1 \\ 5 & 8 & 0 \end{bmatrix}$, row reducing $\begin{bmatrix} A & 0 \end{bmatrix}$:
+                        $$\begin{bmatrix} 0 & 1 & 4 & 0 \\ 1 & 2 & -1 & 0 \\ 5 & 8 & 0 & 0 \end{bmatrix} \sim \begin{bmatrix} 1 & 2 & -1 & 0 \\ 0 & 1 & 4 & 0 \\ 0 & -2 & 5 & 0 \end{bmatrix} \sim \begin{bmatrix} 1 & 2 & -1 & 0 \\ 0 & 1 & 4 & 0 \\ 0 & 0 & 13 & 0 \end{bmatrix}$$
+                        There are three basic variables and no free variables, so $Ax=0$ has only the trivial solution and the columns of $A$ are linearly independent.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Sets of One or Two Vectors & THEOREMS 7, 8, 9 -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                2. Sets of One or Two Vectors &amp; THEOREMS 7, 8, 9 (一或兩個向量集合、定理 7、定理 8 與定理 9)
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                A set containing only one vector—say, $v$—is linearly independent if and only if $v \neq 0$, because $x_{1}v=0$ has only the trivial solution when $v\neq 0$; the zero vector is linearly dependent because $x_{1}0=0$ has many nontrivial solutions.
+                A set of two vectors $\{v_{1},v_{2}\}$ is linearly dependent if at least one of the vectors is a multiple of the other; the set is linearly independent if and only if neither of the vectors is a multiple of the other. Geometrically, two vectors are linearly dependent if and only if they lie on the same line through the origin (Figure 1).
+            </p>
+
+            <!-- SVG Figure 1: Two vectors in R^2 -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-2">
+                <p class="text-xs font-semibold text-slate-600">FIGURE 1（兩向量集合幾何判別：共線為線性相依；不共線為線性獨立）</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                        <svg viewBox="0 0 220 145" class="w-full max-w-[220px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="ldArr1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
+                                </marker>
+                            </defs>
+                            <line x1="20" y1="125" x2="205" y2="125" stroke="#334155" stroke-width="1.2" />
+                            <line x1="55" y1="138" x2="55" y2="15" stroke="#334155" stroke-width="1.2" />
+                            <line x1="55" y1="125" x2="185" y2="45" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="3,2" />
+                            <line x1="55" y1="125" x2="115" y2="88" stroke="#0284c7" stroke-width="1.8" marker-end="url(#ldArr1)" />
+                            <line x1="55" y1="125" x2="175" y2="51" stroke="#0284c7" stroke-width="1.8" marker-end="url(#ldArr1)" />
+                            <text x="118" y="82" font-size="11.5" font-family="serif">(3, 1)</text>
+                            <text x="172" y="44" font-size="11.5" font-family="serif">(6, 2)</text>
+                        </svg>
+                        <div class="text-xs text-slate-600 font-medium">Linearly dependent</div>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                        <svg viewBox="0 0 220 145" class="w-full max-w-[220px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="ldArr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
+                                </marker>
+                            </defs>
+                            <line x1="20" y1="125" x2="205" y2="125" stroke="#334155" stroke-width="1.2" />
+                            <line x1="55" y1="138" x2="55" y2="15" stroke="#334155" stroke-width="1.2" />
+                            <line x1="55" y1="125" x2="115" y2="65" stroke="#0284c7" stroke-width="1.8" marker-end="url(#ldArr2)" />
+                            <line x1="55" y1="125" x2="175" y2="65" stroke="#0d9488" stroke-width="1.8" marker-end="url(#ldArr2)" />
+                            <text x="118" y="60" font-size="11.5" font-family="serif">(3, 2)</text>
+                            <text x="175" y="58" font-size="11.5" font-family="serif">(6, 2)</text>
+                        </svg>
+                        <div class="text-xs text-slate-600 font-medium">Linearly independent</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THEOREM 7 -->
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-3">
+                <div class="font-bold text-teal-950 text-base">THEOREM 7 — Characterization of Linearly Dependent Sets（定理 7：線性相依集的特徵描述）</div>
+                <p class="text-sm text-slate-800 leading-relaxed">
+                    An indexed set $S=\{v_{1},\dots,v_{p}\}$ of two or more vectors is linearly dependent if and only if at least one of the vectors in $S$ is a linear combination of the others. In fact, if $S$ is linearly dependent and $v_{1}\neq 0$, then some $v_{j}$ (with $j&gt;1$) is a linear combination of the preceding vectors, $v_{1},\dots,v_{j-1}$.
+                </p>
+
+                <!-- Collapsible PROOF of Theorem 7 -->
+                <div class="border border-teal-200/80 rounded-lg overflow-hidden bg-white">
+                    <button onclick="toggleCard('proof1-7-7')" class="w-full px-4 py-2.5 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left text-xs sm:text-sm font-semibold text-slate-800 transition">
+                        <span>THEOREM 7 PROOF（雙向完整證明）</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500"></i>
+                    </button>
+                    <div id="proof1-7-7" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2 leading-relaxed">
+                        <p><strong>PROOF:</strong> If some $v_{j}$ in $S$ equals a linear combination of the other vectors, then $v_{j}$ can be subtracted from both sides of the equation, producing a linear dependence relation with a nonzero weight $(-1)$ on $v_{j}$ [e.g., if $v_{1}=c_{2}v_{2}+c_{3}v_{3}$, then $0=(-1)v_{1}+c_{2}v_{2}+c_{3}v_{3}+0v_{4}+\cdots+0v_{p}$]. Thus $S$ is linearly dependent.</p>
+                        <p>Conversely, suppose $S$ is linearly dependent. If $v_{1}$ is zero, then it is a (trivial) linear combination of the other vectors in $S$. Otherwise, $v_{1}\neq 0$, and there exist weights $c_{1},\dots,c_{p}$, not all zero, such that $c_{1}v_{1}+c_{2}v_{2}+\cdots+c_{p}v_{p}=0$. Let $j$ be the largest subscript for which $c_{j}\neq 0$. If $j=1$, then $c_{1}v_{1}=0$, which is impossible because $v_{1}\neq 0$. So $j&gt;1$, and
+                            $$c_{1}v_{1}+\cdots+c_{j}v_{j}+0v_{j+1}+\cdots+0v_{p}=0 \implies c_{j}v_{j}=-c_{1}v_{1}-\cdots-c_{j-1}v_{j-1} \implies v_{j}=\left(-\frac{c_{1}}{c_{j}}\right)v_{1}+\cdots+\left(-\frac{c_{j-1}}{c_{j}}\right)v_{j-1}$$
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THEOREM 8 -->
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-3">
+                <div class="font-bold text-teal-950 text-base">THEOREM 8（定理 8：向量個數超過分量數必線性相依 $p &gt; n$）</div>
+                <p class="text-sm text-slate-800 leading-relaxed">
+                    If a set contains more vectors than there are entries in each vector, then the set is linearly dependent. That is, any set $\{v_{1},\dots,v_{p}\}$ in $\mathbb{R}^{n}$ is linearly dependent if $p &gt; n$.
+                </p>
+                <p class="text-xs sm:text-sm text-amber-900 bg-amber-50 border border-amber-200 rounded-lg p-3">
+                    <strong>Warning:</strong> Theorem 8 says nothing about the case in which the number of vectors in the set does not exceed the number of entries in each vector.
+                </p>
+
+                <!-- Collapsible PROOF of Theorem 8 + Figure 3 SVG -->
+                <div class="border border-teal-200/80 rounded-lg overflow-hidden bg-white">
+                    <button onclick="toggleCard('proof1-7-8')" class="w-full px-4 py-2.5 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left text-xs sm:text-sm font-semibold text-slate-800 transition">
+                        <span>THEOREM 8 PROOF（證明與 FIGURE 3 矩陣主元圖示）</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500"></i>
+                    </button>
+                    <div id="proof1-7-8" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 leading-relaxed">
+                        <p><strong>PROOF:</strong> Let $A=\begin{bmatrix} v_{1} & \cdots & v_{p} \end{bmatrix}$. Then $A$ is $n\times p$, and the equation $Ax=0$ corresponds to a system of $n$ equations in $p$ unknowns. If $p &gt; n$, there are more variables than equations, so there must be a free variable. Hence $Ax=0$ has a nontrivial solution, and the columns of $A$ are linearly dependent.</p>
+                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col items-center">
+                            <svg viewBox="0 0 240 120" class="w-full max-w-[240px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M 32 18 L 25 18 L 25 102 L 32 102" fill="none" stroke="#1e293b" stroke-width="1.6" />
+                                <path d="M 198 18 L 205 18 L 205 102 L 198 102" fill="none" stroke="#1e293b" stroke-width="1.6" />
+                                <text x="48" y="38" font-size="14" font-weight="bold" fill="#0284c7">*</text>
+                                <text x="76" y="38" font-size="13">*</text>
+                                <text x="104" y="38" font-size="13">*</text>
+                                <text x="132" y="38" font-size="13">*</text>
+                                <text x="160" y="38" font-size="13">*</text>
+                                <text x="184" y="38" font-size="13">*</text>
+
+                                <text x="48" y="64" font-size="13">0</text>
+                                <text x="76" y="64" font-size="14" font-weight="bold" fill="#0284c7">*</text>
+                                <text x="104" y="64" font-size="13">*</text>
+                                <text x="132" y="64" font-size="13">*</text>
+                                <text x="160" y="64" font-size="13">*</text>
+                                <text x="184" y="64" font-size="13">*</text>
+
+                                <text x="48" y="90" font-size="13">0</text>
+                                <text x="76" y="90" font-size="13">0</text>
+                                <text x="104" y="90" font-size="14" font-weight="bold" fill="#0284c7">*</text>
+                                <text x="132" y="90" font-size="13">*</text>
+                                <text x="160" y="90" font-size="13">*</text>
+                                <text x="184" y="90" font-size="13">*</text>
+
+                                <text x="14" y="65" font-size="12" font-style="italic" font-family="serif">n</text>
+                                <text x="115" y="116" text-anchor="middle" font-size="12" font-style="italic" font-family="serif">p &gt; n</text>
+                            </svg>
+                            <div class="text-xs text-slate-600">FIGURE 3 If $p &gt; n$, the columns are linearly dependent.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THEOREM 9 -->
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-3">
+                <div class="font-bold text-teal-950 text-base">THEOREM 9（定理 9：含零向量的向量集合必線性相依）</div>
+                <p class="text-sm text-slate-800 leading-relaxed">
+                    If a set $S=\{v_{1},\dots,v_{p}\}$ in $\mathbb{R}^{n}$ contains the zero vector, then the set is linearly dependent.
+                </p>
+
+                <!-- Collapsible PROOF of Theorem 9 -->
+                <div class="border border-teal-200/80 rounded-lg overflow-hidden bg-white">
+                    <button onclick="toggleCard('proof1-7-9')" class="w-full px-4 py-2.5 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left text-xs sm:text-sm font-semibold text-slate-800 transition">
+                        <span>THEOREM 9 PROOF（證明）</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500"></i>
+                    </button>
+                    <div id="proof1-7-9" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        <p><strong>PROOF:</strong> By renumbering the vectors, we may suppose $v_{1}=0$. Then the equation $1v_{1}+0v_{2}+\cdots+0v_{p}=0$ shows that $S$ is linearly dependent.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collapsible EXAMPLE 4, EXAMPLE 5 & EXAMPLE 6 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-7-4')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 4, EXAMPLE 5 &amp; EXAMPLE 6（平面生成判定、$\mathbb{R}^2$ 三向量相依與目測檢驗）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-7-4" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 4:</strong> For $u=\begin{bmatrix} 3 \\ 1 \\ 0 \end{bmatrix}$ and $v=\begin{bmatrix} 1 \\ 6 \\ 0 \end{bmatrix}$ in $\mathbb{R}^{3}$, they are linearly independent and span the $x_{1}x_{2}$-plane ($x_{3}=0$). A vector $w$ is in $\operatorname{Span}\{u,v\}$ if and only if $\{u,v,w\}$ is linearly dependent.</p>
+                    <p><strong>EXAMPLE 5:</strong> $\begin{bmatrix} 2 \\ 1 \end{bmatrix}, \begin{bmatrix} 4 \\ -1 \end{bmatrix}, \begin{bmatrix} -2 \\ 2 \end{bmatrix}$ are linearly dependent by Theorem 8 ($3$ vectors in $\mathbb{R}^{2}$, $3&gt;2$), even though no vector is a multiple of another.</p>
+                    <p><strong>EXAMPLE 6:</strong> (a) Four vectors in $\mathbb{R}^{3}$: linearly dependent by Theorem 8 ($4&gt;3$). (b) $\begin{bmatrix} 2 \\ 3 \\ 5 \end{bmatrix}, \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}, \begin{bmatrix} 1 \\ 1 \\ 8 \end{bmatrix}$: contains zero vector, linearly dependent by Theorem 9. (c) $\begin{bmatrix} -2 \\ 4 \\ 6 \\ 10 \end{bmatrix}, \begin{bmatrix} 3 \\ -6 \\ -9 \\ 15 \end{bmatrix}$: $-3/2$ ratio holds for first three entries but fails on fourth ($10\times(-3/2)=-15$? Wait: $-2\times(-3/2)=3$, $4\times(-3/2)=-6$, $6\times(-3/2)=-9$, $10\times(-3/2)=-15 \neq 15$), so linearly independent.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SECTION 1.8: INTRODUCTION TO LINEAR TRANSFORMATIONS            -->
+    <!-- ============================================================== -->
+    <section id="sec1-8" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b border-slate-200 pb-4 flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1.5 rounded-xl bg-teal-100 text-teal-900 text-xl md:text-2xl font-extrabold tracking-tight">§ 1.8</span>
+                <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight">INTRODUCTION TO LINEAR TRANSFORMATIONS (線性變換導論)</h3>
+            </div>
+            <span class="text-xs text-slate-500 font-mono">Slides 208–230 (Ch-1-8.pdf)</span>
+        </div>
+
+        <!-- 1. Transformations, Domain, Codomain, Image, Range & Matrix Transformations -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                1. Transformations, Domain, Codomain, Image, Range &amp; Matrix Transformations (變換、定義域、餘域、像、值域與矩陣變換)
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                A <strong>transformation (or function or mapping)（變換／函數／映射）</strong> $T$ from $\mathbb{R}^{n}$ to $\mathbb{R}^{m}$ is a rule that assigns to each vector $x$ in $\mathbb{R}^{n}$ a vector $T(x)$ in $\mathbb{R}^{m}$. The set $\mathbb{R}^{n}$ is called the <strong>domain（定義域）</strong> of $T$, and $\mathbb{R}^{m}$ is called the <strong>codomain（餘域）</strong> of $T$. The notation $T:\mathbb{R}^{n}\rightarrow\mathbb{R}^{m}$ indicates that the domain of $T$ is $\mathbb{R}^{n}$ and the codomain is $\mathbb{R}^{m}$. For $x$ in $\mathbb{R}^{n}$, the vector $T(x)$ in $\mathbb{R}^{m}$ is called the <strong>image（像）</strong> of $x$ (under the action of $T$). The set of all images $T(x)$ is called the <strong>range（值域）</strong> of $T$.
+            </p>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                For a <strong>matrix transformation（矩陣變換）</strong> $x \mapsto Ax$ where $A$ is $m\times n$, the domain of $T$ is $\mathbb{R}^{n}$ (when $A$ has $n$ columns) and the codomain is $\mathbb{R}^{m}$ (when each column of $A$ has $m$ entries). The range of $T$ is the set of all linear combinations of the columns of $A$, because each image $T(x)$ is of the form $Ax$.
+            </p>
+
+            <!-- SVG Figures 1 & 2: Transforming vectors & Domain, Codomain, Range -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-2">
+                <p class="text-xs font-semibold text-slate-600">FIGURE 1 &amp; FIGURE 2（矩陣乘法作用與定義域 $\mathbb{R}^n$、餘域 $\mathbb{R}^m$、值域 Range）</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                        <svg viewBox="0 0 240 140" class="w-full max-w-[240px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="t18a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
+                                </marker>
+                            </defs>
+                            <ellipse cx="55" cy="70" rx="34" ry="52" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.2" />
+                            <ellipse cx="185" cy="70" rx="34" ry="52" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.2" />
+                            <circle cx="55" cy="48" r="3" fill="#0f172a" />
+                            <circle cx="55" cy="92" r="3" fill="#0f172a" />
+                            <circle cx="185" cy="48" r="3" fill="#0f172a" />
+                            <circle cx="185" cy="92" r="3" fill="#0f172a" />
+                            <line x1="59" y1="48" x2="180" y2="48" stroke="#0284c7" stroke-width="1.5" marker-end="url(#t18a)" />
+                            <line x1="59" y1="92" x2="180" y2="92" stroke="#0284c7" stroke-width="1.5" marker-end="url(#t18a)" />
+                            <text x="43" y="51" font-size="11.5" font-weight="bold" font-family="serif">x</text>
+                            <text x="43" y="95" font-size="11.5" font-weight="bold" font-family="serif">u</text>
+                            <text x="193" y="51" font-size="11.5" font-weight="bold" font-family="serif">b</text>
+                            <text x="193" y="95" font-size="11.5" font-weight="bold" font-family="serif">0</text>
+                            <text x="55" y="134" text-anchor="middle" font-size="11.5" font-family="serif">ℝ⁴</text>
+                            <text x="185" y="134" text-anchor="middle" font-size="11.5" font-family="serif">ℝ²</text>
+                        </svg>
+                        <div class="text-xs text-slate-600 font-medium">FIGURE 1 Transforming vectors</div>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                        <svg viewBox="0 0 240 140" class="w-full max-w-[240px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="t18b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
+                                </marker>
+                            </defs>
+                            <ellipse cx="52" cy="68" rx="34" ry="50" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.2" />
+                            <ellipse cx="182" cy="68" rx="40" ry="52" fill="#f1f5f9" stroke="#475569" stroke-width="1.2" />
+                            <ellipse cx="182" cy="74" rx="22" ry="30" fill="#bae6fd" stroke="#0284c7" stroke-width="1.2" />
+                            <circle cx="55" cy="70" r="3" fill="#0f172a" />
+                            <circle cx="182" cy="74" r="3" fill="#0f172a" />
+                            <path d="M 59 66 Q 120 32 177 70" fill="none" stroke="#0284c7" stroke-width="1.5" marker-end="url(#t18b)" />
+                            <text x="43" y="74" font-size="11.5" font-weight="bold" font-family="serif">x</text>
+                            <text x="188" y="78" font-size="11" font-weight="bold" font-family="serif">T(x)</text>
+                            <text x="120" y="34" text-anchor="middle" font-size="11.5" font-style="italic" font-family="serif">T</text>
+                            <text x="52" y="132" text-anchor="middle" font-size="11">Domain ℝⁿ</text>
+                            <text x="182" y="132" text-anchor="middle" font-size="11">Codomain ℝᵐ</text>
+                        </svg>
+                        <div class="text-xs text-slate-600 font-medium">FIGURE 2 Domain, codomain &amp; range</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collapsible EXAMPLE 1, EXAMPLE 2 & EXAMPLE 3 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-8-1')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 1, EXAMPLE 2 &amp; EXAMPLE 3（像、唯一原像、值域判定、三維投影與二維剪力變換）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-8-1" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 1:</strong> For $A=\begin{bmatrix} 1 & -3 \\ 3 & 5 \\ -1 & 7 \end{bmatrix}$, $u=\begin{bmatrix} 2 \\ -1 \end{bmatrix}$, $b=\begin{bmatrix} 3 \\ 2 \\ -5 \end{bmatrix}$, $c=\begin{bmatrix} 3 \\ 2 \\ 5 \end{bmatrix}$, $T(x)=Ax$:
+                        (a) $T(u)=Au=\begin{bmatrix} 5 \\ 1 \\ -9 \end{bmatrix}$.
+                        (b) Solving $Ax=b$ gives $x=\begin{bmatrix} 1.5 \\ -0.5 \end{bmatrix}$.
+                        (c) Unique solution, so there is exactly one $x$ whose image is $b$.
+                        (d) Row reducing $\begin{bmatrix} 1 & -3 & 3 \\ 3 & 5 & 2 \\ -1 & 7 & 5 \end{bmatrix}$ leads to $0=-35$, inconsistent, so $c$ is not in the range of $T$.
+                    </p>
+                    <p><strong>EXAMPLE 2:</strong> $A=\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \end{bmatrix}$ projects $\begin{bmatrix} x_{1} \\ x_{2} \\ x_{3} \end{bmatrix} \mapsto \begin{bmatrix} x_{1} \\ x_{2} \\ 0 \end{bmatrix}$ onto the $x_{1}x_{2}$-plane (Figure 3).</p>
+                    <p><strong>EXAMPLE 3:</strong> $A=\begin{bmatrix} 1 & 3 \\ 0 & 1 \end{bmatrix}$ gives a <strong>shear transformation（剪力變換）</strong> on $\mathbb{R}^{2}$: for a $2\times 2$ square with vertices $(0,0),(2,0),(2,2),(0,2)$, $\begin{bmatrix} 0 \\ 2 \end{bmatrix}\mapsto \begin{bmatrix} 6 \\ 2 \end{bmatrix}$ and $\begin{bmatrix} 2 \\ 2 \end{bmatrix}\mapsto \begin{bmatrix} 8 \\ 2 \end{bmatrix}$, forming a parallelogram (Figure 4).</p>
+
+                    <!-- SVG Figures 3 & 4 -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                        <div class="bg-slate-50 border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                            <svg viewBox="0 0 210 135" class="w-full max-w-[210px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                                <polygon points="30,85 110,45 175,75 95,115" fill="#bae6fd" fill-opacity="0.65" stroke="#0284c7" stroke-width="1.2" />
+                                <line x1="105" y1="80" x2="105" y2="15" stroke="#334155" stroke-width="1.2" />
+                                <circle cx="105" cy="36" r="3" fill="#0f172a" />
+                                <circle cx="105" cy="80" r="3" fill="#0d9488" />
+                                <line x1="105" y1="36" x2="105" y2="77" stroke="#0284c7" stroke-width="1.4" stroke-dasharray="3,2" />
+                                <text x="112" y="39" font-size="11" font-family="serif">(x₁,x₂,x₃)</text>
+                                <text x="112" y="88" font-size="11" font-family="serif">(x₁,x₂,0)</text>
+                            </svg>
+                            <div class="text-xs text-slate-600">FIGURE 3 Projection onto $x_1x_2$-plane</div>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                            <svg viewBox="0 0 230 135" class="w-full max-w-[230px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="20" y1="108" x2="215" y2="108" stroke="#334155" stroke-width="1.2" />
+                                <line x1="40" y1="122" x2="40" y2="15" stroke="#334155" stroke-width="1.2" />
+                                <!-- Square [0,2]x[0,2]: (40,108)->(76,108)->(76,72)->(40,72) -->
+                                <rect x="40" y="72" width="36" height="36" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.4" />
+                                <!-- Sheared parallelogram: (40,108)->(76,108)->(184,72)->(148,72) -->
+                                <polygon points="40,108 76,108 184,72 148,72" fill="#99f6e4" fill-opacity="0.7" stroke="#0d9488" stroke-width="1.5" />
+                                <text x="76" y="121" text-anchor="middle" font-size="10.5" font-family="serif">2</text>
+                                <text x="184" y="121" text-anchor="middle" font-size="10.5" font-family="serif">8</text>
+                                <text x="30" y="75" font-size="10.5" font-family="serif">2</text>
+                            </svg>
+                            <div class="text-xs text-slate-600">FIGURE 4 Shear transformation</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Linear Transformations Definition & Properties -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                2. Linear Transformations Definition &amp; Linearity Identities (線性變換定義與線性恆等式)
+            </h4>
+
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2 text-sm text-slate-800 leading-relaxed">
+                <div class="font-bold text-teal-950 text-base">DEFINITION — LINEAR TRANSFORMATION（定義：線性變換）</div>
+                <p>A transformation (or mapping) $T$ is <strong>linear（線性的）</strong> if:</p>
+                <ol class="list-roman pl-5 space-y-1">
+                    <li>$T(u+v) = T(u) + T(v)$ for all $u, v$ in the domain of $T$;</li>
+                    <li>$T(cu) = cT(u)$ for all scalars $c$ and all $u$ in the domain of $T$.</li>
+                </ol>
+                <p class="text-xs sm:text-sm text-slate-700">
+                    Every matrix transformation is a linear transformation. Furthermore, if $T$ is a linear transformation, then
+                    $$T(0) = 0 \quad (3), \qquad T(cu+dv) = cT(u) + dT(v) \quad (4)$$
+                    for all vectors $u, v$ in the domain of $T$ and all scalars $c, d$, and by repeated application:
+                    $$T(c_{1}v_{1}+\cdots+c_{p}v_{p}) = c_{1}T(v_{1})+\cdots+c_{p}T(v_{p}) \quad (5)$$
+                </p>
+            </div>
+
+            <!-- Collapsible EXAMPLE 4 & EXAMPLE 5 + Figures 5 & 6 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-8-4')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 4 &amp; EXAMPLE 5（範例 4 伸縮變換 $r=3$；範例 5 $90^\circ$ 逆時針旋轉變換與圖示）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-8-4" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 4:</strong> For $T(x)=rx$ on $\mathbb{R}^{2}$ ($0\le r\le 1$ is a <strong>contraction 壓縮</strong>, $r&gt;1$ is a <strong>dilation 擴張／伸縮</strong>), with $r=3$, $T(cu+dv)=3(cu+dv)=c(3u)+d(3v)=cT(u)+dT(v)$, so $T$ is linear (Figure 5).</p>
+                    <p><strong>EXAMPLE 5:</strong> For $T(x) = \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}\begin{bmatrix} x_{1} \\ x_{2} \end{bmatrix} = \begin{bmatrix} -x_{2} \\ x_{1} \end{bmatrix}$, with $u=\begin{bmatrix} 4 \\ 1 \end{bmatrix}$, $v=\begin{bmatrix} 2 \\ 3 \end{bmatrix}$, $u+v=\begin{bmatrix} 6 \\ 4 \end{bmatrix}$:
+                        $T(u)=\begin{bmatrix} -1 \\ 4 \end{bmatrix}$, $T(v)=\begin{bmatrix} -3 \\ 2 \end{bmatrix}$, $T(u+v)=\begin{bmatrix} -4 \\ 6 \end{bmatrix} = T(u)+T(v)$, a counterclockwise rotation about the origin through $90^{\circ}$ (Figure 6).
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                        <div class="bg-slate-50 border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                            <svg viewBox="0 0 210 130" class="w-full max-w-[210px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <marker id="dilArr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                        <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
+                                    </marker>
+                                </defs>
+                                <line x1="20" y1="100" x2="195" y2="100" stroke="#334155" stroke-width="1.2" />
+                                <line x1="45" y1="115" x2="45" y2="15" stroke="#334155" stroke-width="1.2" />
+                                <line x1="45" y1="100" x2="90" y2="75" stroke="#0284c7" stroke-width="1.8" marker-end="url(#dilArr)" />
+                                <line x1="45" y1="100" x2="180" y2="25" stroke="#0d9488" stroke-width="2" marker-end="url(#dilArr)" />
+                                <text x="94" y="72" font-size="11" font-weight="bold" font-family="serif">u</text>
+                                <text x="155" y="24" font-size="11" font-weight="bold" font-family="serif">T(u)</text>
+                            </svg>
+                            <div class="text-xs text-slate-600">FIGURE 5 Dilation transformation</div>
+                        </div>
+
+                        <div class="bg-slate-50 border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                            <svg viewBox="0 0 210 130" class="w-full max-w-[210px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <marker id="rotArr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                        <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
+                                    </marker>
+                                </defs>
+                                <line x1="20" y1="105" x2="195" y2="105" stroke="#334155" stroke-width="1.2" />
+                                <line x1="105" y1="120" x2="105" y2="15" stroke="#334155" stroke-width="1.2" />
+                                <!-- u=(155,85) -> T(u)=(85,35) -->
+                                <line x1="105" y1="105" x2="155" y2="85" stroke="#0284c7" stroke-width="1.7" marker-end="url(#rotArr)" />
+                                <line x1="105" y1="105" x2="85" y2="35" stroke="#0d9488" stroke-width="1.8" marker-end="url(#rotArr)" />
+                                <text x="158" y="84" font-size="11" font-weight="bold" font-family="serif">u</text>
+                                <text x="64" y="34" font-size="11" font-weight="bold" font-family="serif">T(u)</text>
+                            </svg>
+                            <div class="text-xs text-slate-600">FIGURE 6 Rotation transformation</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SECTION 1.9: THE MATRIX OF A LINEAR TRANSFORMATION             -->
+    <!-- ============================================================== -->
+    <section id="sec1-9" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+        <div class="border-b border-slate-200 pb-4 flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1.5 rounded-xl bg-teal-100 text-teal-900 text-xl md:text-2xl font-extrabold tracking-tight">§ 1.9</span>
+                <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight">THE MATRIX OF A LINEAR TRANSFORMATION (線性變換的矩陣)</h3>
+            </div>
+            <span class="text-xs text-slate-500 font-mono">Slides 154–185 (Ch-1-9.pdf)</span>
+        </div>
+
+        <!-- 1. Standard Matrix: THEOREM 10 -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                1. Standard Matrix of a Linear Transformation: THEOREM 10 (線性變換的標準矩陣與定理 10)
+            </h4>
+
+            <!-- THEOREM 10 -->
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-3">
+                <div class="font-bold text-teal-950 text-base">THEOREM 10（定理 10：標準矩陣的存在性與唯一性）</div>
+                <p class="text-sm text-slate-800 leading-relaxed">
+                    Let $T:\mathbb{R}^{n}\rightarrow\mathbb{R}^{m}$ be a linear transformation. Then there exists a unique matrix $A$ such that
+                    $$T(x) = Ax \quad \text{for all } x \text{ in } \mathbb{R}^{n}$$
+                    In fact, $A$ is the $m\times n$ matrix whose $j$th column is the vector $T(e_{j})$, where $e_{j}$ is the $j$th column of the identity matrix in $\mathbb{R}^{n}$:
+                    $$A = \begin{bmatrix} T(e_{1}) & \cdots & T(e_{n}) \end{bmatrix} \tag{3}$$
+                    The matrix $A$ in (3) is called the <strong>standard matrix（標準矩陣）</strong> for the linear transformation $T$.
+                </p>
+
+                <!-- Collapsible PROOF of Theorem 10 -->
+                <div class="border border-teal-200/80 rounded-lg overflow-hidden bg-white">
+                    <button onclick="toggleCard('proof1-9-10')" class="w-full px-4 py-2.5 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left text-xs sm:text-sm font-semibold text-slate-800 transition">
+                        <span>THEOREM 10 PROOF（證明：利用 $x = I_{n}x = x_{1}e_{1}+\cdots+x_{n}e_{n}$ 與線性性推導）</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500"></i>
+                    </button>
+                    <div id="proof1-9-10" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        <p><strong>PROOF:</strong> Write $x = I_{n}x = \begin{bmatrix} e_{1} & \cdots & e_{n} \end{bmatrix}x = x_{1}e_{1}+\cdots+x_{n}e_{n}$, and use the linearity of $T$ to compute:
+                            $$T(x) = T(x_{1}e_{1}+\cdots+x_{n}e_{n}) = x_{1}T(e_{1})+\cdots+x_{n}T(e_{n}) = \begin{bmatrix} T(e_{1}) & \cdots & T(e_{n}) \end{bmatrix}\begin{bmatrix} x_{1} \\ \vdots \\ x_{n} \end{bmatrix} = Ax$$
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collapsible EXAMPLE 1, EXAMPLE 2 & EXAMPLE 3 + Rotation Figure 1 SVG -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-9-1')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 1, EXAMPLE 2 &amp; EXAMPLE 3（由 $T(e_1), T(e_2)$ 求公式、伸縮標準矩陣與旋轉標準矩陣及 FIGURE 1）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-9-1" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 1:</strong> Given $T(e_{1})=\begin{bmatrix} 5 \\ -7 \\ 2 \end{bmatrix}$ and $T(e_{2})=\begin{bmatrix} -3 \\ 8 \\ 0 \end{bmatrix}$, $T(x)=x_{1}T(e_{1})+x_{2}T(e_{2})=\begin{bmatrix} 5x_{1}-3x_{2} \\ -7x_{1}+8x_{2} \\ 2x_{1}+0 \end{bmatrix}$, standard matrix $A=\begin{bmatrix} 5 & -3 \\ -7 & 8 \\ 2 & 0 \end{bmatrix}$.</p>
+                    <p><strong>EXAMPLE 2:</strong> Dilation $T(x)=3x$ on $\mathbb{R}^{2}$ has $T(e_{1})=\begin{bmatrix} 3 \\ 0 \end{bmatrix}$, $T(e_{2})=\begin{bmatrix} 0 \\ 3 \end{bmatrix}$, so $A=\begin{bmatrix} 3 & 0 \\ 0 & 3 \end{bmatrix}$.</p>
+                    <p><strong>EXAMPLE 3:</strong> Counterclockwise rotation about the origin through angle $\varphi$ in $\mathbb{R}^{2}$ sends $\begin{bmatrix} 1 \\ 0 \end{bmatrix}\mapsto \begin{bmatrix} \cos\varphi \\ \sin\varphi \end{bmatrix}$ and $\begin{bmatrix} 0 \\ 1 \end{bmatrix}\mapsto \begin{bmatrix} -\sin\varphi \\ \cos\varphi \end{bmatrix}$, giving standard matrix:
+                        $$A = \begin{bmatrix} \cos\varphi & -\sin\varphi \\ \sin\varphi & \cos\varphi \end{bmatrix}$$
+                    </p>
+
+                    <!-- SVG Figure 1: Rotation transformation -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col items-center">
+                        <svg viewBox="0 0 240 165" class="w-full max-w-[240px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="rot19" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
+                                </marker>
+                            </defs>
+                            <line x1="20" y1="125" x2="215" y2="125" stroke="#334155" stroke-width="1.2" />
+                            <line x1="110" y1="150" x2="110" y2="15" stroke="#334155" stroke-width="1.2" />
+                            <!-- e1=(160,125), e2=(110,75) -->
+                            <line x1="110" y1="125" x2="160" y2="125" stroke="#64748b" stroke-width="1.5" marker-end="url(#rot19)" />
+                            <line x1="110" y1="125" x2="110" y2="75" stroke="#64748b" stroke-width="1.5" marker-end="url(#rot19)" />
+                            <!-- Rotated e1=(145,88), Rotated e2=(73,90) -->
+                            <line x1="110" y1="125" x2="145" y2="88" stroke="#0284c7" stroke-width="1.8" marker-end="url(#rot19)" />
+                            <line x1="110" y1="125" x2="73" y2="90" stroke="#0d9488" stroke-width="1.8" marker-end="url(#rot19)" />
+                            <path d="M 135 125 A 25 25 0 0 0 128 106" fill="none" stroke="#0f172a" stroke-width="1.2" />
+                            <text x="136" y="116" font-size="11" font-style="italic" font-family="serif">φ</text>
+                            <text x="148" y="84" font-size="10.5" font-family="serif">(cos φ, sin φ)</text>
+                            <text x="16" y="88" font-size="10.5" font-family="serif">(−sin φ, cos φ)</text>
+                        </svg>
+                        <div class="text-xs text-slate-600">FIGURE 1 A rotation transformation</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Geometric Linear Transformations of R^2 (Unit Square & Tables 1–4) -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                2. Geometric Linear Transformations of $\mathbb{R}^{2}$: Unit Square &amp; Tables 1–4 ($\mathbb{R}^2$ 幾何線性變換：單位正方形與表 1–4)
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                Instead of showing only the images of $e_{1}$ and $e_{2}$, Tables 1–4 show what a transformation does to the <strong>unit square（單位正方形）</strong> (Figure 2).
+            </p>
+
+            <!-- SVG Figure 2: The unit square -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col items-center">
+                <svg viewBox="0 0 180 135" class="w-full max-w-[180px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="15" y1="105" x2="160" y2="105" stroke="#334155" stroke-width="1.2" />
+                    <line x1="45" y1="120" x2="45" y2="15" stroke="#334155" stroke-width="1.2" />
+                    <rect x="45" y="65" width="40" height="40" fill="#bae6fd" fill-opacity="0.7" stroke="#0284c7" stroke-width="1.6" />
+                    <text x="85" y="118" text-anchor="middle" font-size="11" font-family="serif">1</text>
+                    <text x="34" y="69" text-anchor="middle" font-size="11" font-family="serif">1</text>
+                    <text x="155" y="118" font-size="11" font-style="italic" font-family="serif">x₁</text>
+                    <text x="52" y="22" font-size="11" font-style="italic" font-family="serif">x₂</text>
+                </svg>
+                <div class="text-xs text-slate-600">FIGURE 2 The unit square</div>
+            </div>
+
+            <!-- Collapsible Tables 1–4 with SVGs -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('tables1-9-1')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>TABLES 1–4（表 1 反射 Reflections、表 2 壓縮與擴張 Contractions &amp; Expansions、表 3 剪力 Shears、表 4 投影 Projections）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="tables1-9-1" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-4 bg-white leading-relaxed">
+                    <!-- TABLE 1: Reflections -->
+                    <div class="space-y-2">
+                        <div class="font-bold text-teal-950">TABLE 1 Reflections（反射）</div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div class="bg-slate-50 border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                                <div class="font-semibold text-xs mb-1">Through $x_1$-axis: $\begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$</div>
+                                <svg viewBox="0 0 150 110" class="w-full max-w-[150px] h-auto">
+                                    <line x1="10" y1="55" x2="140" y2="55" stroke="#334155" stroke-width="1" />
+                                    <line x1="40" y1="100" x2="40" y2="10" stroke="#334155" stroke-width="1" />
+                                    <rect x="40" y="25" width="30" height="30" fill="#bae6fd" stroke="#0284c7" stroke-width="1.2" />
+                                    <rect x="40" y="55" width="30" height="30" fill="#99f6e4" stroke="#0d9488" stroke-width="1.2" />
+                                </svg>
+                            </div>
+                            <div class="bg-slate-50 border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                                <div class="font-semibold text-xs mb-1">Through $x_2$-axis: $\begin{bmatrix} -1 & 0 \\ 0 & 1 \end{bmatrix}$</div>
+                                <svg viewBox="0 0 150 110" class="w-full max-w-[150px] h-auto">
+                                    <line x1="10" y1="80" x2="140" y2="80" stroke="#334155" stroke-width="1" />
+                                    <line x1="75" y1="102" x2="75" y2="10" stroke="#334155" stroke-width="1" />
+                                    <rect x="75" y="50" width="30" height="30" fill="#bae6fd" stroke="#0284c7" stroke-width="1.2" />
+                                    <rect x="45" y="50" width="30" height="30" fill="#99f6e4" stroke="#0d9488" stroke-width="1.2" />
+                                </svg>
+                            </div>
+                            <div class="bg-slate-50 border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                                <div class="font-semibold text-xs mb-1">Through $x_2 = x_1$: $\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$</div>
+                                <svg viewBox="0 0 150 110" class="w-full max-w-[150px] h-auto">
+                                    <line x1="15" y1="85" x2="135" y2="85" stroke="#334155" stroke-width="1" />
+                                    <line x1="35" y1="102" x2="35" y2="12" stroke="#334155" stroke-width="1" />
+                                    <line x1="25" y1="95" x2="105" y2="15" stroke="#64748b" stroke-width="1" stroke-dasharray="3,2" />
+                                    <rect x="35" y="55" width="30" height="30" fill="#bae6fd" stroke="#0284c7" stroke-width="1.2" />
+                                    <rect x="35" y="55" width="30" height="30" fill="#99f6e4" fill-opacity="0.5" stroke="#0d9488" stroke-width="1.2" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="bg-slate-50 border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                                <div class="font-semibold text-xs mb-1">Through $x_2 = -x_1$: $\begin{bmatrix} 0 & -1 \\ -1 & 0 \end{bmatrix}$</div>
+                                <svg viewBox="0 0 150 110" class="w-full max-w-[150px] h-auto">
+                                    <line x1="15" y1="55" x2="135" y2="55" stroke="#334155" stroke-width="1" />
+                                    <line x1="75" y1="102" x2="75" y2="12" stroke="#334155" stroke-width="1" />
+                                    <line x1="25" y1="102" x2="125" y2="12" stroke="#64748b" stroke-width="1" stroke-dasharray="3,2" />
+                                    <rect x="75" y="25" width="26" height="30" fill="#bae6fd" stroke="#0284c7" stroke-width="1.2" />
+                                    <rect x="49" y="55" width="26" height="30" fill="#99f6e4" stroke="#0d9488" stroke-width="1.2" />
+                                </svg>
+                            </div>
+                            <div class="bg-slate-50 border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                                <div class="font-semibold text-xs mb-1">Through origin: $\begin{bmatrix} -1 & 0 \\ 0 & -1 \end{bmatrix}$</div>
+                                <svg viewBox="0 0 150 110" class="w-full max-w-[150px] h-auto">
+                                    <line x1="15" y1="55" x2="135" y2="55" stroke="#334155" stroke-width="1" />
+                                    <line x1="75" y1="102" x2="75" y2="12" stroke="#334155" stroke-width="1" />
+                                    <rect x="75" y="25" width="26" height="30" fill="#bae6fd" stroke="#0284c7" stroke-width="1.2" />
+                                    <rect x="49" y="55" width="26" height="30" fill="#99f6e4" stroke="#0d9488" stroke-width="1.2" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TABLE 2: Contractions and Expansions -->
+                    <div class="space-y-2">
+                        <div class="font-bold text-teal-950">TABLE 2 Contractions and Expansions（壓縮與擴張）</div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="bg-slate-50 border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                                <div class="font-semibold text-xs mb-1">Horizontal contraction/expansion: $\begin{bmatrix} k & 0 \\ 0 & 1 \end{bmatrix}$ ($k&gt;0$)</div>
+                                <svg viewBox="0 0 170 100" class="w-full max-w-[170px] h-auto">
+                                    <line x1="15" y1="82" x2="155" y2="82" stroke="#334155" stroke-width="1" />
+                                    <line x1="35" y1="95" x2="35" y2="12" stroke="#334155" stroke-width="1" />
+                                    <rect x="35" y="52" width="26" height="30" fill="#bae6fd" stroke="#0284c7" stroke-width="1.2" />
+                                    <rect x="78" y="52" width="52" height="30" fill="#99f6e4" stroke="#0d9488" stroke-width="1.2" />
+                                    <text x="104" y="94" text-anchor="middle" font-size="10" font-family="serif">k</text>
+                                </svg>
+                            </div>
+                            <div class="bg-slate-50 border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                                <div class="font-semibold text-xs mb-1">Vertical contraction/expansion: $\begin{bmatrix} 1 & 0 \\ 0 & k \end{bmatrix}$ ($k&gt;0$)</div>
+                                <svg viewBox="0 0 170 100" class="w-full max-w-[170px] h-auto">
+                                    <line x1="15" y1="82" x2="155" y2="82" stroke="#334155" stroke-width="1" />
+                                    <line x1="35" y1="95" x2="35" y2="12" stroke="#334155" stroke-width="1" />
+                                    <rect x="35" y="52" width="28" height="30" fill="#bae6fd" stroke="#0284c7" stroke-width="1.2" />
+                                    <rect x="85" y="34" width="28" height="48" fill="#99f6e4" stroke="#0d9488" stroke-width="1.2" />
+                                    <text x="25" y="58" text-anchor="middle" font-size="10" font-family="serif">k</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TABLE 3: Shears -->
+                    <div class="space-y-2">
+                        <div class="font-bold text-teal-950">TABLE 3 Shears（剪力變換）</div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="bg-slate-50 border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                                <div class="font-semibold text-xs mb-1">Horizontal shear: $\begin{bmatrix} 1 & k \\ 0 & 1 \end{bmatrix}$</div>
+                                <svg viewBox="0 0 170 100" class="w-full max-w-[170px] h-auto">
+                                    <line x1="15" y1="82" x2="155" y2="82" stroke="#334155" stroke-width="1" />
+                                    <line x1="35" y1="95" x2="35" y2="12" stroke="#334155" stroke-width="1" />
+                                    <polygon points="35,82 63,82 95,52 67,52" fill="#99f6e4" stroke="#0d9488" stroke-width="1.2" />
+                                    <text x="82" y="46" font-size="10" font-family="serif">k</text>
+                                </svg>
+                            </div>
+                            <div class="bg-slate-50 border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                                <div class="font-semibold text-xs mb-1">Vertical shear: $\begin{bmatrix} 1 & 0 \\ k & 1 \end{bmatrix}$</div>
+                                <svg viewBox="0 0 170 100" class="w-full max-w-[170px] h-auto">
+                                    <line x1="15" y1="82" x2="155" y2="82" stroke="#334155" stroke-width="1" />
+                                    <line x1="35" y1="95" x2="35" y2="12" stroke="#334155" stroke-width="1" />
+                                    <polygon points="35,82 63,82 63,34 35,52" fill="#99f6e4" stroke="#0d9488" stroke-width="1.2" />
+                                    <text x="70" y="42" font-size="10" font-family="serif">k</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TABLE 4: Projections -->
+                    <div class="space-y-2">
+                        <div class="font-bold text-teal-950">TABLE 4 Projections（投影變換）</div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="bg-slate-50 border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                                <div class="font-semibold text-xs mb-1">Projection onto $x_1$-axis: $\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}$</div>
+                                <svg viewBox="0 0 170 100" class="w-full max-w-[170px] h-auto">
+                                    <line x1="15" y1="82" x2="155" y2="82" stroke="#334155" stroke-width="1" />
+                                    <line x1="35" y1="95" x2="35" y2="12" stroke="#334155" stroke-width="1" />
+                                    <rect x="35" y="52" width="32" height="30" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.1" stroke-dasharray="2,2" />
+                                    <line x1="35" y1="82" x2="67" y2="82" stroke="#0d9488" stroke-width="3" />
+                                </svg>
+                            </div>
+                            <div class="bg-slate-50 border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                                <div class="font-semibold text-xs mb-1">Projection onto $x_2$-axis: $\begin{bmatrix} 0 & 0 \\ 0 & 1 \end{bmatrix}$</div>
+                                <svg viewBox="0 0 170 100" class="w-full max-w-[170px] h-auto">
+                                    <line x1="15" y1="82" x2="155" y2="82" stroke="#334155" stroke-width="1" />
+                                    <line x1="35" y1="95" x2="35" y2="12" stroke="#334155" stroke-width="1" />
+                                    <rect x="35" y="52" width="32" height="30" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.1" stroke-dasharray="2,2" />
+                                    <line x1="35" y1="52" x2="35" y2="82" stroke="#0d9488" stroke-width="3" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Onto & One-to-One Mappings, THEOREM 11 & THEOREM 12 -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                3. Onto &amp; One-to-One Mappings, THEOREM 11 &amp; THEOREM 12 (映成、一對一、定理 11 與定理 12)
+            </h4>
+
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2 text-sm text-slate-800 leading-relaxed">
+                <div class="font-bold text-teal-950 text-base">DEFINITIONS — ONTO &amp; ONE-TO-ONE（定義：映成 onto 與一對一 one-to-one）</div>
+                <p>
+                    A mapping $T:\mathbb{R}^{n}\rightarrow\mathbb{R}^{m}$ is said to be <strong>onto $\mathbb{R}^{m}$（映成 $\mathbb{R}^m$ 的）</strong> if each $b$ in $\mathbb{R}^{m}$ is the image of at least one $x$ in $\mathbb{R}^{n}$ (i.e., the range of $T$ is all of the codomain $\mathbb{R}^{m}$, or for each $b\in\mathbb{R}^{m}$, $T(x)=b$ has at least one solution — an existence question).
+                </p>
+                <p>
+                    A mapping $T:\mathbb{R}^{n}\rightarrow\mathbb{R}^{m}$ is said to be <strong>one-to-one（一對一的）</strong> if each $b$ in $\mathbb{R}^{m}$ is the image of at most one $x$ in $\mathbb{R}^{n}$ (i.e., for each $b\in\mathbb{R}^{m}$, $T(x)=b$ has either a unique solution or none at all — a uniqueness question).
+                </p>
+            </div>
+
+            <!-- SVG Figures 3 & 4: Onto and One-to-One mapping diagrams -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-2">
+                <p class="text-xs font-semibold text-slate-600">FIGURE 3 &amp; FIGURE 4（映成 onto 與一對一 one-to-one 集合對應圖示）</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                        <svg viewBox="0 0 220 125" class="w-full max-w-[220px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="48" cy="60" rx="28" ry="42" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.2" />
+                            <ellipse cx="165" cy="60" rx="34" ry="42" fill="#bae6fd" stroke="#0d9488" stroke-width="1.2" />
+                            <text x="48" y="115" text-anchor="middle" font-size="10.5">ℝⁿ (Onto)</text>
+                            <text x="165" y="115" text-anchor="middle" font-size="10.5">Range = ℝᵐ</text>
+                        </svg>
+                        <div class="text-xs text-slate-600">FIGURE 3 Is range of T all of $\mathbb{R}^m$?</div>
+                    </div>
+                    <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
+                        <svg viewBox="0 0 220 125" class="w-full max-w-[220px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="48" cy="60" rx="28" ry="42" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.2" />
+                            <ellipse cx="165" cy="60" rx="34" ry="42" fill="#f1f5f9" stroke="#475569" stroke-width="1.2" />
+                            <circle cx="48" cy="44" r="2.8" fill="#0f172a" />
+                            <circle cx="48" cy="74" r="2.8" fill="#0f172a" />
+                            <circle cx="165" cy="58" r="3" fill="#0d9488" />
+                            <line x1="51" y1="44" x2="161" y2="57" stroke="#0284c7" stroke-width="1.2" />
+                            <line x1="51" y1="74" x2="161" y2="59" stroke="#0284c7" stroke-width="1.2" />
+                            <text x="108" y="115" text-anchor="middle" font-size="10.5">Not one-to-one if multiple preimages</text>
+                        </svg>
+                        <div class="text-xs text-slate-600">FIGURE 4 At most one preimage?</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THEOREM 11 -->
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-3">
+                <div class="font-bold text-teal-950 text-base">THEOREM 11（定理 11：線性變換一對一與 $T(x)=0$ 僅有平凡解的等價性）</div>
+                <p class="text-sm text-slate-800 leading-relaxed">
+                    Let $T:\mathbb{R}^{n}\rightarrow\mathbb{R}^{m}$ be a linear transformation. Then $T$ is one-to-one if and only if the equation $T(x)=0$ has only the trivial solution.
+                </p>
+
+                <!-- Collapsible PROOF of Theorem 11 -->
+                <div class="border border-teal-200/80 rounded-lg overflow-hidden bg-white">
+                    <button onclick="toggleCard('proof1-9-11')" class="w-full px-4 py-2.5 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left text-xs sm:text-sm font-semibold text-slate-800 transition">
+                        <span>THEOREM 11 PROOF（證明：利用 $T(0)=0$ 與 $T(u-v)=T(u)-T(v)=0$）</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500"></i>
+                    </button>
+                    <div id="proof1-9-11" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        <p><strong>PROOF:</strong> Since $T$ is linear, $T(0)=0$. If $T$ is one-to-one, then $T(x)=0$ has at most one solution and hence only the trivial solution. If $T$ is not one-to-one, then there is a $b$ that is the image of at least two different vectors in $\mathbb{R}^{n}$—say, $u$ and $v$, with $T(u)=b$ and $T(v)=b$. Since $T$ is linear, $T(u-v)=T(u)-T(v)=b-b=0$. The vector $u-v$ is not zero since $u\neq v$, so $T(x)=0$ has more than one solution.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THEOREM 12 -->
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-3">
+                <div class="font-bold text-teal-950 text-base">THEOREM 12（定理 12：標準矩陣的行與映成、一對一之等價關係）</div>
+                <p class="text-sm text-slate-800 leading-relaxed">
+                    Let $T:\mathbb{R}^{n}\rightarrow\mathbb{R}^{m}$ be a linear transformation, and let $A$ be the standard matrix for $T$. Then:
+                    <strong>a.</strong> $T$ maps $\mathbb{R}^{n}$ onto $\mathbb{R}^{m}$ if and only if the columns of $A$ span $\mathbb{R}^{m}$;
+                    <strong>b.</strong> $T$ is one-to-one if and only if the columns of $A$ are linearly independent.
+                </p>
+
+                <!-- Collapsible PROOF of Theorem 12 -->
+                <div class="border border-teal-200/80 rounded-lg overflow-hidden bg-white">
+                    <button onclick="toggleCard('proof1-9-12')" class="w-full px-4 py-2.5 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left text-xs sm:text-sm font-semibold text-slate-800 transition">
+                        <span>THEOREM 12 PROOF（證明：(a) 連結 Theorem 4；(b) 連結 Theorem 11 與 Section 1.7）</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500"></i>
+                    </button>
+                    <div id="proof1-9-12" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        <p><strong>PROOF:</strong> (a) By Theorem 4 in Section 1.4, the columns of $A$ span $\mathbb{R}^{m}$ if and only if for each $b$ in $\mathbb{R}^{m}$ the equation $Ax=b$ is consistent—in other words, if and only if for every $b$, $T(x)=b$ has at least one solution, which holds if and only if $T$ maps $\mathbb{R}^{n}$ onto $\mathbb{R}^{m}$. (b) The equations $T(x)=0$ and $Ax=0$ are the same except for notation. By Theorem 11, $T$ is one-to-one if and only if $Ax=0$ has only the trivial solution, which happens if and only if the columns of $A$ are linearly independent (Section 1.7, boxed statement (3)).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collapsible EXAMPLE 4 & EXAMPLE 5 + Span{a1, a2} Figure SVG -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-9-4')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 4 &amp; EXAMPLE 5（範例 4 映成但非一對一；範例 5 一對一但非映成 $\mathbb{R}^3$ 與平面圖示）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-9-4" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 4:</strong> For $A=\begin{bmatrix} 1 & -4 & 8 & 1 \\ 0 & 2 & -1 & 3 \\ 0 & 0 & 0 & 5 \end{bmatrix}$ (in echelon form), $A$ has a pivot position in every row ($3$ rows), so $T:\mathbb{R}^{4}\rightarrow\mathbb{R}^{3}$ maps $\mathbb{R}^{4}$ onto $\mathbb{R}^{3}$ by Theorem 4. With $4$ variables and $3$ basic variables, there is a free variable, so $T$ is not one-to-one.</p>
+                    <p><strong>EXAMPLE 5:</strong> Let $T(x_{1},x_{2})=(3x_{1}+x_{2}, 5x_{1}+7x_{2}, x_{1}+3x_{2})$. Standard matrix is $A=\begin{bmatrix} 3 & 1 \\ 5 & 7 \\ 1 & 3 \end{bmatrix}$ (4). The two columns of $A$ are not multiples of each other, so they are linearly independent and $T$ is one-to-one by Theorem 12(b). Because $A$ is $3\times 2$ and has only $2$ columns, it cannot have $3$ pivot positions, so its columns do not span $\mathbb{R}^{3}$ and $T$ is not onto $\mathbb{R}^{3}$.</p>
+
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col items-center">
+                        <svg viewBox="0 0 240 155" class="w-full max-w-[240px] h-auto" xmlns="http://www.w3.org/2000/svg">
+                            <polygon points="45,88 155,32 205,98 95,154" fill="#bae6fd" fill-opacity="0.65" stroke="#0284c7" stroke-width="1.2" />
+                            <line x1="115" y1="95" x2="115" y2="14" stroke="#334155" stroke-width="1.2" />
+                            <line x1="115" y1="95" x2="225" y2="112" stroke="#334155" stroke-width="1.2" />
+                            <line x1="115" y1="95" x2="35" y2="145" stroke="#334155" stroke-width="1.2" />
+                            <text x="62" y="76" font-size="11.5" font-weight="bold" font-family="serif" fill="#0369a1">Span{a₁, a₂}</text>
+                        </svg>
+                        <div class="text-xs text-slate-600">The transformation $T$ is not onto $\mathbb{R}^{3}$ (range is a plane in $\mathbb{R}^{3}$).</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- CHAPTER 2 OVERVIEW -->
     <section id="chap2-overview" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
