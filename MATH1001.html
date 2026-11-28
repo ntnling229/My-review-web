@@ -901,7 +901,7 @@
                 4. Solutions of Linear Systems, Basic &amp; Free Variables, Parametric Descriptions, Back-Substitution &amp; THEOREM 2 (線性方程組的解、基本與自由變數、參數描述、反代入與定理 2)
             </h4>
             <p class="text-sm text-slate-700 leading-relaxed">
-                <strong class="text-base font-bold text-slate-900">>Solutions of Linear Systems（線性方程組的解）</strong> — The row reduction algorithm leads directly to an explicit description of the <strong>solution set（解集合）</strong> of a linear system when the algorithm is applied to the <strong>augmented matrix（增廣矩陣）</strong> of the system.
+                <strong class="text-base font-bold text-slate-1200">Solutions of Linear Systems（線性方程組的解）</strong> — The row reduction algorithm leads directly to an explicit description of the <strong>solution set（解集合）</strong> of a linear system when the algorithm is applied to the <strong>augmented matrix（增廣矩陣）</strong> of the system.
                 Suppose, for example, that the augmented matrix of a linear system has been changed into the equivalent <strong>reduced echelon form（簡化階梯形）</strong>
                 $$\begin{bmatrix} 1 & 0 & -5 & 1 \\ 0 & 1 & 1 & 4 \\ 0 & 0 & 0 & 0 \end{bmatrix}$$
                 There are three variables because the augmented matrix has four columns. The associated system of equations is
@@ -934,21 +934,21 @@
             </div>
 
             <p class="text-sm text-slate-700 leading-relaxed">
-                <strong class="text-base font-bold text-slate-900">>Parametric Descriptions of Solution Sets（解集合的參數描述）</strong> — The descriptions in (5) and (7) are <strong>parametric descriptions（參數描述）</strong> of solution sets in which the free variables act as <strong>parameters（參數）</strong>. Solving a system amounts to finding a parametric description of the solution set or determining that the solution set is empty.
+                <strong class="text-base font-bold text-slate-1200">Parametric Descriptions of Solution Sets（解集合的參數描述）</strong> — The descriptions in (5) and (7) are <strong>parametric descriptions（參數描述）</strong> of solution sets in which the free variables act as <strong>parameters（參數）</strong>. Solving a system amounts to finding a parametric description of the solution set or determining that the solution set is empty.
                 Whenever a system is consistent and has free variables, the solution set has many parametric descriptions. For instance, in system (4), we may add $5$ times equation 2 to equation 1 and obtain the equivalent system
                 $$x_{1}+5x_{2}=21, \quad x_{2}+x_{3}=4$$
                 We could treat $x_{2}$ as a parameter and solve for $x_{1}$ and $x_{3}$ in terms of $x_{2}$, and we would have an accurate description of the solution set. However, to be consistent, we make the (arbitrary) convention of always using the free variables as the parameters for describing a solution set. (The answer section at the end of the text also reflects this convention.)
                 Whenever a system is <strong>inconsistent（不相容／無解）</strong>, the solution set is empty, even when the system has free variables. In this case, the solution set has no parametric representation.
             </p>
             <p class="text-sm text-slate-700 leading-relaxed">
-                <strong class="text-base font-bold text-slate-900">>Back-Substitution（反代入法）</strong> — Consider the following system, whose augmented matrix is in <strong>echelon form（階梯形）</strong> but is not in reduced echelon form:
+                <strong class="text-base font-bold text-slate-1200">Back-Substitution（反代入法）</strong> — Consider the following system, whose augmented matrix is in <strong>echelon form（階梯形）</strong> but is not in reduced echelon form:
                 $$x_{1}-7x_{2}+2x_{3}-5x_{4}+8x_{5}=10$$
                 $$x_{2}-3x_{3}+3x_{4}+x_{5}=-5$$
                 $$x_{4}-x_{5}=4$$
                 A computer program would solve this system by <strong>back-substitution（反代入法）</strong>, rather than by computing the reduced echelon form. That is, the program would solve equation 3 for $x_{4}$ in terms of $x_{5}$ and substitute the expression for $x_{4}$ into equation 2, solve equation 2 for $x_{2}$, and then substitute the expressions for $x_{2}$ and $x_{4}$ into equation 1 and solve for $x_{1}$.
             </p>
             <p class="text-sm text-slate-700 leading-relaxed">
-                <strong class="text-base font-bold text-slate-900">>Existence and Uniqueness Questions（存在性與唯一性問題）</strong> — Although a nonreduced echelon form is a poor tool for solving a system, this form is just the right device for answering two fundamental questions posed in Section 1.1.
+                <strong class="text-base font-bold text-slate-1200">Existence and Uniqueness Questions（存在性與唯一性問題）</strong> — Although a nonreduced echelon form is a poor tool for solving a system, this form is just the right device for answering two fundamental questions posed in Section 1.1.
             </p>
 
             <!-- Collapsible EXAMPLE 5 -->
