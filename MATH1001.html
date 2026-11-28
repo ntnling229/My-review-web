@@ -2682,31 +2682,39 @@
             <p>
               <strong>GEOMETRIC &amp; ALGEBRAIC INSIGHT:</strong> The solution of Example 4 shows that when a system of linear equations is written in the form $A\mathbf{x} = \mathbf{b}$, the column space of $A$ is the set of all $\mathbf{b}$ for which the system has a solution.
             </p>
+              
             <div class="bg-slate-50/80 border border-slate-200 rounded-xl p-3 flex flex-col items-center justify-center">
-              <svg viewBox="0 0 280 205" class="w-full max-w-[280px] h-auto" aria-label="Col A in R3 with vector b">
+              <svg viewBox="0 0 280 220" class="w-full max-w-[280px] h-auto" aria-label="Col A in R3 with vector b">
                 <defs>
                   <marker id="colArrow28" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                     <path d="M 0 1 L 10 5 L 0 9 z" fill="#1e293b" />
                   </marker>
                 </defs>
-                <!-- Plane Col A -->
-                <polygon points="45,105 185,55 245,145 105,192" fill="#bae6fd" fill-opacity="0.72" stroke="#0284c7" stroke-width="1.2" />
-                <text x="192" y="158" font-size="13" font-weight="700" fill="#0369a1" transform="rotate(-19 192 158)">Col A</text>
 
-                <!-- Axes -->
-                <line x1="125" y1="120" x2="125" y2="14" stroke="#1e293b" stroke-width="1.5" marker-end="url(#colArrow28)" />
-                <line x1="125" y1="120" x2="262" y2="146" stroke="#1e293b" stroke-width="1.5" marker-end="url(#colArrow28)" />
-                <line x1="125" y1="120" x2="35" y2="195" stroke="#1e293b" stroke-width="1.5" marker-end="url(#colArrow28)" />
+                <!-- Plane Col A hanging from origin 0 -->
+                <polygon points="122,82 222,118 192,196 92,160" fill="#bae6fd" fill-opacity="0.75" stroke="#0284c7" stroke-width="1.3" />
+                <!-- Vertical reference line down from origin on plane -->
+                <line x1="122" y1="82" x2="122" y2="171" stroke="#64748b" stroke-width="1" />
 
-                <circle cx="125" cy="120" r="3.5" fill="#0f172a" />
-                <text x="114" y="135" font-size="13" font-weight="700" fill="#0f172a">0</text>
+                <!-- Coordinate axes -->
+                <line x1="122" y1="82" x2="122" y2="14" stroke="#1e293b" stroke-width="1.5" marker-end="url(#colArrow28)" />
+                <line x1="122" y1="82" x2="254" y2="122" stroke="#1e293b" stroke-width="1.5" marker-end="url(#colArrow28)" />
+                <line x1="122" y1="82" x2="45" y2="154" stroke="#1e293b" stroke-width="1.5" marker-end="url(#colArrow28)" />
 
-                <circle cx="112" cy="156" r="4" fill="#0284c7" />
-                <text x="98" y="153" font-size="13.5" font-weight="700" fill="#0f172a">b</text>
+                <!-- Origin 0 -->
+                <text x="108" y="78" font-size="14" font-weight="700" font-family="serif" fill="#0f172a">0</text>
 
-                <text x="133" y="20" font-size="13" font-weight="700" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="9.5" font-style="normal">3</tspan></text>
-                <text x="265" y="152" font-size="13" font-weight="700" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="9.5" font-style="normal">2</tspan></text>
-                <text x="22" y="202" font-size="13" font-weight="700" font-style="italic" fill="#0f172a">x<tspan dy="3" font-size="9.5" font-style="normal">1</tspan></text>
+                <!-- Vector b on plane Col A -->
+                <circle cx="114" cy="147" r="4" fill="#0284c7" />
+                <text x="95" y="156" font-size="14" font-weight="700" font-family="serif" fill="#0f172a">b</text>
+
+                <!-- Col A label along plane -->
+                <text x="172" y="128" font-size="13.5" font-weight="600" font-family="serif" fill="#0f172a" transform="rotate(20 172 128)">Col A</text>
+
+                <!-- Axis labels -->
+                <text x="103" y="24" font-size="14" font-weight="700" font-family="serif" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="italic">3</tspan></text>
+                <text x="256" y="132" font-size="14" font-weight="700" font-family="serif" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="italic">2</tspan></text>
+                <text x="26" y="164" font-size="14" font-weight="700" font-family="serif" fill="#0f172a">x<tspan dy="3" font-size="10" font-style="italic">1</tspan></text>
               </svg>
               <div class="text-xs text-slate-600 mt-1">A vector $\mathbf{b}$ is in $\operatorname{Col} A$ when $A\mathbf{x} = \mathbf{b}$ is consistent.</div>
             </div>
