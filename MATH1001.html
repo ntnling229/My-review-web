@@ -893,8 +893,7 @@
             </div>
             
         </div>
-
-        <!-- 4. Solutions of Linear Systems, Basic & Free Variables, Parametric Descriptions, Back-Substitution & THEOREM 2 -->
+<!-- 4. Solutions of Linear Systems, Basic & Free Variables, Parametric Descriptions, Back-Substitution & THEOREM 2 -->
         <div class="space-y-3">
             <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
                 <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
@@ -911,6 +910,28 @@
                 $$\begin{cases} x_{1}=1+5x_{3} \\ x_{2}=4-x_{3} \\ x_{3}\text{ is free} \end{cases} \tag{5}$$
                 The statement "$x_{3}$ is free" means that you are free to choose any value for $x_{3}$. Once that is done, the formulas in (5) determine the values for $x_{1}$ and $x_{2}$. For instance, when $x_{3}=0$, the solution is $(1,4,0)$; when $x_{3}=1$, the solution is $(6,3,1)$. Each different choice of $x_{3}$ determines a (different) solution of the system, and every solution of the system is determined by a choice of $x_{3}$.
             </p>
+
+            <!-- Collapsible EXAMPLE 4 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-2-4')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 4（範例 4：求通解、基本變數 $x_1, x_3, x_5$ 與自由變數 $x_2, x_4$）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-2-4" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 4</strong> Find the general solution of the linear system whose augmented matrix has been reduced to
+                        $$\begin{bmatrix} 1 & 6 & 2 & -5 & -2 & -4 \\ 0 & 0 & 2 & -8 & -1 & 3 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix}$$
+                    </p>
+                    <p><strong>SOLUTION:</strong>
+                        $$\begin{bmatrix} 1 & 6 & 2 & -5 & -2 & -4 \\ 0 & 0 & 2 & -8 & -1 & 3 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix} \sim \begin{bmatrix} 1 & 6 & 2 & -5 & 0 & 10 \\ 0 & 0 & 2 & -8 & 0 & 10 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix} \sim \begin{bmatrix} 1 & 6 & 2 & -5 & 0 & 10 \\ 0 & 0 & 1 & -4 & 0 & 5 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix} \sim \begin{bmatrix} 1 & 6 & 0 & 3 & 0 & 0 \\ 0 & 0 & 1 & -4 & 0 & 5 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix}$$
+                        There are five variables because the augmented matrix has six columns. The associated system now is
+                        $$x_{1}+6x_{2}+3x_{4}=0, \quad x_{3}-4x_{4}=5, \quad x_{5}=7 \tag{6}$$
+                        The pivot columns of the matrix are $1$, $3$, and $5$, so the basic variables are $x_{1}$, $x_{3}$, and $x_{5}$. The remaining variables, $x_{2}$ and $x_{4}$, must be free. Solve for the basic variables to obtain the <strong>general solution（通解）</strong>:
+                        $$\begin{cases} x_{1}=-6x_{2}-3x_{4} \\ x_{2}\text{ is free} \\ x_{3}=5+4x_{4} \\ x_{4}\text{ is free} \\ x_{5}=7 \end{cases} \tag{7}$$
+                        Note that the value of $x_{5}$ is already fixed by the third equation in system (6).
+                    </p>
+                </div>
+            </div>
+
             <p class="text-sm text-slate-700 leading-relaxed">
                 <strong>Parametric Descriptions of Solution Sets（解集合的參數描述）</strong> — The descriptions in (5) and (7) are <strong>parametric descriptions（參數描述）</strong> of solution sets in which the free variables act as <strong>parameters（參數）</strong>. Solving a system amounts to finding a parametric description of the solution set or determining that the solution set is empty.
                 Whenever a system is consistent and has free variables, the solution set has many parametric descriptions. For instance, in system (4), we may add $5$ times equation 2 to equation 1 and obtain the equivalent system
@@ -929,24 +950,13 @@
                 <strong>Existence and Uniqueness Questions（存在性與唯一性問題）</strong> — Although a nonreduced echelon form is a poor tool for solving a system, this form is just the right device for answering two fundamental questions posed in Section 1.1.
             </p>
 
-            <!-- Collapsible EXAMPLE 4 & EXAMPLE 5 -->
+            <!-- Collapsible EXAMPLE 5 -->
             <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
-                <button onclick="toggleCard('ex1-2-4')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
-                    <span>EXAMPLE 4 &amp; EXAMPLE 5（範例 4 通解與自由變數 $x_2, x_4$；範例 5 存在性與唯一性判定）</span>
+                <button onclick="toggleCard('ex1-2-5')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 5（範例 5：判定線性方程組解的存在性與唯一性）</span>
                     <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
                 </button>
-                <div id="ex1-2-4" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
-                    <p><strong>EXAMPLE 4</strong> Find the general solution of the linear system whose augmented matrix has been reduced to
-                        $$\begin{bmatrix} 1 & 6 & 2 & -5 & -2 & -4 \\ 0 & 0 & 2 & -8 & -1 & 3 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix}$$
-                    </p>
-                    <p><strong>SOLUTION:</strong>
-                        $$\begin{bmatrix} 1 & 6 & 2 & -5 & -2 & -4 \\ 0 & 0 & 2 & -8 & -1 & 3 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix} \sim \begin{bmatrix} 1 & 6 & 2 & -5 & 0 & 10 \\ 0 & 0 & 2 & -8 & 0 & 10 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix} \sim \begin{bmatrix} 1 & 6 & 2 & -5 & 0 & 10 \\ 0 & 0 & 1 & -4 & 0 & 5 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix} \sim \begin{bmatrix} 1 & 6 & 0 & 3 & 0 & 0 \\ 0 & 0 & 1 & -4 & 0 & 5 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix}$$
-                        There are five variables because the augmented matrix has six columns. The associated system now is
-                        $$x_{1}+6x_{2}+3x_{4}=0, \quad x_{3}-4x_{4}=5, \quad x_{5}=7 \tag{6}$$
-                        The pivot columns of the matrix are $1$, $3$, and $5$, so the basic variables are $x_{1}$, $x_{3}$, and $x_{5}$. The remaining variables, $x_{2}$ and $x_{4}$, must be free. Solve for the basic variables to obtain the <strong>general solution（通解）</strong>:
-                        $$\begin{cases} x_{1}=-6x_{2}-3x_{4} \\ x_{2}\text{ is free} \\ x_{3}=5+4x_{4} \\ x_{4}\text{ is free} \\ x_{5}=7 \end{cases} \tag{7}$$
-                        Note that the value of $x_{5}$ is already fixed by the third equation in system (6).
-                    </p>
+                <div id="ex1-2-5" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
                     <p><strong>EXAMPLE 5</strong> Determine the existence and uniqueness of the solutions to the system
                         $$3x_{2}-6x_{3}+6x_{4}+4x_{5}=-5$$
                         $$3x_{1}-7x_{2}+8x_{3}-5x_{4}+8x_{5}=9$$
