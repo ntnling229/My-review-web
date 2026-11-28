@@ -2018,14 +2018,82 @@
           When $A$ is invertible, one could compute $A^{-1}$ and then compute $A^{-1}\mathbf{b}_1$, $A^{-1}\mathbf{b}_2$, and so on. However, it is more efficient to solve the first equation in sequence (1) by row reduction and obtain an $LU$ factorization of $A$ at the same time. Thereafter, the remaining equations in sequence (1) are solved with the $LU$ factorization.
         </p>
 
-        <!-- Definition & Two-Stage Solution Box -->
-        <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-3">
+       <!-- Definition & Two-Stage Solution Box -->
+        <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-4">
           <div class="font-bold text-amber-950 text-lg">THE $LU$ FACTORIZATION &amp; SOLVING $A\mathbf{x} = \mathbf{b}$ ($LU$ 分解定義與兩階段求解)</div>
           <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
             At first, assume that $A$ is an $m \times n$ matrix that can be row reduced to echelon form, without row interchanges. (Later, we will treat the general case.) Then $A$ can be written in the form
             $$A = LU$$
             where $L$ is an $m \times m$ <strong>lower triangular matrix（下三角矩陣）</strong> with $1$'s on the diagonal and $U$ is an $m \times n$ <strong>echelon form（階梯形矩陣）</strong> of $A$. For instance, see Figure 1. Such a factorization is called an <strong>$LU$ factorization</strong> of $A$. The matrix $L$ is invertible and is called a <strong>unit lower triangular matrix（單位下三角矩陣）</strong>.
           </p>
+
+          <!-- FIGURE 1: LU Factorization Structure (placed before "Before studying...") -->
+          <div class="bg-white border border-amber-200/80 rounded-xl p-3.5 flex flex-col items-center justify-center">
+            <svg viewBox="0 0 380 135" class="w-full max-w-[380px] h-auto" aria-label="Figure 1: An LU factorization">
+              <text x="14" y="72" font-size="16" font-weight="700" fill="#1e293b">A =</text>
+
+              <!-- Matrix L (4x4) -->
+              <path d="M58 20 L51 20 L51 112 L58 112" fill="none" stroke="#334155" stroke-width="1.8"/>
+              <path d="M142 20 L149 20 L149 112 L142 112" fill="none" stroke="#334155" stroke-width="1.8"/>
+              <g font-size="13" font-family="serif" text-anchor="middle" fill="#0f172a">
+                <text x="68" y="38" font-weight="700" fill="#b45309">1</text>
+                <text x="90" y="38" fill="#94a3b8">0</text>
+                <text x="112" y="38" fill="#94a3b8">0</text>
+                <text x="133" y="38" fill="#94a3b8">0</text>
+
+                <text x="68" y="60" fill="#334155">*</text>
+                <text x="90" y="60" font-weight="700" fill="#b45309">1</text>
+                <text x="112" y="60" fill="#94a3b8">0</text>
+                <text x="133" y="60" fill="#94a3b8">0</text>
+
+                <text x="68" y="82" fill="#334155">*</text>
+                <text x="90" y="82" fill="#334155">*</text>
+                <text x="112" y="82" font-weight="700" fill="#b45309">1</text>
+                <text x="133" y="82" fill="#94a3b8">0</text>
+
+                <text x="68" y="104" fill="#334155">*</text>
+                <text x="90" y="104" fill="#334155">*</text>
+                <text x="112" y="104" fill="#334155">*</text>
+                <text x="133" y="104" font-weight="700" fill="#b45309">1</text>
+              </g>
+              <text x="100" y="129" font-size="12" font-weight="700" text-anchor="middle" fill="#475569">L</text>
+
+              <!-- Matrix U (4x5 Echelon) -->
+              <path d="M174 20 L167 20 L167 112 L174 112" fill="none" stroke="#334155" stroke-width="1.8"/>
+              <path d="M352 20 L359 20 L359 112 L352 112" fill="none" stroke="#334155" stroke-width="1.8"/>
+              <g font-size="13" font-family="serif" text-anchor="middle" fill="#0f172a">
+                <circle cx="186" cy="34" r="9" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+                <text x="186" y="38" font-weight="700" fill="#92400e">■</text>
+                <text x="220" y="38">*</text>
+                <text x="254" y="38">*</text>
+                <text x="288" y="38">*</text>
+                <text x="328" y="38">*</text>
+
+                <text x="186" y="60" fill="#94a3b8">0</text>
+                <circle cx="220" cy="56" r="9" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+                <text x="220" y="60" font-weight="700" fill="#92400e">■</text>
+                <text x="254" y="60">*</text>
+                <text x="288" y="60">*</text>
+                <text x="328" y="60">*</text>
+
+                <text x="186" y="82" fill="#94a3b8">0</text>
+                <text x="220" y="82" fill="#94a3b8">0</text>
+                <text x="254" y="82" fill="#94a3b8">0</text>
+                <circle cx="288" cy="78" r="9" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+                <text x="288" y="82" font-weight="700" fill="#92400e">■</text>
+                <text x="328" y="82">*</text>
+
+                <text x="186" y="104" fill="#94a3b8">0</text>
+                <text x="220" y="104" fill="#94a3b8">0</text>
+                <text x="254" y="104" fill="#94a3b8">0</text>
+                <text x="288" y="104" fill="#94a3b8">0</text>
+                <text x="328" y="104" fill="#94a3b8">0</text>
+              </g>
+              <text x="263" y="129" font-size="12" font-weight="700" text-anchor="middle" fill="#475569">U</text>
+            </svg>
+            <div class="text-xs text-slate-600 mt-1 font-medium">FIGURE 1 An $LU$ factorization.</div>
+          </div>
+
           <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
             Before studying how to construct $L$ and $U$, we should look at why they are so useful. When $A = LU$, the equation $A\mathbf{x} = \mathbf{b}$ can be written as $L(U\mathbf{x}) = \mathbf{b}$. Writing $\mathbf{y}$ for $U\mathbf{x}$, we can find $\mathbf{x}$ by solving the pair of equations:
             $$L\mathbf{y} = \mathbf{b} \tag{2a}$$
@@ -2033,110 +2101,49 @@
             First solve $L\mathbf{y} = \mathbf{b}$ for $\mathbf{y}$, and then solve $U\mathbf{x} = \mathbf{y}$ for $\mathbf{x}$. See Figure 2 (factorization of the mapping $\mathbf{x} \mapsto A\mathbf{x} = \mathbf{b}$ via $\mathbf{x} \xrightarrow{U} \mathbf{y} \xrightarrow{L} \mathbf{b}$). Each equation is easy to solve because $L$ and $U$ are triangular.
           </p>
 
-          <!-- Figure 1 & Figure 2 SVG Diagrams -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-            <!-- FIGURE 1: LU Factorization Structure -->
-            <div class="bg-white border border-amber-200/80 rounded-xl p-3 flex flex-col items-center justify-between">
-              <svg viewBox="0 0 340 135" class="w-full max-w-[340px] h-auto" aria-label="Figure 1: An LU factorization">
-                <text x="12" y="72" font-size="15" font-weight="700" fill="#1e293b">A =</text>
+          <!-- FIGURE 2: Factorization of Mapping x -> Ax -->
+          <div class="bg-white border border-amber-200/80 rounded-xl p-3.5 flex flex-col items-center justify-center">
+            <svg viewBox="0 0 460 175" class="w-full max-w-[460px] h-auto" aria-label="Figure 2: Factorization of the mapping x to Ax">
+              <defs>
+                <marker id="arrowSky" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+                  <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
+                </marker>
+              </defs>
 
-                <!-- Matrix L (4x4) -->
-                <path d="M52 22 L45 22 L45 112 L52 112" fill="none" stroke="#334155" stroke-width="1.8"/>
-                <path d="M133 22 L140 22 L140 112 L133 112" fill="none" stroke="#334155" stroke-width="1.8"/>
-                <g font-size="13" font-family="serif" text-anchor="middle" fill="#0f172a">
-                  <text x="61" y="39" font-weight="700" fill="#b45309">1</text>
-                  <text x="83" y="39" fill="#94a3b8">0</text>
-                  <text x="105" y="39" fill="#94a3b8">0</text>
-                  <text x="126" y="39" fill="#94a3b8">0</text>
+              <!-- Parallelogram Planes -->
+              <polygon points="18,68 92,32 138,32 64,68" fill="#bae6fd" fill-opacity="0.72" />
+              <polygon points="172,145 246,109 292,109 218,145" fill="#bae6fd" fill-opacity="0.72" />
+              <polygon points="326,68 400,32 446,32 372,68" fill="#bae6fd" fill-opacity="0.72" />
 
-                  <text x="61" y="61" fill="#334155">*</text>
-                  <text x="83" y="61" font-weight="700" fill="#b45309">1</text>
-                  <text x="105" y="61" fill="#94a3b8">0</text>
-                  <text x="126" y="61" fill="#94a3b8">0</text>
+              <!-- Top arc: Multiplication by A (x -> b) -->
+              <path d="M 82 48 Q 230 6 376 48" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrowSky)" />
+              <text x="230" y="18" font-size="12" font-weight="600" text-anchor="middle" fill="#0f172a">Multiplication</text>
+              <text x="230" y="33" font-size="12" font-weight="600" text-anchor="middle" fill="#0f172a">by A</text>
 
-                  <text x="61" y="83" fill="#334155">*</text>
-                  <text x="83" y="83" fill="#334155">*</text>
-                  <text x="105" y="83" font-weight="700" fill="#b45309">1</text>
-                  <text x="126" y="83" fill="#94a3b8">0</text>
+              <!-- Bottom-left arc: Multiplication by U (x -> y) -->
+              <path d="M 82 55 Q 135 112 224 126" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrowSky)" />
+              <text x="128" y="114" font-size="11.5" font-weight="600" text-anchor="middle" fill="#0f172a">Multiplication</text>
+              <text x="128" y="128" font-size="11.5" font-weight="600" text-anchor="middle" fill="#0f172a">by U</text>
 
-                  <text x="61" y="105" fill="#334155">*</text>
-                  <text x="83" y="105" fill="#334155">*</text>
-                  <text x="105" y="105" fill="#334155">*</text>
-                  <text x="126" y="105" font-weight="700" fill="#b45309">1</text>
-                </g>
-                <text x="92" y="128" font-size="12" font-weight="700" text-anchor="middle" fill="#475569">L</text>
+              <!-- Bottom-right arc: Multiplication by L (y -> b) -->
+              <path d="M 236 126 Q 325 112 378 55" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrowSky)" />
+              <text x="332" y="114" font-size="11.5" font-weight="600" text-anchor="middle" fill="#0f172a">Multiplication</text>
+              <text x="332" y="128" font-size="11.5" font-weight="600" text-anchor="middle" fill="#0f172a">by L</text>
 
-                <!-- Matrix U (4x5 Echelon) -->
-                <path d="M162 22 L155 22 L155 112 L162 112" fill="none" stroke="#334155" stroke-width="1.8"/>
-                <path d="M318 22 L325 22 L325 112 L318 112" fill="none" stroke="#334155" stroke-width="1.8"/>
-                <g font-size="13" font-family="serif" text-anchor="middle" fill="#0f172a">
-                  <circle cx="173" cy="35" r="9" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
-                  <text x="173" y="39" font-weight="700" fill="#92400e">■</text>
-                  <text x="203" y="39">*</text>
-                  <text x="233" y="39">*</text>
-                  <text x="263" y="39">*</text>
-                  <text x="296" y="39">*</text>
+              <!-- Points & Labels -->
+              <circle cx="78" cy="51" r="3.8" fill="#0f172a" />
+              <text x="66" y="55" font-size="14" font-weight="700" font-family="serif" fill="#0f172a">x</text>
 
-                  <text x="173" y="61" fill="#94a3b8">0</text>
-                  <circle cx="203" cy="57" r="9" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
-                  <text x="203" y="61" font-weight="700" fill="#92400e">■</text>
-                  <text x="233" y="61">*</text>
-                  <text x="263" y="61">*</text>
-                  <text x="296" y="61">*</text>
+              <circle cx="231" cy="127" r="3.8" fill="#0f172a" />
+              <text x="231" y="142" font-size="14" font-weight="700" font-family="serif" text-anchor="middle" fill="#0f172a">y</text>
 
-                  <text x="173" y="83" fill="#94a3b8">0</text>
-                  <text x="203" y="83" fill="#94a3b8">0</text>
-                  <text x="233" y="83" fill="#94a3b8">0</text>
-                  <circle cx="263" cy="79" r="9" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
-                  <text x="263" y="83" font-weight="700" fill="#92400e">■</text>
-                  <text x="296" y="83">*</text>
-
-                  <text x="173" y="105" fill="#94a3b8">0</text>
-                  <text x="203" y="105" fill="#94a3b8">0</text>
-                  <text x="233" y="105" fill="#94a3b8">0</text>
-                  <text x="263" y="105" fill="#94a3b8">0</text>
-                  <text x="296" y="105" fill="#94a3b8">0</text>
-                </g>
-                <text x="240" y="128" font-size="12" font-weight="700" text-anchor="middle" fill="#475569">U</text>
-              </svg>
-              <div class="text-xs text-slate-600 mt-1 font-medium">FIGURE 1 An $LU$ factorization.</div>
-            </div>
-
-            <!-- FIGURE 2: Factorization of Mapping x -> Ax -->
-            <div class="bg-white border border-amber-200/80 rounded-xl p-3 flex flex-col items-center justify-between">
-              <svg viewBox="0 0 340 135" class="w-full max-w-[340px] h-auto" aria-label="Figure 2: Factorization of the mapping x to Ax">
-                <defs>
-                  <marker id="arrowAmber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#d97706" />
-                  </marker>
-                  <marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
-                  </marker>
-                </defs>
-
-                <path d="M 65 44 Q 170 8 275 44" fill="none" stroke="#0284c7" stroke-width="1.8" marker-end="url(#arrowBlue)" />
-                <text x="170" y="19" font-size="11.5" font-weight="600" text-anchor="middle" fill="#0369a1">Multiplication by A</text>
-
-                <path d="M 65 62 Q 112 96 156 96" fill="none" stroke="#d97706" stroke-width="1.8" marker-end="url(#arrowAmber)" />
-                <text x="106" y="108" font-size="11" font-weight="600" text-anchor="middle" fill="#b45309">by U</text>
-
-                <path d="M 184 96 Q 228 96 275 62" fill="none" stroke="#d97706" stroke-width="1.8" marker-end="url(#arrowAmber)" />
-                <text x="234" y="108" font-size="11" font-weight="600" text-anchor="middle" fill="#b45309">by L</text>
-
-                <circle cx="58" cy="53" r="4" fill="#0f172a" />
-                <text x="42" y="57" font-size="14" font-weight="700" font-style="italic" fill="#0f172a">x</text>
-
-                <circle cx="170" cy="96" r="4" fill="#0f172a" />
-                <text x="170" y="116" font-size="14" font-weight="700" font-style="italic" fill="#0f172a">y</text>
-
-                <circle cx="282" cy="53" r="4" fill="#0f172a" />
-                <text x="295" y="57" font-size="14" font-weight="700" font-style="italic" fill="#0f172a">b</text>
-              </svg>
-              <div class="text-xs text-slate-600 mt-1 font-medium">FIGURE 2 Factorization of the mapping $\mathbf{x} \mapsto A\mathbf{x}$.</div>
-            </div>
+              <circle cx="381" cy="51" r="3.8" fill="#0f172a" />
+              <text x="392" y="55" font-size="14" font-weight="700" font-family="serif" fill="#0f172a">b</text>
+            </svg>
+            <div class="text-xs text-slate-600 mt-1 font-medium">FIGURE 2 Factorization of the mapping $\mathbf{x} \mapsto A\mathbf{x}$.</div>
           </div>
         </div>
-
+          
         <!-- Collapsible EXAMPLE 1 -->
         <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
           <button onclick="toggleCard('ex2-5-1')" class="w-full px-4 py-3.5 bg-amber-50/70 hover:bg-amber-100/70 flex items-center justify-between text-left font-semibold text-base text-amber-950 transition">
