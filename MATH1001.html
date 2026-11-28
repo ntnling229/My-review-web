@@ -404,7 +404,9 @@
             <p class="text-sm text-slate-700 leading-relaxed">
                 The <strong>size（大小）</strong> of a matrix tells how many rows and columns it has. The augmented matrix (4) above has $3$ rows and $4$ columns and is called a $3\times 4$ (read "3 by 4") matrix. If $m$ and $n$ are positive integers, an $m\times n$ matrix is a rectangular array of numbers with $m$ rows and $n$ columns. (The number of rows always comes first.) Matrix notation will simplify the calculations in the examples that follow.
             </p>
-<!-- Collapsible EXAMPLE 1 (with 3D planes SVG) -->
+
+            
+            <!-- Collapsible EXAMPLE 1 (with 3D planes SVG) -->
             <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
                 <button onclick="toggleCard('ex1-1-1')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
                     <span>EXAMPLE 1（範例 1：逐步消去法與增廣矩陣求解系統 (3)，唯一解 $(1, 0, -1)$ 與三平面交點圖示）</span>
@@ -413,7 +415,14 @@
                 <div id="ex1-1-1" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-3 bg-white leading-relaxed">
                     <p><strong>EXAMPLE 1</strong> Solve system (3).</p>
                     <p><strong>SOLUTION:</strong> The elimination procedure is shown here with and without matrix notation, and the results are placed side by side for comparison:</p>
-                    <p>Keep $x_{1}$ in the first equation and eliminate it from the other equations. To do so, add $-5$ times equation 1 to equation 3:</p>
+                    <div class="bg-slate-50 border border-slate-200/80 rounded-lg p-3 overflow-x-auto">
+                        $$\begin{aligned}
+                        x_{1}-2x_{2}+x_{3} &= 0 \\
+                        2x_{2}-8x_{3} &= 8 \\
+                        5x_{1}\phantom{{}-2x_{2}}-5x_{3} &= 10
+                        \end{aligned}, \qquad \begin{bmatrix} 1 & -2 & 1 & 0 \\ 0 & 2 & -8 & 8 \\ 5 & 0 & -5 & 10 \end{bmatrix}$$
+                    </div>
+                    <p>Keep $x_{1}$ in the first equation and eliminate it from the other equations. To do so, add $-5$ times equation 1 to equation 3. After some practice, this type of calculation is usually performed mentally:</p>
                     <div class="bg-slate-50 border border-slate-200/80 rounded-lg p-3 overflow-x-auto">
                         $$\begin{array}{r@{\quad}r@{}c@{}r@{}c@{}r@{}c@{}r}
                         -5 \cdot [\text{equation } 1] & -5x_{1} & {}+{} & 10x_{2} & {}-{} & 5x_{3} & {}={} & 0 \\
