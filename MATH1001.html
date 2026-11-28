@@ -3071,16 +3071,18 @@
           It can be shown that if a subspace $H$ has a basis of $p$ vectors, then every basis of $H$ must consist of <strong>exactly $p$ vectors</strong>. Thus the following definition makes sense.
         </p>
 
-        <!-- Definition Box: Dimension -->
-        <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-2.5">
+        <!-- Definition Box: Dimension (strictly matching book's DEFINITION box) -->
+        <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-2">
           <div class="font-bold text-amber-950 text-lg">DEFINITION — DIMENSION OF A SUBSPACE (子空間的維數)</div>
           <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
             The <strong>dimension（維數）</strong> of a nonzero subspace $H$, denoted by $\dim H$, is the number of vectors in any basis for $H$. The dimension of the <strong>zero subspace（零子空間）</strong> $\{\mathbf{0}\}$ is defined to be <strong>zero</strong> ($\dim \{\mathbf{0}\} = 0$).
           </p>
-          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
-            The space $\mathbb{R}^n$ has dimension $n$ ($\dim \mathbb{R}^n = n$). Every basis for $\mathbb{R}^n$ consists of $n$ vectors. A plane through $\mathbf{0}$ in $\mathbb{R}^3$ is <strong>two-dimensional</strong>, and a line through $\mathbf{0}$ is <strong>one-dimensional</strong>.
-          </p>
         </div>
+
+        <!-- Explanatory text outside the Definition box -->
+        <p class="text-base md:text-lg text-slate-700 leading-relaxed">
+          The space $\mathbb{R}^n$ has dimension $n$ ($\dim \mathbb{R}^n = n$). Every basis for $\mathbb{R}^n$ consists of $n$ vectors. A plane through $\mathbf{0}$ in $\mathbb{R}^3$ is <strong>two-dimensional</strong>, and a line through $\mathbf{0}$ is <strong>one-dimensional</strong>.
+        </p>
 
         <!-- Collapsible EXAMPLE 2 -->
         <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
@@ -3103,16 +3105,20 @@
           3. Rank, Rank Theorem &amp; Basis Theorem (秩、秩定理與基底定理)
         </h4>
 
-        <!-- Definition Box: Rank -->
-        <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-2.5">
+        <!-- Definition Box: Rank (strictly matching book's DEFINITION box) -->
+        <div class="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-2">
           <div class="font-bold text-amber-950 text-lg">DEFINITION — RANK OF A MATRIX (矩陣的秩 $\operatorname{rank} A$)</div>
           <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
             The <strong>rank（秩）</strong> of a matrix $A$, denoted by $\operatorname{rank} A$, is the dimension of the column space of $A$ ($\operatorname{rank} A = \dim \operatorname{Col} A$).
           </p>
-          <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
-            Since the pivot columns of $A$ form a basis for $\operatorname{Col} A$, the rank of $A$ is just the <strong>number of pivot columns（主元行數目）</strong> in $A$.
-          </p>
         </div>
+
+        <!-- Explanatory text outside the Definition box -->
+        <p class="text-base md:text-lg text-slate-700 leading-relaxed">
+          Since the pivot columns of $A$ form a basis for $\operatorname{Col} A$, the rank of $A$ is just the <strong>number of pivot columns（主元行數目）</strong> in $A$.
+        </p>
+
+
 
         <!-- Collapsible EXAMPLE 3 -->
         <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
