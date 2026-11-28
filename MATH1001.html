@@ -898,22 +898,35 @@
         <div class="space-y-3">
             <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
                 <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
-                4. Basic &amp; Free Variables, Parametric Descriptions, Back-Substitution &amp; THEOREM 2 (基本變數與自由變數、參數描述、反代入與定理 2)
+                4. Solutions of Linear Systems, Basic &amp; Free Variables, Parametric Descriptions, Back-Substitution &amp; THEOREM 2 (線性方程組的解、基本與自由變數、參數描述、反代入與定理 2)
             </h4>
             <p class="text-sm text-slate-700 leading-relaxed">
-                Suppose the augmented matrix of a linear system has been changed into the equivalent reduced echelon form
+                <strong>Solutions of Linear Systems（線性方程組的解）</strong> — The row reduction algorithm leads directly to an explicit description of the <strong>solution set（解集合）</strong> of a linear system when the algorithm is applied to the <strong>augmented matrix（增廣矩陣）</strong> of the system.
+                Suppose, for example, that the augmented matrix of a linear system has been changed into the equivalent <strong>reduced echelon form（簡化階梯形）</strong>
                 $$\begin{bmatrix} 1 & 0 & -5 & 1 \\ 0 & 1 & 1 & 4 \\ 0 & 0 & 0 & 0 \end{bmatrix}$$
-                There are three variables because the augmented matrix has four columns. The associated system of equations is $x_{1}-5x_{3}=1$, $x_{2}+x_{3}=4$, $0=0$ (4).
-                The variables $x_{1}$ and $x_{2}$ corresponding to pivot columns in the matrix are called <strong>basic variables（基本變數）</strong>. The other variable, $x_{3}$, is called a <strong>free variable（自由變數）</strong>.
-                Whenever a system is consistent, as in (4), the solution set can be described explicitly by solving the reduced system of equations for the basic variables in terms of the free variables:
-                $$x_{1}=1+5x_{3}, \quad x_{2}=4-x_{3}, \quad x_{3}\text{ is free} \tag{5}$$
-                The statement "$x_{3}$ is free" means that you are free to choose any value for $x_{3}$. Once that is done, the formulas in (5) determine the values for $x_{1}$ and $x_{2}$. For instance, when $x_{3}=0$, the solution is $(1,4,0)$; when $x_{3}=1$, the solution is $(6,3,1)$.
+                There are three variables because the augmented matrix has four columns. The associated system of equations is
+                $$x_{1}-5x_{3}=1, \quad x_{2}+x_{3}=4, \quad 0=0 \tag{4}$$
+                The variables $x_{1}$ and $x_{2}$ corresponding to <strong>pivot columns（主元行／主元欄）</strong> in the matrix are called <strong>basic variables（基本變數）</strong>. The other variable, $x_{3}$, is called a <strong>free variable（自由變數）</strong>.
+                Whenever a system is <strong>consistent（相容／有解）</strong>, as in (4), the solution set can be described explicitly by solving the reduced system of equations for the basic variables in terms of the free variables. This operation is possible because the reduced echelon form places each basic variable in one and only one equation. In (4), solve the first equation for $x_{1}$ and the second for $x_{2}$. (Ignore the third equation; it offers no restriction on the variables.)
+                $$\begin{cases} x_{1}=1+5x_{3} \\ x_{2}=4-x_{3} \\ x_{3}\text{ is free} \end{cases} \tag{5}$$
+                The statement "$x_{3}$ is free" means that you are free to choose any value for $x_{3}$. Once that is done, the formulas in (5) determine the values for $x_{1}$ and $x_{2}$. For instance, when $x_{3}=0$, the solution is $(1,4,0)$; when $x_{3}=1$, the solution is $(6,3,1)$. Each different choice of $x_{3}$ determines a (different) solution of the system, and every solution of the system is determined by a choice of $x_{3}$.
             </p>
             <p class="text-sm text-slate-700 leading-relaxed">
-                The descriptions in (5) and (7) are <strong>parametric descriptions（參數描述）</strong> of solution sets in which the free variables act as <strong>parameters（參數）</strong>. Solving a system amounts to finding a parametric description of the solution set or determining that the solution set is empty. By convention, we always use the free variables as the parameters for describing a solution set. Whenever a system is inconsistent, the solution set is empty, even when the system has free variables, and has no parametric representation.
+                <strong>Parametric Descriptions of Solution Sets（解集合的參數描述）</strong> — The descriptions in (5) and (7) are <strong>parametric descriptions（參數描述）</strong> of solution sets in which the free variables act as <strong>parameters（參數）</strong>. Solving a system amounts to finding a parametric description of the solution set or determining that the solution set is empty.
+                Whenever a system is consistent and has free variables, the solution set has many parametric descriptions. For instance, in system (4), we may add $5$ times equation 2 to equation 1 and obtain the equivalent system
+                $$x_{1}+5x_{2}=21, \quad x_{2}+x_{3}=4$$
+                We could treat $x_{2}$ as a parameter and solve for $x_{1}$ and $x_{3}$ in terms of $x_{2}$, and we would have an accurate description of the solution set. However, to be consistent, we make the (arbitrary) convention of always using the free variables as the parameters for describing a solution set. (The answer section at the end of the text also reflects this convention.)
+                Whenever a system is <strong>inconsistent（不相容／無解）</strong>, the solution set is empty, even when the system has free variables. In this case, the solution set has no parametric representation.
             </p>
             <p class="text-sm text-slate-700 leading-relaxed">
-                In <strong>back-substitution（反代入法）</strong>, when an augmented matrix is in echelon form (not necessarily reduced echelon form), one solves the bottom nonzero equation for its leading variable in terms of remaining variables and substitutes upward into preceding equations. Although a nonreduced echelon form is a poor tool for solving a system by hand, it is ideal for answering existence and uniqueness questions.
+                <strong>Back-Substitution（反代入法）</strong> — Consider the following system, whose augmented matrix is in <strong>echelon form（階梯形）</strong> but is not in reduced echelon form:
+                $$x_{1}-7x_{2}+2x_{3}-5x_{4}+8x_{5}=10$$
+                $$x_{2}-3x_{3}+3x_{4}+x_{5}=-5$$
+                $$x_{4}-x_{5}=4$$
+                A computer program would solve this system by <strong>back-substitution（反代入法）</strong>, rather than by computing the reduced echelon form. That is, the program would solve equation 3 for $x_{4}$ in terms of $x_{5}$ and substitute the expression for $x_{4}$ into equation 2, solve equation 2 for $x_{2}$, and then substitute the expressions for $x_{2}$ and $x_{4}$ into equation 1 and solve for $x_{1}$.
+            </p>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                <strong>Existence and Uniqueness Questions（存在性與唯一性問題）</strong> — Although a nonreduced echelon form is a poor tool for solving a system, this form is just the right device for answering two fundamental questions posed in Section 1.1.
             </p>
 
             <!-- Collapsible EXAMPLE 4 & EXAMPLE 5 -->
@@ -923,30 +936,54 @@
                     <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
                 </button>
                 <div id="ex1-2-4" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
-                    <p><strong>EXAMPLE 4:</strong> Given augmented matrix reduced to $\begin{bmatrix} 1 & 6 & 2 & -5 & -2 & -4 \\ 0 & 0 & 2 & -8 & -1 & 3 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix}$:
-                        $$\sim \begin{bmatrix} 1 & 6 & 2 & -5 & 0 & 10 \\ 0 & 0 & 2 & -8 & 0 & 10 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix} \sim \begin{bmatrix} 1 & 6 & 2 & -5 & 0 & 10 \\ 0 & 0 & 1 & -4 & 0 & 5 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix} \sim \begin{bmatrix} 1 & 6 & 0 & 3 & 0 & 0 \\ 0 & 0 & 1 & -4 & 0 & 5 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix}$$
-                        Associated system (6): $x_{1}+6x_{2}+3x_{4}=0$, $x_{3}-4x_{4}=5$, $x_{5}=7$.
-                        Pivot columns are $1, 3, 5$, so basic variables are $x_{1}, x_{3}, x_{5}$, and free variables are $x_{2}, x_{4}$. General solution (7):
-                        $$x_{1}=-6x_{2}-3x_{4}, \quad x_{2}\text{ is free}, \quad x_{3}=5+4x_{4}, \quad x_{4}\text{ is free}, \quad x_{5}=7$$
+                    <p><strong>EXAMPLE 4</strong> Find the general solution of the linear system whose augmented matrix has been reduced to
+                        $$\begin{bmatrix} 1 & 6 & 2 & -5 & -2 & -4 \\ 0 & 0 & 2 & -8 & -1 & 3 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix}$$
                     </p>
-                    <p><strong>EXAMPLE 5:</strong> For the system $3x_{2}-6x_{3}+6x_{4}+4x_{5}=-5$, $3x_{1}-7x_{2}+8x_{3}-5x_{4}+8x_{5}=9$, $3x_{1}-9x_{2}+12x_{3}-9x_{4}+6x_{5}=15$, the augmented matrix row reduces (as in Example 3) to echelon form $\begin{bmatrix} 3 & -9 & 12 & -9 & 6 & 15 \\ 0 & 2 & -4 & 4 & 2 & -6 \\ 0 & 0 & 0 & 0 & 1 & 4 \end{bmatrix}$ (8). Basic variables are $x_{1}, x_{2}, x_{5}$; free variables are $x_{3}, x_{4}$. Since there is no equation like $0=1$, the system is consistent, and because there are free variables, it has infinitely many solutions.
+                    <p><strong>SOLUTION:</strong>
+                        $$\begin{bmatrix} 1 & 6 & 2 & -5 & -2 & -4 \\ 0 & 0 & 2 & -8 & -1 & 3 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix} \sim \begin{bmatrix} 1 & 6 & 2 & -5 & 0 & 10 \\ 0 & 0 & 2 & -8 & 0 & 10 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix} \sim \begin{bmatrix} 1 & 6 & 2 & -5 & 0 & 10 \\ 0 & 0 & 1 & -4 & 0 & 5 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix} \sim \begin{bmatrix} 1 & 6 & 0 & 3 & 0 & 0 \\ 0 & 0 & 1 & -4 & 0 & 5 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix}$$
+                        There are five variables because the augmented matrix has six columns. The associated system now is
+                        $$x_{1}+6x_{2}+3x_{4}=0, \quad x_{3}-4x_{4}=5, \quad x_{5}=7 \tag{6}$$
+                        The pivot columns of the matrix are $1$, $3$, and $5$, so the basic variables are $x_{1}$, $x_{3}$, and $x_{5}$. The remaining variables, $x_{2}$ and $x_{4}$, must be free. Solve for the basic variables to obtain the <strong>general solution（通解）</strong>:
+                        $$\begin{cases} x_{1}=-6x_{2}-3x_{4} \\ x_{2}\text{ is free} \\ x_{3}=5+4x_{4} \\ x_{4}\text{ is free} \\ x_{5}=7 \end{cases} \tag{7}$$
+                        Note that the value of $x_{5}$ is already fixed by the third equation in system (6).
+                    </p>
+                    <p><strong>EXAMPLE 5</strong> Determine the existence and uniqueness of the solutions to the system
+                        $$3x_{2}-6x_{3}+6x_{4}+4x_{5}=-5$$
+                        $$3x_{1}-7x_{2}+8x_{3}-5x_{4}+8x_{5}=9$$
+                        $$3x_{1}-9x_{2}+12x_{3}-9x_{4}+6x_{5}=15$$
+                    </p>
+                    <p><strong>SOLUTION:</strong> The augmented matrix of this system was row reduced in Example 3 to
+                        $$\begin{bmatrix} 3 & -9 & 12 & -9 & 6 & 15 \\ 0 & 2 & -4 & 4 & 2 & -6 \\ 0 & 0 & 0 & 0 & 1 & 4 \end{bmatrix} \tag{8}$$
+                        The basic variables are $x_{1}$, $x_{2}$, and $x_{5}$; the free variables are $x_{3}$ and $x_{4}$. There is no equation such as $0=1$ that would indicate an inconsistent system, so we could use back-substitution to find a solution. But the existence of a solution is already clear in (8). Also, the solution is not unique because there are free variables. Each different choice of $x_{3}$ and $x_{4}$ determines a different solution. Thus the system has <strong>infinitely many solutions（無限多組解）</strong>.
                     </p>
                 </div>
             </div>
+
+            <p class="text-sm text-slate-700 leading-relaxed">
+                When a system is in echelon form and contains no equation of the form $0=b$, with $b$ nonzero, every nonzero equation contains a basic variable with a nonzero coefficient. Either the basic variables are completely determined (with no free variables) or at least one of the basic variables may be expressed in terms of one or more free variables. In the former case, there is a <strong>unique solution（唯一解）</strong>; in the latter case, there are <strong>infinitely many solutions（無限多組解）</strong> (one for each choice of values for the free variables).
+            </p>
+        </div>
 
             <!-- THEOREM 2 & Summary Box -->
             <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2.5 text-sm text-slate-800 leading-relaxed">
                 <div class="font-bold text-teal-950 text-base">THEOREM 2 — Existence and Uniqueness Theorem（定理 2：存在性與唯一性定理）</div>
                 <p>
-                    A linear system is consistent if and only if the rightmost column of the augmented matrix is not a pivot column—that is, if and only if an echelon form of the augmented matrix has no row of the form
+                    A linear system is <strong>consistent（相容／有解）</strong> if and only if the rightmost column of the <strong>augmented matrix（增廣矩陣）</strong> is not a <strong>pivot column（主元行／主元欄）</strong>—that is, if and only if an <strong>echelon form（階梯形）</strong> of the augmented matrix has no row of the form
                     $$\begin{bmatrix} 0 & \cdots & 0 & b \end{bmatrix} \quad \text{with } b \text{ nonzero}$$
-                    If a linear system is consistent, then the solution set contains either (i) a <strong>unique solution（唯一解）</strong>, when there are no free variables, or (ii) <strong>infinitely many solutions（無限多組解）</strong>, when there is at least one free variable.
+                    If a linear system is consistent, then the <strong>solution set（解集合）</strong> contains either (i) a <strong>unique solution（唯一解）</strong>, when there are no <strong>free variables（自由變數）</strong>, or (ii) <strong>infinitely many solutions（無限多組解）</strong>, when there is at least one free variable.
                 </p>
-                <div class="bg-white border border-teal-200/80 rounded-lg p-3.5 text-xs sm:text-sm space-y-1">
+                <div class="bg-white border border-teal-200/80 rounded-lg p-3.5 text-xs sm:text-sm space-y-1.5">
                     <div class="font-bold text-teal-950">USING ROW REDUCTION TO SOLVE A LINEAR SYSTEM（利用列化簡解線性方程組五步驟）</div>
-                    <p>1. Write the augmented matrix of the system. &nbsp; 2. Use the row reduction algorithm to obtain an equivalent augmented matrix in echelon form; decide consistency (stop if no solution). &nbsp; 3. Continue row reduction to obtain the reduced echelon form. &nbsp; 4. Write the corresponding system of equations. &nbsp; 5. Rewrite each nonzero equation so its one basic variable is expressed in terms of any free variables.</p>
+                    <ol class="list-decimal pl-5 space-y-1">
+                        <li>Write the augmented matrix of the system.</li>
+                        <li>Use the <strong>row reduction algorithm（列化簡演算法）</strong> to obtain an equivalent augmented matrix in echelon form. Decide whether the system is consistent. If there is no solution, stop; otherwise, go to the next step.</li>
+                        <li>Continue row reduction to obtain the <strong>reduced echelon form（簡化階梯形）</strong>.</li>
+                        <li>Write the system of equations corresponding to the matrix obtained in step 3.</li>
+                        <li>Rewrite each nonzero equation from step 4 so that its one <strong>basic variable（基本變數）</strong> is expressed in terms of any free variables appearing in the equation.</li>
+                    </ol>
                 </div>
             </div>
+            
         </div>
     </section>
 
