@@ -999,14 +999,18 @@
     </section>
 
     <!-- SECTION 1.3: VECTOR EQUATIONS -->
-    <section class="space-y-6">
-        <div class="border-b border-teal-200 pb-2">
-            <h3 class="text-xl font-bold text-teal-950">1.3 VECTOR EQUATIONS（向量方程）</h3>
+    <section class="bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-6 shadow-sm space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-teal-200 pb-3">
+            <div class="flex items-center gap-2.5">
+                <span class="px-2.5 py-1 bg-teal-100 text-teal-900 font-bold text-sm rounded-lg">§ 1.3</span>
+                <h3 class="text-lg sm:text-xl font-bold text-teal-950">VECTOR EQUATIONS（向量方程）</h3>
+            </div>
+            <span class="text-xs font-mono text-slate-500">Ch-1-3.pdf</span>
         </div>
     
         <!-- 1. Vectors in R^2, R^3, R^n & Algebraic Properties -->
         <div class="space-y-3">
-            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <h4 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
                 <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
                 1. Vectors in $\mathbb{R}^{2}$, $\mathbb{R}^{3}$, $\mathbb{R}^{n}$ &amp; Algebraic Properties（$\mathbb{R}^{2}$、$\mathbb{R}^{3}$、$\mathbb{R}^{n}$ 中的向量與代數性質）
             </h4>
@@ -1016,26 +1020,28 @@
     
             <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-3 text-sm text-slate-800 leading-relaxed">
                 <div class="font-bold text-teal-950 text-base">VECTORS IN $\mathbb{R}^{2}$、VECTOR ADDITION &amp; SCALAR MULTIPLICATION（$\mathbb{R}^{2}$ 中的向量、向量加法與純量乘法）</div>
-                <p>
-                    A matrix with only one column is called a <strong>column vector（列向量）</strong>, or simply a <strong>vector（向量）</strong>. Examples of vectors with two entries are
-                    $$u = \begin{bmatrix} 3 \\ -1 \end{bmatrix}, \quad v = \begin{bmatrix} .2 \\ .3 \end{bmatrix}, \quad w = \begin{bmatrix} w_{1} \\ w_{2} \end{bmatrix}$$
-                    where $w_{1}$ and $w_{2}$ are any real numbers. The set of all vectors with two entries is denoted by $\mathbb{R}^{2}$ (read "r-two"). The $\mathbb{R}$ stands for the real numbers that appear as entries in the vectors, and the exponent $2$ indicates that each vector contains two entries.
-                </p>
-                <p>
-                    Two vectors in $\mathbb{R}^{2}$ are equal if and only if their corresponding entries are equal. Thus $\begin{bmatrix} 4 \\ 7 \end{bmatrix}$ and $\begin{bmatrix} 7 \\ 4 \end{bmatrix}$ are not equal, because vectors in $\mathbb{R}^{2}$ are ordered pairs of real numbers.
-                </p>
-                <p>
-                    Given two vectors $u$ and $v$ in $\mathbb{R}^{2}$, their <strong>sum（和）</strong> is the vector $u + v$ obtained by adding corresponding entries of $u$ and $v$. For example,
-                    $$\begin{bmatrix} 1 \\ -2 \end{bmatrix} + \begin{bmatrix} 2 \\ 5 \end{bmatrix} = \begin{bmatrix} 1+2 \\ -2+5 \end{bmatrix} = \begin{bmatrix} 3 \\ 3 \end{bmatrix}$$
-                    Given a vector $u$ and a real number $c$, the <strong>scalar multiple（純量積／純量倍）</strong> of $u$ by $c$ is the vector $cu$ obtained by multiplying each entry in $u$ by $c$. For instance, if $u = \begin{bmatrix} 3 \\ -1 \end{bmatrix}$ and $c = 5$, then
-                    $$cu = 5\begin{bmatrix} 3 \\ -1 \end{bmatrix} = \begin{bmatrix} 15 \\ -5 \end{bmatrix}$$
-                    The number $c$ in $cu$ is called a <strong>scalar（純量）</strong>; it is written in lightface type to distinguish it from the boldface vector $u$.
-                </p>
-                <p class="text-xs sm:text-sm text-slate-700">
-                    Sometimes, for convenience (and also to save space), this text may write a column vector such as $\begin{bmatrix} 3 \\ -1 \end{bmatrix}$ in the form $(3, -1)$. In this case, the parentheses and the comma distinguish the vector $(3, -1)$ from the $1 \times 2$ row matrix $\begin{bmatrix} 3 & -1 \end{bmatrix}$, written with brackets and no comma. Thus
-                    $$\begin{bmatrix} 3 \\ -1 \end{bmatrix} \ne \begin{bmatrix} 3 & -1 \end{bmatrix}$$
-                    because the matrices have different shapes, even though they have the same entries.
-                </p>
+                <div class="bg-white border border-teal-200/80 rounded-lg p-3.5 space-y-2.5">
+                    <p>
+                        A matrix with only one column is called a <strong>column vector（列向量）</strong>, or simply a <strong>vector（向量）</strong>. Examples of vectors with two entries are
+                        $$u = \begin{bmatrix} 3 \\ -1 \end{bmatrix}, \quad v = \begin{bmatrix} .2 \\ .3 \end{bmatrix}, \quad w = \begin{bmatrix} w_{1} \\ w_{2} \end{bmatrix}$$
+                        where $w_{1}$ and $w_{2}$ are any real numbers. The set of all vectors with two entries is denoted by $\mathbb{R}^{2}$ (read "r-two"). The $\mathbb{R}$ stands for the real numbers that appear as entries in the vectors, and the exponent $2$ indicates that each vector contains two entries.
+                    </p>
+                    <p>
+                        Two vectors in $\mathbb{R}^{2}$ are equal if and only if their corresponding entries are equal. Thus $\begin{bmatrix} 4 \\ 7 \end{bmatrix}$ and $\begin{bmatrix} 7 \\ 4 \end{bmatrix}$ are not equal, because vectors in $\mathbb{R}^{2}$ are ordered pairs of real numbers.
+                    </p>
+                    <p>
+                        Given two vectors $u$ and $v$ in $\mathbb{R}^{2}$, their <strong>sum（和）</strong> is the vector $u + v$ obtained by adding corresponding entries of $u$ and $v$. For example,
+                        $$\begin{bmatrix} 1 \\ -2 \end{bmatrix} + \begin{bmatrix} 2 \\ 5 \end{bmatrix} = \begin{bmatrix} 1+2 \\ -2+5 \end{bmatrix} = \begin{bmatrix} 3 \\ 3 \end{bmatrix}$$
+                        Given a vector $u$ and a real number $c$, the <strong>scalar multiple（純量積／純量倍）</strong> of $u$ by $c$ is the vector $cu$ obtained by multiplying each entry in $u$ by $c$. For instance, if $u = \begin{bmatrix} 3 \\ -1 \end{bmatrix}$ and $c = 5$, then
+                        $$cu = 5\begin{bmatrix} 3 \\ -1 \end{bmatrix} = \begin{bmatrix} 15 \\ -5 \end{bmatrix}$$
+                        The number $c$ in $cu$ is called a <strong>scalar（純量）</strong>; it is written in lightface type to distinguish it from the boldface vector $u$.
+                    </p>
+                    <p>
+                        Sometimes, for convenience (and also to save space), this text may write a column vector such as $\begin{bmatrix} 3 \\ -1 \end{bmatrix}$ in the form $(3, -1)$. In this case, the parentheses and the comma distinguish the vector $(3, -1)$ from the $1 \times 2$ row matrix $\begin{bmatrix} 3 & -1 \end{bmatrix}$, written with brackets and no comma. Thus
+                        $$\begin{bmatrix} 3 \\ -1 \end{bmatrix} \ne \begin{bmatrix} 3 & -1 \end{bmatrix}$$
+                        because the matrices have different shapes, even though they have the same entries.
+                    </p>
+                </div>
             </div>
     
             <!-- Collapsible EXAMPLE 1 -->
@@ -1065,9 +1071,11 @@
     
             <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2 text-sm text-slate-800 leading-relaxed">
                 <div class="font-bold text-teal-950 text-base">PARALLELOGRAM RULE FOR ADDITION（加法平行四邊形法則）</div>
-                <p>
-                    If $u$ and $v$ in $\mathbb{R}^{2}$ are represented as points in the plane, then $u + v$ corresponds to the fourth vertex of the parallelogram whose other vertices are $u$, $0$, and $v$. See Figure 3.
-                </p>
+                <div class="bg-white border border-teal-200/80 rounded-lg p-3.5">
+                    <p>
+                        If $u$ and $v$ in $\mathbb{R}^{2}$ are represented as points in the plane, then $u + v$ corresponds to the fourth vertex of the parallelogram whose other vertices are $u$, $0$, and $v$. See Figure 3.
+                    </p>
+                </div>
             </div>
             <img src="png/MATH1001/fig1-3-3.png" alt="The parallelogram rule" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
     
@@ -1106,43 +1114,47 @@
     
             <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-3 text-sm text-slate-800 leading-relaxed">
                 <div class="font-bold text-teal-950 text-base">VECTORS IN $\mathbb{R}^{n}$ &amp; ALGEBRAIC PROPERTIES OF $\mathbb{R}^{n}$（$\mathbb{R}^{n}$ 中的向量與代數性質）</div>
-                <p>
-                    If $n$ is a positive integer, $\mathbb{R}^{n}$ (read "r-n") denotes the collection of all lists (or ordered $n$-tuples) of $n$ real numbers, usually written as $n \times 1$ column matrices, such as
-                    $$u = \begin{bmatrix} u_{1} \\ u_{2} \\ \vdots \\ u_{n} \end{bmatrix}$$
-                    The vector whose entries are all zero is called the <strong>zero vector（零向量）</strong> and is denoted by $0$. (The number of entries in $0$ will be clear from the context.)
-                </p>
-                <p><strong>Algebraic Properties of $\mathbb{R}^{n}$（$\mathbb{R}^{n}$ 的代數性質）</strong> — For all $u, v, w$ in $\mathbb{R}^{n}$ and all scalars $c$ and $d$:</p>
-                <ol class="list-decimal pl-5 space-y-1">
-                    <li>(i) $u + v = v + u$</li>
-                    <li>(ii) $(u + v) + w = u + (v + w)$</li>
-                    <li>(iii) $u + 0 = 0 + u = u$</li>
-                    <li>(iv) $u + (-u) = -u + u = 0$, where $-u$ denotes $(-1)u$</li>
-                    <li>(v) $c(u + v) = cu + cv$</li>
-                    <li>(vi) $(c + d)u = cu + du$</li>
-                    <li>(vii) $c(du) = (cd)u$</li>
-                    <li>(viii) $1u = u$</li>
-                </ol>
-                <p class="text-xs sm:text-sm text-slate-700">
-                    For simplicity of notation, a vector such as $u + (-1)v$ is often written as $u - v$. Figure 7 shows $u - v$ as the sum of $u$ and $-v$.
-                </p>
+                <div class="bg-white border border-teal-200/80 rounded-lg p-3.5 space-y-2.5">
+                    <p>
+                        If $n$ is a positive integer, $\mathbb{R}^{n}$ (read "r-n") denotes the collection of all lists (or ordered $n$-tuples) of $n$ real numbers, usually written as $n \times 1$ column matrices, such as
+                        $$u = \begin{bmatrix} u_{1} \\ u_{2} \\ \vdots \\ u_{n} \end{bmatrix}$$
+                        The vector whose entries are all zero is called the <strong>zero vector（零向量）</strong> and is denoted by $0$. (The number of entries in $0$ will be clear from the context.)
+                    </p>
+                    <p><strong>Algebraic Properties of $\mathbb{R}^{n}$（$\mathbb{R}^{n}$ 的代數性質）</strong> — For all $u, v, w$ in $\mathbb{R}^{n}$ and all scalars $c$ and $d$:</p>
+                    <ol class="list-decimal pl-5 space-y-1">
+                        <li>(i) $u + v = v + u$</li>
+                        <li>(ii) $(u + v) + w = u + (v + w)$</li>
+                        <li>(iii) $u + 0 = 0 + u = u$</li>
+                        <li>(iv) $u + (-u) = -u + u = 0$, where $-u$ denotes $(-1)u$</li>
+                        <li>(v) $c(u + v) = cu + cv$</li>
+                        <li>(vi) $(c + d)u = cu + du$</li>
+                        <li>(vii) $c(du) = (cd)u$</li>
+                        <li>(viii) $1u = u$</li>
+                    </ol>
+                    <p>
+                        For simplicity of notation, a vector such as $u + (-1)v$ is often written as $u - v$. Figure 7 shows $u - v$ as the sum of $u$ and $-v$.
+                    </p>
+                </div>
             </div>
             <img src="png/MATH1001/fig1-3-7.png" alt="Vector subtraction" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
         </div>
     
         <!-- 2. Linear Combinations & Example 4 -->
         <div class="space-y-3">
-            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <h4 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
                 <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
                 2. Linear Combinations（線性組合）
             </h4>
             <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2 text-sm text-slate-800 leading-relaxed">
                 <div class="font-bold text-teal-950 text-base">LINEAR COMBINATIONS（線性組合）</div>
-                <p>
-                    Given vectors $v_{1}, v_{2}, \dots, v_{p}$ in $\mathbb{R}^{n}$ and given scalars $c_{1}, c_{2}, \dots, c_{p}$, the vector $y$ defined by
-                    $$y = c_{1}v_{1} + \cdots + c_{p}v_{p}$$
-                    is called a <strong>linear combination（線性組合）</strong> of $v_{1}, \dots, v_{p}$ with <strong>weights（權重）</strong> $c_{1}, \dots, c_{p}$. Property (ii) above permits us to omit parentheses when forming such a linear combination. The weights in a linear combination can be any real numbers, including zero. For example, some linear combinations of vectors $v_{1}$ and $v_{2}$ are
-                    $$\sqrt{3}v_{1} + v_{2}, \quad \frac{1}{2}v_{1}\;\left(=\frac{1}{2}v_{1} + 0v_{2}\right), \quad \text{and}\quad 0\;\left(=0v_{1} + 0v_{2}\right)$$
-                </p>
+                <div class="bg-white border border-teal-200/80 rounded-lg p-3.5">
+                    <p>
+                        Given vectors $v_{1}, v_{2}, \dots, v_{p}$ in $\mathbb{R}^{n}$ and given scalars $c_{1}, c_{2}, \dots, c_{p}$, the vector $y$ defined by
+                        $$y = c_{1}v_{1} + \cdots + c_{p}v_{p}$$
+                        is called a <strong>linear combination（線性組合）</strong> of $v_{1}, \dots, v_{p}$ with <strong>weights（權重）</strong> $c_{1}, \dots, c_{p}$. Property (ii) above permits us to omit parentheses when forming such a linear combination. The weights in a linear combination can be any real numbers, including zero. For example, some linear combinations of vectors $v_{1}$ and $v_{2}$ are
+                        $$\sqrt{3}v_{1} + v_{2}, \quad \frac{1}{2}v_{1}\;\left(=\frac{1}{2}v_{1} + 0v_{2}\right), \quad \text{and}\quad 0\;\left(=0v_{1} + 0v_{2}\right)$$
+                    </p>
+                </div>
             </div>
     
             <!-- Collapsible EXAMPLE 4 -->
@@ -1166,7 +1178,7 @@
     
         <!-- 3. Vector Equations & Example 5 -->
         <div class="space-y-3">
-            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <h4 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
                 <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
                 3. Vector Equations（向量方程）
             </h4>
@@ -1214,18 +1226,20 @@
     
         <!-- 4. Span, Geometric Description & Example 6 -->
         <div class="space-y-3">
-            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <h4 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
                 <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
                 4. Span &amp; Geometric Description（生成集 $\mathrm{Span}$ 與幾何描述）
             </h4>
     
             <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2 text-sm text-slate-800 leading-relaxed">
                 <div class="font-bold text-teal-950 text-base">DEFINITION — Span（定義：生成集合）</div>
-                <p>
-                    If $v_{1}, \dots, v_{p}$ are in $\mathbb{R}^{n}$, then the set of all linear combinations of $v_{1}, \dots, v_{p}$ is denoted by $\mathrm{Span}\{v_{1}, \dots, v_{p}\}$ and is called the subset of $\mathbb{R}^{n}$ <strong>spanned（生成）</strong> (or <strong>generated</strong>) by $v_{1}, \dots, v_{p}$. That is, $\mathrm{Span}\{v_{1}, \dots, v_{p}\}$ is the collection of all vectors that can be written in the form
-                    $$c_{1}v_{1} + c_{2}v_{2} + \cdots + c_{p}v_{p}$$
-                    with $c_{1}, \dots, c_{p}$ scalars.
-                </p>
+                <div class="bg-white border border-teal-200/80 rounded-lg p-3.5">
+                    <p>
+                        If $v_{1}, \dots, v_{p}$ are in $\mathbb{R}^{n}$, then the set of all linear combinations of $v_{1}, \dots, v_{p}$ is denoted by $\mathrm{Span}\{v_{1}, \dots, v_{p}\}$ and is called the subset of $\mathbb{R}^{n}$ <strong>spanned（生成）</strong> (or <strong>generated</strong>) by $v_{1}, \dots, v_{p}$. That is, $\mathrm{Span}\{v_{1}, \dots, v_{p}\}$ is the collection of all vectors that can be written in the form
+                        $$c_{1}v_{1} + c_{2}v_{2} + \cdots + c_{p}v_{p}$$
+                        with $c_{1}, \dots, c_{p}$ scalars.
+                    </p>
+                </div>
             </div>
     
             <p class="text-sm text-slate-700 leading-relaxed">
