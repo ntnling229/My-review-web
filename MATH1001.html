@@ -998,276 +998,263 @@
         </div>
     </section>
 
-    <!-- ============================================================== -->
-    <!-- SECTION 1.3: VECTOR EQUATIONS                                  -->
-    <!-- ============================================================== -->
-    <section id="sec1-3" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
-        <div class="border-b border-slate-200 pb-4 flex flex-wrap items-center justify-between gap-2">
-            <div class="flex items-center gap-3">
-                <span class="px-3 py-1.5 rounded-xl bg-teal-100 text-teal-900 text-xl md:text-2xl font-extrabold tracking-tight">§ 1.3</span>
-                <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight">VECTOR EQUATIONS (向量方程)</h3>
-            </div>
-            <span class="text-xs text-slate-500 font-mono">Slides 76–107 (Ch-1-3.pdf)</span>
+    <!-- SECTION 1.3: VECTOR EQUATIONS -->
+    <section class="space-y-6">
+        <div class="border-b border-teal-200 pb-2">
+            <h3 class="text-xl font-bold text-teal-950">1.3 VECTOR EQUATIONS（向量方程）</h3>
         </div>
-
+    
         <!-- 1. Vectors in R^2, R^3, R^n & Algebraic Properties -->
         <div class="space-y-3">
             <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
                 <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
-                1. Vectors in $\mathbb{R}^{2}$, $\mathbb{R}^{3}$, $\mathbb{R}^{n}$ &amp; Algebraic Properties (向量空間 $\mathbb{R}^n$、向量運算與代數性質)
+                1. Vectors in $\mathbb{R}^{2}$, $\mathbb{R}^{3}$, $\mathbb{R}^{n}$ &amp; Algebraic Properties（$\mathbb{R}^{2}$、$\mathbb{R}^{3}$、$\mathbb{R}^{n}$ 中的向量與代數性質）
             </h4>
             <p class="text-sm text-slate-700 leading-relaxed">
-                Until Chapter 4 ("Vector Spaces"), <strong>vector（向量）</strong> will mean an ordered list of numbers. A matrix with only one column is called a <strong>column vector（行向量）</strong>, or simply a <strong>vector</strong>. The set of all vectors with two entries is denoted by $\mathbb{R}^{2}$ (read "r-two"), where $\mathbb{R}$ stands for the real numbers and the exponent $2$ indicates two entries. Two vectors in $\mathbb{R}^{2}$ are equal if and only if their corresponding entries are equal.
+                Important properties of linear systems can be described with the concept and notation of <strong>vectors（向量）</strong>. This section connects equations involving vectors to ordinary systems of equations. The term vector appears in a variety of mathematical and physical contexts, which we will discuss in Chapter 4, "Vector Spaces." Until then, vector will mean an ordered list of numbers. This simple idea enables us to get to interesting and important applications as quickly as possible.
             </p>
-            <p class="text-sm text-slate-700 leading-relaxed">
-                Given two vectors $u$ and $v$ in $\mathbb{R}^{2}$, their <strong>sum（和）</strong> $u+v$ is obtained by adding corresponding entries of $u$ and $v$. Given a vector $u$ and a real number $c$, the <strong>scalar multiple（純量倍數）</strong> of $u$ by $c$ is the vector $cu$ obtained by multiplying each entry in $u$ by $c$. The number $c$ in $cu$ is called a <strong>scalar（純量）</strong>. Also, a column vector such as $\begin{bmatrix} 3 \\ -1 \end{bmatrix}$ may sometimes be written as $(3, -1)$, which is distinct from the $1\times 2$ row matrix $\begin{bmatrix} 3 & -1 \end{bmatrix}$.
-            </p>
-            <p class="text-sm text-slate-700 leading-relaxed">
-                If $n$ is a positive integer, $\mathbb{R}^{n}$ (read "r-n") denotes the collection of all lists (or <strong>ordered $n$-tuples 有序 $n$ 元組</strong>) of $n$ real numbers, usually written as $n\times 1$ column matrices. The vector whose entries are all zero is called the <strong>zero vector（零向量）</strong> and is denoted by $0$. For simplicity of notation, $u+(-1)v$ is often written as $u-v$.
-            </p>
-
-            <!-- Collapsible EXAMPLE 1, EXAMPLE 2, EXAMPLE 3 -->
+    
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-3 text-sm text-slate-800 leading-relaxed">
+                <div class="font-bold text-teal-950 text-base">VECTORS IN $\mathbb{R}^{2}$、VECTOR ADDITION &amp; SCALAR MULTIPLICATION（$\mathbb{R}^{2}$ 中的向量、向量加法與純量乘法）</div>
+                <p>
+                    A matrix with only one column is called a <strong>column vector（列向量）</strong>, or simply a <strong>vector（向量）</strong>. Examples of vectors with two entries are
+                    $$u = \begin{bmatrix} 3 \\ -1 \end{bmatrix}, \quad v = \begin{bmatrix} .2 \\ .3 \end{bmatrix}, \quad w = \begin{bmatrix} w_{1} \\ w_{2} \end{bmatrix}$$
+                    where $w_{1}$ and $w_{2}$ are any real numbers. The set of all vectors with two entries is denoted by $\mathbb{R}^{2}$ (read "r-two"). The $\mathbb{R}$ stands for the real numbers that appear as entries in the vectors, and the exponent $2$ indicates that each vector contains two entries.
+                </p>
+                <p>
+                    Two vectors in $\mathbb{R}^{2}$ are equal if and only if their corresponding entries are equal. Thus $\begin{bmatrix} 4 \\ 7 \end{bmatrix}$ and $\begin{bmatrix} 7 \\ 4 \end{bmatrix}$ are not equal, because vectors in $\mathbb{R}^{2}$ are ordered pairs of real numbers.
+                </p>
+                <p>
+                    Given two vectors $u$ and $v$ in $\mathbb{R}^{2}$, their <strong>sum（和）</strong> is the vector $u + v$ obtained by adding corresponding entries of $u$ and $v$. For example,
+                    $$\begin{bmatrix} 1 \\ -2 \end{bmatrix} + \begin{bmatrix} 2 \\ 5 \end{bmatrix} = \begin{bmatrix} 1+2 \\ -2+5 \end{bmatrix} = \begin{bmatrix} 3 \\ 3 \end{bmatrix}$$
+                    Given a vector $u$ and a real number $c$, the <strong>scalar multiple（純量積／純量倍）</strong> of $u$ by $c$ is the vector $cu$ obtained by multiplying each entry in $u$ by $c$. For instance, if $u = \begin{bmatrix} 3 \\ -1 \end{bmatrix}$ and $c = 5$, then
+                    $$cu = 5\begin{bmatrix} 3 \\ -1 \end{bmatrix} = \begin{bmatrix} 15 \\ -5 \end{bmatrix}$$
+                    The number $c$ in $cu$ is called a <strong>scalar（純量）</strong>; it is written in lightface type to distinguish it from the boldface vector $u$.
+                </p>
+                <p class="text-xs sm:text-sm text-slate-700">
+                    Sometimes, for convenience (and also to save space), this text may write a column vector such as $\begin{bmatrix} 3 \\ -1 \end{bmatrix}$ in the form $(3, -1)$. In this case, the parentheses and the comma distinguish the vector $(3, -1)$ from the $1 \times 2$ row matrix $\begin{bmatrix} 3 & -1 \end{bmatrix}$, written with brackets and no comma. Thus
+                    $$\begin{bmatrix} 3 \\ -1 \end{bmatrix} \ne \begin{bmatrix} 3 & -1 \end{bmatrix}$$
+                    because the matrices have different shapes, even though they have the same entries.
+                </p>
+            </div>
+    
+            <!-- Collapsible EXAMPLE 1 -->
             <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
                 <button onclick="toggleCard('ex1-3-1')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
-                    <span>EXAMPLE 1, EXAMPLE 2 &amp; EXAMPLE 3（向量線性組合計算、平行四邊形和與純量倍數向量）</span>
+                    <span>EXAMPLE 1（範例 1：計算 $4u$、$(-3)v$ 與 $4u + (-3)v$）</span>
                     <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
                 </button>
-                <div id="ex1-3-1" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2 bg-white leading-relaxed">
-                    <p><strong>EXAMPLE 1:</strong> For $u=\begin{bmatrix} 1 \\ -2 \end{bmatrix}$ and $v=\begin{bmatrix} 2 \\ -5 \end{bmatrix}$, $4u=\begin{bmatrix} 4 \\ -8 \end{bmatrix}$, $(-3)v=\begin{bmatrix} -6 \\ 15 \end{bmatrix}$, and $4u+(-3)v=\begin{bmatrix} -2 \\ 7 \end{bmatrix}$.</p>
-                    <p><strong>EXAMPLE 2:</strong> For $u=\begin{bmatrix} 2 \\ 2 \end{bmatrix}$ and $v=\begin{bmatrix} -6 \\ 1 \end{bmatrix}$, $u+v=\begin{bmatrix} -4 \\ 3 \end{bmatrix}$.</p>
-                    <p><strong>EXAMPLE 3:</strong> For $u=\begin{bmatrix} 3 \\ -1 \end{bmatrix}$, $2u=\begin{bmatrix} 6 \\ -2 \end{bmatrix}$ (twice as long, same direction) and $-\frac{2}{3}u=\begin{bmatrix} -2 \\ 2/3 \end{bmatrix}$ (two-thirds the length, opposite direction). In general, the length of the arrow for $cu$ is $|c|$ times the length of the arrow for $u$ (where length of $(a,b)$ is $\sqrt{a^2+b^2}$).</p>
+                <div id="ex1-3-1" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 1</strong> Given $u = \begin{bmatrix} 1 \\ -2 \end{bmatrix}$ and $v = \begin{bmatrix} 2 \\ -5 \end{bmatrix}$, find $4u$, $(-3)v$, and $4u + (-3)v$.</p>
+                    <p><strong>SOLUTION:</strong>
+                        $$4u = \begin{bmatrix} 4 \\ -8 \end{bmatrix}, \quad (-3)v = \begin{bmatrix} -6 \\ 15 \end{bmatrix}$$
+                        and
+                        $$4u + (-3)v = \begin{bmatrix} 4 \\ -8 \end{bmatrix} + \begin{bmatrix} -6 \\ 15 \end{bmatrix} = \begin{bmatrix} -2 \\ 7 \end{bmatrix}$$
+                    </p>
                 </div>
             </div>
-
-            <!-- Algebraic Properties of R^n -->
-            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2.5">
-                <div class="font-bold text-teal-950 text-base">ALGEBRAIC PROPERTIES OF $\mathbb{R}^{n}$（$\mathbb{R}^n$ 的代數性質）</div>
-                <p class="text-xs sm:text-sm text-slate-700">For all $u, v, w$ in $\mathbb{R}^{n}$ and all scalars $c$ and $d$:</p>
-                <div class="grid sm:grid-cols-2 gap-2 text-xs sm:text-sm font-mono text-slate-900 bg-white p-3.5 rounded-lg border border-teal-100">
-                    <div>(i) $u + v = v + u$</div>
-                    <div>(v) $c(u + v) = cu + cv$</div>
-                    <div>(ii) $(u + v) + w = u + (v + w)$</div>
-                    <div>(vi) $(c + d)u = cu + du$</div>
-                    <div>(iii) $u + 0 = 0 + u = u$</div>
-                    <div>(vii) $c(du) = (cd)u$</div>
-                    <div>(iv) $u + (-u) = -u + u = 0$, where $-u$ denotes $(-1)u$</div>
-                    <div>(viii) $1u = u$</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 2. Geometric SVGs: Parallelogram Rule, Scalar Multiples & Vector Subtraction -->
-        <div class="space-y-3">
-            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
-                2. Geometric Descriptions: Parallelogram Rule, Scalar Multiples &amp; Vector Subtraction (平行四邊形法則、純量倍數與向量減法圖示)
-            </h4>
+    
             <p class="text-sm text-slate-700 leading-relaxed">
-                <strong>Parallelogram Rule for Addition（加法平行四邊形法則）:</strong> If $u$ and $v$ in $\mathbb{R}^{2}$ are represented as points in the plane, then $u+v$ corresponds to the fourth vertex of the parallelogram whose other vertices are $u$, $0$, and $v$.
+                <strong class="text-base font-bold text-slate-900">Geometric Descriptions of $\mathbb{R}^{2}$（$\mathbb{R}^{2}$ 的幾何描述）</strong> — Consider a rectangular coordinate system in the plane. Because each point in the plane is determined by an ordered pair of numbers, we can identify a geometric point $(a, b)$ with the column vector $\begin{bmatrix} a \\ b \end{bmatrix}$. So we may regard $\mathbb{R}^{2}$ as the set of all points in the plane. See Figure 1.
             </p>
-
-            <!-- SVG Figures 1–7 in R^2 & R^3 -->
-            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-4">
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <!-- Parallelogram Rule (Figure 3 / 4) -->
-                    <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
-                        <svg viewBox="0 0 220 165" class="w-full max-w-[220px] h-auto" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <marker id="vArr1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
-                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
-                                </marker>
-                                <marker id="ax13a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
-                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155" />
-                                </marker>
-                            </defs>
-                            <!-- Origin at (95, 125) -->
-                            <line x1="15" y1="125" x2="205" y2="125" stroke="#334155" stroke-width="1.2" marker-end="url(#ax13a)" />
-                            <line x1="95" y1="155" x2="95" y2="12" stroke="#334155" stroke-width="1.2" marker-end="url(#ax13a)" />
-                            <!-- Parallelogram 0=(95,125), u=(145,75), u+v=(75,45), v=(25,95) -->
-                            <polygon points="95,125 145,75 75,45 25,95" fill="#bae6fd" fill-opacity="0.55" stroke="#0284c7" stroke-width="1.2" stroke-dasharray="3,2" />
-                            <line x1="95" y1="125" x2="145" y2="75" stroke="#0284c7" stroke-width="1.8" marker-end="url(#vArr1)" />
-                            <line x1="95" y1="125" x2="25" y2="95" stroke="#0284c7" stroke-width="1.8" marker-end="url(#vArr1)" />
-                            <line x1="95" y1="125" x2="75" y2="45" stroke="#0d9488" stroke-width="2" marker-end="url(#vArr1)" />
-                            <text x="100" y="138" font-size="12" font-family="serif">0</text>
-                            <text x="150" y="72" font-size="12.5" font-weight="bold" font-family="serif">u</text>
-                            <text x="14" y="92" font-size="12.5" font-weight="bold" font-family="serif">v</text>
-                            <text x="52" y="38" font-size="12.5" font-weight="bold" font-family="serif">u + v</text>
-                        </svg>
-                        <div class="text-xs text-slate-600 font-medium">FIGURE 3 Parallelogram rule</div>
-                    </div>
-
-                    <!-- Scalar multiples & set of all multiples (Figure 5) -->
-                    <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
-                        <svg viewBox="0 0 220 165" class="w-full max-w-[220px] h-auto" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <marker id="vArr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
-                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
-                                </marker>
-                                <marker id="ax13b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
-                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155" />
-                                </marker>
-                            </defs>
-                            <!-- Origin at (95, 85) -->
-                            <line x1="15" y1="85" x2="205" y2="85" stroke="#334155" stroke-width="1.2" marker-end="url(#ax13b)" />
-                            <line x1="95" y1="155" x2="95" y2="12" stroke="#334155" stroke-width="1.2" marker-end="url(#ax13b)" />
-                            <!-- Line of all multiples through origin -->
-                            <line x1="20" y1="135" x2="195" y2="18" stroke="#0d9488" stroke-width="1.4" stroke-dasharray="4,2" />
-                            <!-- u=(125,65), 2u=(155,45), -2/3 u=(75,98) -->
-                            <line x1="95" y1="85" x2="125" y2="65" stroke="#0284c7" stroke-width="1.8" marker-end="url(#vArr2)" />
-                            <line x1="95" y1="85" x2="155" y2="45" stroke="#0284c7" stroke-width="1.8" marker-end="url(#vArr2)" />
-                            <line x1="95" y1="85" x2="75" y2="98" stroke="#d97706" stroke-width="1.8" marker-end="url(#vArr2)" />
-                            <text x="128" y="75" font-size="12" font-weight="bold" font-family="serif">u</text>
-                            <text x="160" y="42" font-size="12" font-weight="bold" font-family="serif">2u</text>
-                            <text x="34" y="108" font-size="12" font-weight="bold" font-family="serif">−(2/3)u</text>
-                        </svg>
-                        <div class="text-xs text-slate-600 font-medium">FIGURE 5 Scalar multiples &amp; line</div>
-                    </div>
-
-                    <!-- Vector subtraction u - v (Figure 7) -->
-                    <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
-                        <svg viewBox="0 0 220 165" class="w-full max-w-[220px] h-auto" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <marker id="vArr3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
-                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
-                                </marker>
-                                <marker id="ax13c" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
-                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155" />
-                                </marker>
-                            </defs>
-                            <!-- Origin at (95, 115) -->
-                            <line x1="15" y1="115" x2="205" y2="115" stroke="#334155" stroke-width="1.2" marker-end="url(#ax13c)" />
-                            <line x1="95" y1="155" x2="95" y2="12" stroke="#334155" stroke-width="1.2" marker-end="url(#ax13c)" />
-                            <!-- u=(155, 60), v=(125, 130), -v=(65, 100), u-v=(125, 30) -->
-                            <polygon points="95,115 155,60 125,30 65,100" fill="#bae6fd" fill-opacity="0.5" stroke="#0284c7" stroke-width="1.1" stroke-dasharray="3,2" />
-                            <line x1="95" y1="115" x2="155" y2="60" stroke="#0284c7" stroke-width="1.8" marker-end="url(#vArr3)" />
-                            <line x1="95" y1="115" x2="125" y2="130" stroke="#64748b" stroke-width="1.6" marker-end="url(#vArr3)" />
-                            <line x1="95" y1="115" x2="65" y2="100" stroke="#d97706" stroke-width="1.6" marker-end="url(#vArr3)" />
-                            <line x1="95" y1="115" x2="125" y2="30" stroke="#0d9488" stroke-width="2" marker-end="url(#vArr3)" />
-                            <text x="160" y="58" font-size="12" font-weight="bold" font-family="serif">u</text>
-                            <text x="130" y="142" font-size="12" font-weight="bold" font-family="serif">v</text>
-                            <text x="44" y="96" font-size="12" font-weight="bold" font-family="serif">−v</text>
-                            <text x="130" y="26" font-size="12" font-weight="bold" font-family="serif">u − v</text>
-                        </svg>
-                        <div class="text-xs text-slate-600 font-medium">FIGURE 7 Vector subtraction</div>
-                    </div>
-                </div>
-
-                <!-- R^3 scalar multiple Figure 6 -->
-                <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
-                    <svg viewBox="0 0 240 155" class="w-full max-w-[240px] h-auto" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <marker id="vArr3d" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
-                                <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
-                            </marker>
-                            <marker id="ax13d" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
-                                <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155" />
-                            </marker>
-                        </defs>
-                        <!-- Origin at (115, 95) -->
-                        <line x1="115" y1="95" x2="115" y2="14" stroke="#334155" stroke-width="1.3" marker-end="url(#ax13d)" />
-                        <line x1="115" y1="95" x2="225" y2="112" stroke="#334155" stroke-width="1.3" marker-end="url(#ax13d)" />
-                        <line x1="115" y1="95" x2="35" y2="145" stroke="#334155" stroke-width="1.3" marker-end="url(#ax13d)" />
-                        <line x1="115" y1="95" x2="145" y2="62" stroke="#0284c7" stroke-width="1.8" marker-end="url(#vArr3d)" />
-                        <line x1="115" y1="95" x2="175" y2="29" stroke="#0d9488" stroke-width="2" marker-end="url(#vArr3d)" />
-                        <text x="150" y="60" font-size="12.5" font-weight="bold" font-family="serif">a</text>
-                        <text x="180" y="26" font-size="12.5" font-weight="bold" font-family="serif">2a</text>
-                        <text x="122" y="18" font-size="12" font-style="italic" font-family="serif">x<tspan dy="3" font-size="9">3</tspan></text>
-                        <text x="227" y="118" font-size="12" font-style="italic" font-family="serif">x<tspan dy="3" font-size="9">2</tspan></text>
-                        <text x="20" y="152" font-size="12" font-style="italic" font-family="serif">x<tspan dy="3" font-size="9">1</tspan></text>
-                    </svg>
-                    <div class="text-xs text-slate-600 font-medium">FIGURE 6 Scalar multiples in $\mathbb{R}^3$</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 3. Linear Combinations & Span{v_1, ..., v_p} -->
-        <div class="space-y-3">
-            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
-                3. Linear Combinations &amp; $\operatorname{Span}\{v_{1},\dots,v_{p}\}$ (線性組合與生成集 $\operatorname{Span}\{v_{1},\dots,v_{p}\}$)
-            </h4>
+            <img src="png/MATH1001/fig1-3-1.png" alt="Vectors as points" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
             <p class="text-sm text-slate-700 leading-relaxed">
-                Given vectors $v_{1},v_{2},\dots,v_{p}$ in $\mathbb{R}^{n}$ and given scalars $c_{1},c_{2},\dots,c_{p}$, the vector $y$ defined by
-                $$y = c_{1}v_{1} + \cdots + c_{p}v_{p}$$
-                is called a <strong>linear combination（線性組合）</strong> of $v_{1},\dots,v_{p}$ with <strong>weights（權重）</strong> $c_{1},\dots,c_{p}$. Property (ii) permits us to omit parentheses when forming such a linear combination. The weights in a linear combination can be any real numbers, including zero.
+                The geometric visualization of a vector such as $\begin{bmatrix} 3 \\ -1 \end{bmatrix}$ is often aided by including an arrow (directed line segment) from the origin $(0, 0)$ to the point $(3, -1)$, as in Figure 2. In this case, the individual points along the arrow itself have no special significance.
             </p>
-
+            <img src="png/MATH1001/fig1-3-2.png" alt="Vectors with arrows" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+    
             <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2 text-sm text-slate-800 leading-relaxed">
-                <div class="font-bold text-teal-950 text-base">DEFINITION — $\operatorname{Span}\{v_{1},\dots,v_{p}\}$（定義：生成空間／張成集合）</div>
+                <div class="font-bold text-teal-950 text-base">PARALLELOGRAM RULE FOR ADDITION（加法平行四邊形法則）</div>
                 <p>
-                    If $v_{1},\dots,v_{p}$ are in $\mathbb{R}^{n}$, then the set of all linear combinations of $v_{1},\dots,v_{p}$ is denoted by $\operatorname{Span}\{v_{1},\dots,v_{p}\}$ and is called the subset of $\mathbb{R}^{n}$ <strong>spanned (or generated) by $v_{1},\dots,v_{p}$（由 $v_{1},\dots,v_{p}$ 生成／張成）</strong>. That is, $\operatorname{Span}\{v_{1},\dots,v_{p}\}$ is the collection of all vectors that can be written in the form
-                    $$c_{1}v_{1} + c_{2}v_{2} + \cdots + c_{p}v_{p}$$
-                    with $c_{1},\dots,c_{p}$ scalars.
-                </p>
-                <p class="text-xs sm:text-sm text-slate-700">
-                    A vector equation $x_{1}a_{1}+x_{2}a_{2}+\cdots+x_{n}a_{n}=b$ has the same solution set as the linear system whose augmented matrix is $\begin{bmatrix} a_{1} & a_{2} & \cdots & a_{n} & b \end{bmatrix}$ (5). Asking whether a vector $b$ is in $\operatorname{Span}\{v_{1},\dots,v_{p}\}$ amounts to asking whether $x_{1}v_{1}+\cdots+x_{p}v_{p}=b$ has a solution. Note that $\operatorname{Span}\{v_{1},\dots,v_{p}\}$ contains every scalar multiple of $v_{1}$ (e.g., $cv_{1}=cv_{1}+0v_{2}+\cdots+0v_{p}$), and in particular the zero vector must be in $\operatorname{Span}\{v_{1},\dots,v_{p}\}$.
-                </p>
-                <p class="text-xs sm:text-sm text-slate-700">
-                    <strong>Geometric Description of $\operatorname{Span}\{v\}$ and $\operatorname{Span}\{u, v\}$:</strong> Let $v$ be a nonzero vector in $\mathbb{R}^{3}$. Then $\operatorname{Span}\{v\}$ is the set of all scalar multiples of $v$, which is the set of points on the line in $\mathbb{R}^{3}$ through $v$ and $0$ (Figure 10). If $u$ and $v$ are nonzero vectors in $\mathbb{R}^{3}$, with $v$ not a multiple of $u$, then $\operatorname{Span}\{u,v\}$ is the plane in $\mathbb{R}^{3}$ that contains $u$, $v$, and $0$ (Figure 11).
+                    If $u$ and $v$ in $\mathbb{R}^{2}$ are represented as points in the plane, then $u + v$ corresponds to the fourth vertex of the parallelogram whose other vertices are $u$, $0$, and $v$. See Figure 3.
                 </p>
             </div>
-
-            <!-- SVG Figures 10 & 11: Span{v} line & Span{u, v} plane -->
-            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-2">
-                <p class="text-xs font-semibold text-slate-600">FIGURE 10 &amp; FIGURE 11（$\operatorname{Span}\{v\}$ 為過原點直線；$\operatorname{Span}\{u,v\}$ 為過原點平面）</p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
-                        <svg viewBox="0 0 240 165" class="w-full max-w-[240px] h-auto" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <marker id="ax10" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
-                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155" />
-                                </marker>
-                            </defs>
-                            <line x1="115" y1="95" x2="115" y2="14" stroke="#334155" stroke-width="1.2" marker-end="url(#ax10)" />
-                            <line x1="115" y1="95" x2="225" y2="112" stroke="#334155" stroke-width="1.2" marker-end="url(#ax10)" />
-                            <line x1="115" y1="95" x2="35" y2="145" stroke="#334155" stroke-width="1.2" marker-end="url(#ax10)" />
-                            <line x1="45" y1="145" x2="195" y2="30" stroke="#0d9488" stroke-width="2" />
-                            <circle cx="155" cy="61" r="3.6" fill="#0284c7" />
-                            <text x="163" y="63" font-size="12.5" font-weight="bold" font-family="serif">v</text>
-                            <text x="155" y="34" font-size="12" font-weight="bold" font-family="serif" fill="#0f766e">Span{v}</text>
-                        </svg>
-                        <div class="text-xs text-slate-600 font-medium">FIGURE 10 Span{v} as a line through the origin</div>
-                    </div>
-
-                    <div class="bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col items-center">
-                        <svg viewBox="0 0 240 165" class="w-full max-w-[240px] h-auto" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <marker id="ax11p" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
-                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155" />
-                                </marker>
-                            </defs>
-                            <polygon points="45,88 155,32 205,98 95,154" fill="#bae6fd" fill-opacity="0.65" stroke="#0284c7" stroke-width="1.2" />
-                            <line x1="115" y1="95" x2="115" y2="14" stroke="#334155" stroke-width="1.2" marker-end="url(#ax11p)" />
-                            <line x1="115" y1="95" x2="225" y2="112" stroke="#334155" stroke-width="1.2" marker-end="url(#ax11p)" />
-                            <line x1="115" y1="95" x2="35" y2="145" stroke="#334155" stroke-width="1.2" marker-end="url(#ax11p)" />
-                            <circle cx="145" cy="70" r="3.4" fill="#0284c7" />
-                            <circle cx="165" cy="95" r="3.4" fill="#0284c7" />
-                            <circle cx="195" cy="82" r="3.4" fill="#0d9488" />
-                            <text x="148" y="65" font-size="12" font-weight="bold" font-family="serif">u</text>
-                            <text x="168" y="106" font-size="12" font-weight="bold" font-family="serif">v</text>
-                            <text x="198" y="76" font-size="11.5" font-weight="bold" font-family="serif">u+v</text>
-                            <text x="58" y="76" font-size="12" font-weight="bold" font-family="serif" fill="#0369a1">Span{u, v}</text>
-                        </svg>
-                        <div class="text-xs text-slate-600 font-medium">FIGURE 11 Span{u, v} as a plane through the origin</div>
+            <img src="png/MATH1001/fig1-3-3.png" alt="The parallelogram rule" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+    
+            <!-- Collapsible EXAMPLE 2 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-3-2')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 2（範例 2：平行四邊形法則圖示 $u, v, u+v$）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-3-2" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 2</strong> The vectors $u = \begin{bmatrix} 2 \\ 2 \end{bmatrix}$ and $v = \begin{bmatrix} -6 \\ 1 \end{bmatrix}$ and $u + v = \begin{bmatrix} -4 \\ 3 \end{bmatrix}$ are displayed in Figure 4.</p>
+                    <img src="png/MATH1001/fig1-3-4.png" alt="Example 2 parallelogram rule" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+                </div>
+            </div>
+    
+            <!-- Collapsible EXAMPLE 3 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-3-3')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 3（範例 3：純量倍 $u$、$2u$、$-\frac{2}{3}u$ 與所有純量倍的直線圖示）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-3-3" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 3</strong> Let $u = \begin{bmatrix} 3 \\ -1 \end{bmatrix}$. Display the vectors $u$, $2u$, and $-\frac{2}{3}u$ on a graph.</p>
+                    <p><strong>SOLUTION:</strong> See Figure 5, where $u$, $2u = \begin{bmatrix} 6 \\ -2 \end{bmatrix}$, and $-\frac{2}{3}u = \begin{bmatrix} -2 \\ 2/3 \end{bmatrix}$ are displayed. The arrow for $2u$ is twice as long as the arrow for $u$, and the arrows point in the same direction. The arrow for $-\frac{2}{3}u$ is two-thirds the length of the arrow for $u$, and the arrows point in opposite directions. In general, the length of the arrow for $cu$ is $|c|$ times the length of the arrow for $u$. [Recall that the length of the line segment from $(0, 0)$ to $(a, b)$ is $\sqrt{a^{2}+b^{2}}$. We shall discuss this further in Chapter 6.]</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center justify-items-center my-2">
+                        <img src="png/MATH1001/fig1-3-5a.png" alt="Typical multiples of u" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+                        <img src="png/MATH1001/fig1-3-5b.png" alt="The set of all multiples of u" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
                     </div>
                 </div>
             </div>
-
-            <!-- Collapsible EXAMPLE 4, EXAMPLE 5 & EXAMPLE 6 -->
+    
+            <p class="text-sm text-slate-700 leading-relaxed">
+                <strong class="text-base font-bold text-slate-900">Vectors in $\mathbb{R}^{3}$（$\mathbb{R}^{3}$ 中的向量）</strong> — Vectors in $\mathbb{R}^{3}$ are $3 \times 1$ column matrices with three entries. They are represented geometrically by points in a three-dimensional coordinate space, with arrows from the origin sometimes included for visual clarity. The vectors $a = \begin{bmatrix} 2 \\ 3 \\ 4 \end{bmatrix}$ and $2a$ are displayed in Figure 6.
+            </p>
+            <img src="png/MATH1001/fig1-3-6.png" alt="Scalar multiples in R3" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+    
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-3 text-sm text-slate-800 leading-relaxed">
+                <div class="font-bold text-teal-950 text-base">VECTORS IN $\mathbb{R}^{n}$ &amp; ALGEBRAIC PROPERTIES OF $\mathbb{R}^{n}$（$\mathbb{R}^{n}$ 中的向量與代數性質）</div>
+                <p>
+                    If $n$ is a positive integer, $\mathbb{R}^{n}$ (read "r-n") denotes the collection of all lists (or ordered $n$-tuples) of $n$ real numbers, usually written as $n \times 1$ column matrices, such as
+                    $$u = \begin{bmatrix} u_{1} \\ u_{2} \\ \vdots \\ u_{n} \end{bmatrix}$$
+                    The vector whose entries are all zero is called the <strong>zero vector（零向量）</strong> and is denoted by $0$. (The number of entries in $0$ will be clear from the context.)
+                </p>
+                <p><strong>Algebraic Properties of $\mathbb{R}^{n}$（$\mathbb{R}^{n}$ 的代數性質）</strong> — For all $u, v, w$ in $\mathbb{R}^{n}$ and all scalars $c$ and $d$:</p>
+                <ol class="list-decimal pl-5 space-y-1">
+                    <li>(i) $u + v = v + u$</li>
+                    <li>(ii) $(u + v) + w = u + (v + w)$</li>
+                    <li>(iii) $u + 0 = 0 + u = u$</li>
+                    <li>(iv) $u + (-u) = -u + u = 0$, where $-u$ denotes $(-1)u$</li>
+                    <li>(v) $c(u + v) = cu + cv$</li>
+                    <li>(vi) $(c + d)u = cu + du$</li>
+                    <li>(vii) $c(du) = (cd)u$</li>
+                    <li>(viii) $1u = u$</li>
+                </ol>
+                <p class="text-xs sm:text-sm text-slate-700">
+                    For simplicity of notation, a vector such as $u + (-1)v$ is often written as $u - v$. Figure 7 shows $u - v$ as the sum of $u$ and $-v$.
+                </p>
+            </div>
+            <img src="png/MATH1001/fig1-3-7.png" alt="Vector subtraction" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+        </div>
+    
+        <!-- 2. Linear Combinations & Example 4 -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                2. Linear Combinations（線性組合）
+            </h4>
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2 text-sm text-slate-800 leading-relaxed">
+                <div class="font-bold text-teal-950 text-base">LINEAR COMBINATIONS（線性組合）</div>
+                <p>
+                    Given vectors $v_{1}, v_{2}, \dots, v_{p}$ in $\mathbb{R}^{n}$ and given scalars $c_{1}, c_{2}, \dots, c_{p}$, the vector $y$ defined by
+                    $$y = c_{1}v_{1} + \cdots + c_{p}v_{p}$$
+                    is called a <strong>linear combination（線性組合）</strong> of $v_{1}, \dots, v_{p}$ with <strong>weights（權重）</strong> $c_{1}, \dots, c_{p}$. Property (ii) above permits us to omit parentheses when forming such a linear combination. The weights in a linear combination can be any real numbers, including zero. For example, some linear combinations of vectors $v_{1}$ and $v_{2}$ are
+                    $$\sqrt{3}v_{1} + v_{2}, \quad \frac{1}{2}v_{1}\;\left(=\frac{1}{2}v_{1} + 0v_{2}\right), \quad \text{and}\quad 0\;\left(=0v_{1} + 0v_{2}\right)$$
+                </p>
+            </div>
+    
+            <!-- Collapsible EXAMPLE 4 -->
             <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
                 <button onclick="toggleCard('ex1-3-4')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
-                    <span>EXAMPLE 4, EXAMPLE 5 &amp; EXAMPLE 6（範例 4 網格線性組合估算；範例 5 向量方程組解 $x_1=3, x_2=2$；範例 6 平面判定）</span>
+                    <span>EXAMPLE 4（範例 4：由網格圖估計生成 $u$ 與 $w$ 的線性組合）</span>
                     <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
                 </button>
                 <div id="ex1-3-4" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
-                    <p><strong>EXAMPLE 4:</strong> For $v_{1}=\begin{bmatrix} -1 \\ 1 \end{bmatrix}$ and $v_{2}=\begin{bmatrix} 2 \\ 1 \end{bmatrix}$ on the parallel grid of multiples, the parallelogram rule gives $u = 3v_{1} - 2v_{2}$, and a reasonable estimate for $w$ is $w = \frac{5}{2}v_{1} - \frac{1}{2}v_{2}$.</p>
-                    <p><strong>EXAMPLE 5:</strong> Let $a_{1}=\begin{bmatrix} 1 \\ -2 \\ -5 \end{bmatrix}$, $a_{2}=\begin{bmatrix} 2 \\ 5 \\ 6 \end{bmatrix}$, and $b=\begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix}$. Vector equation $x_{1}a_{1}+x_{2}a_{2}=b$ (1) corresponds to linear system $x_{1}+2x_{2}=7$, $-2x_{1}+5x_{2}=4$, $-5x_{1}+6x_{2}=-3$ (3). Row reducing augmented matrix $\begin{bmatrix} 1 & 2 & 7 \\ -2 & 5 & 4 \\ -5 & 6 & -3 \end{bmatrix}$:
-                        $$\sim \begin{bmatrix} 1 & 2 & 7 \\ 0 & 9 & 18 \\ 0 & 16 & 32 \end{bmatrix} \sim \begin{bmatrix} 1 & 2 & 7 \\ 0 & 1 & 2 \\ 0 & 16 & 32 \end{bmatrix} \sim \begin{bmatrix} 1 & 0 & 3 \\ 0 & 1 & 2 \\ 0 & 0 & 0 \end{bmatrix}$$
-                        Thus $x_{1}=3$ and $x_{2}=2$, so $3\begin{bmatrix} 1 \\ -2 \\ -5 \end{bmatrix} + 2\begin{bmatrix} 2 \\ 5 \\ 6 \end{bmatrix} = \begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix}$.
+                    <p><strong>EXAMPLE 4</strong> Figure 8 identifies selected linear combinations of $v_{1} = \begin{bmatrix} -1 \\ 1 \end{bmatrix}$ and $v_{2} = \begin{bmatrix} 2 \\ 1 \end{bmatrix}$. (Note that sets of parallel grid lines are drawn through integer multiples of $v_{1}$ and $v_{2}$.) Estimate the linear combinations of $v_{1}$ and $v_{2}$ that generate the vectors $u$ and $w$.</p>
+                    <img src="png/MATH1001/fig1-3-8.png" alt="Linear combinations of v1 and v2" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+                    <p><strong>SOLUTION:</strong> The parallelogram rule shows that $u$ is the sum of $3v_{1}$ and $-2v_{2}$; that is,
+                        $$u = 3v_{1} - 2v_{2}$$
+                        This expression for $u$ can be interpreted as instructions for traveling from the origin to $u$ along two straight paths. First, travel $3$ units in the $v_{1}$ direction to $3v_{1}$, and then travel $-2$ units in the $v_{2}$ direction (parallel to the line through $v_{2}$ and $0$). Next, although the vector $w$ is not on a grid line, $w$ appears to be about halfway between two pairs of grid lines, at the vertex of a parallelogram determined by $(5/2)v_{1}$ and $(-1/2)v_{2}$. (See Figure 9.) Thus a reasonable estimate for $w$ is
+                        $$w = \frac{5}{2}v_{1} - \frac{1}{2}v_{2}$$
                     </p>
-                    <p><strong>EXAMPLE 6:</strong> Let $a_{1}=\begin{bmatrix} 1 \\ -2 \\ 3 \end{bmatrix}$, $a_{2}=\begin{bmatrix} 5 \\ -13 \\ -3 \end{bmatrix}$, and $b=\begin{bmatrix} -3 \\ 8 \\ 1 \end{bmatrix}$. Row reduce $\begin{bmatrix} a_{1} & a_{2} & b \end{bmatrix} = \begin{bmatrix} 1 & 5 & -3 \\ -2 & -13 & 8 \\ 3 & -3 & 1 \end{bmatrix}$:
-                        $$\sim \begin{bmatrix} 1 & 5 & -3 \\ 0 & -3 & 2 \\ 0 & -18 & 10 \end{bmatrix} \sim \begin{bmatrix} 1 & 5 & -3 \\ 0 & -3 & 2 \\ 0 & 0 & -2 \end{bmatrix}$$
-                        The third equation $0=-2$ shows no solution, so $b$ is not in $\operatorname{Span}\{a_{1},a_{2}\}$.
+                    <img src="png/MATH1001/fig1-3-9.png" alt="Estimate for w" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+                </div>
+            </div>
+        </div>
+    
+        <!-- 3. Vector Equations & Example 5 -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                3. Vector Equations（向量方程）
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                A <strong>vector equation（向量方程）</strong>
+                $$x_{1}a_{1} + x_{2}a_{2} + \cdots + x_{n}a_{n} = b \tag{5}$$
+                has the same solution set as the linear system whose <strong>augmented matrix（增廣矩陣）</strong> is
+                $$\begin{bmatrix} a_{1} & a_{2} & \cdots & a_{n} & b \end{bmatrix}$$
+                In particular, $b$ can be generated by a linear combination of $a_{1}, \dots, a_{n}$ if and only if there exists a solution to the linear system corresponding to the matrix above.
+            </p>
+    
+            <!-- Collapsible EXAMPLE 5 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-3-5')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 5（範例 5：判斷向量 $b$ 是否為 $a_1, a_2$ 的線性組合並求權重）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-3-5" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 5</strong> Let $a_{1} = \begin{bmatrix} 1 \\ -2 \\ -5 \end{bmatrix}$, $a_{2} = \begin{bmatrix} 2 \\ 5 \\ 6 \end{bmatrix}$, and $b = \begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix}$. Determine whether $b$ can be generated (or written) as a linear combination of $a_{1}$ and $a_{2}$. That is, determine whether weights $x_{1}$ and $x_{2}$ exist such that
+                        $$x_{1}a_{1} + x_{2}a_{2} = b \tag{1}$$
+                        If vector equation (1) has a solution, find it.
+                    </p>
+                    <p><strong>SOLUTION:</strong> Use the definitions of scalar multiplication and vector addition to rewrite the vector equation
+                        $$x_{1}\begin{bmatrix} 1 \\ -2 \\ -5 \end{bmatrix} + x_{2}\begin{bmatrix} 2 \\ 5 \\ 6 \end{bmatrix} = \begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix}$$
+                        which is the same as
+                        $$\begin{bmatrix} x_{1} \\ -2x_{1} \\ -5x_{1} \end{bmatrix} + \begin{bmatrix} 2x_{2} \\ 5x_{2} \\ 6x_{2} \end{bmatrix} = \begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix} \quad \text{and} \quad \begin{bmatrix} x_{1} + 2x_{2} \\ -2x_{1} + 5x_{2} \\ -5x_{1} + 6x_{2} \end{bmatrix} = \begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix} \tag{2}$$
+                        The vectors on the left and right sides of (2) are equal if and only if their corresponding entries are both equal. That is, $x_{1}$ and $x_{2}$ make the vector equation (1) true if and only if $x_{1}$ and $x_{2}$ satisfy the system
+                        $$\begin{aligned} x_{1} + 2x_{2} &= 7 \\ -2x_{1} + 5x_{2} &= 4 \\ -5x_{1} + 6x_{2} &= -3 \end{aligned} \tag{3}$$
+                        To solve this system, row reduce the augmented matrix of the system as follows:
+                        $$\begin{bmatrix} 1 & 2 & 7 \\ -2 & 5 & 4 \\ -5 & 6 & -3 \end{bmatrix} \sim \begin{bmatrix} 1 & 2 & 7 \\ 0 & 9 & 18 \\ 0 & 16 & 32 \end{bmatrix} \sim \begin{bmatrix} 1 & 2 & 7 \\ 0 & 1 & 2 \\ 0 & 16 & 32 \end{bmatrix} \sim \begin{bmatrix} 1 & 0 & 3 \\ 0 & 1 & 2 \\ 0 & 0 & 0 \end{bmatrix}$$
+                        The solution of (3) is $x_{1} = 3$ and $x_{2} = 2$. Hence $b$ is a linear combination of $a_{1}$ and $a_{2}$, with weights $x_{1} = 3$ and $x_{2} = 2$. That is,
+                        $$3\begin{bmatrix} 1 \\ -2 \\ -5 \end{bmatrix} + 2\begin{bmatrix} 2 \\ 5 \\ 6 \end{bmatrix} = \begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix}$$
+                    </p>
+                </div>
+            </div>
+    
+            <p class="text-sm text-slate-700 leading-relaxed">
+                Observe in Example 5 that the original vectors $a_{1}$, $a_{2}$, and $b$ are the columns of the augmented matrix that we row reduced:
+                $$\begin{bmatrix} 1 & 2 & 7 \\ -2 & 5 & 4 \\ -5 & 6 & -3 \end{bmatrix}$$
+                For brevity, write this matrix in a way that identifies its columns—namely,
+                $$\begin{bmatrix} a_{1} & a_{2} & b \end{bmatrix} \tag{4}$$
+                It is clear how to write this augmented matrix immediately from vector equation (1), without going through the intermediate steps of Example 5. Take the vectors in the order in which they appear in (1) and put them into the columns of a matrix as in (4).
+            </p>
+        </div>
+    
+        <!-- 4. Span, Geometric Description & Example 6 -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                4. Span &amp; Geometric Description（生成集 $\mathrm{Span}$ 與幾何描述）
+            </h4>
+    
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2 text-sm text-slate-800 leading-relaxed">
+                <div class="font-bold text-teal-950 text-base">DEFINITION — Span（定義：生成集合）</div>
+                <p>
+                    If $v_{1}, \dots, v_{p}$ are in $\mathbb{R}^{n}$, then the set of all linear combinations of $v_{1}, \dots, v_{p}$ is denoted by $\mathrm{Span}\{v_{1}, \dots, v_{p}\}$ and is called the subset of $\mathbb{R}^{n}$ <strong>spanned（生成）</strong> (or <strong>generated</strong>) by $v_{1}, \dots, v_{p}$. That is, $\mathrm{Span}\{v_{1}, \dots, v_{p}\}$ is the collection of all vectors that can be written in the form
+                    $$c_{1}v_{1} + c_{2}v_{2} + \cdots + c_{p}v_{p}$$
+                    with $c_{1}, \dots, c_{p}$ scalars.
+                </p>
+            </div>
+    
+            <p class="text-sm text-slate-700 leading-relaxed">
+                Asking whether a vector $b$ is in $\mathrm{Span}\{v_{1}, \dots, v_{p}\}$ amounts to asking whether the vector equation
+                $$x_{1}v_{1} + x_{2}v_{2} + \cdots + x_{p}v_{p} = b$$
+                has a solution, or, equivalently, asking whether the linear system with augmented matrix $\begin{bmatrix} v_{1} & \cdots & v_{p} & b \end{bmatrix}$ has a solution. Note that $\mathrm{Span}\{v_{1}, \dots, v_{p}\}$ contains every scalar multiple of $v_{1}$ (for example), since $cv_{1} = cv_{1} + 0v_{2} + \cdots + 0v_{p}$. In particular, the <strong>zero vector（零向量）</strong> must be in $\mathrm{Span}\{v_{1}, \dots, v_{p}\}$.
+            </p>
+    
+            <p class="text-sm text-slate-700 leading-relaxed">
+                <strong class="text-base font-bold text-slate-900">A Geometric Description of $\mathrm{Span}\{v\}$ and $\mathrm{Span}\{u, v\}$（$\mathrm{Span}\{v\}$ 與 $\mathrm{Span}\{u, v\}$ 的幾何描述）</strong> — Let $v$ be a nonzero vector in $\mathbb{R}^{3}$. Then $\mathrm{Span}\{v\}$ is the set of all scalar multiples of $v$, which is the set of points on the line in $\mathbb{R}^{3}$ through $v$ and $0$. See Figure 10.
+                If $u$ and $v$ are nonzero vectors in $\mathbb{R}^{3}$, with $v$ not a multiple of $u$, then $\mathrm{Span}\{u, v\}$ is the plane in $\mathbb{R}^{3}$ that contains $u$, $v$, and $0$. In particular, $\mathrm{Span}\{u, v\}$ contains the line in $\mathbb{R}^{3}$ through $u$ and $0$ and the line through $v$ and $0$. See Figure 11.
+            </p>
+    
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center justify-items-center my-2">
+                <img src="png/MATH1001/fig1-3-10.png" alt="Span{v} as a line through the origin" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+                <img src="png/MATH1001/fig1-3-11.png" alt="Span{u,v} as a plane through the origin" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+            </div>
+    
+            <!-- Collapsible EXAMPLE 6 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-3-6')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 6（範例 6：判斷向量 $b$ 是否在 $\mathbb{R}^{3}$ 中 $\mathrm{Span}\{a_1, a_2\}$ 決定的平面上）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-3-6" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 6</strong> Let $a_{1} = \begin{bmatrix} 1 \\ -2 \\ 3 \end{bmatrix}$, $a_{2} = \begin{bmatrix} 5 \\ -13 \\ -3 \end{bmatrix}$, and $b = \begin{bmatrix} -3 \\ 8 \\ 1 \end{bmatrix}$. Then $\mathrm{Span}\{a_{1}, a_{2}\}$ is a plane through the origin in $\mathbb{R}^{3}$. Is $b$ in that plane?</p>
+                    <p><strong>SOLUTION:</strong> Does the equation $x_{1}a_{1} + x_{2}a_{2} = b$ have a solution? To answer this, row reduce the augmented matrix $\begin{bmatrix} a_{1} & a_{2} & b \end{bmatrix}$:
+                        $$\begin{bmatrix} 1 & 5 & -3 \\ -2 & -13 & 8 \\ 3 & -3 & 1 \end{bmatrix} \sim \begin{bmatrix} 1 & 5 & -3 \\ 0 & -3 & 2 \\ 0 & -18 & 10 \end{bmatrix} \sim \begin{bmatrix} 1 & 5 & -3 \\ 0 & -3 & 2 \\ 0 & 0 & -2 \end{bmatrix}$$
+                        The third equation is $0 = -2$, which shows that the system has no solution. The vector equation $x_{1}a_{1} + x_{2}a_{2} = b$ has no solution, and so $b$ is not in $\mathrm{Span}\{a_{1}, a_{2}\}$.
                     </p>
                 </div>
             </div>
