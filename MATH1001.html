@@ -999,299 +999,189 @@
     </section>
 
     <!-- ============================================================== -->
-    <!-- SECTION 1.2: ROW REDUCTION AND ECHELON FORMS                   -->
+    <!-- SECTION 1.3: VECTOR EQUATIONS                                  -->
     <!-- ============================================================== -->
-    <section id="sec1-2" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
+    <section id="sec1-3" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 space-y-6">
         <div class="border-b border-slate-200 pb-4 flex flex-wrap items-center justify-between gap-2">
             <div class="flex items-center gap-3">
-                <span class="px-3 py-1.5 rounded-xl bg-teal-100 text-teal-900 text-xl md:text-2xl font-extrabold tracking-tight">§ 1.2</span>
-                <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight">ROW REDUCTION AND ECHELON FORMS (列化簡與階梯形)</h3>
+                <span class="px-3 py-1.5 rounded-xl bg-teal-100 text-teal-900 text-xl md:text-2xl font-extrabold tracking-tight">§ 1.3</span>
+                <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight">VECTOR EQUATIONS (向量方程)</h3>
             </div>
-            <span class="text-xs text-slate-500 font-mono">Slides 41–75 (Ch-1-2.pdf)</span>
+            <span class="text-xs text-slate-500 font-mono">Slides 1–32 (Ch-1-3_2.pdf)</span>
         </div>
 
-        <!-- 1. Echelon Form, Reduced Echelon Form & THEOREM 1 -->
+        <!-- 1. Vectors in R^2, R^3, R^n & Algebraic Properties -->
         <div class="space-y-3">
             <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
                 <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
-                1. Echelon Form, Reduced Echelon Form &amp; THEOREM 1 Uniqueness (階梯形、簡化階梯形與定理 1 唯一性)
+                1. Vectors in $\mathbb{R}^2$, $\mathbb{R}^3$, $\mathbb{R}^n$ &amp; Algebraic Properties ($\mathbb{R}^2$、$\mathbb{R}^3$、$\mathbb{R}^n$ 向量與代數性質)
             </h4>
             <p class="text-sm text-slate-700 leading-relaxed">
-                The algorithm applies to any matrix, whether or not the matrix is viewed as an augmented matrix for a linear system. So the first part of this section concerns an arbitrary rectangular matrix and begins by introducing two important classes of matrices that include the "triangular" matrices of Section 1.1. In the definitions that follow, a <strong>nonzero row or column（非零列或非零行）</strong> in a matrix means a row or column that contains at least one nonzero entry; a <strong>leading entry（前導元素）</strong> of a row refers to the leftmost nonzero entry (in a nonzero row).
+                Important properties of linear systems can be described with the concept and notation of <strong>vectors（向量）</strong>. Until Chapter 4, a vector means an ordered list of numbers. A matrix with only one column is called a <strong>column vector（行向量／列向量）</strong>, or simply a vector.
             </p>
 
-            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-4 text-sm text-slate-800 leading-relaxed">
-                <div class="font-bold text-teal-950 text-base">ECHELON FORM &amp; REDUCED ECHELON FORM（階梯形與簡化階梯形）</div>
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-3 text-sm text-slate-800 leading-relaxed">
+                <div class="font-bold text-teal-950 text-base">VECTORS IN $\mathbb{R}^2$, $\mathbb{R}^3$, AND $\mathbb{R}^n$（$\mathbb{R}^2$、$\mathbb{R}^3$ 與 $\mathbb{R}^n$ 中的向量）</div>
+                <ul class="list-disc pl-6 space-y-1.5">
+                    <li><strong>$\mathbb{R}^2$（二維實數向量空間）:</strong> The set of all vectors with two entries, such as $\mathbf{u} = \begin{bmatrix} 3 \\ -1 \end{bmatrix}$, $\mathbf{v} = \begin{bmatrix} .2 \\ .3 \end{bmatrix}$, $\mathbf{w} = \begin{bmatrix} w_1 \\ w_2 \end{bmatrix}$. Two vectors in $\mathbb{R}^2$ are equal if and only if their corresponding entries are equal (ordered pairs).</li>
+                    <li><strong>Notation note（記號區分）:</strong> A column vector $\begin{bmatrix} 3 \\ -1 \end{bmatrix}$ may be written as $(3, -1)$ to save space, which differs from the $1 \times 2$ row matrix $\begin{bmatrix} 3 & -1 \end{bmatrix}$ because of different shapes.</li>
+                    <li><strong>$\mathbb{R}^3$（三維實數向量空間）:</strong> $3 \times 1$ column matrices with three entries, represented geometrically by points in 3D coordinate space, such as $\mathbf{a} = \begin{bmatrix} 2 \\ 3 \\ 4 \end{bmatrix}$.</li>
+                    <li><strong>$\mathbb{R}^n$（$n$ 維實數向量空間）:</strong> For a positive integer $n$, $\mathbb{R}^n$ denotes all ordered $n$-tuples of real numbers written as $n \times 1$ column matrices:
+                        $$\mathbf{u} = \begin{bmatrix} u_1 \\ u_2 \\ \vdots \\ u_n \end{bmatrix}$$
+                        The <strong>zero vector（零向量）</strong> $\mathbf{0}$ has all entries equal to zero.</li>
+                </ul>
+            </div>
 
-                <div class="bg-white/80 border border-teal-100 rounded-lg p-4 space-y-2">
-                    <p>A rectangular matrix is in <strong>echelon form（階梯形）</strong> (or <strong>row echelon form 行階梯形</strong>) if it has the following three properties:</p>
-                    <ol class="list-decimal pl-5 space-y-1.5">
-                        <li>All nonzero rows are above any rows of all zeros.</li>
-                        <li>Each leading entry of a row is in a column to the right of the leading entry of the row above it.</li>
-                        <li>All entries in a column below a leading entry are zeros.</li>
-                    </ol>
-                </div>
-
-                <div class="bg-white/80 border border-teal-100 rounded-lg p-4 space-y-2">
-                    <p>If a matrix in echelon form satisfies the following additional conditions, then it is in <strong>reduced echelon form（簡化階梯形）</strong> (or <strong>reduced row echelon form 簡化行階梯形</strong>):</p>
-                    <ol start="4" class="list-decimal pl-5 space-y-1.5">
-                        <li>The leading entry in each nonzero row is $1$.</li>
-                        <li>Each leading $1$ is the only nonzero entry in its column.</li>
-                    </ol>
-                </div>
-
-                <p class="text-xs sm:text-sm text-slate-700">
-                    An <strong>echelon matrix（階梯矩陣）</strong> (respectively, <strong>reduced echelon matrix（簡化階梯矩陣）</strong>) is one that is in echelon form (respectively, reduced echelon form). Property 2 says that the leading entries form an <strong>echelon ("steplike") pattern（階梯狀圖案）</strong> that moves down and to the right through the matrix. Property 3 is a simple consequence of property 2, but we include it for emphasis.
-                    The "triangular" matrices of Section 1.1, such as $\begin{bmatrix} 2 & -3 & 2 & 1 \\ 0 & 1 & -4 & 8 \\ 0 & 0 & 0 & 5/2 \end{bmatrix}$ and $\begin{bmatrix} 1 & 0 & 0 & 29 \\ 0 & 1 & 0 & 16 \\ 0 & 0 & 1 & 3 \end{bmatrix}$, are in echelon form. In fact, the second matrix is in reduced echelon form.
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-3 text-sm text-slate-800 leading-relaxed">
+                <div class="font-bold text-teal-950 text-base">VECTOR ADDITION, SCALAR MULTIPLICATION &amp; ALGEBRAIC PROPERTIES（向量加法、純量乘法與代數性質）</div>
+                <p>
+                    Given vectors $\mathbf{u}, \mathbf{v} \in \mathbb{R}^n$ and a real number (<strong>scalar 純量</strong>) $c$, <strong>vector addition（向量加法）</strong> adds corresponding entries ($\mathbf{u} + \mathbf{v}$), and <strong>scalar multiplication（純量乘法）</strong> multiplies each entry of $\mathbf{u}$ by $c$ ($c\mathbf{u}$). Vector subtraction is written $\mathbf{u} - \mathbf{v} = \mathbf{u} + (-1)\mathbf{v}$.
                 </p>
+                <p class="font-semibold text-teal-950">Algebraic Properties of $\mathbb{R}^n$（$\mathbb{R}^n$ 的八條代數性質）— For all $\mathbf{u}, \mathbf{v}, \mathbf{w} \in \mathbb{R}^n$ and scalars $c, d$:</p>
+                <ol class="list-decimal pl-6 space-y-1">
+                    <li>$\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}$</li>
+                    <li>$(\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w})$</li>
+                    <li>$\mathbf{u} + \mathbf{0} = \mathbf{0} + \mathbf{u} = \mathbf{u}$</li>
+                    <li>$\mathbf{u} + (-\mathbf{u}) = -\mathbf{u} + \mathbf{u} = \mathbf{0}$, where $-\mathbf{u} = (-1)\mathbf{u}$</li>
+                    <li>$c(\mathbf{u} + \mathbf{v}) = c\mathbf{u} + c\mathbf{v}$</li>
+                    <li>$(c + d)\mathbf{u} = c\mathbf{u} + d\mathbf{u}$</li>
+                    <li>$c(d\mathbf{u}) = (cd)\mathbf{u}$</li>
+                    <li>$1\mathbf{u} = \mathbf{u}$</li>
+                </ol>
             </div>
 
             <!-- Collapsible EXAMPLE 1 -->
             <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
-                <button onclick="toggleCard('ex1-2-1')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
-                    <span>EXAMPLE 1（範例 1：階梯形與簡化階梯形的星號樣式範例）</span>
+                <button onclick="toggleCard('ex1-3-1')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 1（範例 1：計算 $4\mathbf{u}$、$(-3)\mathbf{v}$ 與 $4\mathbf{u} + (-3)\mathbf{v}$）</span>
                     <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
                 </button>
-                <div id="ex1-2-1" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
-                    <p><strong>EXAMPLE 1</strong> The following matrices are in echelon form. The leading entries may have any nonzero value; the starred entries ($*$) may have any value (including zero).</p>
-                    <img src="png/MATH1001/螢幕截圖 2026-11-28 下午7.29.34.png" alt="Echelon form star pattern examples" class="mx-auto h-auto block rounded-lg" style="width: 600px; max-width: 100%;" />
-                    <p>The following matrices are in reduced echelon form because the leading entries are $1$'s, and there are $0$'s below and above each leading $1$:</p>
-                    <img src="png/MATH1001/螢幕截圖 2026-11-28 下午7.29.39.png" alt="Reduced echelon form star pattern examples" class="mx-auto h-auto block rounded-lg" style="width: 600px; max-width: 100%;" />
+                <div id="ex1-3-1" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 1</strong> Given $\mathbf{u} = \begin{bmatrix} 1 \\ -2 \end{bmatrix}$ and $\mathbf{v} = \begin{bmatrix} 2 \\ -5 \end{bmatrix}$, find $4\mathbf{u}$, $(-3)\mathbf{v}$, and $4\mathbf{u} + (-3)\mathbf{v}$.</p>
+                    <p><strong>SOLUTION:</strong></p>
+                    <p>$$4\mathbf{u} = \begin{bmatrix} 4 \\ -8 \end{bmatrix}, \quad (-3)\mathbf{v} = \begin{bmatrix} -6 \\ 15 \end{bmatrix}, \quad 4\mathbf{u} + (-3)\mathbf{v} = \begin{bmatrix} 4 \\ -8 \end{bmatrix} + \begin{bmatrix} -6 \\ 15 \end{bmatrix} = \begin{bmatrix} -2 \\ 7 \end{bmatrix}$$</p>
                 </div>
             </div>
-
-            <!-- THEOREM 1 -->
-            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2">
-                <div class="font-bold text-teal-950 text-base">THEOREM 1 — Uniqueness of the Reduced Echelon Form（定理 1：簡化階梯形的唯一性）</div>
-                <p class="text-sm text-slate-800 leading-relaxed font-medium">
-                    Each matrix is row equivalent（列等價） to one and only one reduced echelon matrix（簡化階梯矩陣）.
-                </p>
-            </div>
-            <p class="text-sm text-slate-800 leading-relaxed">
-                If a matrix $A$ is row equivalent to an echelon matrix $U$, we call $U$ an <strong>echelon form（階梯形）</strong> (or <strong>row echelon form 行階梯形</strong>) of $A$; if $U$ is in reduced echelon form, we call $U$ the <strong>reduced echelon form（簡化階梯形）</strong> of $A$.
-            </p>
         </div>
 
-        <!-- 2. Pivot Positions, Pivot Columns & Pivots -->
+        <!-- 2. Geometric Descriptions & Parallelogram Rule -->
         <div class="space-y-3">
             <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
                 <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
-                2. Pivot Positions, Pivot Columns &amp; Pivots (主元位置、主元行與主元)
+                2. Geometric Descriptions &amp; Parallelogram Rule (幾何描述與平行四邊形法則)
             </h4>
             <p class="text-sm text-slate-700 leading-relaxed">
-                When row operations on a matrix produce an echelon form, further row operations to obtain the reduced echelon form do not change the positions of the leading entries. Since the reduced echelon form is unique, the leading entries are always in the same positions in any echelon form obtained from a given matrix. These leading entries correspond to leading $1$'s in the reduced echelon form.
+                In $\mathbb{R}^2$, a point $(a, b)$ corresponds to the column vector $\begin{bmatrix} a \\ b \end{bmatrix}$ (either as a point or as an arrow from the origin $(0, 0)$ to $(a, b)$). In general, the length of the arrow for $c\mathbf{u}$ is $|c|$ times the length of the arrow for $\mathbf{u}$ (where the length from $(0,0)$ to $(a,b)$ is $\sqrt{a^2+b^2}$).
             </p>
-            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-4 space-y-1.5 text-sm text-slate-800">
-                <div class="font-bold text-teal-950">DEFINITION（定義：主元位置與主元行）</div>
-                <p>A <strong>pivot position（主元位置）</strong> in a matrix $A$ is a location in $A$ that corresponds to a leading $1$ in the reduced echelon form of $A$. A <strong>pivot column（主元行）</strong> is a column of $A$ that contains a pivot position.</p>
-                <p class="text-xs sm:text-sm text-slate-700">A <strong>pivot（主元）</strong>, as illustrated in Example 2, is a nonzero number in a pivot position that is used as needed to create zeros via row operations.</p>
+
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2 text-sm text-slate-800 leading-relaxed">
+                <div class="font-bold text-teal-950 text-base">PARALLELOGRAM RULE FOR ADDITION（向量加法平行四邊形法則）</div>
+                <p>
+                    If $\mathbf{u}$ and $\mathbf{v}$ in $\mathbb{R}^2$ are represented as points in the plane, then $\mathbf{u} + \mathbf{v}$ corresponds to the fourth vertex of the parallelogram whose other vertices are $\mathbf{u}$, $\mathbf{0}$, and $\mathbf{v}$.
+                </p>
             </div>
 
-            <!-- Collapsible EXAMPLE 2 -->
+            <!-- Collapsible EXAMPLE 2 & EXAMPLE 3 -->
             <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
-                <button onclick="toggleCard('ex1-2-2')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
-                    <span>EXAMPLE 2（範例 2：將 $4\times 5$ 矩陣 $A$ 化為階梯形並找出主元行 $1, 2, 4$ 與主元 $1, 2, -5$）</span>
+                <button onclick="toggleCard('ex1-3-2')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 2 &amp; EXAMPLE 3（範例 2–3：平行四邊形加法與純量倍數方向／長度）</span>
                     <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
                 </button>
-                <div id="ex1-2-2" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-3 bg-white leading-relaxed">
-                    <p><strong>EXAMPLE 2</strong> Row reduce the matrix $A$ below to <strong>echelon form（階梯形）</strong>, and locate the <strong>pivot columns（主元行／主元欄）</strong> of $A$.</p>
-                    <p>$$A = \begin{bmatrix} 0 & -3 & -6 & 4 & 9 \\ -1 & -2 & -1 & 3 & 1 \\ -2 & -3 & 0 & 3 & -1 \\ 1 & 4 & 5 & -9 & -7 \end{bmatrix}$$</p>
-
-                    <p><strong>SOLUTION:</strong> Use the same basic strategy as in Section 1.1. Create zeros below the <strong>pivot（主元）</strong>, $1$, by adding multiples of the first row to the rows below, and obtain matrix (1) below. The <strong>pivot position（主元位置）</strong> in the second row must be as far left as possible—namely, in the second column. Choose the $2$ in this position as the next pivot.</p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center justify-items-center my-2">
-                        <img src="png/MATH1001/螢幕截圖 2026-11-28 下午8.11.28.png" alt="Step 1 row reduction of A" class="mx-auto h-auto block rounded-lg" style="width: 270px; max-width: 100%;" />
-                        <img src="png/MATH1001/螢幕截圖 2026-11-28 下午8.11.32.png" alt="Matrix (1) pivot selection" class="mx-auto h-auto block rounded-lg" style="width: 270px; max-width: 100%;" />
-                    </div>
-
-                    <p>Add $-5/2$ times row 2 to row 3, and add $3/2$ times row 2 to row 4:</p>
-                    <p>$$\begin{bmatrix} 1 & 4 & 5 & -9 & -7 \\ 0 & 2 & 4 & -6 & -6 \\ 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & -5 & 0 \end{bmatrix} \quad (2)$$</p>
-
-                    <p>The matrix in (2) is different from any encountered in Section 1.1. There is no way to create a <strong>leading entry（首項／主導元素）</strong> in column 3! (We can't use row 1 or 2 because doing so would destroy the echelon arrangement of the leading entries already produced.) However, if we interchange rows 3 and 4, we can produce a leading entry in column 4.</p>
-                    <img src="png/MATH1001/螢幕截圖 2026-11-28 下午8.17.01.png" alt="Interchange rows 3 and 4 to obtain echelon form" class="mx-auto h-auto block rounded-lg" style="width: 600px; max-width: 100%;" />
-
-                    <p>The matrix is in echelon form and thus reveals that <strong>columns $1$, $2$, and $4$</strong> of $A$ are <strong>pivot columns（主元行／主元欄）</strong>. A <strong>pivot（主元）</strong>, as illustrated in Example 2, is a nonzero number in a <strong>pivot position（主元位置）</strong> that is used as needed to create zeros via row operations. The pivots in Example 2 were $1$, $2$, and $-5$. Notice that these numbers are not the same as the actual elements of $A$ in the highlighted pivot positions shown in (3).</p>
-                    <img src="png/MATH1001/螢幕截圖 2026-11-28 下午8.18.42.png" alt="Highlighted pivot positions in original matrix A" class="mx-auto h-auto block rounded-lg" style="width: 450px; max-width: 100%;" />
+                <div id="ex1-3-2" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 2</strong> For $\mathbf{u} = \begin{bmatrix} 2 \\ 2 \end{bmatrix}$ and $\mathbf{v} = \begin{bmatrix} -6 \\ 1 \end{bmatrix}$, their sum is $\mathbf{u} + \mathbf{v} = \begin{bmatrix} -4 \\ 3 \end{bmatrix}$, forming the fourth vertex of the parallelogram with $\mathbf{0}$, $\mathbf{u}$, and $\mathbf{v}$.</p>
+                    <p><strong>EXAMPLE 3</strong> Let $\mathbf{u} = \begin{bmatrix} 3 \\ -1 \end{bmatrix}$. Then $2\mathbf{u} = \begin{bmatrix} 6 \\ -2 \end{bmatrix}$ (twice as long, same direction) and $-\frac{2}{3}\mathbf{u} = \begin{bmatrix} -2 \\ 2/3 \end{bmatrix}$ (two-thirds the length, opposite direction). All scalar multiples $c\mathbf{u}$ lie on the line through $\mathbf{0}$ and $\mathbf{u}$.</p>
                 </div>
             </div>
         </div>
 
-        <!-- 3. The Row Reduction Algorithm (Forward & Backward Phase) -->
+        <!-- 3. Linear Combinations & Vector Equations -->
         <div class="space-y-3">
             <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
                 <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
-                3. The Row Reduction Algorithm: Forward Phase &amp; Backward Phase (列化簡演算法：前向階段與後向階段)
+                3. Linear Combinations &amp; Vector Equations (線性組合與向量方程)
             </h4>
 
             <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2.5 text-sm text-slate-800 leading-relaxed">
-                <div class="font-bold text-teal-950 text-base">THE ROW REDUCTION ALGORITHM（列化簡演算法）</div>
-                <p>The algorithm consists of four steps (the <strong>forward phase 前向階段</strong>) that produce a matrix in echelon form, and a fifth step (the <strong>backward phase 後向階段</strong>) that produces the unique reduced echelon form:</p>
-                <ol class="list-decimal pl-5 space-y-1.5">
-                    <li><strong>STEP 1:</strong> Begin with the leftmost nonzero column. This is a pivot column. The pivot position is at the top.</li>
-                    <li><strong>STEP 2:</strong> Select a nonzero entry in the pivot column as a pivot. If necessary, interchange rows to move this entry into the pivot position.</li>
-                    <li><strong>STEP 3:</strong> Use row replacement operations to create zeros in all positions below the pivot.</li>
-                    <li><strong>STEP 4:</strong> Cover (or ignore) the row containing the pivot position and cover all rows, if any, above it. Apply steps 1–3 to the submatrix that remains. Repeat the process until there are no more nonzero rows to modify.</li>
-                    <li><strong>STEP 5:</strong> Beginning with the rightmost pivot and working upward and to the left, create zeros above each pivot. If a pivot is not $1$, make it $1$ by a scaling operation.</li>
-                </ol>
+                <div class="font-bold text-teal-950 text-base">LINEAR COMBINATION（線性組合）</div>
+                <p>
+                    Given vectors $\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_p$ in $\mathbb{R}^n$ and scalars $c_1, c_2, \dots, c_p$, the vector $\mathbf{y}$ defined by
+                    $$\mathbf{y} = c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \cdots + c_p\mathbf{v}_p$$
+                    is called a <strong>linear combination（線性組合）</strong> of $\mathbf{v}_1, \dots, \mathbf{v}_p$ with <strong>weights（權重）</strong> $c_1, \dots, c_p$. Weights can be any real numbers, including zero.
+                </p>
             </div>
 
-            <!-- Collapsible EXAMPLE 3 -->
-            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
-                <button onclick="toggleCard('ex1-2-3')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
-                    <span>EXAMPLE 3（範例 3：逐步執行 Step 1–5 將 $3\times 6$ 矩陣化為階梯形與簡化階梯形）</span>
-                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
-                </button>
-                <div id="ex1-2-3" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-3 bg-white leading-relaxed">
-                    <p><strong>EXAMPLE 3</strong> Apply elementary row operations to transform the following matrix first into <strong>echelon form（階梯形）</strong> and then into <strong>reduced echelon form（簡化階梯形）</strong>:</p>
-                    <p>$$\begin{bmatrix} 0 & 3 & -6 & 6 & 4 & -5 \\ 3 & -7 & 8 & -5 & 8 & 9 \\ 3 & -9 & 12 & -9 & 6 & 15 \end{bmatrix}$$</p>
-
-                    <p><strong>SOLUTION:</strong></p>
-
-                    <p><strong>STEP 1</strong> Begin with the leftmost nonzero column. This is a <strong>pivot column（主元行／主元欄）</strong>. The <strong>pivot position（主元位置）</strong> is at the top.</p>
-                    <img src="png/MATH1001/螢幕截圖 2026-11-28 下午8.28.21.png" alt="Step 1 leftmost nonzero column" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
-
-                    <p><strong>STEP 2</strong> Select a nonzero entry in the pivot column as a <strong>pivot（主元）</strong>. If necessary, interchange rows to move this entry into the pivot position.</p>
-                    <p>Interchange rows 1 and 3. (We could have interchanged rows 1 and 2 instead.)</p>
-                    <img src="png/MATH1001/螢幕截圖 2026-11-28 下午8.29.45.png" alt="Step 2 interchange rows 1 and 3" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
-
-                    <p><strong>STEP 3</strong> Use row replacement operations to create zeros in all positions below the pivot.</p>
-                    <p>As a preliminary step, we could divide the top row by the pivot, $3$. But with two $3$'s in column 1, it is just as easy to add $-1$ times row 1 to row 2.</p>
-                    <img src="png/MATH1001/螢幕截圖 2026-11-28 下午8.30.28.png" alt="Step 3 eliminate below first pivot" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
-
-                    <p><strong>STEP 4</strong> Cover (or ignore) the row containing the pivot position and cover all rows, if any, above it. Apply steps 1–3 to the submatrix that remains. Repeat the process until there are no more nonzero rows to modify.</p>
-                    <p>With row 1 covered, step 1 shows that column 2 is the next pivot column; for step 2, select as a pivot the "top" entry in that column.</p>
-                    <img src="png/MATH1001/螢幕截圖 2026-11-28 下午8.30.31.png" alt="Step 4 next pivot in column 2" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
-
-                    <p>For step 3, we could insert an optional step of dividing the "top" row of the submatrix by the pivot, $2$. Instead, we add $-3/2$ times the “top” row to the row below. This produces</p>
-                    <img src="png/MATH1001/螢幕截圖 2026-11-28 下午8.33.15.png" alt="Step 4 row replacement in submatrix" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
-
-                    <p>When we cover the row containing the second pivot position for step 4, we are left with a new submatrix having only one row:</p>
-                    <img src="png/MATH1001/螢幕截圖 2026-11-28 下午8.33.12.png" alt="Step 4 remaining single-row submatrix in echelon form" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
-
-                    <p>Steps 1–3 require no work for this submatrix, and we have reached an echelon form of the full matrix. If we want the reduced echelon form, we perform one more step.</p>
-
-                    <p><strong>STEP 5</strong> Beginning with the rightmost pivot and working upward and to the left, create zeros above each pivot. If a pivot is not $1$, make it $1$ by a scaling operation.</p>
-                    <p>The rightmost pivot is in row 3. Create zeros above it, adding suitable multiples of row 3 to rows 2 and 1.</p>
-                    <p>$$\begin{bmatrix} 3 & -9 & 12 & -9 & 0 & -9 \\ 0 & 2 & -4 & 4 & 0 & -14 \\ 0 & 0 & 0 & 0 & 1 & 4 \end{bmatrix}$$</p>
-                    <p>Row 1 + (-6) row 3<br/>Row 2 + (-2) row 3</p>
-
-                    <p>The next pivot is in row 2. Scale this row, dividing by the pivot.</p>
-                    <p>$$\begin{bmatrix} 3 & -9 & 12 & -9 & 0 & -9 \\ 0 & 1 & -2 & 2 & 0 & -7 \\ 0 & 0 & 0 & 0 & 1 & 4 \end{bmatrix}$$</p>
-                    <p>Row scaled by $\frac{1}{2}$</p>
-
-                    <p>Create a zero in column 2 by adding $9$ times row 2 to row 1.</p>
-                    <p>$$\begin{bmatrix} 3 & 0 & -6 & 9 & 0 & -72 \\ 0 & 1 & -2 & 2 & 0 & -7 \\ 0 & 0 & 0 & 0 & 1 & 4 \end{bmatrix}$$</p>
-                    <p>Row 1 + (9) row 2</p>
-
-                    <p>Finally, scale row 1, dividing by the pivot, $3$.</p>
-                    <p>$$\begin{bmatrix} 1 & 0 & -2 & 3 & 0 & -24 \\ 0 & 1 & -2 & 2 & 0 & -7 \\ 0 & 0 & 0 & 0 & 1 & 4 \end{bmatrix}$$</p>
-                    <p>Row scaled by $\frac{1}{3}$</p>
-
-                    <p>This is the <strong>reduced echelon form（簡化階梯形）</strong> of the original matrix.</p>
-
-                    <p class="text-xs sm:text-sm text-slate-700 leading-relaxed mt-3">
-                        The combination of steps 1–4 is called the <strong>forward phase（前向階段）</strong> of the row reduction algorithm. Step 5, which produces the unique reduced echelon form, is called the <strong>backward phase（後向階段）</strong>.
-                    </p>
-                </div>
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2.5 text-sm text-slate-800 leading-relaxed">
+                <div class="font-bold text-teal-950 text-base">EQUIVALENCE OF VECTOR EQUATION &amp; AUGMENTED MATRIX SYSTEM（向量方程與增廣矩陣方程組的等價性）</div>
+                <p>
+                    A vector equation
+                    $$x_1\mathbf{a}_1 + x_2\mathbf{a}_2 + \cdots + x_n\mathbf{a}_n = \mathbf{b}$$
+                    has the same solution set as the linear system whose augmented matrix is
+                    $$\begin{bmatrix} \mathbf{a}_1 & \mathbf{a}_2 & \cdots & \mathbf{a}_n & \mathbf{b} \end{bmatrix}$$
+                    In particular, $\mathbf{b}$ can be generated by a linear combination of $\mathbf{a}_1, \dots, \mathbf{a}_n$ if and only if this linear system has a solution.
+                </p>
             </div>
-        </div>
-
-        <!-- 4. Solutions of Linear Systems, Basic & Free Variables, Parametric Descriptions, Back-Substitution & THEOREM 2 -->
-        <div class="space-y-3">
-            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
-                4. Solutions of Linear Systems, Basic &amp; Free Variables, Parametric Descriptions, Back-Substitution &amp; THEOREM 2 (線性方程組的解、基本與自由變數、參數描述、反代入與定理 2)
-            </h4>
-            <p class="text-sm text-slate-700 leading-relaxed">
-                <strong class="text-base font-bold text-slate-900">Solutions of Linear Systems（線性方程組的解）</strong> — The row reduction algorithm leads directly to an explicit description of the <strong>solution set（解集合）</strong> of a linear system when the algorithm is applied to the <strong>augmented matrix（增廣矩陣）</strong> of the system.
-                Suppose, for example, that the augmented matrix of a linear system has been changed into the equivalent <strong>reduced echelon form（簡化階梯形）</strong>
-                $$\begin{bmatrix} 1 & 0 & -5 & 1 \\ 0 & 1 & 1 & 4 \\ 0 & 0 & 0 & 0 \end{bmatrix}$$
-                There are three variables because the augmented matrix has four columns. The associated system of equations is
-                $$x_{1}-5x_{3}=1, \quad x_{2}+x_{3}=4, \quad 0=0 \tag{4}$$
-                The variables $x_{1}$ and $x_{2}$ corresponding to <strong>pivot columns（主元行／主元欄）</strong> in the matrix are called <strong>basic variables（基本變數）</strong>. The other variable, $x_{3}$, is called a <strong>free variable（自由變數）</strong>.
-                Whenever a system is <strong>consistent（相容／有解）</strong>, as in (4), the solution set can be described explicitly by solving the reduced system of equations for the basic variables in terms of the free variables. This operation is possible because the reduced echelon form places each basic variable in one and only one equation. In (4), solve the first equation for $x_{1}$ and the second for $x_{2}$. (Ignore the third equation; it offers no restriction on the variables.)
-                $$\begin{cases} x_{1}=1+5x_{3} \\ x_{2}=4-x_{3} \\ x_{3}\text{ is free} \end{cases} \tag{5}$$
-                The statement "$x_{3}$ is free" means that you are free to choose any value for $x_{3}$. Once that is done, the formulas in (5) determine the values for $x_{1}$ and $x_{2}$. For instance, when $x_{3}=0$, the solution is $(1,4,0)$; when $x_{3}=1$, the solution is $(6,3,1)$. Each different choice of $x_{3}$ determines a (different) solution of the system, and every solution of the system is determined by a choice of $x_{3}$.
-            </p>
 
             <!-- Collapsible EXAMPLE 4 -->
             <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
-                <button onclick="toggleCard('ex1-2-4')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
-                    <span>EXAMPLE 4（範例 4：求通解、基本變數 $x_1, x_3, x_5$ 與自由變數 $x_2, x_4$）</span>
+                <button onclick="toggleCard('ex1-3-4')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 4（範例 4：以網格線與平行四邊形估計向量 $\mathbf{u}$ 與 $\mathbf{w}$ 的線性組合）</span>
                     <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
                 </button>
-                <div id="ex1-2-4" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
-                    <p><strong>EXAMPLE 4</strong> Find the general solution of the linear system whose augmented matrix has been reduced to
-                        $$\begin{bmatrix} 1 & 6 & 2 & -5 & -2 & -4 \\ 0 & 0 & 2 & -8 & -1 & 3 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix}$$
-                    </p>
-                    <p><strong>SOLUTION:</strong>
-                        $$\begin{bmatrix} 1 & 6 & 2 & -5 & -2 & -4 \\ 0 & 0 & 2 & -8 & -1 & 3 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix} \sim \begin{bmatrix} 1 & 6 & 2 & -5 & 0 & 10 \\ 0 & 0 & 2 & -8 & 0 & 10 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix} \sim \begin{bmatrix} 1 & 6 & 2 & -5 & 0 & 10 \\ 0 & 0 & 1 & -4 & 0 & 5 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix} \sim \begin{bmatrix} 1 & 6 & 0 & 3 & 0 & 0 \\ 0 & 0 & 1 & -4 & 0 & 5 \\ 0 & 0 & 0 & 0 & 1 & 7 \end{bmatrix}$$
-                        There are five variables because the augmented matrix has six columns. The associated system now is
-                        $$x_{1}+6x_{2}+3x_{4}=0, \quad x_{3}-4x_{4}=5, \quad x_{5}=7 \tag{6}$$
-                        The pivot columns of the matrix are $1$, $3$, and $5$, so the basic variables are $x_{1}$, $x_{3}$, and $x_{5}$. The remaining variables, $x_{2}$ and $x_{4}$, must be free. Solve for the basic variables to obtain the <strong>general solution（通解）</strong>:
-                        $$\begin{cases} x_{1}=-6x_{2}-3x_{4} \\ x_{2}\text{ is free} \\ x_{3}=5+4x_{4} \\ x_{4}\text{ is free} \\ x_{5}=7 \end{cases} \tag{7}$$
-                        Note that the value of $x_{5}$ is already fixed by the third equation in system (6).
-                    </p>
+                <div id="ex1-3-4" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 4</strong> For $\mathbf{v}_1 = \begin{bmatrix} -1 \\ 1 \end{bmatrix}$ and $\mathbf{v}_2 = \begin{bmatrix} 2 \\ 1 \end{bmatrix}$ on the grid of integer multiples, $\mathbf{u}$ lies at the vertex of $3\mathbf{v}_1$ and $-2\mathbf{v}_2$, so $\mathbf{u} = 3\mathbf{v}_1 - 2\mathbf{v}_2$. The vector $\mathbf{w}$ is near the parallelogram formed by $\frac{5}{2}\mathbf{v}_1$ and $-\frac{1}{2}\mathbf{v}_2$, giving the estimate $\mathbf{w} = \frac{5}{2}\mathbf{v}_1 - \frac{1}{2}\mathbf{v}_2$.</p>
                 </div>
             </div>
-
-            <p class="text-sm text-slate-700 leading-relaxed">
-                <strong class="text-base font-bold text-slate-900">Parametric Descriptions of Solution Sets（解集合的參數描述）</strong> — The descriptions in (5) and (7) are <strong>parametric descriptions（參數描述）</strong> of solution sets in which the free variables act as <strong>parameters（參數）</strong>. Solving a system amounts to finding a parametric description of the solution set or determining that the solution set is empty.
-                Whenever a system is consistent and has free variables, the solution set has many parametric descriptions. For instance, in system (4), we may add $5$ times equation 2 to equation 1 and obtain the equivalent system
-                $$x_{1}+5x_{2}=21, \quad x_{2}+x_{3}=4$$
-                We could treat $x_{2}$ as a parameter and solve for $x_{1}$ and $x_{3}$ in terms of $x_{2}$, and we would have an accurate description of the solution set. However, to be consistent, we make the (arbitrary) convention of always using the free variables as the parameters for describing a solution set. (The answer section at the end of the text also reflects this convention.)
-                Whenever a system is <strong>inconsistent（不相容／無解）</strong>, the solution set is empty, even when the system has free variables. In this case, the solution set has no parametric representation.
-            </p>
-            <p class="text-sm text-slate-700 leading-relaxed">
-                <strong class="text-base font-bold text-slate-900">Back-Substitution（反代入法）</strong> — Consider the following system, whose augmented matrix is in <strong>echelon form（階梯形）</strong> but is not in reduced echelon form:
-                $$x_{1}-7x_{2}+2x_{3}-5x_{4}+8x_{5}=10$$
-                $$x_{2}-3x_{3}+3x_{4}+x_{5}=-5$$
-                $$x_{4}-x_{5}=4$$
-                A computer program would solve this system by <strong>back-substitution（反代入法）</strong>, rather than by computing the reduced echelon form. That is, the program would solve equation 3 for $x_{4}$ in terms of $x_{5}$ and substitute the expression for $x_{4}$ into equation 2, solve equation 2 for $x_{2}$, and then substitute the expressions for $x_{2}$ and $x_{4}$ into equation 1 and solve for $x_{1}$.
-            </p>
-            <p class="text-sm text-slate-700 leading-relaxed">
-                <strong class="text-base font-bold text-slate-900">Existence and Uniqueness Questions（存在性與唯一性問題）</strong> — Although a nonreduced echelon form is a poor tool for solving a system, this form is just the right device for answering two fundamental questions posed in Section 1.1.
-            </p>
 
             <!-- Collapsible EXAMPLE 5 -->
             <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
-                <button onclick="toggleCard('ex1-2-5')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
-                    <span>EXAMPLE 5（範例 5：判定線性方程組解的存在性與唯一性）</span>
+                <button onclick="toggleCard('ex1-3-5')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 5（範例 5：判斷 $\mathbf{b}$ 是否為 $\mathbf{a}_1, \mathbf{a}_2$ 的線性組合並求權重 $x_1=3, x_2=2$）</span>
                     <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
                 </button>
-                <div id="ex1-2-5" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
-                    <p><strong>EXAMPLE 5</strong> Determine the existence and uniqueness of the solutions to the system
-                        $$3x_{2}-6x_{3}+6x_{4}+4x_{5}=-5$$
-                        $$3x_{1}-7x_{2}+8x_{3}-5x_{4}+8x_{5}=9$$
-                        $$3x_{1}-9x_{2}+12x_{3}-9x_{4}+6x_{5}=15$$
-                    </p>
-                    <p><strong>SOLUTION:</strong> The augmented matrix of this system was row reduced in Example 3 to
-                        $$\begin{bmatrix} 3 & -9 & 12 & -9 & 6 & 15 \\ 0 & 2 & -4 & 4 & 2 & -6 \\ 0 & 0 & 0 & 0 & 1 & 4 \end{bmatrix} \tag{8}$$
-                        The basic variables are $x_{1}$, $x_{2}$, and $x_{5}$; the free variables are $x_{3}$ and $x_{4}$. There is no equation such as $0=1$ that would indicate an inconsistent system, so we could use back-substitution to find a solution. But the existence of a solution is already clear in (8). Also, the solution is not unique because there are free variables. Each different choice of $x_{3}$ and $x_{4}$ determines a different solution. Thus the system has <strong>infinitely many solutions（無限多組解）</strong>.
-                    </p>
+                <div id="ex1-3-5" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 5</strong> Let $\mathbf{a}_1 = \begin{bmatrix} 1 \\ -2 \\ -5 \end{bmatrix}$, $\mathbf{a}_2 = \begin{bmatrix} 2 \\ 5 \\ 6 \end{bmatrix}$, and $\mathbf{b} = \begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix}$. Determine whether $x_1\mathbf{a}_1 + x_2\mathbf{a}_2 = \mathbf{b}$ has a solution.</p>
+                    <p><strong>SOLUTION:</strong> Rewriting as a linear system gives $x_1 + 2x_2 = 7$, $-2x_1 + 5x_2 = 4$, $-5x_1 + 6x_2 = -3$. Row reducing the augmented matrix $\begin{bmatrix} \mathbf{a}_1 & \mathbf{a}_2 & \mathbf{b} \end{bmatrix}$:</p>
+                    <p>$$\begin{bmatrix} 1 & 2 & 7 \\ -2 & 5 & 4 \\ -5 & 6 & -3 \end{bmatrix} \sim \begin{bmatrix} 1 & 2 & 7 \\ 0 & 9 & 18 \\ 0 & 16 & 32 \end{bmatrix} \sim \begin{bmatrix} 1 & 2 & 7 \\ 0 & 1 & 2 \\ 0 & 16 & 32 \end{bmatrix} \sim \begin{bmatrix} 1 & 0 & 3 \\ 0 & 1 & 2 \\ 0 & 0 & 0 \end{bmatrix}$$</p>
+                    <p>Thus $x_1 = 3$ and $x_2 = 2$, so $\mathbf{b} = 3\mathbf{a}_1 + 2\mathbf{a}_2$.</p>
                 </div>
             </div>
+        </div>
 
-            <p class="text-sm text-slate-700 leading-relaxed">
-                When a system is in echelon form and contains no equation of the form $0=b$, with $b$ nonzero, every nonzero equation contains a basic variable with a nonzero coefficient. Either the basic variables are completely determined (with no free variables) or at least one of the basic variables may be expressed in terms of one or more free variables. In the former case, there is a <strong>unique solution（唯一解）</strong>; in the latter case, there are <strong>infinitely many solutions（無限多組解）</strong> (one for each choice of values for the free variables).
-            </p>
+        <!-- 4. Span{v_1, ..., v_p} & Geometric Interpretation -->
+        <div class="space-y-3">
+            <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-5 bg-teal-500 rounded-full"></span>
+                4. Spanning Set $\operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$ &amp; Geometric Description (生成集合與幾何意義)
+            </h4>
 
-            <!-- THEOREM 2 & Summary Box -->
             <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2.5 text-sm text-slate-800 leading-relaxed">
-                <div class="font-bold text-teal-950 text-base">THEOREM 2 — Existence and Uniqueness Theorem（定理 2：存在性與唯一性定理）</div>
+                <div class="font-bold text-teal-950 text-base">DEFINITION OF $\operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$（生成集合的定義）</div>
                 <p>
-                    A linear system is <strong>consistent（相容／有解）</strong> if and only if the rightmost column of the <strong>augmented matrix（增廣矩陣）</strong> is not a <strong>pivot column（主元行／主元欄）</strong>—that is, if and only if an <strong>echelon form（階梯形）</strong> of the augmented matrix has no row of the form
-                    $$\begin{bmatrix} 0 & \cdots & 0 & b \end{bmatrix} \quad \text{with } b \text{ nonzero}$$
-                    If a linear system is consistent, then the <strong>solution set（解集合）</strong> contains either (i) a <strong>unique solution（唯一解）</strong>, when there are no <strong>free variables（自由變數）</strong>, or (ii) <strong>infinitely many solutions（無限多組解）</strong>, when there is at least one free variable.
+                    If $\mathbf{v}_1, \dots, \mathbf{v}_p$ are in $\mathbb{R}^n$, then the set of all linear combinations of $\mathbf{v}_1, \dots, \mathbf{v}_p$ is denoted by $\operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$ and is called the subset of $\mathbb{R}^n$ <strong>spanned（生成）</strong> (or generated) by $\mathbf{v}_1, \dots, \mathbf{v}_p$:
+                    $$\operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\} = \left\{ c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \cdots + c_p\mathbf{v}_p : c_1, c_2, \dots, c_p \in \mathbb{R} \right\}$$
+                    Asking whether $\mathbf{b} \in \operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$ is equivalent to asking whether $x_1\mathbf{v}_1 + \cdots + x_p\mathbf{v}_p = \mathbf{b}$ has a solution (or whether $\begin{bmatrix} \mathbf{v}_1 & \cdots & \mathbf{v}_p & \mathbf{b} \end{bmatrix}$ corresponds to a consistent system). Note that $\mathbf{0}$ is always in $\operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$.
                 </p>
-                <div class="bg-white border border-teal-200/80 rounded-lg p-3.5 text-xs sm:text-sm space-y-1.5">
-                    <div class="font-bold text-teal-950">USING ROW REDUCTION TO SOLVE A LINEAR SYSTEM（利用列化簡解線性方程組五步驟）</div>
-                    <ol class="list-decimal pl-5 space-y-1">
-                        <li>Write the augmented matrix of the system.</li>
-                        <li>Use the <strong>row reduction algorithm（列化簡演算法）</strong> to obtain an equivalent augmented matrix in echelon form. Decide whether the system is consistent. If there is no solution, stop; otherwise, go to the next step.</li>
-                        <li>Continue row reduction to obtain the <strong>reduced echelon form（簡化階梯形）</strong>.</li>
-                        <li>Write the system of equations corresponding to the matrix obtained in step 3.</li>
-                        <li>Rewrite each nonzero equation from step 4 so that its one <strong>basic variable（基本變數）</strong> is expressed in terms of any free variables appearing in the equation.</li>
-                    </ol>
+            </div>
+
+            <div class="bg-teal-50/40 border border-teal-200 rounded-xl p-5 space-y-2 text-sm text-slate-800 leading-relaxed">
+                <div class="font-bold text-teal-950 text-base">GEOMETRIC DESCRIPTION OF $\operatorname{Span}\{\mathbf{v}\}$ AND $\operatorname{Span}\{\mathbf{u}, \mathbf{v}\}$（生成直線與生成平面的幾何描述）</div>
+                <ul class="list-disc pl-6 space-y-1.5">
+                    <li><strong>$\operatorname{Span}\{\mathbf{v}\}$ in $\mathbb{R}^3$（通過原點的直線）:</strong> For a nonzero vector $\mathbf{v} \in \mathbb{R}^3$, $\operatorname{Span}\{\mathbf{v}\}$ is the set of all scalar multiples of $\mathbf{v}$, which is the line in $\mathbb{R}^3$ passing through $\mathbf{v}$ and $\mathbf{0}$.</li>
+                    <li><strong>$\operatorname{Span}\{\mathbf{u}, \mathbf{v}\}$ in $\mathbb{R}^3$（通過原點的平面）:</strong> For nonzero vectors $\mathbf{u}, \mathbf{v} \in \mathbb{R}^3$ where $\mathbf{v}$ is not a scalar multiple of $\mathbf{u}$, $\operatorname{Span}\{\mathbf{u}, \mathbf{v}\}$ is the plane in $\mathbb{R}^3$ containing $\mathbf{u}$, $\mathbf{v}$, and $\mathbf{0}$ (including the lines through $\mathbf{0}$ along $\mathbf{u}$ and $\mathbf{v}$).</li>
+                </ul>
+            </div>
+
+            <!-- Collapsible EXAMPLE 6 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button onclick="toggleCard('ex1-3-6')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
+                    <span>EXAMPLE 6（範例 6：判斷向量 $\mathbf{b}$ 是否落在 $\mathbb{R}^3$ 的平面 $\operatorname{Span}\{\mathbf{a}_1, \mathbf{a}_2\}$ 內）</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
+                </button>
+                <div id="ex1-3-6" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2.5 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 6</strong> Let $\mathbf{a}_1 = \begin{bmatrix} 1 \\ -2 \\ 3 \end{bmatrix}$, $\mathbf{a}_2 = \begin{bmatrix} 5 \\ -13 \\ -3 \end{bmatrix}$, and $\mathbf{b} = \begin{bmatrix} -3 \\ 8 \\ 1 \end{bmatrix}$. Is $\mathbf{b}$ in the plane $\operatorname{Span}\{\mathbf{a}_1, \mathbf{a}_2\}$ in $\mathbb{R}^3$?</p>
+                    <p><strong>SOLUTION:</strong> Row reduce $\begin{bmatrix} \mathbf{a}_1 & \mathbf{a}_2 & \mathbf{b} \end{bmatrix}$ to test if $x_1\mathbf{a}_1 + x_2\mathbf{a}_2 = \mathbf{b}$ has a solution:</p>
+                    <p>$$\begin{bmatrix} 1 & 5 & -3 \\ -2 & -13 & 8 \\ 3 & -3 & 1 \end{bmatrix} \sim \begin{bmatrix} 1 & 5 & -3 \\ 0 & -3 & 2 \\ 0 & -18 & 10 \end{bmatrix} \sim \begin{bmatrix} 1 & 5 & -3 \\ 0 & -3 & 2 \\ 0 & 0 & -2 \end{bmatrix}$$</p>
+                    <p>The third row represents $0 = -2$, so the system is inconsistent and has no solution. Therefore, $\mathbf{b} \notin \operatorname{Span}\{\mathbf{a}_1, \mathbf{a}_2\}$.</p>
                 </div>
             </div>
         </div>
