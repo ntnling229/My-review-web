@@ -779,26 +779,31 @@
                 <p>A <strong>pivot position（主元位置）</strong> in a matrix $A$ is a location in $A$ that corresponds to a leading $1$ in the reduced echelon form of $A$. A <strong>pivot column（主元行）</strong> is a column of $A$ that contains a pivot position.</p>
                 <p class="text-xs sm:text-sm text-slate-700">A <strong>pivot（主元）</strong>, as illustrated in Example 2, is a nonzero number in a pivot position that is used as needed to create zeros via row operations.</p>
             </div>
-
+            
             <!-- Collapsible EXAMPLE 2 -->
             <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
                 <button onclick="toggleCard('ex1-2-2')" class="w-full px-4 py-3 bg-teal-50/70 hover:bg-teal-100/70 flex items-center justify-between text-left font-semibold text-sm text-teal-950 transition">
-                    <span>EXAMPLE 2（範例 2：將 $4\times 5$ 矩陣 $A$ 化為階梯形並找出主元行 1, 2, 4 與主元 1, 2, -5）</span>
+                    <span>EXAMPLE 2（範例 2：將 $4\times 5$ 矩陣 $A$ 化為階梯形並找出主元行 $1, 2, 4$ 與主元 $1, 2, -5$）</span>
                     <i class="fa-solid fa-chevron-down text-xs text-teal-700"></i>
                 </button>
-                <div id="ex1-2-2" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-2 bg-white leading-relaxed">
-                    <p><strong>EXAMPLE 2</strong> Row reduce the matrix $A$ below to echelon form, and locate the pivot columns of $A$.</p>
+                <div id="ex1-2-2" class="toggle-content p-4 text-xs sm:text-sm text-slate-700 space-y-3 bg-white leading-relaxed">
+                    <p><strong>EXAMPLE 2</strong> Row reduce the matrix $A$ below to <strong>echelon form（階梯形）</strong>, and locate the <strong>pivot columns（主元行／主元欄）</strong> of $A$.</p>
                     <p>$$A = \begin{bmatrix} 0 & -3 & -6 & 4 & 9 \\ -1 & -2 & -1 & 3 & 1 \\ -2 & -3 & 0 & 3 & -1 \\ 1 & 4 & 5 & -9 & -7 \end{bmatrix}$$</p>
-                    <p><strong>SOLUTION:</strong> Interchange rows 1 and 4 to put $1$ in the top-left pivot position, then create zeros below it:
-                        $$\begin{bmatrix} 1 & 4 & 5 & -9 & -7 \\ -1 & -2 & -1 & 3 & 1 \\ -2 & -3 & 0 & 3 & -1 \\ 0 & -3 & -6 & 4 & 9 \end{bmatrix} \sim \begin{bmatrix} 1 & 4 & 5 & -9 & -7 \\ 0 & 2 & 4 & -6 & -6 \\ 0 & 5 & 10 & -15 & -15 \\ 0 & -3 & -6 & 4 & 9 \end{bmatrix} \quad (1)$$
-                        Choose $2$ in row 2, column 2 as the next pivot. Add $-5/2$ times row 2 to row 3, and add $3/2$ times row 2 to row 4:
-                        $$\begin{bmatrix} 1 & 4 & 5 & -9 & -7 \\ 0 & 2 & 4 & -6 & -6 \\ 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & -5 & 0 \end{bmatrix} \quad (2)$$
-                        There is no way to create a leading entry in column 3 without destroying the echelon arrangement already produced. Interchange rows 3 and 4 to produce a leading entry in column 4:
-                        $$\begin{bmatrix} 1 & 4 & 5 & -9 & -7 \\ 0 & 2 & 4 & -6 & -6 \\ 0 & 0 & 0 & -5 & 0 \\ 0 & 0 & 0 & 0 & 0 \end{bmatrix} \quad (3)$$
-                        The matrix is in echelon form and thus reveals that columns $1$, $2$, and $4$ of $A$ are pivot columns. The pivots in Example 2 were $1$, $2$, and $-5$. Notice that these numbers are not the same as the actual elements of $A$ in the highlighted pivot positions shown in (3).
-                    </p>
+                    <img src="png/MATH1001/ex2-a.png" alt="3D planes diagram" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+                    <p><strong>SOLUTION:</strong> Use the same basic strategy as in Section 1.1. Create zeros below the <strong>pivot（主元）</strong>, $1$, by adding multiples of the first row to the rows below, and obtain matrix (1) below. The <strong>pivot position（主元位置）</strong> in the second row must be as far left as possible—namely, in the second column. Choose the $2$ in this position as the next pivot.</p>
+                    <p>$$\begin{bmatrix} 1 & 4 & 5 & -9 & -7 \\ 0 & 2 & 4 & -6 & -6 \\ 0 & 5 & 10 & -15 & -15 \\ 0 & -3 & -6 & 4 & 9 \end{bmatrix} \quad (1)$$</p>
+                    <img src="png/MATH1001/ex2-1.png" alt="3D planes diagram" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+                    <p>Add $-5/2$ times row 2 to row 3, and add $3/2$ times row 2 to row 4:</p>
+                    <p>$$\begin{bmatrix} 1 & 4 & 5 & -9 & -7 \\ 0 & 2 & 4 & -6 & -6 \\ 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & -5 & 0 \end{bmatrix} \quad (2)$$</p>
+                    <img src="png/MATH1001/ex2-2.png" alt="3D planes diagram" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+                    <p>The matrix in (2) is different from any encountered in Section 1.1. There is no way to create a <strong>leading entry（首項／主導元素）</strong> in column 3! (We can't use row 1 or 2 because doing so would destroy the echelon arrangement of the leading entries already produced.) However, if we interchange rows 3 and 4, we can produce a leading entry in column 4.</p>
+                    <p>$$\begin{bmatrix} 1 & 4 & 5 & -9 & -7 \\ 0 & 2 & 4 & -6 & -6 \\ 0 & 0 & 0 & -5 & 0 \\ 0 & 0 & 0 & 0 & 0 \end{bmatrix} \quad (3)$$</p>
+                    <img src="png/MATH1001/ex2-3.png" alt="3D planes diagram" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
+                    <p>The matrix is in echelon form and thus reveals that <strong>columns $1$, $2$, and $4$</strong> of $A$ are <strong>pivot columns（主元行／主元欄）</strong>. A <strong>pivot（主元）</strong>, as illustrated in Example 2, is a nonzero number in a <strong>pivot position（主元位置）</strong> that is used as needed to create zeros via row operations. The pivots in Example 2 were $1$, $2$, and $-5$. Notice that these numbers are not the same as the actual elements of $A$ in the highlighted pivot positions shown in (3).</p>
+                    <img src="png/MATH1001/ex2-4.png" alt="3D planes diagram" class="mx-auto h-auto block rounded-lg" style="width: 340px; max-width: 100%;" />
                 </div>
             </div>
+            
         </div>
 
         <!-- 3. The Row Reduction Algorithm (Forward & Backward Phase) -->
